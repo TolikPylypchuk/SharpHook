@@ -4,7 +4,7 @@ namespace SharpHook.Native
 {
     public struct KeyboardEventData : IEquatable<KeyboardEventData>
     {
-        public ushort KeyCode;
+        public KeyCode KeyCode;
         public ushort RawCode;
         public ushort KeyChar;
 
