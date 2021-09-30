@@ -1,10 +1,11 @@
 using System;
+using System.Threading.Tasks;
 
 namespace SharpHook
 {
     public interface IGlobalHook : IDisposable
     {
-        void Start();
+        Task Start();
 
         event EventHandler<KeyboardHookEventArgs> KeyTyped;
         event EventHandler<KeyboardHookEventArgs> KeyPressed;

@@ -4,9 +4,9 @@ namespace SharpHook
 {
     public sealed class KeyboardHookEventArgs : HookEventArgs
     {
-        public KeyboardHookEventArgs(KeyboardEventData data, UioHookEvent rawEvent)
+        public KeyboardHookEventArgs(UioHookEvent rawEvent)
             : base(rawEvent) =>
-            this.Data = data;
+            this.Data = rawEvent.Keyboard;
 
         public KeyboardEventData Data { get; }
     }

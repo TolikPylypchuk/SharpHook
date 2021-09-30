@@ -4,9 +4,9 @@ namespace SharpHook
 {
     public sealed class MouseWheelHookEventArgs : HookEventArgs
     {
-        public MouseWheelHookEventArgs(MouseWheelEventData data, UioHookEvent rawEvent)
+        public MouseWheelHookEventArgs(UioHookEvent rawEvent)
             : base(rawEvent) =>
-            this.Data = data;
+            this.Data = rawEvent.Wheel;
 
         public MouseWheelEventData Data { get; }
     }
