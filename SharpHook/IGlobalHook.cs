@@ -15,6 +15,18 @@ namespace SharpHook
         Task Start();
 
         /// <summary>
+        /// An event which is raised when the global hook is enabled.
+        /// </summary>
+        /// <remarks>This event is raised when the <see cref="Start" /> method is called.</remarks>
+        event EventHandler<HookEventArgs> HookEnabled;
+
+        /// <summary>
+        /// An event which is raised when the global hook is disabled.
+        /// </summary>
+        /// <remarks>This event is raised when the <see cref="IDisposable.Dispose" /> method is called.</remarks>
+        event EventHandler<HookEventArgs> HookDisabled;
+
+        /// <summary>
         /// An event which is raised when a key is typed.
         /// </summary>
         event EventHandler<KeyboardHookEventArgs> KeyTyped;
@@ -55,7 +67,7 @@ namespace SharpHook
         event EventHandler<MouseHookEventArgs> MouseDragged;
 
         /// <summary>
-        /// An event which is raised when the mouse wheel is turned.
+        /// An event which is raised when the mouse wheel is scrolled.
         /// </summary>
         event EventHandler<MouseWheelHookEventArgs> MouseWheel;
     }

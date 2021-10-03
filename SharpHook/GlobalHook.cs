@@ -13,7 +13,16 @@ namespace SharpHook
     /// Represents a default thread pool-based implementation of the global keyboard and mouse hook.
     /// </summary>
     /// <remarks>
-    /// The event handlers will be run on separate threads inside the default thread pool for tasks.
+    /// <para>
+    /// The event handlers will run sequentially on separate threads inside the default thread pool for tasks. This is
+    /// done so that the hook itself will not be blocked if one of the handlers is long-running. The exception is the
+    /// <see cref="HookDisabled" /> event which will run on the same thread that called the <see cref="Dispose()" />
+    /// method since at that point it doesn't matter anymore that the hook is not blocked.
+    /// </para>
+    /// <para>
+    /// The <see cref="UioHookEvent" /> instance passed to the handlers will be a copy of the original
+    /// data passed from libuiohook.
+    /// </para>
     /// </remarks>
     public sealed class GlobalHook : IGlobalHook
     {
@@ -74,8 +83,9 @@ namespace SharpHook
         /// <summary>
         /// Destroys the global hook.
         /// </summary>
+        /// <exception cref="HookException">Stopping the hook has failed.</exception>
         /// <remarks>
-        /// After calling this method, the hook cannot be created again - if you want to do that, create a new instance
+        /// After calling this method, the hook cannot be started again. If you want to do that, create a new instance
         /// of <see cref="GlobalHook" />.
         /// </remarks>
         public void Dispose()
@@ -92,8 +102,14 @@ namespace SharpHook
         {
             if (this.ShouldDispatchEvent(in e))
             {
-                var copy = e;
-                this.taskQueue.Enqueue(() => Task.Run(() => this.DispatchEvent(in copy)));
+                if (e.Type != EventType.HookDisabled)
+                {
+                    var copy = e;
+                    this.taskQueue.Enqueue(() => Task.Run(() => this.DispatchEvent(in copy)));
+                } else
+                {
+                    this.DispatchEvent(in e);
+                }
             }
         }
 
@@ -101,8 +117,11 @@ namespace SharpHook
         {
             switch (e.Type)
             {
-                case EventType.KeyTyped:
-                    this.KeyTyped?.Invoke(this, new KeyboardHookEventArgs(e));
+                case EventType.HookEnabled:
+                    this.HookEnabled?.Invoke(this, new HookEventArgs(e));
+                    break;
+                case EventType.HookDisabled:
+                    this.HookDisabled?.Invoke(this, new HookEventArgs(e));
                     break;
                 case EventType.KeyPressed:
                     this.KeyPressed?.Invoke(this, new KeyboardHookEventArgs(e));
@@ -134,6 +153,8 @@ namespace SharpHook
         private bool ShouldDispatchEvent(in UioHookEvent e) =>
             e.Type switch
             {
+                EventType.HookEnabled => this.HookEnabled != null,
+                EventType.HookDisabled => this.HookDisabled != null,
                 EventType.KeyTyped => this.KeyTyped != null,
                 EventType.KeyPressed => this.KeyPressed != null,
                 EventType.KeyReleased => this.KeyReleased != null,
@@ -148,16 +169,16 @@ namespace SharpHook
 
         private void Dispose(bool disposing)
         {
+            var result = UioHook.Stop();
+
             if (disposing)
             {
                 this.taskQueue.Dispose();
-            }
 
-            var result = UioHook.Stop();
-
-            if (disposing && result != UioHookResult.Success)
-            {
-                throw new HookException(result, this.FormatFailureMessage("stopping", result));
+                if (result != UioHookResult.Success)
+                {
+                    throw new HookException(result, this.FormatFailureMessage("stopping", result));
+                }
             }
         }
 
@@ -172,6 +193,17 @@ namespace SharpHook
 
         private string FormatFailureMessage(string action, UioHookResult result) =>
             $"Failed {action} the global hook: {result} ({(int)result:x})";
+
+        /// <summary>
+        /// An event which is raised when the global hook is enabled.
+        /// </summary>
+        /// <remarks>This event is raised when the <see cref="Start" /> method is called.</remarks>
+        public event EventHandler<HookEventArgs>? HookEnabled;
+
+        /// <summary>
+        /// An event which is raised when the global hook is disabled.
+        /// </summary>
+        public event EventHandler<HookEventArgs>? HookDisabled;
 
         /// <summary>
         /// An event which is raised when a key is typed.

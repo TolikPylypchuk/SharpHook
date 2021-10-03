@@ -15,14 +15,14 @@ namespace SharpHook.Internal
         {
             this.ThrowIfDisposed();
 
-            await semaphore.WaitAsync();
+            await this.semaphore.WaitAsync();
 
             try
             {
                 await taskGenerator();
             } finally
             {
-                semaphore.Release();
+                this.semaphore.Release();
             }
         }
 

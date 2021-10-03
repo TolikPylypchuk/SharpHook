@@ -12,5 +12,5 @@ namespace SharpHook.Native
     /// <param name="level">The log level.</param>
     /// <param name="message">The message to log.</param>
     /// <returns><see langword="true" /> if the message was logged. Otherwise, <see langword="false" /></returns>
-    public delegate bool LogProc(uint level, string message);
+    public delegate bool LoggerProc(LogLevel level, string message);
 }

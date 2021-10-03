@@ -1,10 +1,12 @@
 using System;
+using System.Runtime.InteropServices;
 
 namespace SharpHook.Native
 {
     /// <summary>
     /// Represents the screen-related data.
     /// </summary>
+    [StructLayout(LayoutKind.Sequential)]
     public struct ScreenData : IEquatable<ScreenData>
     {
         /// <summary>
@@ -62,6 +64,14 @@ namespace SharpHook.Native
         /// <returns>The hash code of this object.</returns>
         public override int GetHashCode() =>
             HashCode.Combine(this.Number, this.X, this.Y, this.Width, this.Height);
+
+        /// <summary>
+        /// Returns the string representation of this object.
+        /// </summary>
+        /// <returns>The string representation of this object.</returns>
+        public override string ToString() =>
+            $"{nameof(ScreenData)}: {nameof(this.Number)} = {this.Number}; {nameof(this.X)} = {this.X}; " +
+            $"{nameof(this.Y)} = {this.Y}; {nameof(this.Width)} = {this.Width}; {nameof(this.Height)} = {this.Height}";
 
         /// <summary>
         /// Compares two objects for equality.

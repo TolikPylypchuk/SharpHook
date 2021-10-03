@@ -7,14 +7,21 @@ namespace SharpHook.Native
     /// </summary>
     public static class UioHook
     {
-        private const string LibUioHook = "uiohook";
+        private const string LibUioHook = "uiohook"; // Todo: Make this cross-platform
 
         /// <summary>
         /// Sets the hook callback function.
         /// </summary>
-        /// <param name="dispatchProc">The callback to call when an event is raised.</param>
+        /// <param name="dispatchProc">The function to call when an event is raised.</param>
         [DllImport(LibUioHook, EntryPoint = "hook_set_dispatch_proc")]
         public static extern void SetDispatchProc(DispatchProc dispatchProc);
+
+        /// <summary>
+        /// Sets the logger callback function.
+        /// </summary>
+        /// <param name="loggerProc">The function to call when a log is written.</param>
+        [DllImport(LibUioHook, EntryPoint = "hook_set_logger_proc")]
+        public static extern void SetLoggerProc(LoggerProc loggerProc);
 
         /// <summary>
         /// Runs the global hook and blocks the thread until it's stopped.

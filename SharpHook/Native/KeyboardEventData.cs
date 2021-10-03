@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 
 namespace SharpHook.Native
 {
@@ -6,6 +7,7 @@ namespace SharpHook.Native
     /// Represents the data of a keyboard-related event.
     /// </summary>
     /// <seealso cref="KeyboardHookEventArgs" />
+    [StructLayout(LayoutKind.Sequential)]
     public struct KeyboardEventData : IEquatable<KeyboardEventData>
     {
         /// <summary>
@@ -51,6 +53,14 @@ namespace SharpHook.Native
         /// <returns>The hash code of this object.</returns>
         public override int GetHashCode() =>
             HashCode.Combine(this.KeyCode, this.RawCode, this.KeyChar);
+
+        /// <summary>
+        /// Returns the string representation of this object.
+        /// </summary>
+        /// <returns>The string representation of this object.</returns>
+        public override string ToString() =>
+            $"{nameof(KeyboardEventData)}: {nameof(this.KeyCode)} = {this.KeyCode}; " +
+            $"{nameof(this.RawCode)} = {this.RawCode}; {nameof(this.KeyChar)} = {this.KeyChar}";
 
         /// <summary>
         /// Compares two objects for equality.

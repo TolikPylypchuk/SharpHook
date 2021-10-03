@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 
 namespace SharpHook.Native
 {
@@ -6,6 +7,7 @@ namespace SharpHook.Native
     /// Represents the data of a mouse wheel-related event.
     /// </summary>
     /// <seealso cref="MouseWheelHookEventArgs" />
+    [StructLayout(LayoutKind.Sequential)]
     public struct MouseWheelEventData : IEquatable<MouseWheelEventData>
     {
         /// <summary>
@@ -24,24 +26,28 @@ namespace SharpHook.Native
         public short Y;
 
         /// <summary>
-        /// The type.
+        /// The wheel scroll type.
         /// </summary>
-        public byte Type;
+        public MouseWheelScrollType Type;
 
         /// <summary>
-        /// The amount.
+        /// The wheel scroll amount.
         /// </summary>
         public ushort Amount;
 
         /// <summary>
-        /// The rotation.
+        /// The wheel rotation.
         /// </summary>
+        /// <remarks>
+        /// A positive value indicates that the wheel was rotated forward, away from the user; a negative value
+        /// indicates that the wheel was rotated backward, toward the user.
+        /// </remarks>
         public ushort Rotation;
 
         /// <summary>
-        /// The direction.
+        /// The wheel scroll direction.
         /// </summary>
-        public byte Direction;
+        public MouseWheelScrollDirection Direction;
 
         /// <summary>
         /// Compares this object to another object for equality.
@@ -75,6 +81,15 @@ namespace SharpHook.Native
         /// <returns>The hash code of this object.</returns>
         public override int GetHashCode() =>
             HashCode.Combine(this.Clicks, this.X, this.Y, this.Type, this.Amount, this.Rotation, this.Direction);
+
+        /// <summary>
+        /// Returns the string representation of this object.
+        /// </summary>
+        /// <returns>The string representation of this object.</returns>
+        public override string ToString() =>
+            $"{nameof(MouseWheelEventData)}: {nameof(this.Clicks)} = {this.Clicks}; {nameof(this.X)} = {this.X}; " +
+            $"{nameof(this.Y)} = {this.Y}; {nameof(this.Type)} = {this.Type}; {nameof(this.Amount)} = {this.Amount}; " +
+            $"{nameof(this.Rotation)} = {this.Rotation}; {nameof(this.Direction)} = {this.Direction}";
 
         /// <summary>
         /// Compares two objects for equality.

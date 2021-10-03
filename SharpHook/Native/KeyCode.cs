@@ -1,7 +1,7 @@
 namespace SharpHook.Native
 {
     /// <summary>
-    /// Represents a key code.
+    /// Represents a virtual key code.
     /// </summary>
     public enum KeyCode : ushort
     {

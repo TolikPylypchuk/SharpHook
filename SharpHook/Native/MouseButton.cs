@@ -3,7 +3,7 @@ namespace SharpHook.Native
     /// <summary>
     /// Represents a mouse button.
     /// </summary>
-    public enum MouseButton
+    public enum MouseButton : ushort
     {
         NoButton = 0,
         Button1 = 1,

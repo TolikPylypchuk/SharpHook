@@ -54,7 +54,7 @@ namespace SharpHook.Native
         /// The mask of the event.
         /// </summary>
         [FieldOffset(16)]
-        public ushort Mask;
+        public ModifierMask Mask;
 
         /// <summary>
         /// The reserved value.
@@ -102,7 +102,18 @@ namespace SharpHook.Native
                 this.Time == e.Time &&
                 this.Mask == e.Mask &&
                 this.Reserved == e.Reserved &&
-                this.Keyboard == e.Keyboard;
+                this.Type switch
+                {
+                    EventType.KeyTyped => this.Keyboard == e.Keyboard,
+                    EventType.KeyPressed => this.Keyboard == e.Keyboard,
+                    EventType.KeyReleased => this.Keyboard == e.Keyboard,
+                    EventType.MouseClicked => this.Mouse == e.Mouse,
+                    EventType.MousePressed => this.Mouse == e.Mouse,
+                    EventType.MouseReleased => this.Mouse == e.Mouse,
+                    EventType.MouseMoved => this.Mouse == e.Mouse,
+                    EventType.MouseWheel => this.Wheel == e.Wheel,
+                    _ => true,
+                };
 
         /// <summary>
         /// Gets the hash code of this object.
@@ -110,6 +121,26 @@ namespace SharpHook.Native
         /// <returns>The hash code of this object.</returns>
         public override int GetHashCode() =>
             HashCode.Combine(this.Type, this.Time, this.Mask, this.Reserved, this.Keyboard, this.Mouse, this.Wheel);
+
+        /// <summary>
+        /// Returns the string representation of this object.
+        /// </summary>
+        /// <returns>The string representation of this object.</returns>
+        public override string ToString() =>
+            $"{nameof(UioHookEvent)}: {nameof(this.Type)} = {this.Type}; {nameof(this.Time)} = {this.Time}; " +
+            $"{nameof(this.Mask)} = {this.Mask}; {nameof(this.Reserved)} = {this.Reserved}" +
+            this.Type switch
+            {
+                EventType.KeyTyped => $"; {nameof(this.Keyboard)} = {this.Keyboard}",
+                EventType.KeyPressed => $"; {nameof(this.Keyboard)} = {this.Keyboard}",
+                EventType.KeyReleased => $"; {nameof(this.Keyboard)} = {this.Keyboard}",
+                EventType.MouseClicked => $"; {nameof(this.Mouse)} = {this.Mouse}",
+                EventType.MousePressed => $"; {nameof(this.Mouse)} = {this.Mouse}",
+                EventType.MouseReleased => $"; {nameof(this.Mouse)} = {this.Mouse}",
+                EventType.MouseMoved => $"; {nameof(this.Mouse)} = {this.Mouse}",
+                EventType.MouseWheel => $"; {nameof(this.Wheel)} = {this.Wheel}",
+                _ => String.Empty
+            };
 
         /// <summary>
         /// Compares two objects for equality.

@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 
 namespace SharpHook.Native
 {
@@ -6,12 +7,13 @@ namespace SharpHook.Native
     /// Represents the data of a mouse-related event.
     /// </summary>
     /// <seealso cref="MouseHookEventArgs" />
+    [StructLayout(LayoutKind.Sequential)]
     public struct MouseEventData : IEquatable<MouseEventData>
     {
         /// <summary>
         /// The mouse button.
         /// </summary>
-        public ushort Button;
+        public MouseButton Button;
 
         /// <summary>
         /// The number of clicks.
@@ -57,6 +59,14 @@ namespace SharpHook.Native
         /// <returns>The hash code of this object.</returns>
         public override int GetHashCode() =>
             HashCode.Combine(this.Button, this.Clicks, this.X, this.Y);
+
+        /// <summary>
+        /// Returns the string representation of this object.
+        /// </summary>
+        /// <returns>The string representation of this object.</returns>
+        public override string ToString() =>
+            $"{nameof(MouseEventData)}: {nameof(this.Button)} = {this.Button}; " +
+            $"{nameof(this.Clicks)} = {this.Clicks}; {nameof(this.X)} = {this.X}; {nameof(this.Y)} = {this.Y}";
 
         /// <summary>
         /// Compares two objects for equality.

@@ -1,12 +1,10 @@
 namespace SharpHook.Native
 {
     /// <summary>
-    /// Represents the mouse wheel information.
+    /// Represents the mouse wheel scroll direction.
     /// </summary>
-    public enum MouseWheel
+    public enum MouseWheelScrollDirection : byte
     {
-        UnitScroll = 1,
-        BlockScroll = 2,
         VerticalDirection = 3,
         HorizontalDirection = 4
     }
