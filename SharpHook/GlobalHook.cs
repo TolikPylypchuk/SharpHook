@@ -9,15 +9,33 @@ using SharpHook.Native;
 
 namespace SharpHook
 {
+    /// <summary>
+    /// Represents a default thread pool-based implementation of the global keyboard and mouse hook.
+    /// </summary>
+    /// <remarks>
+    /// The event handlers will be run on separate threads inside the default thread pool for tasks.
+    /// </remarks>
     public sealed class GlobalHook : IGlobalHook
     {
         private readonly TaskQueue taskQueue = new();
 
         private bool disposed = false;
 
+        /// <summary>
+        /// Unregisteres the global hook if it's registered.
+        /// </summary>
         ~GlobalHook() =>
             this.Dispose(false);
 
+        /// <summary>
+        /// Starts the global hook. The hook can be destroyed by calling the <see cref="IDisposable.Dispose" /> method.
+        /// </summary>
+        /// <returns>A <see cref="Task" /> which finishes when the hook is destroyed.</returns>
+        /// <exception cref="HookException">Starting the global hook has failed.</exception>
+        /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
+        /// <remarks>
+        /// The hook is started on a separate thread.
+        /// </remarks>
         [SuppressMessage(
             "Design",
             "CA1031:Do not catch general exception types",
@@ -53,6 +71,13 @@ namespace SharpHook
             return source.Task;
         }
 
+        /// <summary>
+        /// Destroys the global hook.
+        /// </summary>
+        /// <remarks>
+        /// After calling this method, the hook cannot be created again - if you want to do that, create a new instance
+        /// of <see cref="GlobalHook" />.
+        /// </remarks>
         public void Dispose()
         {
             if (!this.disposed)
@@ -148,16 +173,49 @@ namespace SharpHook
         private string FormatFailureMessage(string action, UioHookResult result) =>
             $"Failed {action} the global hook: {result} ({(int)result:x})";
 
+        /// <summary>
+        /// An event which is raised when a key is typed.
+        /// </summary>
         public event EventHandler<KeyboardHookEventArgs>? KeyTyped;
+
+        /// <summary>
+        /// An event which is raised when a key is pressed.
+        /// </summary>
         public event EventHandler<KeyboardHookEventArgs>? KeyPressed;
+
+        /// <summary>
+        /// An event which is raised when a key is released.
+        /// </summary>
         public event EventHandler<KeyboardHookEventArgs>? KeyReleased;
 
+        /// <summary>
+        /// An event which is raised when a mouse button is clicked.
+        /// </summary>
         public event EventHandler<MouseHookEventArgs>? MouseClicked;
+
+        /// <summary>
+        /// An event which is raised when a mouse button is pressed.
+        /// </summary>
         public event EventHandler<MouseHookEventArgs>? MousePressed;
+
+        /// <summary>
+        /// An event which is raised when a mouse button is released.
+        /// </summary>
         public event EventHandler<MouseHookEventArgs>? MouseReleased;
+
+        /// <summary>
+        /// An event which is raised when the mouse cursor is moved.
+        /// </summary>
         public event EventHandler<MouseHookEventArgs>? MouseMoved;
+
+        /// <summary>
+        /// An event which is raised when the mouse cursor is dragged.
+        /// </summary>
         public event EventHandler<MouseHookEventArgs>? MouseDragged;
 
+        /// <summary>
+        /// An event which is raised when the mouse wheel is turned.
+        /// </summary>
         public event EventHandler<MouseWheelHookEventArgs>? MouseWheel;
     }
 }

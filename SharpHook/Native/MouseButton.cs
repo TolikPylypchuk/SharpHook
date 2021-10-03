@@ -1,5 +1,8 @@
 namespace SharpHook.Native
 {
+    /// <summary>
+    /// Represents a mouse button.
+    /// </summary>
     public enum MouseButton
     {
         NoButton = 0,

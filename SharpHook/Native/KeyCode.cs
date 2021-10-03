@@ -1,5 +1,8 @@
 namespace SharpHook.Native
 {
+    /// <summary>
+    /// Represents a key code.
+    /// </summary>
     public enum KeyCode : ushort
     {
         VcEscape = 0x0001,

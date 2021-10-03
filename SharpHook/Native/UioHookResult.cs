@@ -1,5 +1,8 @@
 namespace SharpHook.Native
 {
+    /// <summary>
+    /// Represents a result of an operation of libuiohook.
+    /// </summary>
     public enum UioHookResult
     {
         Success = 0x00,

@@ -1,5 +1,8 @@
 namespace SharpHook.Native
 {
+    /// <summary>
+    /// Represents the mouse wheel information.
+    /// </summary>
     public enum MouseWheel
     {
         UnitScroll = 1,

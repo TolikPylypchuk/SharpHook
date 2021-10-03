@@ -4,6 +4,24 @@
     <TargetFrameworks>netstandard2.0;net5.0;net461</TargetFrameworks>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
+    <Version>1.0.0-preview.1</Version>
+    <Authors>Tolik Pylypchuk</Authors>
+    <Company>Tolik Pylypchuk</Company>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Copyright>(c) 2021 Anatoliy Pylypchuk</Copyright>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/TolikPylypchuk/SharpHook</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/TolikPylypchuk/SharpHook</PackageProjectUrl>
+    <PackageTags>hook global-hook libuiohook</PackageTags>
+    <Description>A library which provides a cross-platform global keyboard and mouse hook for .NET</Description>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DocumentationFile>C:\Users\Tolik\OneDrive\Documents\Projects\SharpHook\SharpHook\SharpHook.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <NoWarn>$(NoWarn);1591</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +30,13 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
