@@ -17,13 +17,6 @@ namespace SharpHook.Native
         public static extern void SetDispatchProc(DispatchProc dispatchProc);
 
         /// <summary>
-        /// Sets the logger callback function.
-        /// </summary>
-        /// <param name="loggerProc">The function to call when a log is written.</param>
-        [DllImport(LibUioHook, EntryPoint = "hook_set_logger_proc")]
-        public static extern void SetLoggerProc(LoggerProc loggerProc);
-
-        /// <summary>
         /// Runs the global hook and blocks the thread until it's stopped.
         /// </summary>
         /// <returns>The result of the operation.</returns>

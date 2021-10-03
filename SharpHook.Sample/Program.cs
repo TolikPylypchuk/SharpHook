@@ -13,8 +13,6 @@ namespace SharpHook.Sample
 
             PrintSystemInfo();
 
-            UioHook.SetLoggerProc(LogMessage);
-
             Console.WriteLine("Press q to quit\n");
 
             var hook = CreateHook();
@@ -30,12 +28,6 @@ namespace SharpHook.Sample
             Console.WriteLine($"Pointer sensitivity: {UioHook.GetPointerSensitivity()}");
             Console.WriteLine($"Multi-click time: {UioHook.GetMultiClickTime()}");
             Console.WriteLine();
-        }
-
-        private static bool LogMessage(LogLevel level, string message)
-        {
-            Console.WriteLine($">>>>> libuiohook message: [{level}] - {message}".Trim());
-            return true;
         }
 
         private static IGlobalHook CreateHook()
