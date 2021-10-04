@@ -13,7 +13,7 @@ namespace SharpHook.Sample
 
             PrintSystemInfo();
 
-            Console.WriteLine("Press q to quit\n");
+            Console.WriteLine("---------- Press q to quit ----------\n");
 
             var hook = CreateHook();
             await hook.Start();
@@ -32,7 +32,7 @@ namespace SharpHook.Sample
 
         private static IGlobalHook CreateHook()
         {
-            var hook = new GlobalHook();
+            var hook = new ThreadPoolGlobalHook();
 
             hook.HookEnabled += OnHookEvent;
             hook.HookDisabled += OnHookEvent;
@@ -40,6 +40,7 @@ namespace SharpHook.Sample
             hook.KeyTyped += OnHookEvent;
             hook.KeyPressed += OnHookEvent;
             hook.KeyReleased += OnHookEvent;
+            hook.KeyReleased += OnKeyReleased;
 
             hook.MouseClicked += OnHookEvent;
             hook.MousePressed += OnHookEvent;
@@ -52,13 +53,12 @@ namespace SharpHook.Sample
             return hook;
         }
 
-        private static void OnHookEvent(object? sender, HookEventArgs e)
-        {
+        private static void OnHookEvent(object? sender, HookEventArgs e) =>
             Console.WriteLine(e.RawEvent);
 
-            if (e.RawEvent.Type == EventType.KeyReleased &&
-                e.RawEvent.Keyboard.KeyCode == KeyCode.VcQ &&
-                sender is IGlobalHook hook)
+        private static void OnKeyReleased(object? sender, KeyboardHookEventArgs e)
+        {
+            if (e.Data.KeyCode == KeyCode.VcQ && sender is IGlobalHook hook)
             {
                 hook.Dispose();
             }

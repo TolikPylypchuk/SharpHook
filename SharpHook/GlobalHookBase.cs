@@ -4,36 +4,22 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 
-using SharpHook.Internal;
 using SharpHook.Native;
 
 namespace SharpHook
 {
     /// <summary>
-    /// Represents a default thread pool-based implementation of the global keyboard and mouse hook.
+    /// Represents an implementation of the global keyboard and mouse hook which runs the hook on a separate thread and
+    /// raises events only when there is at least one subscriber.
     /// </summary>
-    /// <remarks>
-    /// <para>
-    /// The event handlers will run sequentially on separate threads inside the default thread pool for tasks. This is
-    /// done so that the hook itself will not be blocked if one of the handlers is long-running. The exception is the
-    /// <see cref="HookDisabled" /> event which will run on the same thread that called the <see cref="Dispose()" />
-    /// method since at that point it doesn't matter anymore that the hook is not blocked.
-    /// </para>
-    /// <para>
-    /// The <see cref="UioHookEvent" /> instance passed to the handlers will be a copy of the original
-    /// data passed from libuiohook.
-    /// </para>
-    /// </remarks>
-    public sealed class GlobalHook : IGlobalHook
+    public abstract class GlobalHookBase : IGlobalHook
     {
-        private readonly TaskQueue taskQueue = new();
-
         private bool disposed = false;
 
         /// <summary>
         /// Unregisteres the global hook if it's registered.
         /// </summary>
-        ~GlobalHook() =>
+        ~GlobalHookBase() =>
             this.Dispose(false);
 
         /// <summary>
@@ -86,34 +72,53 @@ namespace SharpHook
         /// <exception cref="HookException">Stopping the hook has failed.</exception>
         /// <remarks>
         /// After calling this method, the hook cannot be started again. If you want to do that, create a new instance
-        /// of <see cref="GlobalHook" />.
+        /// of <see cref="IGlobalHook" />.
         /// </remarks>
         public void Dispose()
         {
-            if (!this.disposed)
-            {
-                this.Dispose(true);
-                GC.SuppressFinalize(this);
-                this.disposed = true;
-            }
+            this.Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
-        private void HandleHookEvent(ref UioHookEvent e)
+        /// <summary>
+        /// When implemented in a derived class, represents a strategy for handling the hook event.
+        /// </summary>
+        /// <param name="e">The event to handle.</param>
+        /// <remarks>
+        /// Derived classes should call <see cref="DispatchEvent(ref UioHookEvent)" /> inside this method to raise the
+        /// appropriate event.
+        /// </remarks>
+        protected abstract void HandleHookEventInternal(ref UioHookEvent e);
+
+        /// <summary>
+        /// Destoys the global hook.
+        /// </summary>
+        /// <param name="disposing">
+        /// <see langword="true" /> if the method is called from the <see cref="Dispose()" /> method.
+        /// Otherwise, <see langword="false" />.
+        /// </param>
+        /// <remarks>
+        /// After calling this method, the hook cannot be started again. If you want to do that, create a new instance
+        /// of <see cref="IGlobalHook" />.
+        /// </remarks>
+        /// <exception cref="HookException">Stopping the hook has failed.</exception>
+        protected virtual void Dispose(bool disposing)
         {
-            if (this.ShouldDispatchEvent(in e))
+            this.disposed = true;
+
+            var result = UioHook.Stop();
+
+            if (disposing && result != UioHookResult.Success)
             {
-                if (e.Type != EventType.HookDisabled)
-                {
-                    var copy = e;
-                    this.taskQueue.Enqueue(() => Task.Run(() => this.DispatchEvent(in copy)));
-                } else
-                {
-                    this.DispatchEvent(in e);
-                }
+                throw new HookException(result, this.FormatFailureMessage("stopping", result));
             }
         }
 
-        private void DispatchEvent(in UioHookEvent e)
+        /// <summary>
+        /// Dispatches the event from libuiohook, i.e. raises the appropriate event.
+        /// </summary>
+        /// <param name="e">The event to dispatch.</param>
+        protected void DispatchEvent(ref UioHookEvent e)
         {
             switch (e.Type)
             {
@@ -150,7 +155,28 @@ namespace SharpHook
             };
         }
 
-        private bool ShouldDispatchEvent(in UioHookEvent e) =>
+        /// <summary>
+        /// Throws an <see cref="ObjectDisposedException" /> if this object is disposed.
+        /// </summary>
+        /// <param name="method">The method which calls this method.</param>
+        protected void ThrowIfDisposed([CallerMemberName] string? method = null)
+        {
+            if (this.disposed)
+            {
+                throw new ObjectDisposedException(
+                    this.GetType().Name, $"Cannot call {method} - the object is disposed");
+            }
+        }
+
+        private void HandleHookEvent(ref UioHookEvent e)
+        {
+            if (this.ShouldDispatchEvent(ref e))
+            {
+                this.HandleHookEventInternal(ref e);
+            }
+        }
+
+        private bool ShouldDispatchEvent(ref UioHookEvent e) =>
             e.Type switch
             {
                 EventType.HookEnabled => this.HookEnabled != null,
@@ -166,30 +192,6 @@ namespace SharpHook
                 EventType.MouseWheel => this.MouseWheel != null,
                 _ => false
             };
-
-        private void Dispose(bool disposing)
-        {
-            var result = UioHook.Stop();
-
-            if (disposing)
-            {
-                this.taskQueue.Dispose();
-
-                if (result != UioHookResult.Success)
-                {
-                    throw new HookException(result, this.FormatFailureMessage("stopping", result));
-                }
-            }
-        }
-
-        private void ThrowIfDisposed([CallerMemberName] string? method = null)
-        {
-            if (this.disposed)
-            {
-                throw new ObjectDisposedException(
-                    this.GetType().Name, $"Cannot call {method} - the object is disposed");
-            }
-        }
 
         private string FormatFailureMessage(string action, UioHookResult result) =>
             $"Failed {action} the global hook: {result} ({(int)result:x})";
