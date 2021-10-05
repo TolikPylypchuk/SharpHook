@@ -9,7 +9,7 @@ using SharpHook.Native;
 namespace SharpHook
 {
     /// <summary>
-    /// Represents an implementation of the global keyboard and mouse hook which runs the hook on a separate thread and
+    /// Represents an abstract implementation of <see cref="IGlobalHook" /> which runs the hook on a separate thread and
     /// raises events only when there is at least one subscriber.
     /// </summary>
     public abstract class GlobalHookBase : IGlobalHook

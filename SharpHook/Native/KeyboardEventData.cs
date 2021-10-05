@@ -23,7 +23,7 @@ namespace SharpHook.Native
         /// <summary>
         /// The character of the key.
         /// </summary>
-        public ushort KeyChar;
+        public char KeyChar;
 
         /// <summary>
         /// Compares this object to another object for equality.

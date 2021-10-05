@@ -21,6 +21,5 @@ namespace SharpHook
         /// Gets the configured parallelism level of the event handlers.
         /// </summary>
         public int ParallelismLevel { get; }
-
     }
 }
