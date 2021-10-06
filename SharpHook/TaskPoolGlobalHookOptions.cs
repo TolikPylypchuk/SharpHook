@@ -1,20 +1,20 @@
 namespace SharpHook
 {
     /// <summary>
-    /// Represents options for <see cref="ThreadPoolGlobalHook" />.
+    /// Represents options for <see cref="TaskPoolGlobalHook" />.
     /// </summary>
-    public sealed class ThreadPoolGlobalHookOptions
+    public sealed class TaskPoolGlobalHookOptions
     {
         /// <summary>
         /// The default options with the parallelism level of 1.
         /// </summary>
-        public static readonly ThreadPoolGlobalHookOptions Sequential = new(1);
+        public static readonly TaskPoolGlobalHookOptions Sequential = new(1);
 
         /// <summary>
-        /// Initializes a new instance of <see cref="ThreadPoolGlobalHookOptions" />.
+        /// Initializes a new instance of <see cref="TaskPoolGlobalHookOptions" />.
         /// </summary>
         /// <param name="parallelismLevel">The parallelism level of the event handlers.</param>
-        public ThreadPoolGlobalHookOptions(int parallelismLevel) =>
+        public TaskPoolGlobalHookOptions(int parallelismLevel) =>
             this.ParallelismLevel = parallelismLevel;
 
         /// <summary>

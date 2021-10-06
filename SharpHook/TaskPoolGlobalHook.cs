@@ -7,7 +7,7 @@ using SharpHook.Native;
 namespace SharpHook
 {
     /// <summary>
-    /// Represents a thread pool-based implementation of <see cref="IGlobalHook" />.
+    /// Represents a task pool-based implementation of <see cref="IGlobalHook" />.
     /// </summary>
     /// <remarks>
     /// <para>
@@ -22,26 +22,26 @@ namespace SharpHook
     /// data passed from libuiohook.
     /// </para>
     /// </remarks>
-    public sealed class ThreadPoolGlobalHook : GlobalHookBase
+    public sealed class TaskPoolGlobalHook : GlobalHookBase
     {
         private readonly TaskQueue taskQueue;
 
         /// <summary>
-        /// Initializes a new instance of <see cref="ThreadPoolGlobalHook" />.
+        /// Initializes a new instance of <see cref="TaskPoolGlobalHook" />.
         /// </summary>
         /// <remarks>
-        /// Calling this constructor is the same as passing <see cref="ThreadPoolGlobalHookOptions.Sequential" /> to the
+        /// Calling this constructor is the same as passing <see cref="TaskPoolGlobalHookOptions.Sequential" /> to the
         /// other constructor.
         /// </remarks>
-        public ThreadPoolGlobalHook()
-            : this(ThreadPoolGlobalHookOptions.Sequential)
+        public TaskPoolGlobalHook()
+            : this(TaskPoolGlobalHookOptions.Sequential)
         { }
 
         /// <summary>
-        /// Initializes a new instance of <see cref="ThreadPoolGlobalHook" />.
+        /// Initializes a new instance of <see cref="TaskPoolGlobalHook" />.
         /// </summary>
         /// <param name="options">The options of the hook which include its parallelism level.</param>
-        public ThreadPoolGlobalHook(ThreadPoolGlobalHookOptions options) =>
+        public TaskPoolGlobalHook(TaskPoolGlobalHookOptions options) =>
             this.taskQueue = new(options.ParallelismLevel);
 
         /// <summary>

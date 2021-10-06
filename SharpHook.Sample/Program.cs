@@ -32,7 +32,7 @@ namespace SharpHook.Sample
 
         private static IGlobalHook CreateHook()
         {
-            var hook = new ThreadPoolGlobalHook();
+            var hook = new TaskPoolGlobalHook();
 
             hook.HookEnabled += OnHookEvent;
             hook.HookDisabled += OnHookEvent;
