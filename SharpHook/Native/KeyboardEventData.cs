@@ -23,6 +23,7 @@ namespace SharpHook.Native
         /// <summary>
         /// The character of the key.
         /// </summary>
+        /// <remarks>This field is available only for the <see cref="EventType.KeyTyped" /> event.</remarks>
         public char KeyChar;
 
         /// <summary>

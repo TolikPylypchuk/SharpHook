@@ -123,37 +123,117 @@ namespace SharpHook
             switch (e.Type)
             {
                 case EventType.HookEnabled:
-                    this.HookEnabled?.Invoke(this, new HookEventArgs(e));
+                    this.OnHookEnabled(new HookEventArgs(e));
                     break;
                 case EventType.HookDisabled:
-                    this.HookDisabled?.Invoke(this, new HookEventArgs(e));
+                    this.OnHookDisabled(new HookEventArgs(e));
+                    break;
+                case EventType.KeyTyped:
+                    this.OnKeyTyped(new KeyboardHookEventArgs(e));
                     break;
                 case EventType.KeyPressed:
-                    this.KeyPressed?.Invoke(this, new KeyboardHookEventArgs(e));
+                    this.OnKeyPressed(new KeyboardHookEventArgs(e));
                     break;
                 case EventType.KeyReleased:
-                    this.KeyReleased?.Invoke(this, new KeyboardHookEventArgs(e));
+                    this.OnKeyReleased(new KeyboardHookEventArgs(e));
                     break;
                 case EventType.MouseClicked:
-                    this.MouseClicked?.Invoke(this, new MouseHookEventArgs(e));
+                    this.OnMouseClicked(new MouseHookEventArgs(e));
                     break;
                 case EventType.MousePressed:
-                    this.MousePressed?.Invoke(this, new MouseHookEventArgs(e));
+                    this.OnMousePressed(new MouseHookEventArgs(e));
                     break;
                 case EventType.MouseReleased:
-                    this.MouseReleased?.Invoke(this, new MouseHookEventArgs(e));
+                    this.OnMouseReleased(new MouseHookEventArgs(e));
                     break;
                 case EventType.MouseMoved:
-                    this.MouseMoved?.Invoke(this, new MouseHookEventArgs(e));
+                    this.OnMouseMoved(new MouseHookEventArgs(e));
                     break;
                 case EventType.MouseDragged:
-                    this.MouseDragged?.Invoke(this, new MouseHookEventArgs(e));
+                    this.OnMouseDragged(new MouseHookEventArgs(e));
                     break;
                 case EventType.MouseWheel:
-                    this.MouseWheel?.Invoke(this, new MouseWheelHookEventArgs(e));
+                    this.OnMouseWheel(new MouseWheelHookEventArgs(e));
                     break;
             };
         }
+
+        /// <summary>
+        /// Raises the <see cref="HookEnabled" /> event with this object as the sender.
+        /// </summary>
+        /// <param name="args">The arguments of the event.</param>
+        protected virtual void OnHookEnabled(HookEventArgs args) =>
+            this.HookEnabled?.Invoke(this, args);
+
+        /// <summary>
+        /// Raises the <see cref="HookDisabled" /> event with this object as the sender.
+        /// </summary>
+        /// <param name="args">The arguments of the event.</param>
+        protected virtual void OnHookDisabled(HookEventArgs args) =>
+            this.HookDisabled?.Invoke(this, args);
+
+        /// <summary>
+        /// Raises the <see cref="KeyTyped" /> event with this object as the sender.
+        /// </summary>
+        /// <param name="args">The arguments of the event.</param>
+        protected virtual void OnKeyTyped(KeyboardHookEventArgs args) =>
+            this.KeyTyped?.Invoke(this, args);
+
+        /// <summary>
+        /// Raises the <see cref="KeyPressed" /> event with this object as the sender.
+        /// </summary>
+        /// <param name="args">The arguments of the event.</param>
+        protected virtual void OnKeyPressed(KeyboardHookEventArgs args) =>
+            this.KeyPressed?.Invoke(this, args);
+
+        /// <summary>
+        /// Raises the <see cref="KeyReleased" /> event with this object as the sender.
+        /// </summary>
+        /// <param name="args">The arguments of the event.</param>
+        protected virtual void OnKeyReleased(KeyboardHookEventArgs args) =>
+            this.KeyReleased?.Invoke(this, args);
+
+        /// <summary>
+        /// Raises the <see cref="MouseClicked" /> event with this object as the sender.
+        /// </summary>
+        /// <param name="args">The arguments of the event.</param>
+        protected virtual void OnMouseClicked(MouseHookEventArgs args) =>
+            this.MouseClicked?.Invoke(this, args);
+
+        /// <summary>
+        /// Raises the <see cref="MousePressed" /> event with this object as the sender.
+        /// </summary>
+        /// <param name="args">The arguments of the event.</param>
+        protected virtual void OnMousePressed(MouseHookEventArgs args) =>
+            this.MousePressed?.Invoke(this, args);
+
+        /// <summary>
+        /// Raises the <see cref="MouseReleased" /> event with this object as the sender.
+        /// </summary>
+        /// <param name="args">The arguments of the event.</param>
+        protected virtual void OnMouseReleased(MouseHookEventArgs args) =>
+            this.MouseReleased?.Invoke(this, args);
+
+        /// <summary>
+        /// Raises the <see cref="MouseMoved" /> event with this object as the sender.
+        /// </summary>
+        /// <param name="args">The arguments of the event.</param>
+        protected virtual void OnMouseMoved(MouseHookEventArgs args) =>
+            this.MouseMoved?.Invoke(this, args);
+
+        /// <summary>
+        /// Raises the <see cref="MouseDragged" /> event with this object as the sender.
+        /// </summary>
+        /// <param name="args">The arguments of the event.</param>
+        protected virtual void OnMouseDragged(MouseHookEventArgs args) =>
+            this.MouseDragged?.Invoke(this, args);
+
+        /// <summary>
+        /// Raises the <see cref="MouseWheel" /> event with this object as the sender.
+        /// </summary>
+        /// <param name="args">The arguments of the event.</param>
+        protected virtual void OnMouseWheel(MouseWheelHookEventArgs args) =>
+            this.MouseWheel?.Invoke(this, args);
 
         /// <summary>
         /// Throws an <see cref="ObjectDisposedException" /> if this object is disposed.

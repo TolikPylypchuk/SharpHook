@@ -7,15 +7,9 @@ namespace SharpHook
     /// the hook itself runs.
     /// </summary>
     /// <remarks>
-    /// <para>
     /// The event handlers should generally be fast and simple so that the thread can process all events that are raised
     /// by libuiohook. If you need to do a lot of processing in the event handlers then consider using another
     /// implementation, e.g. <see cref="TaskPoolGlobalHook" />.
-    /// </para>
-    /// <para>
-    /// The <see cref="UioHookEvent" /> instance passed to the handlers will be a copy of the original
-    /// data passed from libuiohook.
-    /// </para>
     /// </remarks>
     public sealed class SimpleGlobalHook : GlobalHookBase
     {

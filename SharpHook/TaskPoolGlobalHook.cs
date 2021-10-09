@@ -10,17 +10,11 @@ namespace SharpHook
     /// Represents a task pool-based implementation of <see cref="IGlobalHook" />.
     /// </summary>
     /// <remarks>
-    /// <para>
     /// The event handlers will run with the specified parallelism level on separate threads inside the default thread
     /// pool for tasks. This is done so that the hook itself will not be blocked if the handlers are long-running.
     /// The exception is the <see cref="IGlobalHook.HookDisabled" /> event which will run on the same thread that called
     /// the <see cref="IDisposable.Dispose()" /> method since at that point it doesn't matter anymore that the hook is
     /// not blocked.
-    /// </para>
-    /// <para>
-    /// The <see cref="UioHookEvent" /> instance passed to the handlers will be a copy of the original
-    /// data passed from libuiohook.
-    /// </para>
     /// </remarks>
     public sealed class TaskPoolGlobalHook : GlobalHookBase
     {
