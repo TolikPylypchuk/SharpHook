@@ -46,20 +46,6 @@
             appropriate event.
             </remarks>
         </member>
-        <member name="M:SharpHook.GlobalHookBase.Dispose(System.Boolean)">
-            <summary>
-            Destoys the global hook.
-            </summary>
-            <param name="disposing">
-            <see langword="true" /> if the method is called from the <see cref="M:SharpHook.GlobalHookBase.Dispose" /> method.
-            Otherwise, <see langword="false" />.
-            </param>
-            <remarks>
-            After calling this method, the hook cannot be started again. If you want to do that, create a new instance
-            of <see cref="T:SharpHook.IGlobalHook" />.
-            </remarks>
-            <exception cref="T:SharpHook.HookException">Stopping the hook has failed.</exception>
-        </member>
         <member name="M:SharpHook.GlobalHookBase.DispatchEvent(SharpHook.Native.UioHookEvent@)">
             <summary>
             Dispatches the event from libuiohook, i.e. raises the appropriate event.
@@ -131,6 +117,20 @@
             Raises the <see cref="E:SharpHook.GlobalHookBase.MouseWheel" /> event with this object as the sender.
             </summary>
             <param name="args">The arguments of the event.</param>
+        </member>
+        <member name="M:SharpHook.GlobalHookBase.Dispose(System.Boolean)">
+            <summary>
+            Destoys the global hook.
+            </summary>
+            <param name="disposing">
+            <see langword="true" /> if the method is called from the <see cref="M:SharpHook.GlobalHookBase.Dispose" /> method.
+            Otherwise, <see langword="false" />.
+            </param>
+            <remarks>
+            After calling this method, the hook cannot be started again. If you want to do that, create a new instance
+            of <see cref="T:SharpHook.IGlobalHook" />.
+            </remarks>
+            <exception cref="T:SharpHook.HookException">Stopping the hook has failed.</exception>
         </member>
         <member name="M:SharpHook.GlobalHookBase.ThrowIfDisposed(System.String)">
             <summary>

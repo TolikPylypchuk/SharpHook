@@ -91,30 +91,6 @@ namespace SharpHook
         protected abstract void HandleHookEventInternal(ref UioHookEvent e);
 
         /// <summary>
-        /// Destoys the global hook.
-        /// </summary>
-        /// <param name="disposing">
-        /// <see langword="true" /> if the method is called from the <see cref="Dispose()" /> method.
-        /// Otherwise, <see langword="false" />.
-        /// </param>
-        /// <remarks>
-        /// After calling this method, the hook cannot be started again. If you want to do that, create a new instance
-        /// of <see cref="IGlobalHook" />.
-        /// </remarks>
-        /// <exception cref="HookException">Stopping the hook has failed.</exception>
-        protected virtual void Dispose(bool disposing)
-        {
-            this.disposed = true;
-
-            var result = UioHook.Stop();
-
-            if (disposing && result != UioHookResult.Success)
-            {
-                throw new HookException(result, this.FormatFailureMessage("stopping", result));
-            }
-        }
-
-        /// <summary>
         /// Dispatches the event from libuiohook, i.e. raises the appropriate event.
         /// </summary>
         /// <param name="e">The event to dispatch.</param>
@@ -234,6 +210,30 @@ namespace SharpHook
         /// <param name="args">The arguments of the event.</param>
         protected virtual void OnMouseWheel(MouseWheelHookEventArgs args) =>
             this.MouseWheel?.Invoke(this, args);
+
+        /// <summary>
+        /// Destoys the global hook.
+        /// </summary>
+        /// <param name="disposing">
+        /// <see langword="true" /> if the method is called from the <see cref="Dispose()" /> method.
+        /// Otherwise, <see langword="false" />.
+        /// </param>
+        /// <remarks>
+        /// After calling this method, the hook cannot be started again. If you want to do that, create a new instance
+        /// of <see cref="IGlobalHook" />.
+        /// </remarks>
+        /// <exception cref="HookException">Stopping the hook has failed.</exception>
+        protected virtual void Dispose(bool disposing)
+        {
+            this.disposed = true;
+
+            var result = UioHook.Stop();
+
+            if (disposing && result != UioHookResult.Success)
+            {
+                throw new HookException(result, this.FormatFailureMessage("stopping", result));
+            }
+        }
 
         /// <summary>
         /// Throws an <see cref="ObjectDisposedException" /> if this object is disposed.

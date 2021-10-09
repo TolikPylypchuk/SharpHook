@@ -7,7 +7,7 @@ namespace SharpHook.Native
     /// </summary>
     public static class UioHook
     {
-        private const string LibUioHook = "uiohook"; // Todo: Make this cross-platform
+        private const string LibUioHook = "uiohook";
 
         /// <summary>
         /// Sets the hook callback function.
