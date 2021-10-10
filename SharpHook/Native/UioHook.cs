@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.InteropServices;
 
 namespace SharpHook.Native
@@ -33,10 +34,34 @@ namespace SharpHook.Native
         /// <summary>
         /// Gets the information about screens.
         /// </summary>
-        /// <param name="count">The count.</param>
-        /// <returns>The information about screens.</returns>
+        /// <param name="count">The number of screens.</param>
+        /// <returns>
+        /// The information about screens as an unmanaged array whose length is returned as <paramref name="count" />.
+        /// </returns>
         [DllImport(LibUioHook, EntryPoint = "hook_create_screen_info")]
-        public static extern ScreenData[] CreateScreenInfo(byte[] count);
+        public static extern IntPtr CreateScreenInfo(out byte count);
+
+        /// <summary>
+        /// Gets the information about screens.
+        /// </summary>
+        /// <returns>The information about screens.</returns>
+        /// <remarks>
+        /// This is the safe version of <see cref="CreateScreenInfo(out byte)" /> as it returns a managed array.
+        /// </remarks>
+        public static ScreenData[] CreateScreenInfo()
+        {
+            var screens = CreateScreenInfo(out byte count);
+
+            var result = new ScreenData[count];
+            var size = Marshal.SizeOf<ScreenData>();
+
+            for (int i = 0; i < count; i++)
+            {
+                result[i] = Marshal.PtrToStructure<ScreenData>(new IntPtr(screens.ToInt64() + i * size));
+            }
+
+            return result;
+        }
 
         /// <summary>
         /// Gets the auto-repeat rate.

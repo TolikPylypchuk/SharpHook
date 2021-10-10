@@ -27,6 +27,14 @@ namespace SharpHook.Sample
             Console.WriteLine($"Pointer acceleration threshold: {UioHook.GetPointerAccelerationThreshold()}");
             Console.WriteLine($"Pointer sensitivity: {UioHook.GetPointerSensitivity()}");
             Console.WriteLine($"Multi-click time: {UioHook.GetMultiClickTime()}");
+
+            var screens = UioHook.CreateScreenInfo();
+
+            foreach (var screen in screens)
+            {
+                Console.WriteLine($"Screen #{screen.Number}: {screen.Width}x{screen.Height}; {screen.X}, {screen.Y}");
+            }
+
             Console.WriteLine();
         }
 
