@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
 namespace SharpHook.Native
@@ -6,6 +7,12 @@ namespace SharpHook.Native
     /// <summary>
     /// Contains native methods of libuiohook.
     /// </summary>
+#if NET5_0_OR_GREATER
+    [SuppressMessage(
+        "Interoperability",
+        "CA1401:P/Invokes should not be visible",
+        Justification = "These methods are the whole point of the project")]
+#endif
     public static class UioHook
     {
         private const string LibUioHook = "uiohook";
