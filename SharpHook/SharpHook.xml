@@ -38,7 +38,7 @@
         </member>
         <member name="M:SharpHook.GlobalHookBase.HandleHookEventInternal(SharpHook.Native.UioHookEvent@)">
             <summary>
-            When implemented in a derived class, represents a strategy for handling the hook event.
+            When implemented in a derived class, represents a strategy for handling a hook event.
             </summary>
             <param name="e">The event to handle.</param>
             <remarks>
@@ -48,7 +48,7 @@
         </member>
         <member name="M:SharpHook.GlobalHookBase.DispatchEvent(SharpHook.Native.UioHookEvent@)">
             <summary>
-            Dispatches the event from libuiohook, i.e. raises the appropriate event.
+            Dispatches an event from libuiohook, i.e. raises the appropriate event.
             </summary>
             <param name="e">The event to dispatch.</param>
         </member>
@@ -142,12 +142,13 @@
             <summary>
             An event which is raised when the global hook is enabled.
             </summary>
-            <remarks>This event is raised when the <see cref="M:SharpHook.GlobalHookBase.Start" /> method is called.</remarks>
+            <remarks>This event is raised when the <see cref="M:SharpHook.IGlobalHook.Start" /> method is called.</remarks>
         </member>
         <member name="E:SharpHook.GlobalHookBase.HookDisabled">
             <summary>
             An event which is raised when the global hook is disabled.
             </summary>
+            <remarks>This event is raised when the <see cref="M:System.IDisposable.Dispose" /> method is called.</remarks>
         </member>
         <member name="E:SharpHook.GlobalHookBase.KeyTyped">
             <summary>

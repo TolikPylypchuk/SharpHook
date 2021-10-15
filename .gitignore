@@ -19,9 +19,11 @@ bld/
 [Oo]bj/
 [Ll]og/
 
-# WWW Root Folder
-**/wwwroot/lib/
-**/wwwroot/**/*.css
+# Native libuiohook binaries
+*.dll
+*.so
+*.so.*
+*.dylib
 
 # Visual Studio and Visual Studio Code cache/options directory
 .vs/
@@ -70,9 +72,6 @@ artifacts/
 *.pidb
 *.svclog
 *.scc
-
-# Chutzpah Test files
-_Chutzpah*
 
 # Visual Studio profiler
 *.psess

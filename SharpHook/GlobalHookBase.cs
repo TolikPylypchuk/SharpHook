@@ -81,7 +81,7 @@ namespace SharpHook
         }
 
         /// <summary>
-        /// When implemented in a derived class, represents a strategy for handling the hook event.
+        /// When implemented in a derived class, represents a strategy for handling a hook event.
         /// </summary>
         /// <param name="e">The event to handle.</param>
         /// <remarks>
@@ -91,7 +91,7 @@ namespace SharpHook
         protected abstract void HandleHookEventInternal(ref UioHookEvent e);
 
         /// <summary>
-        /// Dispatches the event from libuiohook, i.e. raises the appropriate event.
+        /// Dispatches an event from libuiohook, i.e. raises the appropriate event.
         /// </summary>
         /// <param name="e">The event to dispatch.</param>
         protected void DispatchEvent(ref UioHookEvent e)
@@ -279,12 +279,13 @@ namespace SharpHook
         /// <summary>
         /// An event which is raised when the global hook is enabled.
         /// </summary>
-        /// <remarks>This event is raised when the <see cref="Start" /> method is called.</remarks>
+        /// <remarks>This event is raised when the <see cref="IGlobalHook.Start" /> method is called.</remarks>
         public event EventHandler<HookEventArgs>? HookEnabled;
 
         /// <summary>
         /// An event which is raised when the global hook is disabled.
         /// </summary>
+        /// <remarks>This event is raised when the <see cref="IDisposable.Dispose" /> method is called.</remarks>
         public event EventHandler<HookEventArgs>? HookDisabled;
 
         /// <summary>

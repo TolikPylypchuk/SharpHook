@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net5.0;net461</TargetFrameworks>
+    <RuntimeIdentifiers>win-x86;win-x64;win-arm;osx-x64;osx-arm64;linux-x64;linux-arm;linux-arm64</RuntimeIdentifiers>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <Version>1.0.0-preview.1</Version>
@@ -14,10 +15,11 @@
     <PackageProjectUrl>https://github.com/TolikPylypchuk/SharpHook</PackageProjectUrl>
     <PackageTags>hook global-hook libuiohook</PackageTags>
     <Description>A library which provides a cross-platform global keyboard and mouse hook for .NET</Description>
+    <Platforms>x86;x64;ARM32;ARM64;AnyCPU</Platforms>
   </PropertyGroup>
 
   <PropertyGroup>
-    <DocumentationFile>C:\Users\Tolik\OneDrive\Documents\Projects\SharpHook\SharpHook\SharpHook.xml</DocumentationFile>
+    <DocumentationFile>$(ProjectDir)SharpHook.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -39,4 +41,196 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="build/SharpHook.targets">
+      <PackagePath>build/</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\linux-x64\libuiohook.so">
+      <PackagePath>runtimes/linux-x64/native/libuiohook.so</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\linux-x64\libuiohook.so.1">
+      <PackagePath>runtimes/linux-x64/native/libuiohook.so.1</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\linux-x64\libuiohook.so.1.2.0">
+      <PackagePath>runtimes/linux-x64/native/libuiohook.so.1.2.0</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\linux-arm\libuiohook.so">
+      <PackagePath>runtimes/linux-arm/native/libuiohook.so</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\linux-arm\libuiohook.so.1">
+      <PackagePath>runtimes/linux-arm/native/libuiohook.so.1</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\linux-arm\libuiohook.so.1.2.0">
+      <PackagePath>runtimes/linux-arm/native/libuiohook.so.1.2.0</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\linux-arm64\libuiohook.so">
+      <PackagePath>runtimes/linux-arm64/native/libuiohook.so</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\linux-arm64\libuiohook.so.1">
+      <PackagePath>runtimes/linux-arm64/native/libuiohook.so.1</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\linux-arm64\libuiohook.so.1.2.0">
+      <PackagePath>runtimes/linux-arm64/native/libuiohook.so.1.2.0</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\osx-x64\libuiohook.dylib">
+      <PackagePath>runtimes/osx-x64/native/libuiohook.dylib</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\osx-x64\libuiohook.1.dylib">
+      <PackagePath>runtimes/osx-x64/native/libuiohook.1.dylib</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\osx-x64\libuiohook.1.2.0.dylib">
+      <PackagePath>runtimes/osx-x64/native/libuiohook.1.2.0.dylib</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\osx-arm64\libuiohook.dylib">
+      <PackagePath>runtimes/osx-arm64/native/libuiohook.dylib</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\osx-arm64\libuiohook.1.dylib">
+      <PackagePath>runtimes/osx-arm64/native/libuiohook.1.dylib</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\osx-arm64\libuiohook.1.2.0.dylib">
+      <PackagePath>runtimes/osx-arm64/native/libuiohook.1.2.0.dylib</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\win-x86\uiohook.dll">
+      <PackagePath>runtimes/win-x86/native/uiohook.dll</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\win-x64\uiohook.dll">
+      <PackagePath>runtimes/win-x64/native/uiohook.dll</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\win-arm\uiohook.dll">
+      <PackagePath>runtimes/win-arm/native/uiohook.dll</PackagePath>
+      <Pack>True</Pack>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows')) And '$(Platform)' == 'x86'">
+    <ContentWithTargetPath Include="lib\win-x84\uiohook.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>uiohook.dll</TargetPath>
+      <Pack>False</Pack>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
+  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows')) And '$(Platform)' == 'x64'">
+    <ContentWithTargetPath Include="lib\win-x64\uiohook.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>uiohook.dll</TargetPath>
+      <Pack>False</Pack>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
+  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows')) And '$(Platform)' == 'ARM32'">
+    <ContentWithTargetPath Include="lib\win-arm\uiohook.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>uiohook.dll</TargetPath>
+      <Pack>False</Pack>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
+  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('OSX')) And '$(Platform)' == 'x64'">
+    <ContentWithTargetPath Include="lib\osx-x64\libuiohook.dylib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>libuiohook.dylib</TargetPath>
+      <Pack>False</Pack>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="lib\osx-x64\libuiohook.1.dylib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>libuiohook.1.dylib</TargetPath>
+      <Pack>False</Pack>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="lib\osx-x64\libuiohook.1.2.0.dylib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>libuiohook.1.2.0.dylib</TargetPath>
+      <Pack>False</Pack>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
+  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('OSX')) And '$(Platform)' == 'ARM64'">
+    <ContentWithTargetPath Include="lib\osx-arm64\libuiohook.dylib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>libuiohook.dylib</TargetPath>
+      <Pack>False</Pack>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="lib\osx-arm64\libuiohook.1.dylib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>libuiohook.1.dylib</TargetPath>
+      <Pack>False</Pack>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="lib\osx-arm64\libuiohook.1.2.0.dylib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>libuiohook.1.2.0.dylib</TargetPath>
+      <Pack>False</Pack>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
+  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Linux')) And '$(Platform)' == 'x64'">
+    <ContentWithTargetPath Include="lib\linux-x64\libuiohook.so">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>libuiohook.so</TargetPath>
+      <Pack>False</Pack>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="lib\linux-x64\libuiohook.so.1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>libuiohook.so.1</TargetPath>
+      <Pack>False</Pack>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="lib\linux-x64\libuiohook.so.1.2.0">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>libuiohook.so.1.2.0</TargetPath>
+      <Pack>False</Pack>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
+  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Linux')) And '$(Platform)' == 'ARM32'">
+    <ContentWithTargetPath Include="lib\linux-arm\libuiohook.so">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>libuiohook.so</TargetPath>
+      <Pack>False</Pack>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="lib\linux-arm\libuiohook.so.1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>libuiohook.so.1</TargetPath>
+      <Pack>False</Pack>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="lib\linux-arm\libuiohook.so.1.2.0">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>libuiohook.so.1.2.0</TargetPath>
+      <Pack>False</Pack>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
+  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Linux')) And '$(Platform)' == 'ARM64'">
+    <ContentWithTargetPath Include="lib\linux-arm64\libuiohook.so">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>libuiohook.so</TargetPath>
+      <Pack>False</Pack>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="lib\linux-arm64\libuiohook.so.1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>libuiohook.so.1</TargetPath>
+      <Pack>False</Pack>
+    </ContentWithTargetPath>
+    <ContentWithTargetPath Include="lib\linux-arm64\libuiohook.so.1.2.0">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>libuiohook.so.1.2.0</TargetPath>
+      <Pack>False</Pack>
+    </ContentWithTargetPath>
+  </ItemGroup>
 </Project>
