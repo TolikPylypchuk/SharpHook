@@ -42,10 +42,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="build/SharpHook.targets">
-      <PackagePath>build/</PackagePath>
-      <Pack>True</Pack>
-    </None>
     <None Include="lib\linux-x64\libuiohook.so">
       <PackagePath>runtimes/linux-x64/native/libuiohook.so</PackagePath>
       <Pack>True</Pack>
