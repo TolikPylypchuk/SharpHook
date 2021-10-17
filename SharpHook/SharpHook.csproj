@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netcoreapp3.1;net5.0;net461</TargetFrameworks>
+    <Platforms>x86;x64;ARM32;ARM64;AnyCPU</Platforms>
     <RuntimeIdentifiers>win-x86;win-x64;win-arm;osx-x64;osx-arm64;linux-x64;linux-arm;linux-arm64</RuntimeIdentifiers>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
@@ -17,7 +18,6 @@
     <PackageIcon>icon.png</PackageIcon>
     <PackageIconUrl />
     <Description>A library which provides a cross-platform global keyboard and mouse hook for .NET</Description>
-    <Platforms>x86;x64;ARM32;ARM64;AnyCPU</Platforms>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -33,7 +33,7 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-    <None Include="icon.png">
+    <None Include="..\icon.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>

@@ -10,11 +10,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
+		icon.png = icon.png
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpHook.Sample", "SharpHook.Sample\SharpHook.Sample.csproj", "{FC6E4575-AEBD-480B-A3CD-FDF4252774B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpHook.Reactive", "SharpHook.Reactive\SharpHook.Reactive.csproj", "{0D5ED184-523C-48E7-9054-6BE4F7CA7D68}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -70,6 +73,26 @@ Global
 		{FC6E4575-AEBD-480B-A3CD-FDF4252774B6}.Release|x64.Build.0 = Release|x64
 		{FC6E4575-AEBD-480B-A3CD-FDF4252774B6}.Release|x86.ActiveCfg = Release|x86
 		{FC6E4575-AEBD-480B-A3CD-FDF4252774B6}.Release|x86.Build.0 = Release|x86
+		{0D5ED184-523C-48E7-9054-6BE4F7CA7D68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D5ED184-523C-48E7-9054-6BE4F7CA7D68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D5ED184-523C-48E7-9054-6BE4F7CA7D68}.Debug|ARM32.ActiveCfg = Debug|Any CPU
+		{0D5ED184-523C-48E7-9054-6BE4F7CA7D68}.Debug|ARM32.Build.0 = Debug|Any CPU
+		{0D5ED184-523C-48E7-9054-6BE4F7CA7D68}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{0D5ED184-523C-48E7-9054-6BE4F7CA7D68}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{0D5ED184-523C-48E7-9054-6BE4F7CA7D68}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0D5ED184-523C-48E7-9054-6BE4F7CA7D68}.Debug|x64.Build.0 = Debug|Any CPU
+		{0D5ED184-523C-48E7-9054-6BE4F7CA7D68}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0D5ED184-523C-48E7-9054-6BE4F7CA7D68}.Debug|x86.Build.0 = Debug|Any CPU
+		{0D5ED184-523C-48E7-9054-6BE4F7CA7D68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D5ED184-523C-48E7-9054-6BE4F7CA7D68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D5ED184-523C-48E7-9054-6BE4F7CA7D68}.Release|ARM32.ActiveCfg = Release|Any CPU
+		{0D5ED184-523C-48E7-9054-6BE4F7CA7D68}.Release|ARM32.Build.0 = Release|Any CPU
+		{0D5ED184-523C-48E7-9054-6BE4F7CA7D68}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{0D5ED184-523C-48E7-9054-6BE4F7CA7D68}.Release|ARM64.Build.0 = Release|Any CPU
+		{0D5ED184-523C-48E7-9054-6BE4F7CA7D68}.Release|x64.ActiveCfg = Release|Any CPU
+		{0D5ED184-523C-48E7-9054-6BE4F7CA7D68}.Release|x64.Build.0 = Release|Any CPU
+		{0D5ED184-523C-48E7-9054-6BE4F7CA7D68}.Release|x86.ActiveCfg = Release|Any CPU
+		{0D5ED184-523C-48E7-9054-6BE4F7CA7D68}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
