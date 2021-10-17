@@ -21,6 +21,7 @@ namespace SharpHook.Native
         /// Sets the hook callback function.
         /// </summary>
         /// <param name="dispatchProc">The function to call when an event is raised.</param>
+        /// <seealso cref="DispatchProc" />
         [DllImport(LibUioHook, EntryPoint = "hook_set_dispatch_proc")]
         public static extern void SetDispatchProc(DispatchProc dispatchProc);
 
@@ -28,6 +29,7 @@ namespace SharpHook.Native
         /// Runs the global hook and blocks the thread until it's stopped.
         /// </summary>
         /// <returns>The result of the operation.</returns>
+        /// <seealso cref="Stop" />
         [DllImport(LibUioHook, EntryPoint = "hook_run")]
         public static extern UioHookResult Run();
 
@@ -35,6 +37,7 @@ namespace SharpHook.Native
         /// Stops the global hook.
         /// </summary>
         /// <returns>The result of the operation.</returns>
+        /// <seealso cref="Run" />
         [DllImport(LibUioHook, EntryPoint = "hook_stop")]
         public static extern UioHookResult Stop();
 
@@ -43,8 +46,13 @@ namespace SharpHook.Native
         /// </summary>
         /// <param name="count">The number of screens.</param>
         /// <returns>
-        /// The information about screens as an unmanaged array whose length is returned as <paramref name="count" />.
+        /// The information about screens as an unmanaged array of <see cref="ScreenData" /> whose length is returned
+        /// as <paramref name="count" />.
         /// </returns>
+        /// <remarks>
+        /// You should use <see cref="CreateScreenInfo()" /> instead as it returns a managed array.
+        /// </remarks>
+        /// <seealso cref="CreateScreenInfo()" />
         [DllImport(LibUioHook, EntryPoint = "hook_create_screen_info")]
         public static extern IntPtr CreateScreenInfo(out byte count);
 
@@ -55,6 +63,7 @@ namespace SharpHook.Native
         /// <remarks>
         /// This is the safe version of <see cref="CreateScreenInfo(out byte)" /> as it returns a managed array.
         /// </remarks>
+        /// <seealso cref="CreateScreenInfo(out byte)" />
         public static ScreenData[] CreateScreenInfo()
         {
             var screens = CreateScreenInfo(out byte count);

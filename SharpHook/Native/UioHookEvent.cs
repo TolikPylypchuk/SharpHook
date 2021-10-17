@@ -1,6 +1,8 @@
 using System;
 using System.Runtime.InteropServices;
 
+using SharpHook.Internal;
+
 namespace SharpHook.Native
 {
     /// <summary>
@@ -112,7 +114,7 @@ namespace SharpHook.Native
                     EventType.MouseReleased => this.Mouse == e.Mouse,
                     EventType.MouseMoved => this.Mouse == e.Mouse,
                     EventType.MouseWheel => this.Wheel == e.Wheel,
-                    _ => true,
+                    _ => true
                 };
 
         /// <summary>
@@ -120,7 +122,26 @@ namespace SharpHook.Native
         /// </summary>
         /// <returns>The hash code of this object.</returns>
         public override int GetHashCode() =>
-            HashCode.Combine(this.Type, this.Time, this.Mask, this.Reserved, this.Keyboard, this.Mouse, this.Wheel);
+            this.Type switch
+            {
+                EventType.KeyTyped => HashCodeUtil.GetHashCode(
+                    this.Type, this.Time, this.Mask, this.Reserved, this.Keyboard),
+                EventType.KeyPressed => HashCodeUtil.GetHashCode(
+                    this.Type, this.Time, this.Mask, this.Reserved, this.Keyboard),
+                EventType.KeyReleased => HashCodeUtil.GetHashCode(
+                    this.Type, this.Time, this.Mask, this.Reserved, this.Keyboard),
+                EventType.MouseClicked => HashCodeUtil.GetHashCode(
+                    this.Type, this.Time, this.Mask, this.Reserved, this.Mouse),
+                EventType.MousePressed => HashCodeUtil.GetHashCode(
+                    this.Type, this.Time, this.Mask, this.Reserved, this.Mouse),
+                EventType.MouseReleased => HashCodeUtil.GetHashCode(
+                    this.Type, this.Time, this.Mask, this.Reserved, this.Mouse),
+                EventType.MouseMoved => HashCodeUtil.GetHashCode(
+                    this.Type, this.Time, this.Mask, this.Reserved, this.Mouse),
+                EventType.MouseWheel => HashCodeUtil.GetHashCode(
+                    this.Type, this.Time, this.Mask, this.Reserved, this.Wheel),
+                _ => 1
+            };
 
         /// <summary>
         /// Returns the string representation of this object.

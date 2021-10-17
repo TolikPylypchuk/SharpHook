@@ -1,6 +1,8 @@
 using System;
 using System.Runtime.InteropServices;
 
+using SharpHook.Internal;
+
 namespace SharpHook.Native
 {
     /// <summary>
@@ -53,7 +55,7 @@ namespace SharpHook.Native
         /// </summary>
         /// <returns>The hash code of this object.</returns>
         public override int GetHashCode() =>
-            HashCode.Combine(this.KeyCode, this.RawCode, this.KeyChar);
+            HashCodeUtil.GetHashCode(this.KeyCode, this.RawCode, this.KeyChar);
 
         /// <summary>
         /// Returns the string representation of this object.
