@@ -14,6 +14,8 @@
     <RepositoryUrl>https://github.com/TolikPylypchuk/SharpHook</RepositoryUrl>
     <PackageProjectUrl>https://github.com/TolikPylypchuk/SharpHook</PackageProjectUrl>
     <PackageTags>hook global-hook libuiohook</PackageTags>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageIconUrl />
     <Description>A library which provides a cross-platform global keyboard and mouse hook for .NET</Description>
     <Platforms>x86;x64;ARM32;ARM64;AnyCPU</Platforms>
   </PropertyGroup>
@@ -36,6 +38,10 @@
 
   <ItemGroup>
     <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="icon.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
