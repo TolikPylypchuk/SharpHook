@@ -1,3 +1,5 @@
+using System;
+
 using SharpHook.Native;
 
 namespace SharpHook
@@ -5,7 +7,7 @@ namespace SharpHook
     /// <summary>
     /// A base class for event args related to the global hook.
     /// </summary>
-    public class HookEventArgs
+    public class HookEventArgs : EventArgs
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="HookEventArgs" /> class.

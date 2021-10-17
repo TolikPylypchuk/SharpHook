@@ -1,7 +1,9 @@
 using System;
+using System.Reactive.Linq;
 using System.Threading.Tasks;
 
 using SharpHook.Native;
+using SharpHook.Reactive;
 
 namespace SharpHook.Sample
 {
@@ -38,25 +40,31 @@ namespace SharpHook.Sample
             Console.WriteLine();
         }
 
-        private static IGlobalHook CreateHook()
+        private static IReactiveGlobalHook CreateHook()
         {
-            var hook = new TaskPoolGlobalHook();
+            var hook = new SimpleReactiveGlobalHook();
 
-            hook.HookEnabled += OnHookEvent;
-            hook.HookDisabled += OnHookEvent;
+            hook.HookEnabled.Subscribe(e => OnHookEvent(e.Sender, e.Args));
+            hook.HookDisabled.Subscribe(e => OnHookEvent(e.Sender, e.Args));
 
-            hook.KeyTyped += OnHookEvent;
-            hook.KeyPressed += OnHookEvent;
-            hook.KeyReleased += OnHookEvent;
-            hook.KeyReleased += OnKeyReleased;
+            hook.KeyTyped.Subscribe(e => OnHookEvent(e.Sender, e.Args));
+            hook.KeyPressed.Subscribe(e => OnHookEvent(e.Sender, e.Args));
+            hook.KeyReleased.Subscribe(e => OnHookEvent(e.Sender, e.Args));
+            hook.KeyReleased.Subscribe(e => OnKeyReleased(e.Sender, e.Args));
 
-            hook.MouseClicked += OnHookEvent;
-            hook.MousePressed += OnHookEvent;
-            hook.MouseReleased += OnHookEvent;
-            hook.MouseMoved += OnHookEvent;
-            hook.MouseDragged += OnHookEvent;
+            hook.MouseClicked.Subscribe(e => OnHookEvent(e.Sender, e.Args));
+            hook.MousePressed.Subscribe(e => OnHookEvent(e.Sender, e.Args));
+            hook.MouseReleased.Subscribe(e => OnHookEvent(e.Sender, e.Args));
 
-            hook.MouseWheel += OnHookEvent;
+            hook.MouseMoved
+                .Throttle(TimeSpan.FromSeconds(1))
+                .Subscribe(e => OnHookEvent(e.Sender, e.Args));
+
+            hook.MouseDragged
+                .Throttle(TimeSpan.FromSeconds(1))
+                .Subscribe(e => OnHookEvent(e.Sender, e.Args));
+
+            hook.MouseWheel.Subscribe(e => OnHookEvent(e.Sender, e.Args));
 
             return hook;
         }
@@ -66,9 +74,9 @@ namespace SharpHook.Sample
 
         private static void OnKeyReleased(object? sender, KeyboardHookEventArgs e)
         {
-            if (e.Data.KeyCode == KeyCode.VcQ && sender is IGlobalHook hook)
+            if (e.Data.KeyCode == KeyCode.VcQ && sender is IDisposable disposable)
             {
-                hook.Dispose();
+                disposable.Dispose();
             }
         }
     }
