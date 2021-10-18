@@ -9,27 +9,32 @@ namespace SharpHook.Native
     /// Represents the data of a mouse-related event.
     /// </summary>
     /// <seealso cref="MouseHookEventArgs" />
+    /// <seealso cref="MouseButton" />
     [StructLayout(LayoutKind.Sequential)]
     public struct MouseEventData : IEquatable<MouseEventData>
     {
         /// <summary>
         /// The mouse button.
         /// </summary>
+        /// <value>The mouse button.</value>
         public MouseButton Button;
 
         /// <summary>
         /// The number of clicks.
         /// </summary>
+        /// <value>The number of clicks.</value>
         public ushort Clicks;
 
         /// <summary>
         /// The X-coordinate of the mouse cursor.
         /// </summary>
+        /// <value>The X-coordinate of the mouse cursor.</value>
         public short X;
 
         /// <summary>
         /// The Y-coordinate of the mouse cursor.
         /// </summary>
+        /// <value>The Y-coordinate of the mouse cursor.</value>
         public short Y;
 
         /// <summary>
@@ -37,7 +42,7 @@ namespace SharpHook.Native
         /// </summary>
         /// <param name="obj">The object to compare</param>
         /// <returns>
-        /// <see langword="true" /> if and only if the objects are equal. Otherwise, <see langword="false" />.
+        /// <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
         /// </returns>
         public override bool Equals(object? obj) =>
             obj is MouseEventData data && this.Equals(data);
@@ -47,7 +52,7 @@ namespace SharpHook.Native
         /// </summary>
         /// <param name="data">The object to compare</param>
         /// <returns>
-        /// <see langword="true" /> if and only if the objects are equal. Otherwise, <see langword="false" />.
+        /// <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
         /// </returns>
         public bool Equals(MouseEventData data) =>
             this.Button == data.Button &&
@@ -76,7 +81,7 @@ namespace SharpHook.Native
         /// <param name="left">The first object to compare</param>
         /// <param name="right">The second object to compare</param>
         /// <returns>
-        /// <see langword="true" /> if and only if the objects are equal. Otherwise, <see langword="false" />.
+        /// <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
         /// </returns>
         public static bool operator ==(MouseEventData left, MouseEventData right) =>
             left.Equals(right);
@@ -87,7 +92,7 @@ namespace SharpHook.Native
         /// <param name="left">The first object to compare</param>
         /// <param name="right">The second object to compare</param>
         /// <returns>
-        /// <see langword="true" /> if and only if the objects are not equal. Otherwise, <see langword="false" />.
+        /// <see langword="true" /> if the objects are not equal. Otherwise, <see langword="false" />.
         /// </returns>
         public static bool operator !=(MouseEventData left, MouseEventData right) =>
             !(left == right);

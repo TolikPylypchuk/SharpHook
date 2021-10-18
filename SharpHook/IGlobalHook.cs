@@ -6,6 +6,9 @@ namespace SharpHook
     /// <summary>
     /// Represents a global keyboard and mouse hook.
     /// </summary>
+    /// <seealso cref="GlobalHookBase" />
+    /// <seealso cref="SimpleGlobalHook" />
+    /// <seealso cref="TaskPoolGlobalHook" />
     public interface IGlobalHook : IDisposable
     {
         /// <summary>

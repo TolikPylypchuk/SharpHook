@@ -3,6 +3,7 @@ namespace SharpHook.Native
     /// <summary>
     /// Represents a result of an operation of libuiohook.
     /// </summary>
+    /// <seealso cref="UioHook" />
     public enum UioHookResult
     {
         Success = 0x00,

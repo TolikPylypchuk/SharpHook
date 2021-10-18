@@ -16,6 +16,10 @@ namespace SharpHook
     /// the <see cref="IDisposable.Dispose()" /> method since at that point it doesn't matter anymore that the hook is
     /// not blocked.
     /// </remarks>
+    /// <seealso cref="IGlobalHook" />
+    /// <seealso cref="GlobalHookBase" />
+    /// <seealso cref="SimpleGlobalHook" />
+    /// <seealso cref="TaskPoolGlobalHookOptions" />
     public sealed class TaskPoolGlobalHook : GlobalHookBase
     {
         private readonly TaskQueue taskQueue;

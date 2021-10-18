@@ -9,22 +9,26 @@ namespace SharpHook.Native
     /// Represents the data of a keyboard-related event.
     /// </summary>
     /// <seealso cref="KeyboardHookEventArgs" />
+    /// <seealso cref="Native.KeyCode" />
     [StructLayout(LayoutKind.Sequential)]
     public struct KeyboardEventData : IEquatable<KeyboardEventData>
     {
         /// <summary>
         /// The key code.
         /// </summary>
+        /// <value>The key code.</value>
         public KeyCode KeyCode;
 
         /// <summary>
         /// The raw key code.
         /// </summary>
+        /// <value>The raw key code.</value>
         public ushort RawCode;
 
         /// <summary>
         /// The character of the key.
         /// </summary>
+        /// <value>The character of the key.</value>
         /// <remarks>This field is available only for the <see cref="EventType.KeyTyped" /> event.</remarks>
         public char KeyChar;
 
@@ -33,7 +37,7 @@ namespace SharpHook.Native
         /// </summary>
         /// <param name="obj">The object to compare</param>
         /// <returns>
-        /// <see langword="true" /> if and only if the objects are equal. Otherwise, <see langword="false" />.
+        /// <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
         /// </returns>
         public override bool Equals(object? obj) =>
             obj is KeyboardEventData data && this.Equals(data);
@@ -43,7 +47,7 @@ namespace SharpHook.Native
         /// </summary>
         /// <param name="data">The object to compare</param>
         /// <returns>
-        /// <see langword="true" /> if and only if the objects are equal. Otherwise, <see langword="false" />.
+        /// <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
         /// </returns>
         public bool Equals(KeyboardEventData data) =>
             this.KeyCode == data.KeyCode &&
@@ -71,7 +75,7 @@ namespace SharpHook.Native
         /// <param name="left">The first object to compare</param>
         /// <param name="right">The second object to compare</param>
         /// <returns>
-        /// <see langword="true" /> if and only if the objects are equal. Otherwise, <see langword="false" />.
+        /// <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
         /// </returns>
         public static bool operator ==(KeyboardEventData left, KeyboardEventData right) =>
             left.Equals(right);
@@ -82,7 +86,7 @@ namespace SharpHook.Native
         /// <param name="left">The first object to compare</param>
         /// <param name="right">The second object to compare</param>
         /// <returns>
-        /// <see langword="true" /> if and only if the objects are not equal. Otherwise, <see langword="false" />.
+        /// <see langword="true" /> if the objects are not equal. Otherwise, <see langword="false" />.
         /// </returns>
         public static bool operator !=(KeyboardEventData left, KeyboardEventData right) =>
             !(left == right);

@@ -137,6 +137,7 @@ namespace SharpHook.Reactive
         /// <summary>
         /// Gets an observable which emits a value when the global hook is enabled.
         /// </summary>
+        /// <value>An observable which emits a value when the global hook is enabled.</value>
         /// <remarks>
         /// The observable emits a value when the <see cref="Start" /> method is called and then immediately completes.
         /// </remarks>
@@ -145,6 +146,7 @@ namespace SharpHook.Reactive
         /// <summary>
         /// Gets an observable which emits a value when the global hook is disabled.
         /// </summary>
+        /// <value>An observable which emits a value when the global hook is disabled.</value>
         /// <remarks>
         /// The observable emits a value when the <see cref="IDisposable.Dispose" /> method is called and then
         /// immediately completes.
@@ -154,46 +156,55 @@ namespace SharpHook.Reactive
         /// <summary>
         /// Gets an observable which emits a value when a key is typed.
         /// </summary>
+        /// <value>An observable which emits a value when a key is typed.</value>
         public IObservable<HookEvent<KeyboardHookEventArgs>> KeyTyped { get; }
 
         /// <summary>
         /// Gets an observable which emits a value when a key is pressed.
         /// </summary>
+        /// <value>An observable which emits a value when a key is pressed.</value>
         public IObservable<HookEvent<KeyboardHookEventArgs>> KeyPressed { get; }
 
         /// <summary>
         /// Gets an observable which emits a value when a key is released.
         /// </summary>
+        /// <value>An observable which emits a value when a key is released.</value>
         public IObservable<HookEvent<KeyboardHookEventArgs>> KeyReleased { get; }
 
         /// <summary>
         /// Gets an observable which emits a value when a mouse button is clicked.
         /// </summary>
+        /// <value>An observable which emits a value when a mouse button is clicked.</value>
         public IObservable<HookEvent<MouseHookEventArgs>> MouseClicked { get; }
 
         /// <summary>
         /// Gets an observable which emits a value when a mouse button is pressed.
         /// </summary>
+        /// <value>An observable which emits a value when a mouse button is pressed.</value>
         public IObservable<HookEvent<MouseHookEventArgs>> MousePressed { get; }
 
         /// <summary>
         /// Gets an observable which emits a value when a mouse button is released.
         /// </summary>
+        /// <value>An observable which emits a value when a mouse button is released.</value>
         public IObservable<HookEvent<MouseHookEventArgs>> MouseReleased { get; }
 
         /// <summary>
         /// Gets an observable which emits a value when the mouse cursor is moved.
         /// </summary>
+        /// <value>An observable which emits a value when the mouse cursor is moved.</value>
         public IObservable<HookEvent<MouseHookEventArgs>> MouseMoved { get; }
 
         /// <summary>
         /// Gets an observable which emits a value when the mouse cursor is dragged.
         /// </summary>
+        /// <value>An observable which emits a value when the mouse cursor is dragged.</value>
         public IObservable<HookEvent<MouseHookEventArgs>> MouseDragged { get; }
 
         /// <summary>
         /// Gets an observable which emits a value when the mouse wheel is scrolled.
         /// </summary>
+        /// <value>An observable which emits a value when the mouse wheel is scrolled.</value>
         public IObservable<HookEvent<MouseWheelHookEventArgs>> MouseWheel { get; }
 
         /// <summary>
@@ -231,6 +242,7 @@ namespace SharpHook.Reactive
             if (disposing)
             {
                 this.hook.Dispose();
+                this.subscriptions.Dispose();
             }
 
             if (!this.disposed)

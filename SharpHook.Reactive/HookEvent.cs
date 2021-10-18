@@ -5,7 +5,8 @@ namespace SharpHook.Reactive
     /// <summary>
     /// Represents an event which is raised by <see cref="IReactiveGlobalHook" />.
     /// </summary>
-    /// <typeparam name="TArgs">The type of the event's data.</typeparam>
+    /// <typeparam name="TArgs">The type of the event data.</typeparam>
+    /// <seealso cref="IReactiveGlobalHook" />
     public sealed class HookEvent<TArgs>
         where TArgs : HookEventArgs
     {
@@ -20,7 +21,16 @@ namespace SharpHook.Reactive
             this.Args = args;
         }
 
+        /// <summary>
+        /// Gets the sender of the event.
+        /// </summary>
+        /// <value>The sender of the event.</value>
         public object? Sender { get; }
+
+        /// <summary>
+        /// Gets the event data.
+        /// </summary>
+        /// <value>The event data.</value>
         public TArgs Args { get; }
     }
 

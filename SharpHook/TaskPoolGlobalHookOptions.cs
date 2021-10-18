@@ -3,6 +3,7 @@ namespace SharpHook
     /// <summary>
     /// Represents options for <see cref="TaskPoolGlobalHook" />.
     /// </summary>
+    /// <seealso cref="TaskPoolGlobalHook" />
     public sealed class TaskPoolGlobalHookOptions
     {
         /// <summary>
@@ -20,6 +21,7 @@ namespace SharpHook
         /// <summary>
         /// Gets the configured parallelism level of the event handlers.
         /// </summary>
+        /// <value>The parallelism level of the event handlers.</value>
         public int ParallelismLevel { get; }
     }
 }

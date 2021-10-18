@@ -14,26 +14,31 @@ namespace SharpHook.Native
         /// <summary>
         /// The ordinal number of the screen.
         /// </summary>
+        /// <value>The ordinal number of the screen.</value>
         public byte Number;
 
         /// <summary>
         /// The X-coordinate of the screen.
         /// </summary>
+        /// <value>The X-coordinate of the screen.</value>
         public short X;
 
         /// <summary>
         /// The Y-coordinate of the screen.
         /// </summary>
+        /// <value>The Y-coordinate of the screen.</value>
         public short Y;
 
         /// <summary>
         /// The width of the screen.
         /// </summary>
+        /// <value>The width of the screen.</value>
         public ushort Width;
 
         /// <summary>
         /// The height of the screen.
         /// </summary>
+        /// <value>The height of the screen.</value>
         public ushort Height;
 
         /// <summary>
@@ -41,7 +46,7 @@ namespace SharpHook.Native
         /// </summary>
         /// <param name="obj">The object to compare</param>
         /// <returns>
-        /// <see langword="true" /> if and only if the objects are equal. Otherwise, <see langword="false" />.
+        /// <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
         /// </returns>
         public override bool Equals(object? obj) =>
             obj is ScreenData data && this.Equals(data);
@@ -51,7 +56,7 @@ namespace SharpHook.Native
         /// </summary>
         /// <param name="data">The object to compare</param>
         /// <returns>
-        /// <see langword="true" /> if and only if the objects are equal. Otherwise, <see langword="false" />.
+        /// <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
         /// </returns>
         public bool Equals(ScreenData data) =>
             this.Number == data.Number &&
@@ -81,7 +86,7 @@ namespace SharpHook.Native
         /// <param name="left">The first object to compare</param>
         /// <param name="right">The second object to compare</param>
         /// <returns>
-        /// <see langword="true" /> if and only if the objects are equal. Otherwise, <see langword="false" />.
+        /// <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
         /// </returns>
         public static bool operator ==(ScreenData left, ScreenData right) =>
             left.Equals(right);
@@ -92,7 +97,7 @@ namespace SharpHook.Native
         /// <param name="left">The first object to compare</param>
         /// <param name="right">The second object to compare</param>
         /// <returns>
-        /// <see langword="true" /> if and only if the objects are not equal. Otherwise, <see langword="false" />.
+        /// <see langword="true" /> if the objects are not equal. Otherwise, <see langword="false" />.
         /// </returns>
         public static bool operator !=(ScreenData left, ScreenData right) =>
             !(left == right);

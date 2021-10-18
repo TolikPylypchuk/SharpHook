@@ -12,6 +12,9 @@ namespace SharpHook
     /// Represents an abstract implementation of <see cref="IGlobalHook" /> which runs the hook on a separate thread and
     /// raises events only when there is at least one subscriber.
     /// </summary>
+    /// <seealso cref="IGlobalHook" />
+    /// <seealso cref="SimpleGlobalHook" />
+    /// <seealso cref="TaskPoolGlobalHook" />
     public abstract class GlobalHookBase : IGlobalHook
     {
         private bool disposed = false;
@@ -218,10 +221,6 @@ namespace SharpHook
         /// <see langword="true" /> if the method is called from the <see cref="Dispose()" /> method.
         /// Otherwise, <see langword="false" />.
         /// </param>
-        /// <remarks>
-        /// After calling this method, the hook cannot be started again. If you want to do that, create a new instance
-        /// of <see cref="IGlobalHook" />.
-        /// </remarks>
         /// <exception cref="HookException">Stopping the hook has failed.</exception>
         protected virtual void Dispose(bool disposing)
         {

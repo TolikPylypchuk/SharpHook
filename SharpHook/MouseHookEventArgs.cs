@@ -5,6 +5,10 @@ namespace SharpHook
     /// <summary>
     /// Event args for mouse-related hook events.
     /// </summary>
+    /// <seealso cref="HookEventArgs" />
+    /// <seealso cref="KeyboardHookEventArgs" />
+    /// <seealso cref="MouseWheelHookEventArgs" />
+    /// <seealso cref="MouseEventData" />
     public sealed class MouseHookEventArgs : HookEventArgs
     {
         /// <summary>
@@ -16,8 +20,9 @@ namespace SharpHook
             this.Data = rawEvent.Mouse;
 
         /// <summary>
-        /// The event data.
+        /// Gets the event data.
         /// </summary>
+        /// <value>The event data.</value>
         public MouseEventData Data { get; }
     }
 }

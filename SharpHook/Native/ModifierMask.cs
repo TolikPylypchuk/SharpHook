@@ -5,6 +5,7 @@ namespace SharpHook.Native
     /// <summary>
     /// Represents a virtual modifier mask.
     /// </summary>
+    /// <seealso cref="UioHookEvent" />
     [Flags]
     public enum ModifierMask : ushort
     {

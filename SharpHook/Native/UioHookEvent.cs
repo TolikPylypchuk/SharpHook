@@ -15,70 +15,82 @@ namespace SharpHook.Native
     /// <para>
     /// The <see cref="Keyboard" /> field is available for the events of the following types:
     /// <list type="bullet">
-    /// <item><see cref="EventType.KeyTyped" /></item>
-    /// <item><see cref="EventType.KeyPressed" /></item>
-    /// <item><see cref="EventType.KeyReleased" /></item>
+    /// <item><description><see cref="EventType.KeyTyped" /></description></item>
+    /// <item><description><see cref="EventType.KeyPressed" /></description></item>
+    /// <item><description><see cref="EventType.KeyReleased" /></description></item>
     /// </list>
     /// </para>
     /// <para>
     /// The <see cref="Mouse" /> field is available for the events of the following types:
     /// <list type="bullet">
-    /// <item><see cref="EventType.MouseClicked" /></item>
-    /// <item><see cref="EventType.MousePressed" /></item>
-    /// <item><see cref="EventType.MouseReleased" /></item>
-    /// <item><see cref="EventType.MouseMoved" /></item>
-    /// <item><see cref="EventType.MouseDragged" /></item>
+    /// <item><description><see cref="EventType.MouseClicked" /></description></item>
+    /// <item><description><see cref="EventType.MousePressed" /></description></item>
+    /// <item><description><see cref="EventType.MouseReleased" /></description></item>
+    /// <item><description><see cref="EventType.MouseMoved" /></description></item>
+    /// <item><description><see cref="EventType.MouseDragged" /></description></item>
     /// </list>
     /// </para>
     /// <para>
     /// The <see cref="Wheel" /> field is available for the events of the following type:
     /// <list type="bullet">
-    /// <item><see cref="EventType.MouseWheel" /></item>
+    /// <item><description><see cref="EventType.MouseWheel" /></description></item>
     /// </list>
     /// </para>
     /// </remarks>
+    /// <seealso cref="EventType" />
+    /// <seealso cref="ModifierMask" />
+    /// <seealso cref="KeyboardEventData" />
+    /// <seealso cref="MouseEventData" />
+    /// <seealso cref="MouseWheelEventData" />
     [StructLayout(LayoutKind.Explicit)]
     public struct UioHookEvent : IEquatable<UioHookEvent>
     {
         /// <summary>
         /// The type of the event.
         /// </summary>
+        /// <value>The type of the event.</value>
         [FieldOffset(0)]
         public EventType Type;
 
         /// <summary>
         /// The time of the event.
         /// </summary>
+        /// <value>The time of the event.</value>
         [FieldOffset(8)]
         public ushort Time;
 
         /// <summary>
         /// The mask of the event.
         /// </summary>
+        /// <value>The mask of the event.</value>
         [FieldOffset(16)]
         public ModifierMask Mask;
 
         /// <summary>
         /// The reserved value.
         /// </summary>
+        /// <value>The reserved value.</value>
         [FieldOffset(18)]
         public ushort Reserved;
 
         /// <summary>
         /// The event data if this event is keyboard-related.
         /// </summary>
+        /// <value>The event data if this event is keyboard-related.</value>
         [FieldOffset(20)]
         public KeyboardEventData Keyboard;
 
         /// <summary>
         /// The event data if this event is mouse-related.
         /// </summary>
+        /// <value>The event data if this event is mouse-related.</value>
         [FieldOffset(20)]
         public MouseEventData Mouse;
 
         /// <summary>
         /// The event data if this event is mouse wheel-related.
         /// </summary>
+        /// <value>The event data if this event is mouse wheel-related.</value>
         [FieldOffset(20)]
         public MouseWheelEventData Wheel;
 
@@ -87,7 +99,7 @@ namespace SharpHook.Native
         /// </summary>
         /// <param name="obj">The object to compare</param>
         /// <returns>
-        /// <see langword="true" /> if and only if the objects are equal. Otherwise, <see langword="false" />.
+        /// <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
         /// </returns>
         public override bool Equals(object? obj) =>
             obj is UioHookEvent e && this.Equals(e);
@@ -97,7 +109,7 @@ namespace SharpHook.Native
         /// </summary>
         /// <param name="e">The object to compare</param>
         /// <returns>
-        /// <see langword="true" /> if and only if the objects are equal. Otherwise, <see langword="false" />.
+        /// <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
         /// </returns>
         public bool Equals(UioHookEvent e) =>
             this.Type == e.Type &&
@@ -169,7 +181,7 @@ namespace SharpHook.Native
         /// <param name="left">The first object to compare</param>
         /// <param name="right">The second object to compare</param>
         /// <returns>
-        /// <see langword="true" /> if and only if the objects are equal. Otherwise, <see langword="false" />.
+        /// <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
         /// </returns>
         public static bool operator ==(UioHookEvent left, UioHookEvent right) =>
             left.Equals(right);
@@ -180,7 +192,7 @@ namespace SharpHook.Native
         /// <param name="left">The first object to compare</param>
         /// <param name="right">The second object to compare</param>
         /// <returns>
-        /// <see langword="true" /> if and only if the objects are not equal. Otherwise, <see langword="false" />.
+        /// <see langword="true" /> if the objects are not equal. Otherwise, <see langword="false" />.
         /// </returns>
         public static bool operator !=(UioHookEvent left, UioHookEvent right) =>
             !(left == right);

@@ -11,6 +11,9 @@ namespace SharpHook
     /// by libuiohook. If you need to do a lot of processing in the event handlers then consider using another
     /// implementation, e.g. <see cref="TaskPoolGlobalHook" />.
     /// </remarks>
+    /// <seealso cref="IGlobalHook" />
+    /// <seealso cref="GlobalHookBase" />
+    /// <seealso cref="TaskPoolGlobalHook" />
     public sealed class SimpleGlobalHook : GlobalHookBase
     {
         /// <summary>

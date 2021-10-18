@@ -9,6 +9,9 @@
             Represents an abstract implementation of <see cref="T:SharpHook.IGlobalHook" /> which runs the hook on a separate thread and
             raises events only when there is at least one subscriber.
             </summary>
+            <seealso cref="T:SharpHook.IGlobalHook" />
+            <seealso cref="T:SharpHook.SimpleGlobalHook" />
+            <seealso cref="T:SharpHook.TaskPoolGlobalHook" />
         </member>
         <member name="M:SharpHook.GlobalHookBase.Finalize">
             <summary>
@@ -126,10 +129,6 @@
             <see langword="true" /> if the method is called from the <see cref="M:SharpHook.GlobalHookBase.Dispose" /> method.
             Otherwise, <see langword="false" />.
             </param>
-            <remarks>
-            After calling this method, the hook cannot be started again. If you want to do that, create a new instance
-            of <see cref="T:SharpHook.IGlobalHook" />.
-            </remarks>
             <exception cref="T:SharpHook.HookException">Stopping the hook has failed.</exception>
         </member>
         <member name="M:SharpHook.GlobalHookBase.ThrowIfDisposed(System.String)">
@@ -199,6 +198,10 @@
             <summary>
             A base class for event args related to the global hook.
             </summary>
+            <seealso cref="T:SharpHook.KeyboardHookEventArgs" />
+            <seealso cref="T:SharpHook.MouseHookEventArgs" />
+            <seealso cref="T:SharpHook.Native.MouseWheelEventData" />
+            <seealso cref="T:SharpHook.Native.UioHookEvent" />
         </member>
         <member name="M:SharpHook.HookEventArgs.#ctor(SharpHook.Native.UioHookEvent)">
             <summary>
@@ -208,8 +211,9 @@
         </member>
         <member name="P:SharpHook.HookEventArgs.RawEvent">
             <summary>
-            The raw event data.
+            Gets the raw event data.
             </summary>
+            <value>The raw event data.</value>
         </member>
         <member name="T:SharpHook.HookException">
             <summary>
@@ -273,11 +277,15 @@
             <summary>
             Gets the result of an opetaion which caused this exception.
             </summary>
+            <value>The result of an opetaion which caused this exception.</value>
         </member>
         <member name="T:SharpHook.IGlobalHook">
             <summary>
             Represents a global keyboard and mouse hook.
             </summary>
+            <seealso cref="T:SharpHook.GlobalHookBase" />
+            <seealso cref="T:SharpHook.SimpleGlobalHook" />
+            <seealso cref="T:SharpHook.TaskPoolGlobalHook" />
         </member>
         <member name="M:SharpHook.IGlobalHook.Start">
             <summary>
@@ -346,6 +354,10 @@
             <summary>
             Event args for keyboard-related hook events.
             </summary>
+            <seealso cref="T:SharpHook.HookEventArgs" />
+            <seealso cref="T:SharpHook.MouseHookEventArgs" />
+            <seealso cref="T:SharpHook.MouseWheelHookEventArgs" />
+            <seealso cref="T:SharpHook.Native.KeyboardEventData" />
         </member>
         <member name="M:SharpHook.KeyboardHookEventArgs.#ctor(SharpHook.Native.UioHookEvent)">
             <summary>
@@ -355,13 +367,18 @@
         </member>
         <member name="P:SharpHook.KeyboardHookEventArgs.Data">
             <summary>
-            The event data.
+            Gets the event data.
             </summary>
+            <value>The event data.</value>
         </member>
         <member name="T:SharpHook.MouseHookEventArgs">
             <summary>
             Event args for mouse-related hook events.
             </summary>
+            <seealso cref="T:SharpHook.HookEventArgs" />
+            <seealso cref="T:SharpHook.KeyboardHookEventArgs" />
+            <seealso cref="T:SharpHook.MouseWheelHookEventArgs" />
+            <seealso cref="T:SharpHook.Native.MouseEventData" />
         </member>
         <member name="M:SharpHook.MouseHookEventArgs.#ctor(SharpHook.Native.UioHookEvent)">
             <summary>
@@ -371,13 +388,18 @@
         </member>
         <member name="P:SharpHook.MouseHookEventArgs.Data">
             <summary>
-            The event data.
+            Gets the event data.
             </summary>
+            <value>The event data.</value>
         </member>
         <member name="T:SharpHook.MouseWheelHookEventArgs">
             <summary>
             Event args for mouse wheel-related hook events.
             </summary>
+            <seealso cref="T:SharpHook.HookEventArgs" />
+            <seealso cref="T:SharpHook.KeyboardHookEventArgs" />
+            <seealso cref="T:SharpHook.MouseHookEventArgs" />
+            <seealso cref="T:SharpHook.Native.MouseWheelEventData" />
         </member>
         <member name="M:SharpHook.MouseWheelHookEventArgs.#ctor(SharpHook.Native.UioHookEvent)">
             <summary>
@@ -387,8 +409,9 @@
         </member>
         <member name="P:SharpHook.MouseWheelHookEventArgs.Data">
             <summary>
-            The event data.
+            Gets the event data.
             </summary>
+            <value>The event data.</value>
         </member>
         <member name="T:SharpHook.Native.DispatchProc">
             <summary>
@@ -401,27 +424,32 @@
             <summary>
             The type of the event which can be raised by libuiohook.
             </summary>
+            <seealso cref="T:SharpHook.Native.UioHookEvent" />
         </member>
         <member name="T:SharpHook.Native.KeyboardEventData">
             <summary>
             Represents the data of a keyboard-related event.
             </summary>
             <seealso cref="T:SharpHook.KeyboardHookEventArgs" />
+            <seealso cref="T:SharpHook.Native.KeyCode" />
         </member>
         <member name="F:SharpHook.Native.KeyboardEventData.KeyCode">
             <summary>
             The key code.
             </summary>
+            <value>The key code.</value>
         </member>
         <member name="F:SharpHook.Native.KeyboardEventData.RawCode">
             <summary>
             The raw key code.
             </summary>
+            <value>The raw key code.</value>
         </member>
         <member name="F:SharpHook.Native.KeyboardEventData.KeyChar">
             <summary>
             The character of the key.
             </summary>
+            <value>The character of the key.</value>
             <remarks>This field is available only for the <see cref="F:SharpHook.Native.EventType.KeyTyped" /> event.</remarks>
         </member>
         <member name="M:SharpHook.Native.KeyboardEventData.Equals(System.Object)">
@@ -430,7 +458,7 @@
             </summary>
             <param name="obj">The object to compare</param>
             <returns>
-            <see langword="true" /> if and only if the objects are equal. Otherwise, <see langword="false" />.
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
             </returns>
         </member>
         <member name="M:SharpHook.Native.KeyboardEventData.Equals(SharpHook.Native.KeyboardEventData)">
@@ -439,7 +467,7 @@
             </summary>
             <param name="data">The object to compare</param>
             <returns>
-            <see langword="true" /> if and only if the objects are equal. Otherwise, <see langword="false" />.
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
             </returns>
         </member>
         <member name="M:SharpHook.Native.KeyboardEventData.GetHashCode">
@@ -461,7 +489,7 @@
             <param name="left">The first object to compare</param>
             <param name="right">The second object to compare</param>
             <returns>
-            <see langword="true" /> if and only if the objects are equal. Otherwise, <see langword="false" />.
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
             </returns>
         </member>
         <member name="M:SharpHook.Native.KeyboardEventData.op_Inequality(SharpHook.Native.KeyboardEventData,SharpHook.Native.KeyboardEventData)">
@@ -471,49 +499,57 @@
             <param name="left">The first object to compare</param>
             <param name="right">The second object to compare</param>
             <returns>
-            <see langword="true" /> if and only if the objects are not equal. Otherwise, <see langword="false" />.
+            <see langword="true" /> if the objects are not equal. Otherwise, <see langword="false" />.
             </returns>
         </member>
         <member name="T:SharpHook.Native.KeyCode">
             <summary>
             Represents a virtual key code.
             </summary>
+            <seealso cref="T:SharpHook.Native.KeyboardEventData" />
         </member>
         <member name="T:SharpHook.Native.ModifierMask">
             <summary>
             Represents a virtual modifier mask.
             </summary>
+            <seealso cref="T:SharpHook.Native.UioHookEvent" />
         </member>
         <member name="T:SharpHook.Native.MouseButton">
             <summary>
             Represents a mouse button.
             </summary>
+            <seealso cref="T:SharpHook.Native.MouseEventData" />
         </member>
         <member name="T:SharpHook.Native.MouseEventData">
             <summary>
             Represents the data of a mouse-related event.
             </summary>
             <seealso cref="T:SharpHook.MouseHookEventArgs" />
+            <seealso cref="T:SharpHook.Native.MouseButton" />
         </member>
         <member name="F:SharpHook.Native.MouseEventData.Button">
             <summary>
             The mouse button.
             </summary>
+            <value>The mouse button.</value>
         </member>
         <member name="F:SharpHook.Native.MouseEventData.Clicks">
             <summary>
             The number of clicks.
             </summary>
+            <value>The number of clicks.</value>
         </member>
         <member name="F:SharpHook.Native.MouseEventData.X">
             <summary>
             The X-coordinate of the mouse cursor.
             </summary>
+            <value>The X-coordinate of the mouse cursor.</value>
         </member>
         <member name="F:SharpHook.Native.MouseEventData.Y">
             <summary>
             The Y-coordinate of the mouse cursor.
             </summary>
+            <value>The Y-coordinate of the mouse cursor.</value>
         </member>
         <member name="M:SharpHook.Native.MouseEventData.Equals(System.Object)">
             <summary>
@@ -521,7 +557,7 @@
             </summary>
             <param name="obj">The object to compare</param>
             <returns>
-            <see langword="true" /> if and only if the objects are equal. Otherwise, <see langword="false" />.
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
             </returns>
         </member>
         <member name="M:SharpHook.Native.MouseEventData.Equals(SharpHook.Native.MouseEventData)">
@@ -530,7 +566,7 @@
             </summary>
             <param name="data">The object to compare</param>
             <returns>
-            <see langword="true" /> if and only if the objects are equal. Otherwise, <see langword="false" />.
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
             </returns>
         </member>
         <member name="M:SharpHook.Native.MouseEventData.GetHashCode">
@@ -552,7 +588,7 @@
             <param name="left">The first object to compare</param>
             <param name="right">The second object to compare</param>
             <returns>
-            <see langword="true" /> if and only if the objects are equal. Otherwise, <see langword="false" />.
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
             </returns>
         </member>
         <member name="M:SharpHook.Native.MouseEventData.op_Inequality(SharpHook.Native.MouseEventData,SharpHook.Native.MouseEventData)">
@@ -562,7 +598,7 @@
             <param name="left">The first object to compare</param>
             <param name="right">The second object to compare</param>
             <returns>
-            <see langword="true" /> if and only if the objects are not equal. Otherwise, <see langword="false" />.
+            <see langword="true" /> if the objects are not equal. Otherwise, <see langword="false" />.
             </returns>
         </member>
         <member name="T:SharpHook.Native.MouseWheelEventData">
@@ -570,36 +606,44 @@
             Represents the data of a mouse wheel-related event.
             </summary>
             <seealso cref="T:SharpHook.MouseWheelHookEventArgs" />
+            <seealso cref="T:SharpHook.Native.MouseWheelScrollType" />
+            <seealso cref="T:SharpHook.Native.MouseWheelScrollDirection" />
         </member>
         <member name="F:SharpHook.Native.MouseWheelEventData.Clicks">
             <summary>
             The number of clicks.
             </summary>
+            <value>The number of clicks.</value>
         </member>
         <member name="F:SharpHook.Native.MouseWheelEventData.X">
             <summary>
             The X-coordinate of the mouse cursor.
             </summary>
+            <value>The X-coordinate of the mouse cursor.</value>
         </member>
         <member name="F:SharpHook.Native.MouseWheelEventData.Y">
             <summary>
             The Y-coordinate of the mouse cursor.
             </summary>
+            <value>The Y-coordinate of the mouse cursor.</value>
         </member>
         <member name="F:SharpHook.Native.MouseWheelEventData.Type">
             <summary>
             The wheel scroll type.
             </summary>
+            <value>The wheel scroll type.</value>
         </member>
         <member name="F:SharpHook.Native.MouseWheelEventData.Amount">
             <summary>
             The wheel scroll amount.
             </summary>
+            <value>The wheel scroll amount.</value>
         </member>
         <member name="F:SharpHook.Native.MouseWheelEventData.Rotation">
             <summary>
             The wheel rotation.
             </summary>
+            <value>The wheel rotation.</value>
             <remarks>
             A positive value indicates that the wheel was rotated forward, away from the user; a negative value
             indicates that the wheel was rotated backward, toward the user.
@@ -609,6 +653,7 @@
             <summary>
             The wheel scroll direction.
             </summary>
+            <value>The wheel scroll direction.</value>
         </member>
         <member name="M:SharpHook.Native.MouseWheelEventData.Equals(System.Object)">
             <summary>
@@ -616,7 +661,7 @@
             </summary>
             <param name="obj">The object to compare</param>
             <returns>
-            <see langword="true" /> if and only if the objects are equal. Otherwise, <see langword="false" />.
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
             </returns>
         </member>
         <member name="M:SharpHook.Native.MouseWheelEventData.Equals(SharpHook.Native.MouseWheelEventData)">
@@ -625,7 +670,7 @@
             </summary>
             <param name="data">The object to compare</param>
             <returns>
-            <see langword="true" /> if and only if the objects are equal. Otherwise, <see langword="false" />.
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
             </returns>
         </member>
         <member name="M:SharpHook.Native.MouseWheelEventData.GetHashCode">
@@ -647,7 +692,7 @@
             <param name="left">The first object to compare</param>
             <param name="right">The second object to compare</param>
             <returns>
-            <see langword="true" /> if and only if the objects are equal. Otherwise, <see langword="false" />.
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
             </returns>
         </member>
         <member name="M:SharpHook.Native.MouseWheelEventData.op_Inequality(SharpHook.Native.MouseWheelEventData,SharpHook.Native.MouseWheelEventData)">
@@ -657,18 +702,20 @@
             <param name="left">The first object to compare</param>
             <param name="right">The second object to compare</param>
             <returns>
-            <see langword="true" /> if and only if the objects are not equal. Otherwise, <see langword="false" />.
+            <see langword="true" /> if the objects are not equal. Otherwise, <see langword="false" />.
             </returns>
         </member>
         <member name="T:SharpHook.Native.MouseWheelScrollDirection">
             <summary>
             Represents the mouse wheel scroll direction.
             </summary>
+            <seealso cref="T:SharpHook.Native.MouseWheelEventData" />
         </member>
         <member name="T:SharpHook.Native.MouseWheelScrollType">
             <summary>
             Represents a mouse wheel scroll type.
             </summary>
+            <seealso cref="T:SharpHook.Native.MouseWheelEventData" />
         </member>
         <member name="T:SharpHook.Native.ScreenData">
             <summary>
@@ -679,26 +726,31 @@
             <summary>
             The ordinal number of the screen.
             </summary>
+            <value>The ordinal number of the screen.</value>
         </member>
         <member name="F:SharpHook.Native.ScreenData.X">
             <summary>
             The X-coordinate of the screen.
             </summary>
+            <value>The X-coordinate of the screen.</value>
         </member>
         <member name="F:SharpHook.Native.ScreenData.Y">
             <summary>
             The Y-coordinate of the screen.
             </summary>
+            <value>The Y-coordinate of the screen.</value>
         </member>
         <member name="F:SharpHook.Native.ScreenData.Width">
             <summary>
             The width of the screen.
             </summary>
+            <value>The width of the screen.</value>
         </member>
         <member name="F:SharpHook.Native.ScreenData.Height">
             <summary>
             The height of the screen.
             </summary>
+            <value>The height of the screen.</value>
         </member>
         <member name="M:SharpHook.Native.ScreenData.Equals(System.Object)">
             <summary>
@@ -706,7 +758,7 @@
             </summary>
             <param name="obj">The object to compare</param>
             <returns>
-            <see langword="true" /> if and only if the objects are equal. Otherwise, <see langword="false" />.
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
             </returns>
         </member>
         <member name="M:SharpHook.Native.ScreenData.Equals(SharpHook.Native.ScreenData)">
@@ -715,7 +767,7 @@
             </summary>
             <param name="data">The object to compare</param>
             <returns>
-            <see langword="true" /> if and only if the objects are equal. Otherwise, <see langword="false" />.
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
             </returns>
         </member>
         <member name="M:SharpHook.Native.ScreenData.GetHashCode">
@@ -737,7 +789,7 @@
             <param name="left">The first object to compare</param>
             <param name="right">The second object to compare</param>
             <returns>
-            <see langword="true" /> if and only if the objects are equal. Otherwise, <see langword="false" />.
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
             </returns>
         </member>
         <member name="M:SharpHook.Native.ScreenData.op_Inequality(SharpHook.Native.ScreenData,SharpHook.Native.ScreenData)">
@@ -747,7 +799,7 @@
             <param name="left">The first object to compare</param>
             <param name="right">The second object to compare</param>
             <returns>
-            <see langword="true" /> if and only if the objects are not equal. Otherwise, <see langword="false" />.
+            <see langword="true" /> if the objects are not equal. Otherwise, <see langword="false" />.
             </returns>
         </member>
         <member name="T:SharpHook.Native.UioHook">
@@ -760,21 +812,18 @@
             Sets the hook callback function.
             </summary>
             <param name="dispatchProc">The function to call when an event is raised.</param>
-            <seealso cref="T:SharpHook.Native.DispatchProc" />
         </member>
         <member name="M:SharpHook.Native.UioHook.Run">
             <summary>
             Runs the global hook and blocks the thread until it's stopped.
             </summary>
             <returns>The result of the operation.</returns>
-            <seealso cref="M:SharpHook.Native.UioHook.Stop" />
         </member>
         <member name="M:SharpHook.Native.UioHook.Stop">
             <summary>
             Stops the global hook.
             </summary>
             <returns>The result of the operation.</returns>
-            <seealso cref="M:SharpHook.Native.UioHook.Run" />
         </member>
         <member name="M:SharpHook.Native.UioHook.CreateScreenInfo(System.Byte@)">
             <summary>
@@ -847,63 +896,75 @@
             <para>
             The <see cref="F:SharpHook.Native.UioHookEvent.Keyboard" /> field is available for the events of the following types:
             <list type="bullet">
-            <item><see cref="F:SharpHook.Native.EventType.KeyTyped" /></item>
-            <item><see cref="F:SharpHook.Native.EventType.KeyPressed" /></item>
-            <item><see cref="F:SharpHook.Native.EventType.KeyReleased" /></item>
+            <item><description><see cref="F:SharpHook.Native.EventType.KeyTyped" /></description></item>
+            <item><description><see cref="F:SharpHook.Native.EventType.KeyPressed" /></description></item>
+            <item><description><see cref="F:SharpHook.Native.EventType.KeyReleased" /></description></item>
             </list>
             </para>
             <para>
             The <see cref="F:SharpHook.Native.UioHookEvent.Mouse" /> field is available for the events of the following types:
             <list type="bullet">
-            <item><see cref="F:SharpHook.Native.EventType.MouseClicked" /></item>
-            <item><see cref="F:SharpHook.Native.EventType.MousePressed" /></item>
-            <item><see cref="F:SharpHook.Native.EventType.MouseReleased" /></item>
-            <item><see cref="F:SharpHook.Native.EventType.MouseMoved" /></item>
-            <item><see cref="F:SharpHook.Native.EventType.MouseDragged" /></item>
+            <item><description><see cref="F:SharpHook.Native.EventType.MouseClicked" /></description></item>
+            <item><description><see cref="F:SharpHook.Native.EventType.MousePressed" /></description></item>
+            <item><description><see cref="F:SharpHook.Native.EventType.MouseReleased" /></description></item>
+            <item><description><see cref="F:SharpHook.Native.EventType.MouseMoved" /></description></item>
+            <item><description><see cref="F:SharpHook.Native.EventType.MouseDragged" /></description></item>
             </list>
             </para>
             <para>
             The <see cref="F:SharpHook.Native.UioHookEvent.Wheel" /> field is available for the events of the following type:
             <list type="bullet">
-            <item><see cref="F:SharpHook.Native.EventType.MouseWheel" /></item>
+            <item><description><see cref="F:SharpHook.Native.EventType.MouseWheel" /></description></item>
             </list>
             </para>
             </remarks>
+            <seealso cref="T:SharpHook.Native.EventType" />
+            <seealso cref="T:SharpHook.Native.ModifierMask" />
+            <seealso cref="T:SharpHook.Native.KeyboardEventData" />
+            <seealso cref="T:SharpHook.Native.MouseEventData" />
+            <seealso cref="T:SharpHook.Native.MouseWheelEventData" />
         </member>
         <member name="F:SharpHook.Native.UioHookEvent.Type">
             <summary>
             The type of the event.
             </summary>
+            <value>The type of the event.</value>
         </member>
         <member name="F:SharpHook.Native.UioHookEvent.Time">
             <summary>
             The time of the event.
             </summary>
+            <value>The time of the event.</value>
         </member>
         <member name="F:SharpHook.Native.UioHookEvent.Mask">
             <summary>
             The mask of the event.
             </summary>
+            <value>The mask of the event.</value>
         </member>
         <member name="F:SharpHook.Native.UioHookEvent.Reserved">
             <summary>
             The reserved value.
             </summary>
+            <value>The reserved value.</value>
         </member>
         <member name="F:SharpHook.Native.UioHookEvent.Keyboard">
             <summary>
             The event data if this event is keyboard-related.
             </summary>
+            <value>The event data if this event is keyboard-related.</value>
         </member>
         <member name="F:SharpHook.Native.UioHookEvent.Mouse">
             <summary>
             The event data if this event is mouse-related.
             </summary>
+            <value>The event data if this event is mouse-related.</value>
         </member>
         <member name="F:SharpHook.Native.UioHookEvent.Wheel">
             <summary>
             The event data if this event is mouse wheel-related.
             </summary>
+            <value>The event data if this event is mouse wheel-related.</value>
         </member>
         <member name="M:SharpHook.Native.UioHookEvent.Equals(System.Object)">
             <summary>
@@ -911,7 +972,7 @@
             </summary>
             <param name="obj">The object to compare</param>
             <returns>
-            <see langword="true" /> if and only if the objects are equal. Otherwise, <see langword="false" />.
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
             </returns>
         </member>
         <member name="M:SharpHook.Native.UioHookEvent.Equals(SharpHook.Native.UioHookEvent)">
@@ -920,7 +981,7 @@
             </summary>
             <param name="e">The object to compare</param>
             <returns>
-            <see langword="true" /> if and only if the objects are equal. Otherwise, <see langword="false" />.
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
             </returns>
         </member>
         <member name="M:SharpHook.Native.UioHookEvent.GetHashCode">
@@ -942,7 +1003,7 @@
             <param name="left">The first object to compare</param>
             <param name="right">The second object to compare</param>
             <returns>
-            <see langword="true" /> if and only if the objects are equal. Otherwise, <see langword="false" />.
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
             </returns>
         </member>
         <member name="M:SharpHook.Native.UioHookEvent.op_Inequality(SharpHook.Native.UioHookEvent,SharpHook.Native.UioHookEvent)">
@@ -952,13 +1013,14 @@
             <param name="left">The first object to compare</param>
             <param name="right">The second object to compare</param>
             <returns>
-            <see langword="true" /> if and only if the objects are not equal. Otherwise, <see langword="false" />.
+            <see langword="true" /> if the objects are not equal. Otherwise, <see langword="false" />.
             </returns>
         </member>
         <member name="T:SharpHook.Native.UioHookResult">
             <summary>
             Represents a result of an operation of libuiohook.
             </summary>
+            <seealso cref="T:SharpHook.Native.UioHook" />
         </member>
         <member name="T:SharpHook.SimpleGlobalHook">
             <summary>
@@ -970,6 +1032,9 @@
             by libuiohook. If you need to do a lot of processing in the event handlers then consider using another
             implementation, e.g. <see cref="T:SharpHook.TaskPoolGlobalHook" />.
             </remarks>
+            <seealso cref="T:SharpHook.IGlobalHook" />
+            <seealso cref="T:SharpHook.GlobalHookBase" />
+            <seealso cref="T:SharpHook.TaskPoolGlobalHook" />
         </member>
         <member name="M:SharpHook.SimpleGlobalHook.HandleHookEventInternal(SharpHook.Native.UioHookEvent@)">
             <summary>
@@ -988,6 +1053,10 @@
             the <see cref="M:System.IDisposable.Dispose" /> method since at that point it doesn't matter anymore that the hook is
             not blocked.
             </remarks>
+            <seealso cref="T:SharpHook.IGlobalHook" />
+            <seealso cref="T:SharpHook.GlobalHookBase" />
+            <seealso cref="T:SharpHook.SimpleGlobalHook" />
+            <seealso cref="T:SharpHook.TaskPoolGlobalHookOptions" />
         </member>
         <member name="M:SharpHook.TaskPoolGlobalHook.#ctor">
             <summary>
@@ -1028,6 +1097,7 @@
             <summary>
             Represents options for <see cref="T:SharpHook.TaskPoolGlobalHook" />.
             </summary>
+            <seealso cref="T:SharpHook.TaskPoolGlobalHook" />
         </member>
         <member name="F:SharpHook.TaskPoolGlobalHookOptions.Sequential">
             <summary>
@@ -1044,6 +1114,7 @@
             <summary>
             Gets the configured parallelism level of the event handlers.
             </summary>
+            <value>The parallelism level of the event handlers.</value>
         </member>
     </members>
 </doc>

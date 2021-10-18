@@ -90,6 +90,7 @@ namespace SharpHook
         /// <summary>
         /// Gets the result of an opetaion which caused this exception.
         /// </summary>
+        /// <value>The result of an opetaion which caused this exception.</value>
         public UioHookResult Result { get; }
     }
 }

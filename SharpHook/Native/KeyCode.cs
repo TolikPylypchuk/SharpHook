@@ -3,6 +3,7 @@ namespace SharpHook.Native
     /// <summary>
     /// Represents a virtual key code.
     /// </summary>
+    /// <seealso cref="KeyboardEventData" />
     public enum KeyCode : ushort
     {
         VcEscape = 0x0001,

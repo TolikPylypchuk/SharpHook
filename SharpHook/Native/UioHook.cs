@@ -21,7 +21,6 @@ namespace SharpHook.Native
         /// Sets the hook callback function.
         /// </summary>
         /// <param name="dispatchProc">The function to call when an event is raised.</param>
-        /// <seealso cref="DispatchProc" />
         [DllImport(LibUioHook, EntryPoint = "hook_set_dispatch_proc")]
         public static extern void SetDispatchProc(DispatchProc dispatchProc);
 
@@ -29,7 +28,6 @@ namespace SharpHook.Native
         /// Runs the global hook and blocks the thread until it's stopped.
         /// </summary>
         /// <returns>The result of the operation.</returns>
-        /// <seealso cref="Stop" />
         [DllImport(LibUioHook, EntryPoint = "hook_run")]
         public static extern UioHookResult Run();
 
@@ -37,7 +35,6 @@ namespace SharpHook.Native
         /// Stops the global hook.
         /// </summary>
         /// <returns>The result of the operation.</returns>
-        /// <seealso cref="Run" />
         [DllImport(LibUioHook, EntryPoint = "hook_stop")]
         public static extern UioHookResult Stop();
 

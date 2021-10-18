@@ -7,6 +7,10 @@ namespace SharpHook
     /// <summary>
     /// A base class for event args related to the global hook.
     /// </summary>
+    /// <seealso cref="KeyboardHookEventArgs" />
+    /// <seealso cref="MouseHookEventArgs" />
+    /// <seealso cref="MouseWheelEventData" />
+    /// <seealso cref="UioHookEvent" />
     public class HookEventArgs : EventArgs
     {
         /// <summary>
@@ -17,8 +21,9 @@ namespace SharpHook
             this.RawEvent = rawEvent;
 
         /// <summary>
-        /// The raw event data.
+        /// Gets the raw event data.
         /// </summary>
+        /// <value>The raw event data.</value>
         public UioHookEvent RawEvent { get; }
     }
 }
