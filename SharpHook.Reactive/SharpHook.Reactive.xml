@@ -275,11 +275,12 @@
             <summary>
             Starts the global hook. The hook can be destroyed by calling the <see cref="M:System.IDisposable.Dispose" /> method.
             </summary>
-            <returns>An observable which finishes when the hook is destroyed.</returns>
+            <returns>An observable which is completed when the hook is destroyed.</returns>
             <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
             <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
             <remarks>
-            The hook is started on a separate thread.
+            The hook is started on a separate thread. The returned observable emits a sinlge value and then immediately
+            completes when the hook is destroyed.
             </remarks>
         </member>
         <member name="M:SharpHook.Reactive.SimpleReactiveGlobalHook.Dispose">

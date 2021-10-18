@@ -90,7 +90,7 @@ this function which returns an unmanaged array and that version shouldn't be use
 
 - `GetMultiClickTime`
 
-### The Global Hook
+### Default Global Hooks
 
 SharpHook provides the `IGlobalHook` interface along with two default implementations which you can use to control the
 hook and subscribe to its events. Here's a basic usage example:
@@ -144,6 +144,66 @@ preferred to `SimpleGlobalHook` except for very simple use-cases.
 The library also provides the `GlobalHookBase` class which you can extend to create your own implementation of the
 global hook. It runs the hook on a separate thread and calls appropriate event handlers. You only need to implement a
 strategy for dispatching the events.
+
+### Reactive Global Hooks
+
+If you're using Rx.NET, you can use the `SharpHook.Reactive` package to integrate SharpHook with Rx.NET.
+
+SharpHook.Reactive provides the `IReactiveGlobalHook` interface along with a default implementation and an adapter
+which you can use to use to control the hook and subscribe to its observables. Here's a basic example:
+
+```C#
+using SharpHook.Reactive;
+
+// ...
+
+var hook = new SimpleReactiveGlobalHook();
+
+hook.HookEnabled.Subscribe(OnHookEnabled);
+hook.HookDisabled.Subscribe(OnHookDisabled);
+
+hook.KeyTyped.Subscribe(OnKeyTyped);
+hook.KeyPressed.Subscribe(OnKeyPressed);
+hook.KeyReleased.Subscribe(OnKeyReleased);
+
+hook.MouseClicked.Subscribe(OnMouseClicked);
+hook.MousePressed.Subscribe(OnMousePressed);
+hook.MouseReleased.Subscribe(OnMouseReleased);
+
+hook.MouseMoved
+    .Throttle(TimeSpan.FromSeconds(0.5))
+    .Subscribe(OnMouseMoved);
+
+hook.MouseDragged
+    .Throttle(TimeSpan.FromSeconds(0.5))
+    .Subscribe(OnMouseDragged);
+
+hook.MouseWheel.Subscribe(OnMouseWheel);
+
+await hook.Start();
+```
+
+Reactive global hooks are basically the same as the default global hooks and the same rules apply to them.
+
+SharpHook.Reactive provides two implementations of `IReactiveGlobalHook`:
+
+- `SimpleReactiveGlobalHook` runs the hook on a separate thread. Since we are dealing with observables, it's up to
+you to decide when and where to handle the events through schedulers.
+
+- `ReactiveGlobalHookAdapter` adapts an `IGlobalHook` to `IReactiveGlobalHook`. All subscriptions and changes
+are propagated to the adapted hook.
+
+## Limitations
+
+You have to remember that libuiohook binaries should be present in the curent working directory. This is how P/Invoke
+works, and it can cause the 'library not found' issues when running your client app from a different directory.
+
+Another thing is that libuiohook supports hooking into its logging capabilities so that you can get its logs. This
+library doesn't support this. The reason is that you should call `hook_set_logger_proc` and pass your callback for
+logging. This is similar to `hook_set_dispatch_proc`, but this time the callback should accept a variable number of
+arguments (using C's `...` syntax) and the client decides how to format the log message. Supporting native
+variable arguments in callbacks is next to impossible in C#, and the payoff is not worth spending a lot of effort to
+implement this feature.
 
 ## Building from Source
 
