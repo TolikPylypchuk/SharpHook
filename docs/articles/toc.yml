@@ -1,2 +1,12 @@
 - name: Introduction
   href: intro.md
+- name: Native Functions
+  href: native.md
+- name: Global Hooks
+  href: hooks.md
+- name: Reactive Global Hooks
+  href: reactive.md
+- name: Limitations
+  href: limitations.md
+- name: Library Status
+  href: status.md
