@@ -46,7 +46,7 @@ namespace SharpHook
         /// Handles the hook event.
         /// </summary>
         /// <param name="e">The event to handle.</param>
-        protected override void HandleHookEventInternal(ref UioHookEvent e)
+        protected override void HandleHookEvent(ref UioHookEvent e)
         {
             if (e.Type != EventType.HookDisabled)
             {

@@ -39,7 +39,7 @@
             of <see cref="T:SharpHook.IGlobalHook" />.
             </remarks>
         </member>
-        <member name="M:SharpHook.GlobalHookBase.HandleHookEventInternal(SharpHook.Native.UioHookEvent@)">
+        <member name="M:SharpHook.GlobalHookBase.HandleHookEvent(SharpHook.Native.UioHookEvent@)">
             <summary>
             When implemented in a derived class, represents a strategy for handling a hook event.
             </summary>
@@ -1036,7 +1036,7 @@
             <seealso cref="T:SharpHook.GlobalHookBase" />
             <seealso cref="T:SharpHook.TaskPoolGlobalHook" />
         </member>
-        <member name="M:SharpHook.SimpleGlobalHook.HandleHookEventInternal(SharpHook.Native.UioHookEvent@)">
+        <member name="M:SharpHook.SimpleGlobalHook.HandleHookEvent(SharpHook.Native.UioHookEvent@)">
             <summary>
             Handles the hook event.
             </summary>
@@ -1073,7 +1073,7 @@
             </summary>
             <param name="options">The options of the hook which include its parallelism level.</param>
         </member>
-        <member name="M:SharpHook.TaskPoolGlobalHook.HandleHookEventInternal(SharpHook.Native.UioHookEvent@)">
+        <member name="M:SharpHook.TaskPoolGlobalHook.HandleHookEvent(SharpHook.Native.UioHookEvent@)">
             <summary>
             Handles the hook event.
             </summary>

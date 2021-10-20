@@ -48,7 +48,7 @@ namespace SharpHook
             {
                 try
                 {
-                    UioHook.SetDispatchProc(this.HandleHookEvent);
+                    UioHook.SetDispatchProc(this.HandleHookEventIfNeeded);
                     var result = UioHook.Run();
 
                     if (result == UioHookResult.Success)
@@ -91,7 +91,7 @@ namespace SharpHook
         /// Derived classes should call <see cref="DispatchEvent(ref UioHookEvent)" /> inside this method to raise the
         /// appropriate event.
         /// </remarks>
-        protected abstract void HandleHookEventInternal(ref UioHookEvent e);
+        protected abstract void HandleHookEvent(ref UioHookEvent e);
 
         /// <summary>
         /// Dispatches an event from libuiohook, i.e. raises the appropriate event.
@@ -247,11 +247,11 @@ namespace SharpHook
             }
         }
 
-        private void HandleHookEvent(ref UioHookEvent e)
+        private void HandleHookEventIfNeeded(ref UioHookEvent e)
         {
             if (this.ShouldDispatchEvent(ref e))
             {
-                this.HandleHookEventInternal(ref e);
+                this.HandleHookEvent(ref e);
             }
         }
 

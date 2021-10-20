@@ -239,31 +239,65 @@ namespace SharpHook.Reactive
 
         private void Dispose(bool disposing)
         {
+            if (this.disposed)
+            {
+                return;
+            }
+
+            this.disposed = true;
+
             if (disposing)
             {
                 this.hook.Dispose();
-                this.subscriptions.Dispose();
             }
 
-            if (!this.disposed)
+            this.hookDisabledSubject.Subscribe(_ =>
             {
-                this.disposed = true;
-
-                this.hookEnabledSubject.OnCompleted();
                 this.hookDisabledSubject.OnCompleted();
+                this.hookDisabledSubject.Dispose();
+            });
 
-                this.keyTypedSubject.OnCompleted();
-                this.keyPressedSubject.OnCompleted();
-                this.keyReleasedSubject.OnCompleted();
+            this.CompleteAllSubjects();
 
-                this.mouseClickedSubject.OnCompleted();
-                this.mousePressedSubject.OnCompleted();
-                this.mouseReleasedSubject.OnCompleted();
-                this.mouseMovedSubject.OnCompleted();
-                this.mouseDraggedSubject.OnCompleted();
-
-                this.mouseWheelSubject.OnCompleted();
+            if (disposing)
+            {
+                this.subscriptions.Dispose();
+                this.DisposeAllSubjects();
             }
+        }
+
+        private void CompleteAllSubjects()
+        {
+            this.hookEnabledSubject.OnCompleted();
+
+            this.keyTypedSubject.OnCompleted();
+            this.keyPressedSubject.OnCompleted();
+            this.keyReleasedSubject.OnCompleted();
+
+            this.mouseClickedSubject.OnCompleted();
+            this.mousePressedSubject.OnCompleted();
+            this.mouseReleasedSubject.OnCompleted();
+            this.mouseMovedSubject.OnCompleted();
+            this.mouseDraggedSubject.OnCompleted();
+
+            this.mouseWheelSubject.OnCompleted();
+        }
+
+        private void DisposeAllSubjects()
+        {
+            this.hookEnabledSubject.OnCompleted();
+
+            this.keyTypedSubject.Dispose();
+            this.keyPressedSubject.Dispose();
+            this.keyReleasedSubject.Dispose();
+
+            this.mouseClickedSubject.Dispose();
+            this.mousePressedSubject.Dispose();
+            this.mouseReleasedSubject.Dispose();
+            this.mouseMovedSubject.Dispose();
+            this.mouseDraggedSubject.Dispose();
+
+            this.mouseWheelSubject.Dispose();
         }
 
         private void ThrowIfDisposed([CallerMemberName] string? method = null)
