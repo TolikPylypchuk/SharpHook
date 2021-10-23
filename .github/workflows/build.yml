@@ -362,6 +362,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: recursive
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v1
@@ -393,17 +395,17 @@ jobs:
           mv libuiohook-build\linux\x86_64\lib\libuiohook.so SharpHook\lib\linux-x64\
           mv libuiohook-build\linux\x86_64\lib\libuiohook.so.1 SharpHook\lib\linux-x64\
           mv libuiohook-build\linux\x86_64\lib\libuiohook.so.1.2.0 SharpHook\lib\linux-x64\
-          mv libuiohook-build\windows\arm\bin\uiohook.dll SharpHook\lib\windows-arm\
-          mv libuiohook-build\windows\x86\bin\uiohook.dll SharpHook\lib\windows-x86\
-          mv libuiohook-build\windows\x86_64\bin\uiohook.dll SharpHook\lib\windows-x64\
+          mv libuiohook-build\windows\arm\bin\uiohook.dll SharpHook\lib\win-arm\
+          mv libuiohook-build\windows\x86\bin\uiohook.dll SharpHook\lib\win-x86\
+          mv libuiohook-build\windows\x86_64\bin\uiohook.dll SharpHook\lib\win-x64\
 
       - name: Pack SharpHook
         shell: pwsh
         run: |
           cd SharpHook
-          dotnet pack -c Release -o ${{github.workspace}}\build\ /p:ContinuousIntegrationBuild=true
+          dotnet pack --nologo -c Release -o ${{github.workspace}}\build\ /p:ContinuousIntegrationBuild=true
           cd ..\SharpHook.Reactive
-          dotnet pack -c Release -o ${{github.workspace}}\build\ /p:ContinuousIntegrationBuild=true
+          dotnet pack --nologo -c Release -o ${{github.workspace}}\build\ /p:ContinuousIntegrationBuild=true
 
       - name: Upload SharpHook
         uses: actions/upload-artifact@v2
