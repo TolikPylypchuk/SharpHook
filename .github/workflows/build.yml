@@ -102,7 +102,6 @@ jobs:
             binutils-arm-linux-gnueabihf \
             gcc-arm-linux-gnueabihf
           sudo apt install -qy \
-            cmake:armhf
             libx11-dev:armhf \
             libxtst-dev:armhf \
             libxt-dev:armhf \
@@ -164,7 +163,6 @@ jobs:
             binutils-aarch64-linux-gnu \
             gcc-aarch64-linux-gnu
           sudo apt install -qy \
-            cmake:arm64
             libx11-dev:arm64 \
             libxtst-dev:arm64 \
             libxt-dev:arm64 \
@@ -199,65 +197,6 @@ jobs:
           name: libuiohook-build
           path: ${{github.workspace}}/dist/**/*
 
-  libuiohook-linux-x86:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          submodules: recursive
-
-      - name: Setup
-        shell: bash
-        run: |
-          sudo rm -Rf /etc/apt/sources.list.d
-          sudo bash -c 'source /etc/lsb-release && echo "
-          deb [arch=amd64,i386] http://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME} main universe
-          deb [arch=amd64,i386] http://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME}-updates main universe
-          deb [arch=amd64,i386] http://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME}-backports main universe
-          " > /etc/apt/sources.list'
-          sudo dpkg --add-architecture i386
-          sudo apt update -mqy
-          sudo apt install -qy \
-            binutils-i686-linux-gnu \
-            gcc-i686-linux-gnu
-          sudo apt install -qy \
-            cmake:i386
-            libx11-dev:i386 \
-            libxtst-dev:i386 \
-            libxt-dev:i386 \
-            libxinerama-dev:i386 \
-            libx11-xcb-dev:i386 \
-            libxkbcommon-dev:i386 \
-            libxkbcommon-x11-dev:i386 \
-            libxkbfile-dev:i386
-      - name: Compile
-        env:
-          CC: i686-linux-gnu-gcc
-          CFLAGS: '-O2 -march=i686 -mtune=generic -g -fomit-frame-pointer -flto -fno-stack-protector -pipe'
-          LDFLAGS: '-fuse-ld=gold -Wl,-O1 -Wl,--as-needed'
-          PKG_CONFIG_PATH: '/usr/lib/i386-linux-gnu/pkgconfig'
-        shell: bash
-        run: |
-          cd libuiohook
-          cmake -B ${{github.workspace}}/build \
-            -G "Unix Makefiles" \
-            -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/linux/x86 \
-            -D CMAKE_VERBOSE_MAKEFILE=true \
-            -D BUILD_SHARED_LIBS=ON \
-            -D BUILD_DEMO=ON
-          cmake --build ${{github.workspace}}/build \
-            --parallel 2 \
-            --config RelWithDebInfo \
-            --clean-first
-          cmake --install ${{github.workspace}}/build --config RelWithDebInfo
-      - name: Upload
-        uses: actions/upload-artifact@v2
-        with:
-          name: libuiohook-build
-          path: ${{github.workspace}}/dist/**/*
-
   libuiohook-linux-x64:
     runs-on: ubuntu-latest
 
@@ -272,7 +211,6 @@ jobs:
         run: |
           sudo apt update -qy
           sudo apt install -qy \
-            cmake:amd64
             libx11-dev:amd64 \
             libxtst-dev:amd64 \
             libxt-dev:amd64 \
@@ -324,15 +262,15 @@ jobs:
         shell: pwsh
         run: |
           cd libuiohook
-          cmake -B ${{github.workspace}}\build ^
-            -G "Visual Studio 16 2019" -A ARM ^
-            -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\arm ^
-            -D CMAKE_VERBOSE_MAKEFILE=true ^
-            -D BUILD_SHARED_LIBS=ON ^
+          cmake -B ${{github.workspace}}\build `
+            -G "Visual Studio 16 2019" -A ARM `
+            -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\arm `
+            -D CMAKE_VERBOSE_MAKEFILE=true `
+            -D BUILD_SHARED_LIBS=ON `
             -D BUILD_DEMO=ON
-          cmake --build ${{github.workspace}}\build ^
-            --parallel 2 ^
-            --config RelWithDebInfo ^
+          cmake --build ${{github.workspace}}\build `
+            --parallel 2 `
+            --config RelWithDebInfo `
             --clean-first
           cmake --install ${{github.workspace}}\build --config RelWithDebInfo
       - name: Upload
@@ -358,15 +296,15 @@ jobs:
         shell: pwsh
         run: |
           cd libuiohook
-          cmake -B ${{github.workspace}}\build ^
-            -G "Visual Studio 16 2019" -A Win32 ^
-            -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\x86 ^
-            -D CMAKE_VERBOSE_MAKEFILE=true ^
-            -D BUILD_SHARED_LIBS=ON ^
+          cmake -B ${{github.workspace}}\build `
+            -G "Visual Studio 16 2019" -A Win32 `
+            -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\x86 `
+            -D CMAKE_VERBOSE_MAKEFILE=true `
+            -D BUILD_SHARED_LIBS=ON `
             -D BUILD_DEMO=ON
-          cmake --build ${{github.workspace}}\build ^
-            --parallel 2 ^
-            --config RelWithDebInfo ^
+          cmake --build ${{github.workspace}}\build `
+            --parallel 2 `
+            --config RelWithDebInfo `
             --clean-first
           cmake --install ${{github.workspace}}\build --config RelWithDebInfo
       - name: Upload
@@ -392,15 +330,15 @@ jobs:
         shell: pwsh
         run: |
           cd libuiohook
-          cmake -B ${{github.workspace}}\build ^
-            -G "Visual Studio 16 2019" -A x64 ^
-            -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\x86_64 ^
-            -D CMAKE_VERBOSE_MAKEFILE=true ^
-            -D BUILD_SHARED_LIBS=ON ^
+          cmake -B ${{github.workspace}}\build `
+            -G "Visual Studio 16 2019" -A x64 `
+            -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\x86_64 `
+            -D CMAKE_VERBOSE_MAKEFILE=true `
+            -D BUILD_SHARED_LIBS=ON `
             -D BUILD_DEMO=ON
-          cmake --build ${{github.workspace}}\build ^
-            --parallel 2 ^
-            --config RelWithDebInfo ^
+          cmake --build ${{github.workspace}}\build `
+            --parallel 2 `
+            --config RelWithDebInfo `
             --clean-first
           cmake --install ${{github.workspace}}\build --config RelWithDebInfo
 
@@ -412,6 +350,15 @@ jobs:
 
   sharphook:
     runs-on: windows-latest
+    needs:
+      - libuiohook-macos-arm64
+      - libuiohook-macos-x64
+      - libuiohook-linux-arm
+      - libuiohook-linux-arm64
+      - libuiohook-linux-x64
+      - libuiohook-windows-arm
+      - libuiohook-windows-x86
+      - libuiohook-windows-x64
 
     steps:
       - uses: actions/checkout@v2
