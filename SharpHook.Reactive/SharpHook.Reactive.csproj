@@ -10,14 +10,20 @@
     <Authors>Tolik Pylypchuk</Authors>
     <Company>Tolik Pylypchuk</Company>
     <Product>SharpHook</Product>
-    <Description>A library which provides a cross-platform global keyboard and mouse hook for .NET</Description>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Copyright>(c) 2021 Anatoliy Pylypchuk</Copyright>
-    <PackageProjectUrl>https://github.com/TolikPylypchuk/SharpHook</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/TolikPylypchuk/SharpHook</RepositoryUrl>
+    <Description>A library which provides a cross-platform global keyboard and mouse hook for .NET</Description>
     <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/TolikPylypchuk/SharpHook</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/TolikPylypchuk/SharpHook</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageTags>hook global-hook libuiohook rx reactive</PackageTags>
     <PackageIcon>icon.png</PackageIcon>
     <PackageIconUrl />
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -29,6 +35,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Include="System.Reactive" Version="5.0.0" />
   </ItemGroup>
 
@@ -37,9 +44,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath />
+    </None>
     <None Include="..\icon.png">
       <Pack>True</Pack>
-      <PackagePath></PackagePath>
+      <PackagePath />
+    </None>
+    <None Include="README.md">
+      <Pack>True</Pack>
+      <PackagePath />
     </None>
   </ItemGroup>
 
