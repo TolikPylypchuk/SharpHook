@@ -387,9 +387,9 @@ jobs:
           mv libuiohook-build\linux\arm\lib\libuiohook.so SharpHook\lib\linux-arm\
           mv libuiohook-build\linux\arm\lib\libuiohook.so.1 SharpHook\lib\linux-arm\
           mv libuiohook-build\linux\arm\lib\libuiohook.so.1.2.0 SharpHook\lib\linux-arm\
-          mv libuiohook-build\linux\arm64\lib\libuiohook.so SharpHook\lib\linux-arm\
-          mv libuiohook-build\linux\arm64\lib\libuiohook.so.1 SharpHook\lib\linux-arm\
-          mv libuiohook-build\linux\arm64\lib\libuiohook.so.1.2.0 SharpHook\lib\linux-arm\
+          mv libuiohook-build\linux\arm64\lib\libuiohook.so SharpHook\lib\linux-arm64\
+          mv libuiohook-build\linux\arm64\lib\libuiohook.so.1 SharpHook\lib\linux-arm64\
+          mv libuiohook-build\linux\arm64\lib\libuiohook.so.1.2.0 SharpHook\lib\linux-arm64\
           mv libuiohook-build\linux\x86_64\lib\libuiohook.so SharpHook\lib\linux-x64\
           mv libuiohook-build\linux\x86_64\lib\libuiohook.so.1 SharpHook\lib\linux-x64\
           mv libuiohook-build\linux\x86_64\lib\libuiohook.so.1.2.0 SharpHook\lib\linux-x64\
