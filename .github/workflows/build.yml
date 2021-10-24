@@ -371,6 +371,11 @@ jobs:
           dotnet-version: 6.0.x
           include-prerelease: true
 
+      - name: Setup DocFX
+        uses: crazy-max/ghaction-chocolatey@v1
+        with:
+          args: install docfx
+
       - name: Fetch libuiohook
         uses: actions/download-artifact@v2
         with:
@@ -412,3 +417,20 @@ jobs:
         with:
           name: sharphook-build
           path: ${{github.workspace}}\build\*
+
+      - name: Build Docs
+        shell: pwsh
+        working-directory: docs
+        run: docfx docfx.json
+        continue-on-error: false
+
+      - name: Publish Docs
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: gh-pages
+          folder: docs/_site
+          target-folder: v1.0.0/
+          git-config-name: "Tolik Pylypchuk"
+          git-config-email: "pylypchuk.tolik@gmail.com"
+          commit-message: "Deploy docs to GitHub Pages"
+
