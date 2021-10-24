@@ -15,7 +15,7 @@
     <Description>A library which provides a cross-platform global keyboard and mouse hook for .NET</Description>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/TolikPylypchuk/SharpHook</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/TolikPylypchuk/SharpHook</PackageProjectUrl>
+    <PackageProjectUrl>https://sharphook.tolik.io</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageTags>hook global-hook libuiohook rx reactive</PackageTags>
     <PackageIcon>icon.png</PackageIcon>
