@@ -1,6 +1,6 @@
 # Introduction
 
-Creating global keyboard and mouse hooks is hard. You have to use a bunch to not-so-pretty native functions and do
+Creating global keyboard and mouse hooks is hard. You have to use a bunch of not-so-pretty native functions and do
 low-level programming. It becomes even more difficult if you need it to work on multiple platforms. Sure, there are
 libraries that make things easier, but they work only on Windows since C#'s and .NET's history is tied to this OS. Well,
 now things are not quite as tied, and people need cross-platform stuff. So here we are. Meet SharpHook, a library which

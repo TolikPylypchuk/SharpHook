@@ -14,7 +14,7 @@ SharpHook. However, you should still read this article to know how the high-leve
 
 - `SetDispatchProc` (`hook_set_dispatch_proc`) - sets the function which will be called when an event is raised by
 libuiohook.
-- `Run` (`hook_run`) - creates a global hook and runs it on the current thread, blocking it until Stop is called.
+- `Run` (`hook_run`) - creates a global hook and runs it on the current thread, blocking it until `Stop` is called.
 - `Stop` (`hook_stop`) - destroys the global hook.
 
 You have to remember that only one global hook can exist at a time since calling `SetDispatchProc` will override the
