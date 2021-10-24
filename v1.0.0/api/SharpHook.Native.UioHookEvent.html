@@ -1,0 +1,677 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Struct UioHookEvent
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Struct UioHookEvent
+   ">
+    <meta name="generator" content="docfx 2.58.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="SharpHook.Native.UioHookEvent">
+  
+  
+  <h1 id="SharpHook_Native_UioHookEvent" data-uid="SharpHook.Native.UioHookEvent" class="text-break">Struct UioHookEvent
+  </h1>
+  <div class="markdown level0 summary"><p>Represents an event which can be raised by libuiohook.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="SharpHook.Native.UioHookEvent.html">UioHookEvent</a>&gt;</div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#System_Object_GetType">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="SharpHook.Native.html">SharpHook.Native</a></h6>
+  <h6><strong>Assembly</strong>: SharpHook.dll</h6>
+  <h5 id="SharpHook_Native_UioHookEvent_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public struct UioHookEvent : IEquatable&lt;UioHookEvent&gt;</code></pre>
+  </div>
+  <h5 id="SharpHook_Native_UioHookEvent_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>
+This is a union-like struct and the data it contains depends on the type of the event.
+</p>
+<p>
+The <a class="xref" href="SharpHook.Native.UioHookEvent.html#SharpHook_Native_UioHookEvent_Keyboard">Keyboard</a> field is available for the events of the following types:
+<ul><li><a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_KeyTyped">KeyTyped</a></li><li><a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_KeyPressed">KeyPressed</a></li><li><a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_KeyReleased">KeyReleased</a></li></ul>
+</p>
+<p>
+The <a class="xref" href="SharpHook.Native.UioHookEvent.html#SharpHook_Native_UioHookEvent_Mouse">Mouse</a> field is available for the events of the following types:
+<ul><li><a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseClicked">MouseClicked</a></li><li><a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MousePressed">MousePressed</a></li><li><a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseReleased">MouseReleased</a></li><li><a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseMoved">MouseMoved</a></li><li><a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseDragged">MouseDragged</a></li></ul>
+</p>
+<p>
+The <a class="xref" href="SharpHook.Native.UioHookEvent.html#SharpHook_Native_UioHookEvent_Wheel">Wheel</a> field is available for the events of the following type:
+<ul><li><a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseWheel">MouseWheel</a></li></ul>
+</p>
+</div>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_UioHookEvent_Keyboard.md&amp;value=---%0Auid%3A%20SharpHook.Native.UioHookEvent.Keyboard%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/UioHookEvent.cs/#L81">View Source</a>
+  </span>
+  <h4 id="SharpHook_Native_UioHookEvent_Keyboard" data-uid="SharpHook.Native.UioHookEvent.Keyboard">Keyboard</h4>
+  <div class="markdown level1 summary"><p>The event data if this event is keyboard-related.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public KeyboardEventData Keyboard</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.KeyboardEventData.html">KeyboardEventData</a></td>
+        <td><p>The event data if this event is keyboard-related.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_UioHookEvent_Mask.md&amp;value=---%0Auid%3A%20SharpHook.Native.UioHookEvent.Mask%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/UioHookEvent.cs/#L67">View Source</a>
+  </span>
+  <h4 id="SharpHook_Native_UioHookEvent_Mask" data-uid="SharpHook.Native.UioHookEvent.Mask">Mask</h4>
+  <div class="markdown level1 summary"><p>The mask of the event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ModifierMask Mask</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a></td>
+        <td><p>The mask of the event.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_UioHookEvent_Mouse.md&amp;value=---%0Auid%3A%20SharpHook.Native.UioHookEvent.Mouse%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/UioHookEvent.cs/#L88">View Source</a>
+  </span>
+  <h4 id="SharpHook_Native_UioHookEvent_Mouse" data-uid="SharpHook.Native.UioHookEvent.Mouse">Mouse</h4>
+  <div class="markdown level1 summary"><p>The event data if this event is mouse-related.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MouseEventData Mouse</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.MouseEventData.html">MouseEventData</a></td>
+        <td><p>The event data if this event is mouse-related.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_UioHookEvent_Reserved.md&amp;value=---%0Auid%3A%20SharpHook.Native.UioHookEvent.Reserved%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/UioHookEvent.cs/#L74">View Source</a>
+  </span>
+  <h4 id="SharpHook_Native_UioHookEvent_Reserved" data-uid="SharpHook.Native.UioHookEvent.Reserved">Reserved</h4>
+  <div class="markdown level1 summary"><p>The reserved value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ushort Reserved</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uint16">UInt16</a></td>
+        <td><p>The reserved value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_UioHookEvent_Time.md&amp;value=---%0Auid%3A%20SharpHook.Native.UioHookEvent.Time%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/UioHookEvent.cs/#L60">View Source</a>
+  </span>
+  <h4 id="SharpHook_Native_UioHookEvent_Time" data-uid="SharpHook.Native.UioHookEvent.Time">Time</h4>
+  <div class="markdown level1 summary"><p>The time of the event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ushort Time</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uint16">UInt16</a></td>
+        <td><p>The time of the event.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_UioHookEvent_Type.md&amp;value=---%0Auid%3A%20SharpHook.Native.UioHookEvent.Type%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/UioHookEvent.cs/#L53">View Source</a>
+  </span>
+  <h4 id="SharpHook_Native_UioHookEvent_Type" data-uid="SharpHook.Native.UioHookEvent.Type">Type</h4>
+  <div class="markdown level1 summary"><p>The type of the event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public EventType Type</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.EventType.html">EventType</a></td>
+        <td><p>The type of the event.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_UioHookEvent_Wheel.md&amp;value=---%0Auid%3A%20SharpHook.Native.UioHookEvent.Wheel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/UioHookEvent.cs/#L95">View Source</a>
+  </span>
+  <h4 id="SharpHook_Native_UioHookEvent_Wheel" data-uid="SharpHook.Native.UioHookEvent.Wheel">Wheel</h4>
+  <div class="markdown level1 summary"><p>The event data if this event is mouse wheel-related.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MouseWheelEventData Wheel</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.MouseWheelEventData.html">MouseWheelEventData</a></td>
+        <td><p>The event data if this event is mouse wheel-related.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_UioHookEvent_Equals_SharpHook_Native_UioHookEvent_.md&amp;value=---%0Auid%3A%20SharpHook.Native.UioHookEvent.Equals(SharpHook.Native.UioHookEvent)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/UioHookEvent.cs/#L114">View Source</a>
+  </span>
+  <a id="SharpHook_Native_UioHookEvent_Equals_" data-uid="SharpHook.Native.UioHookEvent.Equals*"></a>
+  <h4 id="SharpHook_Native_UioHookEvent_Equals_SharpHook_Native_UioHookEvent_" data-uid="SharpHook.Native.UioHookEvent.Equals(SharpHook.Native.UioHookEvent)">Equals(UioHookEvent)</h4>
+  <div class="markdown level1 summary"><p>Compares this object to another object for equality.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(UioHookEvent e)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.UioHookEvent.html">UioHookEvent</a></td>
+        <td><span class="parametername">e</span></td>
+        <td><p>The object to compare</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p><span class="xref">true</span> if the objects are equal. Otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_UioHookEvent_Equals_System_Object_.md&amp;value=---%0Auid%3A%20SharpHook.Native.UioHookEvent.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/UioHookEvent.cs/#L104">View Source</a>
+  </span>
+  <a id="SharpHook_Native_UioHookEvent_Equals_" data-uid="SharpHook.Native.UioHookEvent.Equals*"></a>
+  <h4 id="SharpHook_Native_UioHookEvent_Equals_System_Object_" data-uid="SharpHook.Native.UioHookEvent.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"><p>Compares this object to another object for equality.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>The object to compare</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p><span class="xref">true</span> if the objects are equal. Otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetype.equals#System_ValueType_Equals_System_Object_">ValueType.Equals(Object)</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_UioHookEvent_GetHashCode.md&amp;value=---%0Auid%3A%20SharpHook.Native.UioHookEvent.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/UioHookEvent.cs/#L136">View Source</a>
+  </span>
+  <a id="SharpHook_Native_UioHookEvent_GetHashCode_" data-uid="SharpHook.Native.UioHookEvent.GetHashCode*"></a>
+  <h4 id="SharpHook_Native_UioHookEvent_GetHashCode" data-uid="SharpHook.Native.UioHookEvent.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"><p>Gets the hash code of this object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><p>The hash code of this object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetype.gethashcode#System_ValueType_GetHashCode">ValueType.GetHashCode()</a></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_UioHookEvent_ToString.md&amp;value=---%0Auid%3A%20SharpHook.Native.UioHookEvent.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/UioHookEvent.cs/#L162">View Source</a>
+  </span>
+  <a id="SharpHook_Native_UioHookEvent_ToString_" data-uid="SharpHook.Native.UioHookEvent.ToString*"></a>
+  <h4 id="SharpHook_Native_UioHookEvent_ToString" data-uid="SharpHook.Native.UioHookEvent.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Returns the string representation of this object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><p>The string representation of this object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetype.tostring#System_ValueType_ToString">ValueType.ToString()</a></div>
+  <h3 id="operators">Operators
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_UioHookEvent_op_Equality_SharpHook_Native_UioHookEvent_SharpHook_Native_UioHookEvent_.md&amp;value=---%0Auid%3A%20SharpHook.Native.UioHookEvent.op_Equality(SharpHook.Native.UioHookEvent%2CSharpHook.Native.UioHookEvent)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/UioHookEvent.cs/#L186">View Source</a>
+  </span>
+  <a id="SharpHook_Native_UioHookEvent_op_Equality_" data-uid="SharpHook.Native.UioHookEvent.op_Equality*"></a>
+  <h4 id="SharpHook_Native_UioHookEvent_op_Equality_SharpHook_Native_UioHookEvent_SharpHook_Native_UioHookEvent_" data-uid="SharpHook.Native.UioHookEvent.op_Equality(SharpHook.Native.UioHookEvent,SharpHook.Native.UioHookEvent)">Equality(UioHookEvent, UioHookEvent)</h4>
+  <div class="markdown level1 summary"><p>Compares two objects for equality.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(UioHookEvent left, UioHookEvent right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.UioHookEvent.html">UioHookEvent</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first object to compare</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.UioHookEvent.html">UioHookEvent</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second object to compare</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p><span class="xref">true</span> if the objects are equal. Otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_UioHookEvent_op_Inequality_SharpHook_Native_UioHookEvent_SharpHook_Native_UioHookEvent_.md&amp;value=---%0Auid%3A%20SharpHook.Native.UioHookEvent.op_Inequality(SharpHook.Native.UioHookEvent%2CSharpHook.Native.UioHookEvent)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/UioHookEvent.cs/#L197">View Source</a>
+  </span>
+  <a id="SharpHook_Native_UioHookEvent_op_Inequality_" data-uid="SharpHook.Native.UioHookEvent.op_Inequality*"></a>
+  <h4 id="SharpHook_Native_UioHookEvent_op_Inequality_SharpHook_Native_UioHookEvent_SharpHook_Native_UioHookEvent_" data-uid="SharpHook.Native.UioHookEvent.op_Inequality(SharpHook.Native.UioHookEvent,SharpHook.Native.UioHookEvent)">Inequality(UioHookEvent, UioHookEvent)</h4>
+  <div class="markdown level1 summary"><p>Compares two objects for inequality.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(UioHookEvent left, UioHookEvent right)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.UioHookEvent.html">UioHookEvent</a></td>
+        <td><span class="parametername">left</span></td>
+        <td><p>The first object to compare</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.UioHookEvent.html">UioHookEvent</a></td>
+        <td><span class="parametername">right</span></td>
+        <td><p>The second object to compare</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><p><span class="xref">true</span> if the objects are not equal. Otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iequatable-1">System.IEquatable&lt;T&gt;</a>
+  </div>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="SharpHook.Native.EventType.html">EventType</a></div>
+      <div><a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a></div>
+      <div><a class="xref" href="SharpHook.Native.KeyboardEventData.html">KeyboardEventData</a></div>
+      <div><a class="xref" href="SharpHook.Native.MouseEventData.html">MouseEventData</a></div>
+      <div><a class="xref" href="SharpHook.Native.MouseWheelEventData.html">MouseWheelEventData</a></div>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_UioHookEvent.md&amp;value=---%0Auid%3A%20SharpHook.Native.UioHookEvent%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/UioHookEvent.cs/#L45" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <div>Copyright (c) 2021 Anatoliy Pylypchuk</div><span>Generated by <strong>DocFx</strong>.</span> <span>Icons made by <a href="https//www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com" title="Flaticon">www.flaticon.com</a></span></div>
+            
+          </div>
+        </footer></div>
+      
+    
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
