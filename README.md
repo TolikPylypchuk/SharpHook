@@ -213,6 +213,7 @@ in the [libuiohook](https://github.com/kwhat/libuiohook) repository, or you can 
 appropriate directories under the `lib` directory in the `SharpHook` project.
 
 With libuiohook in place you can build SharpHook using your usual methods, e.g. with Visual Studio or the `dotnet` CLI.
+Mind that you need .NET 6 and Visual Studio 2022 to build SharpHook.
 
 The `SharpHook` project defines multiple platforms. If you want to run `SharpHook.Sample`, make sure you don't use
 `AnyCPU` since the libuiohook version for it is not defined.
