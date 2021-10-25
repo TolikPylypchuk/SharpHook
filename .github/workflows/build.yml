@@ -2,9 +2,16 @@ name: Build Packages
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
+    tags:
+      - v*.*.*
+      - v*.*.*-preview.*
 
   workflow_dispatch:
+  
+env:
+  SHARPHOOK_VERSION: v1.0.0
 
 jobs:
   libuiohook-macos-arm64:
@@ -449,7 +456,38 @@ jobs:
         with:
           branch: gh-pages
           folder: docs-build/
-          target-folder: v1.0.0/
+          target-folder: ${{ env.SHARPHOOK_VERSION }}
           git-config-name: "Tolik Pylypchuk"
           git-config-email: "pylypchuk.tolik@gmail.com"
           commit-message: "Deploy docs to GitHub Pages"
+
+  test-tag:
+    runs-on: windows-latest
+    if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
+    needs: [sharphook]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 6.0.x
+          include-prerelease: true
+
+      - name: Fetch Packages
+        uses: actions/download-artifact@v2
+        with:
+          name: sharphook-build
+          path: sharphook-build
+
+      - name: Test the Tag Condition
+        shell: pwsh
+        run: |
+          Set-Location .\sharphook-build
+          Write-Output "Expected to push the following packages to NuGet"
+          $files = Get-ChildItem ".\*.nupkg"
+          foreach ($file in $files) {
+            Write-Output $file.Name
+          }
