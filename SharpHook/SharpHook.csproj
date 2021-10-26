@@ -6,7 +6,7 @@
     <RuntimeIdentifiers>win-x86;win-x64;win-arm;osx-x64;osx-arm64;linux-x64;linux-arm;linux-arm64</RuntimeIdentifiers>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
-    <Version>1.0.0-preview.1</Version>
+    <Version>1.0.0-preview.2</Version>
     <Authors>Tolik Pylypchuk</Authors>
     <Company>Tolik Pylypchuk</Company>
     <Product>SharpHook</Product>
