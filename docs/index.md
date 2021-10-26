@@ -13,6 +13,7 @@ the [API reference](api/index.md).
 - [Reactive Global Hooks](articles/reactive.md)
 - [Limitations](articles/limitations.md)
 - [Library Status](articles/status.md)
+- [API Docs](api/index.md)
 
 ## GitHub Repository
 
@@ -20,4 +21,7 @@ https://github.com/TolikPylypchuk/SharpHook
 
 ## Installation
 
-The library will be available on NuGet soon. In the meantime you'll have to build and pack it yourself.
+```
+dotnet add package SharpHook --version 1.0.0-preview.1
+dotnet add package SharpHook.Reactive --version 1.0.0-preview.1
+```
