@@ -9,6 +9,8 @@ using System;
 [Flags]
 public enum ModifierMask : ushort
 {
+    None = 0,
+
     LeftShift = 1 << 0,
     LeftCtrl = 1 << 1,
     LeftMeta = 1 << 2,
