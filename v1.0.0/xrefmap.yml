@@ -1913,6 +1913,12 @@ references:
   commentId: F:SharpHook.Native.ModifierMask.Meta
   fullName: SharpHook.Native.ModifierMask.Meta
   nameWithType: ModifierMask.Meta
+- uid: SharpHook.Native.ModifierMask.None
+  name: None
+  href: api/SharpHook.Native.ModifierMask.html#SharpHook_Native_ModifierMask_None
+  commentId: F:SharpHook.Native.ModifierMask.None
+  fullName: SharpHook.Native.ModifierMask.None
+  nameWithType: ModifierMask.None
 - uid: SharpHook.Native.ModifierMask.NumLock
   name: NumLock
   href: api/SharpHook.Native.ModifierMask.html#SharpHook_Native_ModifierMask_NumLock
