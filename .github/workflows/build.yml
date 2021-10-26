@@ -441,7 +441,7 @@ jobs:
           user_email: "pylypchuk.tolik@gmail.com"
           commit_message: "Deploy docs to GitHub Pages"
 
-  test-tag:
+  publish:
     runs-on: windows-latest
     if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
     needs: [sharphook]
@@ -464,12 +464,11 @@ jobs:
           name: sharphook-build
           path: sharphook-build
 
-      - name: Test the Tag Condition
+      - name: Publish Packages
         shell: pwsh
         run: |
           Set-Location .\sharphook-build
-          Write-Output "Expected to push the following packages to NuGet"
           $files = Get-ChildItem ".\*.nupkg"
           foreach ($file in $files) {
-            Write-Output $file.Name
+            dotnet nuget push $file.Name --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
           }
