@@ -1,12 +1,22 @@
 # SharpHook
 
+[![NuGet](https://img.shields.io/nuget/v/SharpHook.svg)](https://www.nuget.org/packages/SharpHook)
+[![NuGet](https://img.shields.io/nuget/v/SharpHook.Reactive.svg)](https://www.nuget.org/packages/SharpHook.Reactive)
+
 SharpHook is a library which provides a cross-platform global keyboard and mouse hook for .NET. It is a thin wrapper of
 [libuiohook](https://github.com/kwhat/libuiohook) and provides direct access to its features as well as a higher-level
 interface and classes to work with it.
 
 ## Installation
 
-The library will be available on NuGet soon. In the meantime you'll have to build and pack it yourself.
+```
+dotnet add package SharpHook --version 1.0.0-preview.1
+dotnet add package SharpHook.Reactive --version 1.0.0-preview.1
+```
+
+## Docs
+
+You can find more information (including the API reference) in the [docs](https://sharphook.tolik.io).
 
 ## Supported Platforms
 
@@ -72,23 +82,8 @@ provided by SharpHook.
 
 - `Stop` - destroys the global hook.
 
-libuiohook also provides functions to get various system properties. The corresponding methods in `UioHook` are listed
-below:
-
-- `CreateScreenInfo` - gets the information about the screens and returns it as an array. There's also a version of
-this function which returns an unmanaged array and that version shouldn't be used directly.
-
-- `GetAutoRepeatRate`
-
-- `GetAutoRepeatDelay`
-
-- `GetPointerAccelerationMultiplier`
-
-- `GetPointerAccelerationThreshold`
-
-- `GetPointerSensitivity`
-
-- `GetMultiClickTime`
+libuiohook also provides functions to get various system properties. The corresponding methods are also present in
+`UioHook`.
 
 ### Default Global Hooks
 
