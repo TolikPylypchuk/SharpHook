@@ -10,8 +10,8 @@ interface and classes to work with it.
 ## Installation
 
 ```
-dotnet add package SharpHook --version 1.0.0-preview.1
-dotnet add package SharpHook.Reactive --version 1.0.0-preview.1
+dotnet add package SharpHook --version 1.0.0-preview.2
+dotnet add package SharpHook.Reactive --version 1.0.0-preview.2
 ```
 
 ## Docs
