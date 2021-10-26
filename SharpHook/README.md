@@ -4,52 +4,6 @@ SharpHook is a library which provides a cross-platform global keyboard and mouse
 [libuiohook](https://github.com/kwhat/libuiohook) and provides direct access to its features as well as a higher-level
 interface and classes to work with it.
 
-## Supported Platforms
-
-<table>
-  <tr>
-    <th></th>
-    <th>Windows</th>
-    <th>macOS</th>
-    <th>Linux</th>
-  </tr>
-  <tr>
-    <th>x86</th>
-    <td>Yes</td>
-    <td>N/A</td>
-    <td>No<sup>1</sup></td>
-  </tr>
-  <tr>
-    <th>x64</th>
-    <td>Yes</td>
-    <td>Yes</td>
-    <td>Yes</td>
-  </tr>
-  <tr>
-    <th>Arm32</th>
-    <td>Yes<sup>2</sup></td>
-    <td>N/A</td>
-    <td>Yes</td>
-  </tr>
-  <tr>
-    <th>Arm64</th>
-    <td>No<sup>3</sup></td>
-    <td>Yes</td>
-    <td>Yes</td>
-  </tr>
-</table>
-
-[1] - Linux on x86 is [not supported](https://github.com/dotnet/runtime/issues/7335) by .NET itself.
-
-[2] - Windows Arm32 support was
-[dropped](https://github.com/dotnet/core/blob/main/release-notes/5.0/5.0-supported-os.md) in .NET 5 so it will most
-probably be dropped by this library in a future version as well.
-
-[3] - Windows on Arm64 is not yet supported by libuiohook.
-
-libuiohook only supports X11 on Linux. Wayland support [may be coming](https://github.com/kwhat/libuiohook/issues/100),
-but it's not yet here.
-
 ## Usage
 
 ### Native Methods of libuiohook
@@ -63,28 +17,11 @@ provided by SharpHook.
 `UioHook` contains the following methods for working with the global hook:
 
 - `SetDispatchProc` - sets the function which will be called when an event is raised by libuiohook.
-
 - `Run` - creates a global hook and runs it on the current thread, blocking it until `Stop` is called.
-
 - `Stop` - destroys the global hook.
 
-libuiohook also provides functions to get various system properties. The corresponding methods in `UioHook` are listed
-below:
-
-- `CreateScreenInfo` - gets the information about the screens and returns it as an array. There's also a version of
-this function which returns an unmanaged array and that version shouldn't be used directly.
-
-- `GetAutoRepeatRate`
-
-- `GetAutoRepeatDelay`
-
-- `GetPointerAccelerationMultiplier`
-
-- `GetPointerAccelerationThreshold`
-
-- `GetPointerSensitivity`
-
-- `GetMultiClickTime`
+libuiohook also provides functions to get various system properties. The corresponding methods are also present in
+`UioHook`.
 
 ### Default Global Hooks
 
@@ -143,19 +80,7 @@ strategy for dispatching the events.
 
 ### Reactive Global Hooks
 
-Use the `SharpHook.Reactive` package for reactive global hooks.
-
-## Limitations
-
-You have to remember that libuiohook binaries should be present in the curent working directory. This is how P/Invoke
-works, and it can cause the 'library not found' issues when running your client app from a different directory.
-
-Another thing is that libuiohook supports hooking into its logging capabilities so that you can get its logs. This
-library doesn't support this. The reason is that you should call `hook_set_logger_proc` and pass your callback for
-logging. This is similar to `hook_set_dispatch_proc`, but this time the callback should accept a variable number of
-arguments (using C's `...` syntax) and the client decides how to format the log message. Supporting native
-variable arguments in callbacks is next to impossible in C#, and the payoff is not worth spending a lot of effort to
-implement this feature.
+Use the [SharpHook.Reactive](https://www.nuget.org/packages/SharpHook.Reactive) package for reactive global hooks.
 
 ## Icon
 
