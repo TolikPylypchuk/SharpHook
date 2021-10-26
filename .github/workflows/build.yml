@@ -467,8 +467,5 @@ jobs:
       - name: Publish Packages
         shell: pwsh
         run: |
-          Set-Location .\sharphook-build
-          $files = Get-ChildItem ".\*.nupkg"
-          foreach ($file in $files) {
-            dotnet nuget push $file.Name --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
-          }
+          cd .\sharphook-build
+          dotnet nuget push "*.nupkg" --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
