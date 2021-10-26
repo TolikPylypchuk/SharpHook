@@ -1,7 +1,7 @@
 # SharpHook
 
-SharpHook: [![NuGet](https://img.shields.io/nuget/v/SharpHook.svg)](https://www.nuget.org/packages/SharpHook)  
-SharpHook.Reactive: [![NuGet](https://img.shields.io/nuget/v/SharpHook.Reactive.svg)](https://www.nuget.org/packages/SharpHook.Reactive)
+[![NuGet](https://img.shields.io/nuget/v/SharpHook.svg?label=SharpHook)](https://www.nuget.org/packages/SharpHook)
+[![NuGet](https://img.shields.io/nuget/v/SharpHook.Reactive.svg?label=SharpHook.Reactive)](https://www.nuget.org/packages/SharpHook.Reactive)
 
 SharpHook is a library which provides a cross-platform global keyboard and mouse hook for .NET. It is a thin wrapper of
 [libuiohook](https://github.com/kwhat/libuiohook) and provides direct access to its features as well as a higher-level
