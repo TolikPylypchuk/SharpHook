@@ -25,6 +25,12 @@ public abstract class GlobalHookBase : IGlobalHook
         this.Dispose(false);
 
     /// <summary>
+    /// Gets the value which indicates whether the global hook is running.
+    /// </summary>
+    /// <value><see langword="true" /> if the global hook is running. Otherwise, <see langword="false" />.</value>
+    public bool IsRunning { get; private set; }
+
+    /// <summary>
     /// Starts the global hook. The hook can be destroyed by calling the <see cref="IDisposable.Dispose" /> method.
     /// </summary>
     /// <returns>A <see cref="Task" /> which finishes when the hook is destroyed.</returns>
@@ -44,7 +50,10 @@ public abstract class GlobalHookBase : IGlobalHook
             try
             {
                 UioHook.SetDispatchProc(this.HandleHookEventIfNeeded);
+
+                this.IsRunning = true;
                 var result = UioHook.Run();
+                this.IsRunning = false;
 
                 if (result == UioHookResult.Success)
                 {
@@ -221,13 +230,21 @@ public abstract class GlobalHookBase : IGlobalHook
     /// <exception cref="HookException">Stopping the hook has failed.</exception>
     protected virtual void Dispose(bool disposing)
     {
+        if (this.disposed)
+        {
+            return;
+        }
+
         this.disposed = true;
 
-        var result = UioHook.Stop();
-
-        if (disposing && result != UioHookResult.Success)
+        if (this.IsRunning)
         {
-            throw new HookException(result, this.FormatFailureMessage("stopping", result));
+            var result = UioHook.Stop();
+
+            if (disposing && result != UioHookResult.Success)
+            {
+                throw new HookException(result, this.FormatFailureMessage("stopping", result));
+            }
         }
     }
 

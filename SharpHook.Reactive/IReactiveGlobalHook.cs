@@ -25,6 +25,12 @@ public interface IReactiveGlobalHook : IDisposable
     IObservable<Unit> Start();
 
     /// <summary>
+    /// Gets the value which indicates whether the global hook is running.
+    /// </summary>
+    /// <value><see langword="true" /> if the global hook is running. Otherwise, <see langword="false" />.</value>
+    bool IsRunning { get; }
+
+    /// <summary>
     /// Gets an observable which emits a value when the global hook is enabled.
     /// </summary>
     /// <value>An observable which emits a value when the global hook is enabled.</value>

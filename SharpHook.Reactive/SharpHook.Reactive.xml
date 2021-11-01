@@ -51,6 +51,12 @@
             The returned observable emits a sinlge value and then immediately completes when the hook is destroyed.
             </remarks>
         </member>
+        <member name="P:SharpHook.Reactive.IReactiveGlobalHook.IsRunning">
+            <summary>
+            Gets the value which indicates whether the global hook is running.
+            </summary>
+            <value><see langword="true" /> if the global hook is running. Otherwise, <see langword="false" />.</value>
+        </member>
         <member name="P:SharpHook.Reactive.IReactiveGlobalHook.HookEnabled">
             <summary>
             Gets an observable which emits a value when the global hook is enabled.
@@ -143,6 +149,12 @@
             <summary>
             Unregisteres the global hook if it's registered.
             </summary>
+        </member>
+        <member name="P:SharpHook.Reactive.ReactiveGlobalHookAdapter.IsRunning">
+            <summary>
+            Gets the value which indicates whether the global hook is running.
+            </summary>
+            <value><see langword="true" /> if the global hook is running. Otherwise, <see langword="false" />.</value>
         </member>
         <member name="P:SharpHook.Reactive.ReactiveGlobalHookAdapter.HookEnabled">
             <summary>
@@ -246,6 +258,12 @@
             <summary>
             Unregisteres the global hook if it's registered.
             </summary>
+        </member>
+        <member name="P:SharpHook.Reactive.SimpleReactiveGlobalHook.IsRunning">
+            <summary>
+            Gets the value which indicates whether the global hook is running.
+            </summary>
+            <value><see langword="true" /> if the global hook is running. Otherwise, <see langword="false" />.</value>
         </member>
         <member name="P:SharpHook.Reactive.SimpleReactiveGlobalHook.HookEnabled">
             <summary>

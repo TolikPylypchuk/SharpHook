@@ -18,6 +18,12 @@
             Unregisteres the global hook if it's registered.
             </summary>
         </member>
+        <member name="P:SharpHook.GlobalHookBase.IsRunning">
+            <summary>
+            Gets the value which indicates whether the global hook is running.
+            </summary>
+            <value><see langword="true" /> if the global hook is running. Otherwise, <see langword="false" />.</value>
+        </member>
         <member name="M:SharpHook.GlobalHookBase.Start">
             <summary>
             Starts the global hook. The hook can be destroyed by calling the <see cref="M:System.IDisposable.Dispose" /> method.
@@ -286,6 +292,12 @@
             <seealso cref="T:SharpHook.GlobalHookBase" />
             <seealso cref="T:SharpHook.SimpleGlobalHook" />
             <seealso cref="T:SharpHook.TaskPoolGlobalHook" />
+        </member>
+        <member name="P:SharpHook.IGlobalHook.IsRunning">
+            <summary>
+            Gets the value which indicates whether the global hook is running.
+            </summary>
+            <value><see langword="true" /> if the global hook is running. Otherwise, <see langword="false" />.</value>
         </member>
         <member name="M:SharpHook.IGlobalHook.Start">
             <summary>

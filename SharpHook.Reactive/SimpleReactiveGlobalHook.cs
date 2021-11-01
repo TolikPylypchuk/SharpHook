@@ -57,6 +57,12 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
         this.Dispose(false);
 
     /// <summary>
+    /// Gets the value which indicates whether the global hook is running.
+    /// </summary>
+    /// <value><see langword="true" /> if the global hook is running. Otherwise, <see langword="false" />.</value>
+    public bool IsRunning { get; private set; }
+
+    /// <summary>
     /// Gets an observable which emits a value when the global hook is enabled.
     /// </summary>
     /// <value>An observable which emits a value when the global hook is enabled.</value>
@@ -150,7 +156,10 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
             try
             {
                 UioHook.SetDispatchProc(this.DispatchEvent);
+
+                this.IsRunning = true;
                 var result = UioHook.Run();
+                this.IsRunning = false;
 
                 if (result == UioHookResult.Success)
                 {
@@ -236,24 +245,27 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
 
         this.disposed = true;
 
-        this.hookDisabledSubject.Subscribe(_ =>
+        if (this.IsRunning)
         {
-            this.hookDisabledSubject.OnCompleted();
-            this.hookDisabledSubject.Dispose();
-        });
+            this.hookDisabledSubject.Subscribe(_ =>
+            {
+                this.hookDisabledSubject.OnCompleted();
+                this.hookDisabledSubject.Dispose();
+            });
 
-        var result = UioHook.Stop();
+            var result = UioHook.Stop();
 
-        this.CompleteAllSubjects();
+            this.CompleteAllSubjects();
 
-        if (disposing)
-        {
-            this.DisposeAllSubjects();
-        }
+            if (disposing)
+            {
+                this.DisposeAllSubjects();
+            }
 
-        if (disposing && result != UioHookResult.Success)
-        {
-            throw new HookException(result, this.FormatFailureMessage("stopping", result));
+            if (disposing && result != UioHookResult.Success)
+            {
+                throw new HookException(result, this.FormatFailureMessage("stopping", result));
+            }
         }
     }
 

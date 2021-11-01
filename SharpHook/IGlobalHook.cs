@@ -12,6 +12,12 @@ using System.Threading.Tasks;
 public interface IGlobalHook : IDisposable
 {
     /// <summary>
+    /// Gets the value which indicates whether the global hook is running.
+    /// </summary>
+    /// <value><see langword="true" /> if the global hook is running. Otherwise, <see langword="false" />.</value>
+    bool IsRunning { get; }
+
+    /// <summary>
     /// Starts the global hook. The hook can be destroyed by calling the <see cref="IDisposable.Dispose" /> method.
     /// </summary>
     /// <returns>A <see cref="Task" /> which finishes when the hook is destroyed.</returns>
