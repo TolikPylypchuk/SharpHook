@@ -17,6 +17,8 @@ really active anymore, but is still maintained, so this library will most probab
 
 - `Dispose` is now safe to call when the hook is not running for all implementations.
 
+- libuiohook was updated to commit [4867b8e](https://github.com/kwhat/libuiohook/tree/4867b8e768bdb0037d05993aad92254793326fae).
+
 ## [v1.0.0 Preview 2](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v1.0.0-preview.2) (26 October 2021)
 
 - `SharpHook.Native.ModifierMask.None` was added.
