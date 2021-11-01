@@ -89,6 +89,19 @@ references:
   commentId: E:SharpHook.GlobalHookBase.HookEnabled
   fullName: SharpHook.GlobalHookBase.HookEnabled
   nameWithType: GlobalHookBase.HookEnabled
+- uid: SharpHook.GlobalHookBase.IsRunning
+  name: IsRunning
+  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_IsRunning
+  commentId: P:SharpHook.GlobalHookBase.IsRunning
+  fullName: SharpHook.GlobalHookBase.IsRunning
+  nameWithType: GlobalHookBase.IsRunning
+- uid: SharpHook.GlobalHookBase.IsRunning*
+  name: IsRunning
+  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_IsRunning_
+  commentId: Overload:SharpHook.GlobalHookBase.IsRunning
+  isSpec: "True"
+  fullName: SharpHook.GlobalHookBase.IsRunning
+  nameWithType: GlobalHookBase.IsRunning
 - uid: SharpHook.GlobalHookBase.KeyPressed
   name: KeyPressed
   href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_KeyPressed
@@ -443,6 +456,19 @@ references:
   commentId: E:SharpHook.IGlobalHook.HookEnabled
   fullName: SharpHook.IGlobalHook.HookEnabled
   nameWithType: IGlobalHook.HookEnabled
+- uid: SharpHook.IGlobalHook.IsRunning
+  name: IsRunning
+  href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_IsRunning
+  commentId: P:SharpHook.IGlobalHook.IsRunning
+  fullName: SharpHook.IGlobalHook.IsRunning
+  nameWithType: IGlobalHook.IsRunning
+- uid: SharpHook.IGlobalHook.IsRunning*
+  name: IsRunning
+  href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_IsRunning_
+  commentId: Overload:SharpHook.IGlobalHook.IsRunning
+  isSpec: "True"
+  fullName: SharpHook.IGlobalHook.IsRunning
+  nameWithType: IGlobalHook.IsRunning
 - uid: SharpHook.IGlobalHook.KeyPressed
   name: KeyPressed
   href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_KeyPressed
@@ -2821,6 +2847,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.Reactive.IReactiveGlobalHook.HookEnabled
   nameWithType: IReactiveGlobalHook.HookEnabled
+- uid: SharpHook.Reactive.IReactiveGlobalHook.IsRunning
+  name: IsRunning
+  href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_IsRunning
+  commentId: P:SharpHook.Reactive.IReactiveGlobalHook.IsRunning
+  fullName: SharpHook.Reactive.IReactiveGlobalHook.IsRunning
+  nameWithType: IReactiveGlobalHook.IsRunning
+- uid: SharpHook.Reactive.IReactiveGlobalHook.IsRunning*
+  name: IsRunning
+  href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_IsRunning_
+  commentId: Overload:SharpHook.Reactive.IReactiveGlobalHook.IsRunning
+  isSpec: "True"
+  fullName: SharpHook.Reactive.IReactiveGlobalHook.IsRunning
+  nameWithType: IReactiveGlobalHook.IsRunning
 - uid: SharpHook.Reactive.IReactiveGlobalHook.KeyPressed
   name: KeyPressed
   href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_KeyPressed
@@ -3022,6 +3061,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.HookEnabled
   nameWithType: ReactiveGlobalHookAdapter.HookEnabled
+- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.IsRunning
+  name: IsRunning
+  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_IsRunning
+  commentId: P:SharpHook.Reactive.ReactiveGlobalHookAdapter.IsRunning
+  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.IsRunning
+  nameWithType: ReactiveGlobalHookAdapter.IsRunning
+- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.IsRunning*
+  name: IsRunning
+  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_IsRunning_
+  commentId: Overload:SharpHook.Reactive.ReactiveGlobalHookAdapter.IsRunning
+  isSpec: "True"
+  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.IsRunning
+  nameWithType: ReactiveGlobalHookAdapter.IsRunning
 - uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.KeyPressed
   name: KeyPressed
   href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_KeyPressed
@@ -3328,6 +3380,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.HookEnabled
   nameWithType: SimpleReactiveGlobalHook.HookEnabled
+- uid: SharpHook.Reactive.SimpleReactiveGlobalHook.IsRunning
+  name: IsRunning
+  href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook_IsRunning
+  commentId: P:SharpHook.Reactive.SimpleReactiveGlobalHook.IsRunning
+  fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.IsRunning
+  nameWithType: SimpleReactiveGlobalHook.IsRunning
+- uid: SharpHook.Reactive.SimpleReactiveGlobalHook.IsRunning*
+  name: IsRunning
+  href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook_IsRunning_
+  commentId: Overload:SharpHook.Reactive.SimpleReactiveGlobalHook.IsRunning
+  isSpec: "True"
+  fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.IsRunning
+  nameWithType: SimpleReactiveGlobalHook.IsRunning
 - uid: SharpHook.Reactive.SimpleReactiveGlobalHook.KeyPressed
   name: KeyPressed
   href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook_KeyPressed
