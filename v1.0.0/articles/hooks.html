@@ -100,7 +100,9 @@ await hook.Start();
 events will usually be the <code>IGlobalHook</code> itself, but technically it can be anything.</p>
 <p>It also contains the <code>Start</code> method which returns a <code>Task</code> - this task is finished when the hook is destroyed.</p>
 <p><code>IGlobalHook</code> extends <code>IDisposable</code>. When you call the <code>Dispose</code> method on a hook, it's destroyed. The contract of
-the interface is that once a hook has been destroyed, it cannot be started again - you'll have to create a new instance.</p>
+the interface is that once a hook has been destroyed, it cannot be started again - you'll have to create a new instance.
+Calling <code>Dispose</code> when the hook is not running is safe - it just won't do anything (other than marking the instance as
+disposed).</p>
 <p><strong>Important</strong>: Always use one instance of <code>IGlobalHook</code> at a time in the entire application since they all must use
 the same static method to set the hook callback for libuiohook, and there may only be one callback at a time.</p>
 <h2 id="the-default-implementations">The Default Implementations</h2>
