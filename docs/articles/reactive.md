@@ -49,7 +49,8 @@ The `Start` method is basically the same as in `IGlobalHook`, but returns `IObse
 This observable will emit a single value and then complete when you destroy the global hook.
 
 `IReactiveGlobalHook` also extends `IDisposable` and calling `Dispose` will destroy the global hook. As with
-`IGlobalHook`, starting a disposed instance again shouldn't be allowed.
+`IGlobalHook`, starting a disposed instance again shouldn't be allowed. Calling `Dispose` when the hook is not running
+is safe - it just won't do anything (other than marking the instance as disposed).
 
 ## The Default Implementations
 

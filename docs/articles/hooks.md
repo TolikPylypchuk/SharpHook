@@ -38,6 +38,8 @@ It also contains the `Start` method which returns a `Task` - this task is finish
 
 `IGlobalHook` extends `IDisposable`. When you call the `Dispose` method on a hook, it's destroyed. The contract of
 the interface is that once a hook has been destroyed, it cannot be started again - you'll have to create a new instance.
+Calling `Dispose` when the hook is not running is safe - it just won't do anything (other than marking the instance as
+disposed).
 
 **Important**: Always use one instance of `IGlobalHook` at a time in the entire application since they all must use
 the same static method to set the hook callback for libuiohook, and there may only be one callback at a time.
