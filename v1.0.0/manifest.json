@@ -401,6 +401,18 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/about.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/about.html",
+          "hash": "42jA6M+PIfR6TbdkKy0BxpAjULGkjhPbY0g+O+mWewQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "articles/hooks.md",
       "output": {
         ".html": {
@@ -424,12 +436,15 @@
       "version": ""
     },
     {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
       "type": "Conceptual",
       "source_relative_path": "articles/limitations.md",
       "output": {
         ".html": {
           "relative_path": "articles/limitations.html",
-          "hash": "yYvRFy51Dznf2Vfa+cy9Ilrgea2yMTMjJqSt2MDnlV0="
+          "hash": "8DSU8n1Byof+Cxz6pSkYMJzhuaVvXQt82isx0sau8hc="
         }
       },
       "is_incremental": false,
@@ -460,24 +475,12 @@
       "version": ""
     },
     {
-      "type": "Conceptual",
-      "source_relative_path": "articles/status.md",
-      "output": {
-        ".html": {
-          "relative_path": "articles/status.html",
-          "hash": "EC8vftxBzPa+rC6FohqZamQzVUsO8I+kp8BiRiIuGyE="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
       "type": "Toc",
       "source_relative_path": "articles/toc.yml",
       "output": {
         ".html": {
           "relative_path": "articles/toc.html",
-          "hash": "fDAMuu2T7aBIVyy7DjAY7FroGZqa8TemnaqbD58BrzM="
+          "hash": "lOLQvbvRszcmxjyGhh4pZwI9uaJpED6sbAuQHGoegCY="
         }
       },
       "is_incremental": false,
@@ -495,12 +498,15 @@
       "version": ""
     },
     {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
       "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "+5E5zdCUd8MugbeqPtBzKim5sU9b4w0JK3lywNYqTqg="
+          "hash": "CXLUNRTqiwq0UJxFq+zClHSrlTm+rl1qQx8OOhJt7W0="
         }
       },
       "is_incremental": false,
