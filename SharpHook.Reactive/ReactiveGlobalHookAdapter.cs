@@ -218,7 +218,7 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
     /// </summary>
     /// <returns>An observable which is completed when the hook is destroyed.</returns>
     /// <remarks>
-    /// The returned observable emits a sinlge value and then immediately completes when the hook is destroyed.
+    /// The returned observable emits a single value and then immediately completes when the hook is destroyed.
     /// </remarks>
     /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
     public IObservable<Unit> Start()

@@ -48,7 +48,7 @@
             </summary>
             <returns>An observable which is completed when the hook is destroyed.</returns>
             <remarks>
-            The returned observable emits a sinlge value and then immediately completes when the hook is destroyed.
+            The returned observable emits a single value and then immediately completes when the hook is destroyed.
             </remarks>
         </member>
         <member name="P:SharpHook.Reactive.IReactiveGlobalHook.IsRunning">
@@ -235,7 +235,7 @@
             </summary>
             <returns>An observable which is completed when the hook is destroyed.</returns>
             <remarks>
-            The returned observable emits a sinlge value and then immediately completes when the hook is destroyed.
+            The returned observable emits a single value and then immediately completes when the hook is destroyed.
             </remarks>
             <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
         </member>
@@ -346,7 +346,7 @@
             <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
             <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
             <remarks>
-            The hook is started on a separate thread. The returned observable emits a sinlge value and then immediately
+            The hook is started on a separate thread. The returned observable emits a single value and then immediately
             completes when the hook is destroyed.
             </remarks>
         </member>

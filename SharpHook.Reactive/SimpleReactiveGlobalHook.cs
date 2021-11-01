@@ -142,7 +142,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     /// <exception cref="HookException">Starting the global hook has failed.</exception>
     /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
     /// <remarks>
-    /// The hook is started on a separate thread. The returned observable emits a sinlge value and then immediately
+    /// The hook is started on a separate thread. The returned observable emits a single value and then immediately
     /// completes when the hook is destroyed.
     /// </remarks>
     public IObservable<Unit> Start()
