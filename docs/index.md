@@ -12,7 +12,7 @@ the [API reference](api/index.md).
 - [Global Hooks](articles/hooks.md)
 - [Reactive Global Hooks](articles/reactive.md)
 - [Limitations](articles/limitations.md)
-- [Library Status](articles/status.md)
+- [About SharpHook](articles/about.md)
 - [API Docs](api/index.md)
 
 ## GitHub Repository

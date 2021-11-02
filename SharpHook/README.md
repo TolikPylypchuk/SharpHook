@@ -11,8 +11,8 @@ interfaces and classes to work with it.
 SharpHook exposes the methods of libuiohook in the `SharpHook.Native.UioHook` class. The `SharpHook.Native`
 namespace also contains structs and enums which represent the data returned by libuiohook.
 
-**Note**: In general, you shouldn't use native methods directly. Instead, use the higher-level interface and classes
-provided by SharpHook.
+**Note**: In general, you shouldn't use native methods directly. Instead, use the higher-level types provided by
+SharpHook.
 
 `UioHook` contains the following methods for working with the global hook:
 
