@@ -1,9 +1,5 @@
 namespace SharpHook;
 
-using System;
-
-using SharpHook.Native;
-
 /// <summary>
 /// A base class for event args related to the global hook.
 /// </summary>

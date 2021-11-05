@@ -1,10 +1,5 @@
 namespace SharpHook;
 
-using System;
-using System.Runtime.Serialization;
-
-using SharpHook.Native;
-
 /// <summary>
 /// Represents an exception related to the global hook.
 /// </summary>

@@ -1,10 +1,5 @@
 namespace SharpHook.Internal;
 
-using System;
-using System.Runtime.CompilerServices;
-using System.Threading;
-using System.Threading.Tasks;
-
 internal sealed class TaskQueue : IDisposable
 {
     private readonly SemaphoreSlim semaphore;

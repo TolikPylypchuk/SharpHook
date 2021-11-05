@@ -1,10 +1,5 @@
 namespace SharpHook.Native;
 
-using System;
-using System.Runtime.InteropServices;
-
-using SharpHook.Internal;
-
 /// <summary>
 /// Represents the data of a mouse wheel-related event.
 /// </summary>

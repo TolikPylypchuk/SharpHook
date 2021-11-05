@@ -1,8 +1,5 @@
 namespace SharpHook.Internal;
 
-using System;
-using System.Runtime.CompilerServices;
-
 internal static class HashCodeUtil
 {
 #if !NETCOREAPP3_0_OR_GREATER

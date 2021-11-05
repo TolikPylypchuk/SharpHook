@@ -1,8 +1,5 @@
 namespace SharpHook.Reactive;
 
-using System;
-using System.Reactive;
-
 /// <summary>
 /// Represents a global reactive keyboard and mouse hook.
 /// </summary>

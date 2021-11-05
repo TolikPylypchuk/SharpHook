@@ -1,7 +1,5 @@
 namespace SharpHook.Reactive;
 
-using System.Reactive;
-
 /// <summary>
 /// Represents an event which is raised by <see cref="IReactiveGlobalHook" />.
 /// </summary>

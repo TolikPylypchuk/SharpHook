@@ -1,14 +1,5 @@
 namespace SharpHook.Reactive;
 
-using System;
-using System.Reactive;
-using System.Reactive.Linq;
-using System.Reactive.Subjects;
-using System.Runtime.CompilerServices;
-using System.Threading;
-
-using SharpHook.Native;
-
 /// <summary>
 /// Represents a simple reactive global hook.
 /// </summary>
