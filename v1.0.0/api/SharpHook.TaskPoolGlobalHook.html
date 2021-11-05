@@ -85,7 +85,7 @@
   <div classs="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a></div>
-    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    <div><span class="xref">IDisposable</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -99,7 +99,7 @@
       <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_Dispose">GlobalHookBase.Dispose()</a>
     </div>
     <div>
-      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_DispatchEvent_SharpHook_Native_UioHookEvent__">GlobalHookBase.DispatchEvent(UioHookEvent)</a>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_DispatchEvent_UioHookEvent__">GlobalHookBase.DispatchEvent(UioHookEvent)</a>
     </div>
     <div>
       <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_OnHookEnabled_SharpHook_HookEventArgs_">GlobalHookBase.OnHookEnabled(HookEventArgs)</a>
@@ -202,7 +202,7 @@
   <div class="markdown level0 remarks"><p>The event handlers will run with the specified parallelism level on separate threads inside the default thread
 pool for tasks. This is done so that the hook itself will not be blocked if the handlers are long-running.
 The exception is the <a class="xref" href="SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_HookDisabled">HookDisabled</a> event which will run on the same thread that called
-the <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable.dispose#System_IDisposable_Dispose">Dispose()</a> method since at that point it doesn't matter anymore that the hook is
+the <see cref="!:IDisposable.Dispose()"></see> method since at that point it doesn't matter anymore that the hook is
 not blocked.</p>
 </div>
   <h3 id="constructors">Constructors
@@ -212,7 +212,7 @@ not blocked.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_TaskPoolGlobalHook__ctor.md&amp;value=---%0Auid%3A%20SharpHook.TaskPoolGlobalHook.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/TaskPoolGlobalHook.cs/#L34">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/TaskPoolGlobalHook.cs/#L28">View Source</a>
   </span>
   <a id="SharpHook_TaskPoolGlobalHook__ctor_" data-uid="SharpHook.TaskPoolGlobalHook.#ctor*"></a>
   <h4 id="SharpHook_TaskPoolGlobalHook__ctor" data-uid="SharpHook.TaskPoolGlobalHook.#ctor">TaskPoolGlobalHook()</h4>
@@ -232,7 +232,7 @@ other constructor.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_TaskPoolGlobalHook__ctor_SharpHook_TaskPoolGlobalHookOptions_.md&amp;value=---%0Auid%3A%20SharpHook.TaskPoolGlobalHook.%23ctor(SharpHook.TaskPoolGlobalHookOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/TaskPoolGlobalHook.cs/#L42">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/TaskPoolGlobalHook.cs/#L36">View Source</a>
   </span>
   <a id="SharpHook_TaskPoolGlobalHook__ctor_" data-uid="SharpHook.TaskPoolGlobalHook.#ctor*"></a>
   <h4 id="SharpHook_TaskPoolGlobalHook__ctor_SharpHook_TaskPoolGlobalHookOptions_" data-uid="SharpHook.TaskPoolGlobalHook.#ctor(SharpHook.TaskPoolGlobalHookOptions)">TaskPoolGlobalHook(TaskPoolGlobalHookOptions)</h4>
@@ -268,7 +268,7 @@ other constructor.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_TaskPoolGlobalHook_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20SharpHook.TaskPoolGlobalHook.Dispose(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/TaskPoolGlobalHook.cs/#L74">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/TaskPoolGlobalHook.cs/#L68">View Source</a>
   </span>
   <a id="SharpHook_TaskPoolGlobalHook_Dispose_" data-uid="SharpHook.TaskPoolGlobalHook.Dispose*"></a>
   <h4 id="SharpHook_TaskPoolGlobalHook_Dispose_System_Boolean_" data-uid="SharpHook.TaskPoolGlobalHook.Dispose(System.Boolean)">Dispose(Boolean)</h4>
@@ -292,7 +292,7 @@ other constructor.</p>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
         <td><span class="parametername">disposing</span></td>
-        <td><p><span class="xref">true</span> if the method is called from the <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable.dispose#System_IDisposable_Dispose">Dispose()</a> method.
+        <td><p><span class="xref">true</span> if the method is called from the <see cref="!:IDisposable.Dispose()"></see> method.
 Otherwise, <span class="xref">false</span>.</p>
 </td>
       </tr>
@@ -322,13 +322,13 @@ of <a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a>.</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_TaskPoolGlobalHook_HandleHookEvent_SharpHook_Native_UioHookEvent__.md&amp;value=---%0Auid%3A%20SharpHook.TaskPoolGlobalHook.HandleHookEvent(SharpHook.Native.UioHookEvent%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_TaskPoolGlobalHook_HandleHookEvent_UioHookEvent__.md&amp;value=---%0Auid%3A%20SharpHook.TaskPoolGlobalHook.HandleHookEvent(UioHookEvent%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/TaskPoolGlobalHook.cs/#L49">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/TaskPoolGlobalHook.cs/#L43">View Source</a>
   </span>
   <a id="SharpHook_TaskPoolGlobalHook_HandleHookEvent_" data-uid="SharpHook.TaskPoolGlobalHook.HandleHookEvent*"></a>
-  <h4 id="SharpHook_TaskPoolGlobalHook_HandleHookEvent_SharpHook_Native_UioHookEvent__" data-uid="SharpHook.TaskPoolGlobalHook.HandleHookEvent(SharpHook.Native.UioHookEvent@)">HandleHookEvent(ref UioHookEvent)</h4>
+  <h4 id="SharpHook_TaskPoolGlobalHook_HandleHookEvent_UioHookEvent__" data-uid="SharpHook.TaskPoolGlobalHook.HandleHookEvent(UioHookEvent@)">HandleHookEvent(ref UioHookEvent)</h4>
   <div class="markdown level1 summary"><p>Handles the hook event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -347,7 +347,7 @@ of <a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookEvent.html">UioHookEvent</a></td>
+        <td><span class="xref">UioHookEvent</span></td>
         <td><span class="parametername">e</span></td>
         <td><p>The event to handle.</p>
 </td>
@@ -355,13 +355,13 @@ of <a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a>.</p>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_HandleHookEvent_SharpHook_Native_UioHookEvent__">GlobalHookBase.HandleHookEvent(ref UioHookEvent)</a></div>
+  <div><a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_HandleHookEvent_UioHookEvent__">GlobalHookBase.HandleHookEvent(ref UioHookEvent)</a></div>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a>
   </div>
   <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable">System.IDisposable</a>
+      <span class="xref">IDisposable</span>
   </div>
   <h3 id="seealso">See Also</h3>
   <div class="seealso">
@@ -381,7 +381,7 @@ of <a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a>.</p>
                     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_TaskPoolGlobalHook.md&amp;value=---%0Auid%3A%20SharpHook.TaskPoolGlobalHook%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/TaskPoolGlobalHook.cs/#L23" class="contribution-link">View Source</a>
+                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/TaskPoolGlobalHook.cs/#L17" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

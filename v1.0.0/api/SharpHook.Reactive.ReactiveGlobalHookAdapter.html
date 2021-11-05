@@ -84,8 +84,9 @@
   <div classs="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a></div>
+    <div><span class="xref">IDisposable</span></div>
     <div><a class="xref" href="SharpHook.Reactive.IReactiveGlobalHook.html">IReactiveGlobalHook</a></div>
-    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    <div><span class="xref">IDisposable</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -115,7 +116,7 @@
   <h6><strong>Assembly</strong>: SharpHook.Reactive.dll</h6>
   <h5 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IDisposable, IReactiveGlobalHook, IDisposable</code></pre>
   </div>
   <h5 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>This class preserves the sender of hook events - the original hook will be the sender.</p>
@@ -127,7 +128,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter__ctor_SharpHook_IGlobalHook_.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.%23ctor(SharpHook.IGlobalHook)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L45">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L37">View Source</a>
   </span>
   <a id="SharpHook_Reactive_ReactiveGlobalHookAdapter__ctor_" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.#ctor*"></a>
   <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter__ctor_SharpHook_IGlobalHook_" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.#ctor(SharpHook.IGlobalHook)">ReactiveGlobalHookAdapter(IGlobalHook)</h4>
@@ -156,22 +157,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">hook</code> is <span class="xref">null</span>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="properties">Properties
   </h3>
   <span class="small pull-right mobile-hide">
@@ -179,7 +164,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter_HookDisabled.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.HookDisabled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L160">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L152">View Source</a>
   </span>
   <a id="SharpHook_Reactive_ReactiveGlobalHookAdapter_HookDisabled_" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.HookDisabled*"></a>
   <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_HookDisabled" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.HookDisabled">HookDisabled</h4>
@@ -200,14 +185,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="SharpHook.Reactive.HookEvent-1.html">HookEvent</a>&lt;<a class="xref" href="SharpHook.HookEventArgs.html">HookEventArgs</a>&gt;&gt;</td>
+        <td><span class="xref">IObservable</span>&lt;<a class="xref" href="SharpHook.Reactive.HookEvent-1.html">HookEvent</a>&lt;<a class="xref" href="SharpHook.HookEventArgs.html">HookEventArgs</a>&gt;&gt;</td>
         <td><p>An observable which emits a value when the global hook is disabled.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_HookDisabled_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>The observable emits a value when the <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable.dispose#System_IDisposable_Dispose">Dispose()</a> method is called and then
+  <div class="markdown level1 remarks"><p>The observable emits a value when the <see cref="!:IDisposable.Dispose"></see> method is called and then
 immediately completes.</p>
 </div>
   <span class="small pull-right mobile-hide">
@@ -215,7 +200,7 @@ immediately completes.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter_HookEnabled.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.HookEnabled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L150">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L142">View Source</a>
   </span>
   <a id="SharpHook_Reactive_ReactiveGlobalHookAdapter_HookEnabled_" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.HookEnabled*"></a>
   <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_HookEnabled" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.HookEnabled">HookEnabled</h4>
@@ -236,7 +221,7 @@ immediately completes.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="SharpHook.Reactive.HookEvent-1.html">HookEvent</a>&lt;<a class="xref" href="SharpHook.HookEventArgs.html">HookEventArgs</a>&gt;&gt;</td>
+        <td><span class="xref">IObservable</span>&lt;<a class="xref" href="SharpHook.Reactive.HookEvent-1.html">HookEvent</a>&lt;<a class="xref" href="SharpHook.HookEventArgs.html">HookEventArgs</a>&gt;&gt;</td>
         <td><p>An observable which emits a value when the global hook is enabled.</p>
 </td>
       </tr>
@@ -250,7 +235,7 @@ immediately completes.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter_IsRunning.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.IsRunning%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L141">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L133">View Source</a>
   </span>
   <a id="SharpHook_Reactive_ReactiveGlobalHookAdapter_IsRunning_" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.IsRunning*"></a>
   <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_IsRunning" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.IsRunning">IsRunning</h4>
@@ -282,7 +267,7 @@ immediately completes.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter_KeyPressed.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.KeyPressed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L172">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L164">View Source</a>
   </span>
   <a id="SharpHook_Reactive_ReactiveGlobalHookAdapter_KeyPressed_" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.KeyPressed*"></a>
   <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_KeyPressed" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.KeyPressed">KeyPressed</h4>
@@ -303,7 +288,7 @@ immediately completes.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="SharpHook.Reactive.HookEvent-1.html">HookEvent</a>&lt;<a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a>&gt;&gt;</td>
+        <td><span class="xref">IObservable</span>&lt;<a class="xref" href="SharpHook.Reactive.HookEvent-1.html">HookEvent</a>&lt;<a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a>&gt;&gt;</td>
         <td><p>An observable which emits a value when a key is pressed.</p>
 </td>
       </tr>
@@ -314,7 +299,7 @@ immediately completes.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter_KeyReleased.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.KeyReleased%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L178">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L170">View Source</a>
   </span>
   <a id="SharpHook_Reactive_ReactiveGlobalHookAdapter_KeyReleased_" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.KeyReleased*"></a>
   <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_KeyReleased" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.KeyReleased">KeyReleased</h4>
@@ -335,7 +320,7 @@ immediately completes.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="SharpHook.Reactive.HookEvent-1.html">HookEvent</a>&lt;<a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a>&gt;&gt;</td>
+        <td><span class="xref">IObservable</span>&lt;<a class="xref" href="SharpHook.Reactive.HookEvent-1.html">HookEvent</a>&lt;<a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a>&gt;&gt;</td>
         <td><p>An observable which emits a value when a key is released.</p>
 </td>
       </tr>
@@ -346,7 +331,7 @@ immediately completes.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter_KeyTyped.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.KeyTyped%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L166">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L158">View Source</a>
   </span>
   <a id="SharpHook_Reactive_ReactiveGlobalHookAdapter_KeyTyped_" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.KeyTyped*"></a>
   <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_KeyTyped" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.KeyTyped">KeyTyped</h4>
@@ -367,7 +352,7 @@ immediately completes.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="SharpHook.Reactive.HookEvent-1.html">HookEvent</a>&lt;<a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a>&gt;&gt;</td>
+        <td><span class="xref">IObservable</span>&lt;<a class="xref" href="SharpHook.Reactive.HookEvent-1.html">HookEvent</a>&lt;<a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a>&gt;&gt;</td>
         <td><p>An observable which emits a value when a key is typed.</p>
 </td>
       </tr>
@@ -378,7 +363,7 @@ immediately completes.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter_MouseClicked.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseClicked%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L184">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L176">View Source</a>
   </span>
   <a id="SharpHook_Reactive_ReactiveGlobalHookAdapter_MouseClicked_" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseClicked*"></a>
   <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_MouseClicked" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseClicked">MouseClicked</h4>
@@ -399,7 +384,7 @@ immediately completes.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="SharpHook.Reactive.HookEvent-1.html">HookEvent</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;&gt;</td>
+        <td><span class="xref">IObservable</span>&lt;<a class="xref" href="SharpHook.Reactive.HookEvent-1.html">HookEvent</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;&gt;</td>
         <td><p>An observable which emits a value when a mouse button is clicked.</p>
 </td>
       </tr>
@@ -410,7 +395,7 @@ immediately completes.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter_MouseDragged.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseDragged%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L208">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L200">View Source</a>
   </span>
   <a id="SharpHook_Reactive_ReactiveGlobalHookAdapter_MouseDragged_" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseDragged*"></a>
   <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_MouseDragged" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseDragged">MouseDragged</h4>
@@ -431,7 +416,7 @@ immediately completes.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="SharpHook.Reactive.HookEvent-1.html">HookEvent</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;&gt;</td>
+        <td><span class="xref">IObservable</span>&lt;<a class="xref" href="SharpHook.Reactive.HookEvent-1.html">HookEvent</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;&gt;</td>
         <td><p>An observable which emits a value when the mouse cursor is dragged.</p>
 </td>
       </tr>
@@ -442,7 +427,7 @@ immediately completes.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter_MouseMoved.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseMoved%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L202">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L194">View Source</a>
   </span>
   <a id="SharpHook_Reactive_ReactiveGlobalHookAdapter_MouseMoved_" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseMoved*"></a>
   <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_MouseMoved" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseMoved">MouseMoved</h4>
@@ -463,7 +448,7 @@ immediately completes.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="SharpHook.Reactive.HookEvent-1.html">HookEvent</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;&gt;</td>
+        <td><span class="xref">IObservable</span>&lt;<a class="xref" href="SharpHook.Reactive.HookEvent-1.html">HookEvent</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;&gt;</td>
         <td><p>An observable which emits a value when the mouse cursor is moved.</p>
 </td>
       </tr>
@@ -474,7 +459,7 @@ immediately completes.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter_MousePressed.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.MousePressed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L190">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L182">View Source</a>
   </span>
   <a id="SharpHook_Reactive_ReactiveGlobalHookAdapter_MousePressed_" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.MousePressed*"></a>
   <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_MousePressed" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.MousePressed">MousePressed</h4>
@@ -495,7 +480,7 @@ immediately completes.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="SharpHook.Reactive.HookEvent-1.html">HookEvent</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;&gt;</td>
+        <td><span class="xref">IObservable</span>&lt;<a class="xref" href="SharpHook.Reactive.HookEvent-1.html">HookEvent</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;&gt;</td>
         <td><p>An observable which emits a value when a mouse button is pressed.</p>
 </td>
       </tr>
@@ -506,7 +491,7 @@ immediately completes.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter_MouseReleased.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseReleased%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L196">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L188">View Source</a>
   </span>
   <a id="SharpHook_Reactive_ReactiveGlobalHookAdapter_MouseReleased_" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseReleased*"></a>
   <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_MouseReleased" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseReleased">MouseReleased</h4>
@@ -527,7 +512,7 @@ immediately completes.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="SharpHook.Reactive.HookEvent-1.html">HookEvent</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;&gt;</td>
+        <td><span class="xref">IObservable</span>&lt;<a class="xref" href="SharpHook.Reactive.HookEvent-1.html">HookEvent</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;&gt;</td>
         <td><p>An observable which emits a value when a mouse button is released.</p>
 </td>
       </tr>
@@ -538,7 +523,7 @@ immediately completes.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter_MouseWheel.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseWheel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L214">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L206">View Source</a>
   </span>
   <a id="SharpHook_Reactive_ReactiveGlobalHookAdapter_MouseWheel_" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseWheel*"></a>
   <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_MouseWheel" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseWheel">MouseWheel</h4>
@@ -559,7 +544,7 @@ immediately completes.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="SharpHook.Reactive.HookEvent-1.html">HookEvent</a>&lt;<a class="xref" href="SharpHook.MouseWheelHookEventArgs.html">MouseWheelHookEventArgs</a>&gt;&gt;</td>
+        <td><span class="xref">IObservable</span>&lt;<a class="xref" href="SharpHook.Reactive.HookEvent-1.html">HookEvent</a>&lt;<a class="xref" href="SharpHook.MouseWheelHookEventArgs.html">MouseWheelHookEventArgs</a>&gt;&gt;</td>
         <td><p>An observable which emits a value when the mouse wheel is scrolled.</p>
 </td>
       </tr>
@@ -572,7 +557,7 @@ immediately completes.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter_Dispose.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.Dispose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L240">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L232">View Source</a>
   </span>
   <a id="SharpHook_Reactive_ReactiveGlobalHookAdapter_Dispose_" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.Dispose*"></a>
   <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_Dispose" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.Dispose">Dispose()</h4>
@@ -592,7 +577,7 @@ of <a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a>.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter_Finalize.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.Finalize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L134">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L126">View Source</a>
   </span>
   <a id="SharpHook_Reactive_ReactiveGlobalHookAdapter_Finalize_" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.Finalize*"></a>
   <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_Finalize" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.Finalize">Finalize()</h4>
@@ -608,11 +593,11 @@ of <a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a>.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter_Start.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.Start%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L224">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L216">View Source</a>
   </span>
   <a id="SharpHook_Reactive_ReactiveGlobalHookAdapter_Start_" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.Start*"></a>
   <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_Start" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.Start">Start()</h4>
-  <div class="markdown level1 summary"><p>Starts the global hook. The hook can be destroyed by calling the <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable.dispose#System_IDisposable_Dispose">Dispose()</a> method.</p>
+  <div class="markdown level1 summary"><p>Starts the global hook. The hook can be destroyed by calling the <see cref="!:IDisposable.Dispose"></see> method.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -629,7 +614,7 @@ of <a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<span class="xref">System.Reactive.Unit</span>&gt;</td>
+        <td><span class="xref">IObservable</span>&lt;<span class="xref">Unit</span>&gt;</td>
         <td><p>An observable which is completed when the hook is destroyed.</p>
 </td>
       </tr>
@@ -638,382 +623,18 @@ of <a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a>.</p>
   <h5 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_Start_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>The returned observable emits a single value and then immediately completes when the hook is destroyed.</p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></td>
-        <td><p>The global hook has been disposed.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="eii">Explicit Interface Implementations
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_HookDisabled.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook%23IGlobalHook%23HookDisabled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L330">View Source</a>
-  </span>
-  <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_HookDisabled" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#HookDisabled">IGlobalHook.HookDisabled</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">event EventHandler&lt;HookEventArgs&gt; IGlobalHook.HookDisabled</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.HookEventArgs.html">HookEventArgs</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_HookEnabled.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook%23IGlobalHook%23HookEnabled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L324">View Source</a>
-  </span>
-  <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_HookEnabled" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#HookEnabled">IGlobalHook.HookEnabled</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">event EventHandler&lt;HookEventArgs&gt; IGlobalHook.HookEnabled</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.HookEventArgs.html">HookEventArgs</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_KeyPressed.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook%23IGlobalHook%23KeyPressed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L342">View Source</a>
-  </span>
-  <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_KeyPressed" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#KeyPressed">IGlobalHook.KeyPressed</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">event EventHandler&lt;KeyboardHookEventArgs&gt; IGlobalHook.KeyPressed</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_KeyReleased.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook%23IGlobalHook%23KeyReleased%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L348">View Source</a>
-  </span>
-  <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_KeyReleased" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#KeyReleased">IGlobalHook.KeyReleased</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">event EventHandler&lt;KeyboardHookEventArgs&gt; IGlobalHook.KeyReleased</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_KeyTyped.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook%23IGlobalHook%23KeyTyped%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L336">View Source</a>
-  </span>
-  <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_KeyTyped" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#KeyTyped">IGlobalHook.KeyTyped</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">event EventHandler&lt;KeyboardHookEventArgs&gt; IGlobalHook.KeyTyped</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_MouseClicked.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook%23IGlobalHook%23MouseClicked%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L354">View Source</a>
-  </span>
-  <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_MouseClicked" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#MouseClicked">IGlobalHook.MouseClicked</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">event EventHandler&lt;MouseHookEventArgs&gt; IGlobalHook.MouseClicked</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_MouseDragged.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook%23IGlobalHook%23MouseDragged%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L378">View Source</a>
-  </span>
-  <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_MouseDragged" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#MouseDragged">IGlobalHook.MouseDragged</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">event EventHandler&lt;MouseHookEventArgs&gt; IGlobalHook.MouseDragged</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_MouseMoved.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook%23IGlobalHook%23MouseMoved%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L372">View Source</a>
-  </span>
-  <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_MouseMoved" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#MouseMoved">IGlobalHook.MouseMoved</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">event EventHandler&lt;MouseHookEventArgs&gt; IGlobalHook.MouseMoved</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_MousePressed.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook%23IGlobalHook%23MousePressed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L360">View Source</a>
-  </span>
-  <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_MousePressed" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#MousePressed">IGlobalHook.MousePressed</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">event EventHandler&lt;MouseHookEventArgs&gt; IGlobalHook.MousePressed</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_MouseReleased.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook%23IGlobalHook%23MouseReleased%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L366">View Source</a>
-  </span>
-  <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_MouseReleased" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#MouseReleased">IGlobalHook.MouseReleased</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">event EventHandler&lt;MouseHookEventArgs&gt; IGlobalHook.MouseReleased</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_MouseWheel.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook%23IGlobalHook%23MouseWheel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L384">View Source</a>
-  </span>
-  <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_MouseWheel" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#MouseWheel">IGlobalHook.MouseWheel</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">event EventHandler&lt;MouseWheelHookEventArgs&gt; IGlobalHook.MouseWheel</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.MouseWheelHookEventArgs.html">MouseWheelHookEventArgs</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_Start.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook%23IGlobalHook%23Start%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L318">View Source</a>
-  </span>
-  <a id="SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_Start_" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#Start*"></a>
-  <h4 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_Start" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#Start">IGlobalHook.Start()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task IGlobalHook.Start()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a>
   </div>
   <div>
+      <span class="xref">IDisposable</span>
+  </div>
+  <div>
       <a class="xref" href="SharpHook.Reactive.IReactiveGlobalHook.html">IReactiveGlobalHook</a>
   </div>
   <div>
-      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable">System.IDisposable</a>
+      <span class="xref">IDisposable</span>
   </div>
   <h3 id="seealso">See Also</h3>
   <div class="seealso">
@@ -1031,7 +652,7 @@ of <a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a>.</p>
                     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_ReactiveGlobalHookAdapter.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.ReactiveGlobalHookAdapter%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L17" class="contribution-link">View Source</a>
+                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

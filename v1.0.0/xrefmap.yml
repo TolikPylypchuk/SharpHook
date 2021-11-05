@@ -13,13 +13,13 @@ references:
   commentId: T:SharpHook.GlobalHookBase
   fullName: SharpHook.GlobalHookBase
   nameWithType: GlobalHookBase
-- uid: SharpHook.GlobalHookBase.DispatchEvent(SharpHook.Native.UioHookEvent@)
+- uid: SharpHook.GlobalHookBase.DispatchEvent(UioHookEvent@)
   name: DispatchEvent(ref UioHookEvent)
-  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_DispatchEvent_SharpHook_Native_UioHookEvent__
-  commentId: M:SharpHook.GlobalHookBase.DispatchEvent(SharpHook.Native.UioHookEvent@)
+  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_DispatchEvent_UioHookEvent__
+  commentId: M:SharpHook.GlobalHookBase.DispatchEvent(UioHookEvent@)
   name.vb: DispatchEvent(ByRef UioHookEvent)
-  fullName: SharpHook.GlobalHookBase.DispatchEvent(ref SharpHook.Native.UioHookEvent)
-  fullName.vb: SharpHook.GlobalHookBase.DispatchEvent(ByRef SharpHook.Native.UioHookEvent)
+  fullName: SharpHook.GlobalHookBase.DispatchEvent(ref UioHookEvent)
+  fullName.vb: SharpHook.GlobalHookBase.DispatchEvent(ByRef UioHookEvent)
   nameWithType: GlobalHookBase.DispatchEvent(ref UioHookEvent)
   nameWithType.vb: GlobalHookBase.DispatchEvent(ByRef UioHookEvent)
 - uid: SharpHook.GlobalHookBase.DispatchEvent*
@@ -61,13 +61,13 @@ references:
   isSpec: "True"
   fullName: SharpHook.GlobalHookBase.Finalize
   nameWithType: GlobalHookBase.Finalize
-- uid: SharpHook.GlobalHookBase.HandleHookEvent(SharpHook.Native.UioHookEvent@)
+- uid: SharpHook.GlobalHookBase.HandleHookEvent(UioHookEvent@)
   name: HandleHookEvent(ref UioHookEvent)
-  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_HandleHookEvent_SharpHook_Native_UioHookEvent__
-  commentId: M:SharpHook.GlobalHookBase.HandleHookEvent(SharpHook.Native.UioHookEvent@)
+  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_HandleHookEvent_UioHookEvent__
+  commentId: M:SharpHook.GlobalHookBase.HandleHookEvent(UioHookEvent@)
   name.vb: HandleHookEvent(ByRef UioHookEvent)
-  fullName: SharpHook.GlobalHookBase.HandleHookEvent(ref SharpHook.Native.UioHookEvent)
-  fullName.vb: SharpHook.GlobalHookBase.HandleHookEvent(ByRef SharpHook.Native.UioHookEvent)
+  fullName: SharpHook.GlobalHookBase.HandleHookEvent(ref UioHookEvent)
+  fullName.vb: SharpHook.GlobalHookBase.HandleHookEvent(ByRef UioHookEvent)
   nameWithType: GlobalHookBase.HandleHookEvent(ref UioHookEvent)
   nameWithType.vb: GlobalHookBase.HandleHookEvent(ByRef UioHookEvent)
 - uid: SharpHook.GlobalHookBase.HandleHookEvent*
@@ -331,11 +331,11 @@ references:
   commentId: T:SharpHook.HookEventArgs
   fullName: SharpHook.HookEventArgs
   nameWithType: HookEventArgs
-- uid: SharpHook.HookEventArgs.#ctor(SharpHook.Native.UioHookEvent)
+- uid: SharpHook.HookEventArgs.#ctor(UioHookEvent)
   name: HookEventArgs(UioHookEvent)
-  href: api/SharpHook.HookEventArgs.html#SharpHook_HookEventArgs__ctor_SharpHook_Native_UioHookEvent_
-  commentId: M:SharpHook.HookEventArgs.#ctor(SharpHook.Native.UioHookEvent)
-  fullName: SharpHook.HookEventArgs.HookEventArgs(SharpHook.Native.UioHookEvent)
+  href: api/SharpHook.HookEventArgs.html#SharpHook_HookEventArgs__ctor_UioHookEvent_
+  commentId: M:SharpHook.HookEventArgs.#ctor(UioHookEvent)
+  fullName: SharpHook.HookEventArgs.HookEventArgs(UioHookEvent)
   nameWithType: HookEventArgs.HookEventArgs(UioHookEvent)
 - uid: SharpHook.HookEventArgs.#ctor*
   name: HookEventArgs
@@ -369,42 +369,42 @@ references:
   commentId: M:SharpHook.HookException.#ctor
   fullName: SharpHook.HookException.HookException()
   nameWithType: HookException.HookException()
-- uid: SharpHook.HookException.#ctor(SharpHook.Native.UioHookResult)
-  name: HookException(UioHookResult)
-  href: api/SharpHook.HookException.html#SharpHook_HookException__ctor_SharpHook_Native_UioHookResult_
-  commentId: M:SharpHook.HookException.#ctor(SharpHook.Native.UioHookResult)
-  fullName: SharpHook.HookException.HookException(SharpHook.Native.UioHookResult)
-  nameWithType: HookException.HookException(UioHookResult)
-- uid: SharpHook.HookException.#ctor(SharpHook.Native.UioHookResult,System.Exception)
-  name: HookException(UioHookResult, Exception)
-  href: api/SharpHook.HookException.html#SharpHook_HookException__ctor_SharpHook_Native_UioHookResult_System_Exception_
-  commentId: M:SharpHook.HookException.#ctor(SharpHook.Native.UioHookResult,System.Exception)
-  fullName: SharpHook.HookException.HookException(SharpHook.Native.UioHookResult, System.Exception)
-  nameWithType: HookException.HookException(UioHookResult, Exception)
-- uid: SharpHook.HookException.#ctor(SharpHook.Native.UioHookResult,System.String)
-  name: HookException(UioHookResult, String)
-  href: api/SharpHook.HookException.html#SharpHook_HookException__ctor_SharpHook_Native_UioHookResult_System_String_
-  commentId: M:SharpHook.HookException.#ctor(SharpHook.Native.UioHookResult,System.String)
-  fullName: SharpHook.HookException.HookException(SharpHook.Native.UioHookResult, System.String)
-  nameWithType: HookException.HookException(UioHookResult, String)
-- uid: SharpHook.HookException.#ctor(SharpHook.Native.UioHookResult,System.String,System.Exception)
-  name: HookException(UioHookResult, String, Exception)
-  href: api/SharpHook.HookException.html#SharpHook_HookException__ctor_SharpHook_Native_UioHookResult_System_String_System_Exception_
-  commentId: M:SharpHook.HookException.#ctor(SharpHook.Native.UioHookResult,System.String,System.Exception)
-  fullName: SharpHook.HookException.HookException(SharpHook.Native.UioHookResult, System.String, System.Exception)
-  nameWithType: HookException.HookException(UioHookResult, String, Exception)
 - uid: SharpHook.HookException.#ctor(System.String)
   name: HookException(String)
   href: api/SharpHook.HookException.html#SharpHook_HookException__ctor_System_String_
   commentId: M:SharpHook.HookException.#ctor(System.String)
   fullName: SharpHook.HookException.HookException(System.String)
   nameWithType: HookException.HookException(String)
-- uid: SharpHook.HookException.#ctor(System.String,System.Exception)
+- uid: SharpHook.HookException.#ctor(System.String,Exception)
   name: HookException(String, Exception)
-  href: api/SharpHook.HookException.html#SharpHook_HookException__ctor_System_String_System_Exception_
-  commentId: M:SharpHook.HookException.#ctor(System.String,System.Exception)
-  fullName: SharpHook.HookException.HookException(System.String, System.Exception)
+  href: api/SharpHook.HookException.html#SharpHook_HookException__ctor_System_String_Exception_
+  commentId: M:SharpHook.HookException.#ctor(System.String,Exception)
+  fullName: SharpHook.HookException.HookException(System.String, Exception)
   nameWithType: HookException.HookException(String, Exception)
+- uid: SharpHook.HookException.#ctor(UioHookResult)
+  name: HookException(UioHookResult)
+  href: api/SharpHook.HookException.html#SharpHook_HookException__ctor_UioHookResult_
+  commentId: M:SharpHook.HookException.#ctor(UioHookResult)
+  fullName: SharpHook.HookException.HookException(UioHookResult)
+  nameWithType: HookException.HookException(UioHookResult)
+- uid: SharpHook.HookException.#ctor(UioHookResult,Exception)
+  name: HookException(UioHookResult, Exception)
+  href: api/SharpHook.HookException.html#SharpHook_HookException__ctor_UioHookResult_Exception_
+  commentId: M:SharpHook.HookException.#ctor(UioHookResult,Exception)
+  fullName: SharpHook.HookException.HookException(UioHookResult, Exception)
+  nameWithType: HookException.HookException(UioHookResult, Exception)
+- uid: SharpHook.HookException.#ctor(UioHookResult,System.String)
+  name: HookException(UioHookResult, String)
+  href: api/SharpHook.HookException.html#SharpHook_HookException__ctor_UioHookResult_System_String_
+  commentId: M:SharpHook.HookException.#ctor(UioHookResult,System.String)
+  fullName: SharpHook.HookException.HookException(UioHookResult, System.String)
+  nameWithType: HookException.HookException(UioHookResult, String)
+- uid: SharpHook.HookException.#ctor(UioHookResult,System.String,Exception)
+  name: HookException(UioHookResult, String, Exception)
+  href: api/SharpHook.HookException.html#SharpHook_HookException__ctor_UioHookResult_System_String_Exception_
+  commentId: M:SharpHook.HookException.#ctor(UioHookResult,System.String,Exception)
+  fullName: SharpHook.HookException.HookException(UioHookResult, System.String, Exception)
+  nameWithType: HookException.HookException(UioHookResult, String, Exception)
 - uid: SharpHook.HookException.#ctor*
   name: HookException
   href: api/SharpHook.HookException.html#SharpHook_HookException__ctor_
@@ -412,11 +412,11 @@ references:
   isSpec: "True"
   fullName: SharpHook.HookException.HookException
   nameWithType: HookException.HookException
-- uid: SharpHook.HookException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+- uid: SharpHook.HookException.GetObjectData(SerializationInfo,StreamingContext)
   name: GetObjectData(SerializationInfo, StreamingContext)
-  href: api/SharpHook.HookException.html#SharpHook_HookException_GetObjectData_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_
-  commentId: M:SharpHook.HookException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-  fullName: SharpHook.HookException.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  href: api/SharpHook.HookException.html#SharpHook_HookException_GetObjectData_SerializationInfo_StreamingContext_
+  commentId: M:SharpHook.HookException.GetObjectData(SerializationInfo,StreamingContext)
+  fullName: SharpHook.HookException.GetObjectData(SerializationInfo, StreamingContext)
   nameWithType: HookException.GetObjectData(SerializationInfo, StreamingContext)
 - uid: SharpHook.HookException.GetObjectData*
   name: GetObjectData
@@ -542,11 +542,11 @@ references:
   commentId: T:SharpHook.KeyboardHookEventArgs
   fullName: SharpHook.KeyboardHookEventArgs
   nameWithType: KeyboardHookEventArgs
-- uid: SharpHook.KeyboardHookEventArgs.#ctor(SharpHook.Native.UioHookEvent)
+- uid: SharpHook.KeyboardHookEventArgs.#ctor(UioHookEvent)
   name: KeyboardHookEventArgs(UioHookEvent)
-  href: api/SharpHook.KeyboardHookEventArgs.html#SharpHook_KeyboardHookEventArgs__ctor_SharpHook_Native_UioHookEvent_
-  commentId: M:SharpHook.KeyboardHookEventArgs.#ctor(SharpHook.Native.UioHookEvent)
-  fullName: SharpHook.KeyboardHookEventArgs.KeyboardHookEventArgs(SharpHook.Native.UioHookEvent)
+  href: api/SharpHook.KeyboardHookEventArgs.html#SharpHook_KeyboardHookEventArgs__ctor_UioHookEvent_
+  commentId: M:SharpHook.KeyboardHookEventArgs.#ctor(UioHookEvent)
+  fullName: SharpHook.KeyboardHookEventArgs.KeyboardHookEventArgs(UioHookEvent)
   nameWithType: KeyboardHookEventArgs.KeyboardHookEventArgs(UioHookEvent)
 - uid: SharpHook.KeyboardHookEventArgs.#ctor*
   name: KeyboardHookEventArgs
@@ -574,11 +574,11 @@ references:
   commentId: T:SharpHook.MouseHookEventArgs
   fullName: SharpHook.MouseHookEventArgs
   nameWithType: MouseHookEventArgs
-- uid: SharpHook.MouseHookEventArgs.#ctor(SharpHook.Native.UioHookEvent)
+- uid: SharpHook.MouseHookEventArgs.#ctor(UioHookEvent)
   name: MouseHookEventArgs(UioHookEvent)
-  href: api/SharpHook.MouseHookEventArgs.html#SharpHook_MouseHookEventArgs__ctor_SharpHook_Native_UioHookEvent_
-  commentId: M:SharpHook.MouseHookEventArgs.#ctor(SharpHook.Native.UioHookEvent)
-  fullName: SharpHook.MouseHookEventArgs.MouseHookEventArgs(SharpHook.Native.UioHookEvent)
+  href: api/SharpHook.MouseHookEventArgs.html#SharpHook_MouseHookEventArgs__ctor_UioHookEvent_
+  commentId: M:SharpHook.MouseHookEventArgs.#ctor(UioHookEvent)
+  fullName: SharpHook.MouseHookEventArgs.MouseHookEventArgs(UioHookEvent)
   nameWithType: MouseHookEventArgs.MouseHookEventArgs(UioHookEvent)
 - uid: SharpHook.MouseHookEventArgs.#ctor*
   name: MouseHookEventArgs
@@ -606,11 +606,11 @@ references:
   commentId: T:SharpHook.MouseWheelHookEventArgs
   fullName: SharpHook.MouseWheelHookEventArgs
   nameWithType: MouseWheelHookEventArgs
-- uid: SharpHook.MouseWheelHookEventArgs.#ctor(SharpHook.Native.UioHookEvent)
+- uid: SharpHook.MouseWheelHookEventArgs.#ctor(UioHookEvent)
   name: MouseWheelHookEventArgs(UioHookEvent)
-  href: api/SharpHook.MouseWheelHookEventArgs.html#SharpHook_MouseWheelHookEventArgs__ctor_SharpHook_Native_UioHookEvent_
-  commentId: M:SharpHook.MouseWheelHookEventArgs.#ctor(SharpHook.Native.UioHookEvent)
-  fullName: SharpHook.MouseWheelHookEventArgs.MouseWheelHookEventArgs(SharpHook.Native.UioHookEvent)
+  href: api/SharpHook.MouseWheelHookEventArgs.html#SharpHook_MouseWheelHookEventArgs__ctor_UioHookEvent_
+  commentId: M:SharpHook.MouseWheelHookEventArgs.#ctor(UioHookEvent)
+  fullName: SharpHook.MouseWheelHookEventArgs.MouseWheelHookEventArgs(UioHookEvent)
   nameWithType: MouseWheelHookEventArgs.MouseWheelHookEventArgs(UioHookEvent)
 - uid: SharpHook.MouseWheelHookEventArgs.#ctor*
   name: MouseWheelHookEventArgs
@@ -3191,111 +3191,6 @@ references:
   isSpec: "True"
   fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseWheel
   nameWithType: ReactiveGlobalHookAdapter.MouseWheel
-- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#HookDisabled
-  name: IGlobalHook.HookDisabled
-  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_HookDisabled
-  commentId: E:SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#HookDisabled
-  name.vb: SharpHook.IGlobalHook.HookDisabled
-  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.HookDisabled
-  nameWithType: ReactiveGlobalHookAdapter.IGlobalHook.HookDisabled
-  nameWithType.vb: ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.HookDisabled
-- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#HookEnabled
-  name: IGlobalHook.HookEnabled
-  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_HookEnabled
-  commentId: E:SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#HookEnabled
-  name.vb: SharpHook.IGlobalHook.HookEnabled
-  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.HookEnabled
-  nameWithType: ReactiveGlobalHookAdapter.IGlobalHook.HookEnabled
-  nameWithType.vb: ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.HookEnabled
-- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#KeyPressed
-  name: IGlobalHook.KeyPressed
-  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_KeyPressed
-  commentId: E:SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#KeyPressed
-  name.vb: SharpHook.IGlobalHook.KeyPressed
-  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.KeyPressed
-  nameWithType: ReactiveGlobalHookAdapter.IGlobalHook.KeyPressed
-  nameWithType.vb: ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.KeyPressed
-- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#KeyReleased
-  name: IGlobalHook.KeyReleased
-  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_KeyReleased
-  commentId: E:SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#KeyReleased
-  name.vb: SharpHook.IGlobalHook.KeyReleased
-  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.KeyReleased
-  nameWithType: ReactiveGlobalHookAdapter.IGlobalHook.KeyReleased
-  nameWithType.vb: ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.KeyReleased
-- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#KeyTyped
-  name: IGlobalHook.KeyTyped
-  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_KeyTyped
-  commentId: E:SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#KeyTyped
-  name.vb: SharpHook.IGlobalHook.KeyTyped
-  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.KeyTyped
-  nameWithType: ReactiveGlobalHookAdapter.IGlobalHook.KeyTyped
-  nameWithType.vb: ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.KeyTyped
-- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#MouseClicked
-  name: IGlobalHook.MouseClicked
-  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_MouseClicked
-  commentId: E:SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#MouseClicked
-  name.vb: SharpHook.IGlobalHook.MouseClicked
-  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.MouseClicked
-  nameWithType: ReactiveGlobalHookAdapter.IGlobalHook.MouseClicked
-  nameWithType.vb: ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.MouseClicked
-- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#MouseDragged
-  name: IGlobalHook.MouseDragged
-  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_MouseDragged
-  commentId: E:SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#MouseDragged
-  name.vb: SharpHook.IGlobalHook.MouseDragged
-  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.MouseDragged
-  nameWithType: ReactiveGlobalHookAdapter.IGlobalHook.MouseDragged
-  nameWithType.vb: ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.MouseDragged
-- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#MouseMoved
-  name: IGlobalHook.MouseMoved
-  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_MouseMoved
-  commentId: E:SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#MouseMoved
-  name.vb: SharpHook.IGlobalHook.MouseMoved
-  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.MouseMoved
-  nameWithType: ReactiveGlobalHookAdapter.IGlobalHook.MouseMoved
-  nameWithType.vb: ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.MouseMoved
-- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#MousePressed
-  name: IGlobalHook.MousePressed
-  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_MousePressed
-  commentId: E:SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#MousePressed
-  name.vb: SharpHook.IGlobalHook.MousePressed
-  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.MousePressed
-  nameWithType: ReactiveGlobalHookAdapter.IGlobalHook.MousePressed
-  nameWithType.vb: ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.MousePressed
-- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#MouseReleased
-  name: IGlobalHook.MouseReleased
-  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_MouseReleased
-  commentId: E:SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#MouseReleased
-  name.vb: SharpHook.IGlobalHook.MouseReleased
-  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.MouseReleased
-  nameWithType: ReactiveGlobalHookAdapter.IGlobalHook.MouseReleased
-  nameWithType.vb: ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.MouseReleased
-- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#MouseWheel
-  name: IGlobalHook.MouseWheel
-  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_MouseWheel
-  commentId: E:SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#MouseWheel
-  name.vb: SharpHook.IGlobalHook.MouseWheel
-  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.MouseWheel
-  nameWithType: ReactiveGlobalHookAdapter.IGlobalHook.MouseWheel
-  nameWithType.vb: ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.MouseWheel
-- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#Start
-  name: IGlobalHook.Start()
-  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_Start
-  commentId: M:SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#Start
-  name.vb: SharpHook.IGlobalHook.Start()
-  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.Start()
-  nameWithType: ReactiveGlobalHookAdapter.IGlobalHook.Start()
-  nameWithType.vb: ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.Start()
-- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#Start*
-  name: IGlobalHook.Start
-  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_Start_
-  commentId: Overload:SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#Start
-  isSpec: "True"
-  name.vb: SharpHook.IGlobalHook.Start
-  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.Start
-  nameWithType: ReactiveGlobalHookAdapter.IGlobalHook.Start
-  nameWithType.vb: ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.Start
 - uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.Start
   name: Start()
   href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_Start
@@ -3529,13 +3424,13 @@ references:
   commentId: T:SharpHook.SimpleGlobalHook
   fullName: SharpHook.SimpleGlobalHook
   nameWithType: SimpleGlobalHook
-- uid: SharpHook.SimpleGlobalHook.HandleHookEvent(SharpHook.Native.UioHookEvent@)
+- uid: SharpHook.SimpleGlobalHook.HandleHookEvent(UioHookEvent@)
   name: HandleHookEvent(ref UioHookEvent)
-  href: api/SharpHook.SimpleGlobalHook.html#SharpHook_SimpleGlobalHook_HandleHookEvent_SharpHook_Native_UioHookEvent__
-  commentId: M:SharpHook.SimpleGlobalHook.HandleHookEvent(SharpHook.Native.UioHookEvent@)
+  href: api/SharpHook.SimpleGlobalHook.html#SharpHook_SimpleGlobalHook_HandleHookEvent_UioHookEvent__
+  commentId: M:SharpHook.SimpleGlobalHook.HandleHookEvent(UioHookEvent@)
   name.vb: HandleHookEvent(ByRef UioHookEvent)
-  fullName: SharpHook.SimpleGlobalHook.HandleHookEvent(ref SharpHook.Native.UioHookEvent)
-  fullName.vb: SharpHook.SimpleGlobalHook.HandleHookEvent(ByRef SharpHook.Native.UioHookEvent)
+  fullName: SharpHook.SimpleGlobalHook.HandleHookEvent(ref UioHookEvent)
+  fullName.vb: SharpHook.SimpleGlobalHook.HandleHookEvent(ByRef UioHookEvent)
   nameWithType: SimpleGlobalHook.HandleHookEvent(ref UioHookEvent)
   nameWithType.vb: SimpleGlobalHook.HandleHookEvent(ByRef UioHookEvent)
 - uid: SharpHook.SimpleGlobalHook.HandleHookEvent*
@@ -3583,13 +3478,13 @@ references:
   isSpec: "True"
   fullName: SharpHook.TaskPoolGlobalHook.Dispose
   nameWithType: TaskPoolGlobalHook.Dispose
-- uid: SharpHook.TaskPoolGlobalHook.HandleHookEvent(SharpHook.Native.UioHookEvent@)
+- uid: SharpHook.TaskPoolGlobalHook.HandleHookEvent(UioHookEvent@)
   name: HandleHookEvent(ref UioHookEvent)
-  href: api/SharpHook.TaskPoolGlobalHook.html#SharpHook_TaskPoolGlobalHook_HandleHookEvent_SharpHook_Native_UioHookEvent__
-  commentId: M:SharpHook.TaskPoolGlobalHook.HandleHookEvent(SharpHook.Native.UioHookEvent@)
+  href: api/SharpHook.TaskPoolGlobalHook.html#SharpHook_TaskPoolGlobalHook_HandleHookEvent_UioHookEvent__
+  commentId: M:SharpHook.TaskPoolGlobalHook.HandleHookEvent(UioHookEvent@)
   name.vb: HandleHookEvent(ByRef UioHookEvent)
-  fullName: SharpHook.TaskPoolGlobalHook.HandleHookEvent(ref SharpHook.Native.UioHookEvent)
-  fullName.vb: SharpHook.TaskPoolGlobalHook.HandleHookEvent(ByRef SharpHook.Native.UioHookEvent)
+  fullName: SharpHook.TaskPoolGlobalHook.HandleHookEvent(ref UioHookEvent)
+  fullName.vb: SharpHook.TaskPoolGlobalHook.HandleHookEvent(ByRef UioHookEvent)
   nameWithType: TaskPoolGlobalHook.HandleHookEvent(ref UioHookEvent)
   nameWithType.vb: TaskPoolGlobalHook.HandleHookEvent(ByRef UioHookEvent)
 - uid: SharpHook.TaskPoolGlobalHook.HandleHookEvent*

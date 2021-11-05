@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.GlobalHookBase.html",
-          "hash": "KFC5XUmjXWsNeGrjWmQ2FQ7+nuGtH+3QS139a0aCJiM="
+          "hash": "PyfJyXZJiV40rj2d1u1TQTLP5M3ETQ1ejz1TPdsHgrs="
         }
       },
       "is_incremental": false,
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.HookEventArgs.html",
-          "hash": "8gIu+3hvxHZnFfeCURRLHOqAGGsPZgO3nSzaX/NvTgM="
+          "hash": "iQgWE6+Id5AvqkEGE7GTFgEGzamb0hi+d6wNib9TPM4="
         }
       },
       "is_incremental": false,
@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.HookException.html",
-          "hash": "zJNr6+chTD0qk2KPU3vlNUElMpDgml59gsGX5QCXcyU="
+          "hash": "QCmuVp+TVFeTcpKrA83JslgO2Sjzifv3L6LmXVWwpwk="
         }
       },
       "is_incremental": false,
@@ -45,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.IGlobalHook.html",
-          "hash": "RnoNasnCmYcKJmaEjwVIhNU7t6U1r3NLOD+1KiibUEs="
+          "hash": "AcGscbBUePzlxUkz6kyghIUZa/Fd5lr6XXF0GSUDBT8="
         }
       },
       "is_incremental": false,
@@ -57,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.KeyboardHookEventArgs.html",
-          "hash": "QnPdh6/A1yGPot3OeSWU/tOqUKI0vvXfZFbncIF0Unk="
+          "hash": "OiowynMn+2g5PFLdGp34rI+Ee38h31xBDNxZkeeT2Ig="
         }
       },
       "is_incremental": false,
@@ -69,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.MouseHookEventArgs.html",
-          "hash": "KSkymMn+bECGEOJ5+yJmWIdUME2p+PKmaXV6EPOEgBQ="
+          "hash": "cHsj8X1sK0iYBhN3+3IlnK7gAbZoqZ+BBE2jyyR+rYQ="
         }
       },
       "is_incremental": false,
@@ -81,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.MouseWheelHookEventArgs.html",
-          "hash": "kd+kJZqquCr5taPMUaEX2/UkEEKy41ui95bJi3Bz7Ac="
+          "hash": "KqoHe6X3vtb5M7bkGFsdbMuoSFTwzgEcT3HvG7rGqnc="
         }
       },
       "is_incremental": false,
@@ -129,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.KeyboardEventData.html",
-          "hash": "Cc0he2Ns3U+qOFFvXFytbexPHwQDdeFoalreW2Q58B4="
+          "hash": "RbCqnWEEqAJL3bmhtfxkG72rKzAiB22urJHLOEjLsRg="
         }
       },
       "is_incremental": false,
@@ -141,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.ModifierMask.html",
-          "hash": "+B4An00kw7t9+HRU8mu8MZHZZH4eIg2govEuiqfmRwQ="
+          "hash": "0yGMKOrBTmc43YAB7a4VhtHIDM3U8iG0+D4qNQasOGw="
         }
       },
       "is_incremental": false,
@@ -165,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.MouseEventData.html",
-          "hash": "v7oXFsWpT9aIBU6WnK02ZxskWwmYC9NeKRc46kyWY6Q="
+          "hash": "3MB8qFNJpC7ZtaDrC8wI5MynacnfelVj7hOsUdHbyEQ="
         }
       },
       "is_incremental": false,
@@ -177,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.MouseWheelEventData.html",
-          "hash": "Wy7HktxIg4NQWSIPa0Sok7apB6k2Rnv23mcogeOAzXE="
+          "hash": "1VZIN6jWxfMIKYHeOF5B8uNVxjIA7KWzPxIghIgL6hY="
         }
       },
       "is_incremental": false,
@@ -213,7 +213,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.ScreenData.html",
-          "hash": "vs8gbieBhZ4YwlglV+61iRvxtimwwlNtS/h6CT5VBJM="
+          "hash": "xSLVMyYancf3pBOO0zMQDBwlEyJJcxf2EWFHAyUSVbo="
         }
       },
       "is_incremental": false,
@@ -225,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.UioHook.html",
-          "hash": "HTUb3/ZshmAOMR4l5G5g8KiLiLq3QdL9jHL1h9H33OE="
+          "hash": "4I1GC+v5iWcDK2WPcFz7h+VLxdRQiCNDqY1jm6nuIJg="
         }
       },
       "is_incremental": false,
@@ -237,7 +237,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.UioHookEvent.html",
-          "hash": "5cg9TCWq++TlmWR0QmCk1F0Ghnoph2TC8VG9p1YBsBE="
+          "hash": "Cv98uhzGk+gel8/5slIHhbf/8kzCYnM+t3oEUKddCt0="
         }
       },
       "is_incremental": false,
@@ -273,7 +273,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Reactive.HookEvent-1.html",
-          "hash": "ZfUy393jNK+cWzqtXCEk4ZCwldv92geulyTOB54YH1c="
+          "hash": "7/HDq/pzLyCAzvJYqAACzNtFALW1Qu7SvMIf4GiyG/k="
         }
       },
       "is_incremental": false,
@@ -285,7 +285,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Reactive.IReactiveGlobalHook.html",
-          "hash": "zzkUlmZYUzDwkHzUlVMUNaA96YEV+gaDlH1/p4bBX74="
+          "hash": "DFuJNdoPbx7uYVD1rZ7WLuNawaVRV4OcZCgIax/eRFs="
         }
       },
       "is_incremental": false,
@@ -297,7 +297,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html",
-          "hash": "qvPI/7O36Jhqs5QM5rNfjAY7RSPfWyvE0/MXl1yq5m0="
+          "hash": "6YvXU6HHi7CovNJWPxCO0BPS7ERCN3Fu2rwWMpJS4po="
         }
       },
       "is_incremental": false,
@@ -309,7 +309,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Reactive.SimpleReactiveGlobalHook.html",
-          "hash": "QFgMmdZxRoj77VzNV9ekwajxQQ/yV64jcXYDLxLGinQ="
+          "hash": "FQQSpTxi9f+1NSaklrIsU5Hd6fRBCxtRZVwvqrvZwSc="
         }
       },
       "is_incremental": false,
@@ -333,7 +333,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.SimpleGlobalHook.html",
-          "hash": "N+sBT1vB2LqCyebzqyNAk8CCVFe7Ly0smFnbMt03g3Y="
+          "hash": "pA9g4+M33AvpB+1aeUBc1ST1I8gp/XlkfZs8cz+5yqA="
         }
       },
       "is_incremental": false,
@@ -345,7 +345,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.TaskPoolGlobalHook.html",
-          "hash": "NCf1PdbSxxowFRJS0MCcM7WU/f548l31vgjdcaT5xZo="
+          "hash": "lgPdhlV6z5knc3qCGg2xxcphuWeu2vKaX7GwMPVTNHw="
         }
       },
       "is_incremental": false,
