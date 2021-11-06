@@ -429,7 +429,7 @@
             <summary>
             Represents a function which is called by libuiohook when an event occurs.
             </summary>
-            <param name="e">The event that occured.</param>
+            <param name="e">The event that has occured.</param>
             <seealso cref="M:SharpHook.Native.UioHook.SetDispatchProc(SharpHook.Native.DispatchProc)" />
         </member>
         <member name="T:SharpHook.Native.EventType">
@@ -1115,6 +1115,7 @@
             <summary>
             The default options with the parallelism level of 1.
             </summary>
+            <value>The options with the parallelism level of 1.</value>
         </member>
         <member name="M:SharpHook.TaskPoolGlobalHookOptions.#ctor(System.Int32)">
             <summary>

@@ -9,6 +9,7 @@ public sealed class TaskPoolGlobalHookOptions
     /// <summary>
     /// The default options with the parallelism level of 1.
     /// </summary>
+    /// <value>The options with the parallelism level of 1.</value>
     public static readonly TaskPoolGlobalHookOptions Sequential = new(1);
 
     /// <summary>
