@@ -819,6 +819,13 @@
             Contains native methods of libuiohook.
             </summary>
         </member>
+        <member name="F:SharpHook.Native.UioHook.EmptyDispatchProc">
+            <summary>
+            An empty hook callback function.
+            </summary>
+            <value>A hook callback function which does nothing.</value>
+            <remarks>You can use this function to "unset" a hook callback function.</remarks>
+        </member>
         <member name="M:SharpHook.Native.UioHook.SetDispatchProc(SharpHook.Native.DispatchProc)">
             <summary>
             Sets the hook callback function.

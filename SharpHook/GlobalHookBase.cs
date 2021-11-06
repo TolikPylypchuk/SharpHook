@@ -104,6 +104,7 @@ public abstract class GlobalHookBase : IGlobalHook
                 this.OnHookEnabled(new HookEventArgs(e));
                 break;
             case EventType.HookDisabled:
+                UioHook.SetDispatchProc(UioHook.EmptyDispatchProc);
                 this.OnHookDisabled(new HookEventArgs(e));
                 break;
             case EventType.KeyTyped:

@@ -11,6 +11,13 @@ namespace SharpHook.Native;
 #endif
 public static class UioHook
 {
+    /// <summary>
+    /// An empty hook callback function.
+    /// </summary>
+    /// <value>A hook callback function which does nothing.</value>
+    /// <remarks>You can use this function to "unset" a hook callback function.</remarks>
+    public static readonly DispatchProc EmptyDispatchProc = static (ref UioHookEvent e) => { };
+
     private const string LibUioHook = "uiohook";
 
     /// <summary>

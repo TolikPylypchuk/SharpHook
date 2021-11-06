@@ -240,18 +240,17 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
         {
             this.hookDisabledSubject.Subscribe(_ =>
             {
-                this.hookDisabledSubject.OnCompleted();
-                this.hookDisabledSubject.Dispose();
+                UioHook.SetDispatchProc(UioHook.EmptyDispatchProc);
+
+                this.CompleteAllSubjects();
+
+                if (disposing)
+                {
+                    this.DisposeAllSubjects();
+                }
             });
 
             var result = UioHook.Stop();
-
-            this.CompleteAllSubjects();
-
-            if (disposing)
-            {
-                this.DisposeAllSubjects();
-            }
 
             if (disposing && result != UioHookResult.Success)
             {
@@ -263,6 +262,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     private void CompleteAllSubjects()
     {
         this.hookEnabledSubject.OnCompleted();
+        this.hookDisabledSubject.OnCompleted();
 
         this.keyTypedSubject.OnCompleted();
         this.keyPressedSubject.OnCompleted();
@@ -279,7 +279,8 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
 
     private void DisposeAllSubjects()
     {
-        this.hookDisabledSubject.OnCompleted();
+        this.hookEnabledSubject.Dispose();
+        this.hookDisabledSubject.Dispose();
 
         this.keyTypedSubject.Dispose();
         this.keyPressedSubject.Dispose();

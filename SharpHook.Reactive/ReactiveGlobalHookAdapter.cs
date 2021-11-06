@@ -244,29 +244,27 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
 
         this.disposed = true;
 
+        this.hookDisabledSubject.Subscribe(_ =>
+        {
+            this.CompleteAllSubjects();
+
+            if (disposing)
+            {
+                this.subscriptions.Dispose();
+                this.DisposeAllSubjects();
+            }
+        });
+
         if (disposing)
         {
             this.hook.Dispose();
-        }
-
-        this.hookDisabledSubject.Subscribe(_ =>
-        {
-            this.hookDisabledSubject.OnCompleted();
-            this.hookDisabledSubject.Dispose();
-        });
-
-        this.CompleteAllSubjects();
-
-        if (disposing)
-        {
-            this.subscriptions.Dispose();
-            this.DisposeAllSubjects();
         }
     }
 
     private void CompleteAllSubjects()
     {
         this.hookEnabledSubject.OnCompleted();
+        this.hookDisabledSubject.OnCompleted();
 
         this.keyTypedSubject.OnCompleted();
         this.keyPressedSubject.OnCompleted();
@@ -283,7 +281,8 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
 
     private void DisposeAllSubjects()
     {
-        this.hookEnabledSubject.OnCompleted();
+        this.hookEnabledSubject.Dispose();
+        this.hookDisabledSubject.Dispose();
 
         this.keyTypedSubject.Dispose();
         this.keyPressedSubject.Dispose();
