@@ -1,5 +1,7 @@
 # About SharpHook
 
+SharpHook. Version 1.0.0. Created by Tolik Pylypchuk.
+
 ## Library Status
 
 SharpHook is under active development. The code itself is basically done at this point, and I'm wating for the .NET 6 GA
@@ -10,6 +12,14 @@ rolling release model - every commit to its `1.2` branch is considered stable. T
 really active anymore, but is still maintained, so this library will most probably receive updates quite rarely.
 
 ## Changelog
+
+## [v1.0.0 Preview 4](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v1.0.0-preview.4) (06 November 2021)
+
+- When `Dispose` on global hooks is called, they now reset the static hook callback function.
+
+- `HookDisabled` is now emitted correctly for reactive global hooks.
+
+- The assemblies are now trimmable.
 
 ## [v1.0.0 Preview 3](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v1.0.0-preview.3) (01 November 2021)
 

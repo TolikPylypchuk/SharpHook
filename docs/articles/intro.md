@@ -7,8 +7,8 @@ now things are not quite as tied, and people need cross-platform stuff. So here 
 enables you to easily create global hooks in a cross-platform way.
 
 SharpHook doesn't implement any hooking functionality itself. It is simply a wrapper around a C library called
-[libuiohook](https://github.com/kwhat/libuiohook), and a very thin one at that. However, it does provide a few classes
-and interfaces to make things easier for you than P/Invoking native functions.
+[libuiohook](https://github.com/kwhat/libuiohook), and a very thin one at that. However, it does provide a few types to
+make things easier for you than P/Invoking native functions.
 
 In the following articles you'll learn how to use this library.
 

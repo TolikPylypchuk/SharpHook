@@ -1,8 +1,8 @@
 # SharpHook.Reactive
 
 SharpHook is a library which provides a cross-platform global keyboard and mouse hook for .NET. It is a thin wrapper of
-[libuiohook](https://github.com/kwhat/libuiohook) and provides direct access to its features as well as a higher-level
-interfaces and classes to work with it.
+[libuiohook](https://github.com/kwhat/libuiohook) and provides direct access to its features as well as higher-level
+types to work with it.
 
 If you're using Rx.NET, you can use the SharpHook.Reactive package to integrate SharpHook with Rx.NET.
 

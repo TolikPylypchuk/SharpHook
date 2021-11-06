@@ -1,8 +1,8 @@
 # SharpHook
 
 A library which provides a cross-platform global keyboard and mouse hook for .NET. It is a thin wrapper of
-[libuiohook](https://github.com/kwhat/libuiohook) and provides direct access to its features as well as a higher-level
-interface and classes to work with it.
+[libuiohook](https://github.com/kwhat/libuiohook) and provides direct access to its features as well as higher-level
+types to work with it.
 
 You can look through the [articles](articles/intro.md) to find out more about this library, or dive into
 the [API reference](api/index.md).
@@ -22,6 +22,6 @@ https://github.com/TolikPylypchuk/SharpHook
 ## Installation
 
 ```
-dotnet add package SharpHook --version 1.0.0-preview.3
-dotnet add package SharpHook.Reactive --version 1.0.0-preview.3
+dotnet add package SharpHook --version 1.0.0-preview.4
+dotnet add package SharpHook.Reactive --version 1.0.0-preview.4
 ```

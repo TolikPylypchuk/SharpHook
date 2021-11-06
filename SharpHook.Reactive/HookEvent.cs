@@ -11,7 +11,7 @@ public sealed class HookEvent<TArgs>
     where TArgs : HookEventArgs
 {
     /// <summary>
-    /// Initializes a new instance of <see cref="IReactiveGlobalHook" />.
+    /// Initializes a new instance of <see cref="HookEvent{TArgs}" />.
     /// </summary>
     /// <param name="sender">The sender of the event.</param>
     /// <param name="args">The data of the event.</param>

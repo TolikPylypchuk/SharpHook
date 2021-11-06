@@ -1,5 +1,13 @@
 # SharpHook Changelog
 
+## [v1.0.0 Preview 4](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v1.0.0-preview.4) (06 November 2021)
+
+- When `Dispose` on global hooks is called, they now reset the static hook callback function.
+
+- `HookDisabled` is now emitted correctly for reactive global hooks.
+
+- The assemblies are now trimmable.
+
 ## [v1.0.0 Preview 3](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v1.0.0-preview.3) (01 November 2021)
 
 - `IsRunning` was added to `SharpHook.IGlobalHook` and `SharpHook.Reactive.IReactiveGlobalHook`.

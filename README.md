@@ -4,14 +4,14 @@
 [![NuGet](https://img.shields.io/nuget/v/SharpHook.Reactive.svg?label=SharpHook.Reactive)](https://www.nuget.org/packages/SharpHook.Reactive)
 
 SharpHook is a library which provides a cross-platform global keyboard and mouse hook for .NET. It is a thin wrapper of
-[libuiohook](https://github.com/kwhat/libuiohook) and provides direct access to its features as well as a higher-level
-interfaces and classes to work with it.
+[libuiohook](https://github.com/kwhat/libuiohook) and provides direct access to its features as well as higher-level
+types to work with it.
 
 ## Installation
 
 ```
-dotnet add package SharpHook --version 1.0.0-preview.3
-dotnet add package SharpHook.Reactive --version 1.0.0-preview.3
+dotnet add package SharpHook --version 1.0.0-preview.4
+dotnet add package SharpHook.Reactive --version 1.0.0-preview.4
 ```
 
 ## Docs
@@ -206,11 +206,12 @@ implement this feature.
 
 In order to build this library, you'll first need to get libuiohook binaries. You can build them yourself as instructued
 in the [libuiohook](https://github.com/kwhat/libuiohook) repository, or you can get a
-[nightly build](https://github.com/kwhat/libuiohook/actions/workflows/package.yml). Place the binaries into the
-appropriate directories under the `lib` directory in the `SharpHook` project.
+[nightly build from the original repository](https://github.com/kwhat/libuiohook/actions/workflows/package.yml), or a
+[nightly build from this repository](https://github.com/TolikPylypchuk/SharpHook/actions/workflows/build.yml). Place the
+binaries into the appropriate directories under the `lib` directory in the `SharpHook` project.
 
 With libuiohook in place you can build SharpHook using your usual methods, e.g. with Visual Studio or the `dotnet` CLI.
-Mind that you need .NET 6 and Visual Studio 2022 to build SharpHook.
+You need .NET 6 to build SharpHook.
 
 The `SharpHook` project defines multiple platforms. If you want to run `SharpHook.Sample`, make sure you don't use
 `AnyCPU` since the libuiohook version for it is not defined.
