@@ -79,13 +79,73 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><span class="xref">HookException</span></div>
+    <div class="level1"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception">Exception</a></div>
+    <div class="level2"><span class="xref">HookException</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.runtime.serialization.iserializable">ISerializable</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception.getbaseexception#System_Exception_GetBaseException">Exception.GetBaseException()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception.gettype#System_Exception_GetType">Exception.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception.tostring#System_Exception_ToString">Exception.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception.data#System_Exception_Data">Exception.Data</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception.helplink#System_Exception_HelpLink">Exception.HelpLink</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception.hresult#System_Exception_HResult">Exception.HResult</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception.innerexception#System_Exception_InnerException">Exception.InnerException</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception.message#System_Exception_Message">Exception.Message</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception.source#System_Exception_Source">Exception.Source</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception.stacktrace#System_Exception_StackTrace">Exception.StackTrace</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception.targetsite#System_Exception_TargetSite">Exception.TargetSite</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception.serializeobjectstate">Exception.SerializeObjectState</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#System_Object_Equals_System_Object_System_Object_">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#System_Object_GetHashCode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#System_Object_MemberwiseClone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#System_Object_ReferenceEquals_System_Object_System_Object_">Object.ReferenceEquals(Object, Object)</a>
+    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="SharpHook.html">SharpHook</a></h6>
   <h6><strong>Assembly</strong>: SharpHook.dll</h6>
   <h5 id="SharpHook_HookException_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class HookException : Exception</code></pre>
+    <pre><code class="lang-csharp hljs">[Serializable]
+public sealed class HookException : Exception, ISerializable</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -94,7 +154,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_HookException__ctor.md&amp;value=---%0Auid%3A%20SharpHook.HookException.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/HookException.cs/#L12">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/HookException.cs/#L17">View Source</a>
   </span>
   <a id="SharpHook_HookException__ctor_" data-uid="SharpHook.HookException.#ctor*"></a>
   <h4 id="SharpHook_HookException__ctor" data-uid="SharpHook.HookException.#ctor">HookException()</h4>
@@ -107,10 +167,170 @@
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_HookException__ctor_SharpHook_Native_UioHookResult_.md&amp;value=---%0Auid%3A%20SharpHook.HookException.%23ctor(SharpHook.Native.UioHookResult)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/HookException.cs/#L25">View Source</a>
+  </span>
+  <a id="SharpHook_HookException__ctor_" data-uid="SharpHook.HookException.#ctor*"></a>
+  <h4 id="SharpHook_HookException__ctor_SharpHook_Native_UioHookResult_" data-uid="SharpHook.HookException.#ctor(SharpHook.Native.UioHookResult)">HookException(UioHookResult)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="SharpHook.HookException.html">HookException</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HookException(UioHookResult result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>The result of an opetaion which caused this exception.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_HookException__ctor_SharpHook_Native_UioHookResult_System_Exception_.md&amp;value=---%0Auid%3A%20SharpHook.HookException.%23ctor(SharpHook.Native.UioHookResult%2CSystem.Exception)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/HookException.cs/#L51">View Source</a>
+  </span>
+  <a id="SharpHook_HookException__ctor_" data-uid="SharpHook.HookException.#ctor*"></a>
+  <h4 id="SharpHook_HookException__ctor_SharpHook_Native_UioHookResult_System_Exception_" data-uid="SharpHook.HookException.#ctor(SharpHook.Native.UioHookResult,System.Exception)">HookException(UioHookResult, Exception)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="SharpHook.HookException.html">HookException</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HookException(UioHookResult result, Exception innerException)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>The result of an opetaion which caused this exception.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception">Exception</a></td>
+        <td><span class="parametername">innerException</span></td>
+        <td><p>The exception which caused this exception.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_HookException__ctor_SharpHook_Native_UioHookResult_System_String_.md&amp;value=---%0Auid%3A%20SharpHook.HookException.%23ctor(SharpHook.Native.UioHookResult%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/HookException.cs/#L42">View Source</a>
+  </span>
+  <a id="SharpHook_HookException__ctor_" data-uid="SharpHook.HookException.#ctor*"></a>
+  <h4 id="SharpHook_HookException__ctor_SharpHook_Native_UioHookResult_System_String_" data-uid="SharpHook.HookException.#ctor(SharpHook.Native.UioHookResult,System.String)">HookException(UioHookResult, String)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="SharpHook.HookException.html">HookException</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HookException(UioHookResult result, string message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>The result of an opetaion which caused this exception.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message of the exception.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_HookException__ctor_SharpHook_Native_UioHookResult_System_String_System_Exception_.md&amp;value=---%0Auid%3A%20SharpHook.HookException.%23ctor(SharpHook.Native.UioHookResult%2CSystem.String%2CSystem.Exception)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/HookException.cs/#L70">View Source</a>
+  </span>
+  <a id="SharpHook_HookException__ctor_" data-uid="SharpHook.HookException.#ctor*"></a>
+  <h4 id="SharpHook_HookException__ctor_SharpHook_Native_UioHookResult_System_String_System_Exception_" data-uid="SharpHook.HookException.#ctor(SharpHook.Native.UioHookResult,System.String,System.Exception)">HookException(UioHookResult, String, Exception)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="SharpHook.HookException.html">HookException</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public HookException(UioHookResult result, string message, Exception innerException)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
+        <td><span class="parametername">result</span></td>
+        <td><p>The result of an opetaion which caused this exception.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">message</span></td>
+        <td><p>The message of the exception.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception">Exception</a></td>
+        <td><span class="parametername">innerException</span></td>
+        <td><p>The exception which caused this exception.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_HookException__ctor_System_String_.md&amp;value=---%0Auid%3A%20SharpHook.HookException.%23ctor(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/HookException.cs/#L28">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/HookException.cs/#L33">View Source</a>
   </span>
   <a id="SharpHook_HookException__ctor_" data-uid="SharpHook.HookException.#ctor*"></a>
   <h4 id="SharpHook_HookException__ctor_System_String_" data-uid="SharpHook.HookException.#ctor(System.String)">HookException(String)</h4>
@@ -141,13 +361,13 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_HookException__ctor_System_String_Exception_.md&amp;value=---%0Auid%3A%20SharpHook.HookException.%23ctor(System.String%2CException)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_HookException__ctor_System_String_System_Exception_.md&amp;value=---%0Auid%3A%20SharpHook.HookException.%23ctor(System.String%2CSystem.Exception)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/HookException.cs/#L55">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/HookException.cs/#L60">View Source</a>
   </span>
   <a id="SharpHook_HookException__ctor_" data-uid="SharpHook.HookException.#ctor*"></a>
-  <h4 id="SharpHook_HookException__ctor_System_String_Exception_" data-uid="SharpHook.HookException.#ctor(System.String,Exception)">HookException(String, Exception)</h4>
+  <h4 id="SharpHook_HookException__ctor_System_String_System_Exception_" data-uid="SharpHook.HookException.#ctor(System.String,System.Exception)">HookException(String, Exception)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="SharpHook.HookException.html">HookException</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -172,167 +392,7 @@
 </td>
       </tr>
       <tr>
-        <td><span class="xref">Exception</span></td>
-        <td><span class="parametername">innerException</span></td>
-        <td><p>The exception which caused this exception.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_HookException__ctor_UioHookResult_.md&amp;value=---%0Auid%3A%20SharpHook.HookException.%23ctor(UioHookResult)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/HookException.cs/#L20">View Source</a>
-  </span>
-  <a id="SharpHook_HookException__ctor_" data-uid="SharpHook.HookException.#ctor*"></a>
-  <h4 id="SharpHook_HookException__ctor_UioHookResult_" data-uid="SharpHook.HookException.#ctor(UioHookResult)">HookException(UioHookResult)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="SharpHook.HookException.html">HookException</a> class.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public HookException(UioHookResult result)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">UioHookResult</span></td>
-        <td><span class="parametername">result</span></td>
-        <td><p>The result of an opetaion which caused this exception.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_HookException__ctor_UioHookResult_Exception_.md&amp;value=---%0Auid%3A%20SharpHook.HookException.%23ctor(UioHookResult%2CException)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/HookException.cs/#L46">View Source</a>
-  </span>
-  <a id="SharpHook_HookException__ctor_" data-uid="SharpHook.HookException.#ctor*"></a>
-  <h4 id="SharpHook_HookException__ctor_UioHookResult_Exception_" data-uid="SharpHook.HookException.#ctor(UioHookResult,Exception)">HookException(UioHookResult, Exception)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="SharpHook.HookException.html">HookException</a> class.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public HookException(UioHookResult result, Exception innerException)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">UioHookResult</span></td>
-        <td><span class="parametername">result</span></td>
-        <td><p>The result of an opetaion which caused this exception.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Exception</span></td>
-        <td><span class="parametername">innerException</span></td>
-        <td><p>The exception which caused this exception.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_HookException__ctor_UioHookResult_System_String_.md&amp;value=---%0Auid%3A%20SharpHook.HookException.%23ctor(UioHookResult%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/HookException.cs/#L37">View Source</a>
-  </span>
-  <a id="SharpHook_HookException__ctor_" data-uid="SharpHook.HookException.#ctor*"></a>
-  <h4 id="SharpHook_HookException__ctor_UioHookResult_System_String_" data-uid="SharpHook.HookException.#ctor(UioHookResult,System.String)">HookException(UioHookResult, String)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="SharpHook.HookException.html">HookException</a> class.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public HookException(UioHookResult result, string message)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">UioHookResult</span></td>
-        <td><span class="parametername">result</span></td>
-        <td><p>The result of an opetaion which caused this exception.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">message</span></td>
-        <td><p>The message of the exception.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_HookException__ctor_UioHookResult_System_String_Exception_.md&amp;value=---%0Auid%3A%20SharpHook.HookException.%23ctor(UioHookResult%2CSystem.String%2CException)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/HookException.cs/#L65">View Source</a>
-  </span>
-  <a id="SharpHook_HookException__ctor_" data-uid="SharpHook.HookException.#ctor*"></a>
-  <h4 id="SharpHook_HookException__ctor_UioHookResult_System_String_Exception_" data-uid="SharpHook.HookException.#ctor(UioHookResult,System.String,Exception)">HookException(UioHookResult, String, Exception)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="SharpHook.HookException.html">HookException</a> class.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public HookException(UioHookResult result, string message, Exception innerException)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">UioHookResult</span></td>
-        <td><span class="parametername">result</span></td>
-        <td><p>The result of an opetaion which caused this exception.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">message</span></td>
-        <td><p>The message of the exception.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Exception</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception">Exception</a></td>
         <td><span class="parametername">innerException</span></td>
         <td><p>The exception which caused this exception.</p>
 </td>
@@ -346,7 +406,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_HookException_Result.md&amp;value=---%0Auid%3A%20SharpHook.HookException.Result%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/HookException.cs/#L89">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/HookException.cs/#L94">View Source</a>
   </span>
   <a id="SharpHook_HookException_Result_" data-uid="SharpHook.HookException.Result*"></a>
   <h4 id="SharpHook_HookException_Result" data-uid="SharpHook.HookException.Result">Result</h4>
@@ -367,7 +427,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">UioHookResult</span></td>
+        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
         <td><p>The result of an opetaion which caused this exception.</p>
 </td>
       </tr>
@@ -377,14 +437,14 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_HookException_GetObjectData_SerializationInfo_StreamingContext_.md&amp;value=---%0Auid%3A%20SharpHook.HookException.GetObjectData(SerializationInfo%2CStreamingContext)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_HookException_GetObjectData_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_.md&amp;value=---%0Auid%3A%20SharpHook.HookException.GetObjectData(System.Runtime.Serialization.SerializationInfo%2CSystem.Runtime.Serialization.StreamingContext)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/HookException.cs/#L79">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/HookException.cs/#L84">View Source</a>
   </span>
   <a id="SharpHook_HookException_GetObjectData_" data-uid="SharpHook.HookException.GetObjectData*"></a>
-  <h4 id="SharpHook_HookException_GetObjectData_SerializationInfo_StreamingContext_" data-uid="SharpHook.HookException.GetObjectData(SerializationInfo,StreamingContext)">GetObjectData(SerializationInfo, StreamingContext)</h4>
-  <div class="markdown level1 summary"><p>Sets the <see cref="!:SerializationInfo"></see> with information about this exception.</p>
+  <h4 id="SharpHook_HookException_GetObjectData_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_" data-uid="SharpHook.HookException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">GetObjectData(SerializationInfo, StreamingContext)</h4>
+  <div class="markdown level1 summary"><p>Sets the <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.runtime.serialization.serializationinfo">SerializationInfo</a> with information about this exception.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -402,19 +462,25 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">SerializationInfo</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.runtime.serialization.serializationinfo">SerializationInfo</a></td>
         <td><span class="parametername">info</span></td>
         <td><p>The serialization info to set.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">StreamingContext</span></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.runtime.serialization.streamingcontext">StreamingContext</a></td>
         <td><span class="parametername">context</span></td>
         <td><p>The streaming context.</p>
 </td>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception.getobjectdata#System_Exception_GetObjectData_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_">Exception.GetObjectData(SerializationInfo, StreamingContext)</a></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.runtime.serialization.iserializable">System.Runtime.Serialization.ISerializable</a>
+  </div>
 </article>
           </div>
           
@@ -426,7 +492,7 @@
                     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_HookException.md&amp;value=---%0Auid%3A%20SharpHook.HookException%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/HookException.cs/#L6" class="contribution-link">View Source</a>
+                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/HookException.cs/#L11" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
