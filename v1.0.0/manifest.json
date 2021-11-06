@@ -93,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.DispatchProc.html",
-          "hash": "WJGCwanA+OueGhiCOyARM/zTo9VVorU8eZ5OIZApI1g="
+          "hash": "AsgvWR/okXA8GlQVljD9VFaOJ1GguPN5HtUJTUKcKao="
         }
       },
       "is_incremental": false,
@@ -357,7 +357,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.TaskPoolGlobalHookOptions.html",
-          "hash": "isKQthc4u3G1gyk2uXdPSuhvqIeoj2LvQbu/JISwULQ="
+          "hash": "6XzEPWzumQiOFzReBqicCNDejwDInFjS1AFVU4db18E="
         }
       },
       "is_incremental": false,
