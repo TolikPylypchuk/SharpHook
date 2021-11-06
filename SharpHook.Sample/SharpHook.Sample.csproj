@@ -5,11 +5,15 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <Platforms>x86;x64;ARM32;ARM64;AnyCPU</Platforms>
+    <PublishTrimmed>true</PublishTrimmed>
+    <TrimmerDefaultAction>link</TrimmerDefaultAction>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SharpHook.Reactive\SharpHook.Reactive.csproj" />
     <ProjectReference Include="..\SharpHook\SharpHook.csproj" />
+    <TrimmerRootAssembly Include="SharpHook" />
+    <TrimmerRootAssembly Include="SharpHook.Reactive" />
   </ItemGroup>
 
 </Project>
