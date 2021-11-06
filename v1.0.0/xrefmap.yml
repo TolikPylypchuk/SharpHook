@@ -2420,6 +2420,12 @@ references:
   isSpec: "True"
   fullName: SharpHook.Native.UioHook.CreateScreenInfo
   nameWithType: UioHook.CreateScreenInfo
+- uid: SharpHook.Native.UioHook.EmptyDispatchProc
+  name: EmptyDispatchProc
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_EmptyDispatchProc
+  commentId: F:SharpHook.Native.UioHook.EmptyDispatchProc
+  fullName: SharpHook.Native.UioHook.EmptyDispatchProc
+  nameWithType: UioHook.EmptyDispatchProc
 - uid: SharpHook.Native.UioHook.GetAutoRepeatDelay
   name: GetAutoRepeatDelay()
   href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetAutoRepeatDelay
