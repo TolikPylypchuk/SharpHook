@@ -1,5 +1,10 @@
 namespace SharpHook.Native;
 
+using System;
+using System.Runtime.InteropServices;
+
+using SharpHook.Internal;
+
 /// <summary>
 /// Represents the screen-related data.
 /// </summary>

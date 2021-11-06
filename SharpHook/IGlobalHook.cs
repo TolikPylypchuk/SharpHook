@@ -1,5 +1,8 @@
 namespace SharpHook;
 
+using System;
+using System.Threading.Tasks;
+
 /// <summary>
 /// Represents a global keyboard and mouse hook.
 /// </summary>

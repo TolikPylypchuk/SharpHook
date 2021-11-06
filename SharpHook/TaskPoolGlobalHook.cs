@@ -1,5 +1,11 @@
 namespace SharpHook;
 
+using System;
+using System.Threading.Tasks;
+
+using SharpHook.Internal;
+using SharpHook.Native;
+
 /// <summary>
 /// Represents a task pool-based implementation of <see cref="IGlobalHook" />.
 /// </summary>
