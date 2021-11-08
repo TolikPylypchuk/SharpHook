@@ -19,7 +19,7 @@ public abstract class GlobalHookBase : IGlobalHook
     private bool disposed = false;
 
     /// <summary>
-    /// Unregisteres the global hook if it's registered.
+    /// Destroys the global hook if it's running.
     /// </summary>
     ~GlobalHookBase() =>
         this.Dispose(false);

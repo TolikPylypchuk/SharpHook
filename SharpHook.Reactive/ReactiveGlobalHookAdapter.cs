@@ -129,7 +129,7 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
     }
 
     /// <summary>
-    /// Unregisteres the global hook if it's registered.
+    /// Destroys the global hook if it's running.
     /// </summary>
     ~ReactiveGlobalHookAdapter() =>
         this.Dispose(false);
