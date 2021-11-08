@@ -4,14 +4,15 @@ SharpHook. Version 1.0.0. Created by Tolik Pylypchuk.
 
 ## Library Status
 
-SharpHook is under active development. The code itself is basically done at this point, and I'm wating for the .NET 6 GA
-release. When it's out, I'm going to release version 1.0.0.
-
 No other features are planned, but I will maintain the library to keep up with the releases of libuiohook which uses a
 rolling release model - every commit to its `1.2` branch is considered stable. That said, libuiohook itself is not
 really active anymore, but is still maintained, so this library will most probably receive updates quite rarely.
 
 ## Changelog
+
+## [v1.0.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v1.0.0) (08 November 2021)
+
+This release is basically the same as v1.0.0 Preview 4, but built with a GA release of .NET 6.
 
 ## [v1.0.0 Preview 4](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v1.0.0-preview.4) (06 November 2021)
 

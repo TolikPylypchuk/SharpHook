@@ -1,5 +1,9 @@
 # SharpHook Changelog
 
+## [v1.0.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v1.0.0) (08 November 2021)
+
+This release is basically the same as v1.0.0 Preview 4, but built with a GA release of .NET 6.
+
 ## [v1.0.0 Preview 4](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v1.0.0-preview.4) (06 November 2021)
 
 - When `Dispose` on global hooks is called, they now reset the static hook callback function.

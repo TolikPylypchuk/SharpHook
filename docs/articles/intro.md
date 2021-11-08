@@ -14,7 +14,8 @@ In the following articles you'll learn how to use this library.
 
 ## Supported Platforms
 
-The following table describes the platforms that SharpHook supports:
+SharpHook targets .NET Framework 4.6.1+, .NET Standard 2.0, and .NET Core 3.1/.NET 5+. The following table describes
+the availability of SharpHook on various platforms:
 
 <table>
   <tr>

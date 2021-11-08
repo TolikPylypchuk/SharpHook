@@ -10,8 +10,8 @@ types to work with it.
 ## Installation
 
 ```
-dotnet add package SharpHook --version 1.0.0-preview.4
-dotnet add package SharpHook.Reactive --version 1.0.0-preview.4
+dotnet add package SharpHook --version 1.0.0
+dotnet add package SharpHook.Reactive --version 1.0.0
 ```
 
 ## Docs
@@ -19,6 +19,9 @@ dotnet add package SharpHook.Reactive --version 1.0.0-preview.4
 You can find more information (including the API reference) in the [docs](https://sharphook.tolik.io).
 
 ## Supported Platforms
+
+SharpHook targets .NET Framework 4.6.1+, .NET Standard 2.0, and .NET Core 3.1/.NET 5+. The following table describes
+the availability of SharpHook on various platforms:
 
 <table>
   <tr>
@@ -217,9 +220,6 @@ The `SharpHook` project defines multiple platforms. If you want to run `SharpHoo
 `AnyCPU` since the libuiohook version for it is not defined.
 
 ## Library Status
-
-SharpHook is under active development. The code itself is basically done at this point, and I'm wating for the .NET 6 GA
-release. When it's out, I'm going to release version 1.0.0.
 
 No other features are planned, but I will maintain the library to keep up with the releases of libuiohook which uses a
 rolling release model - every commit to its `1.2` branch is considered stable. That said, libuiohook itself is not
