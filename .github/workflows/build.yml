@@ -376,7 +376,6 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 6.0.x
-          include-prerelease: true
 
       - name: Setup DocFX
         uses: crazy-max/ghaction-chocolatey@v1
@@ -456,7 +455,6 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 6.0.x
-          include-prerelease: true
 
       - name: Fetch Packages
         uses: actions/download-artifact@v2
