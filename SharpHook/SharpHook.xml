@@ -15,7 +15,7 @@
         </member>
         <member name="M:SharpHook.GlobalHookBase.Finalize">
             <summary>
-            Unregisteres the global hook if it's registered.
+            Destroys the global hook if it's running.
             </summary>
         </member>
         <member name="P:SharpHook.GlobalHookBase.IsRunning">

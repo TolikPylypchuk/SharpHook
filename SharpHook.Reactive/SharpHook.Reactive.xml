@@ -147,7 +147,7 @@
         </member>
         <member name="M:SharpHook.Reactive.ReactiveGlobalHookAdapter.Finalize">
             <summary>
-            Unregisteres the global hook if it's registered.
+            Destroys the global hook if it's running.
             </summary>
         </member>
         <member name="P:SharpHook.Reactive.ReactiveGlobalHookAdapter.IsRunning">
@@ -256,7 +256,7 @@
         </member>
         <member name="M:SharpHook.Reactive.SimpleReactiveGlobalHook.Finalize">
             <summary>
-            Unregisteres the global hook if it's registered.
+            Destroys the global hook if it's running.
             </summary>
         </member>
         <member name="P:SharpHook.Reactive.SimpleReactiveGlobalHook.IsRunning">
