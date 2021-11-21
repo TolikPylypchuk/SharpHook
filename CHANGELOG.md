@@ -1,5 +1,9 @@
 # SharpHook Changelog
 
+## [v1.0.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v1.0.1) (21 November 2021)
+
+libuiohook was updated to commit [28ccf9c](https://github.com/kwhat/libuiohook/tree/28ccf9c392ca5fd872a21246b49bf9ee2c0baf15).
+
 ## [v1.0.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v1.0.0) (08 November 2021)
 
 This release is basically the same as v1.0.0 Preview 4, but built with a GA release of .NET 6.

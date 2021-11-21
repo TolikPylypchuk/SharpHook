@@ -10,13 +10,17 @@ types to work with it.
 ## Installation
 
 ```
-dotnet add package SharpHook --version 1.0.0
-dotnet add package SharpHook.Reactive --version 1.0.0
+dotnet add package SharpHook
+dotnet add package SharpHook.Reactive
 ```
 
 ## Docs
 
-You can find more information (including the API reference) in the [docs](https://sharphook.tolik.io).
+You can find more information (including the API reference) in the [docs](https://sharphook.tolik.io). Or if you need a
+specific version:
+
+- [v1.0.0](https://sharphook.tolik.io/v1.0.0)
+- [v1.0.1](https://sharphook.tolik.io/v1.0.1)
 
 ## Supported Platforms
 

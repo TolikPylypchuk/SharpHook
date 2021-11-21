@@ -1,6 +1,6 @@
 # About SharpHook
 
-SharpHook. Version 1.0.0. Created by Tolik Pylypchuk.
+SharpHook. Version 1.0.1. Created by Tolik Pylypchuk.
 
 ## Library Status
 
@@ -9,6 +9,10 @@ rolling release model - every commit to its `1.2` branch is considered stable. T
 really active anymore, but is still maintained, so this library will most probably receive updates quite rarely.
 
 ## Changelog
+
+## [v1.0.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v1.0.1) (21 November 2021)
+
+libuiohook was updated to commit [28ccf9c](https://github.com/kwhat/libuiohook/tree/28ccf9c392ca5fd872a21246b49bf9ee2c0baf15).
 
 ## [v1.0.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v1.0.0) (08 November 2021)
 
