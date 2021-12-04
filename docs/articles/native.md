@@ -65,54 +65,54 @@ The following table describes the specifics of simulating each event type.
   </thead>
   <tbody>
     <tr>
-      <td>`HookEnabled`</td>
+      <td><code>HookEnabled</code></td>
       <td>Events of this type are ignored.</td>
     </tr>
     <tr>
-      <td>`HookDisabled`</td>
+      <td><code>HookDisabled</code></td>
       <td>Events of this type are ignored.</td>
     </tr>
     <tr>
-      <td>`KeyPressed`</td>
-      <td>Only `KeyboardEventData.KeyCode` is considered.</td>
+      <td><code>KeyPressed</code></td>
+      <td>Only <code>KeyboardEventData.KeyCode</code> is considered.</td>
     </tr>
     <tr>
-      <td>`KeyReleased`</td>
-      <td>Only `KeyboardEventData.KeyCode` is considered.</td>
+      <td><code>KeyReleased</code></td>
+      <td>Only <code>KeyboardEventData.KeyCode</code> is considered.</td>
     </tr>
     <tr>
-      <td>`KeyTyped`</td>
+      <td><code>KeyTyped</code></td>
       <td>
         Not recommended to use since on some platforms events of this type are ignored, while on others they are not.
       </td>
     </tr>
     <tr>
-      <td>`MousePressed`</td>
-      <td>Only `MouseEventData.Button` is considered.</td>
+      <td><code>MousePressed</code></td>
+      <td>Only <code>MouseEventData.Button</code> is considered.</td>
     </tr>
     <tr>
-      <td>`MouseReleased`</td>
-      <td>Only `MouseEventData.Button` is considered.</td>
+      <td<code>MouseReleased</code></td>
+      <td>Only <code>MouseEventData.Button</code> is considered.</td>
     </tr>
     <tr>
-      <td>`MouseClicked`</td>
+      <td><code>MouseClicked</code></td>
       <td>
         Not recommended to use since on some platforms events of this type are ignored, while on others they are not.
       </td>
     </tr>
     <tr>
-      <td>`MouseMoved`</td>
-      <td>Only `MouseEventData.X` and `MouseEventData.Y` are considered.</td>
+      <td><code>MouseMoved</code></td>
+      <td>Only <code>MouseEventData.X</code> and <code>MouseEventData.Y</code> are considered.</td>
     </tr>
     <tr>
-      <td>`MouseDragged`</td>
-      <td>Not recommended to use; instead, use `MouseMoved` with a modifier mask.</td>
+      <td><code>MouseDragged</code></td>
+      <td>Not recommended to use; instead, use <code>MouseMoved</code> with a modifier mask.</td>
     </tr>
     <tr>
-      <td>`MouseWheel`</td>
+      <td><code>MouseWheel</code></td>
       <td>
-        Only `MouseWheelEventData.X`, `MouseWheelEventData.Y`, `MouseWheelEventData.Amount`, and
-        `MouseWheelEventData.Rotation` are considered.
+        Only <code>MouseWheelEventData.X</code>, <code>MouseWheelEventData.Y</code>,
+        <code>MouseWheelEventData.Amount</code>, and <code>MouseWheelEventData.Rotation</code> are considered.
       </td>
     </tr>
   </tbody>
