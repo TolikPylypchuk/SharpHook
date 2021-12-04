@@ -49,6 +49,78 @@ Following are the mouse events, and `UioHookEvent` will contain more infomration
 The last event is different from the others in that when it's raised, it's information will be contained in the `Wheel`
 field of `UioHookEvent` since it contains more information.
 
+## Simulating Input Events
+
+`UioHook` contains the `PostEvent` method for simulating input events. It accepts a `UioHookEvent`, but it doesn't need
+all its fields. Only `Type`, `Keyboard`/`Mouse`/`Wheel`, and `Mask` should be present.
+
+The following table describes the specifics of simulating each event type.
+
+<table>
+  <thead>
+    <tr>
+      <th>Event type</td>
+      <th>Description</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>`HookEnabled`</td>
+      <td>Events of this type are ignored.</td>
+    </tr>
+    <tr>
+      <td>`HookDisabled`</td>
+      <td>Events of this type are ignored.</td>
+    </tr>
+    <tr>
+      <td>`KeyPressed`</td>
+      <td>Only `KeyboardEventData.KeyCode` is considered.</td>
+    </tr>
+    <tr>
+      <td>`KeyReleased`</td>
+      <td>Only `KeyboardEventData.KeyCode` is considered.</td>
+    </tr>
+    <tr>
+      <td>`KeyTyped`</td>
+      <td>
+        Not recommended to use since on some platforms events of this type are ignored, while on others they are not.
+      </td>
+    </tr>
+    <tr>
+      <td>`MousePressed`</td>
+      <td>Only `MouseEventData.Button` is considered.</td>
+    </tr>
+    <tr>
+      <td>`MouseReleased`</td>
+      <td>Only `MouseEventData.Button` is considered.</td>
+    </tr>
+    <tr>
+      <td>`MouseClicked`</td>
+      <td>
+        Not recommended to use since on some platforms events of this type are ignored, while on others they are not.
+      </td>
+    </tr>
+    <tr>
+      <td>`MouseMoved`</td>
+      <td>Only `MouseEventData.X` and `MouseEventData.Y` are considered.</td>
+    </tr>
+    <tr>
+      <td>`MouseDragged`</td>
+      <td>Not recommended to use; instead, use `MouseMoved` with a modifier mask.</td>
+    </tr>
+    <tr>
+      <td>`MouseWheel`</td>
+      <td>
+        Only `MouseWheelEventData.X`, `MouseWheelEventData.Y`, `MouseWheelEventData.Amount`, and
+        `MouseWheelEventData.Rotation` are considered.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+Mouse wheel simulation is a little inconsistent across platforms, and not documented. View the source code of libuiohook
+for more details.
+
 ## Other Functions
 
 libuiohooks also provides functions which get various pieces of information about the system, and are listed below:

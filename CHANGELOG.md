@@ -1,5 +1,16 @@
 # SharpHook Changelog
 
+## [v1.1.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v1.1.0) (04 December 2021)
+
+- Cross-platform input event simulation using libuiohook.
+
+- Support for Windows on Arm64.
+
+- `MouseWheelEventData.Rotation` now has the correct type - `short` instead of `ushort`. This is a tiny breaking change,
+but had to be fixed.
+
+- libuiohook was updated to commit [5cf864d](https://github.com/kwhat/libuiohook/tree/5cf864d37bdee41bcef2297401c4538d9010b770).
+
 ## [v1.0.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v1.0.1) (21 November 2021)
 
 libuiohook was updated to commit [28ccf9c](https://github.com/kwhat/libuiohook/tree/28ccf9c392ca5fd872a21246b49bf9ee2c0baf15).

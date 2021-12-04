@@ -6,6 +6,8 @@ libraries that make things easier, but they work only on Windows since C#'s and 
 now things are not quite as tied, and people need cross-platform stuff. So here we are. Meet SharpHook, a library which
 enables you to easily create global hooks in a cross-platform way.
 
+Starting with version 1.1.0, SharpHook can simulate keyboard and mouse events in a cross-platform way as well.
+
 SharpHook doesn't implement any hooking functionality itself. It is simply a wrapper around a C library called
 [libuiohook](https://github.com/kwhat/libuiohook), and a very thin one at that. However, it does provide a few types to
 make things easier for you than P/Invoking native functions.
@@ -44,7 +46,7 @@ the availability of SharpHook on various platforms:
   </tr>
   <tr>
     <th>Arm64</th>
-    <td>No<sup>3</sup></td>
+    <td>Yes</td>
     <td>Yes</td>
     <td>Yes</td>
   </tr>
@@ -55,8 +57,6 @@ the availability of SharpHook on various platforms:
 [2] - Windows Arm32 support was
 [dropped](https://github.com/dotnet/core/blob/main/release-notes/5.0/5.0-supported-os.md) in .NET 5 so it will most
 probably be dropped by this library in a future version as well.
-
-[3] - Windows on Arm64 is not yet supported by libuiohook.
 
 libuiohook only supports X11 on Linux. Wayland support [may be coming](https://github.com/kwhat/libuiohook/issues/100),
 but it's not yet here.

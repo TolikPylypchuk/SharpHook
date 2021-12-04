@@ -70,4 +70,4 @@ Both classes contain a destructor which will stop the global hook if the object 
 observables of both classes will be completed when the hook is destroyed, be it from the `Dispose` method, or from the
 destructor.
 
-Next article: [Limitations](limitations.md).
+Next article: [Event Simulation](simulation.md).

@@ -1,8 +1,8 @@
 # SharpHook
 
-SharpHook is a library which provides a cross-platform global keyboard and mouse hook for .NET. It is a thin wrapper of
-[libuiohook](https://github.com/kwhat/libuiohook) and provides direct access to its features as well as higher-level
-types to work with it.
+SharpHook provides a cross-platform global keyboard and mouse hook for .NET, and the ability to simulate input events.
+It is a thin wrapper of [libuiohook](https://github.com/kwhat/libuiohook) and provides direct access to its features as
+well as higher-level types to work with it.
 
 ## Usage
 
@@ -19,6 +19,8 @@ SharpHook.
 - `SetDispatchProc` - sets the function which will be called when an event is raised by libuiohook.
 - `Run` - creates a global hook and runs it on the current thread, blocking it until `Stop` is called.
 - `Stop` - destroys the global hook.
+
+Additionally, `UioHook` contains the `PostEvent` method for simulating input events.
 
 libuiohook also provides functions to get various system properties. The corresponding methods are also present in
 `UioHook`.
@@ -81,6 +83,32 @@ strategy for dispatching the events.
 ### Reactive Global Hooks
 
 Use the [SharpHook.Reactive](https://www.nuget.org/packages/SharpHook.Reactive) package for reactive global hooks.
+
+### Event Simulation
+
+SharpHook provides the ability to simulate keyboard and mouse events in a cross-platform way as well. Here's a quick
+example:
+
+```C#
+using SharpHook;
+using SharpHook.Native;
+
+// ...
+
+var simulator = new EventSimulator();
+
+simulator.SimulateKeyPress(KeyCode.VcC, ModifierMask.LeftCtrl);   // Press Ctrl+C
+simulator.SimulateKeyRelease(KeyCode.VcC, ModifierMask.LeftCtrl); // Release Ctrl+C
+
+simulator.SimulateMousePress(MouseButton.Button1);   // Press the left mouse button
+simulator.SimulateMouseRelease(MouseButton.Button1); // Release the left mouse button
+
+simulator.SimulateMouseMovement(0, 0);      // Move the mouse pointer to the (0, 0) point
+simulator.SimulateMouseWheel(0, 0, 10, -1); // Move the mouse pointer to the (0, 0) point, and scroll the mouse wheel
+```
+
+SharpHook provides the `IEventSimulator` interface, and the default implementation, `EventSimulator`, which calls
+`UioHook.PostEvent` to simulate the events.
 
 ## Icon
 

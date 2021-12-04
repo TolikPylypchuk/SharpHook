@@ -6,6 +6,8 @@
   href: hooks.md
 - name: Reactive Global Hooks
   href: reactive.md
+- name: Event Simulation
+  href: simulation.md
 - name: Limitations
   href: limitations.md
 - name: About SharpHook

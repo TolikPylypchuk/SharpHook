@@ -3,9 +3,9 @@
 [![NuGet](https://img.shields.io/nuget/v/SharpHook.svg?label=SharpHook)](https://www.nuget.org/packages/SharpHook)
 [![NuGet](https://img.shields.io/nuget/v/SharpHook.Reactive.svg?label=SharpHook.Reactive)](https://www.nuget.org/packages/SharpHook.Reactive)
 
-SharpHook is a library which provides a cross-platform global keyboard and mouse hook for .NET. It is a thin wrapper of
-[libuiohook](https://github.com/kwhat/libuiohook) and provides direct access to its features as well as higher-level
-types to work with it.
+SharpHook provides a cross-platform global keyboard and mouse hook for .NET, and the ability to simulate input events.
+It is a thin wrapper of [libuiohook](https://github.com/kwhat/libuiohook) and provides direct access to its features as
+well as higher-level types to work with it.
 
 ## Installation
 
@@ -19,8 +19,9 @@ dotnet add package SharpHook.Reactive
 You can find more information (including the API reference) in the [docs](https://sharphook.tolik.io). Or if you need a
 specific version:
 
-- [v1.0.0](https://sharphook.tolik.io/v1.0.0)
+- [v1.1.0](https://sharphook.tolik.io/v1.1.0)
 - [v1.0.1](https://sharphook.tolik.io/v1.0.1)
+- [v1.0.0](https://sharphook.tolik.io/v1.0.0)
 
 ## Supported Platforms
 
@@ -54,7 +55,7 @@ the availability of SharpHook on various platforms:
   </tr>
   <tr>
     <th>Arm64</th>
-    <td>No<sup>3</sup></td>
+    <td>Yes</td>
     <td>Yes</td>
     <td>Yes</td>
   </tr>
@@ -65,8 +66,6 @@ the availability of SharpHook on various platforms:
 [2] - Windows Arm32 support was
 [dropped](https://github.com/dotnet/core/blob/main/release-notes/5.0/5.0-supported-os.md) in .NET 5 so it will most
 probably be dropped by this library in a future version as well.
-
-[3] - Windows on Arm64 is not yet supported by libuiohook.
 
 libuiohook only supports X11 on Linux. Wayland support [may be coming](https://github.com/kwhat/libuiohook/issues/100),
 but it's not yet here.
@@ -88,6 +87,8 @@ SharpHook.
 - `Run` - creates a global hook and runs it on the current thread, blocking it until `Stop` is called.
 
 - `Stop` - destroys the global hook.
+
+Additionally, `UioHook` contains the `PostEvent` method for simulating input events.
 
 libuiohook also provides functions to get various system properties. The corresponding methods are also present in
 `UioHook`.
@@ -196,6 +197,32 @@ you to decide when and where to handle the events through schedulers.
 
 - `ReactiveGlobalHookAdapter` adapts an `IGlobalHook` to `IReactiveGlobalHook`. All subscriptions and changes
 are propagated to the adapted hook.
+
+### Event Simulation
+
+SharpHook provides the ability to simulate keyboard and mouse events in a cross-platform way as well. Here's a quick
+example:
+
+```C#
+using SharpHook;
+using SharpHook.Native;
+
+// ...
+
+var simulator = new EventSimulator();
+
+simulator.SimulateKeyPress(KeyCode.VcC, ModifierMask.LeftCtrl);   // Press Ctrl+C
+simulator.SimulateKeyRelease(KeyCode.VcC, ModifierMask.LeftCtrl); // Release Ctrl+C
+
+simulator.SimulateMousePress(MouseButton.Button1);   // Press the left mouse button
+simulator.SimulateMouseRelease(MouseButton.Button1); // Release the left mouse button
+
+simulator.SimulateMouseMovement(0, 0);      // Move the mouse pointer to the (0, 0) point
+simulator.SimulateMouseWheel(0, 0, 10, -1); // Move the mouse pointer to the (0, 0) point, and scroll the mouse wheel
+```
+
+SharpHook provides the `IEventSimulator` interface, and the default implementation, `EventSimulator`, which calls
+`UioHook.PostEvent` to simulate the events.
 
 ## Limitations
 

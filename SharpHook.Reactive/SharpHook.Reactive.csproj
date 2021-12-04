@@ -13,7 +13,7 @@
     <Product>SharpHook</Product>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Copyright>(c) 2021 Anatoliy Pylypchuk</Copyright>
-    <Description>A library which provides a cross-platform global keyboard and mouse hook for .NET</Description>
+    <Description>Provides a cross-platform global keyboard and mouse hook for .NET, and the ability to simulate input events</Description>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/TolikPylypchuk/SharpHook</RepositoryUrl>
     <PackageProjectUrl>https://sharphook.tolik.io</PackageProjectUrl>
