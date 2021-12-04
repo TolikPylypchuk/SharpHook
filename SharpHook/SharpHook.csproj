@@ -7,7 +7,7 @@
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <IsTrimmable>true</IsTrimmable>
-    <Version>1.0.1</Version>
+    <Version>1.1.0</Version>
     <Authors>Tolik Pylypchuk</Authors>
     <Company>Tolik Pylypchuk</Company>
     <Product>SharpHook</Product>
@@ -18,7 +18,7 @@
     <RepositoryUrl>https://github.com/TolikPylypchuk/SharpHook</RepositoryUrl>
     <PackageProjectUrl>https://sharphook.tolik.io</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageTags>hook global-hook libuiohook</PackageTags>
+    <PackageTags>input keyboard mouse hook global-hook simulator libuiohook</PackageTags>
     <PackageIcon>icon.png</PackageIcon>
     <PackageIconUrl />
     <IncludeSymbols>true</IncludeSymbols>
