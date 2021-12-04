@@ -5,11 +5,23 @@
   "files": [
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.EventSimulator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.EventSimulator.html",
+          "hash": "VqN9u/J+unc+9yJKxtrxZLg7OlggbtZWesskF3KeqUQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SharpHook.GlobalHookBase.yml",
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.GlobalHookBase.html",
-          "hash": "T20QzrlRMLBirx7TTjOlsdrxH2sYRhVNoheGViXr3ng="
+          "hash": "cAsQfQIyUMbAwLt2vQx11y42jWUeRoFRG1hzQIU/yZ8="
         }
       },
       "is_incremental": false,
@@ -34,6 +46,18 @@
         ".html": {
           "relative_path": "api/SharpHook.HookException.html",
           "hash": "zJNr6+chTD0qk2KPU3vlNUElMpDgml59gsGX5QCXcyU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.IEventSimulator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.IEventSimulator.html",
+          "hash": "MdwP4KX8UiogSihJ4cOmih3cs2nhU1UDiXA4xqKC60o="
         }
       },
       "is_incremental": false,
@@ -177,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.MouseWheelEventData.html",
-          "hash": "Wy7HktxIg4NQWSIPa0Sok7apB6k2Rnv23mcogeOAzXE="
+          "hash": "beEl3zDXJKhqTUC0JFn2apmS6PjAGwujKbLXlipm11Y="
         }
       },
       "is_incremental": false,
@@ -225,7 +249,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.UioHook.html",
-          "hash": "Gy+K3PtIDr4dZ1x+CcmknbHyI9HVxN5g/z+6clifbgE="
+          "hash": "z9tIp8QLcn1IrxZ/1D1u9X7Ora+x/xZLjI852ESViuc="
         }
       },
       "is_incremental": false,
@@ -297,7 +321,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html",
-          "hash": "g8mKg/xquAvoN2kHhVh417iXbRIxIvK4peVXPAxWPWo="
+          "hash": "Y0ufeNcyYLK83Ch730/5qkE+L7R4mw9DtPis+w2v7mU="
         }
       },
       "is_incremental": false,
@@ -309,7 +333,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Reactive.SimpleReactiveGlobalHook.html",
-          "hash": "O41NPfH6pfCGtHos7WHoArakKo1zM3kdWh5tS6SyJhg="
+          "hash": "YzPtF/5evcrF7fNAb7i4Xii66ewRLRkqMi/oaYdphgc="
         }
       },
       "is_incremental": false,
@@ -333,7 +357,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.SimpleGlobalHook.html",
-          "hash": "GB7U/33tkMpk/kR/5CaT5IERXOXBuK4KglmPaaKpgUE="
+          "hash": "N+sBT1vB2LqCyebzqyNAk8CCVFe7Ly0smFnbMt03g3Y="
         }
       },
       "is_incremental": false,
@@ -345,7 +369,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.TaskPoolGlobalHook.html",
-          "hash": "JC4X8Uxaa05mSQdxeqoSOjAsWPE0yvTRAh6VwLyxAkM="
+          "hash": "NCf1PdbSxxowFRJS0MCcM7WU/f548l31vgjdcaT5xZo="
         }
       },
       "is_incremental": false,
@@ -369,7 +393,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.html",
-          "hash": "Nenqqza8fc6LvMQkGdFwGhGQBzJepV2YBAAjyVduOQI="
+          "hash": "yy7e3+4MdkuJA++7JDhNDNhrivdKsS0iOSUB9xEEKz0="
         }
       },
       "is_incremental": false,
@@ -393,7 +417,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "0BRs4FVwUzPtefLYro5+KDy2Yw0NHl7I+n3uOyZnCFo="
+          "hash": "kcTHYK6+6JNAy8IYsSRvqMDlg5T0LyLhAotQ+YPW8JY="
         }
       },
       "is_incremental": false,
@@ -550,7 +574,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 31,
+          "total_file_count": 33,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {
