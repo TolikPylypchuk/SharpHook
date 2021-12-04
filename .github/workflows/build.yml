@@ -442,6 +442,7 @@ jobs:
           mv libuiohook-build\linux\x86_64\lib\libuiohook.so.1 SharpHook\lib\linux-x64\
           mv libuiohook-build\linux\x86_64\lib\libuiohook.so.1.2.0 SharpHook\lib\linux-x64\
           mv libuiohook-build\windows\arm\bin\uiohook.dll SharpHook\lib\win-arm\
+          mv libuiohook-build\windows\arm64\bin\uiohook.dll SharpHook\lib\win-arm64\
           mv libuiohook-build\windows\x86\bin\uiohook.dll SharpHook\lib\win-x86\
           mv libuiohook-build\windows\x86_64\bin\uiohook.dll SharpHook\lib\win-x64\
 
