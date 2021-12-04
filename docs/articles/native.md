@@ -91,7 +91,7 @@ The following table describes the specifics of simulating each event type.
       <td>Only <code>MouseEventData.Button</code> is considered.</td>
     </tr>
     <tr>
-      <td<code>MouseReleased</code></td>
+      <td><code>MouseReleased</code></td>
       <td>Only <code>MouseEventData.Button</code> is considered.</td>
     </tr>
     <tr>
