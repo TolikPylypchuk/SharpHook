@@ -253,7 +253,7 @@ jobs:
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-windows-arm:
-    runs-on: windows-latest
+    runs-on: windows-2022
 
     steps:
       - uses: actions/checkout@v2
@@ -287,7 +287,7 @@ jobs:
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-windows-x86:
-    runs-on: windows-latest
+    runs-on: windows-2022
 
     steps:
       - uses: actions/checkout@v2
@@ -321,7 +321,7 @@ jobs:
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-windows-x64:
-    runs-on: windows-latest
+    runs-on: windows-2022
 
     steps:
       - uses: actions/checkout@v2
@@ -356,7 +356,7 @@ jobs:
           path: ${{github.workspace}}/dist/**/*
 
   sharphook:
-    runs-on: windows-latest
+    runs-on: windows-2022
     needs:
       - libuiohook-macos-arm64
       - libuiohook-macos-x64
@@ -441,7 +441,7 @@ jobs:
           commit_message: "Deploy docs to GitHub Pages"
 
   publish:
-    runs-on: windows-latest
+    runs-on: windows-2022
     if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
     needs: [sharphook]
 
