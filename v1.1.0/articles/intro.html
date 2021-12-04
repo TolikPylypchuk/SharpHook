@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Introduction </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Introduction ">
+    <meta name="generator" content="docfx 2.58.9.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="introduction">Introduction</h1>
+
+<p>Creating global keyboard and mouse hooks is hard. You have to use a bunch of not-so-pretty native functions and do
+low-level programming. It becomes even more difficult if you need it to work on multiple platforms. Sure, there are
+libraries that make things easier, but they work only on Windows since C#'s and .NET's history is tied to this OS. Well,
+now things are not quite as tied, and people need cross-platform stuff. So here we are. Meet SharpHook, a library which
+enables you to easily create global hooks in a cross-platform way.</p>
+<p>SharpHook doesn't implement any hooking functionality itself. It is simply a wrapper around a C library called
+<a href="https://github.com/kwhat/libuiohook">libuiohook</a>, and a very thin one at that. However, it does provide a few types to
+make things easier for you than P/Invoking native functions.</p>
+<p>In the following articles you'll learn how to use this library.</p>
+<h2 id="supported-platforms">Supported Platforms</h2>
+<p>SharpHook targets .NET Framework 4.6.1+, .NET Standard 2.0, and .NET Core 3.1/.NET 5+. The following table describes
+the availability of SharpHook on various platforms:</p>
+<table>
+  <tr>
+    <th></th>
+    <th>Windows</th>
+    <th>macOS</th>
+    <th>Linux</th>
+  </tr>
+  <tr>
+    <th>x86</th>
+    <td>Yes</td>
+    <td>N/A</td>
+    <td>No<sup>1</sup></td>
+  </tr>
+  <tr>
+    <th>x64</th>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <th>Arm32</th>
+    <td>Yes<sup>2</sup></td>
+    <td>N/A</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <th>Arm64</th>
+    <td>No<sup>3</sup></td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+</table>
+<p>[1] - Linux on x86 is <a href="https://github.com/dotnet/runtime/issues/7335">not supported</a> by .NET itself.</p>
+<p>[2] - Windows Arm32 support was
+<a href="https://github.com/dotnet/core/blob/main/release-notes/5.0/5.0-supported-os.md">dropped</a> in .NET 5 so it will most
+probably be dropped by this library in a future version as well.</p>
+<p>[3] - Windows on Arm64 is not yet supported by libuiohook.</p>
+<p>libuiohook only supports X11 on Linux. Wayland support <a href="https://github.com/kwhat/libuiohook/issues/100">may be coming</a>,
+but it's not yet here.</p>
+<p>Next article: <a href="native.html">Native Functions</a>.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/docs/articles/intro.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <div>Copyright (c) 2021 Anatoliy Pylypchuk</div><span>Generated by <strong>DocFx</strong>.</span> <span>Icon made by <a href="https//www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com" title="Flaticon">www.flaticon.com</a></span></div>
+            
+          </div>
+        </footer></div>
+      
+    
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
