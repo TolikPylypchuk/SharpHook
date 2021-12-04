@@ -46,6 +46,85 @@ public static class UioHook
     public static extern UioHookResult Stop();
 
     /// <summary>
+    /// Posts a fake input event.
+    /// </summary>
+    /// <param name="e">The event to post.</param>
+    /// <remarks>
+    /// <para>
+    /// The instance of the event doesn't need all fields to have value. Only <see cref="UioHookEvent.Type" />,
+    /// <see cref="UioHookEvent.Keyboard" />/<see cref="UioHookEvent.Mouse" />/<see cref="UioHookEvent.Wheel" /> and
+    /// <see cref="UioHookEvent.Mask" /> should be present.
+    /// </para>
+    /// <para>
+    /// The following table describes the specifics of simulating each event type.
+    /// <list type="table">
+    /// <listheader>
+    /// <term>Event type</term>
+    /// <term>Description</term>
+    /// </listheader>
+    /// <item>
+    /// <term><see cref="EventType.HookEnabled" /></term>
+    /// <term>Events of this type are ignored.</term>
+    /// </item>
+    /// <item>
+    /// <term><see cref="EventType.HookDisabled" /></term>
+    /// <term>Events of this type are ignored.</term>
+    /// </item>
+    /// <item>
+    /// <term><see cref="EventType.KeyPressed" /></term>
+    /// <term>Only <see cref="KeyboardEventData.KeyCode" /> is considered.</term>
+    /// </item>
+    /// <item>
+    /// <term><see cref="EventType.KeyReleased" /></term>
+    /// <term>Only <see cref="KeyboardEventData.KeyCode" /> is considered.</term>
+    /// </item>
+    /// <item>
+    /// <term><see cref="EventType.KeyTyped" /></term>
+    /// <term>
+    /// Not recommended to use since on some platforms events of this type are ignored, while on others they are not.
+    /// </term>
+    /// </item>
+    /// <item>
+    /// <term><see cref="EventType.MousePressed" /></term>
+    /// <term>Only <see cref="MouseEventData.Button" /> is considered.</term>
+    /// </item>
+    /// <item>
+    /// <term><see cref="EventType.MouseReleased" /></term>
+    /// <term>Only <see cref="MouseEventData.Button" /> is considered.</term>
+    /// </item>
+    /// <item>
+    /// <term><see cref="EventType.MouseClicked" /></term>
+    /// <term>
+    /// Not recommended to use since on some platforms events of this type are ignored, while on others they are not.
+    /// </term>
+    /// </item>
+    /// <item>
+    /// <term><see cref="EventType.MouseMoved" /></term>
+    /// <term>Only <see cref="MouseEventData.X" /> and <see cref="MouseEventData.Y" /> are considered.</term>
+    /// </item>
+    /// <item>
+    /// <term><see cref="EventType.MouseDragged" /></term>
+    /// <term>Not recommended to use; instead, use <see cref="EventType.MouseMoved" /> with a modifier mask.</term>
+    /// </item>
+    /// <item>
+    /// <term><see cref="EventType.MouseWheel" /></term>
+    /// <term>
+    /// Only <see cref="MouseWheelEventData.X" />, <see cref="MouseWheelEventData.Y" />,
+    /// <see cref="MouseWheelEventData.Amount" />, and <see cref="MouseWheelEventData.Rotation" /> are considered.
+    /// </term>
+    /// </item>
+    /// </list>
+    /// </para>
+    /// <para>
+    /// Mouse wheel simulation is a little inconsistent across platforms, and not documented. View the source code of
+    /// libuiohook for more details.
+    /// </para>
+    /// </remarks>
+    /// <seealso cref="EventSimulator" />
+    [DllImport(LibUioHook, EntryPoint = "hook_post_event")]
+    public static extern void PostEvent(ref UioHookEvent e);
+
+    /// <summary>
     /// Gets the information about screens.
     /// </summary>
     /// <param name="count">The number of screens.</param>

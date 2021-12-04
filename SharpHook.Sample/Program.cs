@@ -23,7 +23,11 @@ public static class Program
         Console.WriteLine("---------- Press q to quit ----------\n");
 
         var hook = CreateHook();
-        await hook.Start();
+        var task = hook.Start();
+
+        await SimulateInputEvents();
+
+        await task;
     }
 
     private static void PrintSystemInfo()
@@ -74,6 +78,17 @@ public static class Program
         return hook;
     }
 
+    private static async Task SimulateInputEvents()
+    {
+        var simulator = new EventSimulator();
+
+        await FakePressKey(simulator, KeyCode.VcA);
+        await FakePressMouseButton(simulator, MouseButton.Button1);
+
+        simulator.SimulateMouseMovement(0, 0);
+        simulator.SimulateMouseWheel(0, 0, 10, -1);
+    }
+
     private static void OnHookEvent(object? sender, HookEventArgs e) =>
         Console.WriteLine(e.RawEvent);
 
@@ -83,5 +98,23 @@ public static class Program
         {
             disposable.Dispose();
         }
+    }
+
+    private static async Task FakePressKey(IEventSimulator simulator, KeyCode keyCode)
+    {
+        simulator.SimulateKeyPress(keyCode);
+        await Task.Delay(50);
+
+        simulator.SimulateKeyRelease(keyCode);
+        await Task.Delay(50);
+    }
+
+    private static async Task FakePressMouseButton(IEventSimulator simulator, MouseButton button)
+    {
+        simulator.SimulateMousePress(button);
+        await Task.Delay(50);
+
+        simulator.SimulateMouseRelease(button);
+        await Task.Delay(50);
     }
 }

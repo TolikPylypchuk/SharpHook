@@ -4,6 +4,68 @@
         <name>SharpHook</name>
     </assembly>
     <members>
+        <member name="T:SharpHook.EventSimulator">
+            <summary>
+            A keyboard and mouse event simulator which posts events to the OS.
+            </summary>
+            <seealso cref="M:SharpHook.Native.UioHook.PostEvent(SharpHook.Native.UioHookEvent@)" />
+        </member>
+        <member name="M:SharpHook.EventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode,SharpHook.Native.ModifierMask)">
+            <summary>
+            Simulates pressing a key.
+            </summary>
+            <param name="keyCode">The code of the key to press.</param>
+            <param name="mask">The modifier mask of the event.</param>
+        </member>
+        <member name="M:SharpHook.EventSimulator.SimulateKeyRelease(SharpHook.Native.KeyCode,SharpHook.Native.ModifierMask)">
+            <summary>
+            Simulates releasing a key.
+            </summary>
+            <param name="keyCode">The code of the key to release.</param>
+            <param name="mask">The modifier mask of the event.</param>
+        </member>
+        <member name="M:SharpHook.EventSimulator.SimulateMousePress(SharpHook.Native.MouseButton,SharpHook.Native.ModifierMask)">
+            <summary>
+            Simulates pressing a mouse button.
+            </summary>
+            <param name="button">The mouse button to press.</param>
+            <param name="mask">The modifier mask of the event.</param>
+        </member>
+        <member name="M:SharpHook.EventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton,SharpHook.Native.ModifierMask)">
+            <summary>
+            Simulates releasing a mouse button.
+            </summary>
+            <param name="button">The mouse button to release.</param>
+            <param name="mask">The modifier mask of the event.</param>
+        </member>
+        <member name="M:SharpHook.EventSimulator.SimulateMouseMovement(System.Int16,System.Int16,SharpHook.Native.ModifierMask)">
+            <summary>
+            Simulates moving a mouse pointer.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="mask">The modifier mask of the event.</param>
+        </member>
+        <member name="M:SharpHook.EventSimulator.SimulateMouseWheel(System.Int16,System.Int16,System.UInt16,System.Int16,SharpHook.Native.ModifierMask)">
+            <summary>
+            Simulates scrolling a mouse wheel.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="amount">The scrolling amount.</param>
+            <param name="rotation">The wheel rotation.</param>
+            <param name="mask">The modifier mask of the event.</param>
+            <remarks>
+            <para>
+            A positive <paramref name="rotation" /> value indicates that the wheel was rotated forward, away from the user;
+            a negative value indicates that the wheel was rotated backward, toward the user.
+            </para>
+            <para>
+            Mouse wheel simulation is a little inconsistent across platforms, and not documented. View the source code of
+            libuiohook for more details.
+            </para>
+            </remarks>
+        </member>
         <member name="T:SharpHook.GlobalHookBase">
             <summary>
             Represents an abstract implementation of <see cref="T:SharpHook.IGlobalHook" /> which runs the hook on a separate thread and
@@ -284,6 +346,64 @@
             Gets the result of an opetaion which caused this exception.
             </summary>
             <value>The result of an opetaion which caused this exception.</value>
+        </member>
+        <member name="T:SharpHook.IEventSimulator">
+            <summary>
+            Represents an object which can simulate keyboard and mouse events.
+            </summary>
+            <remarks>
+            The methods of this interface correspond to constants defined in the <see cref="T:SharpHook.Native.EventType" /> enum.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.IEventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode,SharpHook.Native.ModifierMask)">
+            <summary>
+            Simulates pressing a key.
+            </summary>
+            <param name="keyCode">The code of the key to press.</param>
+            <param name="mask">The modifier mask of the event.</param>
+        </member>
+        <member name="M:SharpHook.IEventSimulator.SimulateKeyRelease(SharpHook.Native.KeyCode,SharpHook.Native.ModifierMask)">
+            <summary>
+            Simulates releasing a key.
+            </summary>
+            <param name="keyCode">The code of the key to release.</param>
+            <param name="mask">The modifier mask of the event.</param>
+        </member>
+        <member name="M:SharpHook.IEventSimulator.SimulateMousePress(SharpHook.Native.MouseButton,SharpHook.Native.ModifierMask)">
+            <summary>
+            Simulates pressing a mouse button.
+            </summary>
+            <param name="button">The mouse button to press.</param>
+            <param name="mask">The modifier mask of the event.</param>
+        </member>
+        <member name="M:SharpHook.IEventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton,SharpHook.Native.ModifierMask)">
+            <summary>
+            Simulates releasing a mouse button.
+            </summary>
+            <param name="button">The mouse button to release.</param>
+            <param name="mask">The modifier mask of the event.</param>
+        </member>
+        <member name="M:SharpHook.IEventSimulator.SimulateMouseMovement(System.Int16,System.Int16,SharpHook.Native.ModifierMask)">
+            <summary>
+            Simulates moving a mouse pointer.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="mask">The modifier mask of the event.</param>
+        </member>
+        <member name="M:SharpHook.IEventSimulator.SimulateMouseWheel(System.Int16,System.Int16,System.UInt16,System.Int16,SharpHook.Native.ModifierMask)">
+            <summary>
+            Simulates scrolling a mouse wheel.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="amount">The scrolling amount.</param>
+            <param name="rotation">The wheel rotation.</param>
+            <param name="mask">The modifier mask of the event.</param>
+            <remarks>
+            A positive <paramref name="rotation" /> value indicates that the wheel was rotated forward, away from the user;
+            a negative value indicates that the wheel was rotated backward, toward the user.
+            </remarks>
         </member>
         <member name="T:SharpHook.IGlobalHook">
             <summary>
@@ -843,6 +963,84 @@
             Stops the global hook.
             </summary>
             <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Native.UioHook.PostEvent(SharpHook.Native.UioHookEvent@)">
+            <summary>
+            Posts a fake input event.
+            </summary>
+            <param name="e">The event to post.</param>
+            <remarks>
+            <para>
+            The instance of the event doesn't need all fields to have value. Only <see cref="F:SharpHook.Native.UioHookEvent.Type" />,
+            <see cref="F:SharpHook.Native.UioHookEvent.Keyboard" />/<see cref="F:SharpHook.Native.UioHookEvent.Mouse" />/<see cref="F:SharpHook.Native.UioHookEvent.Wheel" /> and
+            <see cref="F:SharpHook.Native.UioHookEvent.Mask" /> should be present.
+            </para>
+            <para>
+            The following table describes the specifics of simulating each event type.
+            <list type="table">
+            <listheader>
+            <term>Event type</term>
+            <term>Description</term>
+            </listheader>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.HookEnabled" /></term>
+            <term>Events of this type are ignored.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.HookDisabled" /></term>
+            <term>Events of this type are ignored.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.KeyPressed" /></term>
+            <term>Only <see cref="F:SharpHook.Native.KeyboardEventData.KeyCode" /> is considered.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.KeyReleased" /></term>
+            <term>Only <see cref="F:SharpHook.Native.KeyboardEventData.KeyCode" /> is considered.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.KeyTyped" /></term>
+            <term>
+            Not recommended to use since on some platforms events of this type are ignored, while on others they are not.
+            </term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.MousePressed" /></term>
+            <term>Only <see cref="F:SharpHook.Native.MouseEventData.Button" /> is considered.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.MouseReleased" /></term>
+            <term>Only <see cref="F:SharpHook.Native.MouseEventData.Button" /> is considered.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.MouseClicked" /></term>
+            <term>
+            Not recommended to use since on some platforms events of this type are ignored, while on others they are not.
+            </term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.MouseMoved" /></term>
+            <term>Only <see cref="F:SharpHook.Native.MouseEventData.X" /> and <see cref="F:SharpHook.Native.MouseEventData.Y" /> are considered.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.MouseDragged" /></term>
+            <term>Not recommended to use; instead, use <see cref="F:SharpHook.Native.EventType.MouseMoved" /> with a modifier mask.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.MouseWheel" /></term>
+            <term>
+            Only <see cref="F:SharpHook.Native.MouseWheelEventData.X" />, <see cref="F:SharpHook.Native.MouseWheelEventData.Y" />,
+            <see cref="F:SharpHook.Native.MouseWheelEventData.Amount" />, and <see cref="F:SharpHook.Native.MouseWheelEventData.Rotation" /> are considered.
+            </term>
+            </item>
+            </list>
+            </para>
+            <para>
+            Mouse wheel simulation is a little inconsistent across platforms, and not documented. View the source code of
+            libuiohook for more details.
+            </para>
+            </remarks>
+            <seealso cref="T:SharpHook.EventSimulator" />
         </member>
         <member name="M:SharpHook.Native.UioHook.CreateScreenInfo(System.Byte@)">
             <summary>
