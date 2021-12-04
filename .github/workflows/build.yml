@@ -286,6 +286,40 @@ jobs:
           name: libuiohook-build
           path: ${{github.workspace}}/dist/**/*
 
+  libuiohook-windows-arm64:
+    runs-on: windows-2022
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+
+      - name: Setup
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: amd64_arm64
+
+      - name: Compile
+        shell: pwsh
+        run: |
+          cd libuiohook
+          cmake -B ${{github.workspace}}\build `
+            -G "Visual Studio 17 2022" -A ARM64 `
+            -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\arm64 `
+            -D CMAKE_VERBOSE_MAKEFILE=true `
+            -D BUILD_SHARED_LIBS=ON `
+            -D BUILD_DEMO=ON
+          cmake --build ${{github.workspace}}\build `
+            --parallel 2 `
+            --config RelWithDebInfo `
+            --clean-first
+          cmake --install ${{github.workspace}}\build --config RelWithDebInfo
+      - name: Upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: libuiohook-build
+          path: ${{github.workspace}}/dist/**/*
+
   libuiohook-windows-x86:
     runs-on: windows-2022
 
@@ -364,6 +398,7 @@ jobs:
       - libuiohook-linux-arm64
       - libuiohook-linux-x64
       - libuiohook-windows-arm
+      - libuiohook-windows-arm64
       - libuiohook-windows-x86
       - libuiohook-windows-x64
 
