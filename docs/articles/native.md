@@ -121,6 +121,9 @@ The following table describes the specifics of simulating each event type.
 Mouse wheel simulation is a little inconsistent across platforms, and not documented. View the source code of libuiohook
 for more details.
 
+libuiohook [ignores](https://github.com/kwhat/libuiohook/issues/111) modifier masks on Windows, so you need to simulate
+pressing/releasing modifier keys manually.
+
 ## Other Functions
 
 libuiohooks also provides functions which get various pieces of information about the system, and are listed below:

@@ -24,4 +24,7 @@ simulator.SimulateMouseWheel(0, 0, 10, -1); // Move the mouse pointer to the (0,
 SharpHook provides the `IEventSimulator` interface, and the default implementation, `EventSimulator`, which calls
 `UioHook.PostEvent` to simulate the events.
 
+**Important**: libuiohook [ignores](https://github.com/kwhat/libuiohook/issues/111) modifier masks on Windows, so you
+need to simulate pressing/releasing modifier keys manually.
+
 Next article: [Limitations](limitations.md).
