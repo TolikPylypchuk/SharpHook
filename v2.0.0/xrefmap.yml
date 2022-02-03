@@ -383,19 +383,32 @@ references:
   isSpec: "True"
   fullName: SharpHook.GlobalHookBase.OnMouseWheel
   nameWithType: GlobalHookBase.OnMouseWheel
-- uid: SharpHook.GlobalHookBase.Start
-  name: Start()
-  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_Start
-  commentId: M:SharpHook.GlobalHookBase.Start
-  fullName: SharpHook.GlobalHookBase.Start()
-  nameWithType: GlobalHookBase.Start()
-- uid: SharpHook.GlobalHookBase.Start*
-  name: Start
-  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_Start_
-  commentId: Overload:SharpHook.GlobalHookBase.Start
+- uid: SharpHook.GlobalHookBase.Run
+  name: Run()
+  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_Run
+  commentId: M:SharpHook.GlobalHookBase.Run
+  fullName: SharpHook.GlobalHookBase.Run()
+  nameWithType: GlobalHookBase.Run()
+- uid: SharpHook.GlobalHookBase.Run*
+  name: Run
+  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_Run_
+  commentId: Overload:SharpHook.GlobalHookBase.Run
   isSpec: "True"
-  fullName: SharpHook.GlobalHookBase.Start
-  nameWithType: GlobalHookBase.Start
+  fullName: SharpHook.GlobalHookBase.Run
+  nameWithType: GlobalHookBase.Run
+- uid: SharpHook.GlobalHookBase.RunAsync
+  name: RunAsync()
+  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_RunAsync
+  commentId: M:SharpHook.GlobalHookBase.RunAsync
+  fullName: SharpHook.GlobalHookBase.RunAsync()
+  nameWithType: GlobalHookBase.RunAsync()
+- uid: SharpHook.GlobalHookBase.RunAsync*
+  name: RunAsync
+  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_RunAsync_
+  commentId: Overload:SharpHook.GlobalHookBase.RunAsync
+  isSpec: "True"
+  fullName: SharpHook.GlobalHookBase.RunAsync
+  nameWithType: GlobalHookBase.RunAsync
 - uid: SharpHook.GlobalHookBase.ThrowIfDisposed(System.String)
   name: ThrowIfDisposed(String)
   href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_ThrowIfDisposed_System_String_
@@ -691,19 +704,32 @@ references:
   commentId: E:SharpHook.IGlobalHook.MouseWheel
   fullName: SharpHook.IGlobalHook.MouseWheel
   nameWithType: IGlobalHook.MouseWheel
-- uid: SharpHook.IGlobalHook.Start
-  name: Start()
-  href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_Start
-  commentId: M:SharpHook.IGlobalHook.Start
-  fullName: SharpHook.IGlobalHook.Start()
-  nameWithType: IGlobalHook.Start()
-- uid: SharpHook.IGlobalHook.Start*
-  name: Start
-  href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_Start_
-  commentId: Overload:SharpHook.IGlobalHook.Start
+- uid: SharpHook.IGlobalHook.Run
+  name: Run()
+  href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_Run
+  commentId: M:SharpHook.IGlobalHook.Run
+  fullName: SharpHook.IGlobalHook.Run()
+  nameWithType: IGlobalHook.Run()
+- uid: SharpHook.IGlobalHook.Run*
+  name: Run
+  href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_Run_
+  commentId: Overload:SharpHook.IGlobalHook.Run
   isSpec: "True"
-  fullName: SharpHook.IGlobalHook.Start
-  nameWithType: IGlobalHook.Start
+  fullName: SharpHook.IGlobalHook.Run
+  nameWithType: IGlobalHook.Run
+- uid: SharpHook.IGlobalHook.RunAsync
+  name: RunAsync()
+  href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_RunAsync
+  commentId: M:SharpHook.IGlobalHook.RunAsync
+  fullName: SharpHook.IGlobalHook.RunAsync()
+  nameWithType: IGlobalHook.RunAsync()
+- uid: SharpHook.IGlobalHook.RunAsync*
+  name: RunAsync
+  href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_RunAsync_
+  commentId: Overload:SharpHook.IGlobalHook.RunAsync
+  isSpec: "True"
+  fullName: SharpHook.IGlobalHook.RunAsync
+  nameWithType: IGlobalHook.RunAsync
 - uid: SharpHook.KeyboardHookEventArgs
   name: KeyboardHookEventArgs
   href: api/SharpHook.KeyboardHookEventArgs.html
@@ -3166,19 +3192,32 @@ references:
   isSpec: "True"
   fullName: SharpHook.Reactive.IReactiveGlobalHook.MouseWheel
   nameWithType: IReactiveGlobalHook.MouseWheel
-- uid: SharpHook.Reactive.IReactiveGlobalHook.Start
-  name: Start()
-  href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_Start
-  commentId: M:SharpHook.Reactive.IReactiveGlobalHook.Start
-  fullName: SharpHook.Reactive.IReactiveGlobalHook.Start()
-  nameWithType: IReactiveGlobalHook.Start()
-- uid: SharpHook.Reactive.IReactiveGlobalHook.Start*
-  name: Start
-  href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_Start_
-  commentId: Overload:SharpHook.Reactive.IReactiveGlobalHook.Start
+- uid: SharpHook.Reactive.IReactiveGlobalHook.Run
+  name: Run()
+  href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_Run
+  commentId: M:SharpHook.Reactive.IReactiveGlobalHook.Run
+  fullName: SharpHook.Reactive.IReactiveGlobalHook.Run()
+  nameWithType: IReactiveGlobalHook.Run()
+- uid: SharpHook.Reactive.IReactiveGlobalHook.Run*
+  name: Run
+  href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_Run_
+  commentId: Overload:SharpHook.Reactive.IReactiveGlobalHook.Run
   isSpec: "True"
-  fullName: SharpHook.Reactive.IReactiveGlobalHook.Start
-  nameWithType: IReactiveGlobalHook.Start
+  fullName: SharpHook.Reactive.IReactiveGlobalHook.Run
+  nameWithType: IReactiveGlobalHook.Run
+- uid: SharpHook.Reactive.IReactiveGlobalHook.RunAsync
+  name: RunAsync()
+  href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_RunAsync
+  commentId: M:SharpHook.Reactive.IReactiveGlobalHook.RunAsync
+  fullName: SharpHook.Reactive.IReactiveGlobalHook.RunAsync()
+  nameWithType: IReactiveGlobalHook.RunAsync()
+- uid: SharpHook.Reactive.IReactiveGlobalHook.RunAsync*
+  name: RunAsync
+  href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_RunAsync_
+  commentId: Overload:SharpHook.Reactive.IReactiveGlobalHook.RunAsync
+  isSpec: "True"
+  fullName: SharpHook.Reactive.IReactiveGlobalHook.RunAsync
+  nameWithType: IReactiveGlobalHook.RunAsync
 - uid: SharpHook.Reactive.ReactiveGlobalHookAdapter
   name: ReactiveGlobalHookAdapter
   href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html
@@ -3380,6 +3419,32 @@ references:
   isSpec: "True"
   fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseWheel
   nameWithType: ReactiveGlobalHookAdapter.MouseWheel
+- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.Run
+  name: Run()
+  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_Run
+  commentId: M:SharpHook.Reactive.ReactiveGlobalHookAdapter.Run
+  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.Run()
+  nameWithType: ReactiveGlobalHookAdapter.Run()
+- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.Run*
+  name: Run
+  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_Run_
+  commentId: Overload:SharpHook.Reactive.ReactiveGlobalHookAdapter.Run
+  isSpec: "True"
+  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.Run
+  nameWithType: ReactiveGlobalHookAdapter.Run
+- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.RunAsync
+  name: RunAsync()
+  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_RunAsync
+  commentId: M:SharpHook.Reactive.ReactiveGlobalHookAdapter.RunAsync
+  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.RunAsync()
+  nameWithType: ReactiveGlobalHookAdapter.RunAsync()
+- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.RunAsync*
+  name: RunAsync
+  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_RunAsync_
+  commentId: Overload:SharpHook.Reactive.ReactiveGlobalHookAdapter.RunAsync
+  isSpec: "True"
+  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.RunAsync
+  nameWithType: ReactiveGlobalHookAdapter.RunAsync
 - uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#HookDisabled
   name: IGlobalHook.HookDisabled
   href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_HookDisabled
@@ -3468,36 +3533,23 @@ references:
   fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.MouseWheel
   nameWithType: ReactiveGlobalHookAdapter.IGlobalHook.MouseWheel
   nameWithType.vb: ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.MouseWheel
-- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#Start
-  name: IGlobalHook.Start()
-  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_Start
-  commentId: M:SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#Start
-  name.vb: SharpHook.IGlobalHook.Start()
-  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.Start()
-  nameWithType: ReactiveGlobalHookAdapter.IGlobalHook.Start()
-  nameWithType.vb: ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.Start()
-- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#Start*
-  name: IGlobalHook.Start
-  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_Start_
-  commentId: Overload:SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#Start
+- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#RunAsync
+  name: IGlobalHook.RunAsync()
+  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_RunAsync
+  commentId: M:SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#RunAsync
+  name.vb: SharpHook.IGlobalHook.RunAsync()
+  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.RunAsync()
+  nameWithType: ReactiveGlobalHookAdapter.IGlobalHook.RunAsync()
+  nameWithType.vb: ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.RunAsync()
+- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#RunAsync*
+  name: IGlobalHook.RunAsync
+  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_SharpHook_IGlobalHook_RunAsync_
+  commentId: Overload:SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook#IGlobalHook#RunAsync
   isSpec: "True"
-  name.vb: SharpHook.IGlobalHook.Start
-  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.Start
-  nameWithType: ReactiveGlobalHookAdapter.IGlobalHook.Start
-  nameWithType.vb: ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.Start
-- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.Start
-  name: Start()
-  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_Start
-  commentId: M:SharpHook.Reactive.ReactiveGlobalHookAdapter.Start
-  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.Start()
-  nameWithType: ReactiveGlobalHookAdapter.Start()
-- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.Start*
-  name: Start
-  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_Start_
-  commentId: Overload:SharpHook.Reactive.ReactiveGlobalHookAdapter.Start
-  isSpec: "True"
-  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.Start
-  nameWithType: ReactiveGlobalHookAdapter.Start
+  name.vb: SharpHook.IGlobalHook.RunAsync
+  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.RunAsync
+  nameWithType: ReactiveGlobalHookAdapter.IGlobalHook.RunAsync
+  nameWithType.vb: ReactiveGlobalHookAdapter.SharpHook.IGlobalHook.RunAsync
 - uid: SharpHook.Reactive.SimpleReactiveGlobalHook
   name: SimpleReactiveGlobalHook
   href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html
@@ -3699,19 +3751,32 @@ references:
   isSpec: "True"
   fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.MouseWheel
   nameWithType: SimpleReactiveGlobalHook.MouseWheel
-- uid: SharpHook.Reactive.SimpleReactiveGlobalHook.Start
-  name: Start()
-  href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook_Start
-  commentId: M:SharpHook.Reactive.SimpleReactiveGlobalHook.Start
-  fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.Start()
-  nameWithType: SimpleReactiveGlobalHook.Start()
-- uid: SharpHook.Reactive.SimpleReactiveGlobalHook.Start*
-  name: Start
-  href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook_Start_
-  commentId: Overload:SharpHook.Reactive.SimpleReactiveGlobalHook.Start
+- uid: SharpHook.Reactive.SimpleReactiveGlobalHook.Run
+  name: Run()
+  href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook_Run
+  commentId: M:SharpHook.Reactive.SimpleReactiveGlobalHook.Run
+  fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.Run()
+  nameWithType: SimpleReactiveGlobalHook.Run()
+- uid: SharpHook.Reactive.SimpleReactiveGlobalHook.Run*
+  name: Run
+  href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook_Run_
+  commentId: Overload:SharpHook.Reactive.SimpleReactiveGlobalHook.Run
   isSpec: "True"
-  fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.Start
-  nameWithType: SimpleReactiveGlobalHook.Start
+  fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.Run
+  nameWithType: SimpleReactiveGlobalHook.Run
+- uid: SharpHook.Reactive.SimpleReactiveGlobalHook.RunAsync
+  name: RunAsync()
+  href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook_RunAsync
+  commentId: M:SharpHook.Reactive.SimpleReactiveGlobalHook.RunAsync
+  fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.RunAsync()
+  nameWithType: SimpleReactiveGlobalHook.RunAsync()
+- uid: SharpHook.Reactive.SimpleReactiveGlobalHook.RunAsync*
+  name: RunAsync
+  href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook_RunAsync_
+  commentId: Overload:SharpHook.Reactive.SimpleReactiveGlobalHook.RunAsync
+  isSpec: "True"
+  fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.RunAsync
+  nameWithType: SimpleReactiveGlobalHook.RunAsync
 - uid: SharpHook.SimpleGlobalHook
   name: SimpleGlobalHook
   href: api/SharpHook.SimpleGlobalHook.html
