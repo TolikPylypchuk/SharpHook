@@ -53,11 +53,11 @@ public struct UioHookEvent : IEquatable<UioHookEvent>
     public EventType Type;
 
     /// <summary>
-    /// The time of the event.
+    /// The time of the event which should be used only to compare it to times of other events.
     /// </summary>
-    /// <value>The time of the event.</value>
+    /// <value>The time of the event which should be used only to compare it to times of other events.</value>
     [FieldOffset(8)]
-    public ushort Time;
+    public ulong Time;
 
     /// <summary>
     /// The mask of the event.

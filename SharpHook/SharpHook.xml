@@ -91,7 +91,6 @@
             Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
             <see cref="M:System.IDisposable.Dispose" /> method.
             </summary>
-            <returns>A <see cref="T:System.Threading.Tasks.Task" /> which finishes when the hook is destroyed.</returns>
             <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
             <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
             <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
@@ -103,10 +102,10 @@
             </summary>
             <returns>A <see cref="T:System.Threading.Tasks.Task" /> which finishes when the hook is destroyed.</returns>
             <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
+            <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
             <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
             <remarks>
-            Since the underlying native API for running a global hook is blocking, the only way to run it without blocking
-            the current thread is to run it on a separate thread.
+            The hook is started on a separate thread.
             </remarks>
         </member>
         <member name="M:SharpHook.GlobalHookBase.Dispose">
@@ -439,7 +438,6 @@
             Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
             <see cref="M:System.IDisposable.Dispose" /> method.
             </summary>
-            <returns>A <see cref="T:System.Threading.Tasks.Task" /> which finishes when the hook is destroyed.</returns>
             <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
             <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
             <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
@@ -1182,9 +1180,9 @@
         </member>
         <member name="F:SharpHook.Native.UioHookEvent.Time">
             <summary>
-            The time of the event.
+            The timestamp of the event.
             </summary>
-            <value>The time of the event.</value>
+            <value>The timestamp of the event.</value>
         </member>
         <member name="F:SharpHook.Native.UioHookEvent.Mask">
             <summary>
