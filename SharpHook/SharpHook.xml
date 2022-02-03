@@ -68,8 +68,8 @@
         </member>
         <member name="T:SharpHook.GlobalHookBase">
             <summary>
-            Represents an abstract implementation of <see cref="T:SharpHook.IGlobalHook" /> which runs the hook on a separate thread and
-            raises events only when there is at least one subscriber.
+            Represents an abstract implementation of <see cref="T:SharpHook.IGlobalHook" /> which raises events only when there is at least
+            one subscriber.
             </summary>
             <seealso cref="T:SharpHook.IGlobalHook" />
             <seealso cref="T:SharpHook.SimpleGlobalHook" />
@@ -86,15 +86,27 @@
             </summary>
             <value><see langword="true" /> if the global hook is running. Otherwise, <see langword="false" />.</value>
         </member>
-        <member name="M:SharpHook.GlobalHookBase.Start">
+        <member name="M:SharpHook.GlobalHookBase.Run">
             <summary>
-            Starts the global hook. The hook can be destroyed by calling the <see cref="M:System.IDisposable.Dispose" /> method.
+            Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
+            <see cref="M:System.IDisposable.Dispose" /> method.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> which finishes when the hook is destroyed.</returns>
+            <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
+            <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
+            <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
+        </member>
+        <member name="M:SharpHook.GlobalHookBase.RunAsync">
+            <summary>
+            Runs the global hook without blocking the current thread. The hook can be destroyed by calling the
+            <see cref="M:System.IDisposable.Dispose" /> method.
             </summary>
             <returns>A <see cref="T:System.Threading.Tasks.Task" /> which finishes when the hook is destroyed.</returns>
             <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
             <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
             <remarks>
-            The hook is started on a separate thread.
+            Since the underlying native API for running a global hook is blocking, the only way to run it without blocking
+            the current thread is to run it on a separate thread.
             </remarks>
         </member>
         <member name="M:SharpHook.GlobalHookBase.Dispose">
@@ -209,7 +221,10 @@
             <summary>
             An event which is raised when the global hook is enabled.
             </summary>
-            <remarks>This event is raised when the <see cref="M:SharpHook.IGlobalHook.Start" /> method is called.</remarks>
+            <remarks>
+            This event is raised when the <see cref="M:SharpHook.IGlobalHook.Run" /> or <see cref="M:SharpHook.IGlobalHook.RunAsync" /> method
+            is called.
+            </remarks>
         </member>
         <member name="E:SharpHook.GlobalHookBase.HookDisabled">
             <summary>
@@ -419,17 +434,35 @@
             </summary>
             <value><see langword="true" /> if the global hook is running. Otherwise, <see langword="false" />.</value>
         </member>
-        <member name="M:SharpHook.IGlobalHook.Start">
+        <member name="M:SharpHook.IGlobalHook.Run">
             <summary>
-            Starts the global hook. The hook can be destroyed by calling the <see cref="M:System.IDisposable.Dispose" /> method.
+            Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
+            <see cref="M:System.IDisposable.Dispose" /> method.
             </summary>
             <returns>A <see cref="T:System.Threading.Tasks.Task" /> which finishes when the hook is destroyed.</returns>
+            <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
+            <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
+            <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
+        </member>
+        <member name="M:SharpHook.IGlobalHook.RunAsync">
+            <summary>
+            Runs the global hook without blocking the current thread. The hook can be destroyed by calling the
+            <see cref="M:System.IDisposable.Dispose" /> method.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> which finishes when the hook is destroyed.</returns>
+            <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
+            <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
+            <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
+            <remarks>
+            Since the underlying native API for running a global hook is blocking, the only way to run it without blocking
+            the current thread is to run it on a separate thread.
+            </remarks>
         </member>
         <member name="E:SharpHook.IGlobalHook.HookEnabled">
             <summary>
             An event which is raised when the global hook is enabled.
             </summary>
-            <remarks>This event is raised when the <see cref="M:SharpHook.IGlobalHook.Start" /> method is called.</remarks>
+            <remarks>This event is raised when the <see cref="M:SharpHook.IGlobalHook.Run" /> or <see cref="M:SharpHook.IGlobalHook.RunAsync" /> method is called.</remarks>
         </member>
         <member name="E:SharpHook.IGlobalHook.HookDisabled">
             <summary>
@@ -1245,9 +1278,9 @@
             the hook itself runs.
             </summary>
             <remarks>
-            The event handlers should generally be fast and simple so that the thread can process all events that are raised
-            by libuiohook. If you need to do a lot of processing in the event handlers then consider using another
-            implementation, e.g. <see cref="T:SharpHook.TaskPoolGlobalHook" />.
+            The event handlers should generally be fast and simple so that the thread can process all raised events. If you
+            need to do a lot of processing in the event handlers then consider using another implementation, e.g.
+            <see cref="T:SharpHook.TaskPoolGlobalHook" />.
             </remarks>
             <seealso cref="T:SharpHook.IGlobalHook" />
             <seealso cref="T:SharpHook.GlobalHookBase" />

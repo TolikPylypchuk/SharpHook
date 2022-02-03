@@ -16,15 +16,6 @@ using System.Reactive;
 public interface IReactiveGlobalHook : IDisposable
 {
     /// <summary>
-    /// Starts the global hook. The hook can be destroyed by calling the <see cref="IDisposable.Dispose" /> method.
-    /// </summary>
-    /// <returns>An observable which is completed when the hook is destroyed.</returns>
-    /// <remarks>
-    /// The returned observable emits a single value and then immediately completes when the hook is destroyed.
-    /// </remarks>
-    IObservable<Unit> Start();
-
-    /// <summary>
     /// Gets the value which indicates whether the global hook is running.
     /// </summary>
     /// <value><see langword="true" /> if the global hook is running. Otherwise, <see langword="false" />.</value>
@@ -35,7 +26,8 @@ public interface IReactiveGlobalHook : IDisposable
     /// </summary>
     /// <value>An observable which emits a value when the global hook is enabled.</value>
     /// <remarks>
-    /// The observable emits a value when the <see cref="Start" /> method is called and then immediately completes.
+    /// The observable emits a value when the <see cref="Run" /> or <see cref="RunAsync" /> method is called and
+    /// then immediately completes.
     /// </remarks>
     IObservable<HookEvent<HookEventArgs>> HookEnabled { get; }
 
@@ -102,4 +94,27 @@ public interface IReactiveGlobalHook : IDisposable
     /// </summary>
     /// <value>An observable which emits a value when the mouse wheel is scrolled.</value>
     IObservable<HookEvent<MouseWheelHookEventArgs>> MouseWheel { get; }
+
+    /// <summary>
+    /// Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
+    /// <see cref="IDisposable.Dispose" /> method.
+    /// </summary>
+    /// <exception cref="HookException">Starting the global hook has failed.</exception>
+    /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
+    /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
+    void Run();
+
+    /// <summary>
+    /// Runs the global hook without blocking the current thread. The hook can be destroyed by calling the
+    /// <see cref="IDisposable.Dispose" /> method.
+    /// </summary>
+    /// <returns>An observable which is completed when the hook is destroyed.</returns>
+    /// <exception cref="HookException">Starting the global hook has failed.</exception>
+    /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
+    /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
+    /// <remarks>
+    /// Since the underlying native API for running a global hook is blocking, the only way to run it without blocking
+    /// the current thread is to run it on a separate thread.
+    /// </remarks>
+    IObservable<Unit> RunAsync();
 }

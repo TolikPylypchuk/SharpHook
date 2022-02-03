@@ -11,7 +11,7 @@ using SharpHook.Reactive;
 
 public static class Program
 {
-    private static async Task Main()
+    private static void Main()
     {
         Directory.SetCurrentDirectory(
             Path.GetDirectoryName(Assembly.GetExecutingAssembly()?.Location) ?? String.Empty);
@@ -22,12 +22,14 @@ public static class Program
 
         Console.WriteLine("---------- Press q to quit ----------\n");
 
+        Task.Run(async () =>
+        {
+            await Task.Delay(500);
+            await SimulateInputEvents();
+        });
+
         var hook = CreateHook();
-        var task = hook.Start();
-
-        await SimulateInputEvents();
-
-        await task;
+        hook.Run();
     }
 
     private static void PrintSystemInfo()

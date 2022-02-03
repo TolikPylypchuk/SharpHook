@@ -42,15 +42,6 @@
             <seealso cref="T:SharpHook.Reactive.ReactiveGlobalHookAdapter" />
             <seealso cref="T:SharpHook.Reactive.HookEvent`1" />
         </member>
-        <member name="M:SharpHook.Reactive.IReactiveGlobalHook.Start">
-            <summary>
-            Starts the global hook. The hook can be destroyed by calling the <see cref="M:System.IDisposable.Dispose" /> method.
-            </summary>
-            <returns>An observable which is completed when the hook is destroyed.</returns>
-            <remarks>
-            The returned observable emits a single value and then immediately completes when the hook is destroyed.
-            </remarks>
-        </member>
         <member name="P:SharpHook.Reactive.IReactiveGlobalHook.IsRunning">
             <summary>
             Gets the value which indicates whether the global hook is running.
@@ -63,7 +54,8 @@
             </summary>
             <value>An observable which emits a value when the global hook is enabled.</value>
             <remarks>
-            The observable emits a value when the <see cref="M:SharpHook.Reactive.IReactiveGlobalHook.Start" /> method is called and then immediately completes.
+            The observable emits a value when the <see cref="M:SharpHook.Reactive.IReactiveGlobalHook.Run" /> or <see cref="M:SharpHook.Reactive.IReactiveGlobalHook.RunAsync" /> method is called and
+            then immediately completes.
             </remarks>
         </member>
         <member name="P:SharpHook.Reactive.IReactiveGlobalHook.HookDisabled">
@@ -130,6 +122,29 @@
             </summary>
             <value>An observable which emits a value when the mouse wheel is scrolled.</value>
         </member>
+        <member name="M:SharpHook.Reactive.IReactiveGlobalHook.Run">
+            <summary>
+            Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
+            <see cref="M:System.IDisposable.Dispose" /> method.
+            </summary>
+            <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
+            <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
+            <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
+        </member>
+        <member name="M:SharpHook.Reactive.IReactiveGlobalHook.RunAsync">
+            <summary>
+            Runs the global hook without blocking the current thread. The hook can be destroyed by calling the
+            <see cref="M:System.IDisposable.Dispose" /> method.
+            </summary>
+            <returns>An observable which is completed when the hook is destroyed.</returns>
+            <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
+            <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
+            <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
+            <remarks>
+            Since the underlying native API for running a global hook is blocking, the only way to run it without blocking
+            the current thread is to run it on a separate thread.
+            </remarks>
+        </member>
         <member name="T:SharpHook.Reactive.ReactiveGlobalHookAdapter">
             <summary>
             Adapts an <see cref="T:SharpHook.IGlobalHook" /> to the <see cref="T:SharpHook.Reactive.IReactiveGlobalHook" /> interface.
@@ -162,7 +177,8 @@
             </summary>
             <value>An observable which emits a value when the global hook is enabled.</value>
             <remarks>
-            The observable emits a value when the <see cref="M:SharpHook.Reactive.ReactiveGlobalHookAdapter.Start" /> method is called and then immediately completes.
+            The observable emits a value when the <see cref="M:SharpHook.Reactive.ReactiveGlobalHookAdapter.Run" /> or <see cref="M:SharpHook.Reactive.ReactiveGlobalHookAdapter.RunAsync" /> method is called and
+            then immediately completes.
             </remarks>
         </member>
         <member name="P:SharpHook.Reactive.ReactiveGlobalHookAdapter.HookDisabled">
@@ -229,15 +245,28 @@
             </summary>
             <value>An observable which emits a value when the mouse wheel is scrolled.</value>
         </member>
-        <member name="M:SharpHook.Reactive.ReactiveGlobalHookAdapter.Start">
+        <member name="M:SharpHook.Reactive.ReactiveGlobalHookAdapter.Run">
             <summary>
-            Starts the global hook. The hook can be destroyed by calling the <see cref="M:System.IDisposable.Dispose" /> method.
+            Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
+            <see cref="M:System.IDisposable.Dispose" /> method.
+            </summary>
+            <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
+            <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
+            <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
+        </member>
+        <member name="M:SharpHook.Reactive.ReactiveGlobalHookAdapter.RunAsync">
+            <summary>
+            Runs the global hook without blocking the current thread. The hook can be destroyed by calling the
+            <see cref="M:System.IDisposable.Dispose" /> method.
             </summary>
             <returns>An observable which is completed when the hook is destroyed.</returns>
-            <remarks>
-            The returned observable emits a single value and then immediately completes when the hook is destroyed.
-            </remarks>
+            <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
+            <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
             <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
+            <remarks>
+            The hook is started on a separate thread. The returned observable emits a single value and then immediately
+            completes when the hook is destroyed.
+            </remarks>
         </member>
         <member name="M:SharpHook.Reactive.ReactiveGlobalHookAdapter.Dispose">
             <summary>
@@ -271,7 +300,8 @@
             </summary>
             <value>An observable which emits a value when the global hook is enabled.</value>
             <remarks>
-            The observable emits a value when the <see cref="M:SharpHook.Reactive.SimpleReactiveGlobalHook.Start" /> method is called and then immediately completes.
+            The observable emits a value when the <see cref="M:SharpHook.Reactive.SimpleReactiveGlobalHook.Run" /> or <see cref="M:SharpHook.Reactive.SimpleReactiveGlobalHook.RunAsync" /> method is called and
+            then immediately completes.
             </remarks>
         </member>
         <member name="P:SharpHook.Reactive.SimpleReactiveGlobalHook.HookDisabled">
@@ -338,12 +368,23 @@
             </summary>
             <value>An observable which emits a value when the mouse wheel is scrolled.</value>
         </member>
-        <member name="M:SharpHook.Reactive.SimpleReactiveGlobalHook.Start">
+        <member name="M:SharpHook.Reactive.SimpleReactiveGlobalHook.Run">
             <summary>
-            Starts the global hook. The hook can be destroyed by calling the <see cref="M:System.IDisposable.Dispose" /> method.
+            Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
+            <see cref="M:System.IDisposable.Dispose" /> method.
+            </summary>
+            <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
+            <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
+            <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
+        </member>
+        <member name="M:SharpHook.Reactive.SimpleReactiveGlobalHook.RunAsync">
+            <summary>
+            Runs the global hook without blocking the current thread. The hook can be destroyed by calling the
+            <see cref="M:System.IDisposable.Dispose" /> method.
             </summary>
             <returns>An observable which is completed when the hook is destroyed.</returns>
             <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
+            <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
             <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
             <remarks>
             The hook is started on a separate thread. The returned observable emits a single value and then immediately

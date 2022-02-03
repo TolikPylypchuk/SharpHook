@@ -7,9 +7,9 @@ using SharpHook.Native;
 /// the hook itself runs.
 /// </summary>
 /// <remarks>
-/// The event handlers should generally be fast and simple so that the thread can process all events that are raised
-/// by libuiohook. If you need to do a lot of processing in the event handlers then consider using another
-/// implementation, e.g. <see cref="TaskPoolGlobalHook" />.
+/// The event handlers should generally be fast and simple so that the thread can process all raised events. If you
+/// need to do a lot of processing in the event handlers then consider using another implementation, e.g.
+/// <see cref="TaskPoolGlobalHook" />.
 /// </remarks>
 /// <seealso cref="IGlobalHook" />
 /// <seealso cref="GlobalHookBase" />

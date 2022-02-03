@@ -145,7 +145,8 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
     /// </summary>
     /// <value>An observable which emits a value when the global hook is enabled.</value>
     /// <remarks>
-    /// The observable emits a value when the <see cref="Start" /> method is called and then immediately completes.
+    /// The observable emits a value when the <see cref="Run" /> or <see cref="RunAsync" /> method is called and
+    /// then immediately completes.
     /// </remarks>
     public IObservable<HookEvent<HookEventArgs>> HookEnabled { get; }
 
@@ -214,18 +215,38 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
     public IObservable<HookEvent<MouseWheelHookEventArgs>> MouseWheel { get; }
 
     /// <summary>
-    /// Starts the global hook. The hook can be destroyed by calling the <see cref="IDisposable.Dispose" /> method.
+    /// Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
+    /// <see cref="IDisposable.Dispose" /> method.
     /// </summary>
-    /// <returns>An observable which is completed when the hook is destroyed.</returns>
-    /// <remarks>
-    /// The returned observable emits a single value and then immediately completes when the hook is destroyed.
-    /// </remarks>
+    /// <exception cref="HookException">Starting the global hook has failed.</exception>
+    /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
     /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
-    public IObservable<Unit> Start()
+    public void Run()
     {
+        this.ThrowIfRunning();
         this.ThrowIfDisposed();
 
-        var start = Observable.FromAsync(this.hook.Start).Publish();
+        this.hook.Run();
+    }
+
+    /// <summary>
+    /// Runs the global hook without blocking the current thread. The hook can be destroyed by calling the
+    /// <see cref="IDisposable.Dispose" /> method.
+    /// </summary>
+    /// <returns>An observable which is completed when the hook is destroyed.</returns>
+    /// <exception cref="HookException">Starting the global hook has failed.</exception>
+    /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
+    /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
+    /// <remarks>
+    /// The hook is started on a separate thread. The returned observable emits a single value and then immediately
+    /// completes when the hook is destroyed.
+    /// </remarks>
+    public IObservable<Unit> RunAsync()
+    {
+        this.ThrowIfRunning();
+        this.ThrowIfDisposed();
+
+        var start = Observable.FromAsync(this.hook.RunAsync).Publish();
         start.Connect();
         return start.AsObservable();
     }
@@ -305,6 +326,14 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
         this.mouseWheelSubject.Dispose();
     }
 
+    private void ThrowIfRunning()
+    {
+        if (this.IsRunning)
+        {
+            throw new InvalidOperationException("The global hook is already running");
+        }
+    }
+
     private void ThrowIfDisposed([CallerMemberName] string? method = null)
     {
         if (this.disposed)
@@ -314,10 +343,12 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
         }
     }
 
-    Task IGlobalHook.Start()
+    Task IGlobalHook.RunAsync()
     {
+        this.ThrowIfRunning();
         this.ThrowIfDisposed();
-        return this.hook.Start();
+
+        return this.hook.RunAsync();
     }
 
     event EventHandler<HookEventArgs> IGlobalHook.HookEnabled

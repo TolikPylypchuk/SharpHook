@@ -8,14 +8,17 @@ using System.Threading.Tasks;
 using SharpHook.Native;
 
 /// <summary>
-/// Represents an abstract implementation of <see cref="IGlobalHook" /> which runs the hook on a separate thread and
-/// raises events only when there is at least one subscriber.
+/// Represents an abstract implementation of <see cref="IGlobalHook" /> which raises events only when there is at least
+/// one subscriber.
 /// </summary>
 /// <seealso cref="IGlobalHook" />
 /// <seealso cref="SimpleGlobalHook" />
 /// <seealso cref="TaskPoolGlobalHook" />
 public abstract class GlobalHookBase : IGlobalHook
 {
+    private const string Starting = "starting";
+    private const string Stopping = "stopping";
+
     private bool disposed = false;
 
     /// <summary>
@@ -31,16 +34,50 @@ public abstract class GlobalHookBase : IGlobalHook
     public bool IsRunning { get; private set; }
 
     /// <summary>
-    /// Starts the global hook. The hook can be destroyed by calling the <see cref="IDisposable.Dispose" /> method.
+    /// Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
+    /// <see cref="IDisposable.Dispose" /> method.
+    /// </summary>
+    /// <exception cref="HookException">Starting the global hook has failed.</exception>
+    /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
+    /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
+    public void Run()
+    {
+        this.ThrowIfRunning();
+        this.ThrowIfDisposed();
+
+        try
+        {
+            UioHook.SetDispatchProc(this.HandleHookEventIfNeeded);
+
+            this.IsRunning = true;
+            var result = UioHook.Run();
+            this.IsRunning = false;
+
+            if (result != UioHookResult.Success)
+            {
+                throw new HookException(result, this.FormatFailureMessage(Starting, result));
+            }
+        } catch (Exception e)
+        {
+            this.IsRunning = false;
+            throw new HookException(UioHookResult.Failure, e);
+        }
+    }
+
+    /// <summary>
+    /// Runs the global hook without blocking the current thread. The hook can be destroyed by calling the
+    /// <see cref="IDisposable.Dispose" /> method.
     /// </summary>
     /// <returns>A <see cref="Task" /> which finishes when the hook is destroyed.</returns>
     /// <exception cref="HookException">Starting the global hook has failed.</exception>
+    /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
     /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
     /// <remarks>
     /// The hook is started on a separate thread.
     /// </remarks>
-    public Task Start()
+    public Task RunAsync()
     {
+        this.ThrowIfRunning();
         this.ThrowIfDisposed();
 
         var source = new TaskCompletionSource<object?>();
@@ -61,12 +98,13 @@ public abstract class GlobalHookBase : IGlobalHook
                 }
                 else
                 {
-                    source.SetException(new HookException(result, this.FormatFailureMessage("starting", result)));
+                    source.SetException(new HookException(result, this.FormatFailureMessage(Starting, result)));
                 }
             }
             catch (Exception e)
             {
-                source.SetException(e);
+                this.IsRunning = false;
+                source.SetException(new HookException(UioHookResult.Failure, e));
             }
         });
 
@@ -244,7 +282,7 @@ public abstract class GlobalHookBase : IGlobalHook
 
             if (disposing && result != UioHookResult.Success)
             {
-                throw new HookException(result, this.FormatFailureMessage("stopping", result));
+                throw new HookException(result, this.FormatFailureMessage(Stopping, result));
             }
         }
     }
@@ -287,13 +325,24 @@ public abstract class GlobalHookBase : IGlobalHook
             _ => false
         };
 
+    private void ThrowIfRunning()
+    {
+        if (this.IsRunning)
+        {
+            throw new InvalidOperationException("The global hook is already running");
+        }
+    }
+
     private string FormatFailureMessage(string action, UioHookResult result) =>
         $"Failed {action} the global hook: {result} ({(int)result:x})";
 
     /// <summary>
     /// An event which is raised when the global hook is enabled.
     /// </summary>
-    /// <remarks>This event is raised when the <see cref="IGlobalHook.Start" /> method is called.</remarks>
+    /// <remarks>
+    /// This event is raised when the <see cref="IGlobalHook.Run" /> or <see cref="IGlobalHook.RunAsync" /> method
+    /// is called.
+    /// </remarks>
     public event EventHandler<HookEventArgs>? HookEnabled;
 
     /// <summary>
