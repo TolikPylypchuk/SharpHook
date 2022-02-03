@@ -143,43 +143,68 @@ public abstract class GlobalHookBase : IGlobalHook
     /// <param name="e">The event to dispatch.</param>
     protected void DispatchEvent(ref UioHookEvent e)
     {
+        HookEventArgs? args = null;
+
         switch (e.Type)
         {
             case EventType.HookEnabled:
-                this.OnHookEnabled(new HookEventArgs(e));
+                this.OnHookEnabled(args = new HookEventArgs(e));
                 break;
             case EventType.HookDisabled:
                 UioHook.SetDispatchProc(UioHook.EmptyDispatchProc);
-                this.OnHookDisabled(new HookEventArgs(e));
+                this.OnHookDisabled(args = new HookEventArgs(e));
                 break;
             case EventType.KeyTyped:
-                this.OnKeyTyped(new KeyboardHookEventArgs(e));
+                var keyTypedArgs = new KeyboardHookEventArgs(e);
+                args = keyTypedArgs;
+                this.OnKeyTyped(keyTypedArgs);
                 break;
             case EventType.KeyPressed:
-                this.OnKeyPressed(new KeyboardHookEventArgs(e));
+                var keyPressedArgs = new KeyboardHookEventArgs(e);
+                args = keyPressedArgs;
+                this.OnKeyPressed(keyPressedArgs);
                 break;
             case EventType.KeyReleased:
-                this.OnKeyReleased(new KeyboardHookEventArgs(e));
+                var keyReleasedArgs = new KeyboardHookEventArgs(e);
+                args = keyReleasedArgs;
+                this.OnKeyReleased(keyReleasedArgs);
                 break;
             case EventType.MouseClicked:
-                this.OnMouseClicked(new MouseHookEventArgs(e));
+                var mouseClickedArgs = new MouseHookEventArgs(e);
+                args = mouseClickedArgs;
+                this.OnMouseClicked(mouseClickedArgs);
                 break;
             case EventType.MousePressed:
-                this.OnMousePressed(new MouseHookEventArgs(e));
+                var mousePressedArgs = new MouseHookEventArgs(e);
+                args = mousePressedArgs;
+                this.OnMousePressed(mousePressedArgs);
                 break;
             case EventType.MouseReleased:
-                this.OnMouseReleased(new MouseHookEventArgs(e));
+                var mouseReleasedArgs = new MouseHookEventArgs(e);
+                args = mouseReleasedArgs;
+                this.OnMouseReleased(mouseReleasedArgs);
                 break;
             case EventType.MouseMoved:
-                this.OnMouseMoved(new MouseHookEventArgs(e));
+                var mouseMovedArgs = new MouseHookEventArgs(e);
+                args = mouseMovedArgs;
+                this.OnMouseMoved(mouseMovedArgs);
                 break;
             case EventType.MouseDragged:
-                this.OnMouseDragged(new MouseHookEventArgs(e));
+                var mouseDraggedArgs = new MouseHookEventArgs(e);
+                args = mouseDraggedArgs;
+                this.OnMouseDragged(mouseDraggedArgs);
                 break;
             case EventType.MouseWheel:
-                this.OnMouseWheel(new MouseWheelHookEventArgs(e));
+                var mouseWheelArgs = new MouseWheelHookEventArgs(e);
+                args = mouseWheelArgs;
+                this.OnMouseWheel(mouseWheelArgs);
                 break;
         };
+
+        if (args != null && args.Reserved.HasValue)
+        {
+            e.Reserved = args.Reserved.Value;
+        }
     }
 
     /// <summary>

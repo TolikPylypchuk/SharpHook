@@ -297,6 +297,15 @@
             </summary>
             <value>The raw event data.</value>
         </member>
+        <member name="P:SharpHook.HookEventArgs.Reserved">
+            <summary>
+            Gets or sets the value which will be set to the <see cref="F:SharpHook.Native.UioHookEvent.Reserved" /> field after running
+            the event handler (unless it's set to <see langword="null" />).
+            </summary>
+            <value>
+            The value which will be set to the <see cref="F:SharpHook.Native.UioHookEvent.Reserved" /> field after running the event handler.
+            </value>
+        </member>
         <member name="T:SharpHook.HookException">
             <summary>
             Represents an exception related to the global hook.
@@ -582,6 +591,22 @@
             </summary>
             <param name="e">The event that has occured.</param>
             <seealso cref="M:SharpHook.Native.UioHook.SetDispatchProc(SharpHook.Native.DispatchProc)" />
+        </member>
+        <member name="T:SharpHook.Native.EventReservedValueMask">
+            <summary>
+            Represents possible values of the <see cref="F:SharpHook.Native.UioHookEvent.Reserved" /> field.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventReservedValueMask.None">
+            <summary>
+            No value.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventReservedValueMask.SuppressEvent">
+            <summary>
+            If this flag is set in the event handler then the event will be suppressed from further propagation.
+            </summary>
+            <remarks>Suppressing events works only on Windows and macOS.</remarks>
         </member>
         <member name="T:SharpHook.Native.EventType">
             <summary>
@@ -1180,9 +1205,9 @@
         </member>
         <member name="F:SharpHook.Native.UioHookEvent.Time">
             <summary>
-            The timestamp of the event.
+            The time of the event which should be used only to compare it to times of other events.
             </summary>
-            <value>The timestamp of the event.</value>
+            <value>The time of the event which should be used only to compare it to times of other events.</value>
         </member>
         <member name="F:SharpHook.Native.UioHookEvent.Mask">
             <summary>
@@ -1192,9 +1217,10 @@
         </member>
         <member name="F:SharpHook.Native.UioHookEvent.Reserved">
             <summary>
-            The reserved value.
+            The reserved value which can be set in event handlers.
             </summary>
-            <value>The reserved value.</value>
+            <value>The reserved value which can be set in event handlers.</value>
+            <remarks>The value for this field should be set on the same thread which handles the event.</remarks>
         </member>
         <member name="F:SharpHook.Native.UioHookEvent.Keyboard">
             <summary>
@@ -1295,11 +1321,17 @@
             Represents a task pool-based implementation of <see cref="T:SharpHook.IGlobalHook" />.
             </summary>
             <remarks>
+            <para>
             The event handlers will run with the specified parallelism level on separate threads inside the default thread
             pool for tasks. This is done so that the hook itself will not be blocked if the handlers are long-running.
             The exception is the <see cref="E:SharpHook.IGlobalHook.HookDisabled" /> event which will run on the same thread that called
             the <see cref="M:System.IDisposable.Dispose" /> method since at that point it doesn't matter anymore that the hook is
             not blocked.
+            </para>
+            <para>
+            Setting <see cref="F:SharpHook.Native.UioHookEvent.Reserved" /> of <see cref="P:SharpHook.HookEventArgs.RawEvent" /> inside the handlers will have
+            no effect as they are run in other threads.
+            </para>
             </remarks>
             <seealso cref="T:SharpHook.IGlobalHook" />
             <seealso cref="T:SharpHook.GlobalHookBase" />

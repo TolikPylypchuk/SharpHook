@@ -67,11 +67,12 @@ public struct UioHookEvent : IEquatable<UioHookEvent>
     public ModifierMask Mask;
 
     /// <summary>
-    /// The reserved value.
+    /// The reserved value which can be set in event handlers.
     /// </summary>
-    /// <value>The reserved value.</value>
+    /// <value>The reserved value which can be set in event handlers.</value>
+    /// <remarks>The value for this field should be set on the same thread which handles the event.</remarks>
     [FieldOffset(18)]
-    public ushort Reserved;
+    public EventReservedValueMask Reserved;
 
     /// <summary>
     /// The event data if this event is keyboard-related.

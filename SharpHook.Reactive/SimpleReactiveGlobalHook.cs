@@ -236,42 +236,68 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
 
     private void DispatchEvent(ref UioHookEvent e)
     {
+        HookEventArgs? args = null;
+
         switch (e.Type)
         {
             case EventType.HookEnabled:
-                this.hookEnabledSubject.OnNext(new HookEvent<HookEventArgs>(this, new(e)));
+                this.hookEnabledSubject.OnNext(new HookEvent<HookEventArgs>(this, args = new(e)));
                 break;
             case EventType.HookDisabled:
-                this.hookDisabledSubject.OnNext(new HookEvent<HookEventArgs>(this, new(e)));
+                UioHook.SetDispatchProc(UioHook.EmptyDispatchProc);
+                this.hookDisabledSubject.OnNext(new HookEvent<HookEventArgs>(this, args = new(e)));
                 break;
             case EventType.KeyTyped:
-                this.keyTypedSubject.OnNext(new HookEvent<KeyboardHookEventArgs>(this, new(e)));
+                var keyTypedArgs = new KeyboardHookEventArgs(e);
+                args = keyTypedArgs;
+                this.keyTypedSubject.OnNext(new HookEvent<KeyboardHookEventArgs>(this, keyTypedArgs));
                 break;
             case EventType.KeyPressed:
-                this.keyPressedSubject.OnNext(new HookEvent<KeyboardHookEventArgs>(this, new(e)));
+                var keyPressedArgs = new KeyboardHookEventArgs(e);
+                args = keyPressedArgs;
+                this.keyPressedSubject.OnNext(new HookEvent<KeyboardHookEventArgs>(this, keyPressedArgs));
                 break;
             case EventType.KeyReleased:
-                this.keyReleasedSubject.OnNext(new HookEvent<KeyboardHookEventArgs>(this, new(e)));
+                var keyReleasedArgs = new KeyboardHookEventArgs(e);
+                args = keyReleasedArgs;
+                this.keyReleasedSubject.OnNext(new HookEvent<KeyboardHookEventArgs>(this, keyReleasedArgs));
                 break;
             case EventType.MouseClicked:
-                this.mouseClickedSubject.OnNext(new HookEvent<MouseHookEventArgs>(this, new(e)));
+                var mouseClickedArgs = new MouseHookEventArgs(e);
+                args = mouseClickedArgs;
+                this.mouseClickedSubject.OnNext(new HookEvent<MouseHookEventArgs>(this, mouseClickedArgs));
                 break;
             case EventType.MousePressed:
-                this.mousePressedSubject.OnNext(new HookEvent<MouseHookEventArgs>(this, new(e)));
+                var mousePressedArgs = new MouseHookEventArgs(e);
+                args = mousePressedArgs;
+                this.mousePressedSubject.OnNext(new HookEvent<MouseHookEventArgs>(this, mousePressedArgs));
                 break;
             case EventType.MouseReleased:
-                this.mouseReleasedSubject.OnNext(new HookEvent<MouseHookEventArgs>(this, new(e)));
+                var mouseReleasedArgs = new MouseHookEventArgs(e);
+                args = mouseReleasedArgs;
+                this.mouseReleasedSubject.OnNext(new HookEvent<MouseHookEventArgs>(this, mouseReleasedArgs));
                 break;
             case EventType.MouseMoved:
-                this.mouseMovedSubject.OnNext(new HookEvent<MouseHookEventArgs>(this, new(e)));
+                var mouseMovedArgs = new MouseHookEventArgs(e);
+                args = mouseMovedArgs;
+                this.mouseMovedSubject.OnNext(new HookEvent<MouseHookEventArgs>(this, mouseMovedArgs));
                 break;
             case EventType.MouseDragged:
-                this.mouseDraggedSubject.OnNext(new HookEvent<MouseHookEventArgs>(this, new(e)));
+                var mouseDraggedArgs = new MouseHookEventArgs(e);
+                args = mouseDraggedArgs;
+                this.mouseDraggedSubject.OnNext(new HookEvent<MouseHookEventArgs>(this, mouseDraggedArgs));
                 break;
             case EventType.MouseWheel:
-                this.mouseWheelSubject.OnNext(new HookEvent<MouseWheelHookEventArgs>(this, new(e)));
+                var mouseWheelArgs = new MouseWheelHookEventArgs(e);
+                args = mouseWheelArgs;
+                this.mouseWheelSubject.OnNext(new HookEvent<MouseWheelHookEventArgs>(this, mouseWheelArgs));
                 break;
         };
+
+        if (args != null && args.Reserved.HasValue)
+        {
+            e.Reserved = args.Reserved.Value;
+        }
     }
 
     private void Dispose(bool disposing)

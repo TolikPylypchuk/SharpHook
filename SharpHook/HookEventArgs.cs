@@ -25,4 +25,13 @@ public class HookEventArgs : EventArgs
     /// </summary>
     /// <value>The raw event data.</value>
     public UioHookEvent RawEvent { get; }
+
+    /// <summary>
+    /// Gets or sets the value which will be set to the <see cref="UioHookEvent.Reserved" /> field after running
+    /// the event handler (unless it's set to <see langword="null" />).
+    /// </summary>
+    /// <value>
+    /// The value which will be set to the <see cref="UioHookEvent.Reserved" /> field after running the event handler.
+    /// </value>
+    public EventReservedValueMask? Reserved { get; set; }
 }
