@@ -454,6 +454,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.HookEventArgs.RawEvent
   nameWithType: HookEventArgs.RawEvent
+- uid: SharpHook.HookEventArgs.Reserved
+  name: Reserved
+  href: api/SharpHook.HookEventArgs.html#SharpHook_HookEventArgs_Reserved
+  commentId: P:SharpHook.HookEventArgs.Reserved
+  fullName: SharpHook.HookEventArgs.Reserved
+  nameWithType: HookEventArgs.Reserved
+- uid: SharpHook.HookEventArgs.Reserved*
+  name: Reserved
+  href: api/SharpHook.HookEventArgs.html#SharpHook_HookEventArgs_Reserved_
+  commentId: Overload:SharpHook.HookEventArgs.Reserved
+  isSpec: "True"
+  fullName: SharpHook.HookEventArgs.Reserved
+  nameWithType: HookEventArgs.Reserved
 - uid: SharpHook.HookException
   name: HookException
   href: api/SharpHook.HookException.html
@@ -838,6 +851,24 @@ references:
   commentId: T:SharpHook.Native.DispatchProc
   fullName: SharpHook.Native.DispatchProc
   nameWithType: DispatchProc
+- uid: SharpHook.Native.EventReservedValueMask
+  name: EventReservedValueMask
+  href: api/SharpHook.Native.EventReservedValueMask.html
+  commentId: T:SharpHook.Native.EventReservedValueMask
+  fullName: SharpHook.Native.EventReservedValueMask
+  nameWithType: EventReservedValueMask
+- uid: SharpHook.Native.EventReservedValueMask.None
+  name: None
+  href: api/SharpHook.Native.EventReservedValueMask.html#SharpHook_Native_EventReservedValueMask_None
+  commentId: F:SharpHook.Native.EventReservedValueMask.None
+  fullName: SharpHook.Native.EventReservedValueMask.None
+  nameWithType: EventReservedValueMask.None
+- uid: SharpHook.Native.EventReservedValueMask.SuppressEvent
+  name: SuppressEvent
+  href: api/SharpHook.Native.EventReservedValueMask.html#SharpHook_Native_EventReservedValueMask_SuppressEvent
+  commentId: F:SharpHook.Native.EventReservedValueMask.SuppressEvent
+  fullName: SharpHook.Native.EventReservedValueMask.SuppressEvent
+  nameWithType: EventReservedValueMask.SuppressEvent
 - uid: SharpHook.Native.EventType
   name: EventType
   href: api/SharpHook.Native.EventType.html
