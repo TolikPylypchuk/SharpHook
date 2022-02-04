@@ -16,6 +16,7 @@
             </summary>
             <param name="keyCode">The code of the key to press.</param>
             <param name="mask">The modifier mask of the event.</param>
+            <remarks><paramref name="mask" /> is ignored on Windows.</remarks>
         </member>
         <member name="M:SharpHook.EventSimulator.SimulateKeyRelease(SharpHook.Native.KeyCode,SharpHook.Native.ModifierMask)">
             <summary>
@@ -23,6 +24,7 @@
             </summary>
             <param name="keyCode">The code of the key to release.</param>
             <param name="mask">The modifier mask of the event.</param>
+            <remarks><paramref name="mask" /> is ignored on Windows.</remarks>
         </member>
         <member name="M:SharpHook.EventSimulator.SimulateMousePress(SharpHook.Native.MouseButton,SharpHook.Native.ModifierMask)">
             <summary>
@@ -30,6 +32,7 @@
             </summary>
             <param name="button">The mouse button to press.</param>
             <param name="mask">The modifier mask of the event.</param>
+            <remarks><paramref name="mask" /> is ignored on Windows.</remarks>
         </member>
         <member name="M:SharpHook.EventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton,SharpHook.Native.ModifierMask)">
             <summary>
@@ -37,6 +40,7 @@
             </summary>
             <param name="button">The mouse button to release.</param>
             <param name="mask">The modifier mask of the event.</param>
+            <remarks><paramref name="mask" /> is ignored on Windows.</remarks>
         </member>
         <member name="M:SharpHook.EventSimulator.SimulateMouseMovement(System.Int16,System.Int16,SharpHook.Native.ModifierMask)">
             <summary>
@@ -45,6 +49,7 @@
             <param name="x">The target X-coordinate of the mouse pointer.</param>
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
             <param name="mask">The modifier mask of the event.</param>
+            <remarks><paramref name="mask" /> is ignored on Windows.</remarks>
         </member>
         <member name="M:SharpHook.EventSimulator.SimulateMouseWheel(System.Int16,System.Int16,System.UInt16,System.Int16,SharpHook.Native.ModifierMask)">
             <summary>
@@ -59,6 +64,9 @@
             <para>
             A positive <paramref name="rotation" /> value indicates that the wheel was rotated forward, away from the user;
             a negative value indicates that the wheel was rotated backward, toward the user.
+            </para>
+            <para>
+            <paramref name="mask" /> is ignored on Windows.
             </para>
             <para>
             Mouse wheel simulation is a little inconsistent across platforms, and not documented. View the source code of
@@ -104,9 +112,7 @@
             <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
             <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
             <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
-            <remarks>
-            The hook is started on a separate thread.
-            </remarks>
+            <remarks>The hook is started on a separate thread.</remarks>
         </member>
         <member name="M:SharpHook.GlobalHookBase.Dispose">
             <summary>
@@ -587,7 +593,7 @@
         </member>
         <member name="T:SharpHook.Native.DispatchProc">
             <summary>
-            Represents a function which is called by libuiohook when an event occurs.
+            Represents a function which is called when an event occurs.
             </summary>
             <param name="e">The event that has occured.</param>
             <seealso cref="M:SharpHook.Native.UioHook.SetDispatchProc(SharpHook.Native.DispatchProc)" />
@@ -610,7 +616,7 @@
         </member>
         <member name="T:SharpHook.Native.EventType">
             <summary>
-            The type of the event which can be raised by libuiohook.
+            Represents the type of an input event.
             </summary>
             <seealso cref="T:SharpHook.Native.UioHookEvent" />
         </member>
@@ -895,7 +901,7 @@
         </member>
         <member name="T:SharpHook.Native.MouseWheelScrollDirection">
             <summary>
-            Represents the mouse wheel scroll direction.
+            Represents a mouse wheel scroll direction.
             </summary>
             <seealso cref="T:SharpHook.Native.MouseWheelEventData" />
         </member>
@@ -907,7 +913,7 @@
         </member>
         <member name="T:SharpHook.Native.ScreenData">
             <summary>
-            Represents the screen-related data.
+            Represents screen-related data.
             </summary>
         </member>
         <member name="F:SharpHook.Native.ScreenData.Number">
@@ -995,18 +1001,12 @@
             Contains native methods of libuiohook.
             </summary>
         </member>
-        <member name="F:SharpHook.Native.UioHook.EmptyDispatchProc">
-            <summary>
-            An empty hook callback function.
-            </summary>
-            <value>A hook callback function which does nothing.</value>
-            <remarks>You can use this function to "unset" a hook callback function.</remarks>
-        </member>
         <member name="M:SharpHook.Native.UioHook.SetDispatchProc(SharpHook.Native.DispatchProc)">
             <summary>
             Sets the hook callback function.
             </summary>
             <param name="dispatchProc">The function to call when an event is raised.</param>
+            <remarks>Pass <see langword="null" /> to this function to unset a hook callback function.</remarks>
         </member>
         <member name="M:SharpHook.Native.UioHook.Run">
             <summary>
@@ -1029,7 +1029,7 @@
             <para>
             The instance of the event doesn't need all fields to have value. Only <see cref="F:SharpHook.Native.UioHookEvent.Type" />,
             <see cref="F:SharpHook.Native.UioHookEvent.Keyboard" />/<see cref="F:SharpHook.Native.UioHookEvent.Mouse" />/<see cref="F:SharpHook.Native.UioHookEvent.Wheel" /> and
-            <see cref="F:SharpHook.Native.UioHookEvent.Mask" /> should be present.
+            <see cref="F:SharpHook.Native.UioHookEvent.Mask" /> should be present. <see cref="F:SharpHook.Native.UioHookEvent.Mask" /> is ignored on Windows.
             </para>
             <para>
             The following table describes the specifics of simulating each event type.
@@ -1207,7 +1207,7 @@
             <summary>
             The time of the event which should be used only to compare it to times of other events.
             </summary>
-            <value>The time of the event which should be used only to compare it to times of other events.</value>
+            <value>The time of the event.</value>
         </member>
         <member name="F:SharpHook.Native.UioHookEvent.Mask">
             <summary>
@@ -1323,14 +1323,14 @@
             <remarks>
             <para>
             The event handlers will run with the specified parallelism level on separate threads inside the default thread
-            pool for tasks. This is done so that the hook itself will not be blocked if the handlers are long-running.
+            pool for tasks. This way the hook itself will not be blocked if the handlers are long-running.
             The exception is the <see cref="E:SharpHook.IGlobalHook.HookDisabled" /> event which will run on the same thread that called
             the <see cref="M:System.IDisposable.Dispose" /> method since at that point it doesn't matter anymore that the hook is
             not blocked.
             </para>
             <para>
-            Setting <see cref="F:SharpHook.Native.UioHookEvent.Reserved" /> of <see cref="P:SharpHook.HookEventArgs.RawEvent" /> inside the handlers will have
-            no effect as they are run in other threads.
+            Setting <see cref="P:SharpHook.HookEventArgs.Reserved" /> inside the handlers will have no effect as they are run
+            on other threads.
             </para>
             </remarks>
             <seealso cref="T:SharpHook.IGlobalHook" />

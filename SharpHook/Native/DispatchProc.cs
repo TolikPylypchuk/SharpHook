@@ -1,7 +1,7 @@
 namespace SharpHook.Native;
 
 /// <summary>
-/// Represents a function which is called by libuiohook when an event occurs.
+/// Represents a function which is called when an event occurs.
 /// </summary>
 /// <param name="e">The event that has occured.</param>
 /// <seealso cref="UioHook.SetDispatchProc(DispatchProc)" />

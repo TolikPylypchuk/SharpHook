@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 using SharpHook.Internal;
 
 /// <summary>
-/// Represents the screen-related data.
+/// Represents screen-related data.
 /// </summary>
 [StructLayout(LayoutKind.Sequential)]
 public struct ScreenData : IEquatable<ScreenData>

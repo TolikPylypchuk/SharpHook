@@ -15,21 +15,15 @@ namespace SharpHook.Native;
 #endif
 public static class UioHook
 {
-    /// <summary>
-    /// An empty hook callback function.
-    /// </summary>
-    /// <value>A hook callback function which does nothing.</value>
-    /// <remarks>You can use this function to "unset" a hook callback function.</remarks>
-    public static readonly DispatchProc EmptyDispatchProc = static (ref UioHookEvent e) => { };
-
     private const string LibUioHook = "uiohook";
 
     /// <summary>
     /// Sets the hook callback function.
     /// </summary>
     /// <param name="dispatchProc">The function to call when an event is raised.</param>
+    /// <remarks>Pass <see langword="null" /> to this function to unset a hook callback function.</remarks>
     [DllImport(LibUioHook, EntryPoint = "hook_set_dispatch_proc")]
-    public static extern void SetDispatchProc(DispatchProc dispatchProc);
+    public static extern void SetDispatchProc(DispatchProc? dispatchProc);
 
     /// <summary>
     /// Runs the global hook and blocks the thread until it's stopped.
@@ -53,7 +47,7 @@ public static class UioHook
     /// <para>
     /// The instance of the event doesn't need all fields to have value. Only <see cref="UioHookEvent.Type" />,
     /// <see cref="UioHookEvent.Keyboard" />/<see cref="UioHookEvent.Mouse" />/<see cref="UioHookEvent.Wheel" /> and
-    /// <see cref="UioHookEvent.Mask" /> should be present.
+    /// <see cref="UioHookEvent.Mask" /> should be present. <see cref="UioHookEvent.Mask" /> is ignored on Windows.
     /// </para>
     /// <para>
     /// The following table describes the specifics of simulating each event type.

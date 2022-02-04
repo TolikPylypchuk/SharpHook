@@ -244,7 +244,6 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
                 this.hookEnabledSubject.OnNext(new HookEvent<HookEventArgs>(this, args = new(e)));
                 break;
             case EventType.HookDisabled:
-                UioHook.SetDispatchProc(UioHook.EmptyDispatchProc);
                 this.hookDisabledSubject.OnNext(new HookEvent<HookEventArgs>(this, args = new(e)));
                 break;
             case EventType.KeyTyped:
@@ -313,7 +312,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
         {
             this.hookDisabledSubject.Subscribe(_ =>
             {
-                UioHook.SetDispatchProc(UioHook.EmptyDispatchProc);
+                UioHook.SetDispatchProc(null);
 
                 this.CompleteAllSubjects();
 

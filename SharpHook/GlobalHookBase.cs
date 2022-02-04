@@ -72,9 +72,7 @@ public abstract class GlobalHookBase : IGlobalHook
     /// <exception cref="HookException">Starting the global hook has failed.</exception>
     /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
     /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
-    /// <remarks>
-    /// The hook is started on a separate thread.
-    /// </remarks>
+    /// <remarks>The hook is started on a separate thread.</remarks>
     public Task RunAsync()
     {
         this.ThrowIfRunning();
@@ -151,7 +149,7 @@ public abstract class GlobalHookBase : IGlobalHook
                 this.OnHookEnabled(args = new HookEventArgs(e));
                 break;
             case EventType.HookDisabled:
-                UioHook.SetDispatchProc(UioHook.EmptyDispatchProc);
+                UioHook.SetDispatchProc(null);
                 this.OnHookDisabled(args = new HookEventArgs(e));
                 break;
             case EventType.KeyTyped:

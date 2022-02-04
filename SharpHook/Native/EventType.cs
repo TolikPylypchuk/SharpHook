@@ -1,7 +1,7 @@
 namespace SharpHook.Native;
 
 /// <summary>
-/// The type of the event which can be raised by libuiohook.
+/// Represents the type of an input event.
 /// </summary>
 /// <seealso cref="UioHookEvent" />
 public enum EventType

@@ -55,7 +55,7 @@ public struct UioHookEvent : IEquatable<UioHookEvent>
     /// <summary>
     /// The time of the event which should be used only to compare it to times of other events.
     /// </summary>
-    /// <value>The time of the event which should be used only to compare it to times of other events.</value>
+    /// <value>The time of the event.</value>
     [FieldOffset(8)]
     public ulong Time;
 
