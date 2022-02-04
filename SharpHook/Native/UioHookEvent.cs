@@ -57,7 +57,7 @@ public struct UioHookEvent : IEquatable<UioHookEvent>
     /// </summary>
     /// <value>The time of the event.</value>
     [FieldOffset(8)]
-    public ushort Time;
+    public ulong Time;
 
     /// <summary>
     /// The mask of the event.
