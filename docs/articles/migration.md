@@ -20,5 +20,7 @@ The type of `UioHook.Time` previously was `ushort` which was wrong. It was corre
 does not contain the event's timestamp.
 
 The global hooks now throw an exception if the hook is started when it's already running. Also, possible exceptions are
-now part of the interface definition. All unexpected exceptions that can happed when starting and stopping the hook are
+now part of the interface definition. All unexpected exceptions that can happen when starting and stopping the hook are
 now wrapped into `HookException` with the value of `UioHookResult.Failure`.
+
+Next article: [About SharpHook](about.md).

@@ -19,6 +19,7 @@ dotnet add package SharpHook.Reactive
 You can find more information (including the API reference) in the [docs](https://sharphook.tolik.io). Or if you need a
 specific version:
 
+- [v2.0.0](https://sharphook.tolik.io/v2.0.0)
 - [v1.1.0](https://sharphook.tolik.io/v1.1.0)
 - [v1.0.1](https://sharphook.tolik.io/v1.0.1)
 - [v1.0.0](https://sharphook.tolik.io/v1.0.0)
@@ -120,12 +121,14 @@ hook.MouseDragged += OnMouseDragged;
 
 hook.MouseWheel += OnMouseWheel;
 
-await hook.Start();
+hook.Run();
+// or
+await hook.RunAsync();
 ```
 
-First, you create the hook, then subscribe to its events, and then start it. The `Start()` method returns a `Task`
-which is finished when the hook is destroyed, so if you `await` it, you block the current async context until it stops.
-You can subscribe to events after the hook is started.
+First, you create the hook, then subscribe to its events, and then run it. The `Run` method runs the hook on the current
+thread, blocking it. The `RunAsync()` method runs the hook on a separate thread and returns a `Task` which is finished
+when the hook is destroyed. You can subscribe to events after the hook is started.
 
 `IGlobalHook` extends `IDisposable`. When you call the `Dispose` method on a hook, it's destroyed. The contract of
 the interface is that once a hook has been destroyed, it cannot be started again - you'll have to create a new instance.
@@ -137,14 +140,15 @@ the same static method to set the hook callback for libuiohook, and there may on
 
 SharpHook provides two implementations of `IGlobalHook`:
 
-- `SimpleGlobalHook` runs the hook on a separate thread, and runs all of its event handlers on that same thread. This
-means that the handlers should generally be fast since they will block the hook from handling the events that follow if
-they run for too long.
+- `SimpleGlobalHook` runs all of its event handlers on the same thread where the hook itself runs. This means that the
+handlers should generally be fast since they will block the hook from handling the events that follow if they run for
+too long.
 
-- `TaskPoolGlobalHook` runs the hook on a separate thread, and runs all of its event handlers on other threads inside
-the default thread pool for tasks. The parallelism level of the handlers can be configured. On backpressure it will
-queue the remaining handlers. This means that the hook will be able to process all events. This implementation should be
-preferred to `SimpleGlobalHook` except for very simple use-cases.
+- `TaskPoolGlobalHook` runs all of its event handlers on other threads inside the default thread pool for tasks. The
+parallelism level of the handlers can be configured. On backpressure it will queue the remaining handlers. This means
+that the hook will be able to process all events. This implementation should be preferred to `SimpleGlobalHook` except
+for very simple use-cases. But it has a downside - suppressing event propagation will be ignored since event handlers
+are run on other threads.
 
 The library also provides the `GlobalHookBase` class which you can extend to create your own implementation of the
 global hook. It runs the hook on a separate thread and calls appropriate event handlers. You only need to implement a
@@ -152,7 +156,7 @@ strategy for dispatching the events.
 
 ### Reactive Global Hooks
 
-If you're using Rx.NET, you can use the `SharpHook.Reactive` package to integrate SharpHook with Rx.NET.
+If you're using Rx.NET, you can use the SharpHook.Reactive package to integrate SharpHook with Rx.NET.
 
 SharpHook.Reactive provides the `IReactiveGlobalHook` interface along with a default implementation and an adapter
 which you can use to use to control the hook and subscribe to its observables. Here's a basic example:
@@ -185,18 +189,20 @@ hook.MouseDragged
 
 hook.MouseWheel.Subscribe(OnMouseWheel);
 
-await hook.Start();
+hook.Run();
+// or
+hook.RunAsync().Subscribe();
 ```
 
 Reactive global hooks are basically the same as the default global hooks and the same rules apply to them.
 
 SharpHook.Reactive provides two implementations of `IReactiveGlobalHook`:
 
-- `SimpleReactiveGlobalHook` runs the hook on a separate thread. Since we are dealing with observables, it's up to
-you to decide when and where to handle the events through schedulers.
+- `SimpleReactiveGlobalHook`. Since we are dealing with observables, it's up to you to decide when and where to handle
+the events through schedulers.
 
-- `ReactiveGlobalHookAdapter` adapts an `IGlobalHook` to `IReactiveGlobalHook`. All subscriptions and changes
-are propagated to the adapted hook.
+- `ReactiveGlobalHookAdapter` adapts an `IGlobalHook` to `IReactiveGlobalHook`. All subscriptions and changes are
+propagated to the adapted hook.
 
 ### Event Simulation
 

@@ -56,7 +56,7 @@ Following are the mouse events, and `UioHookEvent` will contain more infomration
 - `MouseMoved` - raised when the mouse cursor is moved.
 - `MouseDragged` - raised when the mouse cursor is dragged.
 
-And the last one is also a mouse event, but `UioHookEvent` will contain more infomration in its `Wheel` field since it
+And the last one is also a mouse event, but `UioHookEvent` will contain more information in its `Wheel` field since it
 has more information:
 
 - `MouseWheel` - raised when the mouse wheel is scrolled.

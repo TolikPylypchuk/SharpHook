@@ -13,4 +13,4 @@ similar to `hook_set_dispatch_proc`, but this time the callback should accept a 
 (using C's `...` syntax) and the client decides how to format the log message. Supporting native variable arguments in
 callbacks is next to impossible in C#, and the payoff is not worth spending a lot of effort to implement this feature.
 
-Next article: [About SharpHook](about.md).
+Next article: [Migration Guide](migration.md).

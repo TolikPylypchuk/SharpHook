@@ -58,7 +58,7 @@ the same static method to set the hook callback for libuiohook, and there may on
 
 SharpHook provides two implementations of `IGlobalHook`:
 
-- `SharpHook.SimpleGlobalHook` runs all of its event handlers on that same thread on which the hook itself runs. This
+- `SharpHook.SimpleGlobalHook` runs all of its event handlers on the same thread on which the hook itself runs. This
 means that the handlers should generally be fast since they will block the hook from handling the events that follow if
 they run for too long.
 
@@ -69,7 +69,7 @@ This means that the hook will be able to process all events. This implementation
 event propagation will be ignored since event handlers are run on other threads.
 
 The library also provides the `SharpHook.GlobalHookBase` class which you can extend to create your own implementation
-of the global hook. It calls appropriate event handlers. You only need to implement a strategy for dispatching the
+of the global hook. It calls the appropriate event handlers. You only need to implement a strategy for dispatching the
 events. It also contains a destructor which will stop the global hook if this object is not reachable anymore.
 
 Events raised by these classes will have the instance of `IGlobalHook` as a sender.
