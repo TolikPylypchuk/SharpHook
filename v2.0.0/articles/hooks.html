@@ -116,7 +116,7 @@ the same static method to set the hook callback for libuiohook, and there may on
 <h2 id="the-default-implementations">The Default Implementations</h2>
 <p>SharpHook provides two implementations of <code>IGlobalHook</code>:</p>
 <ul>
-<li><p><code>SharpHook.SimpleGlobalHook</code> runs all of its event handlers on that same thread on which the hook itself runs. This
+<li><p><code>SharpHook.SimpleGlobalHook</code> runs all of its event handlers on the same thread on which the hook itself runs. This
 means that the handlers should generally be fast since they will block the hook from handling the events that follow if
 they run for too long.</p>
 </li>
@@ -128,7 +128,7 @@ event propagation will be ignored since event handlers are run on other threads.
 </li>
 </ul>
 <p>The library also provides the <code>SharpHook.GlobalHookBase</code> class which you can extend to create your own implementation
-of the global hook. It calls appropriate event handlers. You only need to implement a strategy for dispatching the
+of the global hook. It calls the appropriate event handlers. You only need to implement a strategy for dispatching the
 events. It also contains a destructor which will stop the global hook if this object is not reachable anymore.</p>
 <p>Events raised by these classes will have the instance of <code>IGlobalHook</code> as a sender.</p>
 <p>Next article: <a href="reactive.html">Reactive Global Hooks</a>.</p>
