@@ -10,5 +10,7 @@
   href: simulation.md
 - name: Limitations
   href: limitations.md
+- name: Migration Guide
+  href: migration.md
 - name: About SharpHook
   href: about.md

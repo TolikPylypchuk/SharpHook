@@ -1,6 +1,6 @@
 # About SharpHook
 
-SharpHook. Version 1.1.0. Created by Tolik Pylypchuk.
+SharpHook. Version 2.0.0. Created by Tolik Pylypchuk.
 
 ## Library Status
 
@@ -9,6 +9,17 @@ rolling release model - every commit to its `1.2` branch is considered stable. T
 really active anymore, but is still maintained, so this library will most probably receive updates quite rarely.
 
 ## Changelog
+
+## [v2.0.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v2.0.0) (04 February 2022)
+
+- Global hooks now support both blocking and non-blocking running via the `Run` and `RunAsync` methods, and the `Start`
+method was removed.
+
+- Support for suppressing event propagation.
+
+- `UioHookEvent.Time` now has the correct type - `ulong` instead of `ushort`.
+
+- Global hooks now throw an exception if they are started when already running.
 
 ## [v1.1.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v1.1.0) (04 December 2021)
 

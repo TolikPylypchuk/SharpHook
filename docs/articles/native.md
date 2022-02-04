@@ -21,10 +21,21 @@ You have to remember that only one global hook can exist at a time since calling
 previously set one.
 
 `SetDispatchProc` accepts a delegate of type `SharpHook.Native.DispatchProc`. This delegate in turn accepts a
-`SharpHook.Native.UioHookEvent` by reference, and returns nothing. `UioHookEvent` contains information about
-the event that has occured.
+`SharpHook.Native.UioHookEvent` by reference, and returns nothing.  You can pass `null` to `SetDispatchProc` in order
+to unset the callback function.
 
-There are several event types supported by libuiohook (defined in the `SharpHook.Native.EventType` enum).
+Note that on macOS running the global hook requires that the main run-loop is present. libuiohook takes care of it if
+the hook is run on the main thread. It's also taken care of by UI frameworks since they need an event loop on the main
+thread to run. But if you're using a global hook in a console app or a background service and want to run it on some
+thread other than the main one then you should take care of it yourself. You can do that e.g. by P/Invoking the native
+`CFRunLoopRun` function.
+
+## Input Events
+
+The `SharpHook.Native.UioHookEvent` struct contains information about events that have occured.
+
+There are several event types supported by libuiohook (contained in the event's `Type` field and defined in the
+`SharpHook.Native.EventType` enum).
 
 Following are the general-purpose events:
 
@@ -44,10 +55,20 @@ Following are the mouse events, and `UioHookEvent` will contain more infomration
 - `MouseReleased` - raised when a mouse button is released.
 - `MouseMoved` - raised when the mouse cursor is moved.
 - `MouseDragged` - raised when the mouse cursor is dragged.
+
+And the last one is also a mouse event, but `UioHookEvent` will contain more infomration in its `Wheel` field since it
+has more information:
+
 - `MouseWheel` - raised when the mouse wheel is scrolled.
 
-The last event is different from the others in that when it's raised, it's information will be contained in the `Wheel`
-field of `UioHookEvent` since it contains more information.
+`UioHookEvent` also contains the `Time` and `Mask` fields. `Time` represents the time of the event, but it's not a
+timestamp - it's a synthetic value which should be used only to compare it to other events' times. `Mask` contains the
+state of keyboard modifiers and the mouse state at the time of the event.
+
+Lastly, `UioHookEvent` contains the `Reserved` field. This field can be set inside the event handler and libuiohook will
+consume it. Currently only one setting is supported - suppressing the event propagation. If it's set then libuiohook
+will not propagate the event further and it will effectively be blocked. The `Reserved` field should be set
+synchronously i.e. on the same thread which handles the event.
 
 ## Simulating Input Events
 
@@ -126,7 +147,7 @@ pressing/releasing modifier keys manually.
 
 ## Other Functions
 
-libuiohooks also provides functions which get various pieces of information about the system, and are listed below:
+libuiohook also provides functions which get various pieces of information about the system, and are listed below:
 
 - `CreateScreenInfo` (`hook_create_screen_info`)
 - `GetAutoRepeatRate` (`hook_get_auto_repeat_rate`)
@@ -137,7 +158,7 @@ libuiohooks also provides functions which get various pieces of information abou
 - `GetMultiClickTime` (`hook_get_multi_click_time`)
 
 These functions are quite straightforward, except for `CreateScreenInfo`. `UioHook` defines two versions of this
-function. One is the native function which returns an unmanaged array of `ScreenData` objects (as an `IntPtr`) along
+function. One is a native function which returns an unmanaged array of `ScreenData` objects (as an `IntPtr`) along
 with its length in an output parameter. Another is a wrapper which returs a managed array. Use the second one if you
 need it since it's safer.
 

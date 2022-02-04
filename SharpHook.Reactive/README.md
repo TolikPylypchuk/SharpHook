@@ -45,18 +45,20 @@ hook.MouseDragged
 
 hook.MouseWheel.Subscribe(OnMouseWheel);
 
-await hook.Start();
+hook.Run();
+// or
+hook.RunAsync().Subscribe();
 ```
 
 Reactive global hooks are basically the same as the default global hooks and the same rules apply to them.
 
 SharpHook.Reactive provides two implementations of `IReactiveGlobalHook`:
 
-- `SimpleReactiveGlobalHook` runs the hook on a separate thread. Since we are dealing with observables, it's up to
-you to decide when and where to handle the events through schedulers.
+- `SimpleReactiveGlobalHook`. Since we are dealing with observables, it's up to you to decide when and where to handle
+the events through schedulers.
 
-- `ReactiveGlobalHookAdapter` adapts an `IGlobalHook` to `IReactiveGlobalHook`. All subscriptions and changes
-are propagated to the adapted hook.
+- `ReactiveGlobalHookAdapter` adapts an `IGlobalHook` to `IReactiveGlobalHook`. All subscriptions and changes are
+propagated to the adapted hook.
 
 ## Icon
 

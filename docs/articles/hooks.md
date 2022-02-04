@@ -28,13 +28,23 @@ hook.MouseDragged += OnMouseDragged;   // EventHandler<MouseHookEventArgs>
 
 hook.MouseWheel += OnMouseWheel;       // EventHandler<MouseWheelHookEventArgs>
 
-await hook.Start();
+hook.Run();
+// or
+await hook.RunAsync();
 ```
 
 `IGlobalHook` contains separate events for every event type that can be raised by libuiohook. The sender of these
-events will usually be the `IGlobalHook` itself, but technically it can be anything. 
+events will usually be the `IGlobalHook` itself, but technically it can be anything.
 
-It also contains the `Start` method which returns a `Task` - this task is finished when the hook is destroyed.
+It also contains the `Run` and `RunAsync` methods which, well, run the global hook. `Run` runs it on the current thread,
+blocking it until the global hook is disposed. `RunAsync` runs the global hook in a non-blocking way and returns a
+`Task` - this task is finished when the hook is destroyed. Since the underlying native API is blocking, the only way to
+run the hook in a non-blocking way is to run it on a separate thread, and all default implementations do just that.
+
+You can subscribe to events after the hook is started.
+
+If you run the hook when it's already running, then an exception will be thrown. You can check whether a hook is running
+using its `IsRunning` property.
 
 `IGlobalHook` extends `IDisposable`. When you call the `Dispose` method on a hook, it's destroyed. The contract of
 the interface is that once a hook has been destroyed, it cannot be started again - you'll have to create a new instance.
@@ -48,19 +58,19 @@ the same static method to set the hook callback for libuiohook, and there may on
 
 SharpHook provides two implementations of `IGlobalHook`:
 
-- `SharpHook.SimpleGlobalHook` runs the hook on a separate thread, and runs all of its event handlers on that same
-thread. This means that the handlers should generally be fast since they will block the hook from handling the events
-that follow if they run for too long.
+- `SharpHook.SimpleGlobalHook` runs all of its event handlers on that same thread on which the hook itself runs. This
+means that the handlers should generally be fast since they will block the hook from handling the events that follow if
+they run for too long.
 
-- `SharpHook.TaskPoolGlobalHook` runs the hook on a separate thread, and runs all of its event handlers on other
-threads inside the default thread pool for tasks. The parallelism level of the handlers can be configured. On
-backpressure it will queue the remaining handlers. This means that the hook will be able to process all events. This
-implementation should be preferred to `SimpleGlobalHook` except for very simple use-cases.
+- `SharpHook.TaskPoolGlobalHook` runs all of its event handlers on other threads inside the default thread pool for
+tasks. The parallelism level of the handlers can be configured. On backpressure it will queue the remaining handlers.
+This means that the hook will be able to process all events. This implementation should be preferred to
+`SimpleGlobalHook` except for very simple use-cases. But it has a downside - setting the `Reserved` field to suppress
+event propagation will be ignored since event handlers are run on other threads.
 
-The library also provides the `SharpHook.GlobalHookBase` class which you can extend to create your own
-implementation of the global hook. It runs the hook on a separate thread and calls appropriate event handlers. You only
-need to implement a strategy for dispatching the events. It also contains a destructor which will stop the global hook
-if this object is not reachable anymore.
+The library also provides the `SharpHook.GlobalHookBase` class which you can extend to create your own implementation
+of the global hook. It calls appropriate event handlers. You only need to implement a strategy for dispatching the
+events. It also contains a destructor which will stop the global hook if this object is not reachable anymore.
 
 Events raised by these classes will have the instance of `IGlobalHook` as a sender.
 
