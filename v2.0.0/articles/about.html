@@ -69,12 +69,24 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="about-sharphook">About SharpHook</h1>
 
-<p>SharpHook. Version 1.1.0. Created by Tolik Pylypchuk.</p>
+<p>SharpHook. Version 2.0.0. Created by Tolik Pylypchuk.</p>
 <h2 id="library-status">Library Status</h2>
 <p>No other features are planned, but I will maintain the library to keep up with the releases of libuiohook which uses a
 rolling release model - every commit to its <code>1.2</code> branch is considered stable. That said, libuiohook itself is not
 really active anymore, but is still maintained, so this library will most probably receive updates quite rarely.</p>
 <h2 id="changelog">Changelog</h2>
+<h2 id="v200-04-february-2022"><a href="https://github.com/TolikPylypchuk/SharpHook/releases/tag/v2.0.0">v2.0.0</a> (04 February 2022)</h2>
+<ul>
+<li><p>Global hooks now support both blocking and non-blocking running via the <code>Run</code> and <code>RunAsync</code> methods, and the <code>Start</code>
+method was removed.</p>
+</li>
+<li><p>Support for suppressing event propagation.</p>
+</li>
+<li><p><code>UioHookEvent.Time</code> now has the correct type - <code>ulong</code> instead of <code>ushort</code>.</p>
+</li>
+<li><p>Global hooks now throw an exception if they are started when already running.</p>
+</li>
+</ul>
 <h2 id="v110-04-december-2021"><a href="https://github.com/TolikPylypchuk/SharpHook/releases/tag/v1.1.0">v1.1.0</a> (04 December 2021)</h2>
 <ul>
 <li><p>Cross-platform input event simulation using libuiohook.</p>

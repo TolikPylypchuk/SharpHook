@@ -441,7 +441,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/about.html",
-          "hash": "C+RXoryb/eYTnGqWxLZ6Bnhd4NtGsbbfv4y/eWk75Uo="
+          "hash": "MzumkfzPr+Tq4yH2a2XwN6c8RzWAj92+/YkbaqIwyOM="
         }
       },
       "is_incremental": false,
@@ -453,7 +453,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/hooks.html",
-          "hash": "/6KFp9q5/xw8X1lsDij5gaFSE5iF4LpED0c0r6vSV5g="
+          "hash": "dCM1EU6PF901lVSRObpvyRvzTR4zjoWnsex3+syNBW4="
         }
       },
       "is_incremental": false,
@@ -485,11 +485,23 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/migration.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/migration.html",
+          "hash": "jhxRVEuMJkOl+6deSYwmZWdM/2mpN0ZUfiDL9tG9QR4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "articles/native.md",
       "output": {
         ".html": {
           "relative_path": "articles/native.html",
-          "hash": "nRgHOPZKBi9chXI6W9ppVC0CYPvCD98fFRyGbSauD3s="
+          "hash": "VcudFRBQB5gFqjO3b8IAyICGRvxNiNdjV1wbLRrPXbQ="
         }
       },
       "is_incremental": false,
@@ -501,7 +513,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/reactive.html",
-          "hash": "2ix/ZzGeHKD85b/oj1NJxKQm9Pgf50rgzpip9ssbYFk="
+          "hash": "cLsLXajWkrYZR2XZ91KLNWIHVca79srm55gD/OJsl8Y="
         }
       },
       "is_incremental": false,
@@ -525,7 +537,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/toc.html",
-          "hash": "cgvtcrI20uoNUBGAyz1OsZZoaBoiihpFN9E3iqHv6KI="
+          "hash": "/00WStrdrU38WqQRYaLPC7dMp1veQAcK0DX0nPejrPI="
         }
       },
       "is_incremental": false,
@@ -548,7 +560,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "N1c2wgay/1Rz4+buUWV+yyRKdrH2WtWp+wQDQG87eB8="
+          "hash": "TLDi5WCRzGJ5aawpdnI4hUrx/fXIdgW7Uo8H3PmalCw="
         }
       },
       "is_incremental": false,
@@ -592,7 +604,7 @@
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 9,
+          "total_file_count": 10,
           "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {
