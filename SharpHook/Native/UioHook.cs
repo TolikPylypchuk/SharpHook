@@ -46,8 +46,8 @@ public static class UioHook
     /// <remarks>
     /// <para>
     /// The instance of the event doesn't need all fields to have value. Only <see cref="UioHookEvent.Type" />,
-    /// <see cref="UioHookEvent.Keyboard" />/<see cref="UioHookEvent.Mouse" />/<see cref="UioHookEvent.Wheel" /> and
-    /// <see cref="UioHookEvent.Mask" /> should be present. <see cref="UioHookEvent.Mask" /> is ignored on Windows.
+    /// <see cref="UioHookEvent.Keyboard" />/<see cref="UioHookEvent.Mouse" />/<see cref="UioHookEvent.Wheel" /> should
+    /// be present.
     /// </para>
     /// <para>
     /// The following table describes the specifics of simulating each event type.
@@ -74,9 +74,7 @@ public static class UioHook
     /// </item>
     /// <item>
     /// <term><see cref="EventType.KeyTyped" /></term>
-    /// <term>
-    /// Not recommended to use since on some platforms events of this type are ignored, while on others they are not.
-    /// </term>
+    /// <term>Events of this type are ignored.</term>
     /// </item>
     /// <item>
     /// <term><see cref="EventType.MousePressed" /></term>
@@ -88,9 +86,7 @@ public static class UioHook
     /// </item>
     /// <item>
     /// <term><see cref="EventType.MouseClicked" /></term>
-    /// <term>
-    /// Not recommended to use since on some platforms events of this type are ignored, while on others they are not.
-    /// </term>
+    /// <term>Events of this type are ignored.</term>
     /// </item>
     /// <item>
     /// <term><see cref="EventType.MouseMoved" /></term>
@@ -98,7 +94,7 @@ public static class UioHook
     /// </item>
     /// <item>
     /// <term><see cref="EventType.MouseDragged" /></term>
-    /// <term>Not recommended to use; instead, use <see cref="EventType.MouseMoved" /> with a modifier mask.</term>
+    /// <term>Not recommended to use; same as <see cref="EventType.MouseMoved" />.</term>
     /// </item>
     /// <item>
     /// <term><see cref="EventType.MouseWheel" /></term>
