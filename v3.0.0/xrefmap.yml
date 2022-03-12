@@ -13,12 +13,12 @@ references:
   commentId: T:SharpHook.EventSimulator
   fullName: SharpHook.EventSimulator
   nameWithType: EventSimulator
-- uid: SharpHook.EventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode,SharpHook.Native.ModifierMask)
-  name: SimulateKeyPress(KeyCode, ModifierMask)
-  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateKeyPress_SharpHook_Native_KeyCode_SharpHook_Native_ModifierMask_
-  commentId: M:SharpHook.EventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode,SharpHook.Native.ModifierMask)
-  fullName: SharpHook.EventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode, SharpHook.Native.ModifierMask)
-  nameWithType: EventSimulator.SimulateKeyPress(KeyCode, ModifierMask)
+- uid: SharpHook.EventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode)
+  name: SimulateKeyPress(KeyCode)
+  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateKeyPress_SharpHook_Native_KeyCode_
+  commentId: M:SharpHook.EventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode)
+  fullName: SharpHook.EventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode)
+  nameWithType: EventSimulator.SimulateKeyPress(KeyCode)
 - uid: SharpHook.EventSimulator.SimulateKeyPress*
   name: SimulateKeyPress
   href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateKeyPress_
@@ -26,12 +26,12 @@ references:
   isSpec: "True"
   fullName: SharpHook.EventSimulator.SimulateKeyPress
   nameWithType: EventSimulator.SimulateKeyPress
-- uid: SharpHook.EventSimulator.SimulateKeyRelease(SharpHook.Native.KeyCode,SharpHook.Native.ModifierMask)
-  name: SimulateKeyRelease(KeyCode, ModifierMask)
-  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateKeyRelease_SharpHook_Native_KeyCode_SharpHook_Native_ModifierMask_
-  commentId: M:SharpHook.EventSimulator.SimulateKeyRelease(SharpHook.Native.KeyCode,SharpHook.Native.ModifierMask)
-  fullName: SharpHook.EventSimulator.SimulateKeyRelease(SharpHook.Native.KeyCode, SharpHook.Native.ModifierMask)
-  nameWithType: EventSimulator.SimulateKeyRelease(KeyCode, ModifierMask)
+- uid: SharpHook.EventSimulator.SimulateKeyRelease(SharpHook.Native.KeyCode)
+  name: SimulateKeyRelease(KeyCode)
+  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateKeyRelease_SharpHook_Native_KeyCode_
+  commentId: M:SharpHook.EventSimulator.SimulateKeyRelease(SharpHook.Native.KeyCode)
+  fullName: SharpHook.EventSimulator.SimulateKeyRelease(SharpHook.Native.KeyCode)
+  nameWithType: EventSimulator.SimulateKeyRelease(KeyCode)
 - uid: SharpHook.EventSimulator.SimulateKeyRelease*
   name: SimulateKeyRelease
   href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateKeyRelease_
@@ -39,12 +39,12 @@ references:
   isSpec: "True"
   fullName: SharpHook.EventSimulator.SimulateKeyRelease
   nameWithType: EventSimulator.SimulateKeyRelease
-- uid: SharpHook.EventSimulator.SimulateMouseMovement(System.Int16,System.Int16,SharpHook.Native.ModifierMask)
-  name: SimulateMouseMovement(Int16, Int16, ModifierMask)
-  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMouseMovement_System_Int16_System_Int16_SharpHook_Native_ModifierMask_
-  commentId: M:SharpHook.EventSimulator.SimulateMouseMovement(System.Int16,System.Int16,SharpHook.Native.ModifierMask)
-  fullName: SharpHook.EventSimulator.SimulateMouseMovement(System.Int16, System.Int16, SharpHook.Native.ModifierMask)
-  nameWithType: EventSimulator.SimulateMouseMovement(Int16, Int16, ModifierMask)
+- uid: SharpHook.EventSimulator.SimulateMouseMovement(System.Int16,System.Int16)
+  name: SimulateMouseMovement(Int16, Int16)
+  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMouseMovement_System_Int16_System_Int16_
+  commentId: M:SharpHook.EventSimulator.SimulateMouseMovement(System.Int16,System.Int16)
+  fullName: SharpHook.EventSimulator.SimulateMouseMovement(System.Int16, System.Int16)
+  nameWithType: EventSimulator.SimulateMouseMovement(Int16, Int16)
 - uid: SharpHook.EventSimulator.SimulateMouseMovement*
   name: SimulateMouseMovement
   href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMouseMovement_
@@ -52,12 +52,12 @@ references:
   isSpec: "True"
   fullName: SharpHook.EventSimulator.SimulateMouseMovement
   nameWithType: EventSimulator.SimulateMouseMovement
-- uid: SharpHook.EventSimulator.SimulateMousePress(SharpHook.Native.MouseButton,SharpHook.Native.ModifierMask)
-  name: SimulateMousePress(MouseButton, ModifierMask)
-  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMousePress_SharpHook_Native_MouseButton_SharpHook_Native_ModifierMask_
-  commentId: M:SharpHook.EventSimulator.SimulateMousePress(SharpHook.Native.MouseButton,SharpHook.Native.ModifierMask)
-  fullName: SharpHook.EventSimulator.SimulateMousePress(SharpHook.Native.MouseButton, SharpHook.Native.ModifierMask)
-  nameWithType: EventSimulator.SimulateMousePress(MouseButton, ModifierMask)
+- uid: SharpHook.EventSimulator.SimulateMousePress(SharpHook.Native.MouseButton)
+  name: SimulateMousePress(MouseButton)
+  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMousePress_SharpHook_Native_MouseButton_
+  commentId: M:SharpHook.EventSimulator.SimulateMousePress(SharpHook.Native.MouseButton)
+  fullName: SharpHook.EventSimulator.SimulateMousePress(SharpHook.Native.MouseButton)
+  nameWithType: EventSimulator.SimulateMousePress(MouseButton)
 - uid: SharpHook.EventSimulator.SimulateMousePress*
   name: SimulateMousePress
   href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMousePress_
@@ -65,12 +65,12 @@ references:
   isSpec: "True"
   fullName: SharpHook.EventSimulator.SimulateMousePress
   nameWithType: EventSimulator.SimulateMousePress
-- uid: SharpHook.EventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton,SharpHook.Native.ModifierMask)
-  name: SimulateMouseRelease(MouseButton, ModifierMask)
-  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMouseRelease_SharpHook_Native_MouseButton_SharpHook_Native_ModifierMask_
-  commentId: M:SharpHook.EventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton,SharpHook.Native.ModifierMask)
-  fullName: SharpHook.EventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton, SharpHook.Native.ModifierMask)
-  nameWithType: EventSimulator.SimulateMouseRelease(MouseButton, ModifierMask)
+- uid: SharpHook.EventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton)
+  name: SimulateMouseRelease(MouseButton)
+  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMouseRelease_SharpHook_Native_MouseButton_
+  commentId: M:SharpHook.EventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton)
+  fullName: SharpHook.EventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton)
+  nameWithType: EventSimulator.SimulateMouseRelease(MouseButton)
 - uid: SharpHook.EventSimulator.SimulateMouseRelease*
   name: SimulateMouseRelease
   href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMouseRelease_
@@ -78,12 +78,12 @@ references:
   isSpec: "True"
   fullName: SharpHook.EventSimulator.SimulateMouseRelease
   nameWithType: EventSimulator.SimulateMouseRelease
-- uid: SharpHook.EventSimulator.SimulateMouseWheel(System.Int16,System.Int16,System.UInt16,System.Int16,SharpHook.Native.ModifierMask)
-  name: SimulateMouseWheel(Int16, Int16, UInt16, Int16, ModifierMask)
-  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMouseWheel_System_Int16_System_Int16_System_UInt16_System_Int16_SharpHook_Native_ModifierMask_
-  commentId: M:SharpHook.EventSimulator.SimulateMouseWheel(System.Int16,System.Int16,System.UInt16,System.Int16,SharpHook.Native.ModifierMask)
-  fullName: SharpHook.EventSimulator.SimulateMouseWheel(System.Int16, System.Int16, System.UInt16, System.Int16, SharpHook.Native.ModifierMask)
-  nameWithType: EventSimulator.SimulateMouseWheel(Int16, Int16, UInt16, Int16, ModifierMask)
+- uid: SharpHook.EventSimulator.SimulateMouseWheel(System.Int16,System.Int16,System.UInt16,System.Int16)
+  name: SimulateMouseWheel(Int16, Int16, UInt16, Int16)
+  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMouseWheel_System_Int16_System_Int16_System_UInt16_System_Int16_
+  commentId: M:SharpHook.EventSimulator.SimulateMouseWheel(System.Int16,System.Int16,System.UInt16,System.Int16)
+  fullName: SharpHook.EventSimulator.SimulateMouseWheel(System.Int16, System.Int16, System.UInt16, System.Int16)
+  nameWithType: EventSimulator.SimulateMouseWheel(Int16, Int16, UInt16, Int16)
 - uid: SharpHook.EventSimulator.SimulateMouseWheel*
   name: SimulateMouseWheel
   href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMouseWheel_
@@ -554,12 +554,12 @@ references:
   commentId: T:SharpHook.IEventSimulator
   fullName: SharpHook.IEventSimulator
   nameWithType: IEventSimulator
-- uid: SharpHook.IEventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode,SharpHook.Native.ModifierMask)
-  name: SimulateKeyPress(KeyCode, ModifierMask)
-  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateKeyPress_SharpHook_Native_KeyCode_SharpHook_Native_ModifierMask_
-  commentId: M:SharpHook.IEventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode,SharpHook.Native.ModifierMask)
-  fullName: SharpHook.IEventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode, SharpHook.Native.ModifierMask)
-  nameWithType: IEventSimulator.SimulateKeyPress(KeyCode, ModifierMask)
+- uid: SharpHook.IEventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode)
+  name: SimulateKeyPress(KeyCode)
+  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateKeyPress_SharpHook_Native_KeyCode_
+  commentId: M:SharpHook.IEventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode)
+  fullName: SharpHook.IEventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode)
+  nameWithType: IEventSimulator.SimulateKeyPress(KeyCode)
 - uid: SharpHook.IEventSimulator.SimulateKeyPress*
   name: SimulateKeyPress
   href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateKeyPress_
@@ -567,12 +567,12 @@ references:
   isSpec: "True"
   fullName: SharpHook.IEventSimulator.SimulateKeyPress
   nameWithType: IEventSimulator.SimulateKeyPress
-- uid: SharpHook.IEventSimulator.SimulateKeyRelease(SharpHook.Native.KeyCode,SharpHook.Native.ModifierMask)
-  name: SimulateKeyRelease(KeyCode, ModifierMask)
-  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateKeyRelease_SharpHook_Native_KeyCode_SharpHook_Native_ModifierMask_
-  commentId: M:SharpHook.IEventSimulator.SimulateKeyRelease(SharpHook.Native.KeyCode,SharpHook.Native.ModifierMask)
-  fullName: SharpHook.IEventSimulator.SimulateKeyRelease(SharpHook.Native.KeyCode, SharpHook.Native.ModifierMask)
-  nameWithType: IEventSimulator.SimulateKeyRelease(KeyCode, ModifierMask)
+- uid: SharpHook.IEventSimulator.SimulateKeyRelease(SharpHook.Native.KeyCode)
+  name: SimulateKeyRelease(KeyCode)
+  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateKeyRelease_SharpHook_Native_KeyCode_
+  commentId: M:SharpHook.IEventSimulator.SimulateKeyRelease(SharpHook.Native.KeyCode)
+  fullName: SharpHook.IEventSimulator.SimulateKeyRelease(SharpHook.Native.KeyCode)
+  nameWithType: IEventSimulator.SimulateKeyRelease(KeyCode)
 - uid: SharpHook.IEventSimulator.SimulateKeyRelease*
   name: SimulateKeyRelease
   href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateKeyRelease_
@@ -580,12 +580,12 @@ references:
   isSpec: "True"
   fullName: SharpHook.IEventSimulator.SimulateKeyRelease
   nameWithType: IEventSimulator.SimulateKeyRelease
-- uid: SharpHook.IEventSimulator.SimulateMouseMovement(System.Int16,System.Int16,SharpHook.Native.ModifierMask)
-  name: SimulateMouseMovement(Int16, Int16, ModifierMask)
-  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMouseMovement_System_Int16_System_Int16_SharpHook_Native_ModifierMask_
-  commentId: M:SharpHook.IEventSimulator.SimulateMouseMovement(System.Int16,System.Int16,SharpHook.Native.ModifierMask)
-  fullName: SharpHook.IEventSimulator.SimulateMouseMovement(System.Int16, System.Int16, SharpHook.Native.ModifierMask)
-  nameWithType: IEventSimulator.SimulateMouseMovement(Int16, Int16, ModifierMask)
+- uid: SharpHook.IEventSimulator.SimulateMouseMovement(System.Int16,System.Int16)
+  name: SimulateMouseMovement(Int16, Int16)
+  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMouseMovement_System_Int16_System_Int16_
+  commentId: M:SharpHook.IEventSimulator.SimulateMouseMovement(System.Int16,System.Int16)
+  fullName: SharpHook.IEventSimulator.SimulateMouseMovement(System.Int16, System.Int16)
+  nameWithType: IEventSimulator.SimulateMouseMovement(Int16, Int16)
 - uid: SharpHook.IEventSimulator.SimulateMouseMovement*
   name: SimulateMouseMovement
   href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMouseMovement_
@@ -593,12 +593,12 @@ references:
   isSpec: "True"
   fullName: SharpHook.IEventSimulator.SimulateMouseMovement
   nameWithType: IEventSimulator.SimulateMouseMovement
-- uid: SharpHook.IEventSimulator.SimulateMousePress(SharpHook.Native.MouseButton,SharpHook.Native.ModifierMask)
-  name: SimulateMousePress(MouseButton, ModifierMask)
-  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMousePress_SharpHook_Native_MouseButton_SharpHook_Native_ModifierMask_
-  commentId: M:SharpHook.IEventSimulator.SimulateMousePress(SharpHook.Native.MouseButton,SharpHook.Native.ModifierMask)
-  fullName: SharpHook.IEventSimulator.SimulateMousePress(SharpHook.Native.MouseButton, SharpHook.Native.ModifierMask)
-  nameWithType: IEventSimulator.SimulateMousePress(MouseButton, ModifierMask)
+- uid: SharpHook.IEventSimulator.SimulateMousePress(SharpHook.Native.MouseButton)
+  name: SimulateMousePress(MouseButton)
+  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMousePress_SharpHook_Native_MouseButton_
+  commentId: M:SharpHook.IEventSimulator.SimulateMousePress(SharpHook.Native.MouseButton)
+  fullName: SharpHook.IEventSimulator.SimulateMousePress(SharpHook.Native.MouseButton)
+  nameWithType: IEventSimulator.SimulateMousePress(MouseButton)
 - uid: SharpHook.IEventSimulator.SimulateMousePress*
   name: SimulateMousePress
   href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMousePress_
@@ -606,12 +606,12 @@ references:
   isSpec: "True"
   fullName: SharpHook.IEventSimulator.SimulateMousePress
   nameWithType: IEventSimulator.SimulateMousePress
-- uid: SharpHook.IEventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton,SharpHook.Native.ModifierMask)
-  name: SimulateMouseRelease(MouseButton, ModifierMask)
-  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMouseRelease_SharpHook_Native_MouseButton_SharpHook_Native_ModifierMask_
-  commentId: M:SharpHook.IEventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton,SharpHook.Native.ModifierMask)
-  fullName: SharpHook.IEventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton, SharpHook.Native.ModifierMask)
-  nameWithType: IEventSimulator.SimulateMouseRelease(MouseButton, ModifierMask)
+- uid: SharpHook.IEventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton)
+  name: SimulateMouseRelease(MouseButton)
+  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMouseRelease_SharpHook_Native_MouseButton_
+  commentId: M:SharpHook.IEventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton)
+  fullName: SharpHook.IEventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton)
+  nameWithType: IEventSimulator.SimulateMouseRelease(MouseButton)
 - uid: SharpHook.IEventSimulator.SimulateMouseRelease*
   name: SimulateMouseRelease
   href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMouseRelease_
@@ -619,12 +619,12 @@ references:
   isSpec: "True"
   fullName: SharpHook.IEventSimulator.SimulateMouseRelease
   nameWithType: IEventSimulator.SimulateMouseRelease
-- uid: SharpHook.IEventSimulator.SimulateMouseWheel(System.Int16,System.Int16,System.UInt16,System.Int16,SharpHook.Native.ModifierMask)
-  name: SimulateMouseWheel(Int16, Int16, UInt16, Int16, ModifierMask)
-  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMouseWheel_System_Int16_System_Int16_System_UInt16_System_Int16_SharpHook_Native_ModifierMask_
-  commentId: M:SharpHook.IEventSimulator.SimulateMouseWheel(System.Int16,System.Int16,System.UInt16,System.Int16,SharpHook.Native.ModifierMask)
-  fullName: SharpHook.IEventSimulator.SimulateMouseWheel(System.Int16, System.Int16, System.UInt16, System.Int16, SharpHook.Native.ModifierMask)
-  nameWithType: IEventSimulator.SimulateMouseWheel(Int16, Int16, UInt16, Int16, ModifierMask)
+- uid: SharpHook.IEventSimulator.SimulateMouseWheel(System.Int16,System.Int16,System.UInt16,System.Int16)
+  name: SimulateMouseWheel(Int16, Int16, UInt16, Int16)
+  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMouseWheel_System_Int16_System_Int16_System_UInt16_System_Int16_
+  commentId: M:SharpHook.IEventSimulator.SimulateMouseWheel(System.Int16,System.Int16,System.UInt16,System.Int16)
+  fullName: SharpHook.IEventSimulator.SimulateMouseWheel(System.Int16, System.Int16, System.UInt16, System.Int16)
+  nameWithType: IEventSimulator.SimulateMouseWheel(Int16, Int16, UInt16, Int16)
 - uid: SharpHook.IEventSimulator.SimulateMouseWheel*
   name: SimulateMouseWheel
   href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMouseWheel_
