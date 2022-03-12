@@ -14,37 +14,32 @@ public interface IEventSimulator
     /// Simulates pressing a key.
     /// </summary>
     /// <param name="keyCode">The code of the key to press.</param>
-    /// <param name="mask">The modifier mask of the event.</param>
-    public void SimulateKeyPress(KeyCode keyCode, ModifierMask mask = ModifierMask.None);
+    public void SimulateKeyPress(KeyCode keyCode);
 
     /// <summary>
     /// Simulates releasing a key.
     /// </summary>
     /// <param name="keyCode">The code of the key to release.</param>
-    /// <param name="mask">The modifier mask of the event.</param>
-    public void SimulateKeyRelease(KeyCode keyCode, ModifierMask mask = ModifierMask.None);
+    public void SimulateKeyRelease(KeyCode keyCode);
 
     /// <summary>
     /// Simulates pressing a mouse button.
     /// </summary>
     /// <param name="button">The mouse button to press.</param>
-    /// <param name="mask">The modifier mask of the event.</param>
-    public void SimulateMousePress(MouseButton button, ModifierMask mask = ModifierMask.None);
+    public void SimulateMousePress(MouseButton button);
 
     /// <summary>
     /// Simulates releasing a mouse button.
     /// </summary>
     /// <param name="button">The mouse button to release.</param>
-    /// <param name="mask">The modifier mask of the event.</param>
-    public void SimulateMouseRelease(MouseButton button, ModifierMask mask = ModifierMask.None);
+    public void SimulateMouseRelease(MouseButton button);
 
     /// <summary>
     /// Simulates moving a mouse pointer.
     /// </summary>
     /// <param name="x">The target X-coordinate of the mouse pointer.</param>
     /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
-    /// <param name="mask">The modifier mask of the event.</param>
-    public void SimulateMouseMovement(short x, short y, ModifierMask mask = ModifierMask.None);
+    public void SimulateMouseMovement(short x, short y);
 
     /// <summary>
     /// Simulates scrolling a mouse wheel.
@@ -53,15 +48,9 @@ public interface IEventSimulator
     /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
     /// <param name="amount">The scrolling amount.</param>
     /// <param name="rotation">The wheel rotation.</param>
-    /// <param name="mask">The modifier mask of the event.</param>
     /// <remarks>
     /// A positive <paramref name="rotation" /> value indicates that the wheel was rotated forward, away from the user;
     /// a negative value indicates that the wheel was rotated backward, toward the user.
     /// </remarks>
-    public void SimulateMouseWheel(
-        short x,
-        short y,
-        ushort amount,
-        short rotation,
-        ModifierMask mask = ModifierMask.None);
+    public void SimulateMouseWheel(short x, short y, ushort amount, short rotation);
 }

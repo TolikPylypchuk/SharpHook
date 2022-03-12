@@ -12,56 +12,44 @@ public class EventSimulator : IEventSimulator
     /// Simulates pressing a key.
     /// </summary>
     /// <param name="keyCode">The code of the key to press.</param>
-    /// <param name="mask">The modifier mask of the event.</param>
-    /// <remarks><paramref name="mask" /> is ignored on Windows.</remarks>
-    public void SimulateKeyPress(KeyCode keyCode, ModifierMask mask = ModifierMask.None) =>
+    public void SimulateKeyPress(KeyCode keyCode) =>
         this.PostEvent(new()
         {
             Type = EventType.KeyPressed,
-            Keyboard = new() { KeyCode = keyCode },
-            Mask = mask
+            Keyboard = new() { KeyCode = keyCode }
         });
 
     /// <summary>
     /// Simulates releasing a key.
     /// </summary>
     /// <param name="keyCode">The code of the key to release.</param>
-    /// <param name="mask">The modifier mask of the event.</param>
-    /// <remarks><paramref name="mask" /> is ignored on Windows.</remarks>
-    public void SimulateKeyRelease(KeyCode keyCode, ModifierMask mask = ModifierMask.None) =>
+    public void SimulateKeyRelease(KeyCode keyCode) =>
         this.PostEvent(new()
         {
             Type = EventType.KeyReleased,
-            Keyboard = new() { KeyCode = keyCode },
-            Mask = mask
+            Keyboard = new() { KeyCode = keyCode }
         });
 
     /// <summary>
     /// Simulates pressing a mouse button.
     /// </summary>
     /// <param name="button">The mouse button to press.</param>
-    /// <param name="mask">The modifier mask of the event.</param>
-    /// <remarks><paramref name="mask" /> is ignored on Windows.</remarks>
-    public void SimulateMousePress(MouseButton button, ModifierMask mask = ModifierMask.None) =>
+    public void SimulateMousePress(MouseButton button) =>
         this.PostEvent(new()
         {
             Type = EventType.MousePressed,
-            Mouse = new() { Button = button },
-            Mask = mask
+            Mouse = new() { Button = button }
         });
 
     /// <summary>
     /// Simulates releasing a mouse button.
     /// </summary>
     /// <param name="button">The mouse button to release.</param>
-    /// <param name="mask">The modifier mask of the event.</param>
-    /// <remarks><paramref name="mask" /> is ignored on Windows.</remarks>
-    public void SimulateMouseRelease(MouseButton button, ModifierMask mask = ModifierMask.None) =>
+    public void SimulateMouseRelease(MouseButton button) =>
         this.PostEvent(new()
         {
             Type = EventType.MouseReleased,
-            Mouse = new() { Button = button },
-            Mask = mask
+            Mouse = new() { Button = button }
         });
 
     /// <summary>
@@ -69,14 +57,11 @@ public class EventSimulator : IEventSimulator
     /// </summary>
     /// <param name="x">The target X-coordinate of the mouse pointer.</param>
     /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
-    /// <param name="mask">The modifier mask of the event.</param>
-    /// <remarks><paramref name="mask" /> is ignored on Windows.</remarks>
-    public void SimulateMouseMovement(short x, short y, ModifierMask mask = ModifierMask.None) =>
+    public void SimulateMouseMovement(short x, short y) =>
         this.PostEvent(new()
         {
             Type = EventType.MouseMoved,
-            Mouse = new() { X = x, Y = y },
-            Mask = mask
+            Mouse = new() { X = x, Y = y }
         });
 
     /// <summary>
@@ -86,31 +71,21 @@ public class EventSimulator : IEventSimulator
     /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
     /// <param name="amount">The scrolling amount.</param>
     /// <param name="rotation">The wheel rotation.</param>
-    /// <param name="mask">The modifier mask of the event.</param>
     /// <remarks>
     /// <para>
     /// A positive <paramref name="rotation" /> value indicates that the wheel was rotated forward, away from the user;
     /// a negative value indicates that the wheel was rotated backward, toward the user.
     /// </para>
     /// <para>
-    /// <paramref name="mask" /> is ignored on Windows.
-    /// </para>
-    /// <para>
     /// Mouse wheel simulation is a little inconsistent across platforms, and not documented. View the source code of
     /// libuiohook for more details.
     /// </para>
     /// </remarks>
-    public void SimulateMouseWheel(
-        short x,
-        short y,
-        ushort amount,
-        short rotation,
-        ModifierMask mask = ModifierMask.None) =>
+    public void SimulateMouseWheel(short x, short y, ushort amount, short rotation) =>
         this.PostEvent(new()
         {
             Type = EventType.MouseWheel,
-            Wheel = new() { X = x, Y = y, Amount = amount, Rotation = rotation },
-            Mask = mask
+            Wheel = new() { X = x, Y = y, Amount = amount, Rotation = rotation }
         });
 
     private void PostEvent(UioHookEvent e) =>

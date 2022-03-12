@@ -10,48 +10,38 @@
             </summary>
             <seealso cref="M:SharpHook.Native.UioHook.PostEvent(SharpHook.Native.UioHookEvent@)" />
         </member>
-        <member name="M:SharpHook.EventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode,SharpHook.Native.ModifierMask)">
+        <member name="M:SharpHook.EventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode)">
             <summary>
             Simulates pressing a key.
             </summary>
             <param name="keyCode">The code of the key to press.</param>
-            <param name="mask">The modifier mask of the event.</param>
-            <remarks><paramref name="mask" /> is ignored on Windows.</remarks>
         </member>
-        <member name="M:SharpHook.EventSimulator.SimulateKeyRelease(SharpHook.Native.KeyCode,SharpHook.Native.ModifierMask)">
+        <member name="M:SharpHook.EventSimulator.SimulateKeyRelease(SharpHook.Native.KeyCode)">
             <summary>
             Simulates releasing a key.
             </summary>
             <param name="keyCode">The code of the key to release.</param>
-            <param name="mask">The modifier mask of the event.</param>
-            <remarks><paramref name="mask" /> is ignored on Windows.</remarks>
         </member>
-        <member name="M:SharpHook.EventSimulator.SimulateMousePress(SharpHook.Native.MouseButton,SharpHook.Native.ModifierMask)">
+        <member name="M:SharpHook.EventSimulator.SimulateMousePress(SharpHook.Native.MouseButton)">
             <summary>
             Simulates pressing a mouse button.
             </summary>
             <param name="button">The mouse button to press.</param>
-            <param name="mask">The modifier mask of the event.</param>
-            <remarks><paramref name="mask" /> is ignored on Windows.</remarks>
         </member>
-        <member name="M:SharpHook.EventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton,SharpHook.Native.ModifierMask)">
+        <member name="M:SharpHook.EventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton)">
             <summary>
             Simulates releasing a mouse button.
             </summary>
             <param name="button">The mouse button to release.</param>
-            <param name="mask">The modifier mask of the event.</param>
-            <remarks><paramref name="mask" /> is ignored on Windows.</remarks>
         </member>
-        <member name="M:SharpHook.EventSimulator.SimulateMouseMovement(System.Int16,System.Int16,SharpHook.Native.ModifierMask)">
+        <member name="M:SharpHook.EventSimulator.SimulateMouseMovement(System.Int16,System.Int16)">
             <summary>
             Simulates moving a mouse pointer.
             </summary>
             <param name="x">The target X-coordinate of the mouse pointer.</param>
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
-            <param name="mask">The modifier mask of the event.</param>
-            <remarks><paramref name="mask" /> is ignored on Windows.</remarks>
         </member>
-        <member name="M:SharpHook.EventSimulator.SimulateMouseWheel(System.Int16,System.Int16,System.UInt16,System.Int16,SharpHook.Native.ModifierMask)">
+        <member name="M:SharpHook.EventSimulator.SimulateMouseWheel(System.Int16,System.Int16,System.UInt16,System.Int16)">
             <summary>
             Simulates scrolling a mouse wheel.
             </summary>
@@ -59,14 +49,10 @@
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
             <param name="amount">The scrolling amount.</param>
             <param name="rotation">The wheel rotation.</param>
-            <param name="mask">The modifier mask of the event.</param>
             <remarks>
             <para>
             A positive <paramref name="rotation" /> value indicates that the wheel was rotated forward, away from the user;
             a negative value indicates that the wheel was rotated backward, toward the user.
-            </para>
-            <para>
-            <paramref name="mask" /> is ignored on Windows.
             </para>
             <para>
             Mouse wheel simulation is a little inconsistent across platforms, and not documented. View the source code of
@@ -384,43 +370,38 @@
             The methods of this interface correspond to constants defined in the <see cref="T:SharpHook.Native.EventType" /> enum.
             </remarks>
         </member>
-        <member name="M:SharpHook.IEventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode,SharpHook.Native.ModifierMask)">
+        <member name="M:SharpHook.IEventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode)">
             <summary>
             Simulates pressing a key.
             </summary>
             <param name="keyCode">The code of the key to press.</param>
-            <param name="mask">The modifier mask of the event.</param>
         </member>
-        <member name="M:SharpHook.IEventSimulator.SimulateKeyRelease(SharpHook.Native.KeyCode,SharpHook.Native.ModifierMask)">
+        <member name="M:SharpHook.IEventSimulator.SimulateKeyRelease(SharpHook.Native.KeyCode)">
             <summary>
             Simulates releasing a key.
             </summary>
             <param name="keyCode">The code of the key to release.</param>
-            <param name="mask">The modifier mask of the event.</param>
         </member>
-        <member name="M:SharpHook.IEventSimulator.SimulateMousePress(SharpHook.Native.MouseButton,SharpHook.Native.ModifierMask)">
+        <member name="M:SharpHook.IEventSimulator.SimulateMousePress(SharpHook.Native.MouseButton)">
             <summary>
             Simulates pressing a mouse button.
             </summary>
             <param name="button">The mouse button to press.</param>
-            <param name="mask">The modifier mask of the event.</param>
         </member>
-        <member name="M:SharpHook.IEventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton,SharpHook.Native.ModifierMask)">
+        <member name="M:SharpHook.IEventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton)">
             <summary>
             Simulates releasing a mouse button.
             </summary>
             <param name="button">The mouse button to release.</param>
-            <param name="mask">The modifier mask of the event.</param>
         </member>
-        <member name="M:SharpHook.IEventSimulator.SimulateMouseMovement(System.Int16,System.Int16,SharpHook.Native.ModifierMask)">
+        <member name="M:SharpHook.IEventSimulator.SimulateMouseMovement(System.Int16,System.Int16)">
             <summary>
             Simulates moving a mouse pointer.
             </summary>
             <param name="x">The target X-coordinate of the mouse pointer.</param>
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
-            <param name="mask">The modifier mask of the event.</param>
         </member>
-        <member name="M:SharpHook.IEventSimulator.SimulateMouseWheel(System.Int16,System.Int16,System.UInt16,System.Int16,SharpHook.Native.ModifierMask)">
+        <member name="M:SharpHook.IEventSimulator.SimulateMouseWheel(System.Int16,System.Int16,System.UInt16,System.Int16)">
             <summary>
             Simulates scrolling a mouse wheel.
             </summary>
@@ -428,7 +409,6 @@
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
             <param name="amount">The scrolling amount.</param>
             <param name="rotation">The wheel rotation.</param>
-            <param name="mask">The modifier mask of the event.</param>
             <remarks>
             A positive <paramref name="rotation" /> value indicates that the wheel was rotated forward, away from the user;
             a negative value indicates that the wheel was rotated backward, toward the user.
