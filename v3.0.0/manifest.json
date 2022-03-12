@@ -1,0 +1,649 @@
+{
+  "homepages": [],
+  "source_base_path": "D:/a/SharpHook/SharpHook/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.EventSimulator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.EventSimulator.html",
+          "hash": "oMXfJlkdPIh296y06MuArrQ5R2Ix4QCAiMDiKP18Z2g="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.GlobalHookBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.GlobalHookBase.html",
+          "hash": "UEYaJl+sZ3qFnU0QY/LL7dZEyWDaV/3uVUlB1MAQ5TQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.HookEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.HookEventArgs.html",
+          "hash": "s5JmAvdQ5pgQ8C94U5oLde8LMsI3H0lYVctdzVYQOBM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.HookException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.HookException.html",
+          "hash": "fzuXbGV96TKl32h1ZtsgUr8EydihoSCmfaMCAc6uvuY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.IEventSimulator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.IEventSimulator.html",
+          "hash": "ctDqtbPsBKGRSTRanzj4uHpRaSB6Gin1EOsK+Ye9TUg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.IGlobalHook.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.IGlobalHook.html",
+          "hash": "kLYH7lpqiM4V/00K1xJDkLOxy+n0Z5OcYqxqs1IjcX0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.KeyboardHookEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.KeyboardHookEventArgs.html",
+          "hash": "JT1D4Ccuzh8FUj1bMULU+bYoRWDAFyHTUOMrv9IbFt4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.MouseHookEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.MouseHookEventArgs.html",
+          "hash": "JJWDqCQsMO5fg4jTtwCYQcs6JaPrkQVtElZ7XZjIcrg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.MouseWheelHookEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.MouseWheelHookEventArgs.html",
+          "hash": "jbsVSRYhJBzalmLyIhWrLQQ5bDwCyrfqVPrORt/uTes="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Native.DispatchProc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Native.DispatchProc.html",
+          "hash": "2Bq7YFAEGvWaByior8pTI0g4miIKxhVl/ZfyvOU/92g="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Native.EventReservedValueMask.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Native.EventReservedValueMask.html",
+          "hash": "sVwdp6SEVj61RJC1Bbt/u0ed2rIH32ruZTo2xJ124f0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Native.EventType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Native.EventType.html",
+          "hash": "W20ZNb9jRF6KooPcPObaUGKMQxToXsTCEveJwjAHCsk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Native.KeyCode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Native.KeyCode.html",
+          "hash": "kow1TRQzQkLrbfVmM2zYdCwb/+sgYNSwZaek+XsjdQY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Native.KeyboardEventData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Native.KeyboardEventData.html",
+          "hash": "PfROAAX3MgO6dv1/bQBldk48xjghkEX0hcsvqvX5rZM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Native.ModifierMask.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Native.ModifierMask.html",
+          "hash": "qtxaJa2k/agGj+JYvzvMsRR9f8Zwszu1jOxxGASZj88="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Native.MouseButton.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Native.MouseButton.html",
+          "hash": "bV6QtrGWPXwDiqqvWL5Oemhay1hM4XXWQI4+SsP2c80="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Native.MouseEventData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Native.MouseEventData.html",
+          "hash": "vrIqJYNHu5XB04+MVOQf0ktbqxwBsxnp0DoOzSKcjCI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Native.MouseWheelEventData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Native.MouseWheelEventData.html",
+          "hash": "ETStIduYUk1OxTg5qz0EOwAxPlJuycma8pTASDPa5/w="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Native.MouseWheelScrollDirection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Native.MouseWheelScrollDirection.html",
+          "hash": "3PlkFTUkb+ep9mvAYcFqStao25niSIpvBWFu7Z5LxtA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Native.MouseWheelScrollType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Native.MouseWheelScrollType.html",
+          "hash": "I14Negw9K0GdB2JBQaKVG7wRcAffzLYNIJWPRIZeC+o="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Native.ScreenData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Native.ScreenData.html",
+          "hash": "3WtmW84lK3VK7wMTISI3Xve91tmFNRvhSFOB215qhLE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Native.UioHook.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Native.UioHook.html",
+          "hash": "W6JK/WIrXVo4MNbwvcSB4cusTKQxTf0gy7cWCN+3gvA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Native.UioHookEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Native.UioHookEvent.html",
+          "hash": "u5gQLxnaP6XWU8y7Vj3gpGVB1q8zZpWXlZplXxX7enA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Native.UioHookResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Native.UioHookResult.html",
+          "hash": "3UmVZHT36dybco5Xo8KWBJ8lX4tqvcOx6LLoMqkds1k="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Native.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Native.html",
+          "hash": "8NroTIDGzQy/Tnozy69qJtUb79DkJfpcbo5FKRLm0dc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Reactive.HookEvent-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Reactive.HookEvent-1.html",
+          "hash": "td8NtP3U640oqKZRWLaHL3GcHgGy+yz0ffiRmDfrqSk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Reactive.IReactiveGlobalHook.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Reactive.IReactiveGlobalHook.html",
+          "hash": "mN2dL5YjZPu8Ikvgnzgs1mw93uHW0tmfMEPjDnMSw5c="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Reactive.ReactiveGlobalHookAdapter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html",
+          "hash": "1cKvCF2aZ0I7fj3eDlBeV4HbaiOpLjRZ+dZ+LdUgUKY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Reactive.SimpleReactiveGlobalHook.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Reactive.SimpleReactiveGlobalHook.html",
+          "hash": "XeqqJ5SNGZlkjihdbzCsSf8aGBOX7ujqfYWfMOS6S9g="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Reactive.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Reactive.html",
+          "hash": "rNKKz3S5M/tYYHabczaJZ0SnfBn9IG/t7FbjK8389cE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.SimpleGlobalHook.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.SimpleGlobalHook.html",
+          "hash": "ilJVn5vE1rfmSEqv6IaOAwCNhqRrJRmzc5UHLYSu6Qk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.TaskPoolGlobalHook.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.TaskPoolGlobalHook.html",
+          "hash": "1CRmbeZED5AK0wyaexD4C8f7OTvaBS02ZUDWNvzO0CY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.TaskPoolGlobalHookOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.TaskPoolGlobalHookOptions.html",
+          "hash": "3VQvYZYLB3g+0Rm+LqgAfoiBeq17HJI97RvoiHQIAac="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.html",
+          "hash": "5aZWYI3eNUvndsjZmMfW8q+6dCQYuGrQUgYFRhgacLw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "U75gTjPas+FPiWD2C4/TgVhkc3nwvkGKToEQ//uK45I="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "E0Fe1TRCvywxNa/WjFBmvBkjFtOaEof4f5cvtfKSbHA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/about.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/about.html",
+          "hash": "MzumkfzPr+Tq4yH2a2XwN6c8RzWAj92+/YkbaqIwyOM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/hooks.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/hooks.html",
+          "hash": "XSYN13+v8vlFQV8R/66dSabTsfEteOmqS78Aa7DpVLk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "NJxc77+DuM7tO/RsX5DvJ1r31/UJRa+CtbxWE+7epFY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/limitations.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/limitations.html",
+          "hash": "WbSWAoG6WjnqtLvy39NKMwK0aQJuZPo0D1pfpsjxAQ0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/migration.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/migration.html",
+          "hash": "twqlvOM8wM3nEGeo3R27+V27tMR3z/H2UTIDh0faLdU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/native.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/native.html",
+          "hash": "S0ucQG+V/0FLiDMJ7tANHZblzkkUe1KU38hwVExWdXM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/reactive.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/reactive.html",
+          "hash": "cLsLXajWkrYZR2XZ91KLNWIHVca79srm55gD/OJsl8Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/simulation.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/simulation.html",
+          "hash": "LWU5dXithxc9d8PhXRWuZxXoPQb3S7XDSp63TfsyknA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "/00WStrdrU38WqQRYaLPC7dMp1veQAcK0DX0nPejrPI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "favicon.ico"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "TLDi5WCRzGJ5aawpdnI4hUrx/fXIdgW7Uo8H3PmalCw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "logo.png",
+      "output": {
+        "resource": {
+          "relative_path": "logo.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "XqbaU15nM0zpIO2JMHhgFOxguHLkyXtyVBIFzeYfanA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 10,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 34,
+          "skipped_file_count": 0
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
