@@ -2,6 +2,7 @@ namespace SharpHook;
 
 using System;
 
+using SharpHook.Internal;
 using SharpHook.Native;
 
 /// <summary>
@@ -17,14 +18,23 @@ public class HookEventArgs : EventArgs
     /// Initializes a new instance of the <see cref="HookEventArgs" /> class.
     /// </summary>
     /// <param name="rawEvent">The raw event data.</param>
-    public HookEventArgs(UioHookEvent rawEvent) =>
+    public HookEventArgs(UioHookEvent rawEvent)
+    {
         this.RawEvent = rawEvent;
+        this.EventTime = rawEvent.Time.ToDateTimeOffset();
+    }
 
     /// <summary>
     /// Gets the raw event data.
     /// </summary>
     /// <value>The raw event data.</value>
     public UioHookEvent RawEvent { get; }
+
+    /// <summary>
+    /// Gets the date and time of the event (in UTC), derived from the event's UNIX timestamp.
+    /// </summary>
+    /// <value>The date and time of the event.</value>
+    public DateTimeOffset EventTime { get; }
 
     /// <summary>
     /// Gets or sets the value which will be set to the <see cref="UioHookEvent.Reserved" /> field after running

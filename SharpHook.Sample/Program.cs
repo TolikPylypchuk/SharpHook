@@ -92,7 +92,7 @@ public static class Program
     }
 
     private static void OnHookEvent(object? sender, HookEventArgs e) =>
-        Console.WriteLine(e.RawEvent);
+        Console.WriteLine($"{e.EventTime.ToLocalTime()}: {e.RawEvent}");
 
     private static void OnKeyReleased(object? sender, KeyboardHookEventArgs e)
     {

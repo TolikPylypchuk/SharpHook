@@ -289,6 +289,12 @@
             </summary>
             <value>The raw event data.</value>
         </member>
+        <member name="P:SharpHook.HookEventArgs.EventTime">
+            <summary>
+            Gets the date and time of the event (in UTC), derived from the event's UNIX timestamp.
+            </summary>
+            <value>The date and time of the event.</value>
+        </member>
         <member name="P:SharpHook.HookEventArgs.Reserved">
             <summary>
             Gets or sets the value which will be set to the <see cref="F:SharpHook.Native.UioHookEvent.Reserved" /> field after running
@@ -1008,8 +1014,8 @@
             <remarks>
             <para>
             The instance of the event doesn't need all fields to have value. Only <see cref="F:SharpHook.Native.UioHookEvent.Type" />,
-            <see cref="F:SharpHook.Native.UioHookEvent.Keyboard" />/<see cref="F:SharpHook.Native.UioHookEvent.Mouse" />/<see cref="F:SharpHook.Native.UioHookEvent.Wheel" /> and
-            <see cref="F:SharpHook.Native.UioHookEvent.Mask" /> should be present. <see cref="F:SharpHook.Native.UioHookEvent.Mask" /> is ignored on Windows.
+            <see cref="F:SharpHook.Native.UioHookEvent.Keyboard" />/<see cref="F:SharpHook.Native.UioHookEvent.Mouse" />/<see cref="F:SharpHook.Native.UioHookEvent.Wheel" /> should
+            be present.
             </para>
             <para>
             The following table describes the specifics of simulating each event type.
@@ -1036,9 +1042,7 @@
             </item>
             <item>
             <term><see cref="F:SharpHook.Native.EventType.KeyTyped" /></term>
-            <term>
-            Not recommended to use since on some platforms events of this type are ignored, while on others they are not.
-            </term>
+            <term>Events of this type are ignored.</term>
             </item>
             <item>
             <term><see cref="F:SharpHook.Native.EventType.MousePressed" /></term>
@@ -1050,9 +1054,7 @@
             </item>
             <item>
             <term><see cref="F:SharpHook.Native.EventType.MouseClicked" /></term>
-            <term>
-            Not recommended to use since on some platforms events of this type are ignored, while on others they are not.
-            </term>
+            <term>Events of this type are ignored.</term>
             </item>
             <item>
             <term><see cref="F:SharpHook.Native.EventType.MouseMoved" /></term>
@@ -1060,7 +1062,7 @@
             </item>
             <item>
             <term><see cref="F:SharpHook.Native.EventType.MouseDragged" /></term>
-            <term>Not recommended to use; instead, use <see cref="F:SharpHook.Native.EventType.MouseMoved" /> with a modifier mask.</term>
+            <term>Not recommended to use; same as <see cref="F:SharpHook.Native.EventType.MouseMoved" />.</term>
             </item>
             <item>
             <term><see cref="F:SharpHook.Native.EventType.MouseWheel" /></term>
@@ -1185,9 +1187,9 @@
         </member>
         <member name="F:SharpHook.Native.UioHookEvent.Time">
             <summary>
-            The time of the event which should be used only to compare it to times of other events.
+            The UNIX timestamp of the event.
             </summary>
-            <value>The time of the event.</value>
+            <value>The UNIX timestamp of the event.</value>
         </member>
         <member name="F:SharpHook.Native.UioHookEvent.Mask">
             <summary>

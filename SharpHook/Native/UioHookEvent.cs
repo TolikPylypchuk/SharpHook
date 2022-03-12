@@ -53,9 +53,9 @@ public struct UioHookEvent : IEquatable<UioHookEvent>
     public EventType Type;
 
     /// <summary>
-    /// The time of the event which should be used only to compare it to times of other events.
+    /// The UNIX timestamp of the event.
     /// </summary>
-    /// <value>The time of the event.</value>
+    /// <value>The UNIX timestamp of the event.</value>
     [FieldOffset(8)]
     public ulong Time;
 
