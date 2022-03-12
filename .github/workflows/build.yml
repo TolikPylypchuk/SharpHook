@@ -36,7 +36,7 @@ jobs:
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/darwin/arm64 \
             -D CMAKE_VERBOSE_MAKEFILE=true \
             -D BUILD_SHARED_LIBS=ON \
-            -D BUILD_DEMO=ON
+            -D USE_EPOCH_TIME=ON
           cmake --build ${{github.workspace}}/build \
             --parallel 2 \
             --config RelWithDebInfo \
@@ -70,7 +70,7 @@ jobs:
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/darwin/x86_64 \
             -D CMAKE_VERBOSE_MAKEFILE=true \
             -D BUILD_SHARED_LIBS=ON \
-            -D BUILD_DEMO=ON
+            -D USE_EPOCH_TIME=ON
           cmake --build ${{github.workspace}}/build \
             --parallel 2 \
             --config RelWithDebInfo \
@@ -131,7 +131,7 @@ jobs:
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/linux/arm \
             -D CMAKE_VERBOSE_MAKEFILE=true \
             -D BUILD_SHARED_LIBS=ON \
-            -D BUILD_DEMO=ON
+            -D USE_EPOCH_TIME=ON
           cmake --build ${{github.workspace}}/build \
             --parallel 2 \
             --config RelWithDebInfo \
@@ -192,7 +192,7 @@ jobs:
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/linux/arm64 \
             -D CMAKE_VERBOSE_MAKEFILE=true \
             -D BUILD_SHARED_LIBS=ON \
-            -D BUILD_DEMO=ON
+            -D USE_EPOCH_TIME=ON
           cmake --build ${{github.workspace}}/build \
             --parallel 2 \
             --config RelWithDebInfo \
@@ -240,7 +240,7 @@ jobs:
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/linux/x86_64 \
             -D CMAKE_VERBOSE_MAKEFILE=true \
             -D BUILD_SHARED_LIBS=ON \
-            -D BUILD_DEMO=ON
+            -D USE_EPOCH_TIME=ON
           cmake --build ${{github.workspace}}/build \
             --parallel 2 \
             --config RelWithDebInfo \
@@ -253,7 +253,7 @@ jobs:
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-windows-arm:
-    runs-on: windows-2022
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -274,7 +274,7 @@ jobs:
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\arm `
             -D CMAKE_VERBOSE_MAKEFILE=true `
             -D BUILD_SHARED_LIBS=ON `
-            -D BUILD_DEMO=ON
+            -D USE_EPOCH_TIME=ON
           cmake --build ${{github.workspace}}\build `
             --parallel 2 `
             --config RelWithDebInfo `
@@ -287,7 +287,7 @@ jobs:
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-windows-arm64:
-    runs-on: windows-2022
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -308,7 +308,7 @@ jobs:
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\arm64 `
             -D CMAKE_VERBOSE_MAKEFILE=true `
             -D BUILD_SHARED_LIBS=ON `
-            -D BUILD_DEMO=ON
+            -D USE_EPOCH_TIME=ON
           cmake --build ${{github.workspace}}\build `
             --parallel 2 `
             --config RelWithDebInfo `
@@ -321,7 +321,7 @@ jobs:
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-windows-x86:
-    runs-on: windows-2022
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -342,7 +342,7 @@ jobs:
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\x86 `
             -D CMAKE_VERBOSE_MAKEFILE=true `
             -D BUILD_SHARED_LIBS=ON `
-            -D BUILD_DEMO=ON
+            -D USE_EPOCH_TIME=ON
           cmake --build ${{github.workspace}}\build `
             --parallel 2 `
             --config RelWithDebInfo `
@@ -355,7 +355,7 @@ jobs:
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-windows-x64:
-    runs-on: windows-2022
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -376,7 +376,7 @@ jobs:
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\x86_64 `
             -D CMAKE_VERBOSE_MAKEFILE=true `
             -D BUILD_SHARED_LIBS=ON `
-            -D BUILD_DEMO=ON
+            -D USE_EPOCH_TIME=ON
           cmake --build ${{github.workspace}}\build `
             --parallel 2 `
             --config RelWithDebInfo `
