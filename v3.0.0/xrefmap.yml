@@ -441,6 +441,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.HookEventArgs.HookEventArgs
   nameWithType: HookEventArgs.HookEventArgs
+- uid: SharpHook.HookEventArgs.EventTime
+  name: EventTime
+  href: api/SharpHook.HookEventArgs.html#SharpHook_HookEventArgs_EventTime
+  commentId: P:SharpHook.HookEventArgs.EventTime
+  fullName: SharpHook.HookEventArgs.EventTime
+  nameWithType: HookEventArgs.EventTime
+- uid: SharpHook.HookEventArgs.EventTime*
+  name: EventTime
+  href: api/SharpHook.HookEventArgs.html#SharpHook_HookEventArgs_EventTime_
+  commentId: Overload:SharpHook.HookEventArgs.EventTime
+  isSpec: "True"
+  fullName: SharpHook.HookEventArgs.EventTime
+  nameWithType: HookEventArgs.EventTime
 - uid: SharpHook.HookEventArgs.RawEvent
   name: RawEvent
   href: api/SharpHook.HookEventArgs.html#SharpHook_HookEventArgs_RawEvent
