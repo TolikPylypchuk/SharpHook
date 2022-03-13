@@ -6,6 +6,7 @@ using System.Reactive.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
+using SharpHook.Logging;
 using SharpHook.Native;
 using SharpHook.Reactive;
 
@@ -17,6 +18,8 @@ public static class Program
             Path.GetDirectoryName(Assembly.GetExecutingAssembly()?.Location) ?? String.Empty);
 
         Console.WriteLine("---------- SharpHook Sample ----------\n");
+
+        using var logSource = LogSource.Register(LogLevel.Debug);
 
         PrintSystemInfo();
 
@@ -91,8 +94,13 @@ public static class Program
         simulator.SimulateMouseWheel(0, 0, 10, -1);
     }
 
-    private static void OnHookEvent(object? sender, HookEventArgs e) =>
-        Console.WriteLine($"{e.EventTime.ToLocalTime()}: {e.RawEvent}");
+    private static void OnHookEvent(object? sender, HookEventArgs e)
+    {
+        // Console.WriteLine($"{e.EventTime.ToLocalTime()}: {e.RawEvent}");
+    }
+
+    private static void OnLogEvent(object? sender, LogEventArgs e) =>
+        Console.WriteLine($"{Enum.GetName(e.LogEntry.Level)?.ToUpper()}: {e.LogEntry.FullText}");
 
     private static void OnKeyReleased(object? sender, KeyboardHookEventArgs e)
     {

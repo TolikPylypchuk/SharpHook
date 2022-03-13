@@ -22,6 +22,7 @@ public static class UioHook
     /// </summary>
     /// <param name="dispatchProc">The function to call when an event is raised.</param>
     /// <remarks>Pass <see langword="null" /> to this function to unset a hook callback function.</remarks>
+    /// <seealso cref="DispatchProc" />
     [DllImport(LibUioHook, EntryPoint = "hook_set_dispatch_proc")]
     public static extern void SetDispatchProc(DispatchProc? dispatchProc);
 
@@ -38,6 +39,15 @@ public static class UioHook
     /// <returns>The result of the operation.</returns>
     [DllImport(LibUioHook, EntryPoint = "hook_stop")]
     public static extern UioHookResult Stop();
+
+    /// <summary>
+    /// Sets the log callback function.
+    /// </summary>
+    /// <param name="loggerProc">The function to call for logging.</param>
+    /// <remarks>Pass <see langword="null" /> to this function to unset a log callback function.</remarks>
+    /// <seealso cref="LoggerProc" />
+    [DllImport(LibUioHook, EntryPoint = "hook_set_logger_proc")]
+    public static extern void SetLoggerProc(LoggerProc? loggerProc);
 
     /// <summary>
     /// Posts a fake input event.

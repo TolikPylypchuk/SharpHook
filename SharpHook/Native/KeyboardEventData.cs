@@ -9,7 +9,7 @@ using SharpHook.Internal;
 /// Represents the data of a keyboard-related event.
 /// </summary>
 /// <seealso cref="KeyboardHookEventArgs" />
-/// <seealso cref="Native.KeyCode" />
+/// <seealso cref="SharpHook.Native.KeyCode" />
 [StructLayout(LayoutKind.Sequential)]
 public struct KeyboardEventData : IEquatable<KeyboardEventData>
 {

@@ -535,6 +535,133 @@
             </summary>
             <value>The event data.</value>
         </member>
+        <member name="T:SharpHook.Logging.ILogSource">
+            <summary>
+            Represents a source of libuiohook logs.
+            </summary>
+            <seealso cref="T:SharpHook.Logging.LogSource" />
+            <seealso cref="T:SharpHook.Logging.LogEventArgs" />
+            <seealso cref="T:SharpHook.Logging.LogEntry" />
+        </member>
+        <member name="E:SharpHook.Logging.ILogSource.MessageLogged">
+            <summary>
+            An event which is raised when libuiohook logs a message.
+            </summary>
+        </member>
+        <member name="T:SharpHook.Logging.LogEntry">
+            <summary>
+            Represents a log entry from libuiohook.
+            </summary>
+            <seealso cref="T:SharpHook.Logging.ILogSource" />
+            <seealso cref="T:SharpHook.Logging.LogSource" />
+            <seealso cref="T:SharpHook.Logging.LogEventArgs" />
+        </member>
+        <member name="F:SharpHook.Logging.LogEntry.Level">
+            <summary>
+            Gets the level of the current log entry.
+            </summary>
+            <value>The level of the current log entry.</value>
+        </member>
+        <member name="P:SharpHook.Logging.LogEntry.FullText">
+            <summary>
+            Gets the full text of the current log entry.
+            </summary>
+            <value>The full text of the current log entry.</value>
+            <remarks><c>entry.FullText</c> is the same as <c>String.Format(entry.Format, entry.Args)</c></remarks>
+        </member>
+        <member name="P:SharpHook.Logging.LogEntry.Format">
+            <summary>
+            Gets the format of the current log entry.
+            </summary>
+            <value>The format of the current log entry.</value>
+        </member>
+        <member name="P:SharpHook.Logging.LogEntry.RawFormat">
+            <summary>
+            Gets the raw format of the current log entry, as defined in libuiohook.
+            </summary>
+            <value>The raw format of the current log entry.</value>
+        </member>
+        <member name="P:SharpHook.Logging.LogEntry.Args">
+            <summary>
+            Gets the arguments of the current log entry.
+            </summary>
+            <value>The arguments of the current log entry.</value>
+        </member>
+        <member name="T:SharpHook.Logging.LogEntryParser">
+            <summary>
+            Creates log entries from log formats and native varargs.
+            </summary>
+        </member>
+        <member name="M:SharpHook.Logging.LogEntryParser.ParseNativeLogEntry(SharpHook.Native.LogLevel,System.IntPtr,System.IntPtr)">
+            <summary>
+            Parses a log format and native varargs to create a log entry.
+            </summary>
+            <param name="level">The log level.</param>
+            <param name="format">The format of the log message.</param>
+            <param name="args">The native varargs of the log message.</param>
+            <returns>A log entry represented by the level, format, and argumets.</returns>
+        </member>
+        <member name="T:SharpHook.Logging.LogEventArgs">
+            <summary>
+            Evnet args for logging events.
+            </summary>
+            <seealso cref="T:SharpHook.Logging.ILogSource" />
+            <seealso cref="T:SharpHook.Logging.LogSource" />
+            <seealso cref="T:SharpHook.Logging.LogEntry" />
+        </member>
+        <member name="M:SharpHook.Logging.LogEventArgs.#ctor(SharpHook.Logging.LogEntry)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpHook.Logging.LogEventArgs" /> class.
+            </summary>
+            <param name="logEntry">The entry of log event.</param>
+        </member>
+        <member name="P:SharpHook.Logging.LogEventArgs.LogEntry">
+            <summary>
+            Gets the entry of the current log event.
+            </summary>
+            <value>The entry of the current log event.</value>
+        </member>
+        <member name="T:SharpHook.Logging.LogSource">
+            <summary>
+            Represents a source of libuiohook logs.
+            </summary>
+            <remarks>Only a single <see cref="T:SharpHook.Logging.LogSource" /> instance must be used at a time.</remarks>
+            <seealso cref="T:SharpHook.Logging.ILogSource" />
+            <seealso cref="T:SharpHook.Logging.LogEventArgs" />
+            <seealso cref="T:SharpHook.Logging.LogEntry" />
+        </member>
+        <member name="M:SharpHook.Logging.LogSource.Finalize">
+            <summary>
+            Unregisters the current <see cref="T:SharpHook.Logging.LogSource" /> instance.
+            </summary>
+        </member>
+        <member name="P:SharpHook.Logging.LogSource.MinLevel">
+            <summary>
+            Gets or sets the minimum log level.
+            </summary>
+            <value>The minimum log level.</value>
+        </member>
+        <member name="M:SharpHook.Logging.LogSource.Register(SharpHook.Native.LogLevel)">
+            <summary>
+            Creates and registers a source of libuiohook logs.
+            </summary>
+            <param name="minLevel">The minimum log level.</param>
+            <returns>A source of libuiohook logs.</returns>
+            <remarks>
+            This method must not be called when another <see cref="T:SharpHook.Logging.LogSource" /> instance has already been registerd and
+            hasn't been disposed.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Logging.LogSource.Dispose">
+            <summary>
+            Stops the currently registered <see cref="T:SharpHook.Logging.LogSource" /> instance from receiving libuiohook logs.
+            </summary>
+        </member>
+        <member name="E:SharpHook.Logging.LogSource.MessageLogged">
+            <summary>
+            An event which is raised when libuiohook logs a message.
+            </summary>
+        </member>
         <member name="T:SharpHook.MouseHookEventArgs">
             <summary>
             Event args for mouse-related hook events.
@@ -687,6 +814,16 @@
             Represents a virtual key code.
             </summary>
             <seealso cref="T:SharpHook.Native.KeyboardEventData" />
+        </member>
+        <member name="T:SharpHook.Native.LoggerProc">
+            <summary>
+            Represents a function which is called when a logging event occurs.
+            </summary>
+            <param name="level">The log level.</param>
+            <param name="format">The format of the log message.</param>
+            <param name="args">The arguments of the log message.</param>
+            <returns><see langword="true" /> if the message has been logged. Otherwise, <see langword="false" />.</returns>
+            <seealso cref="M:SharpHook.Native.UioHook.SetLoggerProc(SharpHook.Native.LoggerProc)" />
         </member>
         <member name="T:SharpHook.Native.ModifierMask">
             <summary>
@@ -993,6 +1130,7 @@
             </summary>
             <param name="dispatchProc">The function to call when an event is raised.</param>
             <remarks>Pass <see langword="null" /> to this function to unset a hook callback function.</remarks>
+            <seealso cref="T:SharpHook.Native.DispatchProc" />
         </member>
         <member name="M:SharpHook.Native.UioHook.Run">
             <summary>
@@ -1005,6 +1143,14 @@
             Stops the global hook.
             </summary>
             <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Native.UioHook.SetLoggerProc(SharpHook.Native.LoggerProc)">
+            <summary>
+            Sets the log callback function.
+            </summary>
+            <param name="loggerProc">The function to call for logging.</param>
+            <remarks>Pass <see langword="null" /> to this function to unset a log callback function.</remarks>
+            <seealso cref="T:SharpHook.Native.LoggerProc" />
         </member>
         <member name="M:SharpHook.Native.UioHook.PostEvent(SharpHook.Native.UioHookEvent@)">
             <summary>
