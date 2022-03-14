@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Enum MouseWheelScrollType
+    <title>Interface ILogSource
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Enum MouseWheelScrollType
+    <meta name="title" content="Interface ILogSource
    ">
     <meta name="generator" content="docfx 2.59.0.0">
     
@@ -68,43 +68,63 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="SharpHook.Native.MouseWheelScrollType">
+            <article class="content wrap" id="_content" data-uid="SharpHook.Logging.ILogSource">
   
   
-  <h1 id="SharpHook_Native_MouseWheelScrollType" data-uid="SharpHook.Native.MouseWheelScrollType" class="text-break">Enum MouseWheelScrollType
+  <h1 id="SharpHook_Logging_ILogSource" data-uid="SharpHook.Logging.ILogSource" class="text-break">Interface ILogSource
   </h1>
-  <div class="markdown level0 summary"><p>Represents a mouse wheel scroll type.</p>
+  <div class="markdown level0 summary"><p>Represents a source of libuiohook logs.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="SharpHook.Native.html">SharpHook.Native</a></h6>
-  <h6><strong>Assembly</strong>: SharpHook.dll</h6>
-  <h5 id="SharpHook_Native_MouseWheelScrollType_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public enum MouseWheelScrollType : byte</code></pre>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable.dispose#system-idisposable-dispose">IDisposable.Dispose()</a>
+    </div>
   </div>
-  <h3 id="fields">Fields
+  <h6><strong>Namespace</strong>: <a class="xref" href="SharpHook.Logging.html">SharpHook.Logging</a></h6>
+  <h6><strong>Assembly</strong>: SharpHook.dll</h6>
+  <h5 id="SharpHook_Logging_ILogSource_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface ILogSource : IDisposable</code></pre>
+  </div>
+  <h3 id="events">Events
   </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/logging/apiSpec/new?filename=SharpHook_Logging_ILogSource_MessageLogged.md&amp;value=---%0Auid%3A%20SharpHook.Logging.ILogSource.MessageLogged%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/logging/SharpHook/Logging/ILogSource.cs/#L16">View Source</a>
+  </span>
+  <h4 id="SharpHook_Logging_ILogSource_MessageLogged" data-uid="SharpHook.Logging.ILogSource.MessageLogged">MessageLogged</h4>
+  <div class="markdown level1 summary"><p>An event which is raised when libuiohook logs a message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event EventHandler&lt;LogEventArgs&gt; MessageLogged</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
-        <th>Name</th>
+        <th>Type</th>
         <th>Description</th>
       </tr>
-    <thead>
+    </thead>
     <tbody>
       <tr>
-        <td id="SharpHook_Native_MouseWheelScrollType_BlockScroll">BlockScroll</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_MouseWheelScrollType_UnitScroll">UnitScroll</td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.Logging.LogEventArgs.html">LogEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
-  </thead></thead></table>
-  <h5 id="SharpHook_Native_MouseWheelScrollType_seealso">See Also</h5>
+  </table>
+  <h3 id="seealso">See Also</h3>
   <div class="seealso">
-      <div><a class="xref" href="SharpHook.Native.MouseWheelEventData.html">MouseWheelEventData</a></div>
+      <div><a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a></div>
+      <div><a class="xref" href="SharpHook.Logging.LogEventArgs.html">LogEventArgs</a></div>
+      <div><a class="xref" href="SharpHook.Logging.LogEntry.html">LogEntry</a></div>
   </div>
 </article>
           </div>
@@ -114,10 +134,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/TolikPylypchuk/SharpHook/new/logging/apiSpec/new?filename=SharpHook_Native_MouseWheelScrollType.md&amp;value=---%0Auid%3A%20SharpHook.Native.MouseWheelScrollType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/TolikPylypchuk/SharpHook/new/logging/apiSpec/new?filename=SharpHook_Logging_ILogSource.md&amp;value=---%0Auid%3A%20SharpHook.Logging.ILogSource%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/logging/SharpHook/Native/MouseWheelScrollType.cs/#L7" class="contribution-link">View Source</a>
+                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/logging/SharpHook/Logging/ILogSource.cs/#L11" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

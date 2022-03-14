@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.EventSimulator.html",
-          "hash": "lscYzIxWpQcncCuOP1vKxs3UADqyL5XI02cC8yUefY0="
+          "hash": "LUyJFNhsa24ZR+q8zMArEpfXGh/SltYJXkWbUfbGsfM="
         }
       },
       "is_incremental": false,
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.GlobalHookBase.html",
-          "hash": "UEYaJl+sZ3qFnU0QY/LL7dZEyWDaV/3uVUlB1MAQ5TQ="
+          "hash": "7u+2qorGySw5eouVA7QhDWPsmpgalXDv+LYn7TAjptE="
         }
       },
       "is_incremental": false,
@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.HookEventArgs.html",
-          "hash": "qsTH76G3bCtGu5UQ66U5ntxLs07foZ/rrYs5XQn0BJ8="
+          "hash": "ZuWjf9CXTvjedZpcT+QecqygOeaObrfSEdOW/pCb7CU="
         }
       },
       "is_incremental": false,
@@ -45,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.HookException.html",
-          "hash": "fzuXbGV96TKl32h1ZtsgUr8EydihoSCmfaMCAc6uvuY="
+          "hash": "nlsIksrZAfxcamkjD8Ow8USnEOa6p0nU9wp+gFuU4MQ="
         }
       },
       "is_incremental": false,
@@ -57,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.IEventSimulator.html",
-          "hash": "v7IsHZRP5ULCgIIFU7l34N1x+TXch3ajuS0MsN4WEQg="
+          "hash": "KAEd37IByDYX00hqKh9flKlT7Z5vHiaDFY85uC791SE="
         }
       },
       "is_incremental": false,
@@ -69,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.IGlobalHook.html",
-          "hash": "kLYH7lpqiM4V/00K1xJDkLOxy+n0Z5OcYqxqs1IjcX0="
+          "hash": "urLMUdFNGuAObMZ42KYWzZalCWwPZTrcJG+HDQa+gqY="
         }
       },
       "is_incremental": false,
@@ -81,7 +81,79 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.KeyboardHookEventArgs.html",
-          "hash": "fRi0pO8pE8hU9HXvGP6pR52eDWTGTF31xn4Z7u4gvIg="
+          "hash": "eGBS8+C0cYKmD8+ewOhSJSta/ClTJeoaRDC6OR+H3MI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Logging.ILogSource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Logging.ILogSource.html",
+          "hash": "5PNudkdfMVT15CfZMBJb5CK1KQ8BQw+AZNbcL/AsMdw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Logging.LogEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Logging.LogEntry.html",
+          "hash": "LNKvz/CJloOAEG3Bp9nHE0F1+5+sq151a3TsVPx7gm4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Logging.LogEntryParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Logging.LogEntryParser.html",
+          "hash": "7sXE9uWV0tQxrct4e2cVTHKsW89dbMHcgTZOR+2ZKfc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Logging.LogEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Logging.LogEventArgs.html",
+          "hash": "vvBW7zgMngHZ/kg6v3opRybs9B/D+4GZl+2nuaEbeQs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Logging.LogSource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Logging.LogSource.html",
+          "hash": "b3Uv4S2cPUDj+1pByqMya1nt9A8/7QOKgDbjIDNLGIk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Logging.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Logging.html",
+          "hash": "DNjGYFVso0gaZGvO/Zf2MHHuFo5DNW/j+9VSepvKVWU="
         }
       },
       "is_incremental": false,
@@ -93,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.MouseHookEventArgs.html",
-          "hash": "cVb3bo+boXInMVrmUeLpBpVsW8P+uTs+jMgQyoUVSXc="
+          "hash": "Sp/rnoYTXPxoBDdbe+vCfUAxaYpIQu5Ggb9bm073i5Y="
         }
       },
       "is_incremental": false,
@@ -105,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.MouseWheelHookEventArgs.html",
-          "hash": "3KdWdrOB+gOacTA7RcWgYFeGCki6kkzv4zr5zkuv5UI="
+          "hash": "O7PxY2gXopCCD2UxCXUBNJqilzD1iwr4YvyxAeRzHUE="
         }
       },
       "is_incremental": false,
@@ -117,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.DispatchProc.html",
-          "hash": "2Bq7YFAEGvWaByior8pTI0g4miIKxhVl/ZfyvOU/92g="
+          "hash": "SyKF4blA3rZ5wdi9iLmX90kZIIs/ESNS+a8HEjZ9DXQ="
         }
       },
       "is_incremental": false,
@@ -129,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.EventReservedValueMask.html",
-          "hash": "sVwdp6SEVj61RJC1Bbt/u0ed2rIH32ruZTo2xJ124f0="
+          "hash": "45O2p7/umWT2xfRSSmYsYFKBTrV8N+S6bHQg0xbu6O8="
         }
       },
       "is_incremental": false,
@@ -141,7 +213,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.EventType.html",
-          "hash": "W20ZNb9jRF6KooPcPObaUGKMQxToXsTCEveJwjAHCsk="
+          "hash": "9SreUqjuVfWu6PkeRw99a9egW/X6R0KhDgHlQtXAhuM="
         }
       },
       "is_incremental": false,
@@ -153,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.KeyCode.html",
-          "hash": "kow1TRQzQkLrbfVmM2zYdCwb/+sgYNSwZaek+XsjdQY="
+          "hash": "fP4y1nuz1NDiUG22WyZTVQw5Wx89XS09VbrcSRDpzA4="
         }
       },
       "is_incremental": false,
@@ -165,7 +237,31 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.KeyboardEventData.html",
-          "hash": "PfROAAX3MgO6dv1/bQBldk48xjghkEX0hcsvqvX5rZM="
+          "hash": "njzlYHyD/larUUvo1+50PGx6v8lIXb5O+Km9buXMt90="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Native.LogLevel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Native.LogLevel.html",
+          "hash": "HrXnHHPFc1Axyz1SnkRVHdNwnzMK/4GmzSoRTKWymy0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Native.LoggerProc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Native.LoggerProc.html",
+          "hash": "r/DMUkGcG5HPgPI8vMVNpTwjjaHXxZQ/VyPGgem7ahI="
         }
       },
       "is_incremental": false,
@@ -177,7 +273,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.ModifierMask.html",
-          "hash": "qtxaJa2k/agGj+JYvzvMsRR9f8Zwszu1jOxxGASZj88="
+          "hash": "X6lfG8sUAnshZ2staXpS+8Dh+PzzvY+Q8Ozf65TQ3L8="
         }
       },
       "is_incremental": false,
@@ -189,7 +285,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.MouseButton.html",
-          "hash": "bV6QtrGWPXwDiqqvWL5Oemhay1hM4XXWQI4+SsP2c80="
+          "hash": "BLvs/iVpJAHkQlknxu7vleBXGAP3ufkHTWCkKGvMlD0="
         }
       },
       "is_incremental": false,
@@ -201,7 +297,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.MouseEventData.html",
-          "hash": "vrIqJYNHu5XB04+MVOQf0ktbqxwBsxnp0DoOzSKcjCI="
+          "hash": "HMW3MEcZZnGwepiMcjNqCr46EHLGA6nFZUMmb7RK5GQ="
         }
       },
       "is_incremental": false,
@@ -213,7 +309,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.MouseWheelEventData.html",
-          "hash": "ETStIduYUk1OxTg5qz0EOwAxPlJuycma8pTASDPa5/w="
+          "hash": "69NbTq+OnzLXMiXMDGPKBr56TvcnzBnaCt+dn5Ra++Y="
         }
       },
       "is_incremental": false,
@@ -225,7 +321,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.MouseWheelScrollDirection.html",
-          "hash": "3PlkFTUkb+ep9mvAYcFqStao25niSIpvBWFu7Z5LxtA="
+          "hash": "UggZEUTq4tBj27YMP7Wv32L3b+eyhrsx615JOt4aBBk="
         }
       },
       "is_incremental": false,
@@ -237,7 +333,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.MouseWheelScrollType.html",
-          "hash": "I14Negw9K0GdB2JBQaKVG7wRcAffzLYNIJWPRIZeC+o="
+          "hash": "AQvVpfFCekw7Krtl1uYcIH9L8e3fqvcJ+317iBdKBro="
         }
       },
       "is_incremental": false,
@@ -249,7 +345,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.ScreenData.html",
-          "hash": "3WtmW84lK3VK7wMTISI3Xve91tmFNRvhSFOB215qhLE="
+          "hash": "mivmdv4Npm+nW9tnSN94BguoaZLNHoSlmTZD/tMbS/A="
         }
       },
       "is_incremental": false,
@@ -261,7 +357,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.UioHook.html",
-          "hash": "C0nfX974gi9I0XFCv10sMhJHuWXSnsjm4VaNt7ref/c="
+          "hash": "0GoKiZ6qeqpmlaoRd5AMf1N2LAs+BdCybdG693DXZwU="
         }
       },
       "is_incremental": false,
@@ -273,7 +369,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.UioHookEvent.html",
-          "hash": "Vxzp539zosHnp5cnkjy4rvrzBtJxQZYnrTGMSBk1Bs0="
+          "hash": "TMVXNU0y79V3npMVC2ir9FpKQigEfKF4Er0sLDab/oQ="
         }
       },
       "is_incremental": false,
@@ -285,7 +381,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.UioHookResult.html",
-          "hash": "3UmVZHT36dybco5Xo8KWBJ8lX4tqvcOx6LLoMqkds1k="
+          "hash": "NO8OMaj24Hg8qpawrMFBNuHetzzqlC0Sz6PMlH1IpX0="
         }
       },
       "is_incremental": false,
@@ -297,7 +393,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.html",
-          "hash": "8NroTIDGzQy/Tnozy69qJtUb79DkJfpcbo5FKRLm0dc="
+          "hash": "l8dy+5BbRoAs3T7PyBoEYmIyb1PhwTru6+rwWrJ2Xr0="
         }
       },
       "is_incremental": false,
@@ -309,7 +405,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Reactive.HookEvent-1.html",
-          "hash": "td8NtP3U640oqKZRWLaHL3GcHgGy+yz0ffiRmDfrqSk="
+          "hash": "odObq+daxDV1Xqnxbhz4Pogrm9KEyxOjiXhSFIEbtbg="
         }
       },
       "is_incremental": false,
@@ -321,7 +417,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Reactive.IReactiveGlobalHook.html",
-          "hash": "mN2dL5YjZPu8Ikvgnzgs1mw93uHW0tmfMEPjDnMSw5c="
+          "hash": "Kd8SYMxaI+DE/4NiIKd4LolBBaj0FLo/ulkZoi3l5es="
         }
       },
       "is_incremental": false,
@@ -333,7 +429,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html",
-          "hash": "1cKvCF2aZ0I7fj3eDlBeV4HbaiOpLjRZ+dZ+LdUgUKY="
+          "hash": "A2FPD6JUkO6EoJGXcbHbjA+SxhsAlS/5lvSZBm8k014="
         }
       },
       "is_incremental": false,
@@ -345,7 +441,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Reactive.SimpleReactiveGlobalHook.html",
-          "hash": "XeqqJ5SNGZlkjihdbzCsSf8aGBOX7ujqfYWfMOS6S9g="
+          "hash": "j6w/Plk+Ok2IflkXannfRr37FLSTb9rW3x2nmXTSMd8="
         }
       },
       "is_incremental": false,
@@ -369,7 +465,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.SimpleGlobalHook.html",
-          "hash": "ilJVn5vE1rfmSEqv6IaOAwCNhqRrJRmzc5UHLYSu6Qk="
+          "hash": "kr+A+l7L4f/3CMAcHMJNvP7HByJdhShF79xu851GYvo="
         }
       },
       "is_incremental": false,
@@ -381,7 +477,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.TaskPoolGlobalHook.html",
-          "hash": "1CRmbeZED5AK0wyaexD4C8f7OTvaBS02ZUDWNvzO0CY="
+          "hash": "JFWlpBOIk0H7ZJUl754vyE+LVf+bkqsbjyfPKnZ9GxM="
         }
       },
       "is_incremental": false,
@@ -393,7 +489,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.TaskPoolGlobalHookOptions.html",
-          "hash": "3VQvYZYLB3g+0Rm+LqgAfoiBeq17HJI97RvoiHQIAac="
+          "hash": "tasee9ZjQFrxieP1ihd0K8nmUIyVUjhqaajUAdgtX30="
         }
       },
       "is_incremental": false,
@@ -417,7 +513,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "U75gTjPas+FPiWD2C4/TgVhkc3nwvkGKToEQ//uK45I="
+          "hash": "GC62VvtZ2UWVQdV64J34tPTDLFWn7NuoWblLX1czTVg="
         }
       },
       "is_incremental": false,
@@ -429,7 +525,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "E0Fe1TRCvywxNa/WjFBmvBkjFtOaEof4f5cvtfKSbHA="
+          "hash": "q7t7Lk85EWUdfVONiEWYqvhHcwvQ3MHn2lUGJg+RIPA="
         }
       },
       "is_incremental": false,
@@ -441,7 +537,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/about.html",
-          "hash": "MzumkfzPr+Tq4yH2a2XwN6c8RzWAj92+/YkbaqIwyOM="
+          "hash": "Abp6FaYexbu1GdRfQChpmI+LTz/JXGpYEXdgpLsg7k4="
         }
       },
       "is_incremental": false,
@@ -453,7 +549,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/hooks.html",
-          "hash": "XSYN13+v8vlFQV8R/66dSabTsfEteOmqS78Aa7DpVLk="
+          "hash": "0zEa8+d4fnEzYHo0Mxt+Xchdvj/wLnDo2kO1be3o6cA="
         }
       },
       "is_incremental": false,
@@ -465,7 +561,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/intro.html",
-          "hash": "NJxc77+DuM7tO/RsX5DvJ1r31/UJRa+CtbxWE+7epFY="
+          "hash": "vwtAe5Cxwy4fo69SsPmnjk9TmsUvuSYCYhF1Q1FOiL0="
         }
       },
       "is_incremental": false,
@@ -477,7 +573,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/limitations.html",
-          "hash": "WbSWAoG6WjnqtLvy39NKMwK0aQJuZPo0D1pfpsjxAQ0="
+          "hash": "O5Zp0FyMF1x63J/luhGEZHQT6BAL4CyhlMXMZ/UDCWk="
         }
       },
       "is_incremental": false,
@@ -489,7 +585,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/migration.html",
-          "hash": "twqlvOM8wM3nEGeo3R27+V27tMR3z/H2UTIDh0faLdU="
+          "hash": "my+C9Y2GJ4ktXyRFsVOayVyGytuwS9RPn4Te6Wzy0fU="
         }
       },
       "is_incremental": false,
@@ -501,7 +597,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/native.html",
-          "hash": "S0ucQG+V/0FLiDMJ7tANHZblzkkUe1KU38hwVExWdXM="
+          "hash": "2y/XeTDEPKYg8nT4m9Etc3+JFm8l0u2vH6p4yxtbZAI="
         }
       },
       "is_incremental": false,
@@ -513,7 +609,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/reactive.html",
-          "hash": "cLsLXajWkrYZR2XZ91KLNWIHVca79srm55gD/OJsl8Y="
+          "hash": "soWE0gGqHcZvKwYKnIBeWRAOt+l8H+2TOwQYp6y3h78="
         }
       },
       "is_incremental": false,
@@ -525,7 +621,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/simulation.html",
-          "hash": "LWU5dXithxc9d8PhXRWuZxXoPQb3S7XDSp63TfsyknA="
+          "hash": "tOMoCRdkj/kbChhrPOOBOv9S+KOCuVUt67GfA0FzonQ="
         }
       },
       "is_incremental": false,
@@ -560,7 +656,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "TLDi5WCRzGJ5aawpdnI4hUrx/fXIdgW7Uo8H3PmalCw="
+          "hash": "mF8KBLkB8Q6YgAkWB7/L+6s3f3LFCXWzgMLoqD9G5Hc="
         }
       },
       "is_incremental": false,
@@ -610,7 +706,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 34,
+          "total_file_count": 42,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {

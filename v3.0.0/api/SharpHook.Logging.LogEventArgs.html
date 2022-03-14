@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class HookEvent&lt;TArgs&gt;
+    <title>Class LogEventArgs
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class HookEvent&lt;TArgs&gt;
+    <meta name="title" content="Class LogEventArgs
    ">
     <meta name="generator" content="docfx 2.59.0.0">
     
@@ -68,21 +68,25 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="SharpHook.Reactive.HookEvent`1">
+            <article class="content wrap" id="_content" data-uid="SharpHook.Logging.LogEventArgs">
   
   
-  <h1 id="SharpHook_Reactive_HookEvent_1" data-uid="SharpHook.Reactive.HookEvent`1" class="text-break">Class HookEvent&lt;TArgs&gt;
+  <h1 id="SharpHook_Logging_LogEventArgs" data-uid="SharpHook.Logging.LogEventArgs" class="text-break">Class LogEventArgs
   </h1>
-  <div class="markdown level0 summary"><p>Represents an event which is raised by <a class="xref" href="SharpHook.Reactive.IReactiveGlobalHook.html">IReactiveGlobalHook</a>.</p>
+  <div class="markdown level0 summary"><p>Evnet args for logging events.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><span class="xref">HookEvent&lt;TArgs&gt;</span></div>
+    <div class="level1"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventargs">EventArgs</a></div>
+    <div class="level2"><span class="xref">LogEventArgs</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventargs.empty">EventArgs.Empty</a>
+    </div>
     <div>
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
     </div>
@@ -105,46 +109,29 @@
       <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="SharpHook.Reactive.html">SharpHook.Reactive</a></h6>
-  <h6><strong>Assembly</strong>: SharpHook.Reactive.dll</h6>
-  <h5 id="SharpHook_Reactive_HookEvent_1_syntax">Syntax</h5>
+  <h6><strong>Namespace</strong>: <a class="xref" href="SharpHook.Logging.html">SharpHook.Logging</a></h6>
+  <h6><strong>Assembly</strong>: SharpHook.dll</h6>
+  <h5 id="SharpHook_Logging_LogEventArgs_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class HookEvent&lt;TArgs&gt;
-    where TArgs : HookEventArgs</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class LogEventArgs : EventArgs</code></pre>
   </div>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TArgs</span></td>
-        <td><p>The type of the event data.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/logging/apiSpec/new?filename=SharpHook_Reactive_HookEvent_1__ctor_System_Object__0_.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.HookEvent%601.%23ctor(System.Object%2C%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/logging/apiSpec/new?filename=SharpHook_Logging_LogEventArgs__ctor_SharpHook_Logging_LogEntry_.md&amp;value=---%0Auid%3A%20SharpHook.Logging.LogEventArgs.%23ctor(SharpHook.Logging.LogEntry)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/logging/SharpHook.Reactive/HookEvent.cs/#L18">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/logging/SharpHook/Logging/LogEventArgs.cs/#L17">View Source</a>
   </span>
-  <a id="SharpHook_Reactive_HookEvent_1__ctor_" data-uid="SharpHook.Reactive.HookEvent`1.#ctor*"></a>
-  <h4 id="SharpHook_Reactive_HookEvent_1__ctor_System_Object__0_" data-uid="SharpHook.Reactive.HookEvent`1.#ctor(System.Object,`0)">HookEvent(Object, TArgs)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.Reactive.HookEvent-1.html">HookEvent&lt;TArgs&gt;</a>.</p>
+  <a id="SharpHook_Logging_LogEventArgs__ctor_" data-uid="SharpHook.Logging.LogEventArgs.#ctor*"></a>
+  <h4 id="SharpHook_Logging_LogEventArgs__ctor_SharpHook_Logging_LogEntry_" data-uid="SharpHook.Logging.LogEventArgs.#ctor(SharpHook.Logging.LogEntry)">LogEventArgs(LogEntry)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="SharpHook.Logging.LogEventArgs.html">LogEventArgs</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public HookEvent(object sender, TArgs args)</code></pre>
+    <pre><code class="lang-csharp hljs">public LogEventArgs(LogEntry logEntry)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -157,15 +144,9 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></td>
-        <td><span class="parametername">sender</span></td>
-        <td><p>The sender of the event.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">TArgs</span></td>
-        <td><span class="parametername">args</span></td>
-        <td><p>The data of the event.</p>
+        <td><a class="xref" href="SharpHook.Logging.LogEntry.html">LogEntry</a></td>
+        <td><span class="parametername">logEntry</span></td>
+        <td><p>The entry of log event.</p>
 </td>
       </tr>
     </tbody>
@@ -174,19 +155,19 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/logging/apiSpec/new?filename=SharpHook_Reactive_HookEvent_1_Args.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.HookEvent%601.Args%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/logging/apiSpec/new?filename=SharpHook_Logging_LogEventArgs_LogEntry.md&amp;value=---%0Auid%3A%20SharpHook.Logging.LogEventArgs.LogEntry%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/logging/SharpHook.Reactive/HookEvent.cs/#L34">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/logging/SharpHook/Logging/LogEventArgs.cs/#L24">View Source</a>
   </span>
-  <a id="SharpHook_Reactive_HookEvent_1_Args_" data-uid="SharpHook.Reactive.HookEvent`1.Args*"></a>
-  <h4 id="SharpHook_Reactive_HookEvent_1_Args" data-uid="SharpHook.Reactive.HookEvent`1.Args">Args</h4>
-  <div class="markdown level1 summary"><p>Gets the event data.</p>
+  <a id="SharpHook_Logging_LogEventArgs_LogEntry_" data-uid="SharpHook.Logging.LogEventArgs.LogEntry*"></a>
+  <h4 id="SharpHook_Logging_LogEventArgs_LogEntry" data-uid="SharpHook.Logging.LogEventArgs.LogEntry">LogEntry</h4>
+  <div class="markdown level1 summary"><p>Gets the entry of the current log event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TArgs Args { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public LogEntry LogEntry { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -198,47 +179,17 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">TArgs</span></td>
-        <td><p>The event data.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/logging/apiSpec/new?filename=SharpHook_Reactive_HookEvent_1_Sender.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.HookEvent%601.Sender%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/logging/SharpHook.Reactive/HookEvent.cs/#L28">View Source</a>
-  </span>
-  <a id="SharpHook_Reactive_HookEvent_1_Sender_" data-uid="SharpHook.Reactive.HookEvent`1.Sender*"></a>
-  <h4 id="SharpHook_Reactive_HookEvent_1_Sender" data-uid="SharpHook.Reactive.HookEvent`1.Sender">Sender</h4>
-  <div class="markdown level1 summary"><p>Gets the sender of the event.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public object Sender { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></td>
-        <td><p>The sender of the event.</p>
+        <td><a class="xref" href="SharpHook.Logging.LogEntry.html">LogEntry</a></td>
+        <td><p>The entry of the current log event.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h3 id="seealso">See Also</h3>
   <div class="seealso">
-      <div><a class="xref" href="SharpHook.Reactive.IReactiveGlobalHook.html">IReactiveGlobalHook</a></div>
+      <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+      <div><a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a></div>
+      <div><a class="xref" href="SharpHook.Logging.LogEntry.html">LogEntry</a></div>
   </div>
 </article>
           </div>
@@ -248,10 +199,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/TolikPylypchuk/SharpHook/new/logging/apiSpec/new?filename=SharpHook_Reactive_HookEvent_1.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.HookEvent%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/TolikPylypchuk/SharpHook/new/logging/apiSpec/new?filename=SharpHook_Logging_LogEventArgs.md&amp;value=---%0Auid%3A%20SharpHook.Logging.LogEventArgs%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/logging/SharpHook.Reactive/HookEvent.cs/#L10" class="contribution-link">View Source</a>
+                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/logging/SharpHook/Logging/LogEventArgs.cs/#L11" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
