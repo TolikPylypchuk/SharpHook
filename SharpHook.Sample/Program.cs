@@ -19,20 +19,21 @@ public static class Program
 
         Console.WriteLine("---------- SharpHook Sample ----------\n");
 
-        using var logSource = LogSource.Register(LogLevel.Debug);
+        using var logSource = LogSource.Register(LogLevel.Info);
+        logSource.MessageLogged += OnLogEvent;
 
         PrintSystemInfo();
 
-        Console.WriteLine("---------- Press q to quit ----------\n");
+        //Console.WriteLine("---------- Press q to quit ----------\n");
 
-        Task.Run(async () =>
-        {
-            await Task.Delay(500);
-            await SimulateInputEvents();
-        });
+        //Task.Run(async () =>
+        //{
+        //    await Task.Delay(500);
+        //    await SimulateInputEvents();
+        //});
 
-        var hook = CreateHook();
-        hook.Run();
+        //var hook = CreateHook();
+        //hook.Run();
     }
 
     private static void PrintSystemInfo()
@@ -94,10 +95,8 @@ public static class Program
         simulator.SimulateMouseWheel(0, 0, 10, -1);
     }
 
-    private static void OnHookEvent(object? sender, HookEventArgs e)
-    {
-        // Console.WriteLine($"{e.EventTime.ToLocalTime()}: {e.RawEvent}");
-    }
+    private static void OnHookEvent(object? sender, HookEventArgs e) =>
+        Console.WriteLine($"{e.EventTime.ToLocalTime()}: {e.RawEvent}");
 
     private static void OnLogEvent(object? sender, LogEventArgs e) =>
         Console.WriteLine($"{Enum.GetName(e.LogEntry.Level)?.ToUpper()}: {e.LogEntry.FullText}");

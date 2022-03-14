@@ -46,7 +46,7 @@ public static class UioHook
     /// <param name="loggerProc">The function to call for logging.</param>
     /// <remarks>Pass <see langword="null" /> to this function to unset a log callback function.</remarks>
     /// <seealso cref="LoggerProc" />
-    [DllImport(LibUioHook, EntryPoint = "hook_set_logger_proc")]
+    [DllImport(LibUioHook, EntryPoint = "hook_set_va_logger_proc")]
     public static extern void SetLoggerProc(LoggerProc? loggerProc);
 
     /// <summary>
