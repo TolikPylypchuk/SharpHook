@@ -552,9 +552,23 @@
             <summary>
             Represents a log entry from libuiohook.
             </summary>
+            <remarks>
+            <para>
+            Each log entry from libuiohook has the following format:
+            <code>
+            function [line]: message
+            </code>
+            </para>
+            <para>
+            The function and line reference the source code of libuiohook itself, and can be retrieved using the
+            <see cref="P:SharpHook.Logging.LogEntry.Function" /> and <see cref="P:SharpHook.Logging.LogEntry.SourceLine" /> properties. The message can be retrieved by splitting the text
+            by <c>:</c> and getting the trimmed second part.
+            </para>
+            </remarks>
             <seealso cref="T:SharpHook.Logging.ILogSource" />
             <seealso cref="T:SharpHook.Logging.LogSource" />
             <seealso cref="T:SharpHook.Logging.LogEventArgs" />
+            <seealso cref="T:SharpHook.Logging.LogEntryParser" />
         </member>
         <member name="F:SharpHook.Logging.LogEntry.Level">
             <summary>
@@ -567,7 +581,7 @@
             Gets the full text of the current log entry.
             </summary>
             <value>The full text of the current log entry.</value>
-            <remarks><c>entry.FullText</c> is the same as <c>String.Format(entry.Format, entry.Args)</c></remarks>
+            <remarks>The text is formatted using the <c>vsprintf</c> function from the C runtime.</remarks>
         </member>
         <member name="P:SharpHook.Logging.LogEntry.Format">
             <summary>
@@ -586,6 +600,71 @@
             Gets the arguments of the current log entry.
             </summary>
             <value>The arguments of the current log entry.</value>
+            <remarks>The function and line are the first two arguments of the log entry.</remarks>
+        </member>
+        <member name="P:SharpHook.Logging.LogEntry.Function">
+            <summary>
+            Gets the libuiohook function which called the logger.
+            </summary>
+            <value>The function which called the logger.</value>
+            <remarks>The function is the first argument of the log entry.</remarks>
+        </member>
+        <member name="P:SharpHook.Logging.LogEntry.SourceLine">
+            <summary>
+            Gets the source code line in libuiohook where the logger was called.
+            </summary>
+            <value>The source code line in libuiohook where the logger was called.</value>
+            <remarks>The source code line is the second argument of the log entry.</remarks>
+        </member>
+        <member name="M:SharpHook.Logging.LogEntry.Equals(System.Object)">
+            <summary>
+            Compares this object to another object for equality.
+            </summary>
+            <param name="obj">The object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Logging.LogEntry.Equals(SharpHook.Logging.LogEntry)">
+            <summary>
+            Compares this object to another object for equality.
+            </summary>
+            <param name="entry">The object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Logging.LogEntry.GetHashCode">
+            <summary>
+            Gets the hash code of this object.
+            </summary>
+            <returns>The hash code of this object.</returns>
+        </member>
+        <member name="M:SharpHook.Logging.LogEntry.ToString">
+            <summary>
+            Gets the string representation of the log entry i.e. its full text.
+            </summary>
+            <returns>The full text of the log entry.</returns>
+        </member>
+        <member name="M:SharpHook.Logging.LogEntry.op_Equality(SharpHook.Logging.LogEntry,SharpHook.Logging.LogEntry)">
+            <summary>
+            Compares two objects for equality.
+            </summary>
+            <param name="left">The first object to compare</param>
+            <param name="right">The second object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Logging.LogEntry.op_Inequality(SharpHook.Logging.LogEntry,SharpHook.Logging.LogEntry)">
+            <summary>
+            Compares two objects for inequality.
+            </summary>
+            <param name="left">The first object to compare</param>
+            <param name="right">The second object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are not equal. Otherwise, <see langword="false" />.
+            </returns>
         </member>
         <member name="T:SharpHook.Logging.LogEntryParser">
             <summary>

@@ -19,21 +19,23 @@ public static class Program
 
         Console.WriteLine("---------- SharpHook Sample ----------\n");
 
-        using var logSource = LogSource.Register(LogLevel.Info);
+        using var logSource = LogSource.Register(minLevel: LogLevel.Debug);
         logSource.MessageLogged += OnLogEvent;
 
         PrintSystemInfo();
 
-        //Console.WriteLine("---------- Press q to quit ----------\n");
+        logSource.MinLevel = LogLevel.Info;
 
-        //Task.Run(async () =>
-        //{
-        //    await Task.Delay(500);
-        //    await SimulateInputEvents();
-        //});
+        Console.WriteLine("---------- Press q to quit ----------\n");
 
-        //var hook = CreateHook();
-        //hook.Run();
+        Task.Run(async () =>
+        {
+            await Task.Delay(500);
+            await SimulateInputEvents();
+        });
+
+        var hook = CreateHook();
+        hook.Run();
     }
 
     private static void PrintSystemInfo()

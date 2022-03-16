@@ -11,6 +11,7 @@ using SharpHook.Native;
 /// <seealso cref="ILogSource" />
 /// <seealso cref="LogEventArgs" />
 /// <seealso cref="LogEntry" />
+/// <seealso cref="LogEntryParser" />
 public sealed class LogSource : ILogSource
 {
     private readonly LogEntryParser parser = new();
@@ -78,11 +79,15 @@ public sealed class LogSource : ILogSource
             return false;
         }
 
-        var logEntry = this.parser.ParseNativeLogEntry(level, format, args);
-
-        this.MessageLogged?.Invoke(this, new LogEventArgs(logEntry));
-
-        return true;
+        try
+        {
+            var logEntry = this.parser.ParseNativeLogEntry(level, format, args);
+            this.MessageLogged?.Invoke(this, new LogEventArgs(logEntry));
+            return true;
+        } catch
+        {
+            return false;
+        }
     }
 
     /// <summary>
