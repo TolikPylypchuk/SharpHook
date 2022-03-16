@@ -841,6 +841,25 @@ references:
   isSpec: "True"
   fullName: SharpHook.Logging.LogEntry.Args
   nameWithType: LogEntry.Args
+- uid: SharpHook.Logging.LogEntry.Equals(SharpHook.Logging.LogEntry)
+  name: Equals(LogEntry)
+  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_Equals_SharpHook_Logging_LogEntry_
+  commentId: M:SharpHook.Logging.LogEntry.Equals(SharpHook.Logging.LogEntry)
+  fullName: SharpHook.Logging.LogEntry.Equals(SharpHook.Logging.LogEntry)
+  nameWithType: LogEntry.Equals(LogEntry)
+- uid: SharpHook.Logging.LogEntry.Equals(System.Object)
+  name: Equals(Object)
+  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_Equals_System_Object_
+  commentId: M:SharpHook.Logging.LogEntry.Equals(System.Object)
+  fullName: SharpHook.Logging.LogEntry.Equals(System.Object)
+  nameWithType: LogEntry.Equals(Object)
+- uid: SharpHook.Logging.LogEntry.Equals*
+  name: Equals
+  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_Equals_
+  commentId: Overload:SharpHook.Logging.LogEntry.Equals
+  isSpec: "True"
+  fullName: SharpHook.Logging.LogEntry.Equals
+  nameWithType: LogEntry.Equals
 - uid: SharpHook.Logging.LogEntry.Format
   name: Format
   href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_Format
@@ -867,12 +886,64 @@ references:
   isSpec: "True"
   fullName: SharpHook.Logging.LogEntry.FullText
   nameWithType: LogEntry.FullText
+- uid: SharpHook.Logging.LogEntry.Function
+  name: Function
+  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_Function
+  commentId: P:SharpHook.Logging.LogEntry.Function
+  fullName: SharpHook.Logging.LogEntry.Function
+  nameWithType: LogEntry.Function
+- uid: SharpHook.Logging.LogEntry.Function*
+  name: Function
+  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_Function_
+  commentId: Overload:SharpHook.Logging.LogEntry.Function
+  isSpec: "True"
+  fullName: SharpHook.Logging.LogEntry.Function
+  nameWithType: LogEntry.Function
+- uid: SharpHook.Logging.LogEntry.GetHashCode
+  name: GetHashCode()
+  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_GetHashCode
+  commentId: M:SharpHook.Logging.LogEntry.GetHashCode
+  fullName: SharpHook.Logging.LogEntry.GetHashCode()
+  nameWithType: LogEntry.GetHashCode()
+- uid: SharpHook.Logging.LogEntry.GetHashCode*
+  name: GetHashCode
+  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_GetHashCode_
+  commentId: Overload:SharpHook.Logging.LogEntry.GetHashCode
+  isSpec: "True"
+  fullName: SharpHook.Logging.LogEntry.GetHashCode
+  nameWithType: LogEntry.GetHashCode
 - uid: SharpHook.Logging.LogEntry.Level
   name: Level
   href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_Level
   commentId: F:SharpHook.Logging.LogEntry.Level
   fullName: SharpHook.Logging.LogEntry.Level
   nameWithType: LogEntry.Level
+- uid: SharpHook.Logging.LogEntry.op_Equality(SharpHook.Logging.LogEntry,SharpHook.Logging.LogEntry)
+  name: Equality(LogEntry, LogEntry)
+  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_op_Equality_SharpHook_Logging_LogEntry_SharpHook_Logging_LogEntry_
+  commentId: M:SharpHook.Logging.LogEntry.op_Equality(SharpHook.Logging.LogEntry,SharpHook.Logging.LogEntry)
+  fullName: SharpHook.Logging.LogEntry.Equality(SharpHook.Logging.LogEntry, SharpHook.Logging.LogEntry)
+  nameWithType: LogEntry.Equality(LogEntry, LogEntry)
+- uid: SharpHook.Logging.LogEntry.op_Equality*
+  name: Equality
+  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_op_Equality_
+  commentId: Overload:SharpHook.Logging.LogEntry.op_Equality
+  isSpec: "True"
+  fullName: SharpHook.Logging.LogEntry.Equality
+  nameWithType: LogEntry.Equality
+- uid: SharpHook.Logging.LogEntry.op_Inequality(SharpHook.Logging.LogEntry,SharpHook.Logging.LogEntry)
+  name: Inequality(LogEntry, LogEntry)
+  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_op_Inequality_SharpHook_Logging_LogEntry_SharpHook_Logging_LogEntry_
+  commentId: M:SharpHook.Logging.LogEntry.op_Inequality(SharpHook.Logging.LogEntry,SharpHook.Logging.LogEntry)
+  fullName: SharpHook.Logging.LogEntry.Inequality(SharpHook.Logging.LogEntry, SharpHook.Logging.LogEntry)
+  nameWithType: LogEntry.Inequality(LogEntry, LogEntry)
+- uid: SharpHook.Logging.LogEntry.op_Inequality*
+  name: Inequality
+  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_op_Inequality_
+  commentId: Overload:SharpHook.Logging.LogEntry.op_Inequality
+  isSpec: "True"
+  fullName: SharpHook.Logging.LogEntry.Inequality
+  nameWithType: LogEntry.Inequality
 - uid: SharpHook.Logging.LogEntry.RawFormat
   name: RawFormat
   href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_RawFormat
@@ -886,6 +957,32 @@ references:
   isSpec: "True"
   fullName: SharpHook.Logging.LogEntry.RawFormat
   nameWithType: LogEntry.RawFormat
+- uid: SharpHook.Logging.LogEntry.SourceLine
+  name: SourceLine
+  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_SourceLine
+  commentId: P:SharpHook.Logging.LogEntry.SourceLine
+  fullName: SharpHook.Logging.LogEntry.SourceLine
+  nameWithType: LogEntry.SourceLine
+- uid: SharpHook.Logging.LogEntry.SourceLine*
+  name: SourceLine
+  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_SourceLine_
+  commentId: Overload:SharpHook.Logging.LogEntry.SourceLine
+  isSpec: "True"
+  fullName: SharpHook.Logging.LogEntry.SourceLine
+  nameWithType: LogEntry.SourceLine
+- uid: SharpHook.Logging.LogEntry.ToString
+  name: ToString()
+  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_ToString
+  commentId: M:SharpHook.Logging.LogEntry.ToString
+  fullName: SharpHook.Logging.LogEntry.ToString()
+  nameWithType: LogEntry.ToString()
+- uid: SharpHook.Logging.LogEntry.ToString*
+  name: ToString
+  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_ToString_
+  commentId: Overload:SharpHook.Logging.LogEntry.ToString
+  isSpec: "True"
+  fullName: SharpHook.Logging.LogEntry.ToString
+  nameWithType: LogEntry.ToString
 - uid: SharpHook.Logging.LogEntryParser
   name: LogEntryParser
   href: api/SharpHook.Logging.LogEntryParser.html
