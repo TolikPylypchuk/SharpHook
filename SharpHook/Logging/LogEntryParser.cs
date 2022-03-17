@@ -13,6 +13,10 @@ using SharpHook.Native;
 /// <summary>
 /// Creates log entries from native log formats and arguments.
 /// </summary>
+/// <remarks>
+/// The log text is formatted using the <c>vsprintf</c> function from the C runtime and then the result is parsed to
+/// extract the arguments.
+/// </remarks>
 public sealed class LogEntryParser
 {
     private static readonly Regex ArgumentRegex = new(
@@ -32,7 +36,14 @@ public sealed class LogEntryParser
         string message = this.GetLogMessage(format, args).Trim();
         var result = this.ExtractArguments(message, rawFormat);
 
-        return new(level, message, result.Format, rawFormat, result.Args);
+        return new(
+            level,
+            message,
+            result.Format,
+            rawFormat,
+            result.Arguments,
+            result.RawArguments,
+            result.ArgumentPlaceholders);
     }
 
     private string GetLogMessage(IntPtr format, IntPtr args)
@@ -57,25 +68,36 @@ public sealed class LogEntryParser
 
         if (rawParts.Length <= 1)
         {
-            return new(this.NormalizeFormat(rawFormat), Array.Empty<object>());
+            return new(
+                this.NormalizeFormat(rawFormat),
+                Array.Empty<object>(),
+                Array.Empty<string>(),
+                Array.Empty<string>());
         }
 
-        var args = new List<object>();
+        var arguments = new List<object>();
+        var rawArguments = new List<string>();
+        var placeholders = new List<string>();
 
         for (int i = 0, index = message.IndexOf(rawParts[i]), nextIndex = index;
             i < rawParts.Length - 1;
             i++, index = nextIndex + rawParts[i].Length)
         {
             nextIndex = message.IndexOf(rawParts[i + 1], nextIndex + rawParts[i].Length);
+
+            var placeholder = matches[i].Value;
             var argument = message.Substring(index, nextIndex - index);
-            args.Add(this.ParseArgument(matches[i].Value, argument));
+
+            arguments.Add(this.ParseArgument(placeholder, argument));
+            rawArguments.Add(argument);
+            placeholders.Add(placeholder);
         }
 
         var format = Enumerable.Range(1, rawParts.Length - 1).Aggregate(
             this.NormalizeFormat(rawParts[0]),
             (acc, index) => $"{acc}{{{index - 1}}}{this.NormalizeFormat(rawParts[index])}");
 
-        return new(format, args.ToArray());
+        return new(format, arguments.AsReadOnly(), rawArguments.AsReadOnly(), placeholders.AsReadOnly());
     }
 
     private object ParseArgument(string format, string argument)
@@ -264,14 +286,22 @@ public sealed class LogEntryParser
 
     private struct FormatAndArguments
     {
-        public FormatAndArguments(string format, object[] args)
+        internal FormatAndArguments(
+            string format,
+            IReadOnlyList<object> arguments,
+            IReadOnlyList<string> rawArguments,
+            IReadOnlyList<string> argumentPlaceholders)
         {
             this.Format = format;
-            this.Args = args;
+            this.Arguments = arguments;
+            this.RawArguments = rawArguments;
+            this.ArgumentPlaceholders = argumentPlaceholders;
         }
 
         internal string Format { get; }
-        internal object[] Args { get; }
+        internal IReadOnlyList<object> Arguments { get; }
+        internal IReadOnlyList<string> RawArguments { get; }
+        internal IReadOnlyList<string> ArgumentPlaceholders { get; }
     }
 
     private enum ArgumentLength

@@ -65,6 +65,32 @@ internal static class HashCodeUtil
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    internal static int GetHashCode<T1, T2, T3, T4, T5, T6>(
+        T1 value1,
+        T2 value2,
+        T3 value3,
+        T4 value4,
+        T5 value5,
+        T6 value6)
+    {
+#if NETCOREAPP3_0_OR_GREATER
+        return HashCode.Combine(value1, value2, value3, value4, value5, value6);
+#else
+        unchecked
+        {
+            int hash = HashStart;
+            hash = (hash * HashMultiplier) ^ value1?.GetHashCode() ?? 0;
+            hash = (hash * HashMultiplier) ^ value2?.GetHashCode() ?? 0;
+            hash = (hash * HashMultiplier) ^ value3?.GetHashCode() ?? 0;
+            hash = (hash * HashMultiplier) ^ value4?.GetHashCode() ?? 0;
+            hash = (hash * HashMultiplier) ^ value5?.GetHashCode() ?? 0;
+            hash = (hash * HashMultiplier) ^ value6?.GetHashCode() ?? 0;
+            return hash;
+        }
+#endif
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
     internal static int GetHashCode<T1, T2, T3, T4, T5, T6, T7>(
         T1 value1,
         T2 value2,
