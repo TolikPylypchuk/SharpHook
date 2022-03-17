@@ -812,15 +812,15 @@ references:
   commentId: T:SharpHook.Logging.LogEntry
   fullName: SharpHook.Logging.LogEntry
   nameWithType: LogEntry
-- uid: SharpHook.Logging.LogEntry.#ctor(SharpHook.Native.LogLevel,System.String,System.String,System.String,System.Object[])
-  name: LogEntry(LogLevel, String, String, String, Object[])
-  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry__ctor_SharpHook_Native_LogLevel_System_String_System_String_System_String_System_Object___
-  commentId: M:SharpHook.Logging.LogEntry.#ctor(SharpHook.Native.LogLevel,System.String,System.String,System.String,System.Object[])
-  name.vb: LogEntry(LogLevel, String, String, String, Object())
-  fullName: SharpHook.Logging.LogEntry.LogEntry(SharpHook.Native.LogLevel, System.String, System.String, System.String, System.Object[])
-  fullName.vb: SharpHook.Logging.LogEntry.LogEntry(SharpHook.Native.LogLevel, System.String, System.String, System.String, System.Object())
-  nameWithType: LogEntry.LogEntry(LogLevel, String, String, String, Object[])
-  nameWithType.vb: LogEntry.LogEntry(LogLevel, String, String, String, Object())
+- uid: SharpHook.Logging.LogEntry.#ctor(SharpHook.Native.LogLevel,System.String,System.String,System.String,System.Collections.Generic.IReadOnlyList{System.Object},System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{System.String})
+  name: LogEntry(LogLevel, String, String, String, IReadOnlyList<Object>, IReadOnlyList<String>, IReadOnlyList<String>)
+  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry__ctor_SharpHook_Native_LogLevel_System_String_System_String_System_String_System_Collections_Generic_IReadOnlyList_System_Object__System_Collections_Generic_IReadOnlyList_System_String__System_Collections_Generic_IReadOnlyList_System_String__
+  commentId: M:SharpHook.Logging.LogEntry.#ctor(SharpHook.Native.LogLevel,System.String,System.String,System.String,System.Collections.Generic.IReadOnlyList{System.Object},System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{System.String})
+  name.vb: LogEntry(LogLevel, String, String, String, IReadOnlyList(Of Object), IReadOnlyList(Of String), IReadOnlyList(Of String))
+  fullName: SharpHook.Logging.LogEntry.LogEntry(SharpHook.Native.LogLevel, System.String, System.String, System.String, System.Collections.Generic.IReadOnlyList<System.Object>, System.Collections.Generic.IReadOnlyList<System.String>, System.Collections.Generic.IReadOnlyList<System.String>)
+  fullName.vb: SharpHook.Logging.LogEntry.LogEntry(SharpHook.Native.LogLevel, System.String, System.String, System.String, System.Collections.Generic.IReadOnlyList(Of System.Object), System.Collections.Generic.IReadOnlyList(Of System.String), System.Collections.Generic.IReadOnlyList(Of System.String))
+  nameWithType: LogEntry.LogEntry(LogLevel, String, String, String, IReadOnlyList<Object>, IReadOnlyList<String>, IReadOnlyList<String>)
+  nameWithType.vb: LogEntry.LogEntry(LogLevel, String, String, String, IReadOnlyList(Of Object), IReadOnlyList(Of String), IReadOnlyList(Of String))
 - uid: SharpHook.Logging.LogEntry.#ctor*
   name: LogEntry
   href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry__ctor_
@@ -828,19 +828,32 @@ references:
   isSpec: "True"
   fullName: SharpHook.Logging.LogEntry.LogEntry
   nameWithType: LogEntry.LogEntry
-- uid: SharpHook.Logging.LogEntry.Args
-  name: Args
-  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_Args
-  commentId: P:SharpHook.Logging.LogEntry.Args
-  fullName: SharpHook.Logging.LogEntry.Args
-  nameWithType: LogEntry.Args
-- uid: SharpHook.Logging.LogEntry.Args*
-  name: Args
-  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_Args_
-  commentId: Overload:SharpHook.Logging.LogEntry.Args
+- uid: SharpHook.Logging.LogEntry.ArgumentPlaceholders
+  name: ArgumentPlaceholders
+  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_ArgumentPlaceholders
+  commentId: P:SharpHook.Logging.LogEntry.ArgumentPlaceholders
+  fullName: SharpHook.Logging.LogEntry.ArgumentPlaceholders
+  nameWithType: LogEntry.ArgumentPlaceholders
+- uid: SharpHook.Logging.LogEntry.ArgumentPlaceholders*
+  name: ArgumentPlaceholders
+  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_ArgumentPlaceholders_
+  commentId: Overload:SharpHook.Logging.LogEntry.ArgumentPlaceholders
   isSpec: "True"
-  fullName: SharpHook.Logging.LogEntry.Args
-  nameWithType: LogEntry.Args
+  fullName: SharpHook.Logging.LogEntry.ArgumentPlaceholders
+  nameWithType: LogEntry.ArgumentPlaceholders
+- uid: SharpHook.Logging.LogEntry.Arguments
+  name: Arguments
+  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_Arguments
+  commentId: P:SharpHook.Logging.LogEntry.Arguments
+  fullName: SharpHook.Logging.LogEntry.Arguments
+  nameWithType: LogEntry.Arguments
+- uid: SharpHook.Logging.LogEntry.Arguments*
+  name: Arguments
+  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_Arguments_
+  commentId: Overload:SharpHook.Logging.LogEntry.Arguments
+  isSpec: "True"
+  fullName: SharpHook.Logging.LogEntry.Arguments
+  nameWithType: LogEntry.Arguments
 - uid: SharpHook.Logging.LogEntry.Equals(SharpHook.Logging.LogEntry)
   name: Equals(LogEntry)
   href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_Equals_SharpHook_Logging_LogEntry_
@@ -918,6 +931,19 @@ references:
   commentId: F:SharpHook.Logging.LogEntry.Level
   fullName: SharpHook.Logging.LogEntry.Level
   nameWithType: LogEntry.Level
+- uid: SharpHook.Logging.LogEntry.NativeFormat
+  name: NativeFormat
+  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_NativeFormat
+  commentId: P:SharpHook.Logging.LogEntry.NativeFormat
+  fullName: SharpHook.Logging.LogEntry.NativeFormat
+  nameWithType: LogEntry.NativeFormat
+- uid: SharpHook.Logging.LogEntry.NativeFormat*
+  name: NativeFormat
+  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_NativeFormat_
+  commentId: Overload:SharpHook.Logging.LogEntry.NativeFormat
+  isSpec: "True"
+  fullName: SharpHook.Logging.LogEntry.NativeFormat
+  nameWithType: LogEntry.NativeFormat
 - uid: SharpHook.Logging.LogEntry.op_Equality(SharpHook.Logging.LogEntry,SharpHook.Logging.LogEntry)
   name: Equality(LogEntry, LogEntry)
   href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_op_Equality_SharpHook_Logging_LogEntry_SharpHook_Logging_LogEntry_
@@ -944,19 +970,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.Logging.LogEntry.Inequality
   nameWithType: LogEntry.Inequality
-- uid: SharpHook.Logging.LogEntry.RawFormat
-  name: RawFormat
-  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_RawFormat
-  commentId: P:SharpHook.Logging.LogEntry.RawFormat
-  fullName: SharpHook.Logging.LogEntry.RawFormat
-  nameWithType: LogEntry.RawFormat
-- uid: SharpHook.Logging.LogEntry.RawFormat*
-  name: RawFormat
-  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_RawFormat_
-  commentId: Overload:SharpHook.Logging.LogEntry.RawFormat
+- uid: SharpHook.Logging.LogEntry.RawArguments
+  name: RawArguments
+  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_RawArguments
+  commentId: P:SharpHook.Logging.LogEntry.RawArguments
+  fullName: SharpHook.Logging.LogEntry.RawArguments
+  nameWithType: LogEntry.RawArguments
+- uid: SharpHook.Logging.LogEntry.RawArguments*
+  name: RawArguments
+  href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_RawArguments_
+  commentId: Overload:SharpHook.Logging.LogEntry.RawArguments
   isSpec: "True"
-  fullName: SharpHook.Logging.LogEntry.RawFormat
-  nameWithType: LogEntry.RawFormat
+  fullName: SharpHook.Logging.LogEntry.RawArguments
+  nameWithType: LogEntry.RawArguments
 - uid: SharpHook.Logging.LogEntry.SourceLine
   name: SourceLine
   href: api/SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_SourceLine

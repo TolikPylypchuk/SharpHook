@@ -105,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Logging.LogEntry.html",
-          "hash": "mv/EVF2nxPWyJ/eaw+Mz2mUm8eUeeVCicu5RoCgocQ8="
+          "hash": "rr75xwG5wcuvg7CfO47lLcsqzDLVI/HgH26hCgByyEs="
         }
       },
       "is_incremental": false,
@@ -117,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Logging.LogEntryParser.html",
-          "hash": "Y2hbRvUNioh6UlU0olQpSMz6NnGdJ9P+sgvuKDGqdXY="
+          "hash": "0XPTcatqbL2ZFWnNTkmuygrVoYeWFk67zxa4BA6DLg0="
         }
       },
       "is_incremental": false,
