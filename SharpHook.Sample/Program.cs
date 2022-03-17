@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using SharpHook.Logging;
 using SharpHook.Native;
 using SharpHook.Reactive;
+using SharpHook.Reactive.Logging;
 
 public static class Program
 {
@@ -20,7 +21,9 @@ public static class Program
         Console.WriteLine("---------- SharpHook Sample ----------\n");
 
         using var logSource = LogSource.Register(minLevel: LogLevel.Debug);
-        logSource.MessageLogged += OnLogEvent;
+        using var reactiveLogSource = new ReactiveLogSourceAdapter(logSource);
+
+        reactiveLogSource.MessageLogged.Subscribe(OnMessageLogged);
 
         PrintSystemInfo();
 
@@ -100,8 +103,8 @@ public static class Program
     private static void OnHookEvent(object? sender, HookEventArgs e) =>
         Console.WriteLine($"{e.EventTime.ToLocalTime()}: {e.RawEvent}");
 
-    private static void OnLogEvent(object? sender, LogEventArgs e) =>
-        Console.WriteLine($"{Enum.GetName(e.LogEntry.Level)?.ToUpper()}: {e.LogEntry.FullText}");
+    private static void OnMessageLogged(LogEntry logEntry) =>
+        Console.WriteLine($"{Enum.GetName(logEntry.Level)?.ToUpper()}: {logEntry.FullText}");
 
     private static void OnKeyReleased(object? sender, KeyboardHookEventArgs e)
     {

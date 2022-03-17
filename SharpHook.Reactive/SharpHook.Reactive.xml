@@ -145,6 +145,44 @@
             the current thread is to run it on a separate thread.
             </remarks>
         </member>
+        <member name="T:SharpHook.Reactive.Logging.IReactiveLogSource">
+            <summary>
+            Represents a reactive source of libuiohook logs.
+            </summary>
+            <seealso cref="T:SharpHook.Logging.ILogSource" />
+            <seealso cref="T:SharpHook.Logging.LogSource" />
+            <seealso cref="T:SharpHook.Reactive.Logging.ReactiveLogSourceAdapter" />
+            <seealso cref="T:SharpHook.Logging.LogEventArgs" />
+            <seealso cref="T:SharpHook.Logging.LogEntry" />
+        </member>
+        <member name="P:SharpHook.Reactive.Logging.IReactiveLogSource.MessageLogged">
+            <summary>
+            An observable which is emitted when libuiohook logs a message.
+            </summary>
+        </member>
+        <member name="T:SharpHook.Reactive.Logging.ReactiveLogSourceAdapter">
+            <summary>
+            Adapts an <see cref="T:SharpHook.Logging.ILogSource" /> to the <see cref="T:SharpHook.Reactive.Logging.IReactiveLogSource" /> interface.
+            </summary>
+            <seealso cref="T:SharpHook.Logging.ILogSource" />
+            <seealso cref="T:SharpHook.Reactive.Logging.IReactiveLogSource" />
+        </member>
+        <member name="M:SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.#ctor(SharpHook.Logging.ILogSource)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpHook.Reactive.Logging.ReactiveLogSourceAdapter" /> class.
+            </summary>
+            <param name="logSource">The log source to adapt.</param>
+        </member>
+        <member name="P:SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.MessageLogged">
+            <summary>
+            An observable which is emitted when libuiohook logs a message.
+            </summary>
+        </member>
+        <member name="M:SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.Dispose">
+            <summary>
+            Disposes the adapted log source and emits the completion signal for <see cref="P:SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.MessageLogged" />.
+            </summary>
+        </member>
         <member name="T:SharpHook.Reactive.ReactiveGlobalHookAdapter">
             <summary>
             Adapts an <see cref="T:SharpHook.IGlobalHook" /> to the <see cref="T:SharpHook.Reactive.IReactiveGlobalHook" /> interface.
