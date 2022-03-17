@@ -425,6 +425,42 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Reactive.Logging.IReactiveLogSource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Reactive.Logging.IReactiveLogSource.html",
+          "hash": "bwB1i5i0CXNsDI5kkRZdSQwghPC/90hlxECOdW/iEWk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.html",
+          "hash": "uIuIKrMoWT+VThUWzSd4JQlvSQYz/I59w87mkxNw4Ro="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Reactive.Logging.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Reactive.Logging.html",
+          "hash": "nVqIG0yOZjXQAmAMtyOqzWM8T5NlQ8esKKZIYyJj7m8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SharpHook.Reactive.ReactiveGlobalHookAdapter.yml",
       "output": {
         ".html": {
@@ -525,7 +561,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "q7t7Lk85EWUdfVONiEWYqvhHcwvQ3MHn2lUGJg+RIPA="
+          "hash": "oB6Lk//d4YpGn6J8WieTWSs37029XSU35/f+OndG/OM="
         }
       },
       "is_incremental": false,
@@ -706,7 +742,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 42,
+          "total_file_count": 45,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {
