@@ -18,20 +18,20 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     private const string Starting = "starting";
     private const string Stopping = "stopping";
 
-    private readonly Subject<HookEvent<HookEventArgs>> hookEnabledSubject = new();
-    private readonly Subject<HookEvent<HookEventArgs>> hookDisabledSubject = new();
+    private readonly Subject<HookEventArgs> hookEnabledSubject = new();
+    private readonly Subject<HookEventArgs> hookDisabledSubject = new();
 
-    private readonly Subject<HookEvent<KeyboardHookEventArgs>> keyTypedSubject = new();
-    private readonly Subject<HookEvent<KeyboardHookEventArgs>> keyPressedSubject = new();
-    private readonly Subject<HookEvent<KeyboardHookEventArgs>> keyReleasedSubject = new();
+    private readonly Subject<KeyboardHookEventArgs> keyTypedSubject = new();
+    private readonly Subject<KeyboardHookEventArgs> keyPressedSubject = new();
+    private readonly Subject<KeyboardHookEventArgs> keyReleasedSubject = new();
 
-    private readonly Subject<HookEvent<MouseHookEventArgs>> mouseClickedSubject = new();
-    private readonly Subject<HookEvent<MouseHookEventArgs>> mousePressedSubject = new();
-    private readonly Subject<HookEvent<MouseHookEventArgs>> mouseReleasedSubject = new();
-    private readonly Subject<HookEvent<MouseHookEventArgs>> mouseMovedSubject = new();
-    private readonly Subject<HookEvent<MouseHookEventArgs>> mouseDraggedSubject = new();
+    private readonly Subject<MouseHookEventArgs> mouseClickedSubject = new();
+    private readonly Subject<MouseHookEventArgs> mousePressedSubject = new();
+    private readonly Subject<MouseHookEventArgs> mouseReleasedSubject = new();
+    private readonly Subject<MouseHookEventArgs> mouseMovedSubject = new();
+    private readonly Subject<MouseHookEventArgs> mouseDraggedSubject = new();
 
-    private readonly Subject<HookEvent<MouseWheelHookEventArgs>> mouseWheelSubject = new();
+    private readonly Subject<MouseWheelHookEventArgs> mouseWheelSubject = new();
 
     private bool disposed = false;
 
@@ -73,7 +73,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     /// The observable emits a value when the <see cref="Run" /> or <see cref="RunAsync" /> method is called and
     /// then immediately completes.
     /// </remarks>
-    public IObservable<HookEvent<HookEventArgs>> HookEnabled { get; }
+    public IObservable<HookEventArgs> HookEnabled { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when the global hook is disabled.
@@ -83,61 +83,61 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     /// The observable emits a value when the <see cref="IDisposable.Dispose" /> method is called and then
     /// immediately completes.
     /// </remarks>
-    public IObservable<HookEvent<HookEventArgs>> HookDisabled { get; }
+    public IObservable<HookEventArgs> HookDisabled { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when a key is typed.
     /// </summary>
     /// <value>An observable which emits a value when a key is typed.</value>
-    public IObservable<HookEvent<KeyboardHookEventArgs>> KeyTyped { get; }
+    public IObservable<KeyboardHookEventArgs> KeyTyped { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when a key is pressed.
     /// </summary>
     /// <value>An observable which emits a value when a key is pressed.</value>
-    public IObservable<HookEvent<KeyboardHookEventArgs>> KeyPressed { get; }
+    public IObservable<KeyboardHookEventArgs> KeyPressed { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when a key is released.
     /// </summary>
     /// <value>An observable which emits a value when a key is released.</value>
-    public IObservable<HookEvent<KeyboardHookEventArgs>> KeyReleased { get; }
+    public IObservable<KeyboardHookEventArgs> KeyReleased { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when a mouse button is clicked.
     /// </summary>
     /// <value>An observable which emits a value when a mouse button is clicked.</value>
-    public IObservable<HookEvent<MouseHookEventArgs>> MouseClicked { get; }
+    public IObservable<MouseHookEventArgs> MouseClicked { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when a mouse button is pressed.
     /// </summary>
     /// <value>An observable which emits a value when a mouse button is pressed.</value>
-    public IObservable<HookEvent<MouseHookEventArgs>> MousePressed { get; }
+    public IObservable<MouseHookEventArgs> MousePressed { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when a mouse button is released.
     /// </summary>
     /// <value>An observable which emits a value when a mouse button is released.</value>
-    public IObservable<HookEvent<MouseHookEventArgs>> MouseReleased { get; }
+    public IObservable<MouseHookEventArgs> MouseReleased { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when the mouse cursor is moved.
     /// </summary>
     /// <value>An observable which emits a value when the mouse cursor is moved.</value>
-    public IObservable<HookEvent<MouseHookEventArgs>> MouseMoved { get; }
+    public IObservable<MouseHookEventArgs> MouseMoved { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when the mouse cursor is dragged.
     /// </summary>
     /// <value>An observable which emits a value when the mouse cursor is dragged.</value>
-    public IObservable<HookEvent<MouseHookEventArgs>> MouseDragged { get; }
+    public IObservable<MouseHookEventArgs> MouseDragged { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when the mouse wheel is scrolled.
     /// </summary>
     /// <value>An observable which emits a value when the mouse wheel is scrolled.</value>
-    public IObservable<HookEvent<MouseWheelHookEventArgs>> MouseWheel { get; }
+    public IObservable<MouseWheelHookEventArgs> MouseWheel { get; }
 
     /// <summary>
     /// Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
@@ -241,55 +241,55 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
         switch (e.Type)
         {
             case EventType.HookEnabled:
-                this.hookEnabledSubject.OnNext(new HookEvent<HookEventArgs>(this, args = new(e)));
+                this.hookEnabledSubject.OnNext(args = new(e));
                 break;
             case EventType.HookDisabled:
-                this.hookDisabledSubject.OnNext(new HookEvent<HookEventArgs>(this, args = new(e)));
+                this.hookDisabledSubject.OnNext(args = new(e));
                 break;
             case EventType.KeyTyped:
                 var keyTypedArgs = new KeyboardHookEventArgs(e);
                 args = keyTypedArgs;
-                this.keyTypedSubject.OnNext(new HookEvent<KeyboardHookEventArgs>(this, keyTypedArgs));
+                this.keyTypedSubject.OnNext(keyTypedArgs);
                 break;
             case EventType.KeyPressed:
                 var keyPressedArgs = new KeyboardHookEventArgs(e);
                 args = keyPressedArgs;
-                this.keyPressedSubject.OnNext(new HookEvent<KeyboardHookEventArgs>(this, keyPressedArgs));
+                this.keyPressedSubject.OnNext(keyPressedArgs);
                 break;
             case EventType.KeyReleased:
                 var keyReleasedArgs = new KeyboardHookEventArgs(e);
                 args = keyReleasedArgs;
-                this.keyReleasedSubject.OnNext(new HookEvent<KeyboardHookEventArgs>(this, keyReleasedArgs));
+                this.keyReleasedSubject.OnNext(keyReleasedArgs);
                 break;
             case EventType.MouseClicked:
                 var mouseClickedArgs = new MouseHookEventArgs(e);
                 args = mouseClickedArgs;
-                this.mouseClickedSubject.OnNext(new HookEvent<MouseHookEventArgs>(this, mouseClickedArgs));
+                this.mouseClickedSubject.OnNext(mouseClickedArgs);
                 break;
             case EventType.MousePressed:
                 var mousePressedArgs = new MouseHookEventArgs(e);
                 args = mousePressedArgs;
-                this.mousePressedSubject.OnNext(new HookEvent<MouseHookEventArgs>(this, mousePressedArgs));
+                this.mousePressedSubject.OnNext(mousePressedArgs);
                 break;
             case EventType.MouseReleased:
                 var mouseReleasedArgs = new MouseHookEventArgs(e);
                 args = mouseReleasedArgs;
-                this.mouseReleasedSubject.OnNext(new HookEvent<MouseHookEventArgs>(this, mouseReleasedArgs));
+                this.mouseReleasedSubject.OnNext(mouseReleasedArgs);
                 break;
             case EventType.MouseMoved:
                 var mouseMovedArgs = new MouseHookEventArgs(e);
                 args = mouseMovedArgs;
-                this.mouseMovedSubject.OnNext(new HookEvent<MouseHookEventArgs>(this, mouseMovedArgs));
+                this.mouseMovedSubject.OnNext(mouseMovedArgs);
                 break;
             case EventType.MouseDragged:
                 var mouseDraggedArgs = new MouseHookEventArgs(e);
                 args = mouseDraggedArgs;
-                this.mouseDraggedSubject.OnNext(new HookEvent<MouseHookEventArgs>(this, mouseDraggedArgs));
+                this.mouseDraggedSubject.OnNext(mouseDraggedArgs);
                 break;
             case EventType.MouseWheel:
                 var mouseWheelArgs = new MouseWheelHookEventArgs(e);
                 args = mouseWheelArgs;
-                this.mouseWheelSubject.OnNext(new HookEvent<MouseWheelHookEventArgs>(this, mouseWheelArgs));
+                this.mouseWheelSubject.OnNext(mouseWheelArgs);
                 break;
         };
 

@@ -64,27 +64,27 @@ public static class Program
     {
         var hook = new SimpleReactiveGlobalHook();
 
-        hook.HookEnabled.Subscribe(e => OnHookEvent(e.Sender, e.Args));
-        hook.HookDisabled.Subscribe(e => OnHookEvent(e.Sender, e.Args));
+        hook.HookEnabled.Subscribe(OnHookEvent);
+        hook.HookDisabled.Subscribe(OnHookEvent);
 
-        hook.KeyTyped.Subscribe(e => OnHookEvent(e.Sender, e.Args));
-        hook.KeyPressed.Subscribe(e => OnHookEvent(e.Sender, e.Args));
-        hook.KeyReleased.Subscribe(e => OnHookEvent(e.Sender, e.Args));
-        hook.KeyReleased.Subscribe(e => OnKeyReleased(e.Sender, e.Args));
+        hook.KeyTyped.Subscribe(OnHookEvent);
+        hook.KeyPressed.Subscribe(OnHookEvent);
+        hook.KeyReleased.Subscribe(OnHookEvent);
+        hook.KeyReleased.Subscribe(e => OnKeyReleased(e, hook));
 
-        hook.MouseClicked.Subscribe(e => OnHookEvent(e.Sender, e.Args));
-        hook.MousePressed.Subscribe(e => OnHookEvent(e.Sender, e.Args));
-        hook.MouseReleased.Subscribe(e => OnHookEvent(e.Sender, e.Args));
+        hook.MouseClicked.Subscribe(OnHookEvent);
+        hook.MousePressed.Subscribe(OnHookEvent);
+        hook.MouseReleased.Subscribe(OnHookEvent);
 
         hook.MouseMoved
             .Throttle(TimeSpan.FromSeconds(1))
-            .Subscribe(e => OnHookEvent(e.Sender, e.Args));
+            .Subscribe(OnHookEvent);
 
         hook.MouseDragged
             .Throttle(TimeSpan.FromSeconds(1))
-            .Subscribe(e => OnHookEvent(e.Sender, e.Args));
+            .Subscribe(OnHookEvent);
 
-        hook.MouseWheel.Subscribe(e => OnHookEvent(e.Sender, e.Args));
+        hook.MouseWheel.Subscribe(OnHookEvent);
 
         return hook;
     }
@@ -100,17 +100,17 @@ public static class Program
         simulator.SimulateMouseWheel(0, 0, 10, -1);
     }
 
-    private static void OnHookEvent(object? sender, HookEventArgs e) =>
+    private static void OnHookEvent(HookEventArgs e) =>
         Console.WriteLine($"{e.EventTime.ToLocalTime()}: {e.RawEvent}");
 
     private static void OnMessageLogged(LogEntry logEntry) =>
         Console.WriteLine($"{Enum.GetName(logEntry.Level)?.ToUpper()}: {logEntry.FullText}");
 
-    private static void OnKeyReleased(object? sender, KeyboardHookEventArgs e)
+    private static void OnKeyReleased(KeyboardHookEventArgs e, IReactiveGlobalHook hook)
     {
-        if (e.Data.KeyCode == KeyCode.VcQ && sender is IDisposable disposable)
+        if (e.Data.KeyCode == KeyCode.VcQ)
         {
-            disposable.Dispose();
+            hook.Dispose();
         }
     }
 

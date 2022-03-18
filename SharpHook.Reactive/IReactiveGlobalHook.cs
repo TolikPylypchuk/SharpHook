@@ -12,7 +12,6 @@ using System.Reactive;
 /// <seealso cref="IGlobalHook" />
 /// <seealso cref="SimpleReactiveGlobalHook" />
 /// <seealso cref="ReactiveGlobalHookAdapter" />
-/// <seealso cref="HookEvent{TArgs}" />
 public interface IReactiveGlobalHook : IDisposable
 {
     /// <summary>
@@ -29,7 +28,7 @@ public interface IReactiveGlobalHook : IDisposable
     /// The observable emits a value when the <see cref="Run" /> or <see cref="RunAsync" /> method is called and
     /// then immediately completes.
     /// </remarks>
-    IObservable<HookEvent<HookEventArgs>> HookEnabled { get; }
+    IObservable<HookEventArgs> HookEnabled { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when the global hook is disabled.
@@ -39,61 +38,61 @@ public interface IReactiveGlobalHook : IDisposable
     /// The observable emits a value when the <see cref="IDisposable.Dispose" /> method is called and then
     /// immediately completes.
     /// </remarks>
-    IObservable<HookEvent<HookEventArgs>> HookDisabled { get; }
+    IObservable<HookEventArgs> HookDisabled { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when a key is typed.
     /// </summary>
     /// <value>An observable which emits a value when a key is typed.</value>
-    IObservable<HookEvent<KeyboardHookEventArgs>> KeyTyped { get; }
+    IObservable<KeyboardHookEventArgs> KeyTyped { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when a key is pressed.
     /// </summary>
     /// <value>An observable which emits a value when a key is pressed.</value>
-    IObservable<HookEvent<KeyboardHookEventArgs>> KeyPressed { get; }
+    IObservable<KeyboardHookEventArgs> KeyPressed { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when a key is released.
     /// </summary>
     /// <value>An observable which emits a value when a key is released.</value>
-    IObservable<HookEvent<KeyboardHookEventArgs>> KeyReleased { get; }
+    IObservable<KeyboardHookEventArgs> KeyReleased { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when a mouse button is clicked.
     /// </summary>
     /// <value>An observable which emits a value when a mouse button is clicked.</value>
-    IObservable<HookEvent<MouseHookEventArgs>> MouseClicked { get; }
+    IObservable<MouseHookEventArgs> MouseClicked { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when a mouse button is pressed.
     /// </summary>
     /// <value>An observable which emits a value when a mouse button is pressed.</value>
-    IObservable<HookEvent<MouseHookEventArgs>> MousePressed { get; }
+    IObservable<MouseHookEventArgs> MousePressed { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when a mouse button is released.
     /// </summary>
     /// <value>An observable which emits a value when a mouse button is released.</value>
-    IObservable<HookEvent<MouseHookEventArgs>> MouseReleased { get; }
+    IObservable<MouseHookEventArgs> MouseReleased { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when the mouse cursor is moved.
     /// </summary>
     /// <value>An observable which emits a value when the mouse cursor is moved.</value>
-    IObservable<HookEvent<MouseHookEventArgs>> MouseMoved { get; }
+    IObservable<MouseHookEventArgs> MouseMoved { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when the mouse cursor is dragged.
     /// </summary>
     /// <value>An observable which emits a value when the mouse cursor is dragged.</value>
-    IObservable<HookEvent<MouseHookEventArgs>> MouseDragged { get; }
+    IObservable<MouseHookEventArgs> MouseDragged { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when the mouse wheel is scrolled.
     /// </summary>
     /// <value>An observable which emits a value when the mouse wheel is scrolled.</value>
-    IObservable<HookEvent<MouseWheelHookEventArgs>> MouseWheel { get; }
+    IObservable<MouseWheelHookEventArgs> MouseWheel { get; }
 
     /// <summary>
     /// Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the

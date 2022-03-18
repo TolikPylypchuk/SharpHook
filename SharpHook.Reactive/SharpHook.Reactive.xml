@@ -4,32 +4,6 @@
         <name>SharpHook.Reactive</name>
     </assembly>
     <members>
-        <member name="T:SharpHook.Reactive.HookEvent`1">
-            <summary>
-            Represents an event which is raised by <see cref="T:SharpHook.Reactive.IReactiveGlobalHook" />.
-            </summary>
-            <typeparam name="TArgs">The type of the event data.</typeparam>
-            <seealso cref="T:SharpHook.Reactive.IReactiveGlobalHook" />
-        </member>
-        <member name="M:SharpHook.Reactive.HookEvent`1.#ctor(System.Object,`0)">
-            <summary>
-            Initializes a new instance of <see cref="T:SharpHook.Reactive.HookEvent`1" />.
-            </summary>
-            <param name="sender">The sender of the event.</param>
-            <param name="args">The data of the event.</param>
-        </member>
-        <member name="P:SharpHook.Reactive.HookEvent`1.Sender">
-            <summary>
-            Gets the sender of the event.
-            </summary>
-            <value>The sender of the event.</value>
-        </member>
-        <member name="P:SharpHook.Reactive.HookEvent`1.Args">
-            <summary>
-            Gets the event data.
-            </summary>
-            <value>The event data.</value>
-        </member>
         <member name="T:SharpHook.Reactive.IReactiveGlobalHook">
             <summary>
             Represents a global reactive keyboard and mouse hook.
@@ -40,7 +14,6 @@
             <seealso cref="T:SharpHook.IGlobalHook" />
             <seealso cref="T:SharpHook.Reactive.SimpleReactiveGlobalHook" />
             <seealso cref="T:SharpHook.Reactive.ReactiveGlobalHookAdapter" />
-            <seealso cref="T:SharpHook.Reactive.HookEvent`1" />
         </member>
         <member name="P:SharpHook.Reactive.IReactiveGlobalHook.IsRunning">
             <summary>
