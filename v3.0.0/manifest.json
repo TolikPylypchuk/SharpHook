@@ -401,23 +401,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Reactive.HookEvent-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.Reactive.HookEvent-1.html",
-          "hash": "td8NtP3U640oqKZRWLaHL3GcHgGy+yz0ffiRmDfrqSk="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/SharpHook.Reactive.IReactiveGlobalHook.yml",
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Reactive.IReactiveGlobalHook.html",
-          "hash": "mN2dL5YjZPu8Ikvgnzgs1mw93uHW0tmfMEPjDnMSw5c="
+          "hash": "sw3B/R+nVvqda4W9vpf8Am89MCW2gIFcgH0kMb4CZ6k="
         }
       },
       "is_incremental": false,
@@ -465,7 +453,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html",
-          "hash": "1cKvCF2aZ0I7fj3eDlBeV4HbaiOpLjRZ+dZ+LdUgUKY="
+          "hash": "GkLNQrzoWzaqPLWKBAiEJS/161moMq93qu3s46TmCsg="
         }
       },
       "is_incremental": false,
@@ -477,7 +465,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Reactive.SimpleReactiveGlobalHook.html",
-          "hash": "XeqqJ5SNGZlkjihdbzCsSf8aGBOX7ujqfYWfMOS6S9g="
+          "hash": "TjhrzZA3H+7ygItFaH64rt7I5IkyiyJOPHGKDa2tcYI="
         }
       },
       "is_incremental": false,
@@ -489,7 +477,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Reactive.html",
-          "hash": "rNKKz3S5M/tYYHabczaJZ0SnfBn9IG/t7FbjK8389cE="
+          "hash": "Li60l0Yv9tBpNC5b0YJ9Fg+7yhu4nK8rHoC8swyRAZQ="
         }
       },
       "is_incremental": false,
@@ -561,7 +549,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "oB6Lk//d4YpGn6J8WieTWSs37029XSU35/f+OndG/OM="
+          "hash": "m5nyCLFy5OvUMInMG/rzVF9Rav++cYMGdpVVVx4FRMU="
         }
       },
       "is_incremental": false,
@@ -742,7 +730,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 45,
+          "total_file_count": 44,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {
