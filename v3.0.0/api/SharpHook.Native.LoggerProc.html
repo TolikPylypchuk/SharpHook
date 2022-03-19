@@ -80,7 +80,7 @@
   <h6><strong>Assembly</strong>: SharpHook.dll</h6>
   <h5 id="SharpHook_Native_LoggerProc_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public delegate bool LoggerProc(LogLevel level, IntPtr format, IntPtr args);</code></pre>
+    <pre><code class="lang-csharp hljs">public delegate void LoggerProc(LogLevel level, IntPtr userData, IntPtr format, IntPtr args);</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -100,6 +100,12 @@
       </tr>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.intptr">IntPtr</a></td>
+        <td><span class="parametername">userData</span></td>
+        <td><p>The data that was passed to <a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetLoggerProc_SharpHook_Native_LoggerProc_System_IntPtr_">SetLoggerProc(LoggerProc, IntPtr)</a>. Should not be used.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.intptr">IntPtr</a></td>
         <td><span class="parametername">format</span></td>
         <td><p>The format of the log message.</p>
 </td>
@@ -112,25 +118,9 @@
       </tr>
     </tbody>
   </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td><p><span class="xref">true</span> if the message has been logged. Otherwise, <span class="xref">false</span>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="seealso">See Also</h3>
   <div class="seealso">
-      <div><a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetLoggerProc_SharpHook_Native_LoggerProc_">SetLoggerProc(LoggerProc)</a></div>
+      <div><a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetLoggerProc_SharpHook_Native_LoggerProc_System_IntPtr_">SetLoggerProc(LoggerProc, IntPtr)</a></div>
   </div>
 </article>
           </div>
@@ -143,7 +133,7 @@
                     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_LoggerProc.md&amp;value=---%0Auid%3A%20SharpHook.Native.LoggerProc%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/LoggerProc.cs/#L13" class="contribution-link">View Source</a>
+                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/LoggerProc.cs/#L15" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

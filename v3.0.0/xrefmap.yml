@@ -3129,24 +3129,24 @@ references:
   commentId: Overload:SharpHook.Native.UioHook.Run
   fullName: SharpHook.Native.UioHook.Run
   nameWithType: UioHook.Run
-- uid: SharpHook.Native.UioHook.SetDispatchProc(SharpHook.Native.DispatchProc)
-  name: SetDispatchProc(DispatchProc)
-  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetDispatchProc_SharpHook_Native_DispatchProc_
-  commentId: M:SharpHook.Native.UioHook.SetDispatchProc(SharpHook.Native.DispatchProc)
-  fullName: SharpHook.Native.UioHook.SetDispatchProc(SharpHook.Native.DispatchProc)
-  nameWithType: UioHook.SetDispatchProc(DispatchProc)
+- uid: SharpHook.Native.UioHook.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)
+  name: SetDispatchProc(DispatchProc, IntPtr)
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetDispatchProc_SharpHook_Native_DispatchProc_System_IntPtr_
+  commentId: M:SharpHook.Native.UioHook.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)
+  fullName: SharpHook.Native.UioHook.SetDispatchProc(SharpHook.Native.DispatchProc, System.IntPtr)
+  nameWithType: UioHook.SetDispatchProc(DispatchProc, IntPtr)
 - uid: SharpHook.Native.UioHook.SetDispatchProc*
   name: SetDispatchProc
   href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetDispatchProc_
   commentId: Overload:SharpHook.Native.UioHook.SetDispatchProc
   fullName: SharpHook.Native.UioHook.SetDispatchProc
   nameWithType: UioHook.SetDispatchProc
-- uid: SharpHook.Native.UioHook.SetLoggerProc(SharpHook.Native.LoggerProc)
-  name: SetLoggerProc(LoggerProc)
-  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetLoggerProc_SharpHook_Native_LoggerProc_
-  commentId: M:SharpHook.Native.UioHook.SetLoggerProc(SharpHook.Native.LoggerProc)
-  fullName: SharpHook.Native.UioHook.SetLoggerProc(SharpHook.Native.LoggerProc)
-  nameWithType: UioHook.SetLoggerProc(LoggerProc)
+- uid: SharpHook.Native.UioHook.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)
+  name: SetLoggerProc(LoggerProc, IntPtr)
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetLoggerProc_SharpHook_Native_LoggerProc_System_IntPtr_
+  commentId: M:SharpHook.Native.UioHook.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)
+  fullName: SharpHook.Native.UioHook.SetLoggerProc(SharpHook.Native.LoggerProc, System.IntPtr)
+  nameWithType: UioHook.SetLoggerProc(LoggerProc, IntPtr)
 - uid: SharpHook.Native.UioHook.SetLoggerProc*
   name: SetLoggerProc
   href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetLoggerProc_
