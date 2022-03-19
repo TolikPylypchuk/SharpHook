@@ -44,7 +44,7 @@ public sealed class LogSource : ILogSource
     public static LogSource Register(LogLevel minLevel = LogLevel.Info)
     {
         var source = new LogSource(minLevel);
-        UioHook.SetLoggerProc(source.OnLog);
+        UioHook.SetLoggerProc(source.OnLog, IntPtr.Zero);
         return source;
     }
 
@@ -64,7 +64,7 @@ public sealed class LogSource : ILogSource
             return;
         }
 
-        UioHook.SetLoggerProc(null);
+        UioHook.SetLoggerProc(null, IntPtr.Zero);
 
         if (disposing)
         {
@@ -72,22 +72,18 @@ public sealed class LogSource : ILogSource
         }
     }
 
-    private bool OnLog(LogLevel level, IntPtr format, IntPtr args)
+    private void OnLog(LogLevel level, IntPtr userData, IntPtr format, IntPtr args)
     {
         if (level < this.MinLevel)
         {
-            return false;
+            return;
         }
 
         try
         {
             var logEntry = this.parser.ParseNativeLogEntry(level, format, args);
             this.MessageLogged?.Invoke(this, new LogEventArgs(logEntry));
-            return true;
-        } catch
-        {
-            return false;
-        }
+        } catch { }
     }
 
     /// <summary>

@@ -3,7 +3,7 @@ namespace SharpHook.Logging;
 using System;
 
 /// <summary>
-/// Evnet args for logging events.
+/// Event args for logging events.
 /// </summary>
 /// <seealso cref="ILogSource" />
 /// <seealso cref="LogSource" />

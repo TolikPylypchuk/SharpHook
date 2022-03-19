@@ -47,7 +47,7 @@ public abstract class GlobalHookBase : IGlobalHook
 
         try
         {
-            UioHook.SetDispatchProc(this.HandleHookEventIfNeeded);
+            UioHook.SetDispatchProc(this.HandleHookEventIfNeeded, IntPtr.Zero);
 
             this.IsRunning = true;
             var result = UioHook.Run();
@@ -84,7 +84,7 @@ public abstract class GlobalHookBase : IGlobalHook
         {
             try
             {
-                UioHook.SetDispatchProc(this.HandleHookEventIfNeeded);
+                UioHook.SetDispatchProc(this.HandleHookEventIfNeeded, IntPtr.Zero);
 
                 this.IsRunning = true;
                 var result = UioHook.Run();
@@ -149,7 +149,7 @@ public abstract class GlobalHookBase : IGlobalHook
                 this.OnHookEnabled(args = new HookEventArgs(e));
                 break;
             case EventType.HookDisabled:
-                UioHook.SetDispatchProc(null);
+                UioHook.SetDispatchProc(null, IntPtr.Zero);
                 this.OnHookDisabled(args = new HookEventArgs(e));
                 break;
             case EventType.KeyTyped:
@@ -323,7 +323,7 @@ public abstract class GlobalHookBase : IGlobalHook
         }
     }
 
-    private void HandleHookEventIfNeeded(ref UioHookEvent e)
+    private void HandleHookEventIfNeeded(ref UioHookEvent e, IntPtr userData)
     {
         if (this.ShouldDispatchEvent(ref e))
         {

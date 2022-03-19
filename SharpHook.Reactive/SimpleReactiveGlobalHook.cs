@@ -153,7 +153,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
 
         try
         {
-            UioHook.SetDispatchProc(this.DispatchEvent);
+            UioHook.SetDispatchProc(this.DispatchEvent, IntPtr.Zero);
 
             this.IsRunning = true;
             var result = UioHook.Run();
@@ -193,7 +193,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
         {
             try
             {
-                UioHook.SetDispatchProc(this.DispatchEvent);
+                UioHook.SetDispatchProc(this.DispatchEvent, IntPtr.Zero);
 
                 this.IsRunning = true;
                 var result = UioHook.Run();
@@ -234,7 +234,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
         GC.SuppressFinalize(this);
     }
 
-    private void DispatchEvent(ref UioHookEvent e)
+    private void DispatchEvent(ref UioHookEvent e, IntPtr userData)
     {
         HookEventArgs? args = null;
 
@@ -312,7 +312,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
         {
             this.hookDisabledSubject.Subscribe(_ =>
             {
-                UioHook.SetDispatchProc(null);
+                UioHook.SetDispatchProc(null, IntPtr.Zero);
 
                 this.CompleteAllSubjects();
 

@@ -718,7 +718,7 @@
         </member>
         <member name="T:SharpHook.Logging.LogEventArgs">
             <summary>
-            Evnet args for logging events.
+            Event args for logging events.
             </summary>
             <seealso cref="T:SharpHook.Logging.ILogSource" />
             <seealso cref="T:SharpHook.Logging.LogSource" />
@@ -825,7 +825,10 @@
             Represents a function which is called when an event occurs.
             </summary>
             <param name="e">The event that has occured.</param>
-            <seealso cref="M:SharpHook.Native.UioHook.SetDispatchProc(SharpHook.Native.DispatchProc)" />
+            <param name="userData">
+            The data that was passed to <see cref="M:SharpHook.Native.UioHook.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)" />. Should not be used.
+            </param>
+            <seealso cref="M:SharpHook.Native.UioHook.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)" />
         </member>
         <member name="T:SharpHook.Native.EventReservedValueMask">
             <summary>
@@ -936,10 +939,12 @@
             Represents a function which is called when a logging event occurs.
             </summary>
             <param name="level">The log level.</param>
+            <param name="userData">
+            The data that was passed to <see cref="M:SharpHook.Native.UioHook.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)" />. Should not be used.
+            </param>
             <param name="format">The format of the log message.</param>
             <param name="args">The arguments of the log message.</param>
-            <returns><see langword="true" /> if the message has been logged. Otherwise, <see langword="false" />.</returns>
-            <seealso cref="M:SharpHook.Native.UioHook.SetLoggerProc(SharpHook.Native.LoggerProc)" />
+            <seealso cref="M:SharpHook.Native.UioHook.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)" />
         </member>
         <member name="T:SharpHook.Native.ModifierMask">
             <summary>
@@ -1240,12 +1245,16 @@
             Contains native methods of libuiohook.
             </summary>
         </member>
-        <member name="M:SharpHook.Native.UioHook.SetDispatchProc(SharpHook.Native.DispatchProc)">
+        <member name="M:SharpHook.Native.UioHook.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)">
             <summary>
             Sets the hook callback function.
             </summary>
-            <param name="dispatchProc">The function to call when an event is raised.</param>
-            <remarks>Pass <see langword="null" /> to this function to unset a hook callback function.</remarks>
+            <param name="dispatchProc">
+            The function to call when an event is raised, or <see langword="null" /> to unset the function.
+            </param>
+            <param name="userData">
+            Custom data to pass to the callback. Should not be used, and <see cref="F:System.IntPtr.Zero" /> should always be passed.
+            </param>
             <seealso cref="T:SharpHook.Native.DispatchProc" />
         </member>
         <member name="M:SharpHook.Native.UioHook.Run">
@@ -1260,12 +1269,16 @@
             </summary>
             <returns>The result of the operation.</returns>
         </member>
-        <member name="M:SharpHook.Native.UioHook.SetLoggerProc(SharpHook.Native.LoggerProc)">
+        <member name="M:SharpHook.Native.UioHook.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)">
             <summary>
             Sets the log callback function.
             </summary>
-            <param name="loggerProc">The function to call for logging.</param>
-            <remarks>Pass <see langword="null" /> to this function to unset a log callback function.</remarks>
+            <param name="loggerProc">
+            The function to call for logging, or <see langword="null" /> to unset the function.
+            </param>
+            <param name="userData">
+            Custom data to pass to the callback. Should not be used, and <see cref="F:System.IntPtr.Zero" /> should always be passed.
+            </param>
             <seealso cref="T:SharpHook.Native.LoggerProc" />
         </member>
         <member name="M:SharpHook.Native.UioHook.PostEvent(SharpHook.Native.UioHookEvent@)">

@@ -20,11 +20,15 @@ public static class UioHook
     /// <summary>
     /// Sets the hook callback function.
     /// </summary>
-    /// <param name="dispatchProc">The function to call when an event is raised.</param>
-    /// <remarks>Pass <see langword="null" /> to this function to unset a hook callback function.</remarks>
+    /// <param name="dispatchProc">
+    /// The function to call when an event is raised, or <see langword="null" /> to unset the function.
+    /// </param>
+    /// <param name="userData">
+    /// Custom data to pass to the callback. Should not be used, and <see cref="IntPtr.Zero" /> should always be passed.
+    /// </param>
     /// <seealso cref="DispatchProc" />
     [DllImport(LibUioHook, EntryPoint = "hook_set_dispatch_proc")]
-    public static extern void SetDispatchProc(DispatchProc? dispatchProc);
+    public static extern void SetDispatchProc(DispatchProc? dispatchProc, IntPtr userData);
 
     /// <summary>
     /// Runs the global hook and blocks the thread until it's stopped.
@@ -43,11 +47,15 @@ public static class UioHook
     /// <summary>
     /// Sets the log callback function.
     /// </summary>
-    /// <param name="loggerProc">The function to call for logging.</param>
-    /// <remarks>Pass <see langword="null" /> to this function to unset a log callback function.</remarks>
+    /// <param name="loggerProc">
+    /// The function to call for logging, or <see langword="null" /> to unset the function.
+    /// </param>
+    /// <param name="userData">
+    /// Custom data to pass to the callback. Should not be used, and <see cref="IntPtr.Zero" /> should always be passed.
+    /// </param>
     /// <seealso cref="LoggerProc" />
-    [DllImport(LibUioHook, EntryPoint = "hook_set_va_logger_proc")]
-    public static extern void SetLoggerProc(LoggerProc? loggerProc);
+    [DllImport(LibUioHook, EntryPoint = "hook_set_logger_proc")]
+    public static extern void SetLoggerProc(LoggerProc? loggerProc, IntPtr userData);
 
     /// <summary>
     /// Posts a fake input event.

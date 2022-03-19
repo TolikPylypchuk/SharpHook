@@ -29,6 +29,8 @@ public sealed class ReactiveLogSourceAdapter : IReactiveLogSource
             h => this.logSource.MessageLogged += h, h => this.logSource.MessageLogged -= h)
             .Select(e => e.EventArgs.LogEntry)
             .Subscribe(this.messageLoggedSubject);
+
+        this.MessageLogged = this.messageLoggedSubject.AsObservable();
     }
 
     ~ReactiveLogSourceAdapter() =>
@@ -37,8 +39,7 @@ public sealed class ReactiveLogSourceAdapter : IReactiveLogSource
     /// <summary>
     /// An observable which is emitted when libuiohook logs a message.
     /// </summary>
-    public IObservable<LogEntry> MessageLogged =>
-        this.messageLoggedSubject.AsObservable();
+    public IObservable<LogEntry> MessageLogged { get; }
 
     /// <summary>
     /// Disposes the adapted log source and emits the completion signal for <see cref="MessageLogged" />.
