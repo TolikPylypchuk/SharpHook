@@ -12,7 +12,8 @@ public class EventSimulator : IEventSimulator
     /// Simulates pressing a key.
     /// </summary>
     /// <param name="keyCode">The code of the key to press.</param>
-    public void SimulateKeyPress(KeyCode keyCode) =>
+    /// <returns>The result of the operation.</returns>
+    public UioHookResult SimulateKeyPress(KeyCode keyCode) =>
         this.PostEvent(new()
         {
             Type = EventType.KeyPressed,
@@ -23,7 +24,8 @@ public class EventSimulator : IEventSimulator
     /// Simulates releasing a key.
     /// </summary>
     /// <param name="keyCode">The code of the key to release.</param>
-    public void SimulateKeyRelease(KeyCode keyCode) =>
+    /// <returns>The result of the operation.</returns>
+    public UioHookResult SimulateKeyRelease(KeyCode keyCode) =>
         this.PostEvent(new()
         {
             Type = EventType.KeyReleased,
@@ -34,7 +36,8 @@ public class EventSimulator : IEventSimulator
     /// Simulates pressing a mouse button.
     /// </summary>
     /// <param name="button">The mouse button to press.</param>
-    public void SimulateMousePress(MouseButton button) =>
+    /// <returns>The result of the operation.</returns>
+    public UioHookResult SimulateMousePress(MouseButton button) =>
         this.PostEvent(new()
         {
             Type = EventType.MousePressed,
@@ -45,7 +48,8 @@ public class EventSimulator : IEventSimulator
     /// Simulates releasing a mouse button.
     /// </summary>
     /// <param name="button">The mouse button to release.</param>
-    public void SimulateMouseRelease(MouseButton button) =>
+    /// <returns>The result of the operation.</returns>
+    public UioHookResult SimulateMouseRelease(MouseButton button) =>
         this.PostEvent(new()
         {
             Type = EventType.MouseReleased,
@@ -57,7 +61,8 @@ public class EventSimulator : IEventSimulator
     /// </summary>
     /// <param name="x">The target X-coordinate of the mouse pointer.</param>
     /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
-    public void SimulateMouseMovement(short x, short y) =>
+    /// <returns>The result of the operation.</returns>
+    public UioHookResult SimulateMouseMovement(short x, short y) =>
         this.PostEvent(new()
         {
             Type = EventType.MouseMoved,
@@ -71,6 +76,7 @@ public class EventSimulator : IEventSimulator
     /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
     /// <param name="amount">The scrolling amount.</param>
     /// <param name="rotation">The wheel rotation.</param>
+    /// <returns>The result of the operation.</returns>
     /// <remarks>
     /// <para>
     /// A positive <paramref name="rotation" /> value indicates that the wheel was rotated forward, away from the user;
@@ -81,13 +87,13 @@ public class EventSimulator : IEventSimulator
     /// libuiohook for more details.
     /// </para>
     /// </remarks>
-    public void SimulateMouseWheel(short x, short y, ushort amount, short rotation) =>
+    public UioHookResult SimulateMouseWheel(short x, short y, ushort amount, short rotation) =>
         this.PostEvent(new()
         {
             Type = EventType.MouseWheel,
             Wheel = new() { X = x, Y = y, Amount = amount, Rotation = rotation }
         });
 
-    private void PostEvent(UioHookEvent e) =>
+    private UioHookResult PostEvent(UioHookEvent e) =>
         UioHook.PostEvent(ref e);
 }

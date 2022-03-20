@@ -15,24 +15,28 @@
             Simulates pressing a key.
             </summary>
             <param name="keyCode">The code of the key to press.</param>
+            <returns>The result of the operation.</returns>
         </member>
         <member name="M:SharpHook.EventSimulator.SimulateKeyRelease(SharpHook.Native.KeyCode)">
             <summary>
             Simulates releasing a key.
             </summary>
             <param name="keyCode">The code of the key to release.</param>
+            <returns>The result of the operation.</returns>
         </member>
         <member name="M:SharpHook.EventSimulator.SimulateMousePress(SharpHook.Native.MouseButton)">
             <summary>
             Simulates pressing a mouse button.
             </summary>
             <param name="button">The mouse button to press.</param>
+            <returns>The result of the operation.</returns>
         </member>
         <member name="M:SharpHook.EventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton)">
             <summary>
             Simulates releasing a mouse button.
             </summary>
             <param name="button">The mouse button to release.</param>
+            <returns>The result of the operation.</returns>
         </member>
         <member name="M:SharpHook.EventSimulator.SimulateMouseMovement(System.Int16,System.Int16)">
             <summary>
@@ -40,6 +44,7 @@
             </summary>
             <param name="x">The target X-coordinate of the mouse pointer.</param>
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <returns>The result of the operation.</returns>
         </member>
         <member name="M:SharpHook.EventSimulator.SimulateMouseWheel(System.Int16,System.Int16,System.UInt16,System.Int16)">
             <summary>
@@ -49,6 +54,7 @@
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
             <param name="amount">The scrolling amount.</param>
             <param name="rotation">The wheel rotation.</param>
+            <returns>The result of the operation.</returns>
             <remarks>
             <para>
             A positive <paramref name="rotation" /> value indicates that the wheel was rotated forward, away from the user;
@@ -381,24 +387,28 @@
             Simulates pressing a key.
             </summary>
             <param name="keyCode">The code of the key to press.</param>
+            <returns>The result of the operation.</returns>
         </member>
         <member name="M:SharpHook.IEventSimulator.SimulateKeyRelease(SharpHook.Native.KeyCode)">
             <summary>
             Simulates releasing a key.
             </summary>
             <param name="keyCode">The code of the key to release.</param>
+            <returns>The result of the operation.</returns>
         </member>
         <member name="M:SharpHook.IEventSimulator.SimulateMousePress(SharpHook.Native.MouseButton)">
             <summary>
             Simulates pressing a mouse button.
             </summary>
             <param name="button">The mouse button to press.</param>
+            <returns>The result of the operation.</returns>
         </member>
         <member name="M:SharpHook.IEventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton)">
             <summary>
             Simulates releasing a mouse button.
             </summary>
             <param name="button">The mouse button to release.</param>
+            <returns>The result of the operation.</returns>
         </member>
         <member name="M:SharpHook.IEventSimulator.SimulateMouseMovement(System.Int16,System.Int16)">
             <summary>
@@ -406,6 +416,7 @@
             </summary>
             <param name="x">The target X-coordinate of the mouse pointer.</param>
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <returns>The result of the operation.</returns>
         </member>
         <member name="M:SharpHook.IEventSimulator.SimulateMouseWheel(System.Int16,System.Int16,System.UInt16,System.Int16)">
             <summary>
@@ -415,6 +426,7 @@
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
             <param name="amount">The scrolling amount.</param>
             <param name="rotation">The wheel rotation.</param>
+            <returns>The result of the operation.</returns>
             <remarks>
             A positive <paramref name="rotation" /> value indicates that the wheel was rotated forward, away from the user;
             a negative value indicates that the wheel was rotated backward, toward the user.
@@ -1286,6 +1298,7 @@
             Posts a fake input event.
             </summary>
             <param name="e">The event to post.</param>
+            <returns>The result of the operation.</returns>
             <remarks>
             <para>
             The instance of the event doesn't need all fields to have value. Only <see cref="F:SharpHook.Native.UioHookEvent.Type" />,

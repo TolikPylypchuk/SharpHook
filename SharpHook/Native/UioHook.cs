@@ -1,8 +1,8 @@
+namespace SharpHook.Native;
+
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
-
-namespace SharpHook.Native;
 
 /// <summary>
 /// Contains native methods of libuiohook.
@@ -61,6 +61,7 @@ public static class UioHook
     /// Posts a fake input event.
     /// </summary>
     /// <param name="e">The event to post.</param>
+    /// <returns>The result of the operation.</returns>
     /// <remarks>
     /// <para>
     /// The instance of the event doesn't need all fields to have value. Only <see cref="UioHookEvent.Type" />,
@@ -130,7 +131,7 @@ public static class UioHook
     /// </remarks>
     /// <seealso cref="EventSimulator" />
     [DllImport(LibUioHook, EntryPoint = "hook_post_event")]
-    public static extern void PostEvent(ref UioHookEvent e);
+    public static extern UioHookResult PostEvent(ref UioHookEvent e);
 
     /// <summary>
     /// Gets the information about screens.
