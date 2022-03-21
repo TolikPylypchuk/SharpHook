@@ -173,6 +173,19 @@ references:
   commentId: E:SharpHook.GlobalHookBase.HookEnabled
   fullName: SharpHook.GlobalHookBase.HookEnabled
   nameWithType: GlobalHookBase.HookEnabled
+- uid: SharpHook.GlobalHookBase.IsDisposed
+  name: IsDisposed
+  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_IsDisposed
+  commentId: P:SharpHook.GlobalHookBase.IsDisposed
+  fullName: SharpHook.GlobalHookBase.IsDisposed
+  nameWithType: GlobalHookBase.IsDisposed
+- uid: SharpHook.GlobalHookBase.IsDisposed*
+  name: IsDisposed
+  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_IsDisposed_
+  commentId: Overload:SharpHook.GlobalHookBase.IsDisposed
+  isSpec: "True"
+  fullName: SharpHook.GlobalHookBase.IsDisposed
+  nameWithType: GlobalHookBase.IsDisposed
 - uid: SharpHook.GlobalHookBase.IsRunning
   name: IsRunning
   href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_IsRunning
@@ -663,6 +676,19 @@ references:
   commentId: E:SharpHook.IGlobalHook.HookEnabled
   fullName: SharpHook.IGlobalHook.HookEnabled
   nameWithType: IGlobalHook.HookEnabled
+- uid: SharpHook.IGlobalHook.IsDisposed
+  name: IsDisposed
+  href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_IsDisposed
+  commentId: P:SharpHook.IGlobalHook.IsDisposed
+  fullName: SharpHook.IGlobalHook.IsDisposed
+  nameWithType: IGlobalHook.IsDisposed
+- uid: SharpHook.IGlobalHook.IsDisposed*
+  name: IsDisposed
+  href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_IsDisposed_
+  commentId: Overload:SharpHook.IGlobalHook.IsDisposed
+  isSpec: "True"
+  fullName: SharpHook.IGlobalHook.IsDisposed
+  nameWithType: IGlobalHook.IsDisposed
 - uid: SharpHook.IGlobalHook.IsRunning
   name: IsRunning
   href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_IsRunning
@@ -800,6 +826,19 @@ references:
   commentId: T:SharpHook.Logging.ILogSource
   fullName: SharpHook.Logging.ILogSource
   nameWithType: ILogSource
+- uid: SharpHook.Logging.ILogSource.IsDisposed
+  name: IsDisposed
+  href: api/SharpHook.Logging.ILogSource.html#SharpHook_Logging_ILogSource_IsDisposed
+  commentId: P:SharpHook.Logging.ILogSource.IsDisposed
+  fullName: SharpHook.Logging.ILogSource.IsDisposed
+  nameWithType: ILogSource.IsDisposed
+- uid: SharpHook.Logging.ILogSource.IsDisposed*
+  name: IsDisposed
+  href: api/SharpHook.Logging.ILogSource.html#SharpHook_Logging_ILogSource_IsDisposed_
+  commentId: Overload:SharpHook.Logging.ILogSource.IsDisposed
+  isSpec: "True"
+  fullName: SharpHook.Logging.ILogSource.IsDisposed
+  nameWithType: ILogSource.IsDisposed
 - uid: SharpHook.Logging.ILogSource.MessageLogged
   name: MessageLogged
   href: api/SharpHook.Logging.ILogSource.html#SharpHook_Logging_ILogSource_MessageLogged
@@ -1092,6 +1131,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.Logging.LogSource.Finalize
   nameWithType: LogSource.Finalize
+- uid: SharpHook.Logging.LogSource.IsDisposed
+  name: IsDisposed
+  href: api/SharpHook.Logging.LogSource.html#SharpHook_Logging_LogSource_IsDisposed
+  commentId: P:SharpHook.Logging.LogSource.IsDisposed
+  fullName: SharpHook.Logging.LogSource.IsDisposed
+  nameWithType: LogSource.IsDisposed
+- uid: SharpHook.Logging.LogSource.IsDisposed*
+  name: IsDisposed
+  href: api/SharpHook.Logging.LogSource.html#SharpHook_Logging_LogSource_IsDisposed_
+  commentId: Overload:SharpHook.Logging.LogSource.IsDisposed
+  isSpec: "True"
+  fullName: SharpHook.Logging.LogSource.IsDisposed
+  nameWithType: LogSource.IsDisposed
 - uid: SharpHook.Logging.LogSource.MessageLogged
   name: MessageLogged
   href: api/SharpHook.Logging.LogSource.html#SharpHook_Logging_LogSource_MessageLogged
@@ -3424,6 +3476,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.Reactive.IReactiveGlobalHook.HookEnabled
   nameWithType: IReactiveGlobalHook.HookEnabled
+- uid: SharpHook.Reactive.IReactiveGlobalHook.IsDisposed
+  name: IsDisposed
+  href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_IsDisposed
+  commentId: P:SharpHook.Reactive.IReactiveGlobalHook.IsDisposed
+  fullName: SharpHook.Reactive.IReactiveGlobalHook.IsDisposed
+  nameWithType: IReactiveGlobalHook.IsDisposed
+- uid: SharpHook.Reactive.IReactiveGlobalHook.IsDisposed*
+  name: IsDisposed
+  href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_IsDisposed_
+  commentId: Overload:SharpHook.Reactive.IReactiveGlobalHook.IsDisposed
+  isSpec: "True"
+  fullName: SharpHook.Reactive.IReactiveGlobalHook.IsDisposed
+  nameWithType: IReactiveGlobalHook.IsDisposed
 - uid: SharpHook.Reactive.IReactiveGlobalHook.IsRunning
   name: IsRunning
   href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_IsRunning
@@ -3592,6 +3657,19 @@ references:
   commentId: T:SharpHook.Reactive.Logging.IReactiveLogSource
   fullName: SharpHook.Reactive.Logging.IReactiveLogSource
   nameWithType: IReactiveLogSource
+- uid: SharpHook.Reactive.Logging.IReactiveLogSource.IsDisposed
+  name: IsDisposed
+  href: api/SharpHook.Reactive.Logging.IReactiveLogSource.html#SharpHook_Reactive_Logging_IReactiveLogSource_IsDisposed
+  commentId: P:SharpHook.Reactive.Logging.IReactiveLogSource.IsDisposed
+  fullName: SharpHook.Reactive.Logging.IReactiveLogSource.IsDisposed
+  nameWithType: IReactiveLogSource.IsDisposed
+- uid: SharpHook.Reactive.Logging.IReactiveLogSource.IsDisposed*
+  name: IsDisposed
+  href: api/SharpHook.Reactive.Logging.IReactiveLogSource.html#SharpHook_Reactive_Logging_IReactiveLogSource_IsDisposed_
+  commentId: Overload:SharpHook.Reactive.Logging.IReactiveLogSource.IsDisposed
+  isSpec: "True"
+  fullName: SharpHook.Reactive.Logging.IReactiveLogSource.IsDisposed
+  nameWithType: IReactiveLogSource.IsDisposed
 - uid: SharpHook.Reactive.Logging.IReactiveLogSource.MessageLogged
   name: MessageLogged
   href: api/SharpHook.Reactive.Logging.IReactiveLogSource.html#SharpHook_Reactive_Logging_IReactiveLogSource_MessageLogged
@@ -3650,6 +3728,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.Finalize
   nameWithType: ReactiveLogSourceAdapter.Finalize
+- uid: SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.IsDisposed
+  name: IsDisposed
+  href: api/SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.html#SharpHook_Reactive_Logging_ReactiveLogSourceAdapter_IsDisposed
+  commentId: P:SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.IsDisposed
+  fullName: SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.IsDisposed
+  nameWithType: ReactiveLogSourceAdapter.IsDisposed
+- uid: SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.IsDisposed*
+  name: IsDisposed
+  href: api/SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.html#SharpHook_Reactive_Logging_ReactiveLogSourceAdapter_IsDisposed_
+  commentId: Overload:SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.IsDisposed
+  isSpec: "True"
+  fullName: SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.IsDisposed
+  nameWithType: ReactiveLogSourceAdapter.IsDisposed
 - uid: SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.MessageLogged
   name: MessageLogged
   href: api/SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.html#SharpHook_Reactive_Logging_ReactiveLogSourceAdapter_MessageLogged
@@ -3734,6 +3825,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.HookEnabled
   nameWithType: ReactiveGlobalHookAdapter.HookEnabled
+- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.IsDisposed
+  name: IsDisposed
+  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_IsDisposed
+  commentId: P:SharpHook.Reactive.ReactiveGlobalHookAdapter.IsDisposed
+  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.IsDisposed
+  nameWithType: ReactiveGlobalHookAdapter.IsDisposed
+- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.IsDisposed*
+  name: IsDisposed
+  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_IsDisposed_
+  commentId: Overload:SharpHook.Reactive.ReactiveGlobalHookAdapter.IsDisposed
+  isSpec: "True"
+  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.IsDisposed
+  nameWithType: ReactiveGlobalHookAdapter.IsDisposed
 - uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.IsRunning
   name: IsRunning
   href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_IsRunning
@@ -4066,6 +4170,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.HookEnabled
   nameWithType: SimpleReactiveGlobalHook.HookEnabled
+- uid: SharpHook.Reactive.SimpleReactiveGlobalHook.IsDisposed
+  name: IsDisposed
+  href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook_IsDisposed
+  commentId: P:SharpHook.Reactive.SimpleReactiveGlobalHook.IsDisposed
+  fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.IsDisposed
+  nameWithType: SimpleReactiveGlobalHook.IsDisposed
+- uid: SharpHook.Reactive.SimpleReactiveGlobalHook.IsDisposed*
+  name: IsDisposed
+  href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook_IsDisposed_
+  commentId: Overload:SharpHook.Reactive.SimpleReactiveGlobalHook.IsDisposed
+  isSpec: "True"
+  fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.IsDisposed
+  nameWithType: SimpleReactiveGlobalHook.IsDisposed
 - uid: SharpHook.Reactive.SimpleReactiveGlobalHook.IsRunning
   name: IsRunning
   href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook_IsRunning
