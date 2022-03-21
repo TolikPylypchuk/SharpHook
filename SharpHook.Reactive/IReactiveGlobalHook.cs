@@ -21,6 +21,13 @@ public interface IReactiveGlobalHook : IDisposable
     bool IsRunning { get; }
 
     /// <summary>
+    /// Gets the value which indicates whether the global hook is disposed.
+    /// </summary>
+    /// <value><see langword="true" /> if the global hook is disposed. Otherwise, <see langword="false" />.</value>
+    /// <remarks>A disposed global hook cannot be started again.</remarks>
+    bool IsDisposed { get; }
+
+    /// <summary>
     /// Gets an observable which emits a value when the global hook is enabled.
     /// </summary>
     /// <value>An observable which emits a value when the global hook is enabled.</value>
@@ -112,8 +119,14 @@ public interface IReactiveGlobalHook : IDisposable
     /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
     /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
     /// <remarks>
+    /// <para>
     /// Since the underlying native API for running a global hook is blocking, the only way to run it without blocking
     /// the current thread is to run it on a separate thread.
+    /// </para>
+    /// <para>
+    /// The returned observable is hot, and emits a single value and then immediately completes when the hook is
+    /// destroyed.
+    /// </para>
     /// </remarks>
     IObservable<Unit> RunAsync();
 }

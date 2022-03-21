@@ -19,8 +19,6 @@ public abstract class GlobalHookBase : IGlobalHook
     private const string Starting = "starting";
     private const string Stopping = "stopping";
 
-    private bool disposed = false;
-
     /// <summary>
     /// Destroys the global hook if it's running.
     /// </summary>
@@ -32,6 +30,13 @@ public abstract class GlobalHookBase : IGlobalHook
     /// </summary>
     /// <value><see langword="true" /> if the global hook is running. Otherwise, <see langword="false" />.</value>
     public bool IsRunning { get; private set; }
+
+    /// <summary>
+    /// Gets the value which indicates whether the global hook is disposed.
+    /// </summary>
+    /// <value><see langword="true" /> if the global hook is disposed. Otherwise, <see langword="false" />.</value>
+    /// <remarks>A disposed global hook cannot be started again.</remarks>
+    public bool IsDisposed { get; private set; } = false;
 
     /// <summary>
     /// Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
@@ -292,12 +297,12 @@ public abstract class GlobalHookBase : IGlobalHook
     /// <exception cref="HookException">Stopping the hook has failed.</exception>
     protected virtual void Dispose(bool disposing)
     {
-        if (this.disposed)
+        if (this.IsDisposed)
         {
             return;
         }
 
-        this.disposed = true;
+        this.IsDisposed = true;
 
         if (this.IsRunning)
         {
@@ -316,7 +321,7 @@ public abstract class GlobalHookBase : IGlobalHook
     /// <param name="method">The method which calls this method.</param>
     protected void ThrowIfDisposed([CallerMemberName] string? method = null)
     {
-        if (this.disposed)
+        if (this.IsDisposed)
         {
             throw new ObjectDisposedException(
                 this.GetType().Name, $"Cannot call {method} - the object is disposed");

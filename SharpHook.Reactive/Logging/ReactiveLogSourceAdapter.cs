@@ -15,7 +15,6 @@ public sealed class ReactiveLogSourceAdapter : IReactiveLogSource
 {
     private readonly ILogSource logSource;
     private readonly Subject<LogEntry> messageLoggedSubject = new();
-    private bool disposed;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="ReactiveLogSourceAdapter" /> class.
@@ -33,6 +32,9 @@ public sealed class ReactiveLogSourceAdapter : IReactiveLogSource
         this.MessageLogged = this.messageLoggedSubject.AsObservable();
     }
 
+    /// <summary>
+    /// Completes the <see cref="MessageLogged" /> observable if the log source hasn't been disposed.
+    /// </summary>
     ~ReactiveLogSourceAdapter() =>
         this.Dispose(false);
 
@@ -42,17 +44,22 @@ public sealed class ReactiveLogSourceAdapter : IReactiveLogSource
     public IObservable<LogEntry> MessageLogged { get; }
 
     /// <summary>
+    /// Gets the value which indicates whether the log source is disposed.
+    /// </summary>
+    /// <value><see langword="true" /> if the log source is disposed. Otherwise, <see langword="false" />.</value>
+    /// <remarks>The <see cref="MessageLogged" /> observable doesn't emit any values in a disposed log source.</remarks>
+    public bool IsDisposed => this.logSource.IsDisposed;
+
+    /// <summary>
     /// Disposes the adapted log source and emits the completion signal for <see cref="MessageLogged" />.
     /// </summary>
     public void Dispose()
     {
-        if (this.disposed)
+        if (!this.IsDisposed)
         {
-            return;
+            this.Dispose(true);
+            GC.SuppressFinalize(this);
         }
-
-        this.Dispose(true);
-        GC.SuppressFinalize(this);
     }
 
     private void Dispose(bool disposing)
@@ -60,7 +67,6 @@ public sealed class ReactiveLogSourceAdapter : IReactiveLogSource
         if (disposing)
         {
             this.logSource.Dispose();
-            this.disposed = true;
         }
 
         messageLoggedSubject.OnCompleted();

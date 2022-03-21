@@ -18,6 +18,13 @@ public interface IGlobalHook : IDisposable
     bool IsRunning { get; }
 
     /// <summary>
+    /// Gets the value which indicates whether the global hook is disposed.
+    /// </summary>
+    /// <value><see langword="true" /> if the global hook is disposed. Otherwise, <see langword="false" />.</value>
+    /// <remarks>A disposed global hook cannot be started again.</remarks>
+    bool IsDisposed { get; }
+
+    /// <summary>
     /// Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
     /// <see cref="IDisposable.Dispose" /> method.
     /// </summary>

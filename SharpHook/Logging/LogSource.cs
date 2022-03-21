@@ -15,7 +15,6 @@ using SharpHook.Native;
 public sealed class LogSource : ILogSource
 {
     private readonly LogEntryParser parser = new();
-    private bool disposed;
 
     private LogSource(LogLevel minLevel) =>
         this.MinLevel = minLevel;
@@ -31,6 +30,15 @@ public sealed class LogSource : ILogSource
     /// </summary>
     /// <value>The minimum log level.</value>
     public LogLevel MinLevel { get; set; }
+
+    /// <summary>
+    /// Gets the value which indicates whether the log source is disposed.
+    /// </summary>
+    /// <value><see langword="true" /> if the log source is disposed. Otherwise, <see langword="false" />.</value>
+    /// <remarks>
+    /// A disposed log source doesn't raise the <see cref="MessageLogged" /> event and cannot be registered again.
+    /// </remarks>
+    public bool IsDisposed { get; private set; } = false;
 
     /// <summary>
     /// Creates and registers a source of libuiohook logs.
@@ -59,7 +67,7 @@ public sealed class LogSource : ILogSource
 
     private void Dispose(bool disposing)
     {
-        if (this.disposed)
+        if (this.IsDisposed)
         {
             return;
         }
@@ -68,7 +76,7 @@ public sealed class LogSource : ILogSource
 
         if (disposing)
         {
-            this.disposed = true;
+            this.IsDisposed = true;
         }
     }
 

@@ -86,6 +86,13 @@
             </summary>
             <value><see langword="true" /> if the global hook is running. Otherwise, <see langword="false" />.</value>
         </member>
+        <member name="P:SharpHook.GlobalHookBase.IsDisposed">
+            <summary>
+            Gets the value which indicates whether the global hook is disposed.
+            </summary>
+            <value><see langword="true" /> if the global hook is disposed. Otherwise, <see langword="false" />.</value>
+            <remarks>A disposed global hook cannot be started again.</remarks>
+        </member>
         <member name="M:SharpHook.GlobalHookBase.Run">
             <summary>
             Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
@@ -446,6 +453,13 @@
             </summary>
             <value><see langword="true" /> if the global hook is running. Otherwise, <see langword="false" />.</value>
         </member>
+        <member name="P:SharpHook.IGlobalHook.IsDisposed">
+            <summary>
+            Gets the value which indicates whether the global hook is disposed.
+            </summary>
+            <value><see langword="true" /> if the global hook is disposed. Otherwise, <see langword="false" />.</value>
+            <remarks>A disposed global hook cannot be started again.</remarks>
+        </member>
         <member name="M:SharpHook.IGlobalHook.Run">
             <summary>
             Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
@@ -554,6 +568,13 @@
             <seealso cref="T:SharpHook.Logging.LogSource" />
             <seealso cref="T:SharpHook.Logging.LogEventArgs" />
             <seealso cref="T:SharpHook.Logging.LogEntry" />
+        </member>
+        <member name="P:SharpHook.Logging.ILogSource.IsDisposed">
+            <summary>
+            Gets the value which indicates whether the log source is disposed.
+            </summary>
+            <value><see langword="true" /> if the log source is disposed. Otherwise, <see langword="false" />.</value>
+            <remarks>A disposed log source doesn't raise the <see cref="E:SharpHook.Logging.ILogSource.MessageLogged" /> event.</remarks>
         </member>
         <member name="E:SharpHook.Logging.ILogSource.MessageLogged">
             <summary>
@@ -768,6 +789,15 @@
             Gets or sets the minimum log level.
             </summary>
             <value>The minimum log level.</value>
+        </member>
+        <member name="P:SharpHook.Logging.LogSource.IsDisposed">
+            <summary>
+            Gets the value which indicates whether the log source is disposed.
+            </summary>
+            <value><see langword="true" /> if the log source is disposed. Otherwise, <see langword="false" />.</value>
+            <remarks>
+            A disposed log source doesn't raise the <see cref="E:SharpHook.Logging.LogSource.MessageLogged" /> event and cannot be registered again.
+            </remarks>
         </member>
         <member name="M:SharpHook.Logging.LogSource.Register(SharpHook.Native.LogLevel)">
             <summary>

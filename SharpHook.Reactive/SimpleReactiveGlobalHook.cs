@@ -33,8 +33,6 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
 
     private readonly Subject<MouseWheelHookEventArgs> mouseWheelSubject = new();
 
-    private bool disposed = false;
-
     public SimpleReactiveGlobalHook()
     {
         this.HookEnabled = this.hookEnabledSubject.AsObservable().Take(1);
@@ -64,6 +62,13 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     /// </summary>
     /// <value><see langword="true" /> if the global hook is running. Otherwise, <see langword="false" />.</value>
     public bool IsRunning { get; private set; }
+
+    /// <summary>
+    /// Gets the value which indicates whether the global hook is disposed.
+    /// </summary>
+    /// <value><see langword="true" /> if the global hook is disposed. Otherwise, <see langword="false" />.</value>
+    /// <remarks>A disposed global hook cannot be started again.</remarks>
+    public bool IsDisposed { get; private set; } = false;
 
     /// <summary>
     /// Gets an observable which emits a value when the global hook is enabled.
@@ -179,8 +184,8 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
     /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
     /// <remarks>
-    /// The hook is started on a separate thread. The returned observable emits a single value and then immediately
-    /// completes when the hook is destroyed.
+    /// The hook is started on a separate thread. The returned observable is hot, and emits a single value and then
+    /// immediately completes when the hook is destroyed.
     /// </remarks>
     public IObservable<Unit> RunAsync()
     {
@@ -207,8 +212,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
                 {
                     hookStopped.OnError(new HookException(result, this.FormatFailureMessage(Starting, result)));
                 }
-            }
-            catch (Exception e)
+            } catch (Exception e)
             {
                 this.IsRunning = false;
                 hookStopped.OnError(new HookException(UioHookResult.Failure, e));
@@ -301,12 +305,12 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
 
     private void Dispose(bool disposing)
     {
-        if (this.disposed)
+        if (this.IsDisposed)
         {
             return;
         }
 
-        this.disposed = true;
+        this.IsDisposed = true;
 
         if (this.IsRunning)
         {
@@ -377,7 +381,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
 
     private void ThrowIfDisposed([CallerMemberName] string? method = null)
     {
-        if (this.disposed)
+        if (this.IsDisposed)
         {
             throw new ObjectDisposedException(
                 this.GetType().Name, $"Cannot call {method} - the object is disposed");

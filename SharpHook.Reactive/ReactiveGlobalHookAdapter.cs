@@ -35,8 +35,6 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
 
     private readonly CompositeDisposable subscriptions = new();
 
-    private bool disposed = false;
-
     /// <summary>
     /// Initializes a new instance of <see cref="ReactiveGlobalHookAdapter" />.
     /// </summary>
@@ -141,6 +139,13 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
     public bool IsRunning => this.hook.IsRunning;
 
     /// <summary>
+    /// Gets the value which indicates whether the global hook is disposed.
+    /// </summary>
+    /// <value><see langword="true" /> if the global hook is disposed. Otherwise, <see langword="false" />.</value>
+    /// <remarks>A disposed global hook cannot be started again.</remarks>
+    public bool IsDisposed => this.hook.IsDisposed;
+
+    /// <summary>
     /// Gets an observable which emits a value when the global hook is enabled.
     /// </summary>
     /// <value>An observable which emits a value when the global hook is enabled.</value>
@@ -238,8 +243,8 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
     /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
     /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
     /// <remarks>
-    /// The hook is started on a separate thread. The returned observable emits a single value and then immediately
-    /// completes when the hook is destroyed.
+    /// The hook is started on a separate thread. The returned observable is hot, and emits a single value and then
+    /// immediately completes when the hook is destroyed.
     /// </remarks>
     public IObservable<Unit> RunAsync()
     {
@@ -266,12 +271,10 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
 
     private void Dispose(bool disposing)
     {
-        if (this.disposed)
+        if (this.IsDisposed)
         {
             return;
         }
-
-        this.disposed = true;
 
         this.hookDisabledSubject.Subscribe(_ =>
         {
@@ -336,7 +339,7 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
 
     private void ThrowIfDisposed([CallerMemberName] string? method = null)
     {
-        if (this.disposed)
+        if (this.IsDisposed)
         {
             throw new ObjectDisposedException(
                 this.GetType().Name, $"Cannot call {method} - the object is disposed");

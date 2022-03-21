@@ -21,6 +21,13 @@
             </summary>
             <value><see langword="true" /> if the global hook is running. Otherwise, <see langword="false" />.</value>
         </member>
+        <member name="P:SharpHook.Reactive.IReactiveGlobalHook.IsDisposed">
+            <summary>
+            Gets the value which indicates whether the global hook is disposed.
+            </summary>
+            <value><see langword="true" /> if the global hook is disposed. Otherwise, <see langword="false" />.</value>
+            <remarks>A disposed global hook cannot be started again.</remarks>
+        </member>
         <member name="P:SharpHook.Reactive.IReactiveGlobalHook.HookEnabled">
             <summary>
             Gets an observable which emits a value when the global hook is enabled.
@@ -114,8 +121,14 @@
             <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
             <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
             <remarks>
+            <para>
             Since the underlying native API for running a global hook is blocking, the only way to run it without blocking
             the current thread is to run it on a separate thread.
+            </para>
+            <para>
+            The returned observable is hot, and emits a single value and then immediately completes when the hook is
+            destroyed.
+            </para>
             </remarks>
         </member>
         <member name="T:SharpHook.Reactive.Logging.IReactiveLogSource">
@@ -133,6 +146,13 @@
             An observable which is emitted when libuiohook logs a message.
             </summary>
         </member>
+        <member name="P:SharpHook.Reactive.Logging.IReactiveLogSource.IsDisposed">
+            <summary>
+            Gets the value which indicates whether the log source is disposed.
+            </summary>
+            <value><see langword="true" /> if the log source is disposed. Otherwise, <see langword="false" />.</value>
+            <remarks>The <see cref="P:SharpHook.Reactive.Logging.IReactiveLogSource.MessageLogged" /> observable doesn't emit any values in a disposed log source.</remarks>
+        </member>
         <member name="T:SharpHook.Reactive.Logging.ReactiveLogSourceAdapter">
             <summary>
             Adapts an <see cref="T:SharpHook.Logging.ILogSource" /> to the <see cref="T:SharpHook.Reactive.Logging.IReactiveLogSource" /> interface.
@@ -146,10 +166,22 @@
             </summary>
             <param name="logSource">The log source to adapt.</param>
         </member>
+        <member name="M:SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.Finalize">
+            <summary>
+            Completes the <see cref="P:SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.MessageLogged" /> observable if the log source hasn't been disposed.
+            </summary>
+        </member>
         <member name="P:SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.MessageLogged">
             <summary>
             An observable which is emitted when libuiohook logs a message.
             </summary>
+        </member>
+        <member name="P:SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.IsDisposed">
+            <summary>
+            Gets the value which indicates whether the log source is disposed.
+            </summary>
+            <value><see langword="true" /> if the log source is disposed. Otherwise, <see langword="false" />.</value>
+            <remarks>The <see cref="P:SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.MessageLogged" /> observable doesn't emit any values in a disposed log source.</remarks>
         </member>
         <member name="M:SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.Dispose">
             <summary>
@@ -181,6 +213,13 @@
             Gets the value which indicates whether the global hook is running.
             </summary>
             <value><see langword="true" /> if the global hook is running. Otherwise, <see langword="false" />.</value>
+        </member>
+        <member name="P:SharpHook.Reactive.ReactiveGlobalHookAdapter.IsDisposed">
+            <summary>
+            Gets the value which indicates whether the global hook is disposed.
+            </summary>
+            <value><see langword="true" /> if the global hook is disposed. Otherwise, <see langword="false" />.</value>
+            <remarks>A disposed global hook cannot be started again.</remarks>
         </member>
         <member name="P:SharpHook.Reactive.ReactiveGlobalHookAdapter.HookEnabled">
             <summary>
@@ -275,8 +314,8 @@
             <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
             <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
             <remarks>
-            The hook is started on a separate thread. The returned observable emits a single value and then immediately
-            completes when the hook is destroyed.
+            The hook is started on a separate thread. The returned observable is hot, and emits a single value and then
+            immediately completes when the hook is destroyed.
             </remarks>
         </member>
         <member name="M:SharpHook.Reactive.ReactiveGlobalHookAdapter.Dispose">
@@ -304,6 +343,13 @@
             Gets the value which indicates whether the global hook is running.
             </summary>
             <value><see langword="true" /> if the global hook is running. Otherwise, <see langword="false" />.</value>
+        </member>
+        <member name="P:SharpHook.Reactive.SimpleReactiveGlobalHook.IsDisposed">
+            <summary>
+            Gets the value which indicates whether the global hook is disposed.
+            </summary>
+            <value><see langword="true" /> if the global hook is disposed. Otherwise, <see langword="false" />.</value>
+            <remarks>A disposed global hook cannot be started again.</remarks>
         </member>
         <member name="P:SharpHook.Reactive.SimpleReactiveGlobalHook.HookEnabled">
             <summary>
@@ -398,8 +444,8 @@
             <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
             <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
             <remarks>
-            The hook is started on a separate thread. The returned observable emits a single value and then immediately
-            completes when the hook is destroyed.
+            The hook is started on a separate thread. The returned observable is hot, and emits a single value and then
+            immediately completes when the hook is destroyed.
             </remarks>
         </member>
         <member name="M:SharpHook.Reactive.SimpleReactiveGlobalHook.Dispose">
