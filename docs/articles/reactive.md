@@ -41,16 +41,16 @@ hook.Run();
 hook.RunAsync().Subscribe();
 ```
 
-The observables for events have the type `HookEvent<TArgs>` where `TArgs` is the same type as for the events in
-`IGlobalHook`. `HookEvent` simply contains the sender of the event (which is usually the `IReactiveGlobalHook`
-itself, but can be anything), as well as the event arguments.
+The observables for events emit the `EventArgs`-derived types which are the same as in the events of `IGlobalHook`.
+Unlike `IGlobalHook` you can't get the sender of the event by default. If you need to pass the hook itself as well, then
+use a closure.
 
 The `HookEnabled` and `HookDisabled` observables will emit a single event and then immediately complete afterwards.
 
 The `Run` and `RunAsync` methods are basically the same as in `IGlobalHook`, but `RunAsync` returns an
-`IObservable<Unit>` instead of a `Task`. This observable will emit a single value and then complete when the global
-hook is destroyed. Running the hook when it's already running is also not allowed, and the `IsRunning` property is
-also available.
+`IObservable<Unit>` instead of a `Task` (the observable is hot). This observable will emit a single value and then
+complete when the global hook is destroyed. Running the hook when it's already running is also not allowed, and the
+`IsRunning` property is also available.
 
 `IReactiveGlobalHook` extends `IDisposable` as well and calling `Dispose` will destroy the global hook. As with
 `IGlobalHook`, starting a disposed instance again shouldn't be allowed. Calling `Dispose` when the hook is not running
@@ -66,9 +66,6 @@ and where to handle the events through schedulers.
 - `SharpHook.Reactive.ReactiveGlobalHookAdapter` adapts an `IGlobalHook` to `IReactiveGlobalHook`. All
 subscriptions and changes are propagated to the adapted hook. There is no default adapter from `IReactiveGlobalHook`
 to `IGlobalHook`.
-
-Events emitted by `SimpleReactiveGlobalHook` will have `IReactiveGlobalHook` itself as the sender, while events
-emitted by `ReactiveGlobalHookAdapter` will have the adapted `IGlobalHook` as the sender.
 
 Both classes contain a destructor which will stop the global hook if the object is not reachable anymore. All event
 observables of both classes will be completed when the hook is destroyed, be it from the `Dispose` method, or from the

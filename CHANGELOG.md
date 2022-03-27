@@ -1,5 +1,21 @@
 # SharpHook Changelog
 
+## [v3.0.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v3.0.0) (27 March 2022)
+
+- The ability to get libuiohook logs was added.
+
+- Event simulation now ignores event masks not only on Windows, but everywhere, and returns a result.
+
+- `UioHookEvent.Time` now contains the event's UNIX timestamp.
+
+- `IGlobalHook` and `IReactiveGlobalHook` now contain the `IsDisposed` property.
+
+- The `HookEvent<TArgs>` class was removed from SharpHook.Reactive.
+
+- Several minor (but breaking) changes in the `UioHook` class.
+
+- libuiohook is now at version 1.3 and commit [a887cde](https://github.com/kwhat/libuiohook/tree/a887cde82b3670e6ec54d6d3ff167903988a67af).
+
 ## [v2.0.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v2.0.0) (04 February 2022)
 
 - Global hooks now support both blocking and non-blocking running via the `Run` and `RunAsync` methods, and the `Start`

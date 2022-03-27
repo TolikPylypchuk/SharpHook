@@ -20,7 +20,8 @@ SharpHook.
 - `Run` - creates a global hook and runs it on the current thread, blocking it until `Stop` is called.
 - `Stop` - destroys the global hook.
 
-Additionally, `UioHook` contains the `PostEvent` method for simulating input events.
+Additionally, `UioHook` contains the `PostEvent` method for simulating input events, and the `SetLoggerProc` method for
+setting the log callback.
 
 libuiohook also provides functions to get various system properties. The corresponding methods are also present in
 `UioHook`.
@@ -80,8 +81,7 @@ for very simple use-cases. But it has a downside - suppressing event propagation
 are run on other threads.
 
 The library also provides the `GlobalHookBase` class which you can extend to create your own implementation of the
-global hook. It runs the hook on a separate thread and calls appropriate event handlers. You only need to implement a
-strategy for dispatching the events.
+global hook. It calls appropriate event handlers, and you only need to implement a strategy for dispatching the events.
 
 ### Reactive Global Hooks
 
@@ -100,8 +100,13 @@ using SharpHook.Native;
 
 var simulator = new EventSimulator();
 
-simulator.SimulateKeyPress(KeyCode.VcC, ModifierMask.LeftCtrl);   // Press Ctrl+C
-simulator.SimulateKeyRelease(KeyCode.VcC, ModifierMask.LeftCtrl); // Release Ctrl+C
+// Press Ctrl+C
+simulator.SimulateKeyPress(KeyCode.VcLeftControl);
+simulator.SimulateKeyPress(KeyCode.VcC);
+
+// Release Ctrl+C
+simulator.SimulateKeyRelease(KeyCode.VcC);
+simulator.SimulateKeyRelease(KeyCode.VcLeftControl);
 
 simulator.SimulateMousePress(MouseButton.Button1);   // Press the left mouse button
 simulator.SimulateMouseRelease(MouseButton.Button1); // Release the left mouse button
@@ -113,8 +118,26 @@ simulator.SimulateMouseWheel(0, 0, 10, -1); // Move the mouse pointer to the (0,
 SharpHook provides the `IEventSimulator` interface, and the default implementation, `EventSimulator`, which calls
 `UioHook.PostEvent` to simulate the events.
 
-**Important**: libuiohook [ignores](https://github.com/kwhat/libuiohook/issues/111) modifier masks on Windows, so you
-need to simulate pressing/releasing modifier keys manually.
+## Logging
+
+libuiohook can log messages throughout its execution. By default the messages are not logged anywhere, but you can get
+these logs by using the `ILogSource` interface and its default implementation, `LogSource`:
+
+```C#
+using SharpHook.Logging;
+
+// ...
+
+var logSource = LogSource.Register();
+logSource.MessageLogged += this.OnMessageLogged;
+
+private void OnMessageLogged(object? sender, LogEventArgs e) =>
+    this.logger.Log(this.AdaptLogLevel(e.LogEntry.Level), e.LogEntry.FullText);
+```
+
+As with global hooks, you should use only one `LogSource` object at a time. `ILogSource` extends `IDisposable` - you
+can dispose of a log source to stop receiving libuiohook messages. You should keep a reference to an instance of
+`LogSource` since it will stop receiving messages when garbage collector deletes it, to avoid memory leaks.
 
 ## Icon
 

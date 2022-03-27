@@ -8,8 +8,8 @@
   href: reactive.md
 - name: Event Simulation
   href: simulation.md
-- name: Limitations
-  href: limitations.md
+- name: Logging
+  href: logging.md
 - name: Migration Guide
   href: migration.md
 - name: About SharpHook

@@ -44,7 +44,7 @@ public sealed class LogEntry : IEquatable<LogEntry>
     /// <param name="fullText">The full text of the log entry.</param>
     /// <param name="format">The format of the log entry which can be used in <c>String.Format</c>.</param>
     /// <param name="nativeFormat">The native format of the log entry.</param>
-    /// <param name="arguments">The arguments of the log entry which can be passed to <c>String.Format</c>.</param>
+    /// <param name="arguments">The arguments of the log entry which can be used in <c>String.Format</c>.</param>
     /// <param name="rawArguments">The arguments as they appear in the entry's full text.</param>
     /// <param name="argumentPlaceholders">The argument placeholders from the native format.</param>
     public LogEntry(

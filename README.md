@@ -14,11 +14,17 @@ dotnet add package SharpHook
 dotnet add package SharpHook.Reactive
 ```
 
+## Upgrading
+
+A [migration guide](https://sharphook.tolik.io/v3.0.0/articles/migration.html) is available for upgrading between major
+versions.
+
 ## Docs
 
 You can find more information (including the API reference) in the [docs](https://sharphook.tolik.io). Or if you need a
 specific version:
 
+- [v3.0.0](https://sharphook.tolik.io/v3.0.0)
 - [v2.0.0](https://sharphook.tolik.io/v2.0.0)
 - [v1.1.0](https://sharphook.tolik.io/v1.1.0)
 - [v1.0.1](https://sharphook.tolik.io/v1.0.1)
@@ -89,7 +95,8 @@ SharpHook.
 
 - `Stop` - destroys the global hook.
 
-Additionally, `UioHook` contains the `PostEvent` method for simulating input events.
+Additionally, `UioHook` contains the `PostEvent` method for simulating input events, and the `SetLoggerProc` method for
+setting the log callback.
 
 libuiohook also provides functions to get various system properties. The corresponding methods are also present in
 `UioHook`.
@@ -151,8 +158,7 @@ for very simple use-cases. But it has a downside - suppressing event propagation
 are run on other threads.
 
 The library also provides the `GlobalHookBase` class which you can extend to create your own implementation of the
-global hook. It runs the hook on a separate thread and calls appropriate event handlers. You only need to implement a
-strategy for dispatching the events.
+global hook. It calls appropriate event handlers, and you only need to implement a strategy for dispatching the events.
 
 ### Reactive Global Hooks
 
@@ -217,8 +223,13 @@ using SharpHook.Native;
 
 var simulator = new EventSimulator();
 
-simulator.SimulateKeyPress(KeyCode.VcC, ModifierMask.LeftCtrl);   // Press Ctrl+C
-simulator.SimulateKeyRelease(KeyCode.VcC, ModifierMask.LeftCtrl); // Release Ctrl+C
+// Press Ctrl+C
+simulator.SimulateKeyPress(KeyCode.VcLeftControl);
+simulator.SimulateKeyPress(KeyCode.VcC);
+
+// Release Ctrl+C
+simulator.SimulateKeyRelease(KeyCode.VcC);
+simulator.SimulateKeyRelease(KeyCode.VcLeftControl);
 
 simulator.SimulateMousePress(MouseButton.Button1);   // Press the left mouse button
 simulator.SimulateMouseRelease(MouseButton.Button1); // Release the left mouse button
@@ -230,26 +241,46 @@ simulator.SimulateMouseWheel(0, 0, 10, -1); // Move the mouse pointer to the (0,
 SharpHook provides the `IEventSimulator` interface, and the default implementation, `EventSimulator`, which calls
 `UioHook.PostEvent` to simulate the events.
 
-**Important**: libuiohook [ignores](https://github.com/kwhat/libuiohook/issues/111) modifier masks on Windows, so you
-need to simulate pressing/releasing modifier keys manually.
+## Logging
 
-## Limitations
+libuiohook can log messages throughout its execution. By default the messages are not logged anywhere, but you can get
+these logs by using the `ILogSource` interface and its default implementation, `LogSource`:
 
-You have to remember that libuiohook binaries should be present in the curent working directory. This is how P/Invoke
-works, and it can cause the 'library not found' issues when running your client app from a different directory.
+```C#
+using SharpHook.Logging;
 
-Another thing is that libuiohook supports hooking into its logging capabilities so that you can get its logs. This
-library doesn't support this. The reason is that you should call `hook_set_logger_proc` and pass your callback for
-logging. This is similar to `hook_set_dispatch_proc`, but this time the callback should accept a variable number of
-arguments (using C's `...` syntax) and the client decides how to format the log message. Supporting native
-variable arguments in callbacks is next to impossible in C#, and the payoff is not worth spending a lot of effort to
-implement this feature.
+// ...
+
+var logSource = LogSource.Register();
+logSource.MessageLogged += this.OnMessageLogged;
+
+private void OnMessageLogged(object? sender, LogEventArgs e) =>
+    this.logger.Log(this.AdaptLogLevel(e.LogEntry.Level), e.LogEntry.FullText);
+```
+
+As with global hooks, you should use only one `LogSource` object at a time. `ILogSource` extends `IDisposable` - you
+can dispose of a log source to stop receiving libuiohook messages. You should keep a reference to an instance of
+`LogSource` when you use it since it will stop receiving messages when garbage collector deletes it, to avoid memory
+leaks.
+
+SharpHook.Reactive contains the `IReactiveLogSource` and `ReactiveLogSourceAdapter` so you can use them in a more
+reactive way:
+
+```C#
+using SharpHook.Logging;
+using SharpHook.Reactive.Logging;
+
+// ...
+
+var logSource = LogSource.Register();
+var reactiveLogSource = new ReactiveLogSourceAdapter(logSource);
+reactiveLogSource.MessageLogged.Subscribe(this.OnMessageLogged);
+```
 
 ## Building from Source
 
 In order to build this library, you'll first need to get libuiohook binaries. You can build them yourself as instructued
 in the [libuiohook](https://github.com/kwhat/libuiohook) repository, or you can get a
-[nightly build from the original repository](https://github.com/kwhat/libuiohook/actions/workflows/package.yml), or a
 [nightly build from this repository](https://github.com/TolikPylypchuk/SharpHook/actions/workflows/build.yml). Place the
 binaries into the appropriate directories under the `lib` directory in the `SharpHook` project.
 
@@ -261,9 +292,9 @@ The `SharpHook` project defines multiple platforms. If you want to run `SharpHoo
 
 ## Library Status
 
-No other features are planned, but I will maintain the library to keep up with the releases of libuiohook which uses a
-rolling release model - every commit to its `1.2` branch is considered stable. That said, libuiohook itself is not
-really active anymore, but is still maintained, so this library will most probably receive updates quite rarely.
+I will maintain the library to keep up with the releases of libuiohook which uses a rolling release model - every commit
+to its `1.3` branch is considered stable. If you've noticed that this library hasn't gotten new commits in some time,
+rest assured that it's not abandoned! I'm not giving up on this library any time soon.
 
 ## Icon
 

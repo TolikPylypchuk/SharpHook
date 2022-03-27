@@ -12,7 +12,7 @@ the [API reference](api/index.md).
 - [Global Hooks](articles/hooks.md)
 - [Reactive Global Hooks](articles/reactive.md)
 - [Event Simulation](articles/simulation.md)
-- [Limitations](articles/limitations.md)
+- [Logging](articles/logging.md)
 - [Migration Guide](articles/migration.md)
 - [About SharpHook](articles/about.md)
 - [API Docs](api/index.md)
@@ -24,6 +24,6 @@ https://github.com/TolikPylypchuk/SharpHook
 ## Installation
 
 ```
-dotnet add package SharpHook --version 2.0.0
-dotnet add package SharpHook.Reactive --version 2.0.0
+dotnet add package SharpHook --version 3.0.0
+dotnet add package SharpHook.Reactive --version 3.0.0
 ```

@@ -2,8 +2,8 @@
 
 This article describes how to use the low-level stuff provided by SharpHook.
 
-SharpHook exposes the methods of libuiohook in the `SharpHook.Native.UioHook` class. The `SharpHook.Native`
-namespace also contains structs and enums which represent the data returned by libuiohook.
+SharpHook exposes the functions of libuiohook in the `SharpHook.Native.UioHook` class. The `SharpHook.Native`
+namespace also contains types which represent the data used by libuiohook.
 
 In general, you shouldn't use native methods directly. Instead, use the higher-level interfaces and classes provided by
 SharpHook. However, you should still read this article to know how the high-level features work under the hood.
@@ -73,7 +73,9 @@ synchronously i.e. on the same thread which handles the event.
 ## Simulating Input Events
 
 `UioHook` contains the `PostEvent` method for simulating input events. It accepts a `UioHookEvent`, but it doesn't need
-all its fields. Only `Type`, `Keyboard`/`Mouse`/`Wheel`, and `Mask` should be present.
+all its fields. Only `Type` and `Keyboard`/`Mouse`/`Wheel` should be present.
+
+`PostEvent` returns `UioHookResult` to indicate whether it was successful or not.
 
 The following table describes the specifics of simulating each event type.
 
@@ -103,9 +105,7 @@ The following table describes the specifics of simulating each event type.
     </tr>
     <tr>
       <td><code>KeyTyped</code></td>
-      <td>
-        Not recommended to use since on some platforms events of this type are ignored, while on others they are not.
-      </td>
+      <td>Events of this type are ignored.</td>
     </tr>
     <tr>
       <td><code>MousePressed</code></td>
@@ -117,9 +117,7 @@ The following table describes the specifics of simulating each event type.
     </tr>
     <tr>
       <td><code>MouseClicked</code></td>
-      <td>
-        Not recommended to use since on some platforms events of this type are ignored, while on others they are not.
-      </td>
+      <td>Events of this type are ignored.</td>
     </tr>
     <tr>
       <td><code>MouseMoved</code></td>
@@ -127,7 +125,7 @@ The following table describes the specifics of simulating each event type.
     </tr>
     <tr>
       <td><code>MouseDragged</code></td>
-      <td>Not recommended to use; instead, use <code>MouseMoved</code> with a modifier mask.</td>
+      <td>Not recommended to use; same as <code>MouseMoved</code>.</td>
     </tr>
     <tr>
       <td><code>MouseWheel</code></td>
@@ -142,8 +140,33 @@ The following table describes the specifics of simulating each event type.
 Mouse wheel simulation is a little inconsistent across platforms, and not documented. View the source code of libuiohook
 for more details.
 
-libuiohook [ignores](https://github.com/kwhat/libuiohook/issues/111) modifier masks on Windows, so you need to simulate
-pressing/releasing modifier keys manually.
+## Logging
+
+libuiohook can log messages throughout its execution. By default it doesn't log anything, but `UioHook` contains the
+`SetLoggerProc` to set the log callback function - it will be called by libuiohook to log messages.
+
+`SetLoggerProc` accepts a delegate of type `SharpHook.Native.LoggerProc`.  This delegate in turn accepts a log level,
+the message format (as a pointer) and arguments (also as a pointer).
+
+You can read more about how to use the `SetLoggerProc` method in the article about [logging](logging.md), though it's
+not recommended to use it directly.
+
+## Passing Custom Data to Callbacks
+
+`SetDispatchProc` and `SetLoggerProc` also receive a pointer to user-supplied data. It is then passed to the
+callbacks - both `DispatcherProc` and `LoggerProc` receive user-supplied data as well.
+
+**Do not use them.**
+
+You should always pass `IntPtr.Zero` to `SetDispatchProc` and `SetLoggerProc` and not use the respective parameters in
+the callbacks.
+
+The reason is that in order to use pointers to managed objects, they have to be pinned. As these callbacks tend to be
+long-lived (probably as long as the program itself), the objects will have to be pinned for a long time as well, and
+that's detrimental to the performance of the garbage collector and the memory layout of the program.
+
+If you need to pass custom data to the callbacks then simply use closures. This feature was created with the C language
+in mind, and C doesn't have closures.
 
 ## Other Functions
 
