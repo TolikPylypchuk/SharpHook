@@ -71,7 +71,8 @@
 
 <p>SharpHook provides the ability to simulate keyboard and mouse events in a cross-platform way as well. It provides the
 <code>IEventSimulator</code> interface, and the default implementation, <code>EventSimulator</code>, which calls <code>UioHook.PostEvent</code> to
-simulate the events.</p>
+simulate the events. The methods in this interface return a <code>UioHookResult</code> to specify whether the event was simulated
+successfully, or not.</p>
 <p>Here's a quick example:</p>
 <pre><code class="lang-C#">using SharpHook;
 using SharpHook.Native;
