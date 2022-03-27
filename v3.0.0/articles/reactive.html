@@ -105,14 +105,14 @@ hook.Run();
 // or
 hook.RunAsync().Subscribe();
 </code></pre>
-<p>The observables for events have the type <code>HookEvent&lt;TArgs&gt;</code> where <code>TArgs</code> is the same type as for the events in
-<code>IGlobalHook</code>. <code>HookEvent</code> simply contains the sender of the event (which is usually the <code>IReactiveGlobalHook</code>
-itself, but can be anything), as well as the event arguments.</p>
+<p>The observables for events emit the <code>EventArgs</code>-derived types which are the same as in the events of <code>IGlobalHook</code>.
+Unlike <code>IGlobalHook</code> you can't get the sender of the event by default. If you need to pass the hook itself as well, then
+use a closure.</p>
 <p>The <code>HookEnabled</code> and <code>HookDisabled</code> observables will emit a single event and then immediately complete afterwards.</p>
 <p>The <code>Run</code> and <code>RunAsync</code> methods are basically the same as in <code>IGlobalHook</code>, but <code>RunAsync</code> returns an
-<code>IObservable&lt;Unit&gt;</code> instead of a <code>Task</code>. This observable will emit a single value and then complete when the global
-hook is destroyed. Running the hook when it's already running is also not allowed, and the <code>IsRunning</code> property is
-also available.</p>
+<code>IObservable&lt;Unit&gt;</code> instead of a <code>Task</code> (the observable is hot). This observable will emit a single value and then
+complete when the global hook is destroyed. Running the hook when it's already running is also not allowed, and the
+<code>IsRunning</code> property is also available.</p>
 <p><code>IReactiveGlobalHook</code> extends <code>IDisposable</code> as well and calling <code>Dispose</code> will destroy the global hook. As with
 <code>IGlobalHook</code>, starting a disposed instance again shouldn't be allowed. Calling <code>Dispose</code> when the hook is not running
 is safe - it just won't do anything (other than marking the instance as disposed).</p>
@@ -127,8 +127,6 @@ subscriptions and changes are propagated to the adapted hook. There is no defaul
 to <code>IGlobalHook</code>.</p>
 </li>
 </ul>
-<p>Events emitted by <code>SimpleReactiveGlobalHook</code> will have <code>IReactiveGlobalHook</code> itself as the sender, while events
-emitted by <code>ReactiveGlobalHookAdapter</code> will have the adapted <code>IGlobalHook</code> as the sender.</p>
 <p>Both classes contain a destructor which will stop the global hook if the object is not reachable anymore. All event
 observables of both classes will be completed when the hook is destroyed, be it from the <code>Dispose</code> method, or from the
 destructor.</p>

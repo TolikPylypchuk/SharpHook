@@ -78,8 +78,13 @@ using SharpHook.Native;
 
 var simulator = new EventSimulator();
 
-simulator.SimulateKeyPress(KeyCode.VcC, ModifierMask.LeftCtrl);   // Press Ctrl+C
-simulator.SimulateKeyRelease(KeyCode.VcC, ModifierMask.LeftCtrl); // Release Ctrl+C
+// Press Ctrl+C
+simulator.SimulateKeyPress(KeyCode.VcLeftControl);
+simulator.SimulateKeyPress(KeyCode.VcC);
+
+// Release Ctrl+C
+simulator.SimulateKeyRelease(KeyCode.VcC);
+simulator.SimulateKeyRelease(KeyCode.VcLeftControl);
 
 simulator.SimulateMousePress(MouseButton.Button1);   // Press the left mouse button
 simulator.SimulateMouseRelease(MouseButton.Button1); // Release the left mouse button
@@ -89,9 +94,7 @@ simulator.SimulateMouseWheel(0, 0, 10, -1); // Move the mouse pointer to the (0,
 </code></pre>
 <p>SharpHook provides the <code>IEventSimulator</code> interface, and the default implementation, <code>EventSimulator</code>, which calls
 <code>UioHook.PostEvent</code> to simulate the events.</p>
-<p><strong>Important</strong>: libuiohook <a href="https://github.com/kwhat/libuiohook/issues/111">ignores</a> modifier masks on Windows, so you
-need to simulate pressing/releasing modifier keys manually.</p>
-<p>Next article: <a href="limitations.html">Limitations</a>.</p>
+<p>Next article: <a href="logging.html">Logging</a>.</p>
 </article>
           </div>
           

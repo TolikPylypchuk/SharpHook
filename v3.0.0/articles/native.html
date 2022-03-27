@@ -70,8 +70,8 @@
 <h1 id="native-functions">Native Functions</h1>
 
 <p>This article describes how to use the low-level stuff provided by SharpHook.</p>
-<p>SharpHook exposes the methods of libuiohook in the <code>SharpHook.Native.UioHook</code> class. The <code>SharpHook.Native</code>
-namespace also contains structs and enums which represent the data returned by libuiohook.</p>
+<p>SharpHook exposes the functions of libuiohook in the <code>SharpHook.Native.UioHook</code> class. The <code>SharpHook.Native</code>
+namespace also contains types which represent the data used by libuiohook.</p>
 <p>In general, you shouldn't use native methods directly. Instead, use the higher-level interfaces and classes provided by
 SharpHook. However, you should still read this article to know how the high-level features work under the hood.</p>
 <h2 id="working-with-the-hook-itself">Working with the Hook Itself</h2>
@@ -129,7 +129,8 @@ will not propagate the event further and it will effectively be blocked. The <co
 synchronously i.e. on the same thread which handles the event.</p>
 <h2 id="simulating-input-events">Simulating Input Events</h2>
 <p><code>UioHook</code> contains the <code>PostEvent</code> method for simulating input events. It accepts a <code>UioHookEvent</code>, but it doesn't need
-all its fields. Only <code>Type</code>, <code>Keyboard</code>/<code>Mouse</code>/<code>Wheel</code>, and <code>Mask</code> should be present.</p>
+all its fields. Only <code>Type</code> and <code>Keyboard</code>/<code>Mouse</code>/<code>Wheel</code> should be present.</p>
+<p><code>PostEvent</code> returns <code>UioHookResult</code> to indicate whether it was successful or not.</p>
 <p>The following table describes the specifics of simulating each event type.</p>
 <table>
   <thead>
@@ -157,9 +158,7 @@ all its fields. Only <code>Type</code>, <code>Keyboard</code>/<code>Mouse</code>
     </tr>
     <tr>
       <td><code>KeyTyped</code></td>
-      <td>
-        Not recommended to use since on some platforms events of this type are ignored, while on others they are not.
-      </td>
+      <td>Events of this type are ignored.</td>
     </tr>
     <tr>
       <td><code>MousePressed</code></td>
@@ -171,9 +170,7 @@ all its fields. Only <code>Type</code>, <code>Keyboard</code>/<code>Mouse</code>
     </tr>
     <tr>
       <td><code>MouseClicked</code></td>
-      <td>
-        Not recommended to use since on some platforms events of this type are ignored, while on others they are not.
-      </td>
+      <td>Events of this type are ignored.</td>
     </tr>
     <tr>
       <td><code>MouseMoved</code></td>
@@ -181,7 +178,7 @@ all its fields. Only <code>Type</code>, <code>Keyboard</code>/<code>Mouse</code>
     </tr>
     <tr>
       <td><code>MouseDragged</code></td>
-      <td>Not recommended to use; instead, use <code>MouseMoved</code> with a modifier mask.</td>
+      <td>Not recommended to use; same as <code>MouseMoved</code>.</td>
     </tr>
     <tr>
       <td><code>MouseWheel</code></td>
@@ -194,8 +191,24 @@ all its fields. Only <code>Type</code>, <code>Keyboard</code>/<code>Mouse</code>
 </table>
 <p>Mouse wheel simulation is a little inconsistent across platforms, and not documented. View the source code of libuiohook
 for more details.</p>
-<p>libuiohook <a href="https://github.com/kwhat/libuiohook/issues/111">ignores</a> modifier masks on Windows, so you need to simulate
-pressing/releasing modifier keys manually.</p>
+<h2 id="logging">Logging</h2>
+<p>libuiohook can log messages throughout its execution. By default it doesn't log anything, but <code>UioHook</code> contains the
+<code>SetLoggerProc</code> to set the log callback function - it will be called by libuiohook to log messages.</p>
+<p><code>SetLoggerProc</code> accepts a delegate of type <code>SharpHook.Native.LoggerProc</code>.  This delegate in turn accepts a log level,
+the message format (as a pointer) and arguments (also as a pointer).</p>
+<p>You can read more about how to use the <code>SetLoggerProc</code> method in the article about <a href="logging.html">logging</a>, though it's
+not recommended to use it directly.</p>
+<h2 id="passing-custom-data-to-callbacks">Passing Custom Data to Callbacks</h2>
+<p><code>SetDispatchProc</code> and <code>SetLoggerProc</code> also receive a pointer to user-supplied data. It is then passed to the
+callbacks - both <code>DispatcherProc</code> and <code>LoggerProc</code> receive user-supplied data as well.</p>
+<p><strong>Do not use them.</strong></p>
+<p>You should always pass <code>IntPtr.Zero</code> to <code>SetDispatchProc</code> and <code>SetLoggerProc</code> and not use the respective parameters in
+the callbacks.</p>
+<p>The reason is that in order to use pointers to managed objects, they have to be pinned. As these callbacks tend to be
+long-lived (probably as long as the program itself), the objects will have to be pinned for a long time as well, and
+that's detrimental to the performance of the garbage collector and the memory layout of the program.</p>
+<p>If you need to pass custom data to the callbacks then simply use closures. This feature was created with the C language
+in mind, and C doesn't have closures.</p>
 <h2 id="other-functions">Other Functions</h2>
 <p>libuiohook also provides functions which get various pieces of information about the system, and are listed below:</p>
 <ul>
