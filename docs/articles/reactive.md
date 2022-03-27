@@ -54,7 +54,8 @@ complete when the global hook is destroyed. Running the hook when it's already r
 
 `IReactiveGlobalHook` extends `IDisposable` as well and calling `Dispose` will destroy the global hook. As with
 `IGlobalHook`, starting a disposed instance again shouldn't be allowed. Calling `Dispose` when the hook is not running
-is safe - it just won't do anything (other than marking the instance as disposed).
+is safe - it just won't do anything (other than marking the instance as disposed). The `IsDisposed` property is also
+available.
 
 ## The Default Implementations
 

@@ -3,7 +3,7 @@
 libuiohook can log messages throughout its execution. By default the messages are not logged anywhere, but you can get
 these logs by using `UioHook.SetLoggerProc`, or the `ILogSource` interface and its default implementation, `LogSource`.
 
-libuiohook logs contain the log level (debug, info, warning, error), the message format, and message arguments.
+libuiohook logs contain the log level (debug, info, warning, error), message format, and message arguments.
 
 The message structure is the following:
 
@@ -11,7 +11,7 @@ The message structure is the following:
 function [line]: message
 ```
 
-`function` is the function name in the libuiohook source code, and `line` is, well, the source code line.
+`function` is the function name in the libuiohook source code, and `line` is the source code line.
 
 ## Using High-Level Types
 
@@ -20,7 +20,7 @@ interface contains the `MessageLogged` event, and extends `IDisposable`. Calling
 source from receiving the logs. The `IsDisposed` property is also available.
 
 `LogSource` also contains the `MinLevel` property which can be set to filter log messages by level. It's not recommended
-to use the debug level for long periods of time since a debug log message occures for every single input event.
+to use the debug level for long periods of time since a debug message is logged for every single input event.
 
 Here's a usage example:
 
@@ -48,9 +48,9 @@ The `MessageLogged` event contains event args or type `LogEventArgs` which conta
 The simplest way to use `LogEntry` is to use its `Level` and `FullText` properties. `FullText` is created using the log
 message format and arguments so you don't have to do it yourself.
 
-`ILogSource` extends `IDisposable` - you can dispose of a log source to stop receiving libuiohook messages. You should
-keep a reference to an instance of `LogSource` when you use it since it will stop receiving messages when garbage
-collector deletes it, to avoid memory leaks.
+You can dispose of a log source to stop receiving libuiohook messages. You should keep a reference to an instance of
+`LogSource` when you use it since it will stop receiving messages when garbage collector deletes it, to avoid memory
+leaks.
 
 SharpHook.Reactive contains the `IReactiveLogSource` and its implementation - `ReactiveLogSourceAdapter`. Here's a
 usage example:
@@ -164,10 +164,6 @@ placeholders. Only the specifier and length are considered (see the C's `printf`
         <code>%lu</code>, <code>%lo</code>, <code>%lx</code>, <code>%lX</code>, <code>%llu</code>, <code>%llo</code>,
         <code>%llx</code>, <code>%llX</code>, <code>%ju</code>, <code>%jo</code>, <code>%jx</code>, <code>%jX</code>
     </td>
-  </tr>
-  <tr>
-    <td><code>ushort</code></td>
-    <td><code>%hu</code></td>
   </tr>
   <tr>
     <td><code>double</code></td>

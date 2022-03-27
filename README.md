@@ -79,9 +79,9 @@ but it's not yet here.
 
 ## Usage
 
-### Native Methods of libuiohook
+### Native Functions of libuiohook
 
-SharpHook exposes the methods of libuiohook in the `SharpHook.Native.UioHook` class. The `SharpHook.Native`
+SharpHook exposes the functions of libuiohook in the `SharpHook.Native.UioHook` class. The `SharpHook.Native`
 namespace also contains structs and enums which represent the data returned by libuiohook.
 
 **Note**: In general, you shouldn't use native methods directly. Instead, use the higher-level types provided by
@@ -231,11 +231,17 @@ simulator.SimulateKeyPress(KeyCode.VcC);
 simulator.SimulateKeyRelease(KeyCode.VcC);
 simulator.SimulateKeyRelease(KeyCode.VcLeftControl);
 
-simulator.SimulateMousePress(MouseButton.Button1);   // Press the left mouse button
-simulator.SimulateMouseRelease(MouseButton.Button1); // Release the left mouse button
+// Press the left mouse button
+simulator.SimulateMousePress(MouseButton.Button1);
 
-simulator.SimulateMouseMovement(0, 0);      // Move the mouse pointer to the (0, 0) point
-simulator.SimulateMouseWheel(0, 0, 10, -1); // Move the mouse pointer to the (0, 0) point, and scroll the mouse wheel
+// Release the left mouse button
+simulator.SimulateMouseRelease(MouseButton.Button1);
+
+// Move the mouse pointer to the (0, 0) point
+simulator.SimulateMouseMovement(0, 0);
+
+// Move the mouse pointer to the (0, 0) point, and scroll the mouse wheel
+simulator.SimulateMouseWheel(0, 0, 10, -1);
 ```
 
 SharpHook provides the `IEventSimulator` interface, and the default implementation, `EventSimulator`, which calls

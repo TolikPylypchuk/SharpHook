@@ -61,14 +61,13 @@ has more information:
 
 - `MouseWheel` - raised when the mouse wheel is scrolled.
 
-`UioHookEvent` also contains the `Time` and `Mask` fields. `Time` represents the time of the event, but it's not a
-timestamp - it's a synthetic value which should be used only to compare it to other events' times. `Mask` contains the
+`UioHookEvent` also contains the `Time` and `Mask` fields. `Time` is the event's UNIX timestamp. `Mask` contains the
 state of keyboard modifiers and the mouse state at the time of the event.
 
-Lastly, `UioHookEvent` contains the `Reserved` field. This field can be set inside the event handler and libuiohook will
-consume it. Currently only one setting is supported - suppressing the event propagation. If it's set then libuiohook
-will not propagate the event further and it will effectively be blocked. The `Reserved` field should be set
-synchronously i.e. on the same thread which handles the event.
+Lastly, `UioHookEvent` contains the `Reserved` field. This field can be set inside the event handler and libuiohook
+will consume it. Currently only one setting is supported - suppressing the event propagation. If it's set then
+libuiohook will not propagate the event further and it will effectively be blocked. The `Reserved` field should be set
+synchronously i.e. on the same thread which handles the event. Supressing events works only on Windows and macOS.
 
 ## Simulating Input Events
 

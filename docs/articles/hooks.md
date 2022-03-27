@@ -34,7 +34,7 @@ await hook.RunAsync();
 ```
 
 `IGlobalHook` contains separate events for every event type that can be raised by libuiohook. The sender of these
-events will usually be the `IGlobalHook` itself, but technically it can be anything.
+events is the `IGlobalHook` itself.
 
 It also contains the `Run` and `RunAsync` methods which, well, run the global hook. `Run` runs it on the current thread,
 blocking it until the global hook is disposed. `RunAsync` runs the global hook in a non-blocking way and returns a
@@ -69,9 +69,7 @@ This means that the hook will be able to process all events. This implementation
 event propagation will be ignored since event handlers are run on other threads.
 
 The library also provides the `SharpHook.GlobalHookBase` class which you can extend to create your own implementation
-of the global hook. It calls the appropriate event handlers. You only need to implement a strategy for dispatching the
-events. It also contains a destructor which will stop the global hook if this object is not reachable anymore.
-
-Events raised by these classes will have the instance of `IGlobalHook` as a sender.
+of the global hook. It calls the appropriate event handlers, and you only need to implement a strategy for dispatching
+the events. It also contains a destructor which will stop the global hook if this object is not reachable anymore.
 
 Next article: [Reactive Global Hooks](reactive.md).

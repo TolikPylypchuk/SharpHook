@@ -34,7 +34,7 @@ types.
 
 `UioHook.SetDispatchProc` now receives a pointer to user-supplied data. This pointer is then passed to the callback, so
 `DispatchProc` also receives it. You shouldn't ever use this functionality (you should pass `IntPtr.Zero` to
-`SetDispatchProc`). View the API docs of `UioHook` and `DispatchProc` for more info.
+`SetDispatchProc`). View the article about [low-level features](native.md) for more info.
 
 Previously event masks were ignored when simulating events on Windows. Now event masks are always ignored when
 simulating events, so the methods of `IEventSimulator` and `EventSimulator` don't have the optional second parameter
@@ -49,10 +49,9 @@ property - a `DateTimeOffset` object derived from the timestamp.
 
 You can now get libuiohook logs if you need to log its execution, which was not possible before.
 
-Other chages were done independently of libuiohook.
+Other changes were done independently of libuiohook.
 
-`IGlobalHook` and `IReactiveGlobalHook` now contain the `IsDisposed` property. If you have classes derived from these
-interfaces then you need to add this property.
+`IGlobalHook` and `IReactiveGlobalHook` now contain the `IsDisposed` property.
 
 The `HookEvent<TArgs>` class was removed from SharpHook.Reactive. The observables of `IReactiveGlobalHook` now emit
 `HookEventArgs` or a derived type directly. If you need the sender of the event, then use closures.
