@@ -115,7 +115,8 @@ complete when the global hook is destroyed. Running the hook when it's already r
 <code>IsRunning</code> property is also available.</p>
 <p><code>IReactiveGlobalHook</code> extends <code>IDisposable</code> as well and calling <code>Dispose</code> will destroy the global hook. As with
 <code>IGlobalHook</code>, starting a disposed instance again shouldn't be allowed. Calling <code>Dispose</code> when the hook is not running
-is safe - it just won't do anything (other than marking the instance as disposed).</p>
+is safe - it just won't do anything (other than marking the instance as disposed). The <code>IsDisposed</code> property is also
+available.</p>
 <h2 id="the-default-implementations">The Default Implementations</h2>
 <p>SharpHook.Reactive provides two implementations of <code>IReactiveGlobalHook</code>:</p>
 <ul>

@@ -71,17 +71,17 @@
 
 <p>libuiohook can log messages throughout its execution. By default the messages are not logged anywhere, but you can get
 these logs by using <code>UioHook.SetLoggerProc</code>, or the <code>ILogSource</code> interface and its default implementation, <code>LogSource</code>.</p>
-<p>libuiohook logs contain the log level (debug, info, warning, error), the message format, and message arguments.</p>
+<p>libuiohook logs contain the log level (debug, info, warning, error), message format, and message arguments.</p>
 <p>The message structure is the following:</p>
 <pre><code>function [line]: message
 </code></pre>
-<p><code>function</code> is the function name in the libuiohook source code, and <code>line</code> is, well, the source code line.</p>
+<p><code>function</code> is the function name in the libuiohook source code, and <code>line</code> is the source code line.</p>
 <h2 id="using-high-level-types">Using High-Level Types</h2>
 <p>The easiest way to subscribe to libuiohook's logs is to use the <code>LogSource</code> class and its interface - <code>ILogSource</code>. The
 interface contains the <code>MessageLogged</code> event, and extends <code>IDisposable</code>. Calling the <code>Dispose</code> method will stop the log
 source from receiving the logs. The <code>IsDisposed</code> property is also available.</p>
 <p><code>LogSource</code> also contains the <code>MinLevel</code> property which can be set to filter log messages by level. It's not recommended
-to use the debug level for long periods of time since a debug log message occures for every single input event.</p>
+to use the debug level for long periods of time since a debug message is logged for every single input event.</p>
 <p>Here's a usage example:</p>
 <pre><code>using SharpHook.Logging;
 using SharpHook.Native;
@@ -101,9 +101,9 @@ the same static method to set the log callback for libuiohook, and there may onl
 <code>LogEntry</code>. This class contains the actual log message.</p>
 <p>The simplest way to use <code>LogEntry</code> is to use its <code>Level</code> and <code>FullText</code> properties. <code>FullText</code> is created using the log
 message format and arguments so you don't have to do it yourself.</p>
-<p><code>ILogSource</code> extends <code>IDisposable</code> - you can dispose of a log source to stop receiving libuiohook messages. You should
-keep a reference to an instance of <code>LogSource</code> when you use it since it will stop receiving messages when garbage
-collector deletes it, to avoid memory leaks.</p>
+<p>You can dispose of a log source to stop receiving libuiohook messages. You should keep a reference to an instance of
+<code>LogSource</code> when you use it since it will stop receiving messages when garbage collector deletes it, to avoid memory
+leaks.</p>
 <p>SharpHook.Reactive contains the <code>IReactiveLogSource</code> and its implementation - <code>ReactiveLogSourceAdapter</code>. Here's a
 usage example:</p>
 <pre><code>using SharpHook.Logging;
@@ -202,10 +202,6 @@ placeholders. Only the specifier and length are considered (see the C's <code>pr
         <code>%lu</code>, <code>%lo</code>, <code>%lx</code>, <code>%lX</code>, <code>%llu</code>, <code>%llo</code>,
         <code>%llx</code>, <code>%llX</code>, <code>%ju</code>, <code>%jo</code>, <code>%jx</code>, <code>%jX</code>
     </td>
-  </tr>
-  <tr>
-    <td><code>ushort</code></td>
-    <td><code>%hu</code></td>
   </tr>
   <tr>
     <td><code>double</code></td>
