@@ -49,8 +49,8 @@ public struct MouseWheelEventData : IEquatable<MouseWheelEventData>
     /// </summary>
     /// <value>The wheel rotation.</value>
     /// <remarks>
-    /// A positive value indicates that the wheel was rotated forward, away from the user; a negative value
-    /// indicates that the wheel was rotated backward, toward the user.
+    /// A positive value indicates that the wheel was rotated down and a negative value indicates that the wheel was
+    /// rotated up.
     /// </remarks>
     public short Rotation;
 

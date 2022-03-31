@@ -124,7 +124,7 @@ simulator.SimulateMouseWheel(0, 0, 10, -1);
 SharpHook provides the `IEventSimulator` interface, and the default implementation, `EventSimulator`, which calls
 `UioHook.PostEvent` to simulate the events.
 
-## Logging
+### Logging
 
 libuiohook can log messages throughout its execution. By default the messages are not logged anywhere, but you can get
 these logs by using the `ILogSource` interface and its default implementation, `LogSource`:

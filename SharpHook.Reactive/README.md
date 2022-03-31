@@ -60,7 +60,7 @@ the events through schedulers.
 - `ReactiveGlobalHookAdapter` adapts an `IGlobalHook` to `IReactiveGlobalHook`. All subscriptions and changes are
 propagated to the adapted hook.
 
-## Logging
+### Logging
 
 SharpHook.Reactive contains the `IReactiveLogSource` and `ReactiveLogSourceAdapter` so you can use them in a more
 reactive way than `ILogSource` and `LogSource`:

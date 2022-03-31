@@ -79,8 +79,8 @@ public class EventSimulator : IEventSimulator
     /// <returns>The result of the operation.</returns>
     /// <remarks>
     /// <para>
-    /// A positive <paramref name="rotation" /> value indicates that the wheel was rotated forward, away from the user;
-    /// a negative value indicates that the wheel was rotated backward, toward the user.
+    /// A positive <paramref name="rotation" /> value indicates that the wheel will be rotated down and a negative value
+    /// indicates that the wheel will be rotated up.
     /// </para>
     /// <para>
     /// Mouse wheel simulation is a little inconsistent across platforms, and not documented. View the source code of

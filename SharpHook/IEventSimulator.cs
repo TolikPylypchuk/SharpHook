@@ -55,8 +55,8 @@ public interface IEventSimulator
     /// <param name="rotation">The wheel rotation.</param>
     /// <returns>The result of the operation.</returns>
     /// <remarks>
-    /// A positive <paramref name="rotation" /> value indicates that the wheel was rotated forward, away from the user;
-    /// a negative value indicates that the wheel was rotated backward, toward the user.
+    /// A positive <paramref name="rotation" /> value indicates that the wheel will be rotated down and a negative value
+    /// indicates that the wheel will be rotated up.
     /// </remarks>
     public UioHookResult SimulateMouseWheel(short x, short y, ushort amount, short rotation);
 }
