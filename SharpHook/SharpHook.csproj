@@ -134,7 +134,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows')) And '$(Platform)' == 'x86'">
-    <ContentWithTargetPath Include="lib\win-x84\uiohook.dll">
+    <ContentWithTargetPath Include="lib\win-x86\uiohook.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>uiohook.dll</TargetPath>
       <Pack>False</Pack>
