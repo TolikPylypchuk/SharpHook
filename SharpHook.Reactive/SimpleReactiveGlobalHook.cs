@@ -33,6 +33,8 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
 
     private readonly Subject<MouseWheelHookEventArgs> mouseWheelSubject = new();
 
+    private readonly DispatchProc dispatchProc;
+
     public SimpleReactiveGlobalHook()
     {
         this.HookEnabled = this.hookEnabledSubject.AsObservable().Take(1);
@@ -49,6 +51,8 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
         this.MouseDragged = this.mouseDraggedSubject.AsObservable();
 
         this.MouseWheel = this.mouseWheelSubject.AsObservable();
+
+        this.dispatchProc = this.DispatchEvent;
     }
 
     /// <summary>
@@ -158,7 +162,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
 
         try
         {
-            UioHook.SetDispatchProc(this.DispatchEvent, IntPtr.Zero);
+            UioHook.SetDispatchProc(this.dispatchProc, IntPtr.Zero);
 
             this.IsRunning = true;
             var result = UioHook.Run();
@@ -198,7 +202,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
         {
             try
             {
-                UioHook.SetDispatchProc(this.DispatchEvent, IntPtr.Zero);
+                UioHook.SetDispatchProc(this.dispatchProc, IntPtr.Zero);
 
                 this.IsRunning = true;
                 var result = UioHook.Run();

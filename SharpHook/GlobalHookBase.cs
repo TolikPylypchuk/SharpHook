@@ -19,6 +19,11 @@ public abstract class GlobalHookBase : IGlobalHook
     private const string Starting = "starting";
     private const string Stopping = "stopping";
 
+    private readonly DispatchProc dispatchProc;
+
+    protected GlobalHookBase() =>
+        this.dispatchProc = this.HandleHookEventIfNeeded;
+
     /// <summary>
     /// Destroys the global hook if it's running.
     /// </summary>
@@ -52,7 +57,7 @@ public abstract class GlobalHookBase : IGlobalHook
 
         try
         {
-            UioHook.SetDispatchProc(this.HandleHookEventIfNeeded, IntPtr.Zero);
+            UioHook.SetDispatchProc(this.dispatchProc, IntPtr.Zero);
 
             this.IsRunning = true;
             var result = UioHook.Run();
@@ -89,7 +94,7 @@ public abstract class GlobalHookBase : IGlobalHook
         {
             try
             {
-                UioHook.SetDispatchProc(this.HandleHookEventIfNeeded, IntPtr.Zero);
+                UioHook.SetDispatchProc(this.dispatchProc, IntPtr.Zero);
 
                 this.IsRunning = true;
                 var result = UioHook.Run();
@@ -98,13 +103,11 @@ public abstract class GlobalHookBase : IGlobalHook
                 if (result == UioHookResult.Success)
                 {
                     source.SetResult(null);
-                }
-                else
+                } else
                 {
                     source.SetException(new HookException(result, this.FormatFailureMessage(Starting, result)));
                 }
-            }
-            catch (Exception e)
+            } catch (Exception e)
             {
                 this.IsRunning = false;
                 source.SetException(new HookException(UioHookResult.Failure, e));
