@@ -97,6 +97,19 @@ references:
   commentId: T:SharpHook.GlobalHookBase
   fullName: SharpHook.GlobalHookBase
   nameWithType: GlobalHookBase
+- uid: SharpHook.GlobalHookBase.#ctor
+  name: GlobalHookBase()
+  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase__ctor
+  commentId: M:SharpHook.GlobalHookBase.#ctor
+  fullName: SharpHook.GlobalHookBase.GlobalHookBase()
+  nameWithType: GlobalHookBase.GlobalHookBase()
+- uid: SharpHook.GlobalHookBase.#ctor*
+  name: GlobalHookBase
+  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase__ctor_
+  commentId: Overload:SharpHook.GlobalHookBase.#ctor
+  isSpec: "True"
+  fullName: SharpHook.GlobalHookBase.GlobalHookBase
+  nameWithType: GlobalHookBase.GlobalHookBase
 - uid: SharpHook.GlobalHookBase.DispatchEvent(SharpHook.Native.UioHookEvent@)
   name: DispatchEvent(ref UioHookEvent)
   href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_DispatchEvent_SharpHook_Native_UioHookEvent__

@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.GlobalHookBase.html",
-          "hash": "xmtnzKaAdRHe3kbqd8OY93U6vpqnZ7jjLX0INp2oosU="
+          "hash": "pgTm8xFRNz8jxJIi2957qyVGyNjzPjS5i2mLWozrD/U="
         }
       },
       "is_incremental": false,
@@ -465,7 +465,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Reactive.SimpleReactiveGlobalHook.html",
-          "hash": "nmcFDIcZrfMW1cy+ptFSgeAQrEi22NieyrzIxwOYgB0="
+          "hash": "0TWMdV9kypy994/06rrqIU3TvKdJiS+0M4nWSUb1rio="
         }
       },
       "is_incremental": false,
