@@ -6,7 +6,7 @@
 
 - libuiohook was updated to commit [de3f683](https://github.com/kwhat/libuiohook/tree/de3f68346781b1f3347b44ce8e370a5f0a603f89).
 
-## [v3.0.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v3.0.0) (March, 27 2022)
+## [v3.0.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v3.0.0) (March 27, 2022)
 
 - The ability to get libuiohook logs was added.
 
