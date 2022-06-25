@@ -2,7 +2,7 @@
 
 ## [v3.0.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v3.0.1) (June 25, 2022)
 
-- A memory issue which arised only when debugging was fixed ([#12](https://github.com/TolikPylypchuk/SharpHook/issues/12)).
+- A memory issue which arose only when debugging was fixed ([#12](https://github.com/TolikPylypchuk/SharpHook/issues/12)).
 
 - libuiohook was updated to commit [de3f683](https://github.com/kwhat/libuiohook/tree/de3f68346781b1f3347b44ce8e370a5f0a603f89).
 
