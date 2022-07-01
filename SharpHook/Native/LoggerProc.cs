@@ -1,6 +1,7 @@
 namespace SharpHook.Native;
 
 using System;
+using System.Runtime.InteropServices;
 
 /// <summary>
 /// Represents a function which is called when a logging event occurs.
@@ -12,4 +13,5 @@ using System;
 /// <param name="format">The format of the log message.</param>
 /// <param name="args">The arguments of the log message.</param>
 /// <seealso cref="UioHook.SetLoggerProc(LoggerProc?, IntPtr)" />
+[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 public delegate void LoggerProc(LogLevel level, IntPtr userData, IntPtr format, IntPtr args);
