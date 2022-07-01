@@ -24,6 +24,6 @@ https://github.com/TolikPylypchuk/SharpHook
 ## Installation
 
 ```
-dotnet add package SharpHook --version 3.0.1
-dotnet add package SharpHook.Reactive --version 3.0.1
+dotnet add package SharpHook --version 3.0.2
+dotnet add package SharpHook.Reactive --version 3.0.2
 ```

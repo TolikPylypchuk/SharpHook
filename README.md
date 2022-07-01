@@ -16,7 +16,7 @@ dotnet add package SharpHook.Reactive
 
 ## Upgrading
 
-A [migration guide](https://sharphook.tolik.io/v3.0.1/articles/migration.html) is available for upgrading between major
+A [migration guide](https://sharphook.tolik.io/v3.0.2/articles/migration.html) is available for upgrading between major
 versions.
 
 ## Docs
@@ -24,6 +24,7 @@ versions.
 You can find more information (including the API reference) in the [docs](https://sharphook.tolik.io). Or if you need a
 specific version:
 
+- [v3.0.2](https://sharphook.tolik.io/v3.0.2)
 - [v3.0.1](https://sharphook.tolik.io/v3.0.1)
 - [v3.0.0](https://sharphook.tolik.io/v3.0.0)
 - [v2.0.0](https://sharphook.tolik.io/v2.0.0)
@@ -286,10 +287,39 @@ reactiveLogSource.MessageLogged.Subscribe(this.OnMessageLogged);
 
 ## Building from Source
 
-In order to build this library, you'll first need to get libuiohook binaries. You can build them yourself as instructued
-in the [libuiohook](https://github.com/kwhat/libuiohook) repository, or you can get a
-[nightly build from this repository](https://github.com/TolikPylypchuk/SharpHook/actions/workflows/build.yml). Place the
-binaries into the appropriate directories under the `lib` directory in the `SharpHook` project.
+In order to build this library, you'll first need to get libuiohook binaries. You you can get a
+[nightly build from this repository](https://github.com/TolikPylypchuk/SharpHook/actions/workflows/build.yml), or you
+can build them yourself as instructued in the [libuiohook](https://github.com/kwhat/libuiohook) repository (not
+recommended as it's non-trivial, and you should most probably use the same options as the build in this repository uses
+anyway). Place the binaries into the appropriate directories in the `SharpHook` project, as described in the following
+table:
+
+<table>
+  <tr>
+    <th>OS</th>
+    <th>Files</th>
+    <th>Source directory</th>
+    <th>Target directory</th>
+  </tr>
+  <tr>
+    <th>Windows</th>
+    <td>uiohook.dll</td>
+    <td>windows/&lt;platform&gt;/bin</td>
+    <td>lib/win-&lt;platform&gt;</td>
+  </tr>
+  <tr>
+    <th>macOS</th>
+    <td>libuiohook.dylib<br/>libuiohook.1.dylib<br/>libuiohook.1.2.0.dylib</td>
+    <td>darwin/&lt;platform&gt;/lib</td>
+    <td>lib/osx-&lt;platform&gt;</td>
+  </tr>
+  <tr>
+    <th>Linux</th>
+    <td>libuiohook.so<br/>libuiohook.so.1<br/>libuiohook.so.1.2.0</td>
+    <td>linux/&lt;platform&gt;/lib</td>
+    <td>lib/linux-&lt;platform&gt;</td>
+  </tr>
+</table>
 
 With libuiohook in place you can build SharpHook using your usual methods, e.g. with Visual Studio or the `dotnet` CLI.
 You need .NET 6 to build SharpHook.

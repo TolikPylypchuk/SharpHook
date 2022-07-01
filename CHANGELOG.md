@@ -1,5 +1,12 @@
 # SharpHook Changelog
 
+## [v3.0.2](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v3.0.2) (July 1, 2022)
+
+- Windows x86 support was fixed ([#10](https://github.com/TolikPylypchuk/SharpHook/issues/10)).
+
+- The functions in `UioHook` which return system properties now return `int` instead of `long`. This is a tiny breaking
+change, but I believe it's too small to warrant a bump of the major (or even minor) version.
+
 ## [v3.0.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v3.0.1) (June 25, 2022)
 
 - A memory issue which arose only when debugging was fixed ([#12](https://github.com/TolikPylypchuk/SharpHook/issues/12)).

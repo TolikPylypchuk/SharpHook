@@ -1,6 +1,6 @@
 # About SharpHook
 
-SharpHook. Version 3.0.1. Created by Tolik Pylypchuk.
+SharpHook. Version 3.0.2. Created by Tolik Pylypchuk.
 
 ## Library Status
 
@@ -9,6 +9,13 @@ to its `1.3` branch is considered stable. If you've noticed that this library ha
 rest assured that it's not abandoned! I'm not giving up on this library any time soon.
 
 ## Changelog
+
+### [v3.0.2](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v3.0.2) (July 1, 2022)
+
+- Windows x86 support was fixed ([#10](https://github.com/TolikPylypchuk/SharpHook/issues/10)).
+
+- The functions in `UioHook` which return system properties now return `int` instead of `long`. This is a tiny breaking
+change, but I believe it's too small to warrant a bump of the major (or even minor) version.
 
 ### [v3.0.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v3.0.1) (June 25, 2022)
 
