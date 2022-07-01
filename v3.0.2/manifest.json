@@ -189,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.DispatchProc.html",
-          "hash": "czNKGG6ASSX5O2j+gqOCH03dcRkXHT4p+00v6U7J6BI="
+          "hash": "zY/Nv760rPuZfzHd6+KP60jrghkwWTyODEU4IUjH/wk="
         }
       },
       "is_incremental": false,
@@ -261,7 +261,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.LoggerProc.html",
-          "hash": "u6A6qNfrqdc/twNpJV6bR7S4BYfOdLwa8vMdR+xjZa0="
+          "hash": "vVo4RXgzoRl9fk6e5iod7mFU5Eta+ewavewq8PCg0pw="
         }
       },
       "is_incremental": false,
