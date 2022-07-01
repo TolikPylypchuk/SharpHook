@@ -176,40 +176,40 @@ public static class UioHook
     /// </summary>
     /// <returns>The auto-repeat rate.</returns>
     [DllImport(LibUioHook, EntryPoint = "hook_get_auto_repeat_rate")]
-    public static extern long GetAutoRepeatRate();
+    public static extern int GetAutoRepeatRate();
 
     /// <summary>
     /// Gets the auto-repeat delay.
     /// </summary>
     /// <returns>The auto-repeat delay.</returns>
     [DllImport(LibUioHook, EntryPoint = "hook_get_auto_repeat_delay")]
-    public static extern long GetAutoRepeatDelay();
+    public static extern int GetAutoRepeatDelay();
 
     /// <summary>
     /// Gets the pointer acceleration multiplier.
     /// </summary>
     /// <returns>The pointer acceleration multiplier.</returns>
     [DllImport(LibUioHook, EntryPoint = "hook_get_pointer_acceleration_multiplier")]
-    public static extern long GetPointerAccelerationMultiplier();
+    public static extern int GetPointerAccelerationMultiplier();
 
     /// <summary>
     /// Gets the pointer acceleration threshold.
     /// </summary>
     /// <returns>The pointer acceleration threshold.</returns>
     [DllImport(LibUioHook, EntryPoint = "hook_get_pointer_acceleration_threshold")]
-    public static extern long GetPointerAccelerationThreshold();
+    public static extern int GetPointerAccelerationThreshold();
 
     /// <summary>
     /// Gets the pointer sensitivity.
     /// </summary>
     /// <returns>The pointer sensitivity.</returns>
     [DllImport(LibUioHook, EntryPoint = "hook_get_pointer_sensitivity")]
-    public static extern long GetPointerSensitivity();
+    public static extern int GetPointerSensitivity();
 
     /// <summary>
     /// Gets the multi-click time.
     /// </summary>
     /// <returns>The multi-click time.</returns>
     [DllImport(LibUioHook, EntryPoint = "hook_get_multi_click_time")]
-    public static extern long GetMultiClickTime();
+    public static extern int GetMultiClickTime();
 }
