@@ -1,0 +1,427 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class TaskPoolGlobalHook
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class TaskPoolGlobalHook
+   ">
+    <meta name="generator" content="docfx 2.59.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="SharpHook.TaskPoolGlobalHook">
+  
+  
+  <h1 id="SharpHook_TaskPoolGlobalHook" data-uid="SharpHook.TaskPoolGlobalHook" class="text-break">Class TaskPoolGlobalHook
+  </h1>
+  <div class="markdown level0 summary"><p>Represents a task pool-based implementation of <a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a>.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="SharpHook.GlobalHookBase.html">GlobalHookBase</a></div>
+    <div class="level2"><span class="xref">TaskPoolGlobalHook</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a></div>
+    <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_IsRunning">GlobalHookBase.IsRunning</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_IsDisposed">GlobalHookBase.IsDisposed</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_Run">GlobalHookBase.Run()</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_RunAsync">GlobalHookBase.RunAsync()</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_Dispose">GlobalHookBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_DispatchEvent_SharpHook_Native_UioHookEvent__">GlobalHookBase.DispatchEvent(UioHookEvent)</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_OnHookEnabled_SharpHook_HookEventArgs_">GlobalHookBase.OnHookEnabled(HookEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_OnHookDisabled_SharpHook_HookEventArgs_">GlobalHookBase.OnHookDisabled(HookEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_OnKeyTyped_SharpHook_KeyboardHookEventArgs_">GlobalHookBase.OnKeyTyped(KeyboardHookEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_OnKeyPressed_SharpHook_KeyboardHookEventArgs_">GlobalHookBase.OnKeyPressed(KeyboardHookEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_OnKeyReleased_SharpHook_KeyboardHookEventArgs_">GlobalHookBase.OnKeyReleased(KeyboardHookEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_OnMouseClicked_SharpHook_MouseHookEventArgs_">GlobalHookBase.OnMouseClicked(MouseHookEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_OnMousePressed_SharpHook_MouseHookEventArgs_">GlobalHookBase.OnMousePressed(MouseHookEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_OnMouseReleased_SharpHook_MouseHookEventArgs_">GlobalHookBase.OnMouseReleased(MouseHookEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_OnMouseMoved_SharpHook_MouseHookEventArgs_">GlobalHookBase.OnMouseMoved(MouseHookEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_OnMouseDragged_SharpHook_MouseHookEventArgs_">GlobalHookBase.OnMouseDragged(MouseHookEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_OnMouseWheel_SharpHook_MouseWheelHookEventArgs_">GlobalHookBase.OnMouseWheel(MouseWheelHookEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_ThrowIfDisposed_System_String_">GlobalHookBase.ThrowIfDisposed(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_HookEnabled">GlobalHookBase.HookEnabled</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_HookDisabled">GlobalHookBase.HookDisabled</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_KeyTyped">GlobalHookBase.KeyTyped</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_KeyPressed">GlobalHookBase.KeyPressed</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_KeyReleased">GlobalHookBase.KeyReleased</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MouseClicked">GlobalHookBase.MouseClicked</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MousePressed">GlobalHookBase.MousePressed</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MouseReleased">GlobalHookBase.MouseReleased</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MouseMoved">GlobalHookBase.MouseMoved</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MouseDragged">GlobalHookBase.MouseDragged</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MouseWheel">GlobalHookBase.MouseWheel</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="SharpHook.html">SharpHook</a></h6>
+  <h6><strong>Assembly</strong>: SharpHook.dll</h6>
+  <h5 id="SharpHook_TaskPoolGlobalHook_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class TaskPoolGlobalHook : GlobalHookBase, IGlobalHook, IDisposable</code></pre>
+  </div>
+  <h5 id="SharpHook_TaskPoolGlobalHook_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>
+The event handlers will run with the specified parallelism level on separate threads inside the default thread
+pool for tasks. This way the hook itself will not be blocked if the handlers are long-running.
+The exception is the <a class="xref" href="SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_HookDisabled">HookDisabled</a> event which will run on the same thread that called
+the <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable.dispose#system-idisposable-dispose">Dispose()</a> method since at that point it doesn&apos;t matter anymore that the hook is
+not blocked.
+</p>
+<p>
+Setting <a class="xref" href="SharpHook.HookEventArgs.html#SharpHook_HookEventArgs_Reserved">Reserved</a> inside the handlers will have no effect as they are run
+on other threads.
+</p>
+</div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_TaskPoolGlobalHook__ctor.md&amp;value=---%0Auid%3A%20SharpHook.TaskPoolGlobalHook.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/TaskPoolGlobalHook.cs/#L40">View Source</a>
+  </span>
+  <a id="SharpHook_TaskPoolGlobalHook__ctor_" data-uid="SharpHook.TaskPoolGlobalHook.#ctor*"></a>
+  <h4 id="SharpHook_TaskPoolGlobalHook__ctor" data-uid="SharpHook.TaskPoolGlobalHook.#ctor">TaskPoolGlobalHook()</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.TaskPoolGlobalHook.html">TaskPoolGlobalHook</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TaskPoolGlobalHook()</code></pre>
+  </div>
+  <h5 id="SharpHook_TaskPoolGlobalHook__ctor_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Calling this constructor is the same as passing <a class="xref" href="SharpHook.TaskPoolGlobalHookOptions.html#SharpHook_TaskPoolGlobalHookOptions_Sequential">Sequential</a> to the
+other constructor.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_TaskPoolGlobalHook__ctor_SharpHook_TaskPoolGlobalHookOptions_.md&amp;value=---%0Auid%3A%20SharpHook.TaskPoolGlobalHook.%23ctor(SharpHook.TaskPoolGlobalHookOptions)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/TaskPoolGlobalHook.cs/#L48">View Source</a>
+  </span>
+  <a id="SharpHook_TaskPoolGlobalHook__ctor_" data-uid="SharpHook.TaskPoolGlobalHook.#ctor*"></a>
+  <h4 id="SharpHook_TaskPoolGlobalHook__ctor_SharpHook_TaskPoolGlobalHookOptions_" data-uid="SharpHook.TaskPoolGlobalHook.#ctor(SharpHook.TaskPoolGlobalHookOptions)">TaskPoolGlobalHook(TaskPoolGlobalHookOptions)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.TaskPoolGlobalHook.html">TaskPoolGlobalHook</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TaskPoolGlobalHook(TaskPoolGlobalHookOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.TaskPoolGlobalHookOptions.html">TaskPoolGlobalHookOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options of the hook which include its parallelism level.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_TaskPoolGlobalHook_Dispose_System_Boolean_.md&amp;value=---%0Auid%3A%20SharpHook.TaskPoolGlobalHook.Dispose(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/TaskPoolGlobalHook.cs/#L79">View Source</a>
+  </span>
+  <a id="SharpHook_TaskPoolGlobalHook_Dispose_" data-uid="SharpHook.TaskPoolGlobalHook.Dispose*"></a>
+  <h4 id="SharpHook_TaskPoolGlobalHook_Dispose_System_Boolean_" data-uid="SharpHook.TaskPoolGlobalHook.Dispose(System.Boolean)">Dispose(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Destoys the global hook.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Dispose(bool disposing)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">disposing</span></td>
+        <td><p><span class="xref">true</span> if the method is called from the <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable.dispose#system-idisposable-dispose">Dispose()</a> method.
+Otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_Dispose_System_Boolean_">GlobalHookBase.Dispose(Boolean)</a></div>
+  <h5 id="SharpHook_TaskPoolGlobalHook_Dispose_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>After calling this method, the hook cannot be started again. If you want to do that, create a new instance
+of <a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a>.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.HookException.html">HookException</a></td>
+        <td><p>Stopping the hook has failed.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_TaskPoolGlobalHook_HandleHookEvent_SharpHook_Native_UioHookEvent__.md&amp;value=---%0Auid%3A%20SharpHook.TaskPoolGlobalHook.HandleHookEvent(SharpHook.Native.UioHookEvent%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/TaskPoolGlobalHook.cs/#L55">View Source</a>
+  </span>
+  <a id="SharpHook_TaskPoolGlobalHook_HandleHookEvent_" data-uid="SharpHook.TaskPoolGlobalHook.HandleHookEvent*"></a>
+  <h4 id="SharpHook_TaskPoolGlobalHook_HandleHookEvent_SharpHook_Native_UioHookEvent__" data-uid="SharpHook.TaskPoolGlobalHook.HandleHookEvent(SharpHook.Native.UioHookEvent@)">HandleHookEvent(ref UioHookEvent)</h4>
+  <div class="markdown level1 summary"><p>Handles the hook event.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void HandleHookEvent(ref UioHookEvent e)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.UioHookEvent.html">UioHookEvent</a></td>
+        <td><span class="parametername">e</span></td>
+        <td><p>The event to handle.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_HandleHookEvent_SharpHook_Native_UioHookEvent__">GlobalHookBase.HandleHookEvent(ref UioHookEvent)</a></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a>
+  </div>
+  <div>
+      <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.idisposable">System.IDisposable</a>
+  </div>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a></div>
+      <div><a class="xref" href="SharpHook.GlobalHookBase.html">GlobalHookBase</a></div>
+      <div><a class="xref" href="SharpHook.SimpleGlobalHook.html">SimpleGlobalHook</a></div>
+      <div><a class="xref" href="SharpHook.TaskPoolGlobalHookOptions.html">TaskPoolGlobalHookOptions</a></div>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_TaskPoolGlobalHook.md&amp;value=---%0Auid%3A%20SharpHook.TaskPoolGlobalHook%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/TaskPoolGlobalHook.cs/#L29" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            <div>Copyright (c) 2021 Anatoliy Pylypchuk</div><span>Generated by <strong>DocFx</strong>.</span> <span>Icon made by <a href="https//www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com" title="Flaticon">www.flaticon.com</a></span></div>
+            
+          </div>
+        </footer></div>
+      
+    
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
