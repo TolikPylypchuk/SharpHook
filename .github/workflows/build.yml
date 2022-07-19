@@ -274,7 +274,7 @@ jobs:
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\arm `
             -D CMAKE_VERBOSE_MAKEFILE=true `
             -D BUILD_SHARED_LIBS=ON `
-            -D MSVC_RUNTIME_LIBRARY=MT `
+            -D MSVC_RUNTIME_LIBRARY=MultiThreaded `
             -D USE_EPOCH_TIME=ON
           cmake --build ${{github.workspace}}\build `
             --parallel 2 `
@@ -309,7 +309,7 @@ jobs:
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\arm64 `
             -D CMAKE_VERBOSE_MAKEFILE=true `
             -D BUILD_SHARED_LIBS=ON `
-            -D MSVC_RUNTIME_LIBRARY=MT `
+            -D MSVC_RUNTIME_LIBRARY=MultiThreaded `
             -D USE_EPOCH_TIME=ON
           cmake --build ${{github.workspace}}\build `
             --parallel 2 `
@@ -344,7 +344,7 @@ jobs:
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\x86 `
             -D CMAKE_VERBOSE_MAKEFILE=true `
             -D BUILD_SHARED_LIBS=ON `
-            -D MSVC_RUNTIME_LIBRARY=MT `
+            -D MSVC_RUNTIME_LIBRARY=MultiThreaded `
             -D USE_EPOCH_TIME=ON
           cmake --build ${{github.workspace}}\build `
             --parallel 2 `
@@ -379,7 +379,7 @@ jobs:
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\x86_64 `
             -D CMAKE_VERBOSE_MAKEFILE=true `
             -D BUILD_SHARED_LIBS=ON `
-            -D MSVC_RUNTIME_LIBRARY=MT `
+            -D MSVC_RUNTIME_LIBRARY=MultiThreaded `
             -D USE_EPOCH_TIME=ON
           cmake --build ${{github.workspace}}\build `
             --parallel 2 `
