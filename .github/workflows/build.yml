@@ -274,6 +274,7 @@ jobs:
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\arm `
             -D CMAKE_VERBOSE_MAKEFILE=true `
             -D BUILD_SHARED_LIBS=ON `
+            -D CMAKE_POLICY_DEFAULT_CMP0091=NEW `
             -D CMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded `
             -D USE_EPOCH_TIME=ON
           cmake --build ${{github.workspace}}\build `
@@ -309,6 +310,7 @@ jobs:
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\arm64 `
             -D CMAKE_VERBOSE_MAKEFILE=true `
             -D BUILD_SHARED_LIBS=ON `
+            -D CMAKE_POLICY_DEFAULT_CMP0091=NEW `
             -D CMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded `
             -D USE_EPOCH_TIME=ON
           cmake --build ${{github.workspace}}\build `
@@ -344,6 +346,7 @@ jobs:
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\x86 `
             -D CMAKE_VERBOSE_MAKEFILE=true `
             -D BUILD_SHARED_LIBS=ON `
+            -D CMAKE_POLICY_DEFAULT_CMP0091=NEW `
             -D CMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded `
             -D USE_EPOCH_TIME=ON
           cmake --build ${{github.workspace}}\build `
@@ -379,6 +382,7 @@ jobs:
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\x86_64 `
             -D CMAKE_VERBOSE_MAKEFILE=true `
             -D BUILD_SHARED_LIBS=ON `
+            -D CMAKE_POLICY_DEFAULT_CMP0091=NEW `
             -D CMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded `
             -D USE_EPOCH_TIME=ON
           cmake --build ${{github.workspace}}\build `
