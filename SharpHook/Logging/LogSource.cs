@@ -15,9 +15,13 @@ using SharpHook.Native;
 public sealed class LogSource : ILogSource
 {
     private readonly LogEntryParser parser = new();
+    private readonly LoggerProc loggerProc;
 
-    private LogSource(LogLevel minLevel) =>
+    private LogSource(LogLevel minLevel)
+    {
         this.MinLevel = minLevel;
+        this.loggerProc = this.OnLog;
+    }
 
     /// <summary>
     /// Unregisters the current <see cref="LogSource" /> instance.
@@ -52,7 +56,7 @@ public sealed class LogSource : ILogSource
     public static LogSource Register(LogLevel minLevel = LogLevel.Info)
     {
         var source = new LogSource(minLevel);
-        UioHook.SetLoggerProc(source.OnLog, IntPtr.Zero);
+        UioHook.SetLoggerProc(source.loggerProc, IntPtr.Zero);
         return source;
     }
 
