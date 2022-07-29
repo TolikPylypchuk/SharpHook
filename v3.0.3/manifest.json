@@ -89,11 +89,23 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Logging.EmptyLogSource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Logging.EmptyLogSource.html",
+          "hash": "3GoEABi6XYswfzTZbQ0nKsQtm9GKn0PBHV4arGsI240="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SharpHook.Logging.ILogSource.yml",
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Logging.ILogSource.html",
-          "hash": "obire3LiNuSHO6wFIwcc6IBFqhSmrK48Wjw6qaIqrkQ="
+          "hash": "YVsHyNfOdi+CL+woJRMRx4gF6UoxY0Hr/xIWcUCcKSY="
         }
       },
       "is_incremental": false,
@@ -117,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Logging.LogEntryParser.html",
-          "hash": "meZpR5BK9bcZnN5MmxXPjb7Sre7nw8/k7F5i3UBz12s="
+          "hash": "M3aiFVZqWYl3u8gaImbnwRfTguOaFOBSSNY2j358dHw="
         }
       },
       "is_incremental": false,
@@ -141,7 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Logging.LogSource.html",
-          "hash": "y+s4PDywNLGzq+1cZYn7QGPNMpkcaQnAhg+1sDuEktU="
+          "hash": "3z0fL2oyrkzImqH/Xcm1OA8X3ZjLkiwStSXfJ20RBf0="
         }
       },
       "is_incremental": false,
@@ -153,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Logging.html",
-          "hash": "sdovtsuOyuwSXuwuVmhep719+Q8mA5fJ2oHtNpvQuSA="
+          "hash": "XPq1MdLl8RUmm/n4mt4Y/EWvym6tiZZd8ZVIyarGUuY="
         }
       },
       "is_incremental": false,
@@ -549,7 +561,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "m5nyCLFy5OvUMInMG/rzVF9Rav++cYMGdpVVVx4FRMU="
+          "hash": "Frwk/I+CCQPxL0Z+L4Ow0bQ4uGYacNI18y/rhzkYXEg="
         }
       },
       "is_incremental": false,
@@ -730,7 +742,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 44,
+          "total_file_count": 45,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {

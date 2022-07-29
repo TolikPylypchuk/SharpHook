@@ -833,6 +833,44 @@ references:
   commentId: N:SharpHook.Logging
   fullName: SharpHook.Logging
   nameWithType: SharpHook.Logging
+- uid: SharpHook.Logging.EmptyLogSource
+  name: EmptyLogSource
+  href: api/SharpHook.Logging.EmptyLogSource.html
+  commentId: T:SharpHook.Logging.EmptyLogSource
+  fullName: SharpHook.Logging.EmptyLogSource
+  nameWithType: EmptyLogSource
+- uid: SharpHook.Logging.EmptyLogSource.Dispose
+  name: Dispose()
+  href: api/SharpHook.Logging.EmptyLogSource.html#SharpHook_Logging_EmptyLogSource_Dispose
+  commentId: M:SharpHook.Logging.EmptyLogSource.Dispose
+  fullName: SharpHook.Logging.EmptyLogSource.Dispose()
+  nameWithType: EmptyLogSource.Dispose()
+- uid: SharpHook.Logging.EmptyLogSource.Dispose*
+  name: Dispose
+  href: api/SharpHook.Logging.EmptyLogSource.html#SharpHook_Logging_EmptyLogSource_Dispose_
+  commentId: Overload:SharpHook.Logging.EmptyLogSource.Dispose
+  isSpec: "True"
+  fullName: SharpHook.Logging.EmptyLogSource.Dispose
+  nameWithType: EmptyLogSource.Dispose
+- uid: SharpHook.Logging.EmptyLogSource.IsDisposed
+  name: IsDisposed
+  href: api/SharpHook.Logging.EmptyLogSource.html#SharpHook_Logging_EmptyLogSource_IsDisposed
+  commentId: P:SharpHook.Logging.EmptyLogSource.IsDisposed
+  fullName: SharpHook.Logging.EmptyLogSource.IsDisposed
+  nameWithType: EmptyLogSource.IsDisposed
+- uid: SharpHook.Logging.EmptyLogSource.IsDisposed*
+  name: IsDisposed
+  href: api/SharpHook.Logging.EmptyLogSource.html#SharpHook_Logging_EmptyLogSource_IsDisposed_
+  commentId: Overload:SharpHook.Logging.EmptyLogSource.IsDisposed
+  isSpec: "True"
+  fullName: SharpHook.Logging.EmptyLogSource.IsDisposed
+  nameWithType: EmptyLogSource.IsDisposed
+- uid: SharpHook.Logging.EmptyLogSource.MessageLogged
+  name: MessageLogged
+  href: api/SharpHook.Logging.EmptyLogSource.html#SharpHook_Logging_EmptyLogSource_MessageLogged
+  commentId: E:SharpHook.Logging.EmptyLogSource.MessageLogged
+  fullName: SharpHook.Logging.EmptyLogSource.MessageLogged
+  nameWithType: EmptyLogSource.MessageLogged
 - uid: SharpHook.Logging.ILogSource
   name: ILogSource
   href: api/SharpHook.Logging.ILogSource.html
