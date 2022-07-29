@@ -7,8 +7,16 @@ using SharpHook.Native;
 /// <summary>
 /// Represents a source of libuiohook logs.
 /// </summary>
-/// <remarks>Only a single <see cref="LogSource" /> instance must be used at a time.</remarks>
+/// <remarks>
+/// <para>
+/// Only a single <see cref="LogSource" /> instance must be used at a time.
+/// </para>
+/// <para>
+/// On Windows this class requires the Visual C++ Redistributable package to be installed as it contains the C runtime.
+/// </para>
+/// </remarks>
 /// <seealso cref="ILogSource" />
+/// <seealso cref="EmptyLogSource" />
 /// <seealso cref="LogEventArgs" />
 /// <seealso cref="LogEntry" />
 /// <seealso cref="LogEntryParser" />

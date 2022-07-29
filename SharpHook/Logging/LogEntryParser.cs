@@ -15,7 +15,8 @@ using SharpHook.Native;
 /// </summary>
 /// <remarks>
 /// The log text is formatted using the <c>vsprintf</c> function from the C runtime and then the result is parsed to
-/// extract the arguments.
+/// extract the arguments. This means that on Windows this class requires the Visual C++ Redistributable package to be
+/// installed.
 /// </remarks>
 public sealed class LogEntryParser
 {

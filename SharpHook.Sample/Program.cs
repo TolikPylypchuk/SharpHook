@@ -3,7 +3,6 @@ namespace SharpHook.Sample;
 using System;
 using System.IO;
 using System.Reactive.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 
 using SharpHook.Logging;
@@ -15,8 +14,7 @@ public static class Program
 {
     private static void Main()
     {
-        Directory.SetCurrentDirectory(
-            Path.GetDirectoryName(Assembly.GetExecutingAssembly()?.Location) ?? String.Empty);
+        Directory.SetCurrentDirectory(AppContext.BaseDirectory);
 
         Console.WriteLine("---------- SharpHook Sample ----------\n");
 
