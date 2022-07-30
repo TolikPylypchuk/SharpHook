@@ -35,5 +35,9 @@ public sealed class EmptyLogSource : ILogSource
     /// <summary>
     /// An event which is never raised.
     /// </summary>
-    public event EventHandler<LogEventArgs>? MessageLogged;
+    public event EventHandler<LogEventArgs> MessageLogged
+    {
+        add { }
+        remove { }
+    }
 }
