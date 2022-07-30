@@ -16,7 +16,7 @@ dotnet add package SharpHook.Reactive
 
 ## Upgrading
 
-A [migration guide](https://sharphook.tolik.io/v3.0.2/articles/migration.html) is available for upgrading between major
+A [migration guide](https://sharphook.tolik.io/v3.1.0/articles/migration.html) is available for upgrading between major
 versions.
 
 ## Docs
@@ -24,6 +24,7 @@ versions.
 You can find more information (including the API reference) in the [docs](https://sharphook.tolik.io). Or if you need a
 specific version:
 
+- [v3.1.0](https://sharphook.tolik.io/v3.1.0)
 - [v3.0.2](https://sharphook.tolik.io/v3.0.2)
 - [v3.0.1](https://sharphook.tolik.io/v3.0.1)
 - [v3.0.0](https://sharphook.tolik.io/v3.0.0)
@@ -271,6 +272,9 @@ can dispose of a log source to stop receiving libuiohook messages. You should ke
 `LogSource` when you use it since it will stop receiving messages when garbage collector deletes it, to avoid memory
 leaks.
 
+An `EmptyLogSource` class is also available - this class doesn't listen to the libuiohook logs and can be used instead
+of `LogSource` in release builds.
+
 SharpHook.Reactive contains the `IReactiveLogSource` and `ReactiveLogSourceAdapter` so you can use them in a more
 reactive way:
 
@@ -290,9 +294,9 @@ reactiveLogSource.MessageLogged.Subscribe(this.OnMessageLogged);
 In order to build this library, you'll first need to get libuiohook binaries. You you can get a
 [nightly build from this repository](https://github.com/TolikPylypchuk/SharpHook/actions/workflows/build.yml), or you
 can build them yourself as instructued in the [libuiohook](https://github.com/kwhat/libuiohook) repository (not
-recommended as it's non-trivial, and you should most probably use the same options as the build in this repository uses
-anyway). Place the binaries into the appropriate directories in the `SharpHook` project, as described in the following
-table:
+recommended as it's non-trivial, and you should most probably use the same options that the build in this repository
+uses anyway). Place the binaries into the appropriate directories in the `SharpHook` project, as described in the
+following table:
 
 <table>
   <tr>

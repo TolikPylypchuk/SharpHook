@@ -1,5 +1,15 @@
 # SharpHook Changelog
 
+## [v3.1.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v3.1.0) (July 30, 2022)
+
+- SharpHook now uses a build of libuiohook which links the C runtime statically on Windows. This means that Visual C++
+Redistributable is not needed for client apps to run (the logging functionality is a exception though).
+([#14](https://github.com/TolikPylypchuk/SharpHook/issues/14)).
+
+- The `EmptyLogSource` class was added, mostly for using it instead of `LogSource` in release builds of client apps.
+
+- A memory issue which was fixed for hooks in v3.0.1 was fixed for logging as well.
+
 ## [v3.0.2](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v3.0.2) (July 1, 2022)
 
 - Windows x86 support was fixed ([#10](https://github.com/TolikPylypchuk/SharpHook/issues/10)).

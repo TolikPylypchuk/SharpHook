@@ -103,6 +103,11 @@ private void OnLog(LogLevel level, IntPtr userData, IntPtr format, IntPtr args)
 }
 ```
 
+**Note**: Since `LogEntryParser` uses the C runtime, it requires the Visual C++ Redistributable package on Windows,
+unlike the rest of SharpHook. If you don't want your app to be dependent on this package, then you can use the
+`EmptyLogSource` class instead of `LogSource` in release builds of your app. `EmptyLogSource` implements `ILogSource`,
+but never raises the `MessageLogged` event and doesn't subscribe to libuiohook logs.
+
 ## Advanced Usage
 
 If you use structured logging then you may want to use the message format and arguments directly, instead of using the

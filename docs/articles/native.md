@@ -8,6 +8,10 @@ namespace also contains types which represent the data used by libuiohook.
 In general, you shouldn't use native methods directly. Instead, use the higher-level interfaces and classes provided by
 SharpHook. However, you should still read this article to know how the high-level features work under the hood.
 
+**Note**: Starting with version 3.1.0 the libuiohook build used by SharpHook on Windows is statically linked to the C
+runtime which means that client apps don't need the Visual C++ Redistributable package. An exception is the logging
+functionality - this is explained further in the article about [logging](logging.md).
+
 ## Working with the Hook Itself
 
 `UioHook` contains the following methods for working with the global hook:
