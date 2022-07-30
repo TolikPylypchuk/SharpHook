@@ -145,6 +145,10 @@ private void OnLog(LogLevel level, IntPtr userData, IntPtr format, IntPtr args)
     // Handle the log entry instead of the native format and arguments
 }
 </code></pre>
+<p><strong>Note</strong>: Since <code>LogEntryParser</code> uses the C runtime, it requires the Visual C++ Redistributable package on Windows,
+unlike the rest of SharpHook. If you don't want your app to be dependent on this package, then you can use the
+<code>EmptyLogSource</code> class instead of <code>LogSource</code> in release builds of your app. <code>EmptyLogSource</code> implements <code>ILogSource</code>,
+but never raises the <code>MessageLogged</code> event and doesn't subscribe to libuiohook logs.</p>
 <h2 id="advanced-usage">Advanced Usage</h2>
 <p>If you use structured logging then you may want to use the message format and arguments directly, instead of using the
 formatted result. <code>LogEntry</code> contains properties which can help you with that:</p>
