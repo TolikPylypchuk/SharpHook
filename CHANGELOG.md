@@ -1,5 +1,10 @@
 # SharpHook Changelog
 
+## [v3.1.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v3.1.1) (August 5, 2022)
+
+- A fork of libuiohook which fixes issue [#9](https://github.com/TolikPylypchuk/SharpHook/issues/9) is used and is at
+commit [09bae87](https://github.com/TolikPylypchuk/libuiohook/tree/09bae87ada36f4daf156c3469b787c1fcb39be92).
+
 ## [v3.1.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v3.1.0) (July 30, 2022)
 
 - SharpHook now uses a build of libuiohook which links the C runtime statically on Windows. This means that Visual C++
