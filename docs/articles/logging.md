@@ -42,7 +42,7 @@ You can get an instance of `LogSource` by using the static `Register` method.
 **Important**: Always use one instance of `LogSource` at a time in the entire application since they all must use
 the same static method to set the log callback for libuiohook, and there may only be one callback at a time.
 
-The `MessageLogged` event contains event args or type `LogEventArgs` which contains just one property of type
+The `MessageLogged` event contains event args of type `LogEventArgs` which contains just one property of type
 `LogEntry`. This class contains the actual log message.
 
 The simplest way to use `LogEntry` is to use its `Level` and `FullText` properties. `FullText` is created using the log

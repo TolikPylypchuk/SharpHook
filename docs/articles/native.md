@@ -146,7 +146,7 @@ for more details.
 ## Logging
 
 libuiohook can log messages throughout its execution. By default it doesn't log anything, but `UioHook` contains the
-`SetLoggerProc` to set the log callback function - it will be called by libuiohook to log messages.
+`SetLoggerProc` method to set the log callback function - it will be called by libuiohook to log messages.
 
 `SetLoggerProc` accepts a delegate of type `SharpHook.Native.LoggerProc`.  This delegate in turn accepts a log level,
 the message format (as a pointer) and arguments (also as a pointer).
