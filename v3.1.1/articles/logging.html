@@ -8,7 +8,7 @@
     <title>Logging </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Logging ">
-    <meta name="generator" content="docfx 2.59.3.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -97,7 +97,7 @@ private void OnMessageLogged(object? sender, LogEventArgs e) =&gt;
 <p>You can get an instance of <code>LogSource</code> by using the static <code>Register</code> method.</p>
 <p><strong>Important</strong>: Always use one instance of <code>LogSource</code> at a time in the entire application since they all must use
 the same static method to set the log callback for libuiohook, and there may only be one callback at a time.</p>
-<p>The <code>MessageLogged</code> event contains event args or type <code>LogEventArgs</code> which contains just one property of type
+<p>The <code>MessageLogged</code> event contains event args of type <code>LogEventArgs</code> which contains just one property of type
 <code>LogEntry</code>. This class contains the actual log message.</p>
 <p>The simplest way to use <code>LogEntry</code> is to use its <code>Level</code> and <code>FullText</code> properties. <code>FullText</code> is created using the log
 message format and arguments so you don't have to do it yourself.</p>

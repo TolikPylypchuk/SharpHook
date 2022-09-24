@@ -5,9 +5,11 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>SharpHook API Docs </title>
+    <title>Delegate DispatchProc
+   </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="SharpHook API Docs ">
+    <meta name="title" content="Delegate DispatchProc
+   ">
     <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
@@ -66,11 +68,48 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
-<h1 id="sharphook-api-docs">SharpHook API Docs</h1>
-
-<p>This section contains API docs for the <a href="https://www.nuget.org/packages/SharpHook">SharpHook</a> and
-<a href="https://www.nuget.org/packages/SharpHook.Reactive">SharpHook.Reactive</a> packages. Use the sidebar to navigate the docs.</p>
+            <article class="content wrap" id="_content" data-uid="SharpHook.Native.DispatchProc">
+  
+  
+  <h1 id="SharpHook_Native_DispatchProc" data-uid="SharpHook.Native.DispatchProc" class="text-break">Delegate DispatchProc
+  </h1>
+  <div class="markdown level0 summary"><p>Represents a function which is called when an event occurs.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="SharpHook.Native.html">SharpHook.Native</a></h6>
+  <h6><strong>Assembly</strong>: SharpHook.dll</h6>
+  <h5 id="SharpHook_Native_DispatchProc_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public delegate void DispatchProc(ref UioHookEvent e, IntPtr userData);</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.UioHookEvent.html">UioHookEvent</a></td>
+        <td><span class="parametername">e</span></td>
+        <td><p>The event that has occured.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></td>
+        <td><span class="parametername">userData</span></td>
+        <td><p>The data that was passed to <a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetDispatchProc_SharpHook_Native_DispatchProc_System_IntPtr_">SetDispatchProc(DispatchProc, IntPtr)</a>. Should not be used.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetDispatchProc_SharpHook_Native_DispatchProc_System_IntPtr_">SetDispatchProc(DispatchProc, IntPtr)</a></div>
+  </div>
 </article>
           </div>
           
@@ -79,7 +118,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/docs/api/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_DispatchProc.md&amp;value=---%0Auid%3A%20SharpHook.Native.DispatchProc%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/DispatchProc.cs/#L14" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

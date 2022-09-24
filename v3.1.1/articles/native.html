@@ -8,7 +8,7 @@
     <title>Native Functions </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Native Functions ">
-    <meta name="generator" content="docfx 2.59.3.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -195,7 +195,7 @@ all its fields. Only <code>Type</code> and <code>Keyboard</code>/<code>Mouse</co
 for more details.</p>
 <h2 id="logging">Logging</h2>
 <p>libuiohook can log messages throughout its execution. By default it doesn't log anything, but <code>UioHook</code> contains the
-<code>SetLoggerProc</code> to set the log callback function - it will be called by libuiohook to log messages.</p>
+<code>SetLoggerProc</code> method to set the log callback function - it will be called by libuiohook to log messages.</p>
 <p><code>SetLoggerProc</code> accepts a delegate of type <code>SharpHook.Native.LoggerProc</code>.  This delegate in turn accepts a log level,
 the message format (as a pointer) and arguments (also as a pointer).</p>
 <p>You can read more about how to use the <code>SetLoggerProc</code> method in the article about <a href="logging.html">logging</a>, though it's
