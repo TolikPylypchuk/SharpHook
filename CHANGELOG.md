@@ -1,5 +1,12 @@
 # SharpHook Changelog
 
+## [v3.1.2](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v3.1.2) (October 19, 2022)
+
+- A fix for posting keyboard events on Windows was added, as suggested by [FaithBeam](https://github.com/FaithBeam),
+and fixes [#20](https://github.com/TolikPylypchuk/SharpHook/issues/20).
+- libuiohook is at commit
+[fc779b0](https://github.com/TolikPylypchuk/libuiohook/tree/fc779b0bc892f8aaf373b53a3791f1e5590b9924).
+
 ## [v3.1.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v3.1.1) (August 5, 2022)
 
 - A fork of libuiohook which fixes issue [#9](https://github.com/TolikPylypchuk/SharpHook/issues/9) is used and is at
