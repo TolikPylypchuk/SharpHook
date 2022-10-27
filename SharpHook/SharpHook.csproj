@@ -40,6 +40,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="SharpHook.targets">
+      <PackagePath>build/SharpHook.targets</PackagePath>
+      <Pack>True</Pack>
+    </None>
     <None Include="..\LICENSE">
       <Pack>True</Pack>
       <PackagePath />
