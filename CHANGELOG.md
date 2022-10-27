@@ -1,5 +1,10 @@
 # SharpHook Changelog
 
+## [v3.1.3](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v3.1.3) (October 27, 2022)
+
+- Copying native libraries to the build output folder should now work correctly for .NET Framework-based projects
+([#18](https://github.com/TolikPylypchuk/SharpHook/issues/18)).
+
 ## [v3.1.2](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v3.1.2) (October 19, 2022)
 
 - A fix for posting keyboard events on Windows was added, as suggested by [FaithBeam](https://github.com/FaithBeam),

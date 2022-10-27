@@ -16,7 +16,7 @@ dotnet add package SharpHook.Reactive
 
 ## Upgrading
 
-A [migration guide](https://sharphook.tolik.io/v3.1.2/articles/migration.html) is available for upgrading between major
+A [migration guide](https://sharphook.tolik.io/v3.1.3/articles/migration.html) is available for upgrading between major
 versions.
 
 ## Docs
@@ -24,6 +24,7 @@ versions.
 You can find more information (including the API reference) in the [docs](https://sharphook.tolik.io). Or if you need a
 specific version:
 
+- [v3.1.3](https://sharphook.tolik.io/v3.1.3)
 - [v3.1.2](https://sharphook.tolik.io/v3.1.2)
 - [v3.1.1](https://sharphook.tolik.io/v3.1.1)
 - [v3.1.0](https://sharphook.tolik.io/v3.1.0)

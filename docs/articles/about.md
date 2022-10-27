@@ -1,6 +1,6 @@
 # About SharpHook
 
-SharpHook. Version 3.1.2. Created by Tolik Pylypchuk.
+SharpHook. Version 3.1.3. Created by Tolik Pylypchuk.
 
 ## Library Status
 
@@ -9,6 +9,11 @@ to its `1.3` branch is considered stable. If you've noticed that this library ha
 rest assured that it's not abandoned! I'm not giving up on this library any time soon.
 
 ## Changelog
+
+### [v3.1.3](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v3.1.3) (October 27, 2022)
+
+- Copying native libraries to the build output folder should now work correctly for .NET Framework-based projects
+([#18](https://github.com/TolikPylypchuk/SharpHook/issues/18)).
 
 ### [v3.1.2](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v3.1.2) (October 19, 2022)
 
