@@ -18,7 +18,7 @@ using SharpHook.Native;
 /// not blocked.
 /// </para>
 /// <para>
-/// Setting <see cref="HookEventArgs.Reserved" /> inside the handlers will have no effect as they are run
+/// Setting <see cref="HookEventArgs.SuppressEvent" /> inside the handlers will have no effect as they are run
 /// on other threads.
 /// </para>
 /// </remarks>

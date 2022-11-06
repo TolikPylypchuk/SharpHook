@@ -72,7 +72,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     /// </summary>
     /// <value><see langword="true" /> if the global hook is disposed. Otherwise, <see langword="false" />.</value>
     /// <remarks>A disposed global hook cannot be started again.</remarks>
-    public bool IsDisposed { get; private set; } = false;
+    public bool IsDisposed { get; private set; }
 
     /// <summary>
     /// Gets an observable which emits a value when the global hook is enabled.
@@ -301,9 +301,9 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
                 break;
         };
 
-        if (args != null && args.Reserved.HasValue)
+        if (args != null && args.SuppressEvent)
         {
-            e.Reserved = args.Reserved.Value;
+            e.Reserved |= EventReservedValueMask.SuppressEvent;
         }
     }
 

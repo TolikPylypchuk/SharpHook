@@ -41,7 +41,7 @@ public abstract class GlobalHookBase : IGlobalHook
     /// </summary>
     /// <value><see langword="true" /> if the global hook is disposed. Otherwise, <see langword="false" />.</value>
     /// <remarks>A disposed global hook cannot be started again.</remarks>
-    public bool IsDisposed { get; private set; } = false;
+    public bool IsDisposed { get; private set; }
 
     /// <summary>
     /// Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
@@ -207,9 +207,9 @@ public abstract class GlobalHookBase : IGlobalHook
                 break;
         };
 
-        if (args != null && args.Reserved.HasValue)
+        if (args != null && args.SuppressEvent)
         {
-            e.Reserved = args.Reserved.Value;
+            e.Reserved |= EventReservedValueMask.SuppressEvent;
         }
     }
 

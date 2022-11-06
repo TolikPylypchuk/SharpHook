@@ -23,8 +23,7 @@ internal sealed class TaskQueue : IDisposable
         try
         {
             await taskGenerator();
-        }
-        finally
+        } finally
         {
             this.semaphore.Release();
         }

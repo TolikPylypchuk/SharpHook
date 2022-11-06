@@ -37,11 +37,11 @@ public class HookEventArgs : EventArgs
     public DateTimeOffset EventTime { get; }
 
     /// <summary>
-    /// Gets or sets the value which will be set to the <see cref="UioHookEvent.Reserved" /> field after running
-    /// the event handler (unless it's set to <see langword="null" />).
+    /// Gets or sets whether to suppress the event from further propagation after running the event handler. Events must
+    /// be suppressed synchronously. Suppressing events works only on Windows and macOS.
     /// </summary>
     /// <value>
-    /// The value which will be set to the <see cref="UioHookEvent.Reserved" /> field after running the event handler.
+    /// <see langword="true" /> if the event propagation should be suppressed. Otherwise, <see langword="false" />.
     /// </value>
-    public EventReservedValueMask? Reserved { get; set; }
+    public bool SuppressEvent { get; set; }
 }

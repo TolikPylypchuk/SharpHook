@@ -308,13 +308,13 @@
             </summary>
             <value>The date and time of the event.</value>
         </member>
-        <member name="P:SharpHook.HookEventArgs.Reserved">
+        <member name="P:SharpHook.HookEventArgs.SuppressEvent">
             <summary>
-            Gets or sets the value which will be set to the <see cref="F:SharpHook.Native.UioHookEvent.Reserved" /> field after running
-            the event handler (unless it's set to <see langword="null" />).
+            Gets or sets whether to suppress the event from further propagation after running the event handler. Events must
+            be suppressed synchronously. Suppressing events works only on Windows and macOS.
             </summary>
             <value>
-            The value which will be set to the <see cref="F:SharpHook.Native.UioHookEvent.Reserved" /> field after running the event handler.
+            <see langword="true" /> if the event propagation should be suppressed. Otherwise, <see langword="false" />.
             </value>
         </member>
         <member name="T:SharpHook.HookException">
@@ -1673,7 +1673,7 @@
             not blocked.
             </para>
             <para>
-            Setting <see cref="P:SharpHook.HookEventArgs.Reserved" /> inside the handlers will have no effect as they are run
+            Setting <see cref="P:SharpHook.HookEventArgs.SuppressEvent" /> inside the handlers will have no effect as they are run
             on other threads.
             </para>
             </remarks>
