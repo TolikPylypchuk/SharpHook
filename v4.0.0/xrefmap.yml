@@ -493,19 +493,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.HookEventArgs.RawEvent
   nameWithType: HookEventArgs.RawEvent
-- uid: SharpHook.HookEventArgs.Reserved
-  name: Reserved
-  href: api/SharpHook.HookEventArgs.html#SharpHook_HookEventArgs_Reserved
-  commentId: P:SharpHook.HookEventArgs.Reserved
-  fullName: SharpHook.HookEventArgs.Reserved
-  nameWithType: HookEventArgs.Reserved
-- uid: SharpHook.HookEventArgs.Reserved*
-  name: Reserved
-  href: api/SharpHook.HookEventArgs.html#SharpHook_HookEventArgs_Reserved_
-  commentId: Overload:SharpHook.HookEventArgs.Reserved
+- uid: SharpHook.HookEventArgs.SuppressEvent
+  name: SuppressEvent
+  href: api/SharpHook.HookEventArgs.html#SharpHook_HookEventArgs_SuppressEvent
+  commentId: P:SharpHook.HookEventArgs.SuppressEvent
+  fullName: SharpHook.HookEventArgs.SuppressEvent
+  nameWithType: HookEventArgs.SuppressEvent
+- uid: SharpHook.HookEventArgs.SuppressEvent*
+  name: SuppressEvent
+  href: api/SharpHook.HookEventArgs.html#SharpHook_HookEventArgs_SuppressEvent_
+  commentId: Overload:SharpHook.HookEventArgs.SuppressEvent
   isSpec: "True"
-  fullName: SharpHook.HookEventArgs.Reserved
-  nameWithType: HookEventArgs.Reserved
+  fullName: SharpHook.HookEventArgs.SuppressEvent
+  nameWithType: HookEventArgs.SuppressEvent
 - uid: SharpHook.HookException
   name: HookException
   href: api/SharpHook.HookException.html
