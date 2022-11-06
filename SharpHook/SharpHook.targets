@@ -39,32 +39,12 @@
             <TargetPath>libuiohook.dylib</TargetPath>
             <Pack>False</Pack>
         </ContentWithTargetPath>
-        <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\osx-x64\native\libuiohook.1.dylib">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            <TargetPath>libuiohook.1.dylib</TargetPath>
-            <Pack>False</Pack>
-        </ContentWithTargetPath>
-        <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\osx-x64\native\libuiohook.1.2.0.dylib">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            <TargetPath>libuiohook.1.2.0.dylib</TargetPath>
-            <Pack>False</Pack>
-        </ContentWithTargetPath>
     </ItemGroup>
 
     <ItemGroup Condition="$([MSBuild]::IsOSPlatform('OSX')) And '$(Platform)' == 'ARM64'">
         <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\osx-arm64\native\libuiohook.dylib">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
             <TargetPath>libuiohook.dylib</TargetPath>
-            <Pack>False</Pack>
-        </ContentWithTargetPath>
-        <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\osx-arm64\native\libuiohook.1.dylib">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            <TargetPath>libuiohook.1.dylib</TargetPath>
-            <Pack>False</Pack>
-        </ContentWithTargetPath>
-        <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\osx-arm64\native\libuiohook.1.2.0.dylib">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            <TargetPath>libuiohook.1.2.0.dylib</TargetPath>
             <Pack>False</Pack>
         </ContentWithTargetPath>
     </ItemGroup>
@@ -75,16 +55,6 @@
             <TargetPath>libuiohook.so</TargetPath>
             <Pack>False</Pack>
         </ContentWithTargetPath>
-        <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\linux-x64\native\libuiohook.so.1">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            <TargetPath>libuiohook.so.1</TargetPath>
-            <Pack>False</Pack>
-        </ContentWithTargetPath>
-        <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\linux-x64\native\libuiohook.so.1.2.0">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            <TargetPath>libuiohook.so.1.2.0</TargetPath>
-            <Pack>False</Pack>
-        </ContentWithTargetPath>
     </ItemGroup>
 
     <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Linux')) And '$(Platform)' == 'ARM32'">
@@ -93,32 +63,12 @@
             <TargetPath>libuiohook.so</TargetPath>
             <Pack>False</Pack>
         </ContentWithTargetPath>
-        <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\linux-arm\libuiohook.so.1">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            <TargetPath>libuiohook.so.1</TargetPath>
-            <Pack>False</Pack>
-        </ContentWithTargetPath>
-        <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\linux-arm\libuiohook.so.1.2.0">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            <TargetPath>libuiohook.so.1.2.0</TargetPath>
-            <Pack>False</Pack>
-        </ContentWithTargetPath>
     </ItemGroup>
 
     <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Linux')) And '$(Platform)' == 'ARM64'">
         <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\linux-arm64\libuiohook.so">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
             <TargetPath>libuiohook.so</TargetPath>
-            <Pack>False</Pack>
-        </ContentWithTargetPath>
-        <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\linux-arm64\libuiohook.so.1">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            <TargetPath>libuiohook.so.1</TargetPath>
-            <Pack>False</Pack>
-        </ContentWithTargetPath>
-        <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\linux-arm64\libuiohook.so.1.2.0">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            <TargetPath>libuiohook.so.1.2.0</TargetPath>
             <Pack>False</Pack>
         </ContentWithTargetPath>
     </ItemGroup>

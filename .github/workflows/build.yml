@@ -418,20 +418,10 @@ jobs:
         shell: pwsh
         run: |
           mv libuiohook-build\darwin\arm64\lib\libuiohook.dylib SharpHook\lib\osx-arm64\
-          mv libuiohook-build\darwin\arm64\lib\libuiohook.1.dylib SharpHook\lib\osx-arm64\
-          mv libuiohook-build\darwin\arm64\lib\libuiohook.1.2.0.dylib SharpHook\lib\osx-arm64\
           mv libuiohook-build\darwin\x86_64\lib\libuiohook.dylib SharpHook\lib\osx-x64\
-          mv libuiohook-build\darwin\x86_64\lib\libuiohook.1.dylib SharpHook\lib\osx-x64\
-          mv libuiohook-build\darwin\x86_64\lib\libuiohook.1.2.0.dylib SharpHook\lib\osx-x64\
           mv libuiohook-build\linux\arm\lib\libuiohook.so SharpHook\lib\linux-arm\
-          mv libuiohook-build\linux\arm\lib\libuiohook.so.1 SharpHook\lib\linux-arm\
-          mv libuiohook-build\linux\arm\lib\libuiohook.so.1.2.0 SharpHook\lib\linux-arm\
           mv libuiohook-build\linux\arm64\lib\libuiohook.so SharpHook\lib\linux-arm64\
-          mv libuiohook-build\linux\arm64\lib\libuiohook.so.1 SharpHook\lib\linux-arm64\
-          mv libuiohook-build\linux\arm64\lib\libuiohook.so.1.2.0 SharpHook\lib\linux-arm64\
           mv libuiohook-build\linux\x86_64\lib\libuiohook.so SharpHook\lib\linux-x64\
-          mv libuiohook-build\linux\x86_64\lib\libuiohook.so.1 SharpHook\lib\linux-x64\
-          mv libuiohook-build\linux\x86_64\lib\libuiohook.so.1.2.0 SharpHook\lib\linux-x64\
           mv libuiohook-build\windows\arm\bin\uiohook.dll SharpHook\lib\win-arm\
           mv libuiohook-build\windows\arm64\bin\uiohook.dll SharpHook\lib\win-arm64\
           mv libuiohook-build\windows\x86\bin\uiohook.dll SharpHook\lib\win-x86\
