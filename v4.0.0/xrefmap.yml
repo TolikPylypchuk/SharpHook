@@ -103,6 +103,12 @@ references:
   commentId: M:SharpHook.GlobalHookBase.#ctor
   fullName: SharpHook.GlobalHookBase.GlobalHookBase()
   nameWithType: GlobalHookBase.GlobalHookBase()
+- uid: SharpHook.GlobalHookBase.#ctor(System.Boolean)
+  name: GlobalHookBase(Boolean)
+  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase__ctor_System_Boolean_
+  commentId: M:SharpHook.GlobalHookBase.#ctor(System.Boolean)
+  fullName: SharpHook.GlobalHookBase.GlobalHookBase(System.Boolean)
+  nameWithType: GlobalHookBase.GlobalHookBase(Boolean)
 - uid: SharpHook.GlobalHookBase.#ctor*
   name: GlobalHookBase
   href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase__ctor_
@@ -4162,6 +4168,12 @@ references:
   commentId: M:SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor
   fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.SimpleReactiveGlobalHook()
   nameWithType: SimpleReactiveGlobalHook.SimpleReactiveGlobalHook()
+- uid: SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(System.Boolean)
+  name: SimpleReactiveGlobalHook(Boolean)
+  href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_System_Boolean_
+  commentId: M:SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(System.Boolean)
+  fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.SimpleReactiveGlobalHook(System.Boolean)
+  nameWithType: SimpleReactiveGlobalHook.SimpleReactiveGlobalHook(Boolean)
 - uid: SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor*
   name: SimpleReactiveGlobalHook
   href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_
@@ -4396,6 +4408,25 @@ references:
   commentId: T:SharpHook.SimpleGlobalHook
   fullName: SharpHook.SimpleGlobalHook
   nameWithType: SimpleGlobalHook
+- uid: SharpHook.SimpleGlobalHook.#ctor
+  name: SimpleGlobalHook()
+  href: api/SharpHook.SimpleGlobalHook.html#SharpHook_SimpleGlobalHook__ctor
+  commentId: M:SharpHook.SimpleGlobalHook.#ctor
+  fullName: SharpHook.SimpleGlobalHook.SimpleGlobalHook()
+  nameWithType: SimpleGlobalHook.SimpleGlobalHook()
+- uid: SharpHook.SimpleGlobalHook.#ctor(System.Boolean)
+  name: SimpleGlobalHook(Boolean)
+  href: api/SharpHook.SimpleGlobalHook.html#SharpHook_SimpleGlobalHook__ctor_System_Boolean_
+  commentId: M:SharpHook.SimpleGlobalHook.#ctor(System.Boolean)
+  fullName: SharpHook.SimpleGlobalHook.SimpleGlobalHook(System.Boolean)
+  nameWithType: SimpleGlobalHook.SimpleGlobalHook(Boolean)
+- uid: SharpHook.SimpleGlobalHook.#ctor*
+  name: SimpleGlobalHook
+  href: api/SharpHook.SimpleGlobalHook.html#SharpHook_SimpleGlobalHook__ctor_
+  commentId: Overload:SharpHook.SimpleGlobalHook.#ctor
+  isSpec: "True"
+  fullName: SharpHook.SimpleGlobalHook.SimpleGlobalHook
+  nameWithType: SimpleGlobalHook.SimpleGlobalHook
 - uid: SharpHook.SimpleGlobalHook.HandleHookEvent(SharpHook.Native.UioHookEvent@)
   name: HandleHookEvent(ref UioHookEvent)
   href: api/SharpHook.SimpleGlobalHook.html#SharpHook_SimpleGlobalHook_HandleHookEvent_SharpHook_Native_UioHookEvent__
@@ -4472,12 +4503,24 @@ references:
   commentId: T:SharpHook.TaskPoolGlobalHookOptions
   fullName: SharpHook.TaskPoolGlobalHookOptions
   nameWithType: TaskPoolGlobalHookOptions
+- uid: SharpHook.TaskPoolGlobalHookOptions.#ctor(System.Boolean)
+  name: TaskPoolGlobalHookOptions(Boolean)
+  href: api/SharpHook.TaskPoolGlobalHookOptions.html#SharpHook_TaskPoolGlobalHookOptions__ctor_System_Boolean_
+  commentId: M:SharpHook.TaskPoolGlobalHookOptions.#ctor(System.Boolean)
+  fullName: SharpHook.TaskPoolGlobalHookOptions.TaskPoolGlobalHookOptions(System.Boolean)
+  nameWithType: TaskPoolGlobalHookOptions.TaskPoolGlobalHookOptions(Boolean)
 - uid: SharpHook.TaskPoolGlobalHookOptions.#ctor(System.Int32)
   name: TaskPoolGlobalHookOptions(Int32)
   href: api/SharpHook.TaskPoolGlobalHookOptions.html#SharpHook_TaskPoolGlobalHookOptions__ctor_System_Int32_
   commentId: M:SharpHook.TaskPoolGlobalHookOptions.#ctor(System.Int32)
   fullName: SharpHook.TaskPoolGlobalHookOptions.TaskPoolGlobalHookOptions(System.Int32)
   nameWithType: TaskPoolGlobalHookOptions.TaskPoolGlobalHookOptions(Int32)
+- uid: SharpHook.TaskPoolGlobalHookOptions.#ctor(System.Int32,System.Boolean)
+  name: TaskPoolGlobalHookOptions(Int32, Boolean)
+  href: api/SharpHook.TaskPoolGlobalHookOptions.html#SharpHook_TaskPoolGlobalHookOptions__ctor_System_Int32_System_Boolean_
+  commentId: M:SharpHook.TaskPoolGlobalHookOptions.#ctor(System.Int32,System.Boolean)
+  fullName: SharpHook.TaskPoolGlobalHookOptions.TaskPoolGlobalHookOptions(System.Int32, System.Boolean)
+  nameWithType: TaskPoolGlobalHookOptions.TaskPoolGlobalHookOptions(Int32, Boolean)
 - uid: SharpHook.TaskPoolGlobalHookOptions.#ctor*
   name: TaskPoolGlobalHookOptions
   href: api/SharpHook.TaskPoolGlobalHookOptions.html#SharpHook_TaskPoolGlobalHookOptions__ctor_
@@ -4498,6 +4541,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.TaskPoolGlobalHookOptions.ParallelismLevel
   nameWithType: TaskPoolGlobalHookOptions.ParallelismLevel
+- uid: SharpHook.TaskPoolGlobalHookOptions.RunAsyncOnBackgroundThread
+  name: RunAsyncOnBackgroundThread
+  href: api/SharpHook.TaskPoolGlobalHookOptions.html#SharpHook_TaskPoolGlobalHookOptions_RunAsyncOnBackgroundThread
+  commentId: P:SharpHook.TaskPoolGlobalHookOptions.RunAsyncOnBackgroundThread
+  fullName: SharpHook.TaskPoolGlobalHookOptions.RunAsyncOnBackgroundThread
+  nameWithType: TaskPoolGlobalHookOptions.RunAsyncOnBackgroundThread
+- uid: SharpHook.TaskPoolGlobalHookOptions.RunAsyncOnBackgroundThread*
+  name: RunAsyncOnBackgroundThread
+  href: api/SharpHook.TaskPoolGlobalHookOptions.html#SharpHook_TaskPoolGlobalHookOptions_RunAsyncOnBackgroundThread_
+  commentId: Overload:SharpHook.TaskPoolGlobalHookOptions.RunAsyncOnBackgroundThread
+  isSpec: "True"
+  fullName: SharpHook.TaskPoolGlobalHookOptions.RunAsyncOnBackgroundThread
+  nameWithType: TaskPoolGlobalHookOptions.RunAsyncOnBackgroundThread
 - uid: SharpHook.TaskPoolGlobalHookOptions.Sequential
   name: Sequential
   href: api/SharpHook.TaskPoolGlobalHookOptions.html#SharpHook_TaskPoolGlobalHookOptions_Sequential
