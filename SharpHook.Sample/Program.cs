@@ -12,6 +12,8 @@ using SharpHook.Reactive.Logging;
 
 public static class Program
 {
+    private static readonly IEventSimulator Simulator = new EventSimulator();
+
     private static void Main()
     {
         Directory.SetCurrentDirectory(AppContext.BaseDirectory);
@@ -76,7 +78,7 @@ public static class Program
 
         hook.MouseMoved
             .Throttle(TimeSpan.FromSeconds(1))
-            .Subscribe(OnHookEvent);
+            .Subscribe(OnMouseMovement);
 
         hook.MouseDragged
             .Throttle(TimeSpan.FromSeconds(1))
@@ -89,13 +91,15 @@ public static class Program
 
     private static async Task SimulateInputEvents()
     {
-        var simulator = new EventSimulator();
+        Simulator.SimulateMouseMovement(0, 0);
 
-        await FakePressKey(simulator, KeyCode.VcA);
-        await FakePressMouseButton(simulator, MouseButton.Button1);
+        Simulator.SimulateKeyPress(KeyCode.VcA);
+        await Task.Delay(50);
 
-        simulator.SimulateMouseMovement(0, 0);
-        simulator.SimulateMouseWheel(0, 0, 10, -1);
+        Simulator.SimulateKeyRelease(KeyCode.VcA);
+        await Task.Delay(50);
+
+        Simulator.SimulateMouseWheel(0, 0, 10, -1);
     }
 
     private static void OnHookEvent(HookEventArgs e) =>
@@ -112,21 +116,10 @@ public static class Program
         }
     }
 
-    private static async Task FakePressKey(IEventSimulator simulator, KeyCode keyCode)
+    private static void OnMouseMovement(MouseHookEventArgs e)
     {
-        simulator.SimulateKeyPress(keyCode);
-        await Task.Delay(50);
-
-        simulator.SimulateKeyRelease(keyCode);
-        await Task.Delay(50);
-    }
-
-    private static async Task FakePressMouseButton(IEventSimulator simulator, MouseButton button)
-    {
-        simulator.SimulateMousePress(button);
-        await Task.Delay(50);
-
-        simulator.SimulateMouseRelease(button);
-        await Task.Delay(50);
+        Console.WriteLine($"{e.EventTime.ToLocalTime()}: {e.RawEvent}");
+        Simulator.SimulateMousePress(e.Data.X, e.Data.Y, MouseButton.Button1);
+        Simulator.SimulateMouseRelease(e.Data.X, e.Data.Y, MouseButton.Button1);
     }
 }

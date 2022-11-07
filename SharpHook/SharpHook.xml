@@ -24,17 +24,21 @@
             <param name="keyCode">The code of the key to release.</param>
             <returns>The result of the operation.</returns>
         </member>
-        <member name="M:SharpHook.EventSimulator.SimulateMousePress(SharpHook.Native.MouseButton)">
+        <member name="M:SharpHook.EventSimulator.SimulateMousePress(System.Int16,System.Int16,SharpHook.Native.MouseButton)">
             <summary>
-            Simulates pressing a mouse button.
+            Simulates pressing a mouse button at the specified coordinates.
             </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
             <param name="button">The mouse button to press.</param>
             <returns>The result of the operation.</returns>
         </member>
-        <member name="M:SharpHook.EventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton)">
+        <member name="M:SharpHook.EventSimulator.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Native.MouseButton)">
             <summary>
-            Simulates releasing a mouse button.
+            Simulates releasing a mouse button at the specified coordinates.
             </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
             <param name="button">The mouse button to release.</param>
             <returns>The result of the operation.</returns>
         </member>
@@ -48,7 +52,7 @@
         </member>
         <member name="M:SharpHook.EventSimulator.SimulateMouseWheel(System.Int16,System.Int16,System.UInt16,System.Int16)">
             <summary>
-            Simulates scrolling a mouse wheel.
+            Simulates scrolling the mouse wheel at the specified coordinates.
             </summary>
             <param name="x">The target X-coordinate of the mouse pointer.</param>
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
@@ -417,17 +421,21 @@
             <param name="keyCode">The code of the key to release.</param>
             <returns>The result of the operation.</returns>
         </member>
-        <member name="M:SharpHook.IEventSimulator.SimulateMousePress(SharpHook.Native.MouseButton)">
+        <member name="M:SharpHook.IEventSimulator.SimulateMousePress(System.Int16,System.Int16,SharpHook.Native.MouseButton)">
             <summary>
-            Simulates pressing a mouse button.
+            Simulates pressing a mouse button at the specified coordinates.
             </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
             <param name="button">The mouse button to press.</param>
             <returns>The result of the operation.</returns>
         </member>
-        <member name="M:SharpHook.IEventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton)">
+        <member name="M:SharpHook.IEventSimulator.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Native.MouseButton)">
             <summary>
-            Simulates releasing a mouse button.
+            Simulates releasing a mouse button at the specified coordinates.
             </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
             <param name="button">The mouse button to release.</param>
             <returns>The result of the operation.</returns>
         </member>
@@ -441,7 +449,7 @@
         </member>
         <member name="M:SharpHook.IEventSimulator.SimulateMouseWheel(System.Int16,System.Int16,System.UInt16,System.Int16)">
             <summary>
-            Simulates scrolling a mouse wheel.
+            Simulates scrolling the mouse wheel at the specified coordinates.
             </summary>
             <param name="x">The target X-coordinate of the mouse pointer.</param>
             <param name="y">The target Y-coordinate of the mouse pointer.</param>

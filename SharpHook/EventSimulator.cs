@@ -33,27 +33,31 @@ public class EventSimulator : IEventSimulator
         });
 
     /// <summary>
-    /// Simulates pressing a mouse button.
+    /// Simulates pressing a mouse button at the specified coordinates.
     /// </summary>
+    /// <param name="x">The target X-coordinate of the mouse pointer.</param>
+    /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
     /// <param name="button">The mouse button to press.</param>
     /// <returns>The result of the operation.</returns>
-    public UioHookResult SimulateMousePress(MouseButton button) =>
+    public UioHookResult SimulateMousePress(short x, short y, MouseButton button) =>
         this.PostEvent(new()
         {
             Type = EventType.MousePressed,
-            Mouse = new() { Button = button }
+            Mouse = new() { Button = button, X = x, Y = y }
         });
 
     /// <summary>
-    /// Simulates releasing a mouse button.
+    /// Simulates releasing a mouse button at the specified coordinates.
     /// </summary>
+    /// <param name="x">The target X-coordinate of the mouse pointer.</param>
+    /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
     /// <param name="button">The mouse button to release.</param>
     /// <returns>The result of the operation.</returns>
-    public UioHookResult SimulateMouseRelease(MouseButton button) =>
+    public UioHookResult SimulateMouseRelease(short x, short y, MouseButton button) =>
         this.PostEvent(new()
         {
             Type = EventType.MouseReleased,
-            Mouse = new() { Button = button }
+            Mouse = new() { Button = button, X = x, Y = y }
         });
 
     /// <summary>
@@ -70,7 +74,7 @@ public class EventSimulator : IEventSimulator
         });
 
     /// <summary>
-    /// Simulates scrolling a mouse wheel.
+    /// Simulates scrolling the mouse wheel at the specified coordinates.
     /// </summary>
     /// <param name="x">The target X-coordinate of the mouse pointer.</param>
     /// <param name="y">The target Y-coordinate of the mouse pointer.</param>

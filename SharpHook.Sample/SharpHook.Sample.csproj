@@ -7,6 +7,7 @@
     <Platforms>x86;x64;ARM32;ARM64;AnyCPU</Platforms>
     <PublishTrimmed>true</PublishTrimmed>
     <TrimmerDefaultAction>link</TrimmerDefaultAction>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <ItemGroup>
