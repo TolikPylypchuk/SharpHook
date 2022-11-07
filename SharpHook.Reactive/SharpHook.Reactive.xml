@@ -333,6 +333,20 @@
             </summary>
             <seealso cref="T:SharpHook.Reactive.IReactiveGlobalHook" />
         </member>
+        <member name="M:SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.Reactive.SimpleReactiveGlobalHook" />.
+            </summary>
+        </member>
+        <member name="M:SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.Reactive.SimpleReactiveGlobalHook" />.
+            </summary>
+            <param name="runAsyncOnBackgroundThread">
+            <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
+            Otherwise, <see langword="false" />.
+            </param>
+        </member>
         <member name="M:SharpHook.Reactive.SimpleReactiveGlobalHook.Finalize">
             <summary>
             Destroys the global hook if it's running.

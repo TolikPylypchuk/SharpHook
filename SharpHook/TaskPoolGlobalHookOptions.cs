@@ -16,12 +16,47 @@ public sealed class TaskPoolGlobalHookOptions
     /// Initializes a new instance of <see cref="TaskPoolGlobalHookOptions" />.
     /// </summary>
     /// <param name="parallelismLevel">The parallelism level of the event handlers.</param>
-    public TaskPoolGlobalHookOptions(int parallelismLevel) =>
+    public TaskPoolGlobalHookOptions(int parallelismLevel)
+        : this(parallelismLevel, false)
+    { }
+
+    /// <summary>
+    /// Initializes a new instance of <see cref="TaskPoolGlobalHookOptions" />.
+    /// </summary>
+    /// <param name="runAsyncOnBackgroundThread">
+    /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
+    /// Otherwise, <see langword="false" />.
+    /// </param>
+    public TaskPoolGlobalHookOptions(bool runAsyncOnBackgroundThread)
+        : this(1, runAsyncOnBackgroundThread)
+    { }
+
+    /// <summary>
+    /// Initializes a new instance of <see cref="TaskPoolGlobalHookOptions" />.
+    /// </summary>
+    /// <param name="parallelismLevel">The parallelism level of the event handlers.</param>
+    /// <param name="runAsyncOnBackgroundThread">
+    /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
+    /// Otherwise, <see langword="false" />.
+    /// </param>
+    public TaskPoolGlobalHookOptions(int parallelismLevel, bool runAsyncOnBackgroundThread)
+    {
         this.ParallelismLevel = parallelismLevel;
+        this.RunAsyncOnBackgroundThread = runAsyncOnBackgroundThread;
+    }
 
     /// <summary>
     /// Gets the configured parallelism level of the event handlers.
     /// </summary>
     /// <value>The parallelism level of the event handlers.</value>
     public int ParallelismLevel { get; }
+
+    /// <summary>
+    /// Gets the value of whether <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
+    /// </summary>
+    /// <value>
+    /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
+    /// Otherwise, <see langword="false" />.
+    /// </value>
+    public bool RunAsyncOnBackgroundThread { get; }
 }

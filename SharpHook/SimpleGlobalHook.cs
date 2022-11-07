@@ -17,6 +17,23 @@ using SharpHook.Native;
 public sealed class SimpleGlobalHook : GlobalHookBase
 {
     /// <summary>
+    /// Initializes a new instance of <see cref="SimpleGlobalHook" />.
+    /// </summary>
+    public SimpleGlobalHook()
+    { }
+
+    /// <summary>
+    /// Initializes a new instance of <see cref="SimpleGlobalHook" />.
+    /// </summary>
+    /// <param name="runAsyncOnBackgroundThread">
+    /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
+    /// Otherwise, <see langword="false" />.
+    /// </param>
+    public SimpleGlobalHook(bool runAsyncOnBackgroundThread)
+        : base(runAsyncOnBackgroundThread)
+    { }
+
+    /// <summary>
     /// Handles the hook event.
     /// </summary>
     /// <param name="e">The event to handle.</param>

@@ -75,6 +75,20 @@
             <seealso cref="T:SharpHook.SimpleGlobalHook" />
             <seealso cref="T:SharpHook.TaskPoolGlobalHook" />
         </member>
+        <member name="M:SharpHook.GlobalHookBase.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.GlobalHookBase" />.
+            </summary>
+        </member>
+        <member name="M:SharpHook.GlobalHookBase.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.GlobalHookBase" />.
+            </summary>
+            <param name="runAsyncOnBackgroundThread">
+            <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
+            Otherwise, <see langword="false" />.
+            </param>
+        </member>
         <member name="M:SharpHook.GlobalHookBase.Finalize">
             <summary>
             Destroys the global hook if it's running.
@@ -1654,6 +1668,20 @@
             <seealso cref="T:SharpHook.GlobalHookBase" />
             <seealso cref="T:SharpHook.TaskPoolGlobalHook" />
         </member>
+        <member name="M:SharpHook.SimpleGlobalHook.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.SimpleGlobalHook" />.
+            </summary>
+        </member>
+        <member name="M:SharpHook.SimpleGlobalHook.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.SimpleGlobalHook" />.
+            </summary>
+            <param name="runAsyncOnBackgroundThread">
+            <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
+            Otherwise, <see langword="false" />.
+            </param>
+        </member>
         <member name="M:SharpHook.SimpleGlobalHook.HandleHookEvent(SharpHook.Native.UioHookEvent@)">
             <summary>
             Handles the hook event.
@@ -1735,11 +1763,39 @@
             </summary>
             <param name="parallelismLevel">The parallelism level of the event handlers.</param>
         </member>
+        <member name="M:SharpHook.TaskPoolGlobalHookOptions.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.TaskPoolGlobalHookOptions" />.
+            </summary>
+            <param name="runAsyncOnBackgroundThread">
+            <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
+            Otherwise, <see langword="false" />.
+            </param>
+        </member>
+        <member name="M:SharpHook.TaskPoolGlobalHookOptions.#ctor(System.Int32,System.Boolean)">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.TaskPoolGlobalHookOptions" />.
+            </summary>
+            <param name="parallelismLevel">The parallelism level of the event handlers.</param>
+            <param name="runAsyncOnBackgroundThread">
+            <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
+            Otherwise, <see langword="false" />.
+            </param>
+        </member>
         <member name="P:SharpHook.TaskPoolGlobalHookOptions.ParallelismLevel">
             <summary>
             Gets the configured parallelism level of the event handlers.
             </summary>
             <value>The parallelism level of the event handlers.</value>
+        </member>
+        <member name="P:SharpHook.TaskPoolGlobalHookOptions.RunAsyncOnBackgroundThread">
+            <summary>
+            Gets the value of whether <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
+            </summary>
+            <value>
+            <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
+            Otherwise, <see langword="false" />.
+            </value>
         </member>
     </members>
 </doc>

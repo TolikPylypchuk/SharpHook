@@ -110,8 +110,8 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
                 .Select(e => e.EventArgs)
                 .Subscribe(this.mouseWheelSubject));
 
-        this.HookEnabled = this.hookEnabledSubject.AsObservable().Take(1);
-        this.HookDisabled = this.hookDisabledSubject.AsObservable().Take(1);
+        this.HookEnabled = this.hookEnabledSubject.Take(1).AsObservable();
+        this.HookDisabled = this.hookDisabledSubject.Take(1).AsObservable();
 
         this.KeyTyped = this.keyTypedSubject.AsObservable();
         this.KeyPressed = this.keyPressedSubject.AsObservable();

@@ -45,7 +45,8 @@ public sealed class TaskPoolGlobalHook : GlobalHookBase
     /// Initializes a new instance of <see cref="TaskPoolGlobalHook" />.
     /// </summary>
     /// <param name="options">The options of the hook which include its parallelism level.</param>
-    public TaskPoolGlobalHook(TaskPoolGlobalHookOptions options) =>
+    public TaskPoolGlobalHook(TaskPoolGlobalHookOptions options)
+        : base(options.RunAsyncOnBackgroundThread) =>
         this.taskQueue = new(options.ParallelismLevel);
 
     /// <summary>

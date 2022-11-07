@@ -34,11 +34,26 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     private readonly Subject<MouseWheelHookEventArgs> mouseWheelSubject = new();
 
     private readonly DispatchProc dispatchProc;
+    private readonly bool runAsyncOnBackgroundThread;
 
+    /// <summary>
+    /// Initializes a new instance of <see cref="SimpleReactiveGlobalHook" />.
+    /// </summary>
     public SimpleReactiveGlobalHook()
+        : this(false)
+    { }
+
+    /// <summary>
+    /// Initializes a new instance of <see cref="SimpleReactiveGlobalHook" />.
+    /// </summary>
+    /// <param name="runAsyncOnBackgroundThread">
+    /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
+    /// Otherwise, <see langword="false" />.
+    /// </param>
+    public SimpleReactiveGlobalHook(bool runAsyncOnBackgroundThread)
     {
-        this.HookEnabled = this.hookEnabledSubject.AsObservable().Take(1);
-        this.HookDisabled = this.hookDisabledSubject.AsObservable().Take(1);
+        this.HookEnabled = this.hookEnabledSubject.Take(1).AsObservable();
+        this.HookDisabled = this.hookDisabledSubject.Take(1).AsObservable();
 
         this.KeyTyped = this.keyTypedSubject.AsObservable();
         this.KeyPressed = this.keyPressedSubject.AsObservable();
@@ -53,6 +68,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
         this.MouseWheel = this.mouseWheelSubject.AsObservable();
 
         this.dispatchProc = this.DispatchEvent;
+        this.runAsyncOnBackgroundThread = runAsyncOnBackgroundThread;
     }
 
     /// <summary>
@@ -221,7 +237,10 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
                 this.IsRunning = false;
                 hookStopped.OnError(new HookException(UioHookResult.Failure, e));
             }
-        });
+        })
+        {
+            IsBackground = this.runAsyncOnBackgroundThread
+        };
 
         thread.Start();
 

@@ -20,9 +20,27 @@ public abstract class GlobalHookBase : IGlobalHook
     private const string Stopping = "stopping";
 
     private readonly DispatchProc dispatchProc;
+    private readonly bool runAsyncOnBackgroundThread;
 
-    protected GlobalHookBase() =>
+    /// <summary>
+    /// Initializes a new instance of <see cref="GlobalHookBase" />.
+    /// </summary>
+    protected GlobalHookBase()
+        : this(false)
+    { }
+
+    /// <summary>
+    /// Initializes a new instance of <see cref="GlobalHookBase" />.
+    /// </summary>
+    /// <param name="runAsyncOnBackgroundThread">
+    /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
+    /// Otherwise, <see langword="false" />.
+    /// </param>
+    protected GlobalHookBase(bool runAsyncOnBackgroundThread)
+    {
         this.dispatchProc = this.HandleHookEventIfNeeded;
+        this.runAsyncOnBackgroundThread = runAsyncOnBackgroundThread;
+    }
 
     /// <summary>
     /// Destroys the global hook if it's running.
@@ -112,7 +130,10 @@ public abstract class GlobalHookBase : IGlobalHook
                 this.IsRunning = false;
                 source.SetException(new HookException(UioHookResult.Failure, e));
             }
-        });
+        })
+        {
+            IsBackground = this.runAsyncOnBackgroundThread
+        };
 
         thread.Start();
 
