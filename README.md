@@ -316,20 +316,20 @@ following table:
   </tr>
   <tr>
     <th>macOS</th>
-    <td>libuiohook.dylib<br/>libuiohook.1.dylib<br/>libuiohook.1.2.0.dylib</td>
+    <td>libuiohook.dylib</td>
     <td>darwin/&lt;platform&gt;/lib</td>
     <td>lib/osx-&lt;platform&gt;</td>
   </tr>
   <tr>
     <th>Linux</th>
-    <td>libuiohook.so<br/>libuiohook.so.1<br/>libuiohook.so.1.2.0</td>
+    <td>libuiohook.so</td>
     <td>linux/&lt;platform&gt;/lib</td>
     <td>lib/linux-&lt;platform&gt;</td>
   </tr>
 </table>
 
 With libuiohook in place you can build SharpHook using your usual methods, e.g. with Visual Studio or the `dotnet` CLI.
-You need .NET 6 to build SharpHook.
+You need .NET 7 to build SharpHook.
 
 The `SharpHook` project defines multiple platforms. If you want to run `SharpHook.Sample`, make sure you don't use
 `AnyCPU` since the libuiohook version for it is not defined.

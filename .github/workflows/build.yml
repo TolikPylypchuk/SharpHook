@@ -12,6 +12,7 @@ on:
 
 env:
   SHARPHOOK_VERSION: v4.0.0
+  DOTNET_VERSION: 7.0.x
 
 jobs:
   libuiohook-macos-arm64:
@@ -404,7 +405,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: 6.0.x
+          dotnet-version: ${{ env.DOTNET_VERSION }}
       - name: Setup DocFX
         uses: crazy-max/ghaction-chocolatey@v2
         with:
@@ -466,7 +467,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: 6.0.x
+          dotnet-version: ${{ env.DOTNET_VERSION }}
       - name: Fetch Packages
         uses: actions/download-artifact@v3
         with:
