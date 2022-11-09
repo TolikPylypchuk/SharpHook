@@ -1039,7 +1039,13 @@
             The character of the key.
             </summary>
             <value>The character of the key.</value>
-            <remarks>This field is available only for the <see cref="F:SharpHook.Native.EventType.KeyTyped" /> event.</remarks>
+            <remarks>
+            <para>This field is available only for the <see cref="F:SharpHook.Native.EventType.KeyTyped" /> event.</para>
+            <para>
+            This field is of type <see cref="T:System.UInt16" /> only for marshalling reasons.
+            It should be used as a <see cref="T:System.Char" />.
+            </para>
+            </remarks>
         </member>
         <member name="M:SharpHook.Native.KeyboardEventData.Equals(System.Object)">
             <summary>
@@ -2168,11 +2174,17 @@
             </item>
             <item>
             <term><see cref="F:SharpHook.Native.EventType.MousePressed" /></term>
-            <term>Only <see cref="F:SharpHook.Native.MouseEventData.Button" /> is considered.</term>
+            <term>
+            Only <see cref="F:SharpHook.Native.MouseWheelEventData.X" />, <see cref="F:SharpHook.Native.MouseWheelEventData.Y" />,
+            and <see cref="F:SharpHook.Native.MouseEventData.Button" /> are considered.
+            </term>
             </item>
             <item>
             <term><see cref="F:SharpHook.Native.EventType.MouseReleased" /></term>
-            <term>Only <see cref="F:SharpHook.Native.MouseEventData.Button" /> is considered.</term>
+            <term>
+            Only <see cref="F:SharpHook.Native.MouseWheelEventData.X" />, <see cref="F:SharpHook.Native.MouseWheelEventData.Y" />,
+            and <see cref="F:SharpHook.Native.MouseEventData.Button" /> are considered.
+            </term>
             </item>
             <item>
             <term><see cref="F:SharpHook.Native.EventType.MouseClicked" /></term>

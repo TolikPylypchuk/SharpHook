@@ -29,8 +29,14 @@ public struct KeyboardEventData : IEquatable<KeyboardEventData>
     /// The character of the key.
     /// </summary>
     /// <value>The character of the key.</value>
-    /// <remarks>This field is available only for the <see cref="EventType.KeyTyped" /> event.</remarks>
-    public char KeyChar;
+    /// <remarks>
+    /// <para>This field is available only for the <see cref="EventType.KeyTyped" /> event.</para>
+    /// <para>
+    /// This field is of type <see cref="UInt16" /> only for marshalling reasons.
+    /// It should be used as a <see cref="Char" />.
+    /// </para>
+    /// </remarks>
+    public ushort KeyChar;
 
     /// <summary>
     /// Compares this object to another object for equality.
@@ -67,7 +73,7 @@ public struct KeyboardEventData : IEquatable<KeyboardEventData>
     /// <returns>The string representation of this object.</returns>
     public override string ToString() =>
         $"{nameof(KeyboardEventData)}: {nameof(this.KeyCode)} = {this.KeyCode}; " +
-        $"{nameof(this.RawCode)} = {this.RawCode}; {nameof(this.KeyChar)} = {this.KeyChar}";
+        $"{nameof(this.RawCode)} = {this.RawCode}; {nameof(this.KeyChar)} = {(char)this.KeyChar}";
 
     /// <summary>
     /// Compares two objects for equality.
