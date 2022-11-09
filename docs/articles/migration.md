@@ -1,29 +1,34 @@
 # Migration Guide
 
-## Version 1 to 2
+## Version 3 to 4
 
-In order to migrate from version 1 to version 2 there are several things that should be done - they are all quite small.
+Version 4 contains a couple breaking changes, so you may need to change your code to upgrade.
 
-The `Start` method was removed from `IGlobalHook` and `IReactiveGlobalHook`. Instead these interfaces now provide two
-methods: `Run` and `RunAsync`. `Run` is for running the global hook on the same thread and blocking that thread.
-`RunAsync` behaves the same way that `Start` did before - it starts the hook on a separate thread and doesn't block
-the calling thread.
+The biggest change is that simulating mouse button pressing/releasing now requires mouse pointer coordinates. They were
+actually always required by libuiohook, so previously the buttons were always pressed/released at (0, 0).
+`EventSimulator.SimulateMousePress` and `EventSimulator.SimulateMouseRelease` now have the following parameters:
+`short x, short y, MouseButton button`.
 
-Replace the invocation of `Start` to the invocation of `RunAsync` on a global hook if you simply want to keep the
-previous behavior.
+`HookEventArgs` doesn't contain the `Reserved` property anymore as its purpose wasn't really clear. Now `HookEventArgs`
+contains the `SuppressEvent` property - set it to `true` inside an event handler to suppress the event.
 
-`EmptyDispatchProc` was removed from `UioHook`. If you want to unset the hook callback function, then call
-`UioHook.SetDispatchProc(null)`.
+On .NET 7 `[LibraryImport]` is now used instead of `[DllImport]`. This change required making `UioHookEvent` a blittable
+type, and as a result, the type of `KeyboardEventData.KeyChar` was changed from `char` to `ushort`. The field should
+still be used as a `char`.
 
-The type of `UioHookEvent.Reserved` was changed from `ushort` to a `ushort`-based enum so that its possible values are
-more clear.
+Explicit targets for .NET 5 and .NET Core 3.1 were removed, though the library can be used on those platforms through
+.NET Standard.
 
-The type of `UioHookEvent.Time` previously was `ushort` which was wrong. It was corrected to `ulong`. Note that this
-field does not contain the event's timestamp.
+`KeyCode.VcPrintscreen` was renamed to `KeyCode.VcPrintScreen`.
 
-The global hooks now throw an exception if the hook is started when it's already running. Also, possible exceptions are
-now part of the interface definition. All unexpected exceptions that can happen when starting and stopping the hook are
-now wrapped into `HookException` with the value of `UioHookResult.Failure`.
+When simulating mouse wheel events on Windows, their rotation value was previously multiplied by 120. This behavior was
+removed.
+
+The ability to make `RunAsync` create a background thread was added - you can now specify that a running hook won't stop
+the application from exiting if all other threads have finished executing.
+
+Versioned libuiohook binaries for macOS and Linux were removed from the NuGet package as they were bit-for-bit same as
+the unversioned binaries.
 
 ## Version 2 to 3
 
@@ -55,5 +60,30 @@ Other changes were done independently of libuiohook.
 
 The `HookEvent<TArgs>` class was removed from SharpHook.Reactive. The observables of `IReactiveGlobalHook` now emit
 `HookEventArgs` or a derived type directly. If you need the sender of the event, then use closures.
+
+## Version 1 to 2
+
+In order to migrate from version 1 to version 2 there are several things that should be done - they are all quite small.
+
+The `Start` method was removed from `IGlobalHook` and `IReactiveGlobalHook`. Instead these interfaces now provide two
+methods: `Run` and `RunAsync`. `Run` is for running the global hook on the same thread and blocking that thread.
+`RunAsync` behaves the same way that `Start` did before - it starts the hook on a separate thread and doesn't block
+the calling thread.
+
+Replace the invocation of `Start` to the invocation of `RunAsync` on a global hook if you simply want to keep the
+previous behavior.
+
+`EmptyDispatchProc` was removed from `UioHook`. If you want to unset the hook callback function, then call
+`UioHook.SetDispatchProc(null)`.
+
+The type of `UioHookEvent.Reserved` was changed from `ushort` to a `ushort`-based enum so that its possible values are
+more clear.
+
+The type of `UioHookEvent.Time` previously was `ushort` which was wrong. It was corrected to `ulong`. Note that this
+field does not contain the event's timestamp.
+
+The global hooks now throw an exception if the hook is started when it's already running. Also, possible exceptions are
+now part of the interface definition. All unexpected exceptions that can happen when starting and stopping the hook are
+now wrapped into `HookException` with the value of `UioHookResult.Failure`.
 
 Next article: [About SharpHook](about.md).

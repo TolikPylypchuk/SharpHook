@@ -41,6 +41,10 @@ blocking it until the global hook is disposed. `RunAsync` runs the global hook i
 `Task` - this task is finished when the hook is destroyed. Since the underlying native API is blocking, the only way to
 run the hook in a non-blocking way is to run it on a separate thread, and all default implementations do just that.
 
+You can specify in the hook constructors whether `RunAsync` should create a background thread or not. Background threads
+don't block the application from exiting if all other threads have finished executing. By default the created thread
+will not be a background thread.
+
 You can subscribe to events after the hook is started.
 
 If you run the hook when it's already running, then an exception will be thrown. You can check whether a hook is running
@@ -51,8 +55,12 @@ the interface is that once a hook has been destroyed, it cannot be started again
 Calling `Dispose` when the hook is not running is safe - it just won't do anything (other than marking the instance as
 disposed). You can check whether the hook is disposed using the `IsDisposed` property.
 
+Hook events are of type `HookEvent` or a derived type which contains more info. It's possible to suppress event
+propagation by setting the `SuppressEvent` property to `true` inside the event handler. This must be done synchronously
+and is only supported on Windows and macOS.
+
 **Important**: Always use one instance of `IGlobalHook` at a time in the entire application since they all must use
-the same static method to set the hook callback for libuiohook, and there may only be one callback at a time.
+the same static method to set the hook callback for libuiohook, so there may only be one callback at a time.
 
 ## The Default Implementations
 
@@ -65,8 +73,8 @@ they run for too long.
 - `SharpHook.TaskPoolGlobalHook` runs all of its event handlers on other threads inside the default thread pool for
 tasks. The parallelism level of the handlers can be configured. On backpressure it will queue the remaining handlers.
 This means that the hook will be able to process all events. This implementation should be preferred to
-`SimpleGlobalHook` except for very simple use-cases. But it has a downside - setting the `Reserved` field to suppress
-event propagation will be ignored since event handlers are run on other threads.
+`SimpleGlobalHook` except for very simple use-cases. But it has a downside - suppressing event propagation will be
+ignored since event handlers are run on other threads.
 
 The library also provides the `SharpHook.GlobalHookBase` class which you can extend to create your own implementation
 of the global hook. It calls the appropriate event handlers, and you only need to implement a strategy for dispatching

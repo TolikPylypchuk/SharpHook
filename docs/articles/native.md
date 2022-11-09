@@ -5,8 +5,8 @@ This article describes how to use the low-level stuff provided by SharpHook.
 SharpHook exposes the functions of libuiohook in the `SharpHook.Native.UioHook` class. The `SharpHook.Native`
 namespace also contains types which represent the data used by libuiohook.
 
-In general, you shouldn't use native methods directly. Instead, use the higher-level interfaces and classes provided by
-SharpHook. However, you should still read this article to know how the high-level features work under the hood.
+In general, you don't need to use the native methods directly. Instead, use the higher-level interfaces and classes
+provided by SharpHook. However, you should still read this article to know how the high-level features work under the hood.
 
 **Note**: Starting with version 3.1.0 the libuiohook build used by SharpHook on Windows is statically linked to the C
 runtime which means that client apps don't need the Visual C++ Redistributable package. An exception is the logging
@@ -73,6 +73,12 @@ will consume it. Currently only one setting is supported - suppressing the event
 libuiohook will not propagate the event further and it will effectively be blocked. The `Reserved` field should be set
 synchronously i.e. on the same thread which handles the event. Supressing events works only on Windows and macOS.
 
+An application manifest is required on Windows to enable DPI awareness for your app. If it's not enabled
+then mouse coordinates will be wrong on high-DPI screens. You can look at the sample app in the SharpHook repository to
+see the manifest example.
+
+Windows defines a single 'step' of a mouse wheel as rotation value 120.
+
 ## Simulating Input Events
 
 `UioHook` contains the `PostEvent` method for simulating input events. It accepts a `UioHookEvent`, but it doesn't need
@@ -112,11 +118,17 @@ The following table describes the specifics of simulating each event type.
     </tr>
     <tr>
       <td><code>MousePressed</code></td>
-      <td>Only <code>MouseEventData.Button</code> is considered.</td>
+      <td>
+        Only <code>MouseWheelEventData.X</code>, <code>MouseWheelEventData.Y</code>, and
+        <code>MouseEventData.Button</code> are considered.
+      </td>
     </tr>
     <tr>
       <td><code>MouseReleased</code></td>
-      <td>Only <code>MouseEventData.Button</code> is considered.</td>
+      <td>
+        Only <code>MouseWheelEventData.X</code>, <code>MouseWheelEventData.Y</code>, and
+        <code>MouseEventData.Button</code> are considered.
+      </td>
     </tr>
     <tr>
       <td><code>MouseClicked</code></td>

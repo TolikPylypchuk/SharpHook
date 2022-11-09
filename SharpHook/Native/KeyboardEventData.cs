@@ -32,7 +32,7 @@ public struct KeyboardEventData : IEquatable<KeyboardEventData>
     /// <remarks>
     /// <para>This field is available only for the <see cref="EventType.KeyTyped" /> event.</para>
     /// <para>
-    /// This field is of type <see cref="UInt16" /> only for marshalling reasons.
+    /// This field is of type <see cref="UInt16" /> purely for marshalling reasons.
     /// It should be used as a <see cref="Char" />.
     /// </para>
     /// </remarks>

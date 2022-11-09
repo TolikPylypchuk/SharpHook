@@ -1,6 +1,6 @@
 # About SharpHook
 
-SharpHook. Version 3.1.3. Created by Tolik Pylypchuk.
+SharpHook. Version 4.0.0. Created by Tolik Pylypchuk.
 
 ## Library Status
 
@@ -9,6 +9,30 @@ to its `1.3` branch is considered stable. If you've noticed that this library ha
 rest assured that it's not abandoned! I'm not giving up on this library any time soon.
 
 ## Changelog
+
+### [v4.0.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v4.0.0) (November 9, 2022)
+
+- .NET 7 support was added and `[LibraryImport]` is used instead of `[DllImport]` on it.
+
+- Explicit targets for .NET 5 and .NET Core 3.1 were removed, though the library can be used on those platforms through
+.NET Standard.
+
+- `HookEventArgs` now contains the `SuppressEvent` property instead of `Reserved`.
+
+- `KeyboardEventData.KeyChar` is now of type `ushort` instead of `char` - this was changed purely for marshalling
+reasons and it should still be used as a `char`.
+
+- Simulating mouse presses and releases now requires providing mouse pointer coordinates.
+
+- The ability to make `RunAsync` create a background thread was added.
+
+- `KeyCode.VcPrintscreen` was renamed to `KeyCode.VcPrintScreen`.
+
+- Versioned libuiohook binaries for macOS and Linux were removed from the NuGet package as they were bit-for-bit same as
+the unversioned binaries.
+
+- libuiohook is at commit
+[1ece4c4](https://github.com/TolikPylypchuk/libuiohook/tree/1ece4c4c24958d6ede0cba867f1a1cb3387f81f8).
 
 ### [v3.1.3](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v3.1.3) (October 27, 2022)
 
@@ -19,6 +43,7 @@ rest assured that it's not abandoned! I'm not giving up on this library any time
 
 - A fix for posting keyboard events on Windows was added, as suggested by [FaithBeam](https://github.com/FaithBeam),
 and fixes [#20](https://github.com/TolikPylypchuk/SharpHook/issues/20).
+
 - libuiohook is at commit
 [fc779b0](https://github.com/TolikPylypchuk/libuiohook/tree/fc779b0bc892f8aaf373b53a3791f1e5590b9924).
 
