@@ -2286,12 +2286,12 @@ references:
   commentId: F:SharpHook.Native.KeyCode.VcPower
   fullName: SharpHook.Native.KeyCode.VcPower
   nameWithType: KeyCode.VcPower
-- uid: SharpHook.Native.KeyCode.VcPrintscreen
-  name: VcPrintscreen
-  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcPrintscreen
-  commentId: F:SharpHook.Native.KeyCode.VcPrintscreen
-  fullName: SharpHook.Native.KeyCode.VcPrintscreen
-  nameWithType: KeyCode.VcPrintscreen
+- uid: SharpHook.Native.KeyCode.VcPrintScreen
+  name: VcPrintScreen
+  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcPrintScreen
+  commentId: F:SharpHook.Native.KeyCode.VcPrintScreen
+  fullName: SharpHook.Native.KeyCode.VcPrintScreen
+  nameWithType: KeyCode.VcPrintScreen
 - uid: SharpHook.Native.KeyCode.VcQ
   name: VcQ
   href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcQ
