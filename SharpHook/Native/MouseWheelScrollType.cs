@@ -6,6 +6,13 @@ namespace SharpHook.Native;
 /// <seealso cref="MouseWheelEventData" />
 public enum MouseWheelScrollType : byte
 {
+    /// <summary>
+    /// Unit scroll
+    /// </summary>
     UnitScroll = 1,
+
+    /// <summary>
+    /// Block scroll
+    /// </summary>
     BlockScroll = 2,
 }

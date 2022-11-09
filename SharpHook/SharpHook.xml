@@ -960,6 +960,61 @@
             </summary>
             <seealso cref="T:SharpHook.Native.UioHookEvent" />
         </member>
+        <member name="F:SharpHook.Native.EventType.HookEnabled">
+            <summary>
+            Raised when the global hook is started.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventType.HookDisabled">
+            <summary>
+            Raised when the global hook is stopped.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventType.KeyTyped">
+            <summary>
+            Raised when a character is typed.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventType.KeyPressed">
+            <summary>
+            Raised when a key is pressed.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventType.KeyReleased">
+            <summary>
+            Raised when a key is released.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventType.MouseClicked">
+            <summary>
+            Raised when a mouse button is clicked.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventType.MousePressed">
+            <summary>
+            Raised when a mouse button is pressed.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventType.MouseReleased">
+            <summary>
+            Raised when a mouse button is released.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventType.MouseMoved">
+            <summary>
+            Raised when the mouse is moved.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventType.MouseDragged">
+            <summary>
+            Raised when the mouse is dragged.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventType.MouseWheel">
+            <summary>
+            Raised when the mouse wheel is scrolled.
+            </summary>
+        </member>
         <member name="T:SharpHook.Native.KeyboardEventData">
             <summary>
             Represents the data of a keyboard-related event.
@@ -1042,6 +1097,535 @@
             </summary>
             <seealso cref="T:SharpHook.Native.KeyboardEventData" />
         </member>
+        <member name="F:SharpHook.Native.KeyCode.VcEscape">
+            <summary>Escape</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF1">
+            <summary>F1</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF2">
+            <summary>F2</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF3">
+            <summary>F3</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF4">
+            <summary>F4</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF5">
+            <summary>F5</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF6">
+            <summary>F6</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF7">
+            <summary>F7</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF8">
+            <summary>F8</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF9">
+            <summary>F9</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF10">
+            <summary>F10</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF11">
+            <summary>F11</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF12">
+            <summary>F12</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF13">
+            <summary>F13</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF14">
+            <summary>F14</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF15">
+            <summary>F15</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF16">
+            <summary>F16</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF17">
+            <summary>F17</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF18">
+            <summary>F18</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF19">
+            <summary>F19</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF20">
+            <summary>F20</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF21">
+            <summary>F21</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF22">
+            <summary>F22</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF23">
+            <summary>F23</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF24">
+            <summary>F24</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcBackquote">
+            <summary>`</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.Vc1">
+            <summary>1</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.Vc2">
+            <summary>2</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.Vc3">
+            <summary>3</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.Vc4">
+            <summary>4</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.Vc5">
+            <summary>5</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.Vc6">
+            <summary>6</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.Vc7">
+            <summary>7</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.Vc8">
+            <summary>8</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.Vc9">
+            <summary>9</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.Vc0">
+            <summary>0</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcMinus">
+            <summary>-</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcEquals">
+            <summary>=</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcBackspace">
+            <summary>Backspace</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcTab">
+            <summary>Tab</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcCapsLock">
+            <summary>Caps Lock</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcA">
+            <summary>A</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcB">
+            <summary>B</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcC">
+            <summary>C</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcD">
+            <summary>D</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcE">
+            <summary>E</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF">
+            <summary>F</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcG">
+            <summary>G</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcH">
+            <summary>H</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcI">
+            <summary>I</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcJ">
+            <summary>J</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcK">
+            <summary>K</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcL">
+            <summary>L</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcM">
+            <summary>M</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcN">
+            <summary>N</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcO">
+            <summary>O</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcP">
+            <summary>P</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcQ">
+            <summary>Q</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcR">
+            <summary>R</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcS">
+            <summary>S</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcT">
+            <summary>T</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcU">
+            <summary>U</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcV">
+            <summary>V</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcW">
+            <summary>W</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcX">
+            <summary>X</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcY">
+            <summary>Y</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcZ">
+            <summary>Z</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcOpenBracket">
+            <summary>[</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcCloseBracket">
+            <summary>]</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcBackSlash">
+            <summary>\</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSemicolon">
+            <summary>;</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcQuote">
+            <summary>'</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcEnter">
+            <summary>Enter</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcComma">
+            <summary>,</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcPeriod">
+            <summary>.</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSlash">
+            <summary>/</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSpace">
+            <summary>Space</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcPrintScreen">
+            <summary>Print Screen</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcScrollLock">
+            <summary>Scroll Lock</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcPause">
+            <summary>Pause</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcLesserGreater">
+            <summary>
+            Either the angle bracket key or the backslash key on the RT 102-key keyboard
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcInsert">
+            <summary>Insert</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcDelete">
+            <summary>Delete</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcHome">
+            <summary>Home</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcEnd">
+            <summary>End</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcPageUp">
+            <summary>Page Up</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcPageDown">
+            <summary>Page Down</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcUp">
+            <summary>Up Arrow</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcLeft">
+            <summary>Left Arrow</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcClear">
+            <summary>Clear</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcRight">
+            <summary>Right Arrow</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcDown">
+            <summary>Down Arrow</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumLock">
+            <summary>Num Lock</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadDivide">
+            <summary>Num-Pad Divide</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadMultiply">
+            <summary>Num-Pad Multiply</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadSubtract">
+            <summary>Num-Pad Subtract</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadEquals">
+            <summary>Num-Pad Equals</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadAdd">
+            <summary>Num-Pad Add</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadEnter">
+            <summary>Num-Pad Enter</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadSeparator">
+            <summary>Num-Pad Separator</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPad1">
+            <summary>Num-Pad 1</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPad2">
+            <summary>Num-Pad 2</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPad3">
+            <summary>Num-Pad 3</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPad4">
+            <summary>Num-Pad 4</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPad5">
+            <summary>Num-Pad 5</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPad6">
+            <summary>Num-Pad 6</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPad7">
+            <summary>Num-Pad 7</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPad8">
+            <summary>Num-Pad 8</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPad9">
+            <summary>Num-Pad 9</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPad0">
+            <summary>Num-Pad 0</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadEnd">
+            <summary>Num-Pad End</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadDown">
+            <summary>Num-Pad Down</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadPageDown">
+            <summary>Num-Pad Page Down</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadLeft">
+            <summary>Num-Pad Left</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadClear">
+            <summary>Num-Pad Clear</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadRight">
+            <summary>Num-Pad Right</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadHome">
+            <summary>Num-Pad Home</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadUp">
+            <summary>Num-Pad Up</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadPageUp">
+            <summary>Num-Pad Page Up</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadInsert">
+            <summary>Num-Pad Insert</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadDelete">
+            <summary>Num-Pad Delete</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcLeftShift">
+            <summary>Left Shift</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcRightShift">
+            <summary>Right Shift</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcLeftControl">
+            <summary>Left Control</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcRightControl">
+            <summary>Right Control</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcLeftAlt">
+            <summary>
+            Left Alt (on Windows and Linux) or Option (on macOS)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcRightAlt">
+            <summary>
+            Right Alt (on Windows and Linux) or Option (on macOS)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcLeftMeta">
+            <summary>
+            Left Win (on Windows), Command (on macOS), or Super/Meta (on Linux)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcRightMeta">
+            <summary>
+            Right Win (on Windows), Command (on macOS), or Super/Meta (on Linux)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcContextMenu">
+            <summary>Context Menu</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcPower">
+            <summary>Power</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSleep">
+            <summary>Sleep</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcWake">
+            <summary>Wake</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcMediaPlay">
+            <summary>Media Play</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcMediaStop">
+            <summary>Media Stop</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcMediaPrevious">
+            <summary>Media Previous</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcMediaNext">
+            <summary>Media Next</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcMediaSelect">
+            <summary>Media Select</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcMediaEject">
+            <summary>Media Eject</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcVolumeMute">
+            <summary>Volume Mute</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcVolumeUp">
+            <summary>Volume Up</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcVolumeDown">
+            <summary>Volume Down</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcAppMail">
+            <summary>Mail</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcAppCalculator">
+            <summary>Calculator</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcAppMusic">
+            <summary>Music</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcAppPictures">
+            <summary>Pictures</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcBrowserSearch">
+            <summary>Browser Search</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcBrowserHome">
+            <summary>Browser Home</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcBrowserBack">
+            <summary>Browser Back</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcBrowserForward">
+            <summary>Browser Forward</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcBrowserStop">
+            <summary>Browser Stop</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcBrowserRefresh">
+            <summary>Browser Refresh</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcBrowserFavorites">
+            <summary>Browser Favorites</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcKatakana">
+            <summary>Katakana</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcUnderscore">
+            <summary>_</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcFurigana">
+            <summary>Furigana</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcKanji">
+            <summary>Kanji</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcHiragana">
+            <summary>Hiragana</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcYen">
+            <summary>Yen</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadComma">
+            <summary>Num-Pad Comma</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSunHelp">
+            <summary>Sun Help</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSunStop">
+            <summary>Sun Stop</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSunProps">
+            <summary>Sun Props</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSunFront">
+            <summary>Sun Front</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSunOpen">
+            <summary>Sun Open</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSunFind">
+            <summary>Sun Find</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSunAgain">
+            <summary>Sun Again</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSunUndo">
+            <summary>Sun Undo</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSunCopy">
+            <summary>Sun Copy</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSunInsert">
+            <summary>Sun Insert</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSunCut">
+            <summary>Sun Cut</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcUndefined">
+            <summary>Undefined key</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.CharUndefined">
+            <summary>Undefined character</summary>
+        </member>
         <member name="T:SharpHook.Native.LoggerProc">
             <summary>
             Represents a function which is called when a logging event occurs.
@@ -1054,17 +1638,151 @@
             <param name="args">The arguments of the log message.</param>
             <seealso cref="M:SharpHook.Native.UioHook.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)" />
         </member>
+        <member name="T:SharpHook.Native.LogLevel">
+            <summary>
+            Represents a log level.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.LogLevel.Debug">
+            <summary>
+            Debug information
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.LogLevel.Info">
+            <summary>
+            General-purpose information
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.LogLevel.Warn">
+            <summary>
+            Warning
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.LogLevel.Error">
+            <summary>
+            Error
+            </summary>
+        </member>
         <member name="T:SharpHook.Native.ModifierMask">
             <summary>
             Represents a virtual modifier mask.
             </summary>
             <seealso cref="T:SharpHook.Native.UioHookEvent" />
         </member>
+        <member name="F:SharpHook.Native.ModifierMask.None">
+            <summary>No modifier</summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.LeftShift">
+            <summary>Left Shift</summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.LeftCtrl">
+            <summary>Left Control</summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.LeftMeta">
+            <summary>
+            Left Win (on Windows), Command (on macOS), or Super/Meta (on Linux)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.LeftAlt">
+            <summary>
+            Left Alt (on Windows and Linux) or Option (on macOS)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.RightShift">
+            <summary>Right Shift</summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.RightCtrl">
+            <summary>Right Control</summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.RightMeta">
+            <summary>
+            Right Win (on Windows), Command (on macOS), or Super/Meta (on Linux)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.RightAlt">
+            <summary>
+            Right Alt (on Windows and Linux) or Option (on macOS)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.Shift">
+            <summary>Left or right Shift</summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.Ctrl">
+            <summary>Left or right Control</summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.Meta">
+            <summary>
+            Left or right Win (on Windows), Command (on macOS), or Super/Meta (on Linux)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.Alt">
+            <summary>
+            Left or right Alt (on Windows and Linux) or Option (on macOS)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.Button1">
+            <summary>
+            Mouse button 1 (usually the left mouse button)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.Button2">
+            <summary>
+            Mouse button 2 (usually the right mouse button)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.Button3">
+            <summary>Mouse button 3</summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.Button4">
+            <summary>Mouse button 4</summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.Button5">
+            <summary>Mouse button 5</summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.NumLock">
+            <summary>Num Lock</summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.CapsLock">
+            <summary>Caps Lock</summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.ScrollLock">
+            <summary>Scroll Lock</summary>
+        </member>
         <member name="T:SharpHook.Native.MouseButton">
             <summary>
             Represents a mouse button.
             </summary>
             <seealso cref="T:SharpHook.Native.MouseEventData" />
+        </member>
+        <member name="F:SharpHook.Native.MouseButton.NoButton">
+            <summary>
+            No button
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.MouseButton.Button1">
+            <summary>
+            Button 1 (usually the left mouse button)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.MouseButton.Button2">
+            <summary>
+            Button 2 (usually the right mouse button)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.MouseButton.Button3">
+            <summary>
+            Button 3
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.MouseButton.Button4">
+            <summary>
+            Button 4
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.MouseButton.Button5">
+            <summary>
+            Button 5
+            </summary>
         </member>
         <member name="T:SharpHook.Native.MouseEventData">
             <summary>
@@ -1257,11 +1975,31 @@
             </summary>
             <seealso cref="T:SharpHook.Native.MouseWheelEventData" />
         </member>
+        <member name="F:SharpHook.Native.MouseWheelScrollDirection.VerticalDirection">
+            <summary>
+            Vertical scroll direction
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.MouseWheelScrollDirection.HorizontalDirection">
+            <summary>
+            Horizontal scroll direction
+            </summary>
+        </member>
         <member name="T:SharpHook.Native.MouseWheelScrollType">
             <summary>
             Represents a mouse wheel scroll type.
             </summary>
             <seealso cref="T:SharpHook.Native.MouseWheelEventData" />
+        </member>
+        <member name="F:SharpHook.Native.MouseWheelScrollType.UnitScroll">
+            <summary>
+            Unit scroll
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.MouseWheelScrollType.BlockScroll">
+            <summary>
+            Block scroll
+            </summary>
         </member>
         <member name="T:SharpHook.Native.ScreenData">
             <summary>
@@ -1661,6 +2399,86 @@
             Represents a result of an operation of libuiohook.
             </summary>
             <seealso cref="T:SharpHook.Native.UioHook" />
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.Success">
+            <summary>
+            Success
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.Failure">
+            <summary>
+            Failure
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorOutOfMemory">
+            <summary>
+            Out of memory
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorXOpenDisplay">
+            <summary>
+            XOpenDisplay failed (X11)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorXRecordNotFound">
+            <summary>
+            XRecord not found (X11)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorXRecordAllocRange">
+            <summary>
+            XRecordAllocRange failed (X11)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorXRecordCreateContext">
+            <summary>
+            XRecordCreateContext failed (X11)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorXRecordEnableContext">
+            <summary>
+            XRecordEnableContext failed (X11)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorXRecordGetContext">
+            <summary>
+            XRecordGetContext failed (X11)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorSetWindowsHookEx">
+            <summary>
+            SetWindowsHookEx failed (Windows)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorGetModuleHandle">
+            <summary>
+            Couldn't get a module handle for SetWindowsHookEx (Windows)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorAxApiDisabled">
+            <summary>
+            Accessibility API is disabled for the process (macOS)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorCreateEventPort">
+            <summary>
+            Failed to create an event port (macOS)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorCreateRunLoopSource">
+            <summary>
+            CFRunLoopSourceCreate or CFMachPortCreateRunLoopSource failed (macOS)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorGetRunLoop">
+            <summary>
+            CFRunLoopGetCurrent failed (macOS)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorCreateObserver">
+            <summary>
+            CFRunLoopObserverCreate failed (macOS)
+            </summary>
         </member>
         <member name="T:SharpHook.SimpleGlobalHook">
             <summary>
