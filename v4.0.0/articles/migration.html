@@ -69,23 +69,26 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="migration-guide">Migration Guide</h1>
 
-<h2 id="version-1-to-2">Version 1 to 2</h2>
-<p>In order to migrate from version 1 to version 2 there are several things that should be done - they are all quite small.</p>
-<p>The <code>Start</code> method was removed from <code>IGlobalHook</code> and <code>IReactiveGlobalHook</code>. Instead these interfaces now provide two
-methods: <code>Run</code> and <code>RunAsync</code>. <code>Run</code> is for running the global hook on the same thread and blocking that thread.
-<code>RunAsync</code> behaves the same way that <code>Start</code> did before - it starts the hook on a separate thread and doesn't block
-the calling thread.</p>
-<p>Replace the invocation of <code>Start</code> to the invocation of <code>RunAsync</code> on a global hook if you simply want to keep the
-previous behavior.</p>
-<p><code>EmptyDispatchProc</code> was removed from <code>UioHook</code>. If you want to unset the hook callback function, then call
-<code>UioHook.SetDispatchProc(null)</code>.</p>
-<p>The type of <code>UioHookEvent.Reserved</code> was changed from <code>ushort</code> to a <code>ushort</code>-based enum so that its possible values are
-more clear.</p>
-<p>The type of <code>UioHookEvent.Time</code> previously was <code>ushort</code> which was wrong. It was corrected to <code>ulong</code>. Note that this
-field does not contain the event's timestamp.</p>
-<p>The global hooks now throw an exception if the hook is started when it's already running. Also, possible exceptions are
-now part of the interface definition. All unexpected exceptions that can happen when starting and stopping the hook are
-now wrapped into <code>HookException</code> with the value of <code>UioHookResult.Failure</code>.</p>
+<h2 id="version-3-to-4">Version 3 to 4</h2>
+<p>Version 4 contains a couple breaking changes, so you may need to change your code to upgrade.</p>
+<p>The biggest change is that simulating mouse button pressing/releasing now requires mouse pointer coordinates. They were
+actually always required by libuiohook, so previously the buttons were always pressed/released at (0, 0).
+<code>EventSimulator.SimulateMousePress</code> and <code>EventSimulator.SimulateMouseRelease</code> now have the following parameters:
+<code>short x, short y, MouseButton button</code>.</p>
+<p><code>HookEventArgs</code> doesn't contain the <code>Reserved</code> property anymore as its purpose wasn't really clear. Now <code>HookEventArgs</code>
+contains the <code>SuppressEvent</code> property - set it to <code>true</code> inside an event handler to suppress the event.</p>
+<p>On .NET 7 <code>[LibraryImport]</code> is now used instead of <code>[DllImport]</code>. This change required making <code>UioHookEvent</code> a blittable
+type, and as a result, the type of <code>KeyboardEventData.KeyChar</code> was changed from <code>char</code> to <code>ushort</code>. The field should
+still be used as a <code>char</code>.</p>
+<p>Explicit targets for .NET 5 and .NET Core 3.1 were removed, though the library can be used on those platforms through
+.NET Standard.</p>
+<p><code>KeyCode.VcPrintscreen</code> was renamed to <code>KeyCode.VcPrintScreen</code>.</p>
+<p>When simulating mouse wheel events on Windows, their rotation value was previously multiplied by 120. This behavior was
+removed.</p>
+<p>The ability to make <code>RunAsync</code> create a background thread was added - you can now specify that a running hook won't stop
+the application from exiting if all other threads have finished executing.</p>
+<p>Versioned libuiohook binaries for macOS and Linux were removed from the NuGet package as they were bit-for-bit same as
+the unversioned binaries.</p>
 <h2 id="version-2-to-3">Version 2 to 3</h2>
 <p>Version 3 contains several breaking changes, so you may need to change your code to upgrade.</p>
 <p>libuiohook is now at version 1.3 and contains breaking changes which propagated to the <code>UioHook</code> class and a few other
@@ -106,6 +109,23 @@ property - a <code>DateTimeOffset</code> object derived from the timestamp.</p>
 <p><code>IGlobalHook</code> and <code>IReactiveGlobalHook</code> now contain the <code>IsDisposed</code> property.</p>
 <p>The <code>HookEvent&lt;TArgs&gt;</code> class was removed from SharpHook.Reactive. The observables of <code>IReactiveGlobalHook</code> now emit
 <code>HookEventArgs</code> or a derived type directly. If you need the sender of the event, then use closures.</p>
+<h2 id="version-1-to-2">Version 1 to 2</h2>
+<p>In order to migrate from version 1 to version 2 there are several things that should be done - they are all quite small.</p>
+<p>The <code>Start</code> method was removed from <code>IGlobalHook</code> and <code>IReactiveGlobalHook</code>. Instead these interfaces now provide two
+methods: <code>Run</code> and <code>RunAsync</code>. <code>Run</code> is for running the global hook on the same thread and blocking that thread.
+<code>RunAsync</code> behaves the same way that <code>Start</code> did before - it starts the hook on a separate thread and doesn't block
+the calling thread.</p>
+<p>Replace the invocation of <code>Start</code> to the invocation of <code>RunAsync</code> on a global hook if you simply want to keep the
+previous behavior.</p>
+<p><code>EmptyDispatchProc</code> was removed from <code>UioHook</code>. If you want to unset the hook callback function, then call
+<code>UioHook.SetDispatchProc(null)</code>.</p>
+<p>The type of <code>UioHookEvent.Reserved</code> was changed from <code>ushort</code> to a <code>ushort</code>-based enum so that its possible values are
+more clear.</p>
+<p>The type of <code>UioHookEvent.Time</code> previously was <code>ushort</code> which was wrong. It was corrected to <code>ulong</code>. Note that this
+field does not contain the event's timestamp.</p>
+<p>The global hooks now throw an exception if the hook is started when it's already running. Also, possible exceptions are
+now part of the interface definition. All unexpected exceptions that can happen when starting and stopping the hook are
+now wrapped into <code>HookException</code> with the value of <code>UioHookResult.Failure</code>.</p>
 <p>Next article: <a href="about.html">About SharpHook</a>.</p>
 </article>
           </div>
