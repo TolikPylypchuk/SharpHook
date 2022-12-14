@@ -39,64 +39,6 @@
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Include="SharpHook.targets">
-      <PackagePath>build/SharpHook.targets</PackagePath>
-      <Pack>True</Pack>
-    </None>
-    <None Include="..\LICENSE">
-      <Pack>True</Pack>
-      <PackagePath />
-    </None>
-    <None Include="..\icon.png">
-      <Pack>True</Pack>
-      <PackagePath />
-    </None>
-    <None Include="README.md">
-      <Pack>True</Pack>
-      <PackagePath />
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="lib\linux-x64\libuiohook.so">
-      <PackagePath>runtimes/linux-x64/native/libuiohook.so</PackagePath>
-      <Pack>True</Pack>
-    </None>
-    <None Include="lib\linux-arm\libuiohook.so">
-      <PackagePath>runtimes/linux-arm/native/libuiohook.so</PackagePath>
-      <Pack>True</Pack>
-    </None>
-    <None Include="lib\linux-arm64\libuiohook.so">
-      <PackagePath>runtimes/linux-arm64/native/libuiohook.so</PackagePath>
-      <Pack>True</Pack>
-    </None>
-    <None Include="lib\osx-x64\libuiohook.dylib">
-      <PackagePath>runtimes/osx-x64/native/libuiohook.dylib</PackagePath>
-      <Pack>True</Pack>
-    </None>
-    <None Include="lib\osx-arm64\libuiohook.dylib">
-      <PackagePath>runtimes/osx-arm64/native/libuiohook.dylib</PackagePath>
-      <Pack>True</Pack>
-    </None>
-    <None Include="lib\win-x86\uiohook.dll">
-      <PackagePath>runtimes/win-x86/native/uiohook.dll</PackagePath>
-      <Pack>True</Pack>
-    </None>
-    <None Include="lib\win-x64\uiohook.dll">
-      <PackagePath>runtimes/win-x64/native/uiohook.dll</PackagePath>
-      <Pack>True</Pack>
-    </None>
-    <None Include="lib\win-arm\uiohook.dll">
-      <PackagePath>runtimes/win-arm/native/uiohook.dll</PackagePath>
-      <Pack>True</Pack>
-    </None>
-    <None Include="lib\win-arm64\uiohook.dll">
-      <PackagePath>runtimes/win-arm64/native/uiohook.dll</PackagePath>
-      <Pack>True</Pack>
-    </None>
-  </ItemGroup>
-
   <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows')) And '$(Platform)' == 'x86'">
     <ContentWithTargetPath Include="lib\win-x86\uiohook.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

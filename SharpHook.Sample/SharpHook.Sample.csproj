@@ -11,8 +11,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SharpHook.Reactive\SharpHook.Reactive.csproj" />
-    <ProjectReference Include="..\SharpHook\SharpHook.csproj" />
     <TrimmerRootAssembly Include="SharpHook" />
     <TrimmerRootAssembly Include="SharpHook.Reactive" />
   </ItemGroup>

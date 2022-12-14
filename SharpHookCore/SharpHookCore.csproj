@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\icon.png" Link="icon.png">
+      <PackagePath></PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\linux-arm64\libuiohook.so">
+      <PackagePath>runtimes/linux-arm64/native/libuiohook.so</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\linux-arm\libuiohook.so">
+      <PackagePath>runtimes/linux-arm/native/libuiohook.so</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\linux-x64\libuiohook.so">
+      <PackagePath>runtimes/linux-x64/native/libuiohook.so</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\osx-arm64\libuiohook.dylib">
+      <PackagePath>runtimes/osx-arm64/native/libuiohook.dylib</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\osx-x64\libuiohook.dylib">
+      <PackagePath>runtimes/osx-x64/native/libuiohook.dylib</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\win-arm64\uiohook.dll">
+      <PackagePath>runtimes/win-arm64/native/uiohook.dll</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\win-arm\uiohook.dll">
+      <PackagePath>runtimes/win-arm/native/uiohook.dll</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\win-x64\uiohook.dll">
+      <PackagePath>runtimes/win-x64/native/uiohook.dll</PackagePath>
+      <Pack>True</Pack>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="lib\win-x86\uiohook.dll">
+      <PackagePath>runtimes/win-x86/native/uiohook.dll</PackagePath>
+      <Pack>True</Pack>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

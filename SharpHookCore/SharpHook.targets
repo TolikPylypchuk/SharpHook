@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows')) And '$(Platform)' == 'x86'">
+        <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\win-x86\native\uiohook.dll">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>uiohook.dll</TargetPath>
+            <Pack>False</Pack>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows')) And '$(Platform)' == 'x64'">
+        <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\win-x64\native\uiohook.dll">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>uiohook.dll</TargetPath>
+            <Pack>False</Pack>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows')) And '$(Platform)' == 'ARM32'">
+        <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\win-arm\native\uiohook.dll">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>uiohook.dll</TargetPath>
+            <Pack>False</Pack>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows')) And '$(Platform)' == 'ARM64'">
+        <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\win-arm64\native\uiohook.dll">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>uiohook.dll</TargetPath>
+            <Pack>False</Pack>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup Condition="$([MSBuild]::IsOSPlatform('OSX')) And '$(Platform)' == 'x64'">
+        <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\osx-x64\native\libuiohook.dylib">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>libuiohook.dylib</TargetPath>
+            <Pack>False</Pack>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup Condition="$([MSBuild]::IsOSPlatform('OSX')) And '$(Platform)' == 'ARM64'">
+        <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\osx-arm64\native\libuiohook.dylib">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>libuiohook.dylib</TargetPath>
+            <Pack>False</Pack>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Linux')) And '$(Platform)' == 'x64'">
+        <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\linux-x64\native\libuiohook.so">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>libuiohook.so</TargetPath>
+            <Pack>False</Pack>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Linux')) And '$(Platform)' == 'ARM32'">
+        <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\linux-arm\native\libuiohook.so">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>libuiohook.so</TargetPath>
+            <Pack>False</Pack>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Linux')) And '$(Platform)' == 'ARM64'">
+        <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\linux-arm64\libuiohook.so">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>libuiohook.so</TargetPath>
+            <Pack>False</Pack>
+        </ContentWithTargetPath>
+    </ItemGroup>
+</Project>

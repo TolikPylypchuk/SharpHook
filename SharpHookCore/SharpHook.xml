@@ -1,0 +1,2639 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SharpHook</name>
+    </assembly>
+    <members>
+        <member name="T:SharpHook.EventSimulator">
+            <summary>
+            A keyboard and mouse event simulator which posts events to the OS.
+            </summary>
+            <seealso cref="M:SharpHook.Native.UioHook.PostEvent(SharpHook.Native.UioHookEvent@)" />
+        </member>
+        <member name="M:SharpHook.EventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode)">
+            <summary>
+            Simulates pressing a key.
+            </summary>
+            <param name="keyCode">The code of the key to press.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.EventSimulator.SimulateKeyRelease(SharpHook.Native.KeyCode)">
+            <summary>
+            Simulates releasing a key.
+            </summary>
+            <param name="keyCode">The code of the key to release.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.EventSimulator.SimulateMousePress(System.Int16,System.Int16,SharpHook.Native.MouseButton)">
+            <summary>
+            Simulates pressing a mouse button at the specified coordinates.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to press.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.EventSimulator.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Native.MouseButton)">
+            <summary>
+            Simulates releasing a mouse button at the specified coordinates.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to release.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.EventSimulator.SimulateMouseMovement(System.Int16,System.Int16)">
+            <summary>
+            Simulates moving a mouse pointer.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.EventSimulator.SimulateMouseWheel(System.Int16,System.Int16,System.UInt16,System.Int16)">
+            <summary>
+            Simulates scrolling the mouse wheel at the specified coordinates.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="amount">The scrolling amount.</param>
+            <param name="rotation">The wheel rotation.</param>
+            <returns>The result of the operation.</returns>
+            <remarks>
+            <para>
+            A positive <paramref name="rotation" /> value indicates that the wheel will be rotated down and a negative value
+            indicates that the wheel will be rotated up.
+            </para>
+            <para>
+            Mouse wheel simulation is a little inconsistent across platforms, and not documented. View the source code of
+            libuiohook for more details.
+            </para>
+            </remarks>
+        </member>
+        <member name="T:SharpHook.GlobalHookBase">
+            <summary>
+            Represents an abstract implementation of <see cref="T:SharpHook.IGlobalHook" /> which raises events only when there is at least
+            one subscriber.
+            </summary>
+            <seealso cref="T:SharpHook.IGlobalHook" />
+            <seealso cref="T:SharpHook.SimpleGlobalHook" />
+            <seealso cref="T:SharpHook.TaskPoolGlobalHook" />
+        </member>
+        <member name="M:SharpHook.GlobalHookBase.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.GlobalHookBase" />.
+            </summary>
+        </member>
+        <member name="M:SharpHook.GlobalHookBase.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.GlobalHookBase" />.
+            </summary>
+            <param name="runAsyncOnBackgroundThread">
+            <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
+            Otherwise, <see langword="false" />.
+            </param>
+        </member>
+        <member name="M:SharpHook.GlobalHookBase.Finalize">
+            <summary>
+            Destroys the global hook if it's running.
+            </summary>
+        </member>
+        <member name="P:SharpHook.GlobalHookBase.IsRunning">
+            <summary>
+            Gets the value which indicates whether the global hook is running.
+            </summary>
+            <value><see langword="true" /> if the global hook is running. Otherwise, <see langword="false" />.</value>
+        </member>
+        <member name="P:SharpHook.GlobalHookBase.IsDisposed">
+            <summary>
+            Gets the value which indicates whether the global hook is disposed.
+            </summary>
+            <value><see langword="true" /> if the global hook is disposed. Otherwise, <see langword="false" />.</value>
+            <remarks>A disposed global hook cannot be started again.</remarks>
+        </member>
+        <member name="M:SharpHook.GlobalHookBase.Run">
+            <summary>
+            Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
+            <see cref="M:System.IDisposable.Dispose" /> method.
+            </summary>
+            <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
+            <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
+            <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
+        </member>
+        <member name="M:SharpHook.GlobalHookBase.RunAsync">
+            <summary>
+            Runs the global hook without blocking the current thread. The hook can be destroyed by calling the
+            <see cref="M:System.IDisposable.Dispose" /> method.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> which finishes when the hook is destroyed.</returns>
+            <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
+            <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
+            <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
+            <remarks>The hook is started on a separate thread.</remarks>
+        </member>
+        <member name="M:SharpHook.GlobalHookBase.Dispose">
+            <summary>
+            Destroys the global hook.
+            </summary>
+            <exception cref="T:SharpHook.HookException">Stopping the hook has failed.</exception>
+            <remarks>
+            After calling this method, the hook cannot be started again. If you want to do that, create a new instance
+            of <see cref="T:SharpHook.IGlobalHook" />.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.GlobalHookBase.HandleHookEvent(SharpHook.Native.UioHookEvent@)">
+            <summary>
+            When implemented in a derived class, represents a strategy for handling a hook event.
+            </summary>
+            <param name="e">The event to handle.</param>
+            <remarks>
+            Derived classes should call <see cref="M:SharpHook.GlobalHookBase.DispatchEvent(SharpHook.Native.UioHookEvent@)" /> inside this method to raise the
+            appropriate event.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.GlobalHookBase.DispatchEvent(SharpHook.Native.UioHookEvent@)">
+            <summary>
+            Dispatches an event from libuiohook, i.e. raises the appropriate event.
+            </summary>
+            <param name="e">The event to dispatch.</param>
+        </member>
+        <member name="M:SharpHook.GlobalHookBase.OnHookEnabled(SharpHook.HookEventArgs)">
+            <summary>
+            Raises the <see cref="E:SharpHook.GlobalHookBase.HookEnabled" /> event with this object as the sender.
+            </summary>
+            <param name="args">The arguments of the event.</param>
+        </member>
+        <member name="M:SharpHook.GlobalHookBase.OnHookDisabled(SharpHook.HookEventArgs)">
+            <summary>
+            Raises the <see cref="E:SharpHook.GlobalHookBase.HookDisabled" /> event with this object as the sender.
+            </summary>
+            <param name="args">The arguments of the event.</param>
+        </member>
+        <member name="M:SharpHook.GlobalHookBase.OnKeyTyped(SharpHook.KeyboardHookEventArgs)">
+            <summary>
+            Raises the <see cref="E:SharpHook.GlobalHookBase.KeyTyped" /> event with this object as the sender.
+            </summary>
+            <param name="args">The arguments of the event.</param>
+        </member>
+        <member name="M:SharpHook.GlobalHookBase.OnKeyPressed(SharpHook.KeyboardHookEventArgs)">
+            <summary>
+            Raises the <see cref="E:SharpHook.GlobalHookBase.KeyPressed" /> event with this object as the sender.
+            </summary>
+            <param name="args">The arguments of the event.</param>
+        </member>
+        <member name="M:SharpHook.GlobalHookBase.OnKeyReleased(SharpHook.KeyboardHookEventArgs)">
+            <summary>
+            Raises the <see cref="E:SharpHook.GlobalHookBase.KeyReleased" /> event with this object as the sender.
+            </summary>
+            <param name="args">The arguments of the event.</param>
+        </member>
+        <member name="M:SharpHook.GlobalHookBase.OnMouseClicked(SharpHook.MouseHookEventArgs)">
+            <summary>
+            Raises the <see cref="E:SharpHook.GlobalHookBase.MouseClicked" /> event with this object as the sender.
+            </summary>
+            <param name="args">The arguments of the event.</param>
+        </member>
+        <member name="M:SharpHook.GlobalHookBase.OnMousePressed(SharpHook.MouseHookEventArgs)">
+            <summary>
+            Raises the <see cref="E:SharpHook.GlobalHookBase.MousePressed" /> event with this object as the sender.
+            </summary>
+            <param name="args">The arguments of the event.</param>
+        </member>
+        <member name="M:SharpHook.GlobalHookBase.OnMouseReleased(SharpHook.MouseHookEventArgs)">
+            <summary>
+            Raises the <see cref="E:SharpHook.GlobalHookBase.MouseReleased" /> event with this object as the sender.
+            </summary>
+            <param name="args">The arguments of the event.</param>
+        </member>
+        <member name="M:SharpHook.GlobalHookBase.OnMouseMoved(SharpHook.MouseHookEventArgs)">
+            <summary>
+            Raises the <see cref="E:SharpHook.GlobalHookBase.MouseMoved" /> event with this object as the sender.
+            </summary>
+            <param name="args">The arguments of the event.</param>
+        </member>
+        <member name="M:SharpHook.GlobalHookBase.OnMouseDragged(SharpHook.MouseHookEventArgs)">
+            <summary>
+            Raises the <see cref="E:SharpHook.GlobalHookBase.MouseDragged" /> event with this object as the sender.
+            </summary>
+            <param name="args">The arguments of the event.</param>
+        </member>
+        <member name="M:SharpHook.GlobalHookBase.OnMouseWheel(SharpHook.MouseWheelHookEventArgs)">
+            <summary>
+            Raises the <see cref="E:SharpHook.GlobalHookBase.MouseWheel" /> event with this object as the sender.
+            </summary>
+            <param name="args">The arguments of the event.</param>
+        </member>
+        <member name="M:SharpHook.GlobalHookBase.Dispose(System.Boolean)">
+            <summary>
+            Destoys the global hook.
+            </summary>
+            <param name="disposing">
+            <see langword="true" /> if the method is called from the <see cref="M:SharpHook.GlobalHookBase.Dispose" /> method.
+            Otherwise, <see langword="false" />.
+            </param>
+            <exception cref="T:SharpHook.HookException">Stopping the hook has failed.</exception>
+        </member>
+        <member name="M:SharpHook.GlobalHookBase.ThrowIfDisposed(System.String)">
+            <summary>
+            Throws an <see cref="T:System.ObjectDisposedException" /> if this object is disposed.
+            </summary>
+            <param name="method">The method which calls this method.</param>
+        </member>
+        <member name="E:SharpHook.GlobalHookBase.HookEnabled">
+            <summary>
+            An event which is raised when the global hook is enabled.
+            </summary>
+            <remarks>
+            This event is raised when the <see cref="M:SharpHook.IGlobalHook.Run" /> or <see cref="M:SharpHook.IGlobalHook.RunAsync" /> method
+            is called.
+            </remarks>
+        </member>
+        <member name="E:SharpHook.GlobalHookBase.HookDisabled">
+            <summary>
+            An event which is raised when the global hook is disabled.
+            </summary>
+            <remarks>This event is raised when the <see cref="M:System.IDisposable.Dispose" /> method is called.</remarks>
+        </member>
+        <member name="E:SharpHook.GlobalHookBase.KeyTyped">
+            <summary>
+            An event which is raised when a key is typed.
+            </summary>
+        </member>
+        <member name="E:SharpHook.GlobalHookBase.KeyPressed">
+            <summary>
+            An event which is raised when a key is pressed.
+            </summary>
+        </member>
+        <member name="E:SharpHook.GlobalHookBase.KeyReleased">
+            <summary>
+            An event which is raised when a key is released.
+            </summary>
+        </member>
+        <member name="E:SharpHook.GlobalHookBase.MouseClicked">
+            <summary>
+            An event which is raised when a mouse button is clicked.
+            </summary>
+        </member>
+        <member name="E:SharpHook.GlobalHookBase.MousePressed">
+            <summary>
+            An event which is raised when a mouse button is pressed.
+            </summary>
+        </member>
+        <member name="E:SharpHook.GlobalHookBase.MouseReleased">
+            <summary>
+            An event which is raised when a mouse button is released.
+            </summary>
+        </member>
+        <member name="E:SharpHook.GlobalHookBase.MouseMoved">
+            <summary>
+            An event which is raised when the mouse cursor is moved.
+            </summary>
+        </member>
+        <member name="E:SharpHook.GlobalHookBase.MouseDragged">
+            <summary>
+            An event which is raised when the mouse cursor is dragged.
+            </summary>
+        </member>
+        <member name="E:SharpHook.GlobalHookBase.MouseWheel">
+            <summary>
+            An event which is raised when the mouse wheel is turned.
+            </summary>
+        </member>
+        <member name="T:SharpHook.HookEventArgs">
+            <summary>
+            A base class for event args related to the global hook.
+            </summary>
+            <seealso cref="T:SharpHook.KeyboardHookEventArgs" />
+            <seealso cref="T:SharpHook.MouseHookEventArgs" />
+            <seealso cref="T:SharpHook.Native.MouseWheelEventData" />
+            <seealso cref="T:SharpHook.Native.UioHookEvent" />
+        </member>
+        <member name="M:SharpHook.HookEventArgs.#ctor(SharpHook.Native.UioHookEvent)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpHook.HookEventArgs" /> class.
+            </summary>
+            <param name="rawEvent">The raw event data.</param>
+        </member>
+        <member name="P:SharpHook.HookEventArgs.RawEvent">
+            <summary>
+            Gets the raw event data.
+            </summary>
+            <value>The raw event data.</value>
+        </member>
+        <member name="P:SharpHook.HookEventArgs.EventTime">
+            <summary>
+            Gets the date and time of the event (in UTC), derived from the event's UNIX timestamp.
+            </summary>
+            <value>The date and time of the event.</value>
+        </member>
+        <member name="P:SharpHook.HookEventArgs.SuppressEvent">
+            <summary>
+            Gets or sets whether to suppress the event from further propagation after running the event handler. Events must
+            be suppressed synchronously. Suppressing events works only on Windows and macOS.
+            </summary>
+            <value>
+            <see langword="true" /> if the event propagation should be suppressed. Otherwise, <see langword="false" />.
+            </value>
+        </member>
+        <member name="T:SharpHook.HookException">
+            <summary>
+            Represents an exception related to the global hook.
+            </summary>
+        </member>
+        <member name="M:SharpHook.HookException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpHook.HookException" /> class.
+            </summary>
+        </member>
+        <member name="M:SharpHook.HookException.#ctor(SharpHook.Native.UioHookResult)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpHook.HookException" /> class.
+            </summary>
+            <param name="result">The result of an opetaion which caused this exception.</param>
+        </member>
+        <member name="M:SharpHook.HookException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpHook.HookException" /> class.
+            </summary>
+            <param name="message">The message of the exception.</param>
+        </member>
+        <member name="M:SharpHook.HookException.#ctor(SharpHook.Native.UioHookResult,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpHook.HookException" /> class.
+            </summary>
+            <param name="result">The result of an opetaion which caused this exception.</param>
+            <param name="message">The message of the exception.</param>
+        </member>
+        <member name="M:SharpHook.HookException.#ctor(SharpHook.Native.UioHookResult,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpHook.HookException" /> class.
+            </summary>
+            <param name="result">The result of an opetaion which caused this exception.</param>
+            <param name="innerException">The exception which caused this exception.</param>
+        </member>
+        <member name="M:SharpHook.HookException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpHook.HookException" /> class.
+            </summary>
+            <param name="message">The message of the exception.</param>
+            <param name="innerException">The exception which caused this exception.</param>
+        </member>
+        <member name="M:SharpHook.HookException.#ctor(SharpHook.Native.UioHookResult,System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpHook.HookException" /> class.
+            </summary>
+            <param name="result">The result of an opetaion which caused this exception.</param>
+            <param name="message">The message of the exception.</param>
+            <param name="innerException">The exception which caused this exception.</param>
+        </member>
+        <member name="M:SharpHook.HookException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Sets the <see cref="T:System.Runtime.Serialization.SerializationInfo" /> with information about this exception.
+            </summary>
+            <param name="info">The serialization info to set.</param>
+            <param name="context">The streaming context.</param>
+        </member>
+        <member name="P:SharpHook.HookException.Result">
+            <summary>
+            Gets the result of an opetaion which caused this exception.
+            </summary>
+            <value>The result of an opetaion which caused this exception.</value>
+        </member>
+        <member name="T:SharpHook.IEventSimulator">
+            <summary>
+            Represents an object which can simulate keyboard and mouse events.
+            </summary>
+            <remarks>
+            The methods of this interface correspond to constants defined in the <see cref="T:SharpHook.Native.EventType" /> enum.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.IEventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode)">
+            <summary>
+            Simulates pressing a key.
+            </summary>
+            <param name="keyCode">The code of the key to press.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.IEventSimulator.SimulateKeyRelease(SharpHook.Native.KeyCode)">
+            <summary>
+            Simulates releasing a key.
+            </summary>
+            <param name="keyCode">The code of the key to release.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.IEventSimulator.SimulateMousePress(System.Int16,System.Int16,SharpHook.Native.MouseButton)">
+            <summary>
+            Simulates pressing a mouse button at the specified coordinates.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to press.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.IEventSimulator.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Native.MouseButton)">
+            <summary>
+            Simulates releasing a mouse button at the specified coordinates.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to release.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.IEventSimulator.SimulateMouseMovement(System.Int16,System.Int16)">
+            <summary>
+            Simulates moving a mouse pointer.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.IEventSimulator.SimulateMouseWheel(System.Int16,System.Int16,System.UInt16,System.Int16)">
+            <summary>
+            Simulates scrolling the mouse wheel at the specified coordinates.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="amount">The scrolling amount.</param>
+            <param name="rotation">The wheel rotation.</param>
+            <returns>The result of the operation.</returns>
+            <remarks>
+            A positive <paramref name="rotation" /> value indicates that the wheel will be rotated down and a negative value
+            indicates that the wheel will be rotated up.
+            </remarks>
+        </member>
+        <member name="T:SharpHook.IGlobalHook">
+            <summary>
+            Represents a global keyboard and mouse hook.
+            </summary>
+            <seealso cref="T:SharpHook.GlobalHookBase" />
+            <seealso cref="T:SharpHook.SimpleGlobalHook" />
+            <seealso cref="T:SharpHook.TaskPoolGlobalHook" />
+        </member>
+        <member name="P:SharpHook.IGlobalHook.IsRunning">
+            <summary>
+            Gets the value which indicates whether the global hook is running.
+            </summary>
+            <value><see langword="true" /> if the global hook is running. Otherwise, <see langword="false" />.</value>
+        </member>
+        <member name="P:SharpHook.IGlobalHook.IsDisposed">
+            <summary>
+            Gets the value which indicates whether the global hook is disposed.
+            </summary>
+            <value><see langword="true" /> if the global hook is disposed. Otherwise, <see langword="false" />.</value>
+            <remarks>A disposed global hook cannot be started again.</remarks>
+        </member>
+        <member name="M:SharpHook.IGlobalHook.Run">
+            <summary>
+            Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
+            <see cref="M:System.IDisposable.Dispose" /> method.
+            </summary>
+            <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
+            <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
+            <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
+        </member>
+        <member name="M:SharpHook.IGlobalHook.RunAsync">
+            <summary>
+            Runs the global hook without blocking the current thread. The hook can be destroyed by calling the
+            <see cref="M:System.IDisposable.Dispose" /> method.
+            </summary>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> which finishes when the hook is destroyed.</returns>
+            <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
+            <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
+            <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
+            <remarks>
+            Since the underlying native API for running a global hook is blocking, the only way to run it without blocking
+            the current thread is to run it on a separate thread.
+            </remarks>
+        </member>
+        <member name="E:SharpHook.IGlobalHook.HookEnabled">
+            <summary>
+            An event which is raised when the global hook is enabled.
+            </summary>
+            <remarks>This event is raised when the <see cref="M:SharpHook.IGlobalHook.Run" /> or <see cref="M:SharpHook.IGlobalHook.RunAsync" /> method is called.</remarks>
+        </member>
+        <member name="E:SharpHook.IGlobalHook.HookDisabled">
+            <summary>
+            An event which is raised when the global hook is disabled.
+            </summary>
+            <remarks>This event is raised when the <see cref="M:System.IDisposable.Dispose" /> method is called.</remarks>
+        </member>
+        <member name="E:SharpHook.IGlobalHook.KeyTyped">
+            <summary>
+            An event which is raised when a key is typed.
+            </summary>
+        </member>
+        <member name="E:SharpHook.IGlobalHook.KeyPressed">
+            <summary>
+            An event which is raised when a key is pressed.
+            </summary>
+        </member>
+        <member name="E:SharpHook.IGlobalHook.KeyReleased">
+            <summary>
+            An event which is raised when a key is released.
+            </summary>
+        </member>
+        <member name="E:SharpHook.IGlobalHook.MouseClicked">
+            <summary>
+            An event which is raised when a mouse button is clicked.
+            </summary>
+        </member>
+        <member name="E:SharpHook.IGlobalHook.MousePressed">
+            <summary>
+            An event which is raised when a mouse button is pressed.
+            </summary>
+        </member>
+        <member name="E:SharpHook.IGlobalHook.MouseReleased">
+            <summary>
+            An event which is raised when a mouse button is released.
+            </summary>
+        </member>
+        <member name="E:SharpHook.IGlobalHook.MouseMoved">
+            <summary>
+            An event which is raised when the mouse cursor is moved.
+            </summary>
+        </member>
+        <member name="E:SharpHook.IGlobalHook.MouseDragged">
+            <summary>
+            An event which is raised when the mouse cursor is dragged.
+            </summary>
+        </member>
+        <member name="E:SharpHook.IGlobalHook.MouseWheel">
+            <summary>
+            An event which is raised when the mouse wheel is scrolled.
+            </summary>
+        </member>
+        <member name="T:SharpHook.KeyboardHookEventArgs">
+            <summary>
+            Event args for keyboard-related hook events.
+            </summary>
+            <seealso cref="T:SharpHook.HookEventArgs" />
+            <seealso cref="T:SharpHook.MouseHookEventArgs" />
+            <seealso cref="T:SharpHook.MouseWheelHookEventArgs" />
+            <seealso cref="T:SharpHook.Native.KeyboardEventData" />
+        </member>
+        <member name="M:SharpHook.KeyboardHookEventArgs.#ctor(SharpHook.Native.UioHookEvent)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpHook.KeyboardHookEventArgs" /> class.
+            </summary>
+            <param name="rawEvent">The raw event data.</param>
+        </member>
+        <member name="P:SharpHook.KeyboardHookEventArgs.Data">
+            <summary>
+            Gets the event data.
+            </summary>
+            <value>The event data.</value>
+        </member>
+        <member name="T:SharpHook.Logging.EmptyLogSource">
+            <summary>
+            Represents a souce of libuiohook logs which never raises any events.
+            </summary>
+            <remarks>
+            This class exists primarily to be used instead of <see cref="T:SharpHook.Logging.LogSource" /> in release builds of client apps as they
+            will most probably not need any logs from libuiohook. Also, unlike <see cref="T:SharpHook.Logging.LogSource" /> this class doesn't need
+            the Visual C++ Redistributable package to be installed on Windows.
+            </remarks>
+            <seealso cref="T:SharpHook.Logging.ILogSource" />
+            <seealso cref="T:SharpHook.Logging.LogSource" />
+        </member>
+        <member name="P:SharpHook.Logging.EmptyLogSource.IsDisposed">
+            <summary>
+            Gets the value which indicates whether the log source is disposed.
+            </summary>
+            <value><see langword="true" /> if the log source is disposed. Otherwise, <see langword="false" />.</value>
+            <remarks>
+            Since empty log sources don't do anything, it doesn't matter whether they are disposed.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Logging.EmptyLogSource.Dispose">
+            <summary>
+            Marks this object as disposed.
+            </summary>
+            <remarks>
+            Since empty log sources don't do anything, it doesn't matter whether they are disposed.
+            </remarks>
+        </member>
+        <member name="E:SharpHook.Logging.EmptyLogSource.MessageLogged">
+            <summary>
+            An event which is never raised.
+            </summary>
+        </member>
+        <member name="T:SharpHook.Logging.ILogSource">
+            <summary>
+            Represents a source of libuiohook logs.
+            </summary>
+            <seealso cref="T:SharpHook.Logging.LogSource" />
+            <seealso cref="T:SharpHook.Logging.EmptyLogSource" />
+            <seealso cref="T:SharpHook.Logging.LogEventArgs" />
+            <seealso cref="T:SharpHook.Logging.LogEntry" />
+        </member>
+        <member name="P:SharpHook.Logging.ILogSource.IsDisposed">
+            <summary>
+            Gets the value which indicates whether the log source is disposed.
+            </summary>
+            <value><see langword="true" /> if the log source is disposed. Otherwise, <see langword="false" />.</value>
+            <remarks>A disposed log source doesn't raise the <see cref="E:SharpHook.Logging.ILogSource.MessageLogged" /> event.</remarks>
+        </member>
+        <member name="E:SharpHook.Logging.ILogSource.MessageLogged">
+            <summary>
+            An event which is raised when libuiohook logs a message.
+            </summary>
+        </member>
+        <member name="T:SharpHook.Logging.LogEntry">
+            <summary>
+            Represents a log entry from libuiohook.
+            </summary>
+            <remarks>
+            <para>
+            For simple handling the <see cref="F:SharpHook.Logging.LogEntry.Level" /> and <see cref="P:SharpHook.Logging.LogEntry.FullText" /> properties are anough. For more advanced
+            handling you can use the entries' formats and arguments.
+            </para>
+            <para>
+            Each log entry from libuiohook has the following format:
+            <code>
+            function [line]: message
+            </code>
+            </para>
+            <para>
+            The function and line reference the source code of libuiohook itself, and can be retrieved using the
+            <see cref="P:SharpHook.Logging.LogEntry.Function" /> and <see cref="P:SharpHook.Logging.LogEntry.SourceLine" /> properties. The message can be retrieved by splitting the text
+            by <c>:</c> and getting the trimmed second part.
+            </para>
+            <para>
+            You shouldn't create <see cref="T:SharpHook.Logging.LogEntry" /> instances yourself. Instead, use the <see cref="T:SharpHook.Logging.LogEntryParser" />
+            class to create them in the logging callback.
+            </para>
+            </remarks>
+            <seealso cref="T:SharpHook.Logging.ILogSource" />
+            <seealso cref="T:SharpHook.Logging.LogSource" />
+            <seealso cref="T:SharpHook.Logging.LogEventArgs" />
+            <seealso cref="T:SharpHook.Logging.LogEntryParser" />
+        </member>
+        <member name="M:SharpHook.Logging.LogEntry.#ctor(SharpHook.Native.LogLevel,System.String,System.String,System.String,System.Collections.Generic.IReadOnlyList{System.Object},System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpHook.Logging.LogEntry" /> class.
+            </summary>
+            <param name="level">The log level.</param>
+            <param name="fullText">The full text of the log entry.</param>
+            <param name="format">The format of the log entry which can be used in <c>String.Format</c>.</param>
+            <param name="nativeFormat">The native format of the log entry.</param>
+            <param name="arguments">The arguments of the log entry which can be used in <c>String.Format</c>.</param>
+            <param name="rawArguments">The arguments as they appear in the entry's full text.</param>
+            <param name="argumentPlaceholders">The argument placeholders from the native format.</param>
+        </member>
+        <member name="F:SharpHook.Logging.LogEntry.Level">
+            <summary>
+            Gets the level of the current log entry.
+            </summary>
+            <value>The level of the current log entry.</value>
+        </member>
+        <member name="P:SharpHook.Logging.LogEntry.FullText">
+            <summary>
+            Gets the full text of the current log entry.
+            </summary>
+            <value>The full text of the current log entry.</value>
+        </member>
+        <member name="P:SharpHook.Logging.LogEntry.Format">
+            <summary>
+            Gets the format of the current log entry.
+            </summary>
+            <value>The format of the current log entry.</value>
+        </member>
+        <member name="P:SharpHook.Logging.LogEntry.NativeFormat">
+            <summary>
+            Gets the native format of the current log entry, as defined in libuiohook.
+            </summary>
+            <value>The native format of the current log entry.</value>
+        </member>
+        <member name="P:SharpHook.Logging.LogEntry.Arguments">
+            <summary>
+            Gets the arguments of the current log entry.
+            </summary>
+            <value>The arguments of the current log entry.</value>
+            <remarks>The function and line are the first two arguments of the log entry.</remarks>
+        </member>
+        <member name="P:SharpHook.Logging.LogEntry.RawArguments">
+            <summary>
+            Gets the arguments of the current log entry as they appear in entry's full text.
+            </summary>
+            <value>The arguments of the current log entry as they appear in entry's full text.</value>
+            <remarks>The function and line are the first two arguments of the log entry.</remarks>
+        </member>
+        <member name="P:SharpHook.Logging.LogEntry.ArgumentPlaceholders">
+            <summary>
+            Gets the argument placeholders from the native format.
+            </summary>
+            <value>The argument placeholders from the native format.</value>
+        </member>
+        <member name="P:SharpHook.Logging.LogEntry.Function">
+            <summary>
+            Gets the libuiohook function which called the logger.
+            </summary>
+            <value>The function which called the logger.</value>
+            <remarks>The function is the first argument of the log entry.</remarks>
+        </member>
+        <member name="P:SharpHook.Logging.LogEntry.SourceLine">
+            <summary>
+            Gets the source code line in libuiohook where the logger was called.
+            </summary>
+            <value>The source code line in libuiohook where the logger was called.</value>
+            <remarks>The source code line is the second argument of the log entry.</remarks>
+        </member>
+        <member name="M:SharpHook.Logging.LogEntry.Equals(System.Object)">
+            <summary>
+            Compares this object to another object for equality.
+            </summary>
+            <param name="obj">The object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Logging.LogEntry.Equals(SharpHook.Logging.LogEntry)">
+            <summary>
+            Compares this object to another object for equality.
+            </summary>
+            <param name="entry">The object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Logging.LogEntry.GetHashCode">
+            <summary>
+            Gets the hash code of this object.
+            </summary>
+            <returns>The hash code of this object.</returns>
+        </member>
+        <member name="M:SharpHook.Logging.LogEntry.ToString">
+            <summary>
+            Gets the string representation of the log entry i.e. its full text.
+            </summary>
+            <returns>The full text of the log entry.</returns>
+        </member>
+        <member name="M:SharpHook.Logging.LogEntry.op_Equality(SharpHook.Logging.LogEntry,SharpHook.Logging.LogEntry)">
+            <summary>
+            Compares two objects for equality.
+            </summary>
+            <param name="left">The first object to compare</param>
+            <param name="right">The second object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Logging.LogEntry.op_Inequality(SharpHook.Logging.LogEntry,SharpHook.Logging.LogEntry)">
+            <summary>
+            Compares two objects for inequality.
+            </summary>
+            <param name="left">The first object to compare</param>
+            <param name="right">The second object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are not equal. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="T:SharpHook.Logging.LogEntryParser">
+            <summary>
+            Creates log entries from native log formats and arguments.
+            </summary>
+            <remarks>
+            The log text is formatted using the <c>vsprintf</c> function from the C runtime and then the result is parsed to
+            extract the arguments. This means that on Windows this class requires the Visual C++ Redistributable package to be
+            installed.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Logging.LogEntryParser.ParseNativeLogEntry(SharpHook.Native.LogLevel,System.IntPtr,System.IntPtr)">
+            <summary>
+            Parses a native log format and arguments to create a log entry.
+            </summary>
+            <param name="level">The log level.</param>
+            <param name="format">A pointer to the native format of the log message.</param>
+            <param name="args">A pointer to the native arguments of the log message.</param>
+            <returns>A log entry represented by the level, format, and argumets.</returns>
+        </member>
+        <member name="T:SharpHook.Logging.LogEventArgs">
+            <summary>
+            Event args for logging events.
+            </summary>
+            <seealso cref="T:SharpHook.Logging.ILogSource" />
+            <seealso cref="T:SharpHook.Logging.LogSource" />
+            <seealso cref="T:SharpHook.Logging.LogEntry" />
+        </member>
+        <member name="M:SharpHook.Logging.LogEventArgs.#ctor(SharpHook.Logging.LogEntry)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpHook.Logging.LogEventArgs" /> class.
+            </summary>
+            <param name="logEntry">The entry of log event.</param>
+        </member>
+        <member name="P:SharpHook.Logging.LogEventArgs.LogEntry">
+            <summary>
+            Gets the entry of the current log event.
+            </summary>
+            <value>The entry of the current log event.</value>
+        </member>
+        <member name="T:SharpHook.Logging.LogSource">
+            <summary>
+            Represents a source of libuiohook logs.
+            </summary>
+            <remarks>
+            <para>
+            Only a single <see cref="T:SharpHook.Logging.LogSource" /> instance must be used at a time.
+            </para>
+            <para>
+            On Windows this class requires the Visual C++ Redistributable package to be installed as it contains the C runtime.
+            </para>
+            </remarks>
+            <seealso cref="T:SharpHook.Logging.ILogSource" />
+            <seealso cref="T:SharpHook.Logging.EmptyLogSource" />
+            <seealso cref="T:SharpHook.Logging.LogEventArgs" />
+            <seealso cref="T:SharpHook.Logging.LogEntry" />
+            <seealso cref="T:SharpHook.Logging.LogEntryParser" />
+        </member>
+        <member name="M:SharpHook.Logging.LogSource.Finalize">
+            <summary>
+            Unregisters the current <see cref="T:SharpHook.Logging.LogSource" /> instance.
+            </summary>
+        </member>
+        <member name="P:SharpHook.Logging.LogSource.MinLevel">
+            <summary>
+            Gets or sets the minimum log level.
+            </summary>
+            <value>The minimum log level.</value>
+        </member>
+        <member name="P:SharpHook.Logging.LogSource.IsDisposed">
+            <summary>
+            Gets the value which indicates whether the log source is disposed.
+            </summary>
+            <value><see langword="true" /> if the log source is disposed. Otherwise, <see langword="false" />.</value>
+            <remarks>
+            A disposed log source doesn't raise the <see cref="E:SharpHook.Logging.LogSource.MessageLogged" /> event and cannot be registered again.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Logging.LogSource.Register(SharpHook.Native.LogLevel)">
+            <summary>
+            Creates and registers a source of libuiohook logs.
+            </summary>
+            <param name="minLevel">The minimum log level.</param>
+            <returns>A source of libuiohook logs.</returns>
+            <remarks>
+            This method must not be called when another <see cref="T:SharpHook.Logging.LogSource" /> instance has already been registerd and
+            hasn't been disposed.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Logging.LogSource.Dispose">
+            <summary>
+            Stops the currently registered <see cref="T:SharpHook.Logging.LogSource" /> instance from receiving libuiohook logs.
+            </summary>
+        </member>
+        <member name="E:SharpHook.Logging.LogSource.MessageLogged">
+            <summary>
+            An event which is raised when libuiohook logs a message.
+            </summary>
+        </member>
+        <member name="T:SharpHook.MouseHookEventArgs">
+            <summary>
+            Event args for mouse-related hook events.
+            </summary>
+            <seealso cref="T:SharpHook.HookEventArgs" />
+            <seealso cref="T:SharpHook.KeyboardHookEventArgs" />
+            <seealso cref="T:SharpHook.MouseWheelHookEventArgs" />
+            <seealso cref="T:SharpHook.Native.MouseEventData" />
+        </member>
+        <member name="M:SharpHook.MouseHookEventArgs.#ctor(SharpHook.Native.UioHookEvent)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpHook.MouseHookEventArgs" /> class.
+            </summary>
+            <param name="rawEvent">The raw event data.</param>
+        </member>
+        <member name="P:SharpHook.MouseHookEventArgs.Data">
+            <summary>
+            Gets the event data.
+            </summary>
+            <value>The event data.</value>
+        </member>
+        <member name="T:SharpHook.MouseWheelHookEventArgs">
+            <summary>
+            Event args for mouse wheel-related hook events.
+            </summary>
+            <seealso cref="T:SharpHook.HookEventArgs" />
+            <seealso cref="T:SharpHook.KeyboardHookEventArgs" />
+            <seealso cref="T:SharpHook.MouseHookEventArgs" />
+            <seealso cref="T:SharpHook.Native.MouseWheelEventData" />
+        </member>
+        <member name="M:SharpHook.MouseWheelHookEventArgs.#ctor(SharpHook.Native.UioHookEvent)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpHook.MouseWheelHookEventArgs" /> class.
+            </summary>
+            <param name="rawEvent">The raw event data.</param>
+        </member>
+        <member name="P:SharpHook.MouseWheelHookEventArgs.Data">
+            <summary>
+            Gets the event data.
+            </summary>
+            <value>The event data.</value>
+        </member>
+        <member name="T:SharpHook.Native.DispatchProc">
+            <summary>
+            Represents a function which is called when an event occurs.
+            </summary>
+            <param name="e">The event that has occured.</param>
+            <param name="userData">
+            The data that was passed to <see cref="M:SharpHook.Native.UioHook.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)" />. Should not be used.
+            </param>
+            <seealso cref="M:SharpHook.Native.UioHook.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)" />
+        </member>
+        <member name="T:SharpHook.Native.EventReservedValueMask">
+            <summary>
+            Represents possible values of the <see cref="F:SharpHook.Native.UioHookEvent.Reserved" /> field.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventReservedValueMask.None">
+            <summary>
+            No value.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventReservedValueMask.SuppressEvent">
+            <summary>
+            If this flag is set in the event handler then the event will be suppressed from further propagation.
+            </summary>
+            <remarks>Suppressing events works only on Windows and macOS.</remarks>
+        </member>
+        <member name="T:SharpHook.Native.EventType">
+            <summary>
+            Represents the type of an input event.
+            </summary>
+            <seealso cref="T:SharpHook.Native.UioHookEvent" />
+        </member>
+        <member name="F:SharpHook.Native.EventType.HookEnabled">
+            <summary>
+            Raised when the global hook is started.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventType.HookDisabled">
+            <summary>
+            Raised when the global hook is stopped.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventType.KeyTyped">
+            <summary>
+            Raised when a character is typed.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventType.KeyPressed">
+            <summary>
+            Raised when a key is pressed.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventType.KeyReleased">
+            <summary>
+            Raised when a key is released.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventType.MouseClicked">
+            <summary>
+            Raised when a mouse button is clicked.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventType.MousePressed">
+            <summary>
+            Raised when a mouse button is pressed.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventType.MouseReleased">
+            <summary>
+            Raised when a mouse button is released.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventType.MouseMoved">
+            <summary>
+            Raised when the mouse is moved.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventType.MouseDragged">
+            <summary>
+            Raised when the mouse is dragged.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventType.MouseWheel">
+            <summary>
+            Raised when the mouse wheel is scrolled.
+            </summary>
+        </member>
+        <member name="T:SharpHook.Native.KeyboardEventData">
+            <summary>
+            Represents the data of a keyboard-related event.
+            </summary>
+            <seealso cref="T:SharpHook.KeyboardHookEventArgs" />
+            <seealso cref="T:SharpHook.Native.KeyCode" />
+        </member>
+        <member name="F:SharpHook.Native.KeyboardEventData.KeyCode">
+            <summary>
+            The key code.
+            </summary>
+            <value>The key code.</value>
+        </member>
+        <member name="F:SharpHook.Native.KeyboardEventData.RawCode">
+            <summary>
+            The raw key code.
+            </summary>
+            <value>The raw key code.</value>
+        </member>
+        <member name="F:SharpHook.Native.KeyboardEventData.KeyChar">
+            <summary>
+            The character of the key.
+            </summary>
+            <value>The character of the key.</value>
+            <remarks>
+            <para>This field is available only for the <see cref="F:SharpHook.Native.EventType.KeyTyped" /> event.</para>
+            <para>
+            This field is of type <see cref="T:System.UInt16" /> purely for marshalling reasons.
+            It should be used as a <see cref="T:System.Char" />.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Native.KeyboardEventData.Equals(System.Object)">
+            <summary>
+            Compares this object to another object for equality.
+            </summary>
+            <param name="obj">The object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Native.KeyboardEventData.Equals(SharpHook.Native.KeyboardEventData)">
+            <summary>
+            Compares this object to another object for equality.
+            </summary>
+            <param name="data">The object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Native.KeyboardEventData.GetHashCode">
+            <summary>
+            Gets the hash code of this object.
+            </summary>
+            <returns>The hash code of this object.</returns>
+        </member>
+        <member name="M:SharpHook.Native.KeyboardEventData.ToString">
+            <summary>
+            Returns the string representation of this object.
+            </summary>
+            <returns>The string representation of this object.</returns>
+        </member>
+        <member name="M:SharpHook.Native.KeyboardEventData.op_Equality(SharpHook.Native.KeyboardEventData,SharpHook.Native.KeyboardEventData)">
+            <summary>
+            Compares two objects for equality.
+            </summary>
+            <param name="left">The first object to compare</param>
+            <param name="right">The second object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Native.KeyboardEventData.op_Inequality(SharpHook.Native.KeyboardEventData,SharpHook.Native.KeyboardEventData)">
+            <summary>
+            Compares two objects for inequality.
+            </summary>
+            <param name="left">The first object to compare</param>
+            <param name="right">The second object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are not equal. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="T:SharpHook.Native.KeyCode">
+            <summary>
+            Represents a virtual key code.
+            </summary>
+            <seealso cref="T:SharpHook.Native.KeyboardEventData" />
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcEscape">
+            <summary>Escape</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF1">
+            <summary>F1</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF2">
+            <summary>F2</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF3">
+            <summary>F3</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF4">
+            <summary>F4</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF5">
+            <summary>F5</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF6">
+            <summary>F6</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF7">
+            <summary>F7</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF8">
+            <summary>F8</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF9">
+            <summary>F9</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF10">
+            <summary>F10</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF11">
+            <summary>F11</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF12">
+            <summary>F12</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF13">
+            <summary>F13</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF14">
+            <summary>F14</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF15">
+            <summary>F15</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF16">
+            <summary>F16</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF17">
+            <summary>F17</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF18">
+            <summary>F18</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF19">
+            <summary>F19</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF20">
+            <summary>F20</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF21">
+            <summary>F21</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF22">
+            <summary>F22</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF23">
+            <summary>F23</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF24">
+            <summary>F24</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcBackquote">
+            <summary>`</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.Vc1">
+            <summary>1</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.Vc2">
+            <summary>2</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.Vc3">
+            <summary>3</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.Vc4">
+            <summary>4</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.Vc5">
+            <summary>5</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.Vc6">
+            <summary>6</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.Vc7">
+            <summary>7</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.Vc8">
+            <summary>8</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.Vc9">
+            <summary>9</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.Vc0">
+            <summary>0</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcMinus">
+            <summary>-</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcEquals">
+            <summary>=</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcBackspace">
+            <summary>Backspace</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcTab">
+            <summary>Tab</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcCapsLock">
+            <summary>Caps Lock</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcA">
+            <summary>A</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcB">
+            <summary>B</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcC">
+            <summary>C</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcD">
+            <summary>D</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcE">
+            <summary>E</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcF">
+            <summary>F</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcG">
+            <summary>G</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcH">
+            <summary>H</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcI">
+            <summary>I</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcJ">
+            <summary>J</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcK">
+            <summary>K</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcL">
+            <summary>L</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcM">
+            <summary>M</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcN">
+            <summary>N</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcO">
+            <summary>O</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcP">
+            <summary>P</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcQ">
+            <summary>Q</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcR">
+            <summary>R</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcS">
+            <summary>S</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcT">
+            <summary>T</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcU">
+            <summary>U</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcV">
+            <summary>V</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcW">
+            <summary>W</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcX">
+            <summary>X</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcY">
+            <summary>Y</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcZ">
+            <summary>Z</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcOpenBracket">
+            <summary>[</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcCloseBracket">
+            <summary>]</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcBackSlash">
+            <summary>\</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSemicolon">
+            <summary>;</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcQuote">
+            <summary>'</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcEnter">
+            <summary>Enter</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcComma">
+            <summary>,</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcPeriod">
+            <summary>.</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSlash">
+            <summary>/</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSpace">
+            <summary>Space</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcPrintScreen">
+            <summary>Print Screen</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcScrollLock">
+            <summary>Scroll Lock</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcPause">
+            <summary>Pause</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcLesserGreater">
+            <summary>
+            Either the angle bracket key or the backslash key on the RT 102-key keyboard
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcInsert">
+            <summary>Insert</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcDelete">
+            <summary>Delete</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcHome">
+            <summary>Home</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcEnd">
+            <summary>End</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcPageUp">
+            <summary>Page Up</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcPageDown">
+            <summary>Page Down</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcUp">
+            <summary>Up Arrow</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcLeft">
+            <summary>Left Arrow</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcClear">
+            <summary>Clear</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcRight">
+            <summary>Right Arrow</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcDown">
+            <summary>Down Arrow</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumLock">
+            <summary>Num Lock</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadDivide">
+            <summary>Num-Pad Divide</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadMultiply">
+            <summary>Num-Pad Multiply</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadSubtract">
+            <summary>Num-Pad Subtract</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadEquals">
+            <summary>Num-Pad Equals</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadAdd">
+            <summary>Num-Pad Add</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadEnter">
+            <summary>Num-Pad Enter</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadSeparator">
+            <summary>Num-Pad Separator</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPad1">
+            <summary>Num-Pad 1</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPad2">
+            <summary>Num-Pad 2</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPad3">
+            <summary>Num-Pad 3</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPad4">
+            <summary>Num-Pad 4</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPad5">
+            <summary>Num-Pad 5</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPad6">
+            <summary>Num-Pad 6</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPad7">
+            <summary>Num-Pad 7</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPad8">
+            <summary>Num-Pad 8</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPad9">
+            <summary>Num-Pad 9</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPad0">
+            <summary>Num-Pad 0</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadEnd">
+            <summary>Num-Pad End</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadDown">
+            <summary>Num-Pad Down</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadPageDown">
+            <summary>Num-Pad Page Down</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadLeft">
+            <summary>Num-Pad Left</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadClear">
+            <summary>Num-Pad Clear</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadRight">
+            <summary>Num-Pad Right</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadHome">
+            <summary>Num-Pad Home</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadUp">
+            <summary>Num-Pad Up</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadPageUp">
+            <summary>Num-Pad Page Up</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadInsert">
+            <summary>Num-Pad Insert</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadDelete">
+            <summary>Num-Pad Delete</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcLeftShift">
+            <summary>Left Shift</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcRightShift">
+            <summary>Right Shift</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcLeftControl">
+            <summary>Left Control</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcRightControl">
+            <summary>Right Control</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcLeftAlt">
+            <summary>
+            Left Alt (on Windows and Linux) or Option (on macOS)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcRightAlt">
+            <summary>
+            Right Alt (on Windows and Linux) or Option (on macOS)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcLeftMeta">
+            <summary>
+            Left Win (on Windows), Command (on macOS), or Super/Meta (on Linux)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcRightMeta">
+            <summary>
+            Right Win (on Windows), Command (on macOS), or Super/Meta (on Linux)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcContextMenu">
+            <summary>Context Menu</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcPower">
+            <summary>Power</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSleep">
+            <summary>Sleep</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcWake">
+            <summary>Wake</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcMediaPlay">
+            <summary>Media Play</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcMediaStop">
+            <summary>Media Stop</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcMediaPrevious">
+            <summary>Media Previous</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcMediaNext">
+            <summary>Media Next</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcMediaSelect">
+            <summary>Media Select</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcMediaEject">
+            <summary>Media Eject</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcVolumeMute">
+            <summary>Volume Mute</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcVolumeUp">
+            <summary>Volume Up</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcVolumeDown">
+            <summary>Volume Down</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcAppMail">
+            <summary>Mail</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcAppCalculator">
+            <summary>Calculator</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcAppMusic">
+            <summary>Music</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcAppPictures">
+            <summary>Pictures</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcBrowserSearch">
+            <summary>Browser Search</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcBrowserHome">
+            <summary>Browser Home</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcBrowserBack">
+            <summary>Browser Back</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcBrowserForward">
+            <summary>Browser Forward</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcBrowserStop">
+            <summary>Browser Stop</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcBrowserRefresh">
+            <summary>Browser Refresh</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcBrowserFavorites">
+            <summary>Browser Favorites</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcKatakana">
+            <summary>Katakana</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcUnderscore">
+            <summary>_</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcFurigana">
+            <summary>Furigana</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcKanji">
+            <summary>Kanji</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcHiragana">
+            <summary>Hiragana</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcYen">
+            <summary>Yen</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadComma">
+            <summary>Num-Pad Comma</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSunHelp">
+            <summary>Sun Help</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSunStop">
+            <summary>Sun Stop</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSunProps">
+            <summary>Sun Props</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSunFront">
+            <summary>Sun Front</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSunOpen">
+            <summary>Sun Open</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSunFind">
+            <summary>Sun Find</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSunAgain">
+            <summary>Sun Again</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSunUndo">
+            <summary>Sun Undo</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSunCopy">
+            <summary>Sun Copy</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSunInsert">
+            <summary>Sun Insert</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSunCut">
+            <summary>Sun Cut</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcUndefined">
+            <summary>Undefined key</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.CharUndefined">
+            <summary>Undefined character</summary>
+        </member>
+        <member name="T:SharpHook.Native.LoggerProc">
+            <summary>
+            Represents a function which is called when a logging event occurs.
+            </summary>
+            <param name="level">The log level.</param>
+            <param name="userData">
+            The data that was passed to <see cref="M:SharpHook.Native.UioHook.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)" />. Should not be used.
+            </param>
+            <param name="format">The format of the log message.</param>
+            <param name="args">The arguments of the log message.</param>
+            <seealso cref="M:SharpHook.Native.UioHook.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)" />
+        </member>
+        <member name="T:SharpHook.Native.LogLevel">
+            <summary>
+            Represents a log level.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.LogLevel.Debug">
+            <summary>
+            Debug information
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.LogLevel.Info">
+            <summary>
+            General-purpose information
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.LogLevel.Warn">
+            <summary>
+            Warning
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.LogLevel.Error">
+            <summary>
+            Error
+            </summary>
+        </member>
+        <member name="T:SharpHook.Native.ModifierMask">
+            <summary>
+            Represents a virtual modifier mask.
+            </summary>
+            <seealso cref="T:SharpHook.Native.UioHookEvent" />
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.None">
+            <summary>No modifier</summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.LeftShift">
+            <summary>Left Shift</summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.LeftCtrl">
+            <summary>Left Control</summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.LeftMeta">
+            <summary>
+            Left Win (on Windows), Command (on macOS), or Super/Meta (on Linux)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.LeftAlt">
+            <summary>
+            Left Alt (on Windows and Linux) or Option (on macOS)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.RightShift">
+            <summary>Right Shift</summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.RightCtrl">
+            <summary>Right Control</summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.RightMeta">
+            <summary>
+            Right Win (on Windows), Command (on macOS), or Super/Meta (on Linux)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.RightAlt">
+            <summary>
+            Right Alt (on Windows and Linux) or Option (on macOS)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.Shift">
+            <summary>Left or right Shift</summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.Ctrl">
+            <summary>Left or right Control</summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.Meta">
+            <summary>
+            Left or right Win (on Windows), Command (on macOS), or Super/Meta (on Linux)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.Alt">
+            <summary>
+            Left or right Alt (on Windows and Linux) or Option (on macOS)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.Button1">
+            <summary>
+            Mouse button 1 (usually the left mouse button)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.Button2">
+            <summary>
+            Mouse button 2 (usually the right mouse button)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.Button3">
+            <summary>Mouse button 3</summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.Button4">
+            <summary>Mouse button 4</summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.Button5">
+            <summary>Mouse button 5</summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.NumLock">
+            <summary>Num Lock</summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.CapsLock">
+            <summary>Caps Lock</summary>
+        </member>
+        <member name="F:SharpHook.Native.ModifierMask.ScrollLock">
+            <summary>Scroll Lock</summary>
+        </member>
+        <member name="T:SharpHook.Native.MouseButton">
+            <summary>
+            Represents a mouse button.
+            </summary>
+            <seealso cref="T:SharpHook.Native.MouseEventData" />
+        </member>
+        <member name="F:SharpHook.Native.MouseButton.NoButton">
+            <summary>
+            No button
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.MouseButton.Button1">
+            <summary>
+            Button 1 (usually the left mouse button)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.MouseButton.Button2">
+            <summary>
+            Button 2 (usually the right mouse button)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.MouseButton.Button3">
+            <summary>
+            Button 3
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.MouseButton.Button4">
+            <summary>
+            Button 4
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.MouseButton.Button5">
+            <summary>
+            Button 5
+            </summary>
+        </member>
+        <member name="T:SharpHook.Native.MouseEventData">
+            <summary>
+            Represents the data of a mouse-related event.
+            </summary>
+            <seealso cref="T:SharpHook.MouseHookEventArgs" />
+            <seealso cref="T:SharpHook.Native.MouseButton" />
+        </member>
+        <member name="F:SharpHook.Native.MouseEventData.Button">
+            <summary>
+            The mouse button.
+            </summary>
+            <value>The mouse button.</value>
+        </member>
+        <member name="F:SharpHook.Native.MouseEventData.Clicks">
+            <summary>
+            The number of clicks.
+            </summary>
+            <value>The number of clicks.</value>
+        </member>
+        <member name="F:SharpHook.Native.MouseEventData.X">
+            <summary>
+            The X-coordinate of the mouse cursor.
+            </summary>
+            <value>The X-coordinate of the mouse cursor.</value>
+        </member>
+        <member name="F:SharpHook.Native.MouseEventData.Y">
+            <summary>
+            The Y-coordinate of the mouse cursor.
+            </summary>
+            <value>The Y-coordinate of the mouse cursor.</value>
+        </member>
+        <member name="M:SharpHook.Native.MouseEventData.Equals(System.Object)">
+            <summary>
+            Compares this object to another object for equality.
+            </summary>
+            <param name="obj">The object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Native.MouseEventData.Equals(SharpHook.Native.MouseEventData)">
+            <summary>
+            Compares this object to another object for equality.
+            </summary>
+            <param name="data">The object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Native.MouseEventData.GetHashCode">
+            <summary>
+            Gets the hash code of this object.
+            </summary>
+            <returns>The hash code of this object.</returns>
+        </member>
+        <member name="M:SharpHook.Native.MouseEventData.ToString">
+            <summary>
+            Returns the string representation of this object.
+            </summary>
+            <returns>The string representation of this object.</returns>
+        </member>
+        <member name="M:SharpHook.Native.MouseEventData.op_Equality(SharpHook.Native.MouseEventData,SharpHook.Native.MouseEventData)">
+            <summary>
+            Compares two objects for equality.
+            </summary>
+            <param name="left">The first object to compare</param>
+            <param name="right">The second object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Native.MouseEventData.op_Inequality(SharpHook.Native.MouseEventData,SharpHook.Native.MouseEventData)">
+            <summary>
+            Compares two objects for inequality.
+            </summary>
+            <param name="left">The first object to compare</param>
+            <param name="right">The second object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are not equal. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="T:SharpHook.Native.MouseWheelEventData">
+            <summary>
+            Represents the data of a mouse wheel-related event.
+            </summary>
+            <seealso cref="T:SharpHook.MouseWheelHookEventArgs" />
+            <seealso cref="T:SharpHook.Native.MouseWheelScrollType" />
+            <seealso cref="T:SharpHook.Native.MouseWheelScrollDirection" />
+        </member>
+        <member name="F:SharpHook.Native.MouseWheelEventData.Clicks">
+            <summary>
+            The number of clicks.
+            </summary>
+            <value>The number of clicks.</value>
+        </member>
+        <member name="F:SharpHook.Native.MouseWheelEventData.X">
+            <summary>
+            The X-coordinate of the mouse cursor.
+            </summary>
+            <value>The X-coordinate of the mouse cursor.</value>
+        </member>
+        <member name="F:SharpHook.Native.MouseWheelEventData.Y">
+            <summary>
+            The Y-coordinate of the mouse cursor.
+            </summary>
+            <value>The Y-coordinate of the mouse cursor.</value>
+        </member>
+        <member name="F:SharpHook.Native.MouseWheelEventData.Type">
+            <summary>
+            The wheel scroll type.
+            </summary>
+            <value>The wheel scroll type.</value>
+        </member>
+        <member name="F:SharpHook.Native.MouseWheelEventData.Amount">
+            <summary>
+            The wheel scroll amount.
+            </summary>
+            <value>The wheel scroll amount.</value>
+        </member>
+        <member name="F:SharpHook.Native.MouseWheelEventData.Rotation">
+            <summary>
+            The wheel rotation.
+            </summary>
+            <value>The wheel rotation.</value>
+            <remarks>
+            A positive value indicates that the wheel was rotated down and a negative value indicates that the wheel was
+            rotated up.
+            </remarks>
+        </member>
+        <member name="F:SharpHook.Native.MouseWheelEventData.Direction">
+            <summary>
+            The wheel scroll direction.
+            </summary>
+            <value>The wheel scroll direction.</value>
+        </member>
+        <member name="M:SharpHook.Native.MouseWheelEventData.Equals(System.Object)">
+            <summary>
+            Compares this object to another object for equality.
+            </summary>
+            <param name="obj">The object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Native.MouseWheelEventData.Equals(SharpHook.Native.MouseWheelEventData)">
+            <summary>
+            Compares this object to another object for equality.
+            </summary>
+            <param name="data">The object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Native.MouseWheelEventData.GetHashCode">
+            <summary>
+            Gets the hash code of this object.
+            </summary>
+            <returns>The hash code of this object.</returns>
+        </member>
+        <member name="M:SharpHook.Native.MouseWheelEventData.ToString">
+            <summary>
+            Returns the string representation of this object.
+            </summary>
+            <returns>The string representation of this object.</returns>
+        </member>
+        <member name="M:SharpHook.Native.MouseWheelEventData.op_Equality(SharpHook.Native.MouseWheelEventData,SharpHook.Native.MouseWheelEventData)">
+            <summary>
+            Compares two objects for equality.
+            </summary>
+            <param name="left">The first object to compare</param>
+            <param name="right">The second object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Native.MouseWheelEventData.op_Inequality(SharpHook.Native.MouseWheelEventData,SharpHook.Native.MouseWheelEventData)">
+            <summary>
+            Compares two objects for inequality.
+            </summary>
+            <param name="left">The first object to compare</param>
+            <param name="right">The second object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are not equal. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="T:SharpHook.Native.MouseWheelScrollDirection">
+            <summary>
+            Represents a mouse wheel scroll direction.
+            </summary>
+            <seealso cref="T:SharpHook.Native.MouseWheelEventData" />
+        </member>
+        <member name="F:SharpHook.Native.MouseWheelScrollDirection.VerticalDirection">
+            <summary>
+            Vertical scroll direction
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.MouseWheelScrollDirection.HorizontalDirection">
+            <summary>
+            Horizontal scroll direction
+            </summary>
+        </member>
+        <member name="T:SharpHook.Native.MouseWheelScrollType">
+            <summary>
+            Represents a mouse wheel scroll type.
+            </summary>
+            <seealso cref="T:SharpHook.Native.MouseWheelEventData" />
+        </member>
+        <member name="F:SharpHook.Native.MouseWheelScrollType.UnitScroll">
+            <summary>
+            Unit scroll
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.MouseWheelScrollType.BlockScroll">
+            <summary>
+            Block scroll
+            </summary>
+        </member>
+        <member name="T:SharpHook.Native.ScreenData">
+            <summary>
+            Represents screen-related data.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.ScreenData.Number">
+            <summary>
+            The ordinal number of the screen.
+            </summary>
+            <value>The ordinal number of the screen.</value>
+        </member>
+        <member name="F:SharpHook.Native.ScreenData.X">
+            <summary>
+            The X-coordinate of the screen.
+            </summary>
+            <value>The X-coordinate of the screen.</value>
+        </member>
+        <member name="F:SharpHook.Native.ScreenData.Y">
+            <summary>
+            The Y-coordinate of the screen.
+            </summary>
+            <value>The Y-coordinate of the screen.</value>
+        </member>
+        <member name="F:SharpHook.Native.ScreenData.Width">
+            <summary>
+            The width of the screen.
+            </summary>
+            <value>The width of the screen.</value>
+        </member>
+        <member name="F:SharpHook.Native.ScreenData.Height">
+            <summary>
+            The height of the screen.
+            </summary>
+            <value>The height of the screen.</value>
+        </member>
+        <member name="M:SharpHook.Native.ScreenData.Equals(System.Object)">
+            <summary>
+            Compares this object to another object for equality.
+            </summary>
+            <param name="obj">The object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Native.ScreenData.Equals(SharpHook.Native.ScreenData)">
+            <summary>
+            Compares this object to another object for equality.
+            </summary>
+            <param name="data">The object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Native.ScreenData.GetHashCode">
+            <summary>
+            Gets the hash code of this object.
+            </summary>
+            <returns>The hash code of this object.</returns>
+        </member>
+        <member name="M:SharpHook.Native.ScreenData.ToString">
+            <summary>
+            Returns the string representation of this object.
+            </summary>
+            <returns>The string representation of this object.</returns>
+        </member>
+        <member name="M:SharpHook.Native.ScreenData.op_Equality(SharpHook.Native.ScreenData,SharpHook.Native.ScreenData)">
+            <summary>
+            Compares two objects for equality.
+            </summary>
+            <param name="left">The first object to compare</param>
+            <param name="right">The second object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Native.ScreenData.op_Inequality(SharpHook.Native.ScreenData,SharpHook.Native.ScreenData)">
+            <summary>
+            Compares two objects for inequality.
+            </summary>
+            <param name="left">The first object to compare</param>
+            <param name="right">The second object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are not equal. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="T:SharpHook.Native.UioHook">
+            <summary>
+            Contains native methods of libuiohook.
+            </summary>
+        </member>
+        <member name="M:SharpHook.Native.UioHook.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)">
+            <summary>
+            Sets the hook callback function.
+            </summary>
+            <param name="dispatchProc">
+            The function to call when an event is raised, or <see langword="null" /> to unset the function.
+            </param>
+            <param name="userData">
+            Custom data to pass to the callback. Should not be used, and <see cref="F:System.IntPtr.Zero" /> should always be passed.
+            </param>
+            <seealso cref="T:SharpHook.Native.DispatchProc" />
+        </member>
+        <member name="M:SharpHook.Native.UioHook.Run">
+            <summary>
+            Runs the global hook and blocks the thread until it's stopped.
+            </summary>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Native.UioHook.Stop">
+            <summary>
+            Stops the global hook.
+            </summary>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Native.UioHook.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)">
+            <summary>
+            Sets the log callback function.
+            </summary>
+            <param name="loggerProc">
+            The function to call for logging, or <see langword="null" /> to unset the function.
+            </param>
+            <param name="userData">
+            Custom data to pass to the callback. Should not be used, and <see cref="F:System.IntPtr.Zero" /> should always be passed.
+            </param>
+            <seealso cref="T:SharpHook.Native.LoggerProc" />
+        </member>
+        <member name="M:SharpHook.Native.UioHook.PostEvent(SharpHook.Native.UioHookEvent@)">
+            <summary>
+            Posts a fake input event.
+            </summary>
+            <param name="e">The event to post.</param>
+            <returns>The result of the operation.</returns>
+            <remarks>
+            <para>
+            The instance of the event doesn't need all fields to have value. Only <see cref="F:SharpHook.Native.UioHookEvent.Type" />,
+            <see cref="F:SharpHook.Native.UioHookEvent.Keyboard" />/<see cref="F:SharpHook.Native.UioHookEvent.Mouse" />/<see cref="F:SharpHook.Native.UioHookEvent.Wheel" /> should
+            be present.
+            </para>
+            <para>
+            The following table describes the specifics of simulating each event type.
+            <list type="table">
+            <listheader>
+            <term>Event type</term>
+            <term>Description</term>
+            </listheader>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.HookEnabled" /></term>
+            <term>Events of this type are ignored.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.HookDisabled" /></term>
+            <term>Events of this type are ignored.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.KeyPressed" /></term>
+            <term>Only <see cref="F:SharpHook.Native.KeyboardEventData.KeyCode" /> is considered.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.KeyReleased" /></term>
+            <term>Only <see cref="F:SharpHook.Native.KeyboardEventData.KeyCode" /> is considered.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.KeyTyped" /></term>
+            <term>Events of this type are ignored.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.MousePressed" /></term>
+            <term>
+            Only <see cref="F:SharpHook.Native.MouseWheelEventData.X" />, <see cref="F:SharpHook.Native.MouseWheelEventData.Y" />,
+            and <see cref="F:SharpHook.Native.MouseEventData.Button" /> are considered.
+            </term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.MouseReleased" /></term>
+            <term>
+            Only <see cref="F:SharpHook.Native.MouseWheelEventData.X" />, <see cref="F:SharpHook.Native.MouseWheelEventData.Y" />,
+            and <see cref="F:SharpHook.Native.MouseEventData.Button" /> are considered.
+            </term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.MouseClicked" /></term>
+            <term>Events of this type are ignored.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.MouseMoved" /></term>
+            <term>Only <see cref="F:SharpHook.Native.MouseEventData.X" /> and <see cref="F:SharpHook.Native.MouseEventData.Y" /> are considered.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.MouseDragged" /></term>
+            <term>Not recommended to use; same as <see cref="F:SharpHook.Native.EventType.MouseMoved" />.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.MouseWheel" /></term>
+            <term>
+            Only <see cref="F:SharpHook.Native.MouseWheelEventData.X" />, <see cref="F:SharpHook.Native.MouseWheelEventData.Y" />,
+            <see cref="F:SharpHook.Native.MouseWheelEventData.Amount" />, and <see cref="F:SharpHook.Native.MouseWheelEventData.Rotation" /> are considered.
+            </term>
+            </item>
+            </list>
+            </para>
+            <para>
+            Mouse wheel simulation is a little inconsistent across platforms, and not documented. View the source code of
+            libuiohook for more details.
+            </para>
+            </remarks>
+            <seealso cref="T:SharpHook.EventSimulator" />
+        </member>
+        <member name="M:SharpHook.Native.UioHook.CreateScreenInfo(System.Byte@)">
+            <summary>
+            Gets the information about screens.
+            </summary>
+            <param name="count">The number of screens.</param>
+            <returns>
+            The information about screens as an unmanaged array of <see cref="T:SharpHook.Native.ScreenData" /> whose length is returned
+            as <paramref name="count" />.
+            </returns>
+            <remarks>
+            You should use <see cref="M:SharpHook.Native.UioHook.CreateScreenInfo" /> instead as it returns a managed array.
+            </remarks>
+            <seealso cref="M:SharpHook.Native.UioHook.CreateScreenInfo" />
+        </member>
+        <member name="M:SharpHook.Native.UioHook.CreateScreenInfo">
+            <summary>
+            Gets the information about screens.
+            </summary>
+            <returns>The information about screens.</returns>
+            <remarks>
+            This is the safe version of <see cref="M:SharpHook.Native.UioHook.CreateScreenInfo(System.Byte@)" /> as it returns a managed array.
+            </remarks>
+            <seealso cref="M:SharpHook.Native.UioHook.CreateScreenInfo(System.Byte@)" />
+        </member>
+        <member name="M:SharpHook.Native.UioHook.GetAutoRepeatRate">
+            <summary>
+            Gets the auto-repeat rate.
+            </summary>
+            <returns>The auto-repeat rate.</returns>
+        </member>
+        <member name="M:SharpHook.Native.UioHook.GetAutoRepeatDelay">
+            <summary>
+            Gets the auto-repeat delay.
+            </summary>
+            <returns>The auto-repeat delay.</returns>
+        </member>
+        <member name="M:SharpHook.Native.UioHook.GetPointerAccelerationMultiplier">
+            <summary>
+            Gets the pointer acceleration multiplier.
+            </summary>
+            <returns>The pointer acceleration multiplier.</returns>
+        </member>
+        <member name="M:SharpHook.Native.UioHook.GetPointerAccelerationThreshold">
+            <summary>
+            Gets the pointer acceleration threshold.
+            </summary>
+            <returns>The pointer acceleration threshold.</returns>
+        </member>
+        <member name="M:SharpHook.Native.UioHook.GetPointerSensitivity">
+            <summary>
+            Gets the pointer sensitivity.
+            </summary>
+            <returns>The pointer sensitivity.</returns>
+        </member>
+        <member name="M:SharpHook.Native.UioHook.GetMultiClickTime">
+            <summary>
+            Gets the multi-click time.
+            </summary>
+            <returns>The multi-click time.</returns>
+        </member>
+        <member name="T:SharpHook.Native.UioHookEvent">
+            <summary>
+            Represents an event which can be raised by libuiohook.
+            </summary>
+            <remarks>
+            <para>
+            This is a union-like struct and the data it contains depends on the type of the event.
+            </para>
+            <para>
+            The <see cref="F:SharpHook.Native.UioHookEvent.Keyboard" /> field is available for the events of the following types:
+            <list type="bullet">
+            <item><description><see cref="F:SharpHook.Native.EventType.KeyTyped" /></description></item>
+            <item><description><see cref="F:SharpHook.Native.EventType.KeyPressed" /></description></item>
+            <item><description><see cref="F:SharpHook.Native.EventType.KeyReleased" /></description></item>
+            </list>
+            </para>
+            <para>
+            The <see cref="F:SharpHook.Native.UioHookEvent.Mouse" /> field is available for the events of the following types:
+            <list type="bullet">
+            <item><description><see cref="F:SharpHook.Native.EventType.MouseClicked" /></description></item>
+            <item><description><see cref="F:SharpHook.Native.EventType.MousePressed" /></description></item>
+            <item><description><see cref="F:SharpHook.Native.EventType.MouseReleased" /></description></item>
+            <item><description><see cref="F:SharpHook.Native.EventType.MouseMoved" /></description></item>
+            <item><description><see cref="F:SharpHook.Native.EventType.MouseDragged" /></description></item>
+            </list>
+            </para>
+            <para>
+            The <see cref="F:SharpHook.Native.UioHookEvent.Wheel" /> field is available for the events of the following type:
+            <list type="bullet">
+            <item><description><see cref="F:SharpHook.Native.EventType.MouseWheel" /></description></item>
+            </list>
+            </para>
+            </remarks>
+            <seealso cref="T:SharpHook.Native.EventType" />
+            <seealso cref="T:SharpHook.Native.ModifierMask" />
+            <seealso cref="T:SharpHook.Native.KeyboardEventData" />
+            <seealso cref="T:SharpHook.Native.MouseEventData" />
+            <seealso cref="T:SharpHook.Native.MouseWheelEventData" />
+        </member>
+        <member name="F:SharpHook.Native.UioHookEvent.Type">
+            <summary>
+            The type of the event.
+            </summary>
+            <value>The type of the event.</value>
+        </member>
+        <member name="F:SharpHook.Native.UioHookEvent.Time">
+            <summary>
+            The UNIX timestamp of the event.
+            </summary>
+            <value>The UNIX timestamp of the event.</value>
+        </member>
+        <member name="F:SharpHook.Native.UioHookEvent.Mask">
+            <summary>
+            The mask of the event.
+            </summary>
+            <value>The mask of the event.</value>
+        </member>
+        <member name="F:SharpHook.Native.UioHookEvent.Reserved">
+            <summary>
+            The reserved value which can be set in event handlers.
+            </summary>
+            <value>The reserved value which can be set in event handlers.</value>
+            <remarks>The value for this field should be set on the same thread which handles the event.</remarks>
+        </member>
+        <member name="F:SharpHook.Native.UioHookEvent.Keyboard">
+            <summary>
+            The event data if this event is keyboard-related.
+            </summary>
+            <value>The event data if this event is keyboard-related.</value>
+        </member>
+        <member name="F:SharpHook.Native.UioHookEvent.Mouse">
+            <summary>
+            The event data if this event is mouse-related.
+            </summary>
+            <value>The event data if this event is mouse-related.</value>
+        </member>
+        <member name="F:SharpHook.Native.UioHookEvent.Wheel">
+            <summary>
+            The event data if this event is mouse wheel-related.
+            </summary>
+            <value>The event data if this event is mouse wheel-related.</value>
+        </member>
+        <member name="M:SharpHook.Native.UioHookEvent.Equals(System.Object)">
+            <summary>
+            Compares this object to another object for equality.
+            </summary>
+            <param name="obj">The object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Native.UioHookEvent.Equals(SharpHook.Native.UioHookEvent)">
+            <summary>
+            Compares this object to another object for equality.
+            </summary>
+            <param name="e">The object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Native.UioHookEvent.GetHashCode">
+            <summary>
+            Gets the hash code of this object.
+            </summary>
+            <returns>The hash code of this object.</returns>
+        </member>
+        <member name="M:SharpHook.Native.UioHookEvent.ToString">
+            <summary>
+            Returns the string representation of this object.
+            </summary>
+            <returns>The string representation of this object.</returns>
+        </member>
+        <member name="M:SharpHook.Native.UioHookEvent.op_Equality(SharpHook.Native.UioHookEvent,SharpHook.Native.UioHookEvent)">
+            <summary>
+            Compares two objects for equality.
+            </summary>
+            <param name="left">The first object to compare</param>
+            <param name="right">The second object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Native.UioHookEvent.op_Inequality(SharpHook.Native.UioHookEvent,SharpHook.Native.UioHookEvent)">
+            <summary>
+            Compares two objects for inequality.
+            </summary>
+            <param name="left">The first object to compare</param>
+            <param name="right">The second object to compare</param>
+            <returns>
+            <see langword="true" /> if the objects are not equal. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="T:SharpHook.Native.UioHookResult">
+            <summary>
+            Represents a result of an operation of libuiohook.
+            </summary>
+            <seealso cref="T:SharpHook.Native.UioHook" />
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.Success">
+            <summary>
+            Success
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.Failure">
+            <summary>
+            Failure
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorOutOfMemory">
+            <summary>
+            Out of memory
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorXOpenDisplay">
+            <summary>
+            XOpenDisplay failed (X11)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorXRecordNotFound">
+            <summary>
+            XRecord not found (X11)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorXRecordAllocRange">
+            <summary>
+            XRecordAllocRange failed (X11)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorXRecordCreateContext">
+            <summary>
+            XRecordCreateContext failed (X11)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorXRecordEnableContext">
+            <summary>
+            XRecordEnableContext failed (X11)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorXRecordGetContext">
+            <summary>
+            XRecordGetContext failed (X11)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorSetWindowsHookEx">
+            <summary>
+            SetWindowsHookEx failed (Windows)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorGetModuleHandle">
+            <summary>
+            Couldn't get a module handle for SetWindowsHookEx (Windows)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorAxApiDisabled">
+            <summary>
+            Accessibility API is disabled for the process (macOS)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorCreateEventPort">
+            <summary>
+            Failed to create an event port (macOS)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorCreateRunLoopSource">
+            <summary>
+            CFRunLoopSourceCreate or CFMachPortCreateRunLoopSource failed (macOS)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorGetRunLoop">
+            <summary>
+            CFRunLoopGetCurrent failed (macOS)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorCreateObserver">
+            <summary>
+            CFRunLoopObserverCreate failed (macOS)
+            </summary>
+        </member>
+        <member name="T:SharpHook.SimpleGlobalHook">
+            <summary>
+            Represents an implementation of <see cref="T:SharpHook.IGlobalHook" /> which raises events on the same thread on which
+            the hook itself runs.
+            </summary>
+            <remarks>
+            The event handlers should generally be fast and simple so that the thread can process all raised events. If you
+            need to do a lot of processing in the event handlers then consider using another implementation, e.g.
+            <see cref="T:SharpHook.TaskPoolGlobalHook" />.
+            </remarks>
+            <seealso cref="T:SharpHook.IGlobalHook" />
+            <seealso cref="T:SharpHook.GlobalHookBase" />
+            <seealso cref="T:SharpHook.TaskPoolGlobalHook" />
+        </member>
+        <member name="M:SharpHook.SimpleGlobalHook.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.SimpleGlobalHook" />.
+            </summary>
+        </member>
+        <member name="M:SharpHook.SimpleGlobalHook.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.SimpleGlobalHook" />.
+            </summary>
+            <param name="runAsyncOnBackgroundThread">
+            <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
+            Otherwise, <see langword="false" />.
+            </param>
+        </member>
+        <member name="M:SharpHook.SimpleGlobalHook.HandleHookEvent(SharpHook.Native.UioHookEvent@)">
+            <summary>
+            Handles the hook event.
+            </summary>
+            <param name="e">The event to handle.</param>
+        </member>
+        <member name="T:SharpHook.TaskPoolGlobalHook">
+            <summary>
+            Represents a task pool-based implementation of <see cref="T:SharpHook.IGlobalHook" />.
+            </summary>
+            <remarks>
+            <para>
+            The event handlers will run with the specified parallelism level on separate threads inside the default thread
+            pool for tasks. This way the hook itself will not be blocked if the handlers are long-running.
+            The exception is the <see cref="E:SharpHook.IGlobalHook.HookDisabled" /> event which will run on the same thread that called
+            the <see cref="M:System.IDisposable.Dispose" /> method since at that point it doesn't matter anymore that the hook is
+            not blocked.
+            </para>
+            <para>
+            Setting <see cref="P:SharpHook.HookEventArgs.SuppressEvent" /> inside the handlers will have no effect as they are run
+            on other threads.
+            </para>
+            </remarks>
+            <seealso cref="T:SharpHook.IGlobalHook" />
+            <seealso cref="T:SharpHook.GlobalHookBase" />
+            <seealso cref="T:SharpHook.SimpleGlobalHook" />
+            <seealso cref="T:SharpHook.TaskPoolGlobalHookOptions" />
+        </member>
+        <member name="M:SharpHook.TaskPoolGlobalHook.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.TaskPoolGlobalHook" />.
+            </summary>
+            <remarks>
+            Calling this constructor is the same as passing <see cref="F:SharpHook.TaskPoolGlobalHookOptions.Sequential" /> to the
+            other constructor.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.TaskPoolGlobalHook.#ctor(SharpHook.TaskPoolGlobalHookOptions)">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.TaskPoolGlobalHook" />.
+            </summary>
+            <param name="options">The options of the hook which include its parallelism level.</param>
+        </member>
+        <member name="M:SharpHook.TaskPoolGlobalHook.HandleHookEvent(SharpHook.Native.UioHookEvent@)">
+            <summary>
+            Handles the hook event.
+            </summary>
+            <param name="e">The event to handle.</param>
+        </member>
+        <member name="M:SharpHook.TaskPoolGlobalHook.Dispose(System.Boolean)">
+            <summary>
+            Destoys the global hook.
+            </summary>
+            <param name="disposing">
+            <see langword="true" /> if the method is called from the <see cref="M:System.IDisposable.Dispose" /> method.
+            Otherwise, <see langword="false" />.
+            </param>
+            <exception cref="T:SharpHook.HookException">Stopping the hook has failed.</exception>
+            <remarks>
+            After calling this method, the hook cannot be started again. If you want to do that, create a new instance
+            of <see cref="T:SharpHook.IGlobalHook" />.
+            </remarks>
+        </member>
+        <member name="T:SharpHook.TaskPoolGlobalHookOptions">
+            <summary>
+            Represents options for <see cref="T:SharpHook.TaskPoolGlobalHook" />.
+            </summary>
+            <seealso cref="T:SharpHook.TaskPoolGlobalHook" />
+        </member>
+        <member name="F:SharpHook.TaskPoolGlobalHookOptions.Sequential">
+            <summary>
+            The default options with the parallelism level of 1.
+            </summary>
+            <value>The options with the parallelism level of 1.</value>
+        </member>
+        <member name="M:SharpHook.TaskPoolGlobalHookOptions.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.TaskPoolGlobalHookOptions" />.
+            </summary>
+            <param name="parallelismLevel">The parallelism level of the event handlers.</param>
+        </member>
+        <member name="M:SharpHook.TaskPoolGlobalHookOptions.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.TaskPoolGlobalHookOptions" />.
+            </summary>
+            <param name="runAsyncOnBackgroundThread">
+            <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
+            Otherwise, <see langword="false" />.
+            </param>
+        </member>
+        <member name="M:SharpHook.TaskPoolGlobalHookOptions.#ctor(System.Int32,System.Boolean)">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.TaskPoolGlobalHookOptions" />.
+            </summary>
+            <param name="parallelismLevel">The parallelism level of the event handlers.</param>
+            <param name="runAsyncOnBackgroundThread">
+            <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
+            Otherwise, <see langword="false" />.
+            </param>
+        </member>
+        <member name="P:SharpHook.TaskPoolGlobalHookOptions.ParallelismLevel">
+            <summary>
+            Gets the configured parallelism level of the event handlers.
+            </summary>
+            <value>The parallelism level of the event handlers.</value>
+        </member>
+        <member name="P:SharpHook.TaskPoolGlobalHookOptions.RunAsyncOnBackgroundThread">
+            <summary>
+            Gets the value of whether <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
+            </summary>
+            <value>
+            <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
+            Otherwise, <see langword="false" />.
+            </value>
+        </member>
+    </members>
+</doc>
