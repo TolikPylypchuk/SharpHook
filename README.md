@@ -24,7 +24,7 @@ versions.
 You can find more information (including the API reference) in the [docs](https://sharphook.tolik.io). Or if you need a
 specific version:
 
-- [v4.0.0](https://sharphook.tolik.io/v4.0.1)
+- [v4.0.1](https://sharphook.tolik.io/v4.0.1)
 - [v4.0.0](https://sharphook.tolik.io/v4.0.0)
 - [v3.1.3](https://sharphook.tolik.io/v3.1.3)
 - [v3.1.2](https://sharphook.tolik.io/v3.1.2)
