@@ -1,5 +1,11 @@
 # SharpHook Changelog
 
+## [v4.0.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v4.0.1) (March 12, 2023)
+
+libuiohook was updated to commit
+[41a17e2](https://github.com/TolikPylypchuk/libuiohook/tree/41a17e284300c411a6fa64de3cb6ab058f3a09c5) which fixes
+support for multiple screens on Windows.
+
 ## [v4.0.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v4.0.0) (November 9, 2022)
 
 - .NET 7 support was added and `[LibraryImport]` is used instead of `[DllImport]` on it.
