@@ -1042,7 +1042,7 @@
             <remarks>
             <para>This field is available only for the <see cref="F:SharpHook.Native.EventType.KeyTyped" /> event.</para>
             <para>
-            This field is of type <see cref="T:System.UInt16" /> only for marshalling reasons.
+            This field is of type <see cref="T:System.UInt16" /> purely for marshalling reasons.
             It should be used as a <see cref="T:System.Char" />.
             </para>
             </remarks>

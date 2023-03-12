@@ -76,10 +76,6 @@ public static class Program
         hook.MousePressed.Subscribe(OnHookEvent);
         hook.MouseReleased.Subscribe(OnHookEvent);
 
-        hook.MouseMoved
-            .Throttle(TimeSpan.FromSeconds(1))
-            .Subscribe(OnMouseMovement);
-
         hook.MouseDragged
             .Throttle(TimeSpan.FromSeconds(1))
             .Subscribe(OnHookEvent);
@@ -114,12 +110,5 @@ public static class Program
         {
             hook.Dispose();
         }
-    }
-
-    private static void OnMouseMovement(MouseHookEventArgs e)
-    {
-        Console.WriteLine($"{e.EventTime.ToLocalTime()}: {e.RawEvent}");
-        Simulator.SimulateMousePress(e.Data.X, e.Data.Y, MouseButton.Button1);
-        Simulator.SimulateMouseRelease(e.Data.X, e.Data.Y, MouseButton.Button1);
     }
 }
