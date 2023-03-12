@@ -11,7 +11,7 @@ well as higher-level types to work with it.
 SharpHook exposes the functions of libuiohook in the `SharpHook.Native.UioHook` class. The `SharpHook.Native`
 namespace also contains structs and enums which represent the data returned by libuiohook.
 
-**Note**: In general, you shouldn't use native methods directly. Instead, use the higher-level types provided by
+**Note**: In general, you don't need to use the native methods directly. Instead, use the higher-level types provided by
 SharpHook.
 
 `UioHook` contains the following methods for working with the global hook:
@@ -25,6 +25,10 @@ setting the log callback.
 
 libuiohook also provides functions to get various system properties. The corresponding methods are also present in
 `UioHook`.
+
+**Important**: An application manifest is required on Windows to enable DPI awareness for your app. If it's not enabled
+then mouse coordinates will be wrong on high-DPI screens. You can look at the sample app in this repository to see the
+manifest example.
 
 ### Default Global Hooks
 
@@ -64,9 +68,11 @@ when the hook is destroyed. You can subscribe to events after the hook is starte
 
 `IGlobalHook` extends `IDisposable`. When you call the `Dispose` method on a hook, it's destroyed. The contract of
 the interface is that once a hook has been destroyed, it cannot be started again - you'll have to create a new instance.
+Calling `Dispose` when the hook is not running is safe - it just won't do anything (other than marking the instance as
+disposed).
 
 **Important**: Always use one instance of `IGlobalHook` at a time in the entire application since they all must use
-the same static method to set the hook callback for libuiohook, and there may only be one callback at a time.
+the same static method to set the hook callback for libuiohook, so there may only be one callback at a time.
 
 SharpHook provides two implementations of `IGlobalHook`:
 
@@ -108,21 +114,24 @@ simulator.SimulateKeyPress(KeyCode.VcC);
 simulator.SimulateKeyRelease(KeyCode.VcC);
 simulator.SimulateKeyRelease(KeyCode.VcLeftControl);
 
-// Press the left mouse button
-simulator.SimulateMousePress(MouseButton.Button1);
+// Press the left mouse button at (0, 0)
+simulator.SimulateMousePress(0, 0, MouseButton.Button1);
 
-// Release the left mouse button
-simulator.SimulateMouseRelease(MouseButton.Button1);
+// Release the left mouse button at (0, 0)
+simulator.SimulateMouseRelease(0, 0, MouseButton.Button1);
 
-// Move the mouse pointer to the (0, 0) point
+// Move the mouse pointer to (0, 0)
 simulator.SimulateMouseMovement(0, 0);
 
-// Move the mouse pointer to the (0, 0) point, and scroll the mouse wheel
-simulator.SimulateMouseWheel(0, 0, 10, -1);
+// Scroll the mouse wheel at (0, 0)
+simulator.SimulateMouseWheel(0, 0, 2, -120);
 ```
 
 SharpHook provides the `IEventSimulator` interface, and the default implementation, `EventSimulator`, which calls
 `UioHook.PostEvent` to simulate the events.
+
+**Note**: When simulating mouse button pressing/releasing or scrolling, the mouse pointer coordinates are required. If
+you need to do that at the current coordinates, then simply track the coordinates with a global hook.
 
 ### Logging
 
@@ -143,7 +152,11 @@ private void OnMessageLogged(object? sender, LogEventArgs e) =>
 
 As with global hooks, you should use only one `LogSource` object at a time. `ILogSource` extends `IDisposable` - you
 can dispose of a log source to stop receiving libuiohook messages. You should keep a reference to an instance of
-`LogSource` since it will stop receiving messages when garbage collector deletes it, to avoid memory leaks.
+`LogSource` when you use it since it will stop receiving messages when garbage collector deletes it, to avoid memory
+leaks.
+
+An `EmptyLogSource` class is also available - this class doesn't listen to the libuiohook logs and can be used instead
+of `LogSource` in release builds.
 
 ## Icon
 

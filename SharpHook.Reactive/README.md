@@ -63,7 +63,7 @@ propagated to the adapted hook.
 ### Logging
 
 SharpHook.Reactive contains the `IReactiveLogSource` and `ReactiveLogSourceAdapter` so you can use them in a more
-reactive way than `ILogSource` and `LogSource`:
+reactive way:
 
 ```C#
 using SharpHook.Logging;
