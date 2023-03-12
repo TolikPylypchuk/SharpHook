@@ -1,9 +1,6 @@
 namespace SharpHook.Sample;
 
-using System;
-using System.IO;
 using System.Reactive.Linq;
-using System.Threading.Tasks;
 
 using SharpHook.Logging;
 using SharpHook.Native;
@@ -75,6 +72,10 @@ public static class Program
         hook.MouseClicked.Subscribe(OnHookEvent);
         hook.MousePressed.Subscribe(OnHookEvent);
         hook.MouseReleased.Subscribe(OnHookEvent);
+
+        hook.MouseMoved
+            .Throttle(TimeSpan.FromSeconds(1))
+            .Subscribe(OnHookEvent);
 
         hook.MouseDragged
             .Throttle(TimeSpan.FromSeconds(1))
