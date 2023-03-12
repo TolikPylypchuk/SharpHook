@@ -62,6 +62,11 @@ public enum UioHookResult
     ErrorGetModuleHandle = 0x31,
 
     /// <summary>
+    /// Couldn't create an invisible window which will listen to screen changes (Windows)
+    /// </summary>
+    ErrorCreateInvisibleWindow = 0x32,
+
+    /// <summary>
     /// Accessibility API is disabled for the process (macOS)
     /// </summary>
     ErrorAxApiDisabled = 0x40,

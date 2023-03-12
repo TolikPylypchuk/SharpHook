@@ -2467,6 +2467,11 @@
             Couldn't get a module handle for SetWindowsHookEx (Windows)
             </summary>
         </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorCreateInvisibleWindow">
+            <summary>
+            Couldn't create an invisible window which will listen to screen changes (Windows)
+            </summary>
+        </member>
         <member name="F:SharpHook.Native.UioHookResult.ErrorAxApiDisabled">
             <summary>
             Accessibility API is disabled for the process (macOS)
