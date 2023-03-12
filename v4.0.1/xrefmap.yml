@@ -3422,6 +3422,12 @@ references:
   commentId: F:SharpHook.Native.UioHookResult.ErrorCreateEventPort
   fullName: SharpHook.Native.UioHookResult.ErrorCreateEventPort
   nameWithType: UioHookResult.ErrorCreateEventPort
+- uid: SharpHook.Native.UioHookResult.ErrorCreateInvisibleWindow
+  name: ErrorCreateInvisibleWindow
+  href: api/SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_ErrorCreateInvisibleWindow
+  commentId: F:SharpHook.Native.UioHookResult.ErrorCreateInvisibleWindow
+  fullName: SharpHook.Native.UioHookResult.ErrorCreateInvisibleWindow
+  nameWithType: UioHookResult.ErrorCreateInvisibleWindow
 - uid: SharpHook.Native.UioHookResult.ErrorCreateObserver
   name: ErrorCreateObserver
   href: api/SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_ErrorCreateObserver
