@@ -3,8 +3,9 @@
 ## [v4.1.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v4.1.0) (March 27, 2023)
 
 - libuiohook was updated to commit
-[3a90aeb](https://github.com/TolikPylypchuk/libuiohook/tree/3a90aebfcf6375eed220c7999997098d67eb6f98) which enables
-simulating mouse press/release events at the current coordinates
+[3a90aeb](https://github.com/TolikPylypchuk/libuiohook/tree/3a90aebfcf6375eed220c7999997098d67eb6f98).
+
+- The ability to simulate mouse press/release events at the current coordinates was added.
 
 - Turns out that libuiohook has always ignored mouse coordinates when simulating mouse wheel events, so the method
 which simulates them without coordaniates was added, and the previous one was marked as obsolete.
