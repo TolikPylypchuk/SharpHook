@@ -124,10 +124,22 @@ The following table describes the specifics of simulating each event type.
       </td>
     </tr>
     <tr>
+      <td><code>MousePressedIgnoreCoordinates</code></td>
+      <td>
+        Only <code>MouseEventData.Button</code> is considered.
+      </td>
+    </tr>
+    <tr>
       <td><code>MouseReleased</code></td>
       <td>
         Only <code>MouseWheelEventData.X</code>, <code>MouseWheelEventData.Y</code>, and
         <code>MouseEventData.Button</code> are considered.
+      </td>
+    </tr>
+    <tr>
+      <td><code>MouseReleasedIgnoreCoordinates</code></td>
+      <td>
+        Only <code>MouseEventData.Button</code> is considered.
       </td>
     </tr>
     <tr>
@@ -145,8 +157,7 @@ The following table describes the specifics of simulating each event type.
     <tr>
       <td><code>MouseWheel</code></td>
       <td>
-        Only <code>MouseWheelEventData.X</code>, <code>MouseWheelEventData.Y</code>,
-        <code>MouseWheelEventData.Amount</code>, and <code>MouseWheelEventData.Rotation</code> are considered.
+        Only <code>MouseWheelEventData.Amount</code> and <code>MouseWheelEventData.Rotation</code> are considered.
       </td>
     </tr>
   </tbody>

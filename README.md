@@ -16,27 +16,21 @@ dotnet add package SharpHook.Reactive
 
 ## Upgrading
 
-A [migration guide](https://sharphook.tolik.io/v4.0.1/articles/migration.html) is available for upgrading between major
+A [migration guide](https://sharphook.tolik.io/v4.1.0/articles/migration.html) is available for upgrading between major
 versions.
 
 ## Docs
 
-You can find more information (including the API reference) in the [docs](https://sharphook.tolik.io). Or if you need a
-specific version:
+You can find more information (including the API reference) in the docs at
+[https://sharphook.tolik.io](https://sharphook.tolik.io). Or if you need a specific version:
 
-- [v4.0.1](https://sharphook.tolik.io/v4.0.1)
-- [v4.0.0](https://sharphook.tolik.io/v4.0.0)
-- [v3.1.3](https://sharphook.tolik.io/v3.1.3)
-- [v3.1.2](https://sharphook.tolik.io/v3.1.2)
-- [v3.1.1](https://sharphook.tolik.io/v3.1.1)
-- [v3.1.0](https://sharphook.tolik.io/v3.1.0)
-- [v3.0.2](https://sharphook.tolik.io/v3.0.2)
-- [v3.0.1](https://sharphook.tolik.io/v3.0.1)
-- [v3.0.0](https://sharphook.tolik.io/v3.0.0)
+- [v4.1.0](https://sharphook.tolik.io/v4.1.0)
+- [v4.0.1](https://sharphook.tolik.io/v4.0.1) | [v4.0.0](https://sharphook.tolik.io/v4.0.0)
+- [v3.1.3](https://sharphook.tolik.io/v3.1.3) | [v3.1.2](https://sharphook.tolik.io/v3.1.2) | [v3.1.1](https://sharphook.tolik.io/v3.1.1) | [v3.1.0](https://sharphook.tolik.io/v3.1.0)
+- [v3.0.2](https://sharphook.tolik.io/v3.0.2) | [v3.0.1](https://sharphook.tolik.io/v3.0.1) | [v3.0.0](https://sharphook.tolik.io/v3.0.0)
 - [v2.0.0](https://sharphook.tolik.io/v2.0.0)
 - [v1.1.0](https://sharphook.tolik.io/v1.1.0)
-- [v1.0.1](https://sharphook.tolik.io/v1.0.1)
-- [v1.0.0](https://sharphook.tolik.io/v1.0.0)
+- [v1.0.1](https://sharphook.tolik.io/v1.0.1) | [v1.0.0](https://sharphook.tolik.io/v1.0.0)
 
 ## Supported Platforms
 
@@ -243,24 +237,21 @@ simulator.SimulateKeyPress(KeyCode.VcC);
 simulator.SimulateKeyRelease(KeyCode.VcC);
 simulator.SimulateKeyRelease(KeyCode.VcLeftControl);
 
-// Press the left mouse button at (0, 0)
-simulator.SimulateMousePress(0, 0, MouseButton.Button1);
+// Press the left mouse button
+simulator.SimulateMousePress(MouseButton.Button1);
 
-// Release the left mouse button at (0, 0)
-simulator.SimulateMouseRelease(0, 0, MouseButton.Button1);
+// Release the left mouse button
+simulator.SimulateMouseRelease(MouseButton.Button1);
 
 // Move the mouse pointer to (0, 0)
 simulator.SimulateMouseMovement(0, 0);
 
-// Scroll the mouse wheel at (0, 0)
-simulator.SimulateMouseWheel(0, 0, 2, -120);
+// Scroll the mouse wheel
+simulator.SimulateMouseWheel(2, -120);
 ```
 
 SharpHook provides the `IEventSimulator` interface, and the default implementation, `EventSimulator`, which calls
 `UioHook.PostEvent` to simulate the events.
-
-**Note**: When simulating mouse button pressing/releasing or scrolling, the mouse pointer coordinates are required. If
-you need to do that at the current coordinates, then simply track the coordinates with a global hook.
 
 ### Logging
 
@@ -305,10 +296,11 @@ reactiveLogSource.MessageLogged.Subscribe(this.OnMessageLogged);
 
 In order to build this library, you'll first need to get libuiohook binaries. You you can get a
 [nightly build from this repository](https://github.com/TolikPylypchuk/SharpHook/actions/workflows/build.yml), or you
-can build them yourself as instructued in the [libuiohook](https://github.com/kwhat/libuiohook) repository (not
-recommended as it's non-trivial, and you should most probably use the same options that the build in this repository
-uses anyway). Place the binaries into the appropriate directories in the `SharpHook` project, as described in the
-following table:
+can build them yourself as instructued in the [libuiohook fork](https://github.com/TolikPylypchuk/libuiohook) that
+SharpHook uses (not recommended as it's non-trivial, and you should most probably use the same options that the build in
+this repository uses anyway).
+
+Place the binaries into the appropriate directories in the `SharpHook` project, as described in the following table:
 
 <table>
   <tr>

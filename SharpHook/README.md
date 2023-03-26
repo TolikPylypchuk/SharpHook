@@ -114,24 +114,21 @@ simulator.SimulateKeyPress(KeyCode.VcC);
 simulator.SimulateKeyRelease(KeyCode.VcC);
 simulator.SimulateKeyRelease(KeyCode.VcLeftControl);
 
-// Press the left mouse button at (0, 0)
-simulator.SimulateMousePress(0, 0, MouseButton.Button1);
+// Press the left mouse button
+simulator.SimulateMousePress(MouseButton.Button1);
 
-// Release the left mouse button at (0, 0)
-simulator.SimulateMouseRelease(0, 0, MouseButton.Button1);
+// Release the left mouse button
+simulator.SimulateMouseRelease(MouseButton.Button1);
 
 // Move the mouse pointer to (0, 0)
 simulator.SimulateMouseMovement(0, 0);
 
-// Scroll the mouse wheel at (0, 0)
-simulator.SimulateMouseWheel(0, 0, 2, -120);
+// Scroll the mouse wheel
+simulator.SimulateMouseWheel(2, -120);
 ```
 
 SharpHook provides the `IEventSimulator` interface, and the default implementation, `EventSimulator`, which calls
 `UioHook.PostEvent` to simulate the events.
-
-**Note**: When simulating mouse button pressing/releasing or scrolling, the mouse pointer coordinates are required. If
-you need to do that at the current coordinates, then simply track the coordinates with a global hook.
 
 ### Logging
 
