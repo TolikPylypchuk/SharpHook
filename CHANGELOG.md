@@ -8,7 +8,7 @@
 - The ability to simulate mouse press/release events at the current coordinates was added.
 
 - Turns out that libuiohook has always ignored mouse coordinates when simulating mouse wheel events, so the method
-which simulates them without coordaniates was added, and the previous one was marked as obsolete.
+which simulates them without coordinates was added, and the previous one was marked as obsolete.
 
 ## [v4.0.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v4.0.1) (March 12, 2023)
 
