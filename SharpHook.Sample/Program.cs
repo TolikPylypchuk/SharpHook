@@ -88,7 +88,11 @@ public static class Program
 
     private static async Task SimulateInputEvents()
     {
-        Simulator.SimulateMouseMovement(0, 0);
+        Simulator.SimulateMousePress(MouseButton.Button1);
+        await Task.Delay(50);
+
+        Simulator.SimulateMouseRelease(MouseButton.Button1);
+        await Task.Delay(50);
 
         Simulator.SimulateKeyPress(KeyCode.VcA);
         await Task.Delay(50);
@@ -96,7 +100,7 @@ public static class Program
         Simulator.SimulateKeyRelease(KeyCode.VcA);
         await Task.Delay(50);
 
-        Simulator.SimulateMouseWheel(0, 0, 10, -1);
+        Simulator.SimulateMouseWheel(10, -1);
     }
 
     private static void OnHookEvent(HookEventArgs e) =>

@@ -1,5 +1,7 @@
 namespace SharpHook;
 
+using System;
+
 using SharpHook.Native;
 
 /// <summary>
@@ -33,6 +35,18 @@ public class EventSimulator : IEventSimulator
         });
 
     /// <summary>
+    /// Simulates pressing a mouse button at the current coordinates.
+    /// </summary>
+    /// <param name="button">The mouse button to press.</param>
+    /// <returns>The result of the operation.</returns>
+    public UioHookResult SimulateMousePress(MouseButton button) =>
+        this.PostEvent(new()
+        {
+            Type = EventType.MousePressedIgnoreCoordinates,
+            Mouse = new() { Button = button }
+        });
+
+    /// <summary>
     /// Simulates pressing a mouse button at the specified coordinates.
     /// </summary>
     /// <param name="x">The target X-coordinate of the mouse pointer.</param>
@@ -44,6 +58,18 @@ public class EventSimulator : IEventSimulator
         {
             Type = EventType.MousePressed,
             Mouse = new() { Button = button, X = x, Y = y }
+        });
+
+    /// <summary>
+    /// Simulates releasing a mouse button at the current coordinates.
+    /// </summary>
+    /// <param name="button">The mouse button to release.</param>
+    /// <returns>The result of the operation.</returns>
+    public UioHookResult SimulateMouseRelease(MouseButton button) =>
+        this.PostEvent(new()
+        {
+            Type = EventType.MouseReleasedIgnoreCoordinates,
+            Mouse = new() { Button = button }
         });
 
     /// <summary>
@@ -74,6 +100,29 @@ public class EventSimulator : IEventSimulator
         });
 
     /// <summary>
+    /// Simulates scrolling the mouse wheel.
+    /// </summary>
+    /// <param name="amount">The scrolling amount.</param>
+    /// <param name="rotation">The wheel rotation.</param>
+    /// <returns>The result of the operation.</returns>
+    /// <remarks>
+    /// <para>
+    /// A positive <paramref name="rotation" /> value indicates that the wheel will be rotated down and a negative value
+    /// indicates that the wheel will be rotated up.
+    /// </para>
+    /// <para>
+    /// Mouse wheel simulation is a little inconsistent across platforms, and not documented. View the source code of
+    /// libuiohook for more details.
+    /// </para>
+    /// </remarks>
+    public UioHookResult SimulateMouseWheel(ushort amount, short rotation) =>
+        this.PostEvent(new()
+        {
+            Type = EventType.MouseWheel,
+            Wheel = new() { Amount = amount, Rotation = rotation }
+        });
+
+    /// <summary>
     /// Simulates scrolling the mouse wheel at the specified coordinates.
     /// </summary>
     /// <param name="x">The target X-coordinate of the mouse pointer.</param>
@@ -91,6 +140,7 @@ public class EventSimulator : IEventSimulator
     /// libuiohook for more details.
     /// </para>
     /// </remarks>
+    [Obsolete("Coordinates are ignored by libuiohook, so the version without them should be used")]
     public UioHookResult SimulateMouseWheel(short x, short y, ushort amount, short rotation) =>
         this.PostEvent(new()
         {
