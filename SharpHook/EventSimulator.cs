@@ -100,6 +100,19 @@ public class EventSimulator : IEventSimulator
         });
 
     /// <summary>
+    /// Simulates moving a mouse pointer relative to the current cursor position.
+    /// </summary>
+    /// <param name="x">The X-coordinate offset.</param>
+    /// <param name="y">The Y-coordinate offset.</param>
+    /// <returns>The result of the operation.</returns>
+    public UioHookResult SimulateMouseMovementRelative(short x, short y) =>
+        this.PostEvent(new()
+        {
+            Type = EventType.MouseMovedRelativeToCursor,
+            Mouse = new() { X = x, Y = y }
+        });
+
+    /// <summary>
     /// Simulates scrolling the mouse wheel.
     /// </summary>
     /// <param name="amount">The scrolling amount.</param>

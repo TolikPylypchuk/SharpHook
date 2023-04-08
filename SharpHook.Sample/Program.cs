@@ -88,6 +88,9 @@ public static class Program
 
     private static async Task SimulateInputEvents()
     {
+        Simulator.SimulateMouseMovementRelative(50, 50);
+        await Task.Delay(50);
+
         Simulator.SimulateMousePress(MouseButton.Button1);
         await Task.Delay(50);
 

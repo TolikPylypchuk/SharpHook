@@ -70,5 +70,10 @@ public enum EventType
     /// <summary>
     /// Posted to release a mouse button at the current coordinates. Never raised.
     /// </summary>
-    MouseReleasedIgnoreCoordinates
+    MouseReleasedIgnoreCoordinates,
+
+    /// <summary>
+    /// Posted to move the mouse relative to the current cursor position. Never raised.
+    /// </summary>
+    MouseMovedRelativeToCursor
 }

@@ -64,6 +64,14 @@
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
             <returns>The result of the operation.</returns>
         </member>
+        <member name="M:SharpHook.EventSimulator.SimulateMouseMovementRelative(System.Int16,System.Int16)">
+            <summary>
+            Simulates moving a mouse pointer relative to the current cursor position.
+            </summary>
+            <param name="x">The X-coordinate offset.</param>
+            <param name="y">The Y-coordinate offset.</param>
+            <returns>The result of the operation.</returns>
+        </member>
         <member name="M:SharpHook.EventSimulator.SimulateMouseWheel(System.UInt16,System.Int16)">
             <summary>
             Simulates scrolling the mouse wheel.
@@ -491,6 +499,14 @@
             </summary>
             <param name="x">The target X-coordinate of the mouse pointer.</param>
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.IEventSimulator.SimulateMouseMovementRelative(System.Int16,System.Int16)">
+            <summary>
+            Simulates moving a mouse pointer relative to the current cursor position.
+            </summary>
+            <param name="x">The X-coordinate offset.</param>
+            <param name="y">The Y-coordinate offset.</param>
             <returns>The result of the operation.</returns>
         </member>
         <member name="M:SharpHook.IEventSimulator.SimulateMouseWheel(System.UInt16,System.Int16)">
@@ -1082,6 +1098,11 @@
         <member name="F:SharpHook.Native.EventType.MouseReleasedIgnoreCoordinates">
             <summary>
             Posted to release a mouse button at the current coordinates. Never raised.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventType.MouseMovedRelativeToCursor">
+            <summary>
+            Posted to move the mouse relative to the current cursor position. Never raised.
             </summary>
         </member>
         <member name="T:SharpHook.Native.KeyboardEventData">
