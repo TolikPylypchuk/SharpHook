@@ -123,6 +123,7 @@ has more information:</p>
 <ul>
 <li><code>MouseWheel</code> - raised when the mouse wheel is scrolled.</li>
 </ul>
+<p><code>EventType</code> defines three more types, but they are used only when simulating events.</p>
 <p><code>UioHookEvent</code> also contains the <code>Time</code> and <code>Mask</code> fields. <code>Time</code> is the event's UNIX timestamp. <code>Mask</code> contains the
 state of keyboard modifiers and the mouse state at the time of the event.</p>
 <p>Lastly, <code>UioHookEvent</code> contains the <code>Reserved</code> field. This field can be set inside the event handler and libuiohook
@@ -198,6 +199,10 @@ all its fields. Only <code>Type</code> and <code>Keyboard</code>/<code>Mouse</co
     </tr>
     <tr>
       <td><code>MouseMoved</code></td>
+      <td>Only <code>MouseEventData.X</code> and <code>MouseEventData.Y</code> are considered.</td>
+    </tr>
+    <tr>
+      <td><code>MouseMovedRelativeToCursor</code></td>
       <td>Only <code>MouseEventData.X</code> and <code>MouseEventData.Y</code> are considered.</td>
     </tr>
     <tr>
