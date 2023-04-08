@@ -247,7 +247,7 @@ simulator.SimulateMouseRelease(MouseButton.Button1);
 // Move the mouse pointer to (0, 0)
 simulator.SimulateMouseMovement(0, 0);
 
-// Move the mouse pointer 50 pixels to the left and 100 pixels down
+// Move the mouse pointer 50 pixels to the right and 100 pixels down
 simulator.SimulateMouseMovementRelative(50, 100);
 
 // Scroll the mouse wheel
