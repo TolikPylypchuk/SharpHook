@@ -52,6 +52,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.EventSimulator.SimulateMouseMovement
   nameWithType: EventSimulator.SimulateMouseMovement
+- uid: SharpHook.EventSimulator.SimulateMouseMovementRelative(System.Int16,System.Int16)
+  name: SimulateMouseMovementRelative(Int16, Int16)
+  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMouseMovementRelative_System_Int16_System_Int16_
+  commentId: M:SharpHook.EventSimulator.SimulateMouseMovementRelative(System.Int16,System.Int16)
+  fullName: SharpHook.EventSimulator.SimulateMouseMovementRelative(System.Int16, System.Int16)
+  nameWithType: EventSimulator.SimulateMouseMovementRelative(Int16, Int16)
+- uid: SharpHook.EventSimulator.SimulateMouseMovementRelative*
+  name: SimulateMouseMovementRelative
+  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMouseMovementRelative_
+  commentId: Overload:SharpHook.EventSimulator.SimulateMouseMovementRelative
+  isSpec: "True"
+  fullName: SharpHook.EventSimulator.SimulateMouseMovementRelative
+  nameWithType: EventSimulator.SimulateMouseMovementRelative
 - uid: SharpHook.EventSimulator.SimulateMousePress(SharpHook.Native.MouseButton)
   name: SimulateMousePress(MouseButton)
   href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMousePress_SharpHook_Native_MouseButton_
@@ -656,6 +669,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.IEventSimulator.SimulateMouseMovement
   nameWithType: IEventSimulator.SimulateMouseMovement
+- uid: SharpHook.IEventSimulator.SimulateMouseMovementRelative(System.Int16,System.Int16)
+  name: SimulateMouseMovementRelative(Int16, Int16)
+  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMouseMovementRelative_System_Int16_System_Int16_
+  commentId: M:SharpHook.IEventSimulator.SimulateMouseMovementRelative(System.Int16,System.Int16)
+  fullName: SharpHook.IEventSimulator.SimulateMouseMovementRelative(System.Int16, System.Int16)
+  nameWithType: IEventSimulator.SimulateMouseMovementRelative(Int16, Int16)
+- uid: SharpHook.IEventSimulator.SimulateMouseMovementRelative*
+  name: SimulateMouseMovementRelative
+  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMouseMovementRelative_
+  commentId: Overload:SharpHook.IEventSimulator.SimulateMouseMovementRelative
+  isSpec: "True"
+  fullName: SharpHook.IEventSimulator.SimulateMouseMovementRelative
+  nameWithType: IEventSimulator.SimulateMouseMovementRelative
 - uid: SharpHook.IEventSimulator.SimulateMousePress(SharpHook.Native.MouseButton)
   name: SimulateMousePress(MouseButton)
   href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMousePress_SharpHook_Native_MouseButton_
@@ -1417,6 +1443,12 @@ references:
   commentId: F:SharpHook.Native.EventType.MouseMoved
   fullName: SharpHook.Native.EventType.MouseMoved
   nameWithType: EventType.MouseMoved
+- uid: SharpHook.Native.EventType.MouseMovedRelativeToCursor
+  name: MouseMovedRelativeToCursor
+  href: api/SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseMovedRelativeToCursor
+  commentId: F:SharpHook.Native.EventType.MouseMovedRelativeToCursor
+  fullName: SharpHook.Native.EventType.MouseMovedRelativeToCursor
+  nameWithType: EventType.MouseMovedRelativeToCursor
 - uid: SharpHook.Native.EventType.MousePressed
   name: MousePressed
   href: api/SharpHook.Native.EventType.html#SharpHook_Native_EventType_MousePressed
