@@ -65,6 +65,8 @@ has more information:
 
 - `MouseWheel` - raised when the mouse wheel is scrolled.
 
+`EventType` defines three more types, but they are used only when simulating events.
+
 `UioHookEvent` also contains the `Time` and `Mask` fields. `Time` is the event's UNIX timestamp. `Mask` contains the
 state of keyboard modifiers and the mouse state at the time of the event.
 
@@ -148,6 +150,10 @@ The following table describes the specifics of simulating each event type.
     </tr>
     <tr>
       <td><code>MouseMoved</code></td>
+      <td>Only <code>MouseEventData.X</code> and <code>MouseEventData.Y</code> are considered.</td>
+    </tr>
+    <tr>
+      <td><code>MouseMovedRelativeToCursor</code></td>
       <td>Only <code>MouseEventData.X</code> and <code>MouseEventData.Y</code> are considered.</td>
     </tr>
     <tr>

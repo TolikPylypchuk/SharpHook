@@ -1,6 +1,6 @@
 # About SharpHook
 
-SharpHook. Version 4.1.0. Created by Tolik Pylypchuk.
+SharpHook. Version 4.2.0. Created by Tolik Pylypchuk.
 
 ## Library Status
 
@@ -9,6 +9,13 @@ to its `1.3` branch is considered stable. If you've noticed that this library ha
 rest assured that it's not abandoned! I'm not giving up on this library any time soon.
 
 ## Changelog
+
+### [v4.2.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v4.2.0) (April 8, 2023)
+
+- libuiohook was updated to commit
+[56e8cb8](https://github.com/TolikPylypchuk/libuiohook/tree/56e8cb88cbe9a337e6ad8b1e4e12e40e96fe02f4).
+
+- The ability to simulate mouse movement relative to the current cursor position was added.
 
 ### [v4.1.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v4.1.0) (March 27, 2023)
 

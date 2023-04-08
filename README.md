@@ -16,7 +16,7 @@ dotnet add package SharpHook.Reactive
 
 ## Upgrading
 
-A [migration guide](https://sharphook.tolik.io/v4.1.0/articles/migration.html) is available for upgrading between major
+A [migration guide](https://sharphook.tolik.io/v4.2.0/articles/migration.html) is available for upgrading between major
 versions.
 
 ## Docs
@@ -24,6 +24,7 @@ versions.
 You can find more information (including the API reference) in the docs at
 [https://sharphook.tolik.io](https://sharphook.tolik.io). Or if you need a specific version:
 
+- [v4.2.0](https://sharphook.tolik.io/v4.2.0)
 - [v4.1.0](https://sharphook.tolik.io/v4.1.0)
 - [v4.0.1](https://sharphook.tolik.io/v4.0.1) | [v4.0.0](https://sharphook.tolik.io/v4.0.0)
 - [v3.1.3](https://sharphook.tolik.io/v3.1.3) | [v3.1.2](https://sharphook.tolik.io/v3.1.2) | [v3.1.1](https://sharphook.tolik.io/v3.1.1) | [v3.1.0](https://sharphook.tolik.io/v3.1.0)
@@ -245,6 +246,9 @@ simulator.SimulateMouseRelease(MouseButton.Button1);
 
 // Move the mouse pointer to (0, 0)
 simulator.SimulateMouseMovement(0, 0);
+
+// Move the mouse pointer 50 pixels to the left and 100 pixels down
+simulator.SimulateMouseMovementRelative(50, 100);
 
 // Scroll the mouse wheel
 simulator.SimulateMouseWheel(2, -120);
