@@ -2311,7 +2311,7 @@
             <param name="count">The number of screens.</param>
             <returns>
             The information about screens as an unmanaged array of <see cref="T:SharpHook.Native.ScreenData" /> whose length is returned
-            as <paramref name="count" />.
+            as <paramref name="count" />. The memory used by the array must be freed manually.
             </returns>
             <remarks>
             You should use <see cref="M:SharpHook.Native.UioHook.CreateScreenInfo" /> instead as it returns a managed array.

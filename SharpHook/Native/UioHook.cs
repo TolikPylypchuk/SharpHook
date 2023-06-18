@@ -1,6 +1,7 @@
 namespace SharpHook.Native;
 
 using System;
+using System.Linq;
 #if NET5_0_OR_GREATER
 using System.Diagnostics.CodeAnalysis;
 #endif
@@ -172,7 +173,7 @@ public static partial class UioHook
     /// <param name="count">The number of screens.</param>
     /// <returns>
     /// The information about screens as an unmanaged array of <see cref="ScreenData" /> whose length is returned
-    /// as <paramref name="count" />.
+    /// as <paramref name="count" />. The memory used by the array must be freed manually.
     /// </returns>
     /// <remarks>
     /// You should use <see cref="CreateScreenInfo()" /> instead as it returns a managed array.
@@ -199,12 +200,14 @@ public static partial class UioHook
         var screens = CreateScreenInfo(out byte count);
 
         var result = new ScreenData[count];
-        var size = Marshal.SizeOf<ScreenData>();
+        int size = Marshal.SizeOf<ScreenData>();
 
         for (int i = 0; i < count; i++)
         {
             result[i] = Marshal.PtrToStructure<ScreenData>(new IntPtr(screens.ToInt64() + i * size));
         }
+
+        Marshal.FreeHGlobal(screens);
 
         return result;
     }
