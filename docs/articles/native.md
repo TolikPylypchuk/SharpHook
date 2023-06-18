@@ -215,6 +215,6 @@ libuiohook also provides functions which get various pieces of information about
 These functions are quite straightforward, except for `CreateScreenInfo`. `UioHook` defines two versions of this
 function. One is a native function which returns an unmanaged array of `ScreenData` objects (as an `IntPtr`) along
 with its length in an output parameter. Another is a wrapper which returs a managed array. Use the second one if you
-need it since it's safer.
+need it since it's safer. If you decide to use the native version then you must free the returned memory manually.
 
 Next article: [Global Hooks](hooks.md).

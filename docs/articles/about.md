@@ -1,6 +1,6 @@
 # About SharpHook
 
-SharpHook. Version 4.2.0. Created by Tolik Pylypchuk.
+SharpHook. Version 4.2.1. Created by Tolik Pylypchuk.
 
 ## Library Status
 
@@ -9,6 +9,15 @@ to its `1.3` branch is considered stable. If you've noticed that this library ha
 rest assured that it's not abandoned! I'm not giving up on this library any time soon.
 
 ## Changelog
+
+### [v4.2.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v4.2.1) (June 18, 2023)
+
+- libuiohook was updated to commit
+[34f279c](https://github.com/TolikPylypchuk/libuiohook/tree/34f279c3dc2bb0e92f2b4aca0a3214b6f2e78af9).
+
+- Getting screen info for multiple screens was fixed on Windows.
+
+- A memory leak from getting screen info was fixed.
 
 ### [v4.2.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v4.2.0) (April 8, 2023)
 
