@@ -30,6 +30,9 @@ bld/
 .vscode/
 .ionide/
 
+# IntelliJ IDEA/Rider cache/options directory
+.idea/
+
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
@@ -125,6 +128,7 @@ publish/
 !*.[Cc]ache/
 
 # Others
+.DS_Store
 ClientBin/
 ~$*
 *~

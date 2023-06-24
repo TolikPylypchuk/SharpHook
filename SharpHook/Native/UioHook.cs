@@ -1,7 +1,6 @@
 namespace SharpHook.Native;
 
 using System;
-using System.Linq;
 #if NET5_0_OR_GREATER
 using System.Diagnostics.CodeAnalysis;
 #endif
