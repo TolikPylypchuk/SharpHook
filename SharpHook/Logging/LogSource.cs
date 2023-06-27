@@ -3,6 +3,7 @@ namespace SharpHook.Logging;
 using System;
 
 using SharpHook.Native;
+using SharpHook.Providers;
 
 /// <summary>
 /// Represents a source of libuiohook logs.
@@ -12,7 +13,7 @@ using SharpHook.Native;
 /// Only a single <see cref="LogSource" /> instance must be used at a time.
 /// </para>
 /// <para>
-/// On Windows this class requires the Visual C++ Redistributable package to be installed as it contains the C runtime.
+/// On Windows this class requires the Visual C++ Redistributable package to be installed as it uses the C runtime.
 /// </para>
 /// </remarks>
 /// <seealso cref="ILogSource" />
@@ -24,11 +25,13 @@ public sealed class LogSource : ILogSource
 {
     private readonly LogEntryParser parser = new();
     private readonly LoggerProc loggerProc;
+    private readonly ILoggingProvider loggingProvider;
 
-    private LogSource(LogLevel minLevel)
+    private LogSource(ILoggingProvider loggingProvider, LogLevel minLevel)
     {
-        this.MinLevel = minLevel;
         this.loggerProc = this.OnLog;
+        this.loggingProvider = loggingProvider;
+        this.MinLevel = minLevel;
     }
 
     /// <summary>
@@ -61,10 +64,31 @@ public sealed class LogSource : ILogSource
     /// This method must not be called when another <see cref="LogSource" /> instance has already been registerd and
     /// hasn't been disposed.
     /// </remarks>
-    public static LogSource Register(LogLevel minLevel = LogLevel.Info)
+    public static LogSource Register(LogLevel minLevel = LogLevel.Info) =>
+        Register(UioHookProvider.Instance, minLevel);
+
+    /// <summary>
+    /// Creates and registers a source of libuiohook logs using the specified provider.
+    /// </summary>
+    /// <param name="loggingProvider">The logging provider used to register the log source.</param>
+    /// <param name="minLevel">The minimum log level.</param>
+    /// <returns>A source of libuiohook logs.</returns>
+    /// <remarks>
+    /// This method must not be called when another <see cref="LogSource" /> instance has already been registerd and
+    /// hasn't been disposed.
+    /// </remarks>
+    /// <exception cref="ArgumentNullException">
+    /// <paramref name="loggingProvider" /> is <see langword="null" />.
+    /// </exception>
+    public static LogSource Register(ILoggingProvider loggingProvider, LogLevel minLevel = LogLevel.Info)
     {
-        var source = new LogSource(minLevel);
-        UioHook.SetLoggerProc(source.loggerProc, IntPtr.Zero);
+        if (loggingProvider is null)
+        {
+            throw new ArgumentNullException(nameof(loggingProvider));
+        }
+
+        var source = new LogSource(loggingProvider, minLevel);
+        loggingProvider.SetLoggerProc(source.loggerProc, IntPtr.Zero);
         return source;
     }
 
@@ -84,7 +108,7 @@ public sealed class LogSource : ILogSource
             return;
         }
 
-        UioHook.SetLoggerProc(null, IntPtr.Zero);
+        this.loggingProvider.SetLoggerProc(null, IntPtr.Zero);
 
         if (disposing)
         {

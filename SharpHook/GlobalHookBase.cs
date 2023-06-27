@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 
+using SharpHook.Providers;
 using SharpHook.Native;
 
 /// <summary>
@@ -19,6 +20,7 @@ public abstract class GlobalHookBase : IGlobalHook
     private const string Starting = "starting";
     private const string Stopping = "stopping";
 
+    private readonly IGlobalHookProvider globalHookProvider;
     private readonly DispatchProc dispatchProc;
     private readonly bool runAsyncOnBackgroundThread;
 
@@ -32,12 +34,44 @@ public abstract class GlobalHookBase : IGlobalHook
     /// <summary>
     /// Initializes a new instance of <see cref="GlobalHookBase" />.
     /// </summary>
+    /// <param name="globalHookProvider">The underlying global hook provider.</param>
+    /// <exception cref="ArgumentNullException">
+    /// <paramref name="globalHookProvider"/> is <see langword="null" />.
+    /// </exception>
+    protected GlobalHookBase(IGlobalHookProvider globalHookProvider)
+        : this(globalHookProvider, false)
+    { }
+
+    /// <summary>
+    /// Initializes a new instance of <see cref="GlobalHookBase" />.
+    /// </summary>
     /// <param name="runAsyncOnBackgroundThread">
     /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
     /// Otherwise, <see langword="false" />.
     /// </param>
     protected GlobalHookBase(bool runAsyncOnBackgroundThread)
+        : this(UioHookProvider.Instance, runAsyncOnBackgroundThread)
+    { }
+
+    /// <summary>
+    /// Initializes a new instance of <see cref="GlobalHookBase" />.
+    /// </summary>
+    /// <param name="globalHookProvider">The underlying global hook provider.</param>
+    /// <param name="runAsyncOnBackgroundThread">
+    /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
+    /// Otherwise, <see langword="false" />.
+    /// </param>
+    /// <exception cref="ArgumentNullException">
+    /// <paramref name="globalHookProvider"/> is <see langword="null" />.
+    /// </exception>
+    protected GlobalHookBase(IGlobalHookProvider globalHookProvider, bool runAsyncOnBackgroundThread)
     {
+        if (globalHookProvider is null)
+        {
+            throw new ArgumentNullException(nameof(globalHookProvider));
+        }
+
+        this.globalHookProvider = globalHookProvider;
         this.dispatchProc = this.HandleHookEventIfNeeded;
         this.runAsyncOnBackgroundThread = runAsyncOnBackgroundThread;
     }
@@ -75,10 +109,10 @@ public abstract class GlobalHookBase : IGlobalHook
 
         try
         {
-            UioHook.SetDispatchProc(this.dispatchProc, IntPtr.Zero);
+            this.globalHookProvider.SetDispatchProc(this.dispatchProc, IntPtr.Zero);
 
             this.IsRunning = true;
-            var result = UioHook.Run();
+            var result = this.globalHookProvider.Run();
             this.IsRunning = false;
 
             if (result != UioHookResult.Success)
@@ -112,10 +146,10 @@ public abstract class GlobalHookBase : IGlobalHook
         {
             try
             {
-                UioHook.SetDispatchProc(this.dispatchProc, IntPtr.Zero);
+                this.globalHookProvider.SetDispatchProc(this.dispatchProc, IntPtr.Zero);
 
                 this.IsRunning = true;
-                var result = UioHook.Run();
+                var result = this.globalHookProvider.Run();
                 this.IsRunning = false;
 
                 if (result == UioHookResult.Success)
@@ -178,7 +212,7 @@ public abstract class GlobalHookBase : IGlobalHook
                 this.OnHookEnabled(args = new HookEventArgs(e));
                 break;
             case EventType.HookDisabled:
-                UioHook.SetDispatchProc(null, IntPtr.Zero);
+                this.globalHookProvider.SetDispatchProc(null, IntPtr.Zero);
                 this.OnHookDisabled(args = new HookEventArgs(e));
                 break;
             case EventType.KeyTyped:
@@ -330,7 +364,7 @@ public abstract class GlobalHookBase : IGlobalHook
 
         if (this.IsRunning)
         {
-            var result = UioHook.Stop();
+            var result = this.globalHookProvider.Stop();
 
             if (disposing && result != UioHookResult.Success)
             {

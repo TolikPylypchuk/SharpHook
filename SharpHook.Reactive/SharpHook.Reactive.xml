@@ -347,6 +347,19 @@
             Otherwise, <see langword="false" />.
             </param>
         </member>
+        <member name="M:SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.Reactive.SimpleReactiveGlobalHook" />.
+            </summary>
+            <param name="globalHookProvider">The underlying global hook provider.</param>
+            <param name="runAsyncOnBackgroundThread">
+            <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
+            Otherwise, <see langword="false" />.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="globalHookProvider"/> is <see langword="null" />.
+            </exception>
+        </member>
         <member name="M:SharpHook.Reactive.SimpleReactiveGlobalHook.Finalize">
             <summary>
             Destroys the global hook if it's running.

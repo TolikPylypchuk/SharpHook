@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 
 using SharpHook.Native;
+using SharpHook.Providers;
 
 /// <summary>
 /// Represents a simple reactive global hook.
@@ -33,6 +34,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
 
     private readonly Subject<MouseWheelHookEventArgs> mouseWheelSubject = new();
 
+    private readonly IGlobalHookProvider globalHookProvider;
     private readonly DispatchProc dispatchProc;
     private readonly bool runAsyncOnBackgroundThread;
 
@@ -51,7 +53,31 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     /// Otherwise, <see langword="false" />.
     /// </param>
     public SimpleReactiveGlobalHook(bool runAsyncOnBackgroundThread)
+        : this(UioHookProvider.Instance, runAsyncOnBackgroundThread)
+    { }
+
+    /// <summary>
+    /// Initializes a new instance of <see cref="SimpleReactiveGlobalHook" />.
+    /// </summary>
+    /// <param name="globalHookProvider">The underlying global hook provider.</param>
+    /// <param name="runAsyncOnBackgroundThread">
+    /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
+    /// Otherwise, <see langword="false" />.
+    /// </param>
+    /// <exception cref="ArgumentNullException">
+    /// <paramref name="globalHookProvider"/> is <see langword="null" />.
+    /// </exception>
+    public SimpleReactiveGlobalHook(IGlobalHookProvider globalHookProvider, bool runAsyncOnBackgroundThread)
     {
+        if (globalHookProvider is null)
+        {
+            throw new ArgumentNullException(nameof(globalHookProvider));
+        }
+
+        this.globalHookProvider = globalHookProvider;
+        this.dispatchProc = this.DispatchEvent;
+        this.runAsyncOnBackgroundThread = runAsyncOnBackgroundThread;
+
         this.HookEnabled = this.hookEnabledSubject.Take(1).AsObservable();
         this.HookDisabled = this.hookDisabledSubject.Take(1).AsObservable();
 
@@ -66,9 +92,6 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
         this.MouseDragged = this.mouseDraggedSubject.AsObservable();
 
         this.MouseWheel = this.mouseWheelSubject.AsObservable();
-
-        this.dispatchProc = this.DispatchEvent;
-        this.runAsyncOnBackgroundThread = runAsyncOnBackgroundThread;
     }
 
     /// <summary>
@@ -178,10 +201,10 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
 
         try
         {
-            UioHook.SetDispatchProc(this.dispatchProc, IntPtr.Zero);
+            this.globalHookProvider.SetDispatchProc(this.dispatchProc, IntPtr.Zero);
 
             this.IsRunning = true;
-            var result = UioHook.Run();
+            var result = this.globalHookProvider.Run();
             this.IsRunning = false;
 
             if (result != UioHookResult.Success)
@@ -218,10 +241,10 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
         {
             try
             {
-                UioHook.SetDispatchProc(this.dispatchProc, IntPtr.Zero);
+                this.globalHookProvider.SetDispatchProc(this.dispatchProc, IntPtr.Zero);
 
                 this.IsRunning = true;
-                var result = UioHook.Run();
+                var result = this.globalHookProvider.Run();
                 this.IsRunning = false;
 
                 if (result == UioHookResult.Success)
@@ -339,7 +362,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
         {
             this.hookDisabledSubject.Subscribe(_ =>
             {
-                UioHook.SetDispatchProc(null, IntPtr.Zero);
+                this.globalHookProvider.SetDispatchProc(null, IntPtr.Zero);
 
                 this.CompleteAllSubjects();
 
@@ -349,7 +372,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
                 }
             });
 
-            var result = UioHook.Stop();
+            var result = this.globalHookProvider.Stop();
 
             if (disposing && result != UioHookResult.Success)
             {

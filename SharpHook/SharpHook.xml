@@ -104,6 +104,15 @@
             Initializes a new instance of <see cref="T:SharpHook.GlobalHookBase" />.
             </summary>
         </member>
+        <member name="M:SharpHook.GlobalHookBase.#ctor(SharpHook.Providers.IGlobalHookProvider)">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.GlobalHookBase" />.
+            </summary>
+            <param name="globalHookProvider">The underlying global hook provider.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="globalHookProvider"/> is <see langword="null" />.
+            </exception>
+        </member>
         <member name="M:SharpHook.GlobalHookBase.#ctor(System.Boolean)">
             <summary>
             Initializes a new instance of <see cref="T:SharpHook.GlobalHookBase" />.
@@ -112,6 +121,19 @@
             <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
             Otherwise, <see langword="false" />.
             </param>
+        </member>
+        <member name="M:SharpHook.GlobalHookBase.#ctor(SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.GlobalHookBase" />.
+            </summary>
+            <param name="globalHookProvider">The underlying global hook provider.</param>
+            <param name="runAsyncOnBackgroundThread">
+            <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
+            Otherwise, <see langword="false" />.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="globalHookProvider"/> is <see langword="null" />.
+            </exception>
         </member>
         <member name="M:SharpHook.GlobalHookBase.Finalize">
             <summary>
@@ -876,7 +898,7 @@
             Only a single <see cref="T:SharpHook.Logging.LogSource" /> instance must be used at a time.
             </para>
             <para>
-            On Windows this class requires the Visual C++ Redistributable package to be installed as it contains the C runtime.
+            On Windows this class requires the Visual C++ Redistributable package to be installed as it uses the C runtime.
             </para>
             </remarks>
             <seealso cref="T:SharpHook.Logging.ILogSource" />
@@ -915,6 +937,21 @@
             This method must not be called when another <see cref="T:SharpHook.Logging.LogSource" /> instance has already been registerd and
             hasn't been disposed.
             </remarks>
+        </member>
+        <member name="M:SharpHook.Logging.LogSource.Register(SharpHook.Providers.ILoggingProvider,SharpHook.Native.LogLevel)">
+            <summary>
+            Creates and registers a source of libuiohook logs using the specified provider.
+            </summary>
+            <param name="loggingProvider">The logging provider used to register the log source.</param>
+            <param name="minLevel">The minimum log level.</param>
+            <returns>A source of libuiohook logs.</returns>
+            <remarks>
+            This method must not be called when another <see cref="T:SharpHook.Logging.LogSource" /> instance has already been registerd and
+            hasn't been disposed.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="loggingProvider" /> is <see langword="null" />.
+            </exception>
         </member>
         <member name="M:SharpHook.Logging.LogSource.Dispose">
             <summary>
@@ -2553,6 +2590,370 @@
             CFRunLoopObserverCreate failed (macOS)
             </summary>
         </member>
+        <member name="T:SharpHook.Providers.IEventSimulationProvider">
+            <summary>
+            Represents a provider of low-level event simulation functionality.
+            </summary>
+            <seealso cref="T:SharpHook.Providers.UioHookProvider" />
+        </member>
+        <member name="M:SharpHook.Providers.IEventSimulationProvider.PostEvent(SharpHook.Native.UioHookEvent@)">
+            <summary>
+            Posts a fake input event.
+            </summary>
+            <param name="e">The event to post.</param>
+            <returns>The result of the operation.</returns>
+            <remarks>
+            <para>
+            The instance of the event doesn't need all fields to have value. Only <see cref="F:SharpHook.Native.UioHookEvent.Type" />,
+            <see cref="F:SharpHook.Native.UioHookEvent.Keyboard" />/<see cref="F:SharpHook.Native.UioHookEvent.Mouse" />/<see cref="F:SharpHook.Native.UioHookEvent.Wheel" /> should
+            be present.
+            </para>
+            <para>
+            The following table describes the specifics of simulating each event type.
+            <list type="table">
+            <listheader>
+            <term>Event type</term>
+            <term>Description</term>
+            </listheader>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.HookEnabled" /></term>
+            <term>Events of this type are ignored.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.HookDisabled" /></term>
+            <term>Events of this type are ignored.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.KeyPressed" /></term>
+            <term>Only <see cref="F:SharpHook.Native.KeyboardEventData.KeyCode" /> is considered.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.KeyReleased" /></term>
+            <term>Only <see cref="F:SharpHook.Native.KeyboardEventData.KeyCode" /> is considered.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.KeyTyped" /></term>
+            <term>Events of this type are ignored.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.MousePressed" /></term>
+            <term>
+            Only <see cref="F:SharpHook.Native.MouseWheelEventData.X" />, <see cref="F:SharpHook.Native.MouseWheelEventData.Y" />,
+            and <see cref="F:SharpHook.Native.MouseEventData.Button" /> are considered.
+            </term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.MouseReleased" /></term>
+            <term>
+            Only <see cref="F:SharpHook.Native.MouseWheelEventData.X" />, <see cref="F:SharpHook.Native.MouseWheelEventData.Y" />,
+            and <see cref="F:SharpHook.Native.MouseEventData.Button" /> are considered.
+            </term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.MouseClicked" /></term>
+            <term>Events of this type are ignored.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.MouseMoved" /></term>
+            <term>Only <see cref="F:SharpHook.Native.MouseEventData.X" /> and <see cref="F:SharpHook.Native.MouseEventData.Y" /> are considered.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.MouseDragged" /></term>
+            <term>Not recommended to use; same as <see cref="F:SharpHook.Native.EventType.MouseMoved" />.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.MouseWheel" /></term>
+            <term>
+            Only <see cref="F:SharpHook.Native.MouseWheelEventData.X" />, <see cref="F:SharpHook.Native.MouseWheelEventData.Y" />,
+            <see cref="F:SharpHook.Native.MouseWheelEventData.Amount" />, and <see cref="F:SharpHook.Native.MouseWheelEventData.Rotation" /> are considered.
+            </term>
+            </item>
+            </list>
+            </para>
+            <para>
+            Mouse wheel simulation is a little inconsistent across platforms, and not documented. View the source code of
+            libuiohook for more details.
+            </para>
+            </remarks>
+            <seealso cref="T:SharpHook.EventSimulator" />
+        </member>
+        <member name="T:SharpHook.Providers.IGlobalHookProvider">
+            <summary>
+            Represents a provider of low-level global hook functionality.
+            </summary>
+            <seealso cref="T:SharpHook.Providers.UioHookProvider" />
+        </member>
+        <member name="M:SharpHook.Providers.IGlobalHookProvider.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)">
+            <summary>
+            Sets the hook callback function.
+            </summary>
+            <param name="dispatchProc">
+            The function to call when an event is raised, or <see langword="null" /> to unset the function.
+            </param>
+            <param name="userData">
+            Custom data to pass to the callback. Should not be used, and <see cref="F:System.IntPtr.Zero" /> should always be passed.
+            </param>
+            <seealso cref="T:SharpHook.Native.DispatchProc" />
+        </member>
+        <member name="M:SharpHook.Providers.IGlobalHookProvider.Run">
+            <summary>
+            Runs the global hook and blocks the thread until it's stopped.
+            </summary>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Providers.IGlobalHookProvider.Stop">
+            <summary>
+            Stops the global hook.
+            </summary>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="T:SharpHook.Providers.ILoggingProvider">
+            <summary>
+            Represents a provider of low-level logging functionality.
+            </summary>
+            <seealso cref="T:SharpHook.Providers.UioHookProvider" />
+        </member>
+        <member name="M:SharpHook.Providers.ILoggingProvider.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)">
+            <summary>
+            Sets the log callback function.
+            </summary>
+            <param name="loggerProc">
+            The function to call for logging, or <see langword="null" /> to unset the function.
+            </param>
+            <param name="userData">
+            Custom data to pass to the callback. Should not be used, and <see cref="F:System.IntPtr.Zero" /> should always be passed.
+            </param>
+            <seealso cref="T:SharpHook.Native.LoggerProc" />
+        </member>
+        <member name="T:SharpHook.Providers.IMouseInfoProvider">
+            <summary>
+            Represents a provider of low-level mouse info functionality.
+            </summary>
+            <seealso cref="T:SharpHook.Providers.UioHookProvider" />
+        </member>
+        <member name="M:SharpHook.Providers.IMouseInfoProvider.GetAutoRepeatRate">
+            <summary>
+            Gets the auto-repeat rate.
+            </summary>
+            <returns>The auto-repeat rate.</returns>
+        </member>
+        <member name="M:SharpHook.Providers.IMouseInfoProvider.GetAutoRepeatDelay">
+            <summary>
+            Gets the auto-repeat delay.
+            </summary>
+            <returns>The auto-repeat delay.</returns>
+        </member>
+        <member name="M:SharpHook.Providers.IMouseInfoProvider.GetPointerAccelerationMultiplier">
+            <summary>
+            Gets the pointer acceleration multiplier.
+            </summary>
+            <returns>The pointer acceleration multiplier.</returns>
+        </member>
+        <member name="M:SharpHook.Providers.IMouseInfoProvider.GetPointerAccelerationThreshold">
+            <summary>
+            Gets the pointer acceleration threshold.
+            </summary>
+            <returns>The pointer acceleration threshold.</returns>
+        </member>
+        <member name="M:SharpHook.Providers.IMouseInfoProvider.GetPointerSensitivity">
+            <summary>
+            Gets the pointer sensitivity.
+            </summary>
+            <returns>The pointer sensitivity.</returns>
+        </member>
+        <member name="M:SharpHook.Providers.IMouseInfoProvider.GetMultiClickTime">
+            <summary>
+            Gets the multi-click time.
+            </summary>
+            <returns>The multi-click time.</returns>
+        </member>
+        <member name="T:SharpHook.Providers.IScreenInfoProvider">
+            <summary>
+            Represents a provider of low-level screen info functionality.
+            </summary>
+            <seealso cref="T:SharpHook.Providers.UioHookProvider" />
+        </member>
+        <member name="M:SharpHook.Providers.IScreenInfoProvider.CreateScreenInfo">
+            <summary>
+            Gets the information about screens.
+            </summary>
+            <returns>The information about screens.</returns>
+        </member>
+        <member name="T:SharpHook.Providers.UioHookProvider">
+            <summary>
+            A provider of low-level functionality which delegates it to the <see cref="T:SharpHook.Native.UioHook" /> class.
+            </summary>
+            <seealso cref="T:SharpHook.Native.UioHook" />
+        </member>
+        <member name="M:SharpHook.Providers.UioHookProvider.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.Providers.UioHookProvider" />.
+            </summary>
+        </member>
+        <member name="P:SharpHook.Providers.UioHookProvider.Instance">
+            <summary>
+            Gets the single instance of <see cref="T:SharpHook.Providers.UioHookProvider" />.
+            </summary>
+        </member>
+        <member name="M:SharpHook.Providers.UioHookProvider.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)">
+            <summary>
+            Sets the hook callback function.
+            </summary>
+            <param name="dispatchProc">
+            The function to call when an event is raised, or <see langword="null" /> to unset the function.
+            </param>
+            <param name="userData">
+            Custom data to pass to the callback. Should not be used, and <see cref="F:System.IntPtr.Zero" /> should always be passed.
+            </param>
+            <seealso cref="T:SharpHook.Native.DispatchProc" />
+        </member>
+        <member name="M:SharpHook.Providers.UioHookProvider.Run">
+            <summary>
+            Runs the global hook and blocks the thread until it's stopped.
+            </summary>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Providers.UioHookProvider.Stop">
+            <summary>
+            Stops the global hook.
+            </summary>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Providers.UioHookProvider.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)">
+            <summary>
+            Sets the log callback function.
+            </summary>
+            <param name="loggerProc">
+            The function to call for logging, or <see langword="null" /> to unset the function.
+            </param>
+            <param name="userData">
+            Custom data to pass to the callback. Should not be used, and <see cref="F:System.IntPtr.Zero" /> should always be passed.
+            </param>
+            <seealso cref="T:SharpHook.Native.LoggerProc" />
+        </member>
+        <member name="M:SharpHook.Providers.UioHookProvider.PostEvent(SharpHook.Native.UioHookEvent@)">
+            <summary>
+            Posts a fake input event.
+            </summary>
+            <param name="e">The event to post.</param>
+            <returns>The result of the operation.</returns>
+            <remarks>
+            <para>
+            The instance of the event doesn't need all fields to have value. Only <see cref="F:SharpHook.Native.UioHookEvent.Type" />,
+            <see cref="F:SharpHook.Native.UioHookEvent.Keyboard" />/<see cref="F:SharpHook.Native.UioHookEvent.Mouse" />/<see cref="F:SharpHook.Native.UioHookEvent.Wheel" /> should
+            be present.
+            </para>
+            <para>
+            The following table describes the specifics of simulating each event type.
+            <list type="table">
+            <listheader>
+            <term>Event type</term>
+            <term>Description</term>
+            </listheader>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.HookEnabled" /></term>
+            <term>Events of this type are ignored.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.HookDisabled" /></term>
+            <term>Events of this type are ignored.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.KeyPressed" /></term>
+            <term>Only <see cref="F:SharpHook.Native.KeyboardEventData.KeyCode" /> is considered.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.KeyReleased" /></term>
+            <term>Only <see cref="F:SharpHook.Native.KeyboardEventData.KeyCode" /> is considered.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.KeyTyped" /></term>
+            <term>Events of this type are ignored.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.MousePressed" /></term>
+            <term>
+            Only <see cref="F:SharpHook.Native.MouseWheelEventData.X" />, <see cref="F:SharpHook.Native.MouseWheelEventData.Y" />,
+            and <see cref="F:SharpHook.Native.MouseEventData.Button" /> are considered.
+            </term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.MouseReleased" /></term>
+            <term>
+            Only <see cref="F:SharpHook.Native.MouseWheelEventData.X" />, <see cref="F:SharpHook.Native.MouseWheelEventData.Y" />,
+            and <see cref="F:SharpHook.Native.MouseEventData.Button" /> are considered.
+            </term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.MouseClicked" /></term>
+            <term>Events of this type are ignored.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.MouseMoved" /></term>
+            <term>Only <see cref="F:SharpHook.Native.MouseEventData.X" /> and <see cref="F:SharpHook.Native.MouseEventData.Y" /> are considered.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.MouseDragged" /></term>
+            <term>Not recommended to use; same as <see cref="F:SharpHook.Native.EventType.MouseMoved" />.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Native.EventType.MouseWheel" /></term>
+            <term>
+            Only <see cref="F:SharpHook.Native.MouseWheelEventData.X" />, <see cref="F:SharpHook.Native.MouseWheelEventData.Y" />,
+            <see cref="F:SharpHook.Native.MouseWheelEventData.Amount" />, and <see cref="F:SharpHook.Native.MouseWheelEventData.Rotation" /> are considered.
+            </term>
+            </item>
+            </list>
+            </para>
+            <para>
+            Mouse wheel simulation is a little inconsistent across platforms, and not documented. View the source code of
+            libuiohook for more details.
+            </para>
+            </remarks>
+            <seealso cref="T:SharpHook.EventSimulator" />
+        </member>
+        <member name="M:SharpHook.Providers.UioHookProvider.CreateScreenInfo">
+            <summary>
+            Gets the information about screens.
+            </summary>
+            <returns>The information about screens.</returns>
+        </member>
+        <member name="M:SharpHook.Providers.UioHookProvider.GetAutoRepeatRate">
+            <summary>
+            Gets the auto-repeat rate.
+            </summary>
+            <returns>The auto-repeat rate.</returns>
+        </member>
+        <member name="M:SharpHook.Providers.UioHookProvider.GetAutoRepeatDelay">
+            <summary>
+            Gets the auto-repeat delay.
+            </summary>
+            <returns>The auto-repeat delay.</returns>
+        </member>
+        <member name="M:SharpHook.Providers.UioHookProvider.GetPointerAccelerationMultiplier">
+            <summary>
+            Gets the pointer acceleration multiplier.
+            </summary>
+            <returns>The pointer acceleration multiplier.</returns>
+        </member>
+        <member name="M:SharpHook.Providers.UioHookProvider.GetPointerAccelerationThreshold">
+            <summary>
+            Gets the pointer acceleration threshold.
+            </summary>
+            <returns>The pointer acceleration threshold.</returns>
+        </member>
+        <member name="M:SharpHook.Providers.UioHookProvider.GetPointerSensitivity">
+            <summary>
+            Gets the pointer sensitivity.
+            </summary>
+            <returns>The pointer sensitivity.</returns>
+        </member>
+        <member name="M:SharpHook.Providers.UioHookProvider.GetMultiClickTime">
+            <summary>
+            Gets the multi-click time.
+            </summary>
+            <returns>The multi-click time.</returns>
+        </member>
         <member name="T:SharpHook.SimpleGlobalHook">
             <summary>
             Represents an implementation of <see cref="T:SharpHook.IGlobalHook" /> which raises events on the same thread on which
@@ -2572,6 +2973,15 @@
             Initializes a new instance of <see cref="T:SharpHook.SimpleGlobalHook" />.
             </summary>
         </member>
+        <member name="M:SharpHook.SimpleGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider)">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.SimpleGlobalHook" />.
+            </summary>
+            <param name="globalHookProvider">The underlying global hook provider.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="globalHookProvider"/> is <see langword="null" />.
+            </exception>
+        </member>
         <member name="M:SharpHook.SimpleGlobalHook.#ctor(System.Boolean)">
             <summary>
             Initializes a new instance of <see cref="T:SharpHook.SimpleGlobalHook" />.
@@ -2580,6 +2990,19 @@
             <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
             Otherwise, <see langword="false" />.
             </param>
+        </member>
+        <member name="M:SharpHook.SimpleGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.SimpleGlobalHook" />.
+            </summary>
+            <param name="globalHookProvider">The underlying global hook provider.</param>
+            <param name="runAsyncOnBackgroundThread">
+            <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
+            Otherwise, <see langword="false" />.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="globalHookProvider"/> is <see langword="null" />.
+            </exception>
         </member>
         <member name="M:SharpHook.SimpleGlobalHook.HandleHookEvent(SharpHook.Native.UioHookEvent@)">
             <summary>
@@ -2618,11 +3041,33 @@
             other constructor.
             </remarks>
         </member>
+        <member name="M:SharpHook.TaskPoolGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider)">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.TaskPoolGlobalHook" />.
+            </summary>
+            <param name="globalHookProvider">The underlying global hook provider.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="globalHookProvider"/> is <see langword="null" />.
+            </exception>
+        </member>
         <member name="M:SharpHook.TaskPoolGlobalHook.#ctor(SharpHook.TaskPoolGlobalHookOptions)">
             <summary>
             Initializes a new instance of <see cref="T:SharpHook.TaskPoolGlobalHook" />.
             </summary>
             <param name="options">The options of the hook which include its parallelism level.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="options"/> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:SharpHook.TaskPoolGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider,SharpHook.TaskPoolGlobalHookOptions)">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.TaskPoolGlobalHook" />.
+            </summary>
+            <param name="globalHookProvider">The underlying global hook provider.</param>
+            <param name="options">The options of the hook which include its parallelism level.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="globalHookProvider"/> or <paramref name="options" /> is <see langword="null" />.
+            </exception>
         </member>
         <member name="M:SharpHook.TaskPoolGlobalHook.HandleHookEvent(SharpHook.Native.UioHookEvent@)">
             <summary>

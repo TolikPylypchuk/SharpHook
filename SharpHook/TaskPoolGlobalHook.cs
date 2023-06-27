@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 using SharpHook.Internal;
 using SharpHook.Native;
+using SharpHook.Providers;
 
 /// <summary>
 /// Represents a task pool-based implementation of <see cref="IGlobalHook" />.
@@ -44,10 +45,50 @@ public sealed class TaskPoolGlobalHook : GlobalHookBase
     /// <summary>
     /// Initializes a new instance of <see cref="TaskPoolGlobalHook" />.
     /// </summary>
+    /// <param name="globalHookProvider">The underlying global hook provider.</param>
+    /// <exception cref="ArgumentNullException">
+    /// <paramref name="globalHookProvider"/> is <see langword="null" />.
+    /// </exception>
+    public TaskPoolGlobalHook(IGlobalHookProvider globalHookProvider)
+        : this(globalHookProvider, TaskPoolGlobalHookOptions.Sequential)
+    { }
+
+    /// <summary>
+    /// Initializes a new instance of <see cref="TaskPoolGlobalHook" />.
+    /// </summary>
     /// <param name="options">The options of the hook which include its parallelism level.</param>
+    /// <exception cref="ArgumentNullException">
+    /// <paramref name="options"/> is <see langword="null" />.
+    /// </exception>
     public TaskPoolGlobalHook(TaskPoolGlobalHookOptions options)
-        : base(options.RunAsyncOnBackgroundThread) =>
+        : base(options?.RunAsyncOnBackgroundThread ?? false)
+    {
+        if (options is null)
+        {
+            throw new ArgumentNullException(nameof(options));
+        }
+
         this.taskQueue = new(options.ParallelismLevel);
+    }
+
+    /// <summary>
+    /// Initializes a new instance of <see cref="TaskPoolGlobalHook" />.
+    /// </summary>
+    /// <param name="globalHookProvider">The underlying global hook provider.</param>
+    /// <param name="options">The options of the hook which include its parallelism level.</param>
+    /// <exception cref="ArgumentNullException">
+    /// <paramref name="globalHookProvider"/> or <paramref name="options" /> is <see langword="null" />.
+    /// </exception>
+    public TaskPoolGlobalHook(IGlobalHookProvider globalHookProvider, TaskPoolGlobalHookOptions options)
+        : base(globalHookProvider, options?.RunAsyncOnBackgroundThread ?? false)
+    {
+        if (options is null)
+        {
+            throw new ArgumentNullException(nameof(options));
+        }
+
+        this.taskQueue = new(options.ParallelismLevel);
+    }
 
     /// <summary>
     /// Handles the hook event.

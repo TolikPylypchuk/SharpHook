@@ -4,6 +4,7 @@ using System.Reactive.Linq;
 
 using SharpHook.Logging;
 using SharpHook.Native;
+using SharpHook.Providers;
 using SharpHook.Reactive;
 using SharpHook.Reactive.Logging;
 
@@ -40,18 +41,21 @@ public static class Program
 
     private static void PrintSystemInfo()
     {
-        Console.WriteLine("System info:");
-        Console.WriteLine($"Auto-repeat rate: {UioHook.GetAutoRepeatRate()}");
-        Console.WriteLine($"Auto-repeat delay: {UioHook.GetAutoRepeatDelay()}");
-        Console.WriteLine($"Pointer acceleration threshold: {UioHook.GetPointerAccelerationThreshold()}");
-        Console.WriteLine($"Pointer sensitivity: {UioHook.GetPointerSensitivity()}");
-        Console.WriteLine($"Multi-click time: {UioHook.GetMultiClickTime()}");
+        var provider = UioHookProvider.Instance;
 
-        var screens = UioHook.CreateScreenInfo();
+        Console.WriteLine("System info:");
+        Console.WriteLine($"Auto-repeat rate: {provider.GetAutoRepeatRate()}");
+        Console.WriteLine($"Auto-repeat delay: {provider.GetAutoRepeatDelay()}");
+        Console.WriteLine($"Pointer acceleration multiplier: {provider.GetPointerAccelerationMultiplier()}");
+        Console.WriteLine($"Pointer acceleration threshold: {provider.GetPointerAccelerationThreshold()}");
+        Console.WriteLine($"Pointer sensitivity: {provider.GetPointerSensitivity()}");
+        Console.WriteLine($"Multi-click time: {provider.GetMultiClickTime()}");
+
+        var screens = provider.CreateScreenInfo();
 
         foreach (var screen in screens)
         {
-            Console.WriteLine($"Screen #{screen.Number}: {screen.Width}x{screen.Height}; {screen.X}, {screen.Y}");
+            Console.WriteLine($"Screen #{screen.Number}: {screen.Width}x{screen.Height}; ({screen.X}, {screen.Y})");
         }
 
         Console.WriteLine();

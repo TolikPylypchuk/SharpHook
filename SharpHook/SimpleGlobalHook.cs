@@ -1,6 +1,9 @@
 namespace SharpHook;
 
+using System;
+
 using SharpHook.Native;
+using SharpHook.Providers;
 
 /// <summary>
 /// Represents an implementation of <see cref="IGlobalHook" /> which raises events on the same thread on which
@@ -25,12 +28,38 @@ public sealed class SimpleGlobalHook : GlobalHookBase
     /// <summary>
     /// Initializes a new instance of <see cref="SimpleGlobalHook" />.
     /// </summary>
+    /// <param name="globalHookProvider">The underlying global hook provider.</param>
+    /// <exception cref="ArgumentNullException">
+    /// <paramref name="globalHookProvider"/> is <see langword="null" />.
+    /// </exception>
+    public SimpleGlobalHook(IGlobalHookProvider globalHookProvider)
+        : base(globalHookProvider)
+    { }
+
+    /// <summary>
+    /// Initializes a new instance of <see cref="SimpleGlobalHook" />.
+    /// </summary>
     /// <param name="runAsyncOnBackgroundThread">
     /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
     /// Otherwise, <see langword="false" />.
     /// </param>
     public SimpleGlobalHook(bool runAsyncOnBackgroundThread)
         : base(runAsyncOnBackgroundThread)
+    { }
+
+    /// <summary>
+    /// Initializes a new instance of <see cref="SimpleGlobalHook" />.
+    /// </summary>
+    /// <param name="globalHookProvider">The underlying global hook provider.</param>
+    /// <param name="runAsyncOnBackgroundThread">
+    /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
+    /// Otherwise, <see langword="false" />.
+    /// </param>
+    /// <exception cref="ArgumentNullException">
+    /// <paramref name="globalHookProvider"/> is <see langword="null" />.
+    /// </exception>
+    public SimpleGlobalHook(IGlobalHookProvider globalHookProvider, bool runAsyncOnBackgroundThread)
+        : base(globalHookProvider, runAsyncOnBackgroundThread)
     { }
 
     /// <summary>
