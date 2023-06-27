@@ -90,26 +90,6 @@
             </para>
             </remarks>
         </member>
-        <member name="M:SharpHook.EventSimulator.SimulateMouseWheel(System.Int16,System.Int16,System.UInt16,System.Int16)">
-            <summary>
-            Simulates scrolling the mouse wheel at the specified coordinates.
-            </summary>
-            <param name="x">The target X-coordinate of the mouse pointer.</param>
-            <param name="y">The target Y-coordinate of the mouse pointer.</param>
-            <param name="amount">The scrolling amount.</param>
-            <param name="rotation">The wheel rotation.</param>
-            <returns>The result of the operation.</returns>
-            <remarks>
-            <para>
-            A positive <paramref name="rotation" /> value indicates that the wheel will be rotated down and a negative value
-            indicates that the wheel will be rotated up.
-            </para>
-            <para>
-            Mouse wheel simulation is a little inconsistent across platforms, and not documented. View the source code of
-            libuiohook for more details.
-            </para>
-            </remarks>
-        </member>
         <member name="T:SharpHook.GlobalHookBase">
             <summary>
             Represents an abstract implementation of <see cref="T:SharpHook.IGlobalHook" /> which raises events only when there is at least
@@ -513,20 +493,6 @@
             <summary>
             Simulates scrolling the mouse wheel.
             </summary>
-            <param name="amount">The scrolling amount.</param>
-            <param name="rotation">The wheel rotation.</param>
-            <returns>The result of the operation.</returns>
-            <remarks>
-            A positive <paramref name="rotation" /> value indicates that the wheel will be rotated down and a negative value
-            indicates that the wheel will be rotated up.
-            </remarks>
-        </member>
-        <member name="M:SharpHook.IEventSimulator.SimulateMouseWheel(System.Int16,System.Int16,System.UInt16,System.Int16)">
-            <summary>
-            Simulates scrolling the mouse wheel at the specified coordinates.
-            </summary>
-            <param name="x">The target X-coordinate of the mouse pointer.</param>
-            <param name="y">The target Y-coordinate of the mouse pointer.</param>
             <param name="amount">The scrolling amount.</param>
             <param name="rotation">The wheel rotation.</param>
             <returns>The result of the operation.</returns>

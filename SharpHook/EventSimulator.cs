@@ -1,7 +1,5 @@
 namespace SharpHook;
 
-using System;
-
 using SharpHook.Native;
 
 /// <summary>
@@ -133,32 +131,6 @@ public class EventSimulator : IEventSimulator
         {
             Type = EventType.MouseWheel,
             Wheel = new() { Amount = amount, Rotation = rotation }
-        });
-
-    /// <summary>
-    /// Simulates scrolling the mouse wheel at the specified coordinates.
-    /// </summary>
-    /// <param name="x">The target X-coordinate of the mouse pointer.</param>
-    /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
-    /// <param name="amount">The scrolling amount.</param>
-    /// <param name="rotation">The wheel rotation.</param>
-    /// <returns>The result of the operation.</returns>
-    /// <remarks>
-    /// <para>
-    /// A positive <paramref name="rotation" /> value indicates that the wheel will be rotated down and a negative value
-    /// indicates that the wheel will be rotated up.
-    /// </para>
-    /// <para>
-    /// Mouse wheel simulation is a little inconsistent across platforms, and not documented. View the source code of
-    /// libuiohook for more details.
-    /// </para>
-    /// </remarks>
-    [Obsolete("Coordinates are ignored by libuiohook, so the version without them should be used")]
-    public UioHookResult SimulateMouseWheel(short x, short y, ushort amount, short rotation) =>
-        this.PostEvent(new()
-        {
-            Type = EventType.MouseWheel,
-            Wheel = new() { X = x, Y = y, Amount = amount, Rotation = rotation }
         });
 
     private UioHookResult PostEvent(UioHookEvent e) =>
