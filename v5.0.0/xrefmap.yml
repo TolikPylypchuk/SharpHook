@@ -1173,6 +1173,19 @@ references:
   commentId: T:SharpHook.Logging.LogEntryParser
   fullName: SharpHook.Logging.LogEntryParser
   nameWithType: LogEntryParser
+- uid: SharpHook.Logging.LogEntryParser.Instance
+  name: Instance
+  href: api/SharpHook.Logging.LogEntryParser.html#SharpHook_Logging_LogEntryParser_Instance
+  commentId: P:SharpHook.Logging.LogEntryParser.Instance
+  fullName: SharpHook.Logging.LogEntryParser.Instance
+  nameWithType: LogEntryParser.Instance
+- uid: SharpHook.Logging.LogEntryParser.Instance*
+  name: Instance
+  href: api/SharpHook.Logging.LogEntryParser.html#SharpHook_Logging_LogEntryParser_Instance_
+  commentId: Overload:SharpHook.Logging.LogEntryParser.Instance
+  isSpec: "True"
+  fullName: SharpHook.Logging.LogEntryParser.Instance
+  nameWithType: LogEntryParser.Instance
 - uid: SharpHook.Logging.LogEntryParser.ParseNativeLogEntry(SharpHook.Native.LogLevel,System.IntPtr,System.IntPtr)
   name: ParseNativeLogEntry(LogLevel, IntPtr, IntPtr)
   href: api/SharpHook.Logging.LogEntryParser.html#SharpHook_Logging_LogEntryParser_ParseNativeLogEntry_SharpHook_Native_LogLevel_System_IntPtr_System_IntPtr_
