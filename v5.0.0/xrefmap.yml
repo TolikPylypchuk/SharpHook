@@ -103,12 +103,6 @@ references:
   isSpec: "True"
   fullName: SharpHook.EventSimulator.SimulateMouseRelease
   nameWithType: EventSimulator.SimulateMouseRelease
-- uid: SharpHook.EventSimulator.SimulateMouseWheel(System.Int16,System.Int16,System.UInt16,System.Int16)
-  name: SimulateMouseWheel(Int16, Int16, UInt16, Int16)
-  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMouseWheel_System_Int16_System_Int16_System_UInt16_System_Int16_
-  commentId: M:SharpHook.EventSimulator.SimulateMouseWheel(System.Int16,System.Int16,System.UInt16,System.Int16)
-  fullName: SharpHook.EventSimulator.SimulateMouseWheel(System.Int16, System.Int16, System.UInt16, System.Int16)
-  nameWithType: EventSimulator.SimulateMouseWheel(Int16, Int16, UInt16, Int16)
 - uid: SharpHook.EventSimulator.SimulateMouseWheel(System.UInt16,System.Int16)
   name: SimulateMouseWheel(UInt16, Int16)
   href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMouseWheel_System_UInt16_System_Int16_
@@ -720,12 +714,6 @@ references:
   isSpec: "True"
   fullName: SharpHook.IEventSimulator.SimulateMouseRelease
   nameWithType: IEventSimulator.SimulateMouseRelease
-- uid: SharpHook.IEventSimulator.SimulateMouseWheel(System.Int16,System.Int16,System.UInt16,System.Int16)
-  name: SimulateMouseWheel(Int16, Int16, UInt16, Int16)
-  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMouseWheel_System_Int16_System_Int16_System_UInt16_System_Int16_
-  commentId: M:SharpHook.IEventSimulator.SimulateMouseWheel(System.Int16,System.Int16,System.UInt16,System.Int16)
-  fullName: SharpHook.IEventSimulator.SimulateMouseWheel(System.Int16, System.Int16, System.UInt16, System.Int16)
-  nameWithType: IEventSimulator.SimulateMouseWheel(Int16, Int16, UInt16, Int16)
 - uid: SharpHook.IEventSimulator.SimulateMouseWheel(System.UInt16,System.Int16)
   name: SimulateMouseWheel(UInt16, Int16)
   href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMouseWheel_System_UInt16_System_Int16_
