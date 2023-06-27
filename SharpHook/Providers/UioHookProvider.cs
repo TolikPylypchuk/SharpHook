@@ -15,9 +15,6 @@ public sealed class UioHookProvider :
     IScreenInfoProvider,
     IMouseInfoProvider
 {
-    /// <summary>
-    /// Initializes a new instance of <see cref="UioHookProvider" />.
-    /// </summary>
     private UioHookProvider()
     { }
 

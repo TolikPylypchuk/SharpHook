@@ -860,6 +860,11 @@
             installed.
             </remarks>
         </member>
+        <member name="P:SharpHook.Logging.LogEntryParser.Instance">
+            <summary>
+            Gets the single instance of <see cref="T:SharpHook.Logging.LogEntryParser" />.
+            </summary>
+        </member>
         <member name="M:SharpHook.Logging.LogEntryParser.ParseNativeLogEntry(SharpHook.Native.LogLevel,System.IntPtr,System.IntPtr)">
             <summary>
             Parses a native log format and arguments to create a log entry.
@@ -2784,11 +2789,6 @@
             A provider of low-level functionality which delegates it to the <see cref="T:SharpHook.Native.UioHook" /> class.
             </summary>
             <seealso cref="T:SharpHook.Native.UioHook" />
-        </member>
-        <member name="M:SharpHook.Providers.UioHookProvider.#ctor">
-            <summary>
-            Initializes a new instance of <see cref="T:SharpHook.Providers.UioHookProvider" />.
-            </summary>
         </member>
         <member name="P:SharpHook.Providers.UioHookProvider.Instance">
             <summary>

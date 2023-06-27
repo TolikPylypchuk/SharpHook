@@ -24,6 +24,14 @@ public sealed class LogEntryParser
         @"%\+?\-? ?#?0?(?:[1-9][0-9]*|\*)?(?:\.(?:[1-9][0-9]*|\*))?(?:hh|ll|[hljztL])?[diuoxXfFeEgGaAcspn]",
         RegexOptions.Compiled);
 
+    private LogEntryParser()
+    { }
+
+    /// <summary>
+    /// Gets the single instance of <see cref="LogEntryParser" />.
+    /// </summary>
+    public static LogEntryParser Instance { get; } = new();
+
     /// <summary>
     /// Parses a native log format and arguments to create a log entry.
     /// </summary>

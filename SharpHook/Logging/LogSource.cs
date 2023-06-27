@@ -23,14 +23,15 @@ using SharpHook.Providers;
 /// <seealso cref="LogEntryParser" />
 public sealed class LogSource : ILogSource
 {
-    private readonly LogEntryParser parser = new();
+    private readonly LogEntryParser parser;
     private readonly LoggerProc loggerProc;
     private readonly ILoggingProvider loggingProvider;
 
-    private LogSource(ILoggingProvider loggingProvider, LogLevel minLevel)
+    private LogSource(ILoggingProvider loggingProvider, LogEntryParser parser, LogLevel minLevel)
     {
         this.loggerProc = this.OnLog;
         this.loggingProvider = loggingProvider;
+        this.parser = parser;
         this.MinLevel = minLevel;
     }
 
@@ -87,7 +88,7 @@ public sealed class LogSource : ILogSource
             throw new ArgumentNullException(nameof(loggingProvider));
         }
 
-        var source = new LogSource(loggingProvider, minLevel);
+        var source = new LogSource(loggingProvider, LogEntryParser.Instance, minLevel);
         loggingProvider.SetLoggerProc(source.loggerProc, IntPtr.Zero);
         return source;
     }
