@@ -40,7 +40,7 @@ the availability of SharpHook on various platforms:
   </tr>
   <tr>
     <th>Arm32</th>
-    <td>Yes<sup>2</sup></td>
+    <td>No<sup>2</sup></td>
     <td>N/A</td>
     <td>Yes</td>
   </tr>
@@ -55,8 +55,7 @@ the availability of SharpHook on various platforms:
 [1] - Linux on x86 is [not supported](https://github.com/dotnet/runtime/issues/7335) by .NET itself.
 
 [2] - Windows Arm32 support was
-[dropped](https://github.com/dotnet/core/blob/main/release-notes/5.0/5.0-supported-os.md) in .NET 5 so it will most
-probably be dropped by this library in a future version as well.
+[dropped](https://github.com/dotnet/core/blob/main/release-notes/5.0/5.0-supported-os.md) in .NET 5.
 
 libuiohook only supports X11 on Linux. Wayland support [may be coming](https://github.com/kwhat/libuiohook/issues/100),
 but it's not yet here.

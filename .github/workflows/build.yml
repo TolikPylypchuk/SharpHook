@@ -248,40 +248,6 @@ jobs:
           name: libuiohook-build
           path: ${{github.workspace}}/dist/**/*
 
-  libuiohook-windows-arm:
-    runs-on: windows-latest
-
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          submodules: recursive
-      - name: Setup
-        uses: ilammy/msvc-dev-cmd@v1
-        with:
-          arch: amd64_arm
-      - name: Compile
-        shell: pwsh
-        run: |
-          cd libuiohook
-          cmake -B ${{github.workspace}}\build `
-            -G "Visual Studio 17 2022" -A ARM `
-            -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\arm `
-            -D CMAKE_VERBOSE_MAKEFILE=true `
-            -D BUILD_SHARED_LIBS=ON `
-            -D CMAKE_POLICY_DEFAULT_CMP0091=NEW `
-            -D CMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded `
-            -D USE_EPOCH_TIME=ON
-          cmake --build ${{github.workspace}}\build `
-            --parallel 2 `
-            --config RelWithDebInfo `
-            --clean-first
-          cmake --install ${{github.workspace}}\build --config RelWithDebInfo
-      - name: Upload
-        uses: actions/upload-artifact@v3
-        with:
-          name: libuiohook-build
-          path: ${{github.workspace}}/dist/**/*
-
   libuiohook-windows-arm64:
     runs-on: windows-latest
 
@@ -393,7 +359,6 @@ jobs:
       - libuiohook-linux-arm
       - libuiohook-linux-arm64
       - libuiohook-linux-x64
-      - libuiohook-windows-arm
       - libuiohook-windows-arm64
       - libuiohook-windows-x86
       - libuiohook-windows-x64
@@ -423,7 +388,6 @@ jobs:
           mv libuiohook-build\linux\arm\lib\libuiohook.so SharpHook\lib\linux-arm\
           mv libuiohook-build\linux\arm64\lib\libuiohook.so SharpHook\lib\linux-arm64\
           mv libuiohook-build\linux\x86_64\lib\libuiohook.so SharpHook\lib\linux-x64\
-          mv libuiohook-build\windows\arm\bin\uiohook.dll SharpHook\lib\win-arm\
           mv libuiohook-build\windows\arm64\bin\uiohook.dll SharpHook\lib\win-arm64\
           mv libuiohook-build\windows\x86\bin\uiohook.dll SharpHook\lib\win-x86\
           mv libuiohook-build\windows\x86_64\bin\uiohook.dll SharpHook\lib\win-x64\

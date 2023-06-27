@@ -17,14 +17,6 @@
         </ContentWithTargetPath>
     </ItemGroup>
 
-    <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows')) And '$(Platform)' == 'ARM32'">
-        <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\win-arm\native\uiohook.dll">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            <TargetPath>uiohook.dll</TargetPath>
-            <Pack>False</Pack>
-        </ContentWithTargetPath>
-    </ItemGroup>
-
     <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows')) And '$(Platform)' == 'ARM64'">
         <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\win-arm64\native\uiohook.dll">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
