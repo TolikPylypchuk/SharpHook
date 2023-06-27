@@ -128,6 +128,18 @@ references:
   commentId: M:SharpHook.GlobalHookBase.#ctor
   fullName: SharpHook.GlobalHookBase.GlobalHookBase()
   nameWithType: GlobalHookBase.GlobalHookBase()
+- uid: SharpHook.GlobalHookBase.#ctor(SharpHook.Providers.IGlobalHookProvider)
+  name: GlobalHookBase(IGlobalHookProvider)
+  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase__ctor_SharpHook_Providers_IGlobalHookProvider_
+  commentId: M:SharpHook.GlobalHookBase.#ctor(SharpHook.Providers.IGlobalHookProvider)
+  fullName: SharpHook.GlobalHookBase.GlobalHookBase(SharpHook.Providers.IGlobalHookProvider)
+  nameWithType: GlobalHookBase.GlobalHookBase(IGlobalHookProvider)
+- uid: SharpHook.GlobalHookBase.#ctor(SharpHook.Providers.IGlobalHookProvider,System.Boolean)
+  name: GlobalHookBase(IGlobalHookProvider, Boolean)
+  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase__ctor_SharpHook_Providers_IGlobalHookProvider_System_Boolean_
+  commentId: M:SharpHook.GlobalHookBase.#ctor(SharpHook.Providers.IGlobalHookProvider,System.Boolean)
+  fullName: SharpHook.GlobalHookBase.GlobalHookBase(SharpHook.Providers.IGlobalHookProvider, System.Boolean)
+  nameWithType: GlobalHookBase.GlobalHookBase(IGlobalHookProvider, Boolean)
 - uid: SharpHook.GlobalHookBase.#ctor(System.Boolean)
   name: GlobalHookBase(Boolean)
   href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase__ctor_System_Boolean_
@@ -1276,6 +1288,12 @@ references:
   commentId: M:SharpHook.Logging.LogSource.Register(SharpHook.Native.LogLevel)
   fullName: SharpHook.Logging.LogSource.Register(SharpHook.Native.LogLevel)
   nameWithType: LogSource.Register(LogLevel)
+- uid: SharpHook.Logging.LogSource.Register(SharpHook.Providers.ILoggingProvider,SharpHook.Native.LogLevel)
+  name: Register(ILoggingProvider, LogLevel)
+  href: api/SharpHook.Logging.LogSource.html#SharpHook_Logging_LogSource_Register_SharpHook_Providers_ILoggingProvider_SharpHook_Native_LogLevel_
+  commentId: M:SharpHook.Logging.LogSource.Register(SharpHook.Providers.ILoggingProvider,SharpHook.Native.LogLevel)
+  fullName: SharpHook.Logging.LogSource.Register(SharpHook.Providers.ILoggingProvider, SharpHook.Native.LogLevel)
+  nameWithType: LogSource.Register(ILoggingProvider, LogLevel)
 - uid: SharpHook.Logging.LogSource.Register*
   name: Register
   href: api/SharpHook.Logging.LogSource.html#SharpHook_Logging_LogSource_Register_
@@ -3580,6 +3598,379 @@ references:
   commentId: F:SharpHook.Native.UioHookResult.Success
   fullName: SharpHook.Native.UioHookResult.Success
   nameWithType: UioHookResult.Success
+- uid: SharpHook.Providers
+  name: SharpHook.Providers
+  href: api/SharpHook.Providers.html
+  commentId: N:SharpHook.Providers
+  fullName: SharpHook.Providers
+  nameWithType: SharpHook.Providers
+- uid: SharpHook.Providers.IEventSimulationProvider
+  name: IEventSimulationProvider
+  href: api/SharpHook.Providers.IEventSimulationProvider.html
+  commentId: T:SharpHook.Providers.IEventSimulationProvider
+  fullName: SharpHook.Providers.IEventSimulationProvider
+  nameWithType: IEventSimulationProvider
+- uid: SharpHook.Providers.IEventSimulationProvider.PostEvent(SharpHook.Native.UioHookEvent@)
+  name: PostEvent(ref UioHookEvent)
+  href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_PostEvent_SharpHook_Native_UioHookEvent__
+  commentId: M:SharpHook.Providers.IEventSimulationProvider.PostEvent(SharpHook.Native.UioHookEvent@)
+  name.vb: PostEvent(ByRef UioHookEvent)
+  fullName: SharpHook.Providers.IEventSimulationProvider.PostEvent(ref SharpHook.Native.UioHookEvent)
+  fullName.vb: SharpHook.Providers.IEventSimulationProvider.PostEvent(ByRef SharpHook.Native.UioHookEvent)
+  nameWithType: IEventSimulationProvider.PostEvent(ref UioHookEvent)
+  nameWithType.vb: IEventSimulationProvider.PostEvent(ByRef UioHookEvent)
+- uid: SharpHook.Providers.IEventSimulationProvider.PostEvent*
+  name: PostEvent
+  href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_PostEvent_
+  commentId: Overload:SharpHook.Providers.IEventSimulationProvider.PostEvent
+  isSpec: "True"
+  fullName: SharpHook.Providers.IEventSimulationProvider.PostEvent
+  nameWithType: IEventSimulationProvider.PostEvent
+- uid: SharpHook.Providers.IGlobalHookProvider
+  name: IGlobalHookProvider
+  href: api/SharpHook.Providers.IGlobalHookProvider.html
+  commentId: T:SharpHook.Providers.IGlobalHookProvider
+  fullName: SharpHook.Providers.IGlobalHookProvider
+  nameWithType: IGlobalHookProvider
+- uid: SharpHook.Providers.IGlobalHookProvider.Run
+  name: Run()
+  href: api/SharpHook.Providers.IGlobalHookProvider.html#SharpHook_Providers_IGlobalHookProvider_Run
+  commentId: M:SharpHook.Providers.IGlobalHookProvider.Run
+  fullName: SharpHook.Providers.IGlobalHookProvider.Run()
+  nameWithType: IGlobalHookProvider.Run()
+- uid: SharpHook.Providers.IGlobalHookProvider.Run*
+  name: Run
+  href: api/SharpHook.Providers.IGlobalHookProvider.html#SharpHook_Providers_IGlobalHookProvider_Run_
+  commentId: Overload:SharpHook.Providers.IGlobalHookProvider.Run
+  isSpec: "True"
+  fullName: SharpHook.Providers.IGlobalHookProvider.Run
+  nameWithType: IGlobalHookProvider.Run
+- uid: SharpHook.Providers.IGlobalHookProvider.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)
+  name: SetDispatchProc(DispatchProc, IntPtr)
+  href: api/SharpHook.Providers.IGlobalHookProvider.html#SharpHook_Providers_IGlobalHookProvider_SetDispatchProc_SharpHook_Native_DispatchProc_System_IntPtr_
+  commentId: M:SharpHook.Providers.IGlobalHookProvider.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)
+  fullName: SharpHook.Providers.IGlobalHookProvider.SetDispatchProc(SharpHook.Native.DispatchProc, System.IntPtr)
+  nameWithType: IGlobalHookProvider.SetDispatchProc(DispatchProc, IntPtr)
+- uid: SharpHook.Providers.IGlobalHookProvider.SetDispatchProc*
+  name: SetDispatchProc
+  href: api/SharpHook.Providers.IGlobalHookProvider.html#SharpHook_Providers_IGlobalHookProvider_SetDispatchProc_
+  commentId: Overload:SharpHook.Providers.IGlobalHookProvider.SetDispatchProc
+  isSpec: "True"
+  fullName: SharpHook.Providers.IGlobalHookProvider.SetDispatchProc
+  nameWithType: IGlobalHookProvider.SetDispatchProc
+- uid: SharpHook.Providers.IGlobalHookProvider.Stop
+  name: Stop()
+  href: api/SharpHook.Providers.IGlobalHookProvider.html#SharpHook_Providers_IGlobalHookProvider_Stop
+  commentId: M:SharpHook.Providers.IGlobalHookProvider.Stop
+  fullName: SharpHook.Providers.IGlobalHookProvider.Stop()
+  nameWithType: IGlobalHookProvider.Stop()
+- uid: SharpHook.Providers.IGlobalHookProvider.Stop*
+  name: Stop
+  href: api/SharpHook.Providers.IGlobalHookProvider.html#SharpHook_Providers_IGlobalHookProvider_Stop_
+  commentId: Overload:SharpHook.Providers.IGlobalHookProvider.Stop
+  isSpec: "True"
+  fullName: SharpHook.Providers.IGlobalHookProvider.Stop
+  nameWithType: IGlobalHookProvider.Stop
+- uid: SharpHook.Providers.ILoggingProvider
+  name: ILoggingProvider
+  href: api/SharpHook.Providers.ILoggingProvider.html
+  commentId: T:SharpHook.Providers.ILoggingProvider
+  fullName: SharpHook.Providers.ILoggingProvider
+  nameWithType: ILoggingProvider
+- uid: SharpHook.Providers.ILoggingProvider.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)
+  name: SetLoggerProc(LoggerProc, IntPtr)
+  href: api/SharpHook.Providers.ILoggingProvider.html#SharpHook_Providers_ILoggingProvider_SetLoggerProc_SharpHook_Native_LoggerProc_System_IntPtr_
+  commentId: M:SharpHook.Providers.ILoggingProvider.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)
+  fullName: SharpHook.Providers.ILoggingProvider.SetLoggerProc(SharpHook.Native.LoggerProc, System.IntPtr)
+  nameWithType: ILoggingProvider.SetLoggerProc(LoggerProc, IntPtr)
+- uid: SharpHook.Providers.ILoggingProvider.SetLoggerProc*
+  name: SetLoggerProc
+  href: api/SharpHook.Providers.ILoggingProvider.html#SharpHook_Providers_ILoggingProvider_SetLoggerProc_
+  commentId: Overload:SharpHook.Providers.ILoggingProvider.SetLoggerProc
+  isSpec: "True"
+  fullName: SharpHook.Providers.ILoggingProvider.SetLoggerProc
+  nameWithType: ILoggingProvider.SetLoggerProc
+- uid: SharpHook.Providers.IMouseInfoProvider
+  name: IMouseInfoProvider
+  href: api/SharpHook.Providers.IMouseInfoProvider.html
+  commentId: T:SharpHook.Providers.IMouseInfoProvider
+  fullName: SharpHook.Providers.IMouseInfoProvider
+  nameWithType: IMouseInfoProvider
+- uid: SharpHook.Providers.IMouseInfoProvider.GetAutoRepeatDelay
+  name: GetAutoRepeatDelay()
+  href: api/SharpHook.Providers.IMouseInfoProvider.html#SharpHook_Providers_IMouseInfoProvider_GetAutoRepeatDelay
+  commentId: M:SharpHook.Providers.IMouseInfoProvider.GetAutoRepeatDelay
+  fullName: SharpHook.Providers.IMouseInfoProvider.GetAutoRepeatDelay()
+  nameWithType: IMouseInfoProvider.GetAutoRepeatDelay()
+- uid: SharpHook.Providers.IMouseInfoProvider.GetAutoRepeatDelay*
+  name: GetAutoRepeatDelay
+  href: api/SharpHook.Providers.IMouseInfoProvider.html#SharpHook_Providers_IMouseInfoProvider_GetAutoRepeatDelay_
+  commentId: Overload:SharpHook.Providers.IMouseInfoProvider.GetAutoRepeatDelay
+  isSpec: "True"
+  fullName: SharpHook.Providers.IMouseInfoProvider.GetAutoRepeatDelay
+  nameWithType: IMouseInfoProvider.GetAutoRepeatDelay
+- uid: SharpHook.Providers.IMouseInfoProvider.GetAutoRepeatRate
+  name: GetAutoRepeatRate()
+  href: api/SharpHook.Providers.IMouseInfoProvider.html#SharpHook_Providers_IMouseInfoProvider_GetAutoRepeatRate
+  commentId: M:SharpHook.Providers.IMouseInfoProvider.GetAutoRepeatRate
+  fullName: SharpHook.Providers.IMouseInfoProvider.GetAutoRepeatRate()
+  nameWithType: IMouseInfoProvider.GetAutoRepeatRate()
+- uid: SharpHook.Providers.IMouseInfoProvider.GetAutoRepeatRate*
+  name: GetAutoRepeatRate
+  href: api/SharpHook.Providers.IMouseInfoProvider.html#SharpHook_Providers_IMouseInfoProvider_GetAutoRepeatRate_
+  commentId: Overload:SharpHook.Providers.IMouseInfoProvider.GetAutoRepeatRate
+  isSpec: "True"
+  fullName: SharpHook.Providers.IMouseInfoProvider.GetAutoRepeatRate
+  nameWithType: IMouseInfoProvider.GetAutoRepeatRate
+- uid: SharpHook.Providers.IMouseInfoProvider.GetMultiClickTime
+  name: GetMultiClickTime()
+  href: api/SharpHook.Providers.IMouseInfoProvider.html#SharpHook_Providers_IMouseInfoProvider_GetMultiClickTime
+  commentId: M:SharpHook.Providers.IMouseInfoProvider.GetMultiClickTime
+  fullName: SharpHook.Providers.IMouseInfoProvider.GetMultiClickTime()
+  nameWithType: IMouseInfoProvider.GetMultiClickTime()
+- uid: SharpHook.Providers.IMouseInfoProvider.GetMultiClickTime*
+  name: GetMultiClickTime
+  href: api/SharpHook.Providers.IMouseInfoProvider.html#SharpHook_Providers_IMouseInfoProvider_GetMultiClickTime_
+  commentId: Overload:SharpHook.Providers.IMouseInfoProvider.GetMultiClickTime
+  isSpec: "True"
+  fullName: SharpHook.Providers.IMouseInfoProvider.GetMultiClickTime
+  nameWithType: IMouseInfoProvider.GetMultiClickTime
+- uid: SharpHook.Providers.IMouseInfoProvider.GetPointerAccelerationMultiplier
+  name: GetPointerAccelerationMultiplier()
+  href: api/SharpHook.Providers.IMouseInfoProvider.html#SharpHook_Providers_IMouseInfoProvider_GetPointerAccelerationMultiplier
+  commentId: M:SharpHook.Providers.IMouseInfoProvider.GetPointerAccelerationMultiplier
+  fullName: SharpHook.Providers.IMouseInfoProvider.GetPointerAccelerationMultiplier()
+  nameWithType: IMouseInfoProvider.GetPointerAccelerationMultiplier()
+- uid: SharpHook.Providers.IMouseInfoProvider.GetPointerAccelerationMultiplier*
+  name: GetPointerAccelerationMultiplier
+  href: api/SharpHook.Providers.IMouseInfoProvider.html#SharpHook_Providers_IMouseInfoProvider_GetPointerAccelerationMultiplier_
+  commentId: Overload:SharpHook.Providers.IMouseInfoProvider.GetPointerAccelerationMultiplier
+  isSpec: "True"
+  fullName: SharpHook.Providers.IMouseInfoProvider.GetPointerAccelerationMultiplier
+  nameWithType: IMouseInfoProvider.GetPointerAccelerationMultiplier
+- uid: SharpHook.Providers.IMouseInfoProvider.GetPointerAccelerationThreshold
+  name: GetPointerAccelerationThreshold()
+  href: api/SharpHook.Providers.IMouseInfoProvider.html#SharpHook_Providers_IMouseInfoProvider_GetPointerAccelerationThreshold
+  commentId: M:SharpHook.Providers.IMouseInfoProvider.GetPointerAccelerationThreshold
+  fullName: SharpHook.Providers.IMouseInfoProvider.GetPointerAccelerationThreshold()
+  nameWithType: IMouseInfoProvider.GetPointerAccelerationThreshold()
+- uid: SharpHook.Providers.IMouseInfoProvider.GetPointerAccelerationThreshold*
+  name: GetPointerAccelerationThreshold
+  href: api/SharpHook.Providers.IMouseInfoProvider.html#SharpHook_Providers_IMouseInfoProvider_GetPointerAccelerationThreshold_
+  commentId: Overload:SharpHook.Providers.IMouseInfoProvider.GetPointerAccelerationThreshold
+  isSpec: "True"
+  fullName: SharpHook.Providers.IMouseInfoProvider.GetPointerAccelerationThreshold
+  nameWithType: IMouseInfoProvider.GetPointerAccelerationThreshold
+- uid: SharpHook.Providers.IMouseInfoProvider.GetPointerSensitivity
+  name: GetPointerSensitivity()
+  href: api/SharpHook.Providers.IMouseInfoProvider.html#SharpHook_Providers_IMouseInfoProvider_GetPointerSensitivity
+  commentId: M:SharpHook.Providers.IMouseInfoProvider.GetPointerSensitivity
+  fullName: SharpHook.Providers.IMouseInfoProvider.GetPointerSensitivity()
+  nameWithType: IMouseInfoProvider.GetPointerSensitivity()
+- uid: SharpHook.Providers.IMouseInfoProvider.GetPointerSensitivity*
+  name: GetPointerSensitivity
+  href: api/SharpHook.Providers.IMouseInfoProvider.html#SharpHook_Providers_IMouseInfoProvider_GetPointerSensitivity_
+  commentId: Overload:SharpHook.Providers.IMouseInfoProvider.GetPointerSensitivity
+  isSpec: "True"
+  fullName: SharpHook.Providers.IMouseInfoProvider.GetPointerSensitivity
+  nameWithType: IMouseInfoProvider.GetPointerSensitivity
+- uid: SharpHook.Providers.IScreenInfoProvider
+  name: IScreenInfoProvider
+  href: api/SharpHook.Providers.IScreenInfoProvider.html
+  commentId: T:SharpHook.Providers.IScreenInfoProvider
+  fullName: SharpHook.Providers.IScreenInfoProvider
+  nameWithType: IScreenInfoProvider
+- uid: SharpHook.Providers.IScreenInfoProvider.CreateScreenInfo
+  name: CreateScreenInfo()
+  href: api/SharpHook.Providers.IScreenInfoProvider.html#SharpHook_Providers_IScreenInfoProvider_CreateScreenInfo
+  commentId: M:SharpHook.Providers.IScreenInfoProvider.CreateScreenInfo
+  fullName: SharpHook.Providers.IScreenInfoProvider.CreateScreenInfo()
+  nameWithType: IScreenInfoProvider.CreateScreenInfo()
+- uid: SharpHook.Providers.IScreenInfoProvider.CreateScreenInfo*
+  name: CreateScreenInfo
+  href: api/SharpHook.Providers.IScreenInfoProvider.html#SharpHook_Providers_IScreenInfoProvider_CreateScreenInfo_
+  commentId: Overload:SharpHook.Providers.IScreenInfoProvider.CreateScreenInfo
+  isSpec: "True"
+  fullName: SharpHook.Providers.IScreenInfoProvider.CreateScreenInfo
+  nameWithType: IScreenInfoProvider.CreateScreenInfo
+- uid: SharpHook.Providers.UioHookProvider
+  name: UioHookProvider
+  href: api/SharpHook.Providers.UioHookProvider.html
+  commentId: T:SharpHook.Providers.UioHookProvider
+  fullName: SharpHook.Providers.UioHookProvider
+  nameWithType: UioHookProvider
+- uid: SharpHook.Providers.UioHookProvider.CreateScreenInfo
+  name: CreateScreenInfo()
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_CreateScreenInfo
+  commentId: M:SharpHook.Providers.UioHookProvider.CreateScreenInfo
+  fullName: SharpHook.Providers.UioHookProvider.CreateScreenInfo()
+  nameWithType: UioHookProvider.CreateScreenInfo()
+- uid: SharpHook.Providers.UioHookProvider.CreateScreenInfo*
+  name: CreateScreenInfo
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_CreateScreenInfo_
+  commentId: Overload:SharpHook.Providers.UioHookProvider.CreateScreenInfo
+  isSpec: "True"
+  fullName: SharpHook.Providers.UioHookProvider.CreateScreenInfo
+  nameWithType: UioHookProvider.CreateScreenInfo
+- uid: SharpHook.Providers.UioHookProvider.GetAutoRepeatDelay
+  name: GetAutoRepeatDelay()
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_GetAutoRepeatDelay
+  commentId: M:SharpHook.Providers.UioHookProvider.GetAutoRepeatDelay
+  fullName: SharpHook.Providers.UioHookProvider.GetAutoRepeatDelay()
+  nameWithType: UioHookProvider.GetAutoRepeatDelay()
+- uid: SharpHook.Providers.UioHookProvider.GetAutoRepeatDelay*
+  name: GetAutoRepeatDelay
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_GetAutoRepeatDelay_
+  commentId: Overload:SharpHook.Providers.UioHookProvider.GetAutoRepeatDelay
+  isSpec: "True"
+  fullName: SharpHook.Providers.UioHookProvider.GetAutoRepeatDelay
+  nameWithType: UioHookProvider.GetAutoRepeatDelay
+- uid: SharpHook.Providers.UioHookProvider.GetAutoRepeatRate
+  name: GetAutoRepeatRate()
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_GetAutoRepeatRate
+  commentId: M:SharpHook.Providers.UioHookProvider.GetAutoRepeatRate
+  fullName: SharpHook.Providers.UioHookProvider.GetAutoRepeatRate()
+  nameWithType: UioHookProvider.GetAutoRepeatRate()
+- uid: SharpHook.Providers.UioHookProvider.GetAutoRepeatRate*
+  name: GetAutoRepeatRate
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_GetAutoRepeatRate_
+  commentId: Overload:SharpHook.Providers.UioHookProvider.GetAutoRepeatRate
+  isSpec: "True"
+  fullName: SharpHook.Providers.UioHookProvider.GetAutoRepeatRate
+  nameWithType: UioHookProvider.GetAutoRepeatRate
+- uid: SharpHook.Providers.UioHookProvider.GetMultiClickTime
+  name: GetMultiClickTime()
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_GetMultiClickTime
+  commentId: M:SharpHook.Providers.UioHookProvider.GetMultiClickTime
+  fullName: SharpHook.Providers.UioHookProvider.GetMultiClickTime()
+  nameWithType: UioHookProvider.GetMultiClickTime()
+- uid: SharpHook.Providers.UioHookProvider.GetMultiClickTime*
+  name: GetMultiClickTime
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_GetMultiClickTime_
+  commentId: Overload:SharpHook.Providers.UioHookProvider.GetMultiClickTime
+  isSpec: "True"
+  fullName: SharpHook.Providers.UioHookProvider.GetMultiClickTime
+  nameWithType: UioHookProvider.GetMultiClickTime
+- uid: SharpHook.Providers.UioHookProvider.GetPointerAccelerationMultiplier
+  name: GetPointerAccelerationMultiplier()
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_GetPointerAccelerationMultiplier
+  commentId: M:SharpHook.Providers.UioHookProvider.GetPointerAccelerationMultiplier
+  fullName: SharpHook.Providers.UioHookProvider.GetPointerAccelerationMultiplier()
+  nameWithType: UioHookProvider.GetPointerAccelerationMultiplier()
+- uid: SharpHook.Providers.UioHookProvider.GetPointerAccelerationMultiplier*
+  name: GetPointerAccelerationMultiplier
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_GetPointerAccelerationMultiplier_
+  commentId: Overload:SharpHook.Providers.UioHookProvider.GetPointerAccelerationMultiplier
+  isSpec: "True"
+  fullName: SharpHook.Providers.UioHookProvider.GetPointerAccelerationMultiplier
+  nameWithType: UioHookProvider.GetPointerAccelerationMultiplier
+- uid: SharpHook.Providers.UioHookProvider.GetPointerAccelerationThreshold
+  name: GetPointerAccelerationThreshold()
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_GetPointerAccelerationThreshold
+  commentId: M:SharpHook.Providers.UioHookProvider.GetPointerAccelerationThreshold
+  fullName: SharpHook.Providers.UioHookProvider.GetPointerAccelerationThreshold()
+  nameWithType: UioHookProvider.GetPointerAccelerationThreshold()
+- uid: SharpHook.Providers.UioHookProvider.GetPointerAccelerationThreshold*
+  name: GetPointerAccelerationThreshold
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_GetPointerAccelerationThreshold_
+  commentId: Overload:SharpHook.Providers.UioHookProvider.GetPointerAccelerationThreshold
+  isSpec: "True"
+  fullName: SharpHook.Providers.UioHookProvider.GetPointerAccelerationThreshold
+  nameWithType: UioHookProvider.GetPointerAccelerationThreshold
+- uid: SharpHook.Providers.UioHookProvider.GetPointerSensitivity
+  name: GetPointerSensitivity()
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_GetPointerSensitivity
+  commentId: M:SharpHook.Providers.UioHookProvider.GetPointerSensitivity
+  fullName: SharpHook.Providers.UioHookProvider.GetPointerSensitivity()
+  nameWithType: UioHookProvider.GetPointerSensitivity()
+- uid: SharpHook.Providers.UioHookProvider.GetPointerSensitivity*
+  name: GetPointerSensitivity
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_GetPointerSensitivity_
+  commentId: Overload:SharpHook.Providers.UioHookProvider.GetPointerSensitivity
+  isSpec: "True"
+  fullName: SharpHook.Providers.UioHookProvider.GetPointerSensitivity
+  nameWithType: UioHookProvider.GetPointerSensitivity
+- uid: SharpHook.Providers.UioHookProvider.Instance
+  name: Instance
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_Instance
+  commentId: P:SharpHook.Providers.UioHookProvider.Instance
+  fullName: SharpHook.Providers.UioHookProvider.Instance
+  nameWithType: UioHookProvider.Instance
+- uid: SharpHook.Providers.UioHookProvider.Instance*
+  name: Instance
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_Instance_
+  commentId: Overload:SharpHook.Providers.UioHookProvider.Instance
+  isSpec: "True"
+  fullName: SharpHook.Providers.UioHookProvider.Instance
+  nameWithType: UioHookProvider.Instance
+- uid: SharpHook.Providers.UioHookProvider.PostEvent(SharpHook.Native.UioHookEvent@)
+  name: PostEvent(ref UioHookEvent)
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_PostEvent_SharpHook_Native_UioHookEvent__
+  commentId: M:SharpHook.Providers.UioHookProvider.PostEvent(SharpHook.Native.UioHookEvent@)
+  name.vb: PostEvent(ByRef UioHookEvent)
+  fullName: SharpHook.Providers.UioHookProvider.PostEvent(ref SharpHook.Native.UioHookEvent)
+  fullName.vb: SharpHook.Providers.UioHookProvider.PostEvent(ByRef SharpHook.Native.UioHookEvent)
+  nameWithType: UioHookProvider.PostEvent(ref UioHookEvent)
+  nameWithType.vb: UioHookProvider.PostEvent(ByRef UioHookEvent)
+- uid: SharpHook.Providers.UioHookProvider.PostEvent*
+  name: PostEvent
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_PostEvent_
+  commentId: Overload:SharpHook.Providers.UioHookProvider.PostEvent
+  isSpec: "True"
+  fullName: SharpHook.Providers.UioHookProvider.PostEvent
+  nameWithType: UioHookProvider.PostEvent
+- uid: SharpHook.Providers.UioHookProvider.Run
+  name: Run()
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_Run
+  commentId: M:SharpHook.Providers.UioHookProvider.Run
+  fullName: SharpHook.Providers.UioHookProvider.Run()
+  nameWithType: UioHookProvider.Run()
+- uid: SharpHook.Providers.UioHookProvider.Run*
+  name: Run
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_Run_
+  commentId: Overload:SharpHook.Providers.UioHookProvider.Run
+  isSpec: "True"
+  fullName: SharpHook.Providers.UioHookProvider.Run
+  nameWithType: UioHookProvider.Run
+- uid: SharpHook.Providers.UioHookProvider.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)
+  name: SetDispatchProc(DispatchProc, IntPtr)
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_SetDispatchProc_SharpHook_Native_DispatchProc_System_IntPtr_
+  commentId: M:SharpHook.Providers.UioHookProvider.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)
+  fullName: SharpHook.Providers.UioHookProvider.SetDispatchProc(SharpHook.Native.DispatchProc, System.IntPtr)
+  nameWithType: UioHookProvider.SetDispatchProc(DispatchProc, IntPtr)
+- uid: SharpHook.Providers.UioHookProvider.SetDispatchProc*
+  name: SetDispatchProc
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_SetDispatchProc_
+  commentId: Overload:SharpHook.Providers.UioHookProvider.SetDispatchProc
+  isSpec: "True"
+  fullName: SharpHook.Providers.UioHookProvider.SetDispatchProc
+  nameWithType: UioHookProvider.SetDispatchProc
+- uid: SharpHook.Providers.UioHookProvider.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)
+  name: SetLoggerProc(LoggerProc, IntPtr)
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_SetLoggerProc_SharpHook_Native_LoggerProc_System_IntPtr_
+  commentId: M:SharpHook.Providers.UioHookProvider.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)
+  fullName: SharpHook.Providers.UioHookProvider.SetLoggerProc(SharpHook.Native.LoggerProc, System.IntPtr)
+  nameWithType: UioHookProvider.SetLoggerProc(LoggerProc, IntPtr)
+- uid: SharpHook.Providers.UioHookProvider.SetLoggerProc*
+  name: SetLoggerProc
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_SetLoggerProc_
+  commentId: Overload:SharpHook.Providers.UioHookProvider.SetLoggerProc
+  isSpec: "True"
+  fullName: SharpHook.Providers.UioHookProvider.SetLoggerProc
+  nameWithType: UioHookProvider.SetLoggerProc
+- uid: SharpHook.Providers.UioHookProvider.Stop
+  name: Stop()
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_Stop
+  commentId: M:SharpHook.Providers.UioHookProvider.Stop
+  fullName: SharpHook.Providers.UioHookProvider.Stop()
+  nameWithType: UioHookProvider.Stop()
+- uid: SharpHook.Providers.UioHookProvider.Stop*
+  name: Stop
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_Stop_
+  commentId: Overload:SharpHook.Providers.UioHookProvider.Stop
+  isSpec: "True"
+  fullName: SharpHook.Providers.UioHookProvider.Stop
+  nameWithType: UioHookProvider.Stop
 - uid: SharpHook.Reactive
   name: SharpHook.Reactive
   href: api/SharpHook.Reactive.html
@@ -4253,6 +4644,12 @@ references:
   commentId: M:SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor
   fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.SimpleReactiveGlobalHook()
   nameWithType: SimpleReactiveGlobalHook.SimpleReactiveGlobalHook()
+- uid: SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider,System.Boolean)
+  name: SimpleReactiveGlobalHook(IGlobalHookProvider, Boolean)
+  href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_SharpHook_Providers_IGlobalHookProvider_System_Boolean_
+  commentId: M:SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider,System.Boolean)
+  fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.SimpleReactiveGlobalHook(SharpHook.Providers.IGlobalHookProvider, System.Boolean)
+  nameWithType: SimpleReactiveGlobalHook.SimpleReactiveGlobalHook(IGlobalHookProvider, Boolean)
 - uid: SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(System.Boolean)
   name: SimpleReactiveGlobalHook(Boolean)
   href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_System_Boolean_
@@ -4499,6 +4896,18 @@ references:
   commentId: M:SharpHook.SimpleGlobalHook.#ctor
   fullName: SharpHook.SimpleGlobalHook.SimpleGlobalHook()
   nameWithType: SimpleGlobalHook.SimpleGlobalHook()
+- uid: SharpHook.SimpleGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider)
+  name: SimpleGlobalHook(IGlobalHookProvider)
+  href: api/SharpHook.SimpleGlobalHook.html#SharpHook_SimpleGlobalHook__ctor_SharpHook_Providers_IGlobalHookProvider_
+  commentId: M:SharpHook.SimpleGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider)
+  fullName: SharpHook.SimpleGlobalHook.SimpleGlobalHook(SharpHook.Providers.IGlobalHookProvider)
+  nameWithType: SimpleGlobalHook.SimpleGlobalHook(IGlobalHookProvider)
+- uid: SharpHook.SimpleGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider,System.Boolean)
+  name: SimpleGlobalHook(IGlobalHookProvider, Boolean)
+  href: api/SharpHook.SimpleGlobalHook.html#SharpHook_SimpleGlobalHook__ctor_SharpHook_Providers_IGlobalHookProvider_System_Boolean_
+  commentId: M:SharpHook.SimpleGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider,System.Boolean)
+  fullName: SharpHook.SimpleGlobalHook.SimpleGlobalHook(SharpHook.Providers.IGlobalHookProvider, System.Boolean)
+  nameWithType: SimpleGlobalHook.SimpleGlobalHook(IGlobalHookProvider, Boolean)
 - uid: SharpHook.SimpleGlobalHook.#ctor(System.Boolean)
   name: SimpleGlobalHook(Boolean)
   href: api/SharpHook.SimpleGlobalHook.html#SharpHook_SimpleGlobalHook__ctor_System_Boolean_
@@ -4540,6 +4949,18 @@ references:
   commentId: M:SharpHook.TaskPoolGlobalHook.#ctor
   fullName: SharpHook.TaskPoolGlobalHook.TaskPoolGlobalHook()
   nameWithType: TaskPoolGlobalHook.TaskPoolGlobalHook()
+- uid: SharpHook.TaskPoolGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider)
+  name: TaskPoolGlobalHook(IGlobalHookProvider)
+  href: api/SharpHook.TaskPoolGlobalHook.html#SharpHook_TaskPoolGlobalHook__ctor_SharpHook_Providers_IGlobalHookProvider_
+  commentId: M:SharpHook.TaskPoolGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider)
+  fullName: SharpHook.TaskPoolGlobalHook.TaskPoolGlobalHook(SharpHook.Providers.IGlobalHookProvider)
+  nameWithType: TaskPoolGlobalHook.TaskPoolGlobalHook(IGlobalHookProvider)
+- uid: SharpHook.TaskPoolGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider,SharpHook.TaskPoolGlobalHookOptions)
+  name: TaskPoolGlobalHook(IGlobalHookProvider, TaskPoolGlobalHookOptions)
+  href: api/SharpHook.TaskPoolGlobalHook.html#SharpHook_TaskPoolGlobalHook__ctor_SharpHook_Providers_IGlobalHookProvider_SharpHook_TaskPoolGlobalHookOptions_
+  commentId: M:SharpHook.TaskPoolGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider,SharpHook.TaskPoolGlobalHookOptions)
+  fullName: SharpHook.TaskPoolGlobalHook.TaskPoolGlobalHook(SharpHook.Providers.IGlobalHookProvider, SharpHook.TaskPoolGlobalHookOptions)
+  nameWithType: TaskPoolGlobalHook.TaskPoolGlobalHook(IGlobalHookProvider, TaskPoolGlobalHookOptions)
 - uid: SharpHook.TaskPoolGlobalHook.#ctor(SharpHook.TaskPoolGlobalHookOptions)
   name: TaskPoolGlobalHook(TaskPoolGlobalHookOptions)
   href: api/SharpHook.TaskPoolGlobalHook.html#SharpHook_TaskPoolGlobalHook__ctor_SharpHook_TaskPoolGlobalHookOptions_
