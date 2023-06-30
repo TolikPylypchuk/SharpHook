@@ -1,13 +1,43 @@
 namespace SharpHook;
 
+using System;
+
 using SharpHook.Native;
+using SharpHook.Providers;
 
 /// <summary>
 /// A keyboard and mouse event simulator which posts events to the OS.
 /// </summary>
+/// <seealso cref="IEventSimulationProvider" />
 /// <seealso cref="UioHook.PostEvent(ref UioHookEvent)" />
 public class EventSimulator : IEventSimulator
 {
+    private readonly IEventSimulationProvider simulationProvider;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="EventSimulator" /> class.
+    /// </summary>
+    public EventSimulator()
+        : this(UioHookProvider.Instance)
+    { }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="EventSimulator" /> class.
+    /// </summary>
+    /// <param name="simulationProvider">The simulation functionality provider.</param>
+    /// <exception cref="ArgumentNullException">
+    /// <paramref name="simulationProvider" /> is <see langword="null" />.
+    /// </exception>
+    public EventSimulator(IEventSimulationProvider simulationProvider)
+    {
+        if (simulationProvider is null)
+        {
+            throw new ArgumentNullException(nameof(simulationProvider));
+        }
+
+        this.simulationProvider = simulationProvider;
+    }
+
     /// <summary>
     /// Simulates pressing a key.
     /// </summary>
@@ -128,5 +158,5 @@ public class EventSimulator : IEventSimulator
         });
 
     private UioHookResult PostEvent(UioHookEvent e) =>
-        UioHook.PostEvent(ref e);
+        this.simulationProvider.PostEvent(ref e);
 }

@@ -8,7 +8,22 @@
             <summary>
             A keyboard and mouse event simulator which posts events to the OS.
             </summary>
+            <seealso cref="T:SharpHook.Providers.IEventSimulationProvider" />
             <seealso cref="M:SharpHook.Native.UioHook.PostEvent(SharpHook.Native.UioHookEvent@)" />
+        </member>
+        <member name="M:SharpHook.EventSimulator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpHook.EventSimulator" /> class.
+            </summary>
+        </member>
+        <member name="M:SharpHook.EventSimulator.#ctor(SharpHook.Providers.IEventSimulationProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpHook.EventSimulator" /> class.
+            </summary>
+            <param name="simulationProvider">The simulation functionality provider.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="simulationProvider" /> is <see langword="null" />.
+            </exception>
         </member>
         <member name="M:SharpHook.EventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode)">
             <summary>
