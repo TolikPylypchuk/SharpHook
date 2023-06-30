@@ -2307,10 +2307,6 @@
             </item>
             </list>
             </para>
-            <para>
-            Mouse wheel simulation is a little inconsistent across platforms, and not documented. View the source code of
-            libuiohook for more details.
-            </para>
             </remarks>
             <seealso cref="T:SharpHook.EventSimulator" />
         </member>
@@ -2676,10 +2672,6 @@
             </item>
             </list>
             </para>
-            <para>
-            Mouse wheel simulation is a little inconsistent across platforms, and not documented. View the source code of
-            libuiohook for more details.
-            </para>
             </remarks>
             <seealso cref="T:SharpHook.EventSimulator" />
         </member>
@@ -2900,15 +2892,10 @@
             <item>
             <term><see cref="F:SharpHook.Native.EventType.MouseWheel" /></term>
             <term>
-            Only <see cref="F:SharpHook.Native.MouseWheelEventData.X" />, <see cref="F:SharpHook.Native.MouseWheelEventData.Y" />,
-            <see cref="!:MouseWheelEventData.Amount" />, and <see cref="F:SharpHook.Native.MouseWheelEventData.Rotation" /> are considered.
+            Only <see cref="F:SharpHook.Native.MouseWheelEventData.Rotation" /> and <see cref="F:SharpHook.Native.MouseWheelEventData.Delta" /> are considered.
             </term>
             </item>
             </list>
-            </para>
-            <para>
-            Mouse wheel simulation is a little inconsistent across platforms, and not documented. View the source code of
-            libuiohook for more details.
             </para>
             </remarks>
             <seealso cref="T:SharpHook.EventSimulator" />

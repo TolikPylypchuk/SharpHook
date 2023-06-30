@@ -80,10 +80,6 @@ public interface IEventSimulationProvider
     /// </item>
     /// </list>
     /// </para>
-    /// <para>
-    /// Mouse wheel simulation is a little inconsistent across platforms, and not documented. View the source code of
-    /// libuiohook for more details.
-    /// </para>
     /// </remarks>
     /// <seealso cref="EventSimulator" />
     UioHookResult PostEvent(ref UioHookEvent e);
