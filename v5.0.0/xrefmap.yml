@@ -13,6 +13,25 @@ references:
   commentId: T:SharpHook.EventSimulator
   fullName: SharpHook.EventSimulator
   nameWithType: EventSimulator
+- uid: SharpHook.EventSimulator.#ctor
+  name: EventSimulator()
+  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator__ctor
+  commentId: M:SharpHook.EventSimulator.#ctor
+  fullName: SharpHook.EventSimulator.EventSimulator()
+  nameWithType: EventSimulator.EventSimulator()
+- uid: SharpHook.EventSimulator.#ctor(SharpHook.Providers.IEventSimulationProvider)
+  name: EventSimulator(IEventSimulationProvider)
+  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator__ctor_SharpHook_Providers_IEventSimulationProvider_
+  commentId: M:SharpHook.EventSimulator.#ctor(SharpHook.Providers.IEventSimulationProvider)
+  fullName: SharpHook.EventSimulator.EventSimulator(SharpHook.Providers.IEventSimulationProvider)
+  nameWithType: EventSimulator.EventSimulator(IEventSimulationProvider)
+- uid: SharpHook.EventSimulator.#ctor*
+  name: EventSimulator
+  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator__ctor_
+  commentId: Overload:SharpHook.EventSimulator.#ctor
+  isSpec: "True"
+  fullName: SharpHook.EventSimulator.EventSimulator
+  nameWithType: EventSimulator.EventSimulator
 - uid: SharpHook.EventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode)
   name: SimulateKeyPress(KeyCode)
   href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateKeyPress_SharpHook_Native_KeyCode_
