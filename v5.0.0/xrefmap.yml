@@ -2954,18 +2954,12 @@ references:
   commentId: T:SharpHook.Native.MouseWheelEventData
   fullName: SharpHook.Native.MouseWheelEventData
   nameWithType: MouseWheelEventData
-- uid: SharpHook.Native.MouseWheelEventData.Amount
-  name: Amount
-  href: api/SharpHook.Native.MouseWheelEventData.html#SharpHook_Native_MouseWheelEventData_Amount
-  commentId: F:SharpHook.Native.MouseWheelEventData.Amount
-  fullName: SharpHook.Native.MouseWheelEventData.Amount
-  nameWithType: MouseWheelEventData.Amount
-- uid: SharpHook.Native.MouseWheelEventData.Clicks
-  name: Clicks
-  href: api/SharpHook.Native.MouseWheelEventData.html#SharpHook_Native_MouseWheelEventData_Clicks
-  commentId: F:SharpHook.Native.MouseWheelEventData.Clicks
-  fullName: SharpHook.Native.MouseWheelEventData.Clicks
-  nameWithType: MouseWheelEventData.Clicks
+- uid: SharpHook.Native.MouseWheelEventData.Delta
+  name: Delta
+  href: api/SharpHook.Native.MouseWheelEventData.html#SharpHook_Native_MouseWheelEventData_Delta
+  commentId: F:SharpHook.Native.MouseWheelEventData.Delta
+  fullName: SharpHook.Native.MouseWheelEventData.Delta
+  nameWithType: MouseWheelEventData.Delta
 - uid: SharpHook.Native.MouseWheelEventData.Direction
   name: Direction
   href: api/SharpHook.Native.MouseWheelEventData.html#SharpHook_Native_MouseWheelEventData_Direction
