@@ -1318,11 +1318,32 @@
         <member name="F:SharpHook.Native.KeyCode.Vc0">
             <summary>0</summary>
         </member>
+        <member name="F:SharpHook.Native.KeyCode.VcPlus">
+            <summary>+</summary>
+        </member>
         <member name="F:SharpHook.Native.KeyCode.VcMinus">
             <summary>-</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcEquals">
             <summary>=</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcAsterisk">
+            <summary>*</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcAt">
+            <summary>@</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcAmpersand">
+            <summary>&amp;</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcDollar">
+            <summary>$</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcExclamationMark">
+            <summary>!</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcExclamationDown">
+            <summary>¡</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcBackspace">
             <summary>Backspace</summary>
@@ -1420,14 +1441,26 @@
         <member name="F:SharpHook.Native.KeyCode.VcBackSlash">
             <summary>\</summary>
         </member>
+        <member name="F:SharpHook.Native.KeyCode.VcColon">
+            <summary>:</summary>
+        </member>
         <member name="F:SharpHook.Native.KeyCode.VcSemicolon">
             <summary>;</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcQuote">
             <summary>'</summary>
         </member>
+        <member name="F:SharpHook.Native.KeyCode.VcDoubleQuote">
+            <summary>"</summary>
+        </member>
         <member name="F:SharpHook.Native.KeyCode.VcEnter">
             <summary>Enter</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcLess">
+            <summary>&lt;</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcGreater">
+            <summary>&gt;</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcComma">
             <summary>,</summary>
@@ -1437,6 +1470,21 @@
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcSlash">
             <summary>/</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumberSign">
+            <summary>#</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcOpenBrace">
+            <summary>{</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcCloseBrace">
+            <summary>{</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcOpenParenthesis">
+            <summary>(</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcCloseParenthesis">
+            <summary>)</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcSpace">
             <summary>Space</summary>
@@ -1450,10 +1498,8 @@
         <member name="F:SharpHook.Native.KeyCode.VcPause">
             <summary>Pause</summary>
         </member>
-        <member name="F:SharpHook.Native.KeyCode.VcLesserGreater">
-            <summary>
-            Either the angle bracket key or the backslash key on the RT 102-key keyboard
-            </summary>
+        <member name="F:SharpHook.Native.KeyCode.VcCancel">
+            <summary>Cancel</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcInsert">
             <summary>Insert</summary>
@@ -1479,8 +1525,8 @@
         <member name="F:SharpHook.Native.KeyCode.VcLeft">
             <summary>Left Arrow</summary>
         </member>
-        <member name="F:SharpHook.Native.KeyCode.VcClear">
-            <summary>Clear</summary>
+        <member name="F:SharpHook.Native.KeyCode.VcBegin">
+            <summary>Begin</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcRight">
             <summary>Right Arrow</summary>
@@ -1490,6 +1536,9 @@
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcNumLock">
             <summary>Num Lock</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadClear">
+            <summary>Num-Pad Clear</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcNumPadDivide">
             <summary>Num-Pad Divide</summary>
@@ -1509,8 +1558,17 @@
         <member name="F:SharpHook.Native.KeyCode.VcNumPadEnter">
             <summary>Num-Pad Enter</summary>
         </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadDecimal">
+            <summary>Num-Pad Decimal</summary>
+        </member>
         <member name="F:SharpHook.Native.KeyCode.VcNumPadSeparator">
             <summary>Num-Pad Separator</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadComma">
+            <summary>Num-Pad Comma</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPad0">
+            <summary>Num-Pad 0</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcNumPad1">
             <summary>Num-Pad 1</summary>
@@ -1539,9 +1597,6 @@
         <member name="F:SharpHook.Native.KeyCode.VcNumPad9">
             <summary>Num-Pad 9</summary>
         </member>
-        <member name="F:SharpHook.Native.KeyCode.VcNumPad0">
-            <summary>Num-Pad 0</summary>
-        </member>
         <member name="F:SharpHook.Native.KeyCode.VcNumPadEnd">
             <summary>Num-Pad End</summary>
         </member>
@@ -1554,8 +1609,8 @@
         <member name="F:SharpHook.Native.KeyCode.VcNumPadLeft">
             <summary>Num-Pad Left</summary>
         </member>
-        <member name="F:SharpHook.Native.KeyCode.VcNumPadClear">
-            <summary>Num-Pad Clear</summary>
+        <member name="F:SharpHook.Native.KeyCode.VcNumPadBegin">
+            <summary>Num-Pad Begin</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcNumPadRight">
             <summary>Num-Pad Right</summary>
@@ -1595,6 +1650,11 @@
         <member name="F:SharpHook.Native.KeyCode.VcRightAlt">
             <summary>
             Right Alt (on Windows and Linux) or Option (on macOS)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcAltGraph">
+            <summary>
+            Alt Graph
             </summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcLeftMeta">
@@ -1640,17 +1700,20 @@
         <member name="F:SharpHook.Native.KeyCode.VcVolumeMute">
             <summary>Volume Mute</summary>
         </member>
-        <member name="F:SharpHook.Native.KeyCode.VcVolumeUp">
-            <summary>Volume Up</summary>
-        </member>
         <member name="F:SharpHook.Native.KeyCode.VcVolumeDown">
             <summary>Volume Down</summary>
         </member>
-        <member name="F:SharpHook.Native.KeyCode.VcAppMail">
-            <summary>Mail</summary>
+        <member name="F:SharpHook.Native.KeyCode.VcVolumeUp">
+            <summary>Volume Up</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcAppBrowser">
+            <summary>Browser</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcAppCalculator">
             <summary>Calculator</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcAppMail">
+            <summary>Mail</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcAppMusic">
             <summary>Music</summary>
@@ -1679,14 +1742,65 @@
         <member name="F:SharpHook.Native.KeyCode.VcBrowserFavorites">
             <summary>Browser Favorites</summary>
         </member>
+        <member name="F:SharpHook.Native.KeyCode.VcCircumflex">
+            <summary>^</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcDeadGrave">
+            <summary>` (dead key)</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcDeadAcute">
+            <summary>´ (dead key)</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcDeadCircumflex">
+            <summary>^ (dead key)</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcDeadTilde">
+            <summary>~ (dead key)</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcDeadMacron">
+            <summary>¯ (dead key)</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcDeadBreve">
+            <summary>˘ (dead key)</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcDeadAboveDot">
+            <summary>˙ (dead key)</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcDeadDiaeresis">
+            <summary>¨ (dead key)</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcDeadAboveRing">
+            <summary>˚ (dead key)</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcDeadDoubleAcute">
+            <summary>˝ (dead key)</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcDeadCaron">
+            <summary>ˇ (dead key)</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcDeadCedilla">
+            <summary>¸ (dead key)</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcDeadOgonek">
+            <summary>˛ (dead key)</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcDeadIota">
+            <summary>Iota (dead key)</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcDeadVoicedSound">
+            <summary>Voiced Sound (dead key)</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcDeadSemivoicedSound">
+            <summary>Semivoiced Sound (dead key)</summary>
+        </member>
         <member name="F:SharpHook.Native.KeyCode.VcKatakana">
             <summary>Katakana</summary>
         </member>
-        <member name="F:SharpHook.Native.KeyCode.VcUnderscore">
-            <summary>_</summary>
+        <member name="F:SharpHook.Native.KeyCode.VcKana">
+            <summary>Kana</summary>
         </member>
-        <member name="F:SharpHook.Native.KeyCode.VcFurigana">
-            <summary>Furigana</summary>
+        <member name="F:SharpHook.Native.KeyCode.VcKanaLock">
+            <summary>Kana Lock</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcKanji">
             <summary>Kanji</summary>
@@ -1694,11 +1808,44 @@
         <member name="F:SharpHook.Native.KeyCode.VcHiragana">
             <summary>Hiragana</summary>
         </member>
-        <member name="F:SharpHook.Native.KeyCode.VcYen">
-            <summary>Yen</summary>
+        <member name="F:SharpHook.Native.KeyCode.VcAccept">
+            <summary>Accept</summary>
         </member>
-        <member name="F:SharpHook.Native.KeyCode.VcNumPadComma">
-            <summary>Num-Pad Comma</summary>
+        <member name="F:SharpHook.Native.KeyCode.VcConvert">
+            <summary>Convert</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcCompose">
+            <summary>Compose</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcInputMethodOnOff">
+            <summary>Input Method On/Off</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcAllCandidates">
+            <summary>All Candidates</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcAlphanumeric">
+            <summary>Alphanumeric</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcCodeInput">
+            <summary>Code Input</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcFullWidth">
+            <summary>Wull Width</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcHalfWidth">
+            <summary>Half Width</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcNonConvert">
+            <summary>Non-Convert</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcPreviousCandidate">
+            <summary>Previous Candidate</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcRomanCharacters">
+            <summary>Roman Characters</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcUnderscore">
+            <summary>_</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcSunHelp">
             <summary>Sun Help</summary>
@@ -1727,8 +1874,8 @@
         <member name="F:SharpHook.Native.KeyCode.VcSunCopy">
             <summary>Sun Copy</summary>
         </member>
-        <member name="F:SharpHook.Native.KeyCode.VcSunInsert">
-            <summary>Sun Insert</summary>
+        <member name="F:SharpHook.Native.KeyCode.VcSunPaste">
+            <summary>Sun Paste</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcSunCut">
             <summary>Sun Cut</summary>
