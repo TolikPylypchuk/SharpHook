@@ -1,7 +1,6 @@
 namespace SharpHook.Native;
 
 using System;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 using SharpHook.Internal;
@@ -103,7 +102,7 @@ public struct UioHookEvent : IEquatable<UioHookEvent>
     /// <returns>
     /// <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
     /// </returns>
-    public override bool Equals(object? obj) =>
+    public override readonly bool Equals(object? obj) =>
         obj is UioHookEvent e && this.Equals(e);
 
     /// <summary>
@@ -113,7 +112,7 @@ public struct UioHookEvent : IEquatable<UioHookEvent>
     /// <returns>
     /// <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
     /// </returns>
-    public bool Equals(UioHookEvent e) =>
+    public readonly bool Equals(UioHookEvent e) =>
         this.Type == e.Type &&
             this.Time == e.Time &&
             this.Mask == e.Mask &&
@@ -135,7 +134,7 @@ public struct UioHookEvent : IEquatable<UioHookEvent>
     /// Gets the hash code of this object.
     /// </summary>
     /// <returns>The hash code of this object.</returns>
-    public override int GetHashCode() =>
+    public override readonly int GetHashCode() =>
         this.Type switch
         {
             EventType.KeyTyped => HashCodeUtil.GetHashCode(
@@ -161,7 +160,7 @@ public struct UioHookEvent : IEquatable<UioHookEvent>
     /// Returns the string representation of this object.
     /// </summary>
     /// <returns>The string representation of this object.</returns>
-    public override string ToString() =>
+    public override readonly string ToString() =>
         $"{nameof(UioHookEvent)}: {nameof(this.Type)} = {this.Type}; {nameof(this.Time)} = {this.Time}; " +
         $"{nameof(this.Mask)} = {this.Mask}; {nameof(this.Reserved)} = {this.Reserved}" +
         this.Type switch

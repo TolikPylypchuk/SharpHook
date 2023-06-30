@@ -45,7 +45,7 @@ public struct KeyboardEventData : IEquatable<KeyboardEventData>
     /// <returns>
     /// <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
     /// </returns>
-    public override bool Equals(object? obj) =>
+    public override readonly bool Equals(object? obj) =>
         obj is KeyboardEventData data && this.Equals(data);
 
     /// <summary>
@@ -55,7 +55,7 @@ public struct KeyboardEventData : IEquatable<KeyboardEventData>
     /// <returns>
     /// <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
     /// </returns>
-    public bool Equals(KeyboardEventData data) =>
+    public readonly bool Equals(KeyboardEventData data) =>
         this.KeyCode == data.KeyCode &&
            this.RawCode == data.RawCode &&
            this.KeyChar == data.KeyChar;
@@ -64,14 +64,14 @@ public struct KeyboardEventData : IEquatable<KeyboardEventData>
     /// Gets the hash code of this object.
     /// </summary>
     /// <returns>The hash code of this object.</returns>
-    public override int GetHashCode() =>
+    public override readonly int GetHashCode() =>
         HashCodeUtil.GetHashCode(this.KeyCode, this.RawCode, this.KeyChar);
 
     /// <summary>
     /// Returns the string representation of this object.
     /// </summary>
     /// <returns>The string representation of this object.</returns>
-    public override string ToString() =>
+    public override readonly string ToString() =>
         $"{nameof(KeyboardEventData)}: {nameof(this.KeyCode)} = {this.KeyCode}; " +
         $"{nameof(this.RawCode)} = {this.RawCode}; {nameof(this.KeyChar)} = {(char)this.KeyChar}";
 
