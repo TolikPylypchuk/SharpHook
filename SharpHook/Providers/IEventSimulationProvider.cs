@@ -75,8 +75,7 @@ public interface IEventSimulationProvider
     /// <item>
     /// <term><see cref="EventType.MouseWheel" /></term>
     /// <term>
-    /// Only <see cref="MouseWheelEventData.X" />, <see cref="MouseWheelEventData.Y" />,
-    /// <see cref="MouseWheelEventData.Amount" />, and <see cref="MouseWheelEventData.Rotation" /> are considered.
+    /// Only <see cref="MouseWheelEventData.Rotation" /> and <see cref="MouseWheelEventData.Delta" /> are considered.
     /// </term>
     /// </item>
     /// </list>

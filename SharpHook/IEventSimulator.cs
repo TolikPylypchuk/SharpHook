@@ -75,12 +75,12 @@ public interface IEventSimulator
     /// <summary>
     /// Simulates scrolling the mouse wheel.
     /// </summary>
-    /// <param name="amount">The scrolling amount.</param>
+    /// <param name="delta">The scroll delta.</param>
     /// <param name="rotation">The wheel rotation.</param>
     /// <returns>The result of the operation.</returns>
     /// <remarks>
     /// A positive <paramref name="rotation" /> value indicates that the wheel will be rotated down and a negative value
     /// indicates that the wheel will be rotated up.
     /// </remarks>
-    public UioHookResult SimulateMouseWheel(ushort amount, short rotation);
+    public UioHookResult SimulateMouseWheel(ushort delta, short rotation);
 }

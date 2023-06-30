@@ -113,24 +113,18 @@ public class EventSimulator : IEventSimulator
     /// <summary>
     /// Simulates scrolling the mouse wheel.
     /// </summary>
-    /// <param name="amount">The scrolling amount.</param>
+    /// <param name="delta">The scroll delta.</param>
     /// <param name="rotation">The wheel rotation.</param>
     /// <returns>The result of the operation.</returns>
     /// <remarks>
-    /// <para>
     /// A positive <paramref name="rotation" /> value indicates that the wheel will be rotated down and a negative value
     /// indicates that the wheel will be rotated up.
-    /// </para>
-    /// <para>
-    /// Mouse wheel simulation is a little inconsistent across platforms, and not documented. View the source code of
-    /// libuiohook for more details.
-    /// </para>
     /// </remarks>
-    public UioHookResult SimulateMouseWheel(ushort amount, short rotation) =>
+    public UioHookResult SimulateMouseWheel(ushort delta, short rotation) =>
         this.PostEvent(new()
         {
             Type = EventType.MouseWheel,
-            Wheel = new() { Amount = amount, Rotation = rotation }
+            Wheel = new() { Rotation = rotation, Delta = delta }
         });
 
     private UioHookResult PostEvent(UioHookEvent e) =>

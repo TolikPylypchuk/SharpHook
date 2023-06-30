@@ -76,18 +76,12 @@
             <summary>
             Simulates scrolling the mouse wheel.
             </summary>
-            <param name="amount">The scrolling amount.</param>
+            <param name="delta">The scroll delta.</param>
             <param name="rotation">The wheel rotation.</param>
             <returns>The result of the operation.</returns>
             <remarks>
-            <para>
             A positive <paramref name="rotation" /> value indicates that the wheel will be rotated down and a negative value
             indicates that the wheel will be rotated up.
-            </para>
-            <para>
-            Mouse wheel simulation is a little inconsistent across platforms, and not documented. View the source code of
-            libuiohook for more details.
-            </para>
             </remarks>
         </member>
         <member name="T:SharpHook.GlobalHookBase">
@@ -515,7 +509,7 @@
             <summary>
             Simulates scrolling the mouse wheel.
             </summary>
-            <param name="amount">The scrolling amount.</param>
+            <param name="delta">The scroll delta.</param>
             <param name="rotation">The wheel rotation.</param>
             <returns>The result of the operation.</returns>
             <remarks>
@@ -1977,12 +1971,6 @@
             <seealso cref="T:SharpHook.Native.MouseWheelScrollType" />
             <seealso cref="T:SharpHook.Native.MouseWheelScrollDirection" />
         </member>
-        <member name="F:SharpHook.Native.MouseWheelEventData.Clicks">
-            <summary>
-            The number of clicks.
-            </summary>
-            <value>The number of clicks.</value>
-        </member>
         <member name="F:SharpHook.Native.MouseWheelEventData.X">
             <summary>
             The X-coordinate of the mouse cursor.
@@ -2001,12 +1989,6 @@
             </summary>
             <value>The wheel scroll type.</value>
         </member>
-        <member name="F:SharpHook.Native.MouseWheelEventData.Amount">
-            <summary>
-            The wheel scroll amount.
-            </summary>
-            <value>The wheel scroll amount.</value>
-        </member>
         <member name="F:SharpHook.Native.MouseWheelEventData.Rotation">
             <summary>
             The wheel rotation.
@@ -2016,6 +1998,12 @@
             A positive value indicates that the wheel was rotated down and a negative value indicates that the wheel was
             rotated up.
             </remarks>
+        </member>
+        <member name="F:SharpHook.Native.MouseWheelEventData.Delta">
+            <summary>
+            The scroll delta.
+            </summary>
+            <value>The scroll delta.</value>
         </member>
         <member name="F:SharpHook.Native.MouseWheelEventData.Direction">
             <summary>
@@ -2299,8 +2287,7 @@
             <item>
             <term><see cref="F:SharpHook.Native.EventType.MouseWheel" /></term>
             <term>
-            Only <see cref="F:SharpHook.Native.MouseWheelEventData.X" />, <see cref="F:SharpHook.Native.MouseWheelEventData.Y" />,
-            <see cref="F:SharpHook.Native.MouseWheelEventData.Amount" />, and <see cref="F:SharpHook.Native.MouseWheelEventData.Rotation" /> are considered.
+            Only <see cref="F:SharpHook.Native.MouseWheelEventData.Rotation" /> and <see cref="F:SharpHook.Native.MouseWheelEventData.Delta" /> are considered.
             </term>
             </item>
             </list>
@@ -2669,8 +2656,7 @@
             <item>
             <term><see cref="F:SharpHook.Native.EventType.MouseWheel" /></term>
             <term>
-            Only <see cref="F:SharpHook.Native.MouseWheelEventData.X" />, <see cref="F:SharpHook.Native.MouseWheelEventData.Y" />,
-            <see cref="F:SharpHook.Native.MouseWheelEventData.Amount" />, and <see cref="F:SharpHook.Native.MouseWheelEventData.Rotation" /> are considered.
+            Only <see cref="F:SharpHook.Native.MouseWheelEventData.Rotation" /> and <see cref="F:SharpHook.Native.MouseWheelEventData.Delta" /> are considered.
             </term>
             </item>
             </list>
@@ -2900,7 +2886,7 @@
             <term><see cref="F:SharpHook.Native.EventType.MouseWheel" /></term>
             <term>
             Only <see cref="F:SharpHook.Native.MouseWheelEventData.X" />, <see cref="F:SharpHook.Native.MouseWheelEventData.Y" />,
-            <see cref="F:SharpHook.Native.MouseWheelEventData.Amount" />, and <see cref="F:SharpHook.Native.MouseWheelEventData.Rotation" /> are considered.
+            <see cref="!:MouseWheelEventData.Amount" />, and <see cref="F:SharpHook.Native.MouseWheelEventData.Rotation" /> are considered.
             </term>
             </item>
             </list>

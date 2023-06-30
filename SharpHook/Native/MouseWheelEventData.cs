@@ -15,12 +15,6 @@ using SharpHook.Internal;
 public struct MouseWheelEventData : IEquatable<MouseWheelEventData>
 {
     /// <summary>
-    /// The number of clicks.
-    /// </summary>
-    /// <value>The number of clicks.</value>
-    public ushort Clicks;
-
-    /// <summary>
     /// The X-coordinate of the mouse cursor.
     /// </summary>
     /// <value>The X-coordinate of the mouse cursor.</value>
@@ -39,12 +33,6 @@ public struct MouseWheelEventData : IEquatable<MouseWheelEventData>
     public MouseWheelScrollType Type;
 
     /// <summary>
-    /// The wheel scroll amount.
-    /// </summary>
-    /// <value>The wheel scroll amount.</value>
-    public ushort Amount;
-
-    /// <summary>
     /// The wheel rotation.
     /// </summary>
     /// <value>The wheel rotation.</value>
@@ -53,6 +41,12 @@ public struct MouseWheelEventData : IEquatable<MouseWheelEventData>
     /// rotated up.
     /// </remarks>
     public short Rotation;
+
+    /// <summary>
+    /// The scroll delta.
+    /// </summary>
+    /// <value>The scroll delta.</value>
+    public ushort Delta;
 
     /// <summary>
     /// The wheel scroll direction.
@@ -78,12 +72,11 @@ public struct MouseWheelEventData : IEquatable<MouseWheelEventData>
     /// <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
     /// </returns>
     public bool Equals(MouseWheelEventData data) =>
-        this.Clicks == data.Clicks &&
-            this.X == data.X &&
+        this.X == data.X &&
             this.Y == data.Y &&
             this.Type == data.Type &&
-            this.Amount == data.Amount &&
             this.Rotation == data.Rotation &&
+            this.Delta == data.Delta &&
             this.Direction == data.Direction;
 
     /// <summary>
@@ -91,17 +84,16 @@ public struct MouseWheelEventData : IEquatable<MouseWheelEventData>
     /// </summary>
     /// <returns>The hash code of this object.</returns>
     public override int GetHashCode() =>
-        HashCodeUtil.GetHashCode(
-            this.Clicks, this.X, this.Y, this.Type, this.Amount, this.Rotation, this.Direction);
+        HashCodeUtil.GetHashCode(this.X, this.Y, this.Type, this.Rotation, this.Delta, this.Direction);
 
     /// <summary>
     /// Returns the string representation of this object.
     /// </summary>
     /// <returns>The string representation of this object.</returns>
     public override string ToString() =>
-        $"{nameof(MouseWheelEventData)}: {nameof(this.Clicks)} = {this.Clicks}; {nameof(this.X)} = {this.X}; " +
-        $"{nameof(this.Y)} = {this.Y}; {nameof(this.Type)} = {this.Type}; {nameof(this.Amount)} = {this.Amount}; " +
-        $"{nameof(this.Rotation)} = {this.Rotation}; {nameof(this.Direction)} = {this.Direction}";
+        $"{nameof(MouseWheelEventData)}: {nameof(this.X)} = {this.X}; {nameof(this.Y)} = {this.Y}; " +
+        $"{nameof(this.Type)} = {this.Type}; {nameof(this.Rotation)} = {this.Rotation}; " +
+        $"{nameof(this.Delta)} = {this.Delta}; {nameof(this.Direction)} = {this.Direction}";
 
     /// <summary>
     /// Compares two objects for equality.
