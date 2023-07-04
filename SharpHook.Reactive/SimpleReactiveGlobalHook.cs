@@ -2,6 +2,7 @@ namespace SharpHook.Reactive;
 
 using System;
 using System.Reactive;
+using System.Reactive.Concurrency;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
 using System.Runtime.CompilerServices;
@@ -48,12 +49,61 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     /// <summary>
     /// Initializes a new instance of <see cref="SimpleReactiveGlobalHook" />.
     /// </summary>
+    /// <param name="defaultScheduler">The default scheduler for observables.</param>
+    /// <exception cref="ArgumentNullException">
+    /// <paramref name="defaultScheduler" /> is <see langword="null" />.
+    /// </exception>
+    public SimpleReactiveGlobalHook(IScheduler defaultScheduler)
+        : this(defaultScheduler, false)
+    { }
+
+    /// <summary>
+    /// Initializes a new instance of <see cref="SimpleReactiveGlobalHook" />.
+    /// </summary>
+    /// <param name="globalHookProvider">The underlying global hook provider.</param>
+    /// <exception cref="ArgumentNullException">
+    /// <paramref name="globalHookProvider"/> is <see langword="null" />.
+    /// </exception>
+    public SimpleReactiveGlobalHook(IGlobalHookProvider globalHookProvider)
+        : this(globalHookProvider, false)
+    { }
+
+    /// <summary>
+    /// Initializes a new instance of <see cref="SimpleReactiveGlobalHook" />.
+    /// </summary>
     /// <param name="runAsyncOnBackgroundThread">
     /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
     /// Otherwise, <see langword="false" />.
     /// </param>
     public SimpleReactiveGlobalHook(bool runAsyncOnBackgroundThread)
         : this(UioHookProvider.Instance, runAsyncOnBackgroundThread)
+    { }
+
+    /// <summary>
+    /// Initializes a new instance of <see cref="SimpleReactiveGlobalHook" />.
+    /// </summary>
+    /// <param name="defaultScheduler">The default scheduler for observables.</param>
+    /// <param name="globalHookProvider">The underlying global hook provider.</param>
+    /// <exception cref="ArgumentNullException">
+    /// <paramref name="defaultScheduler" /> or <paramref name="globalHookProvider"/> is <see langword="null" />.
+    /// </exception>
+    public SimpleReactiveGlobalHook(IScheduler defaultScheduler, IGlobalHookProvider globalHookProvider)
+        : this(defaultScheduler, globalHookProvider, false)
+    { }
+
+    /// <summary>
+    /// Initializes a new instance of <see cref="SimpleReactiveGlobalHook" />.
+    /// </summary>
+    /// <param name="defaultScheduler">The default scheduler for observables.</param>
+    /// <param name="runAsyncOnBackgroundThread">
+    /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
+    /// Otherwise, <see langword="false" />.
+    /// </param>
+    /// <exception cref="ArgumentNullException">
+    /// <paramref name="defaultScheduler" /> is <see langword="null" />.
+    /// </exception>
+    public SimpleReactiveGlobalHook(IScheduler defaultScheduler, bool runAsyncOnBackgroundThread)
+        : this(defaultScheduler, UioHookProvider.Instance, runAsyncOnBackgroundThread)
     { }
 
     /// <summary>
@@ -68,30 +118,54 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     /// <paramref name="globalHookProvider"/> is <see langword="null" />.
     /// </exception>
     public SimpleReactiveGlobalHook(IGlobalHookProvider globalHookProvider, bool runAsyncOnBackgroundThread)
+        : this(ImmediateScheduler.Instance, globalHookProvider, runAsyncOnBackgroundThread)
+    { }
+
+    /// <summary>
+    /// Initializes a new instance of <see cref="SimpleReactiveGlobalHook" />.
+    /// </summary>
+    /// <param name="defaultScheduler">The default scheduler for observables.</param>
+    /// <param name="globalHookProvider">The underlying global hook provider.</param>
+    /// <param name="runAsyncOnBackgroundThread">
+    /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
+    /// Otherwise, <see langword="false" />.
+    /// </param>
+    /// <exception cref="ArgumentNullException">
+    /// <paramref name="defaultScheduler" /> or <paramref name="globalHookProvider"/> is <see langword="null" />.
+    /// </exception>
+    public SimpleReactiveGlobalHook(
+        IScheduler defaultScheduler,
+        IGlobalHookProvider globalHookProvider,
+        bool runAsyncOnBackgroundThread)
     {
         if (globalHookProvider is null)
         {
             throw new ArgumentNullException(nameof(globalHookProvider));
         }
 
+        if (defaultScheduler is null)
+        {
+            throw new ArgumentNullException(nameof(defaultScheduler));
+        }
+
         this.globalHookProvider = globalHookProvider;
         this.dispatchProc = this.DispatchEvent;
         this.runAsyncOnBackgroundThread = runAsyncOnBackgroundThread;
 
-        this.HookEnabled = this.hookEnabledSubject.Take(1).AsObservable();
-        this.HookDisabled = this.hookDisabledSubject.Take(1).AsObservable();
+        this.HookEnabled = this.hookEnabledSubject.Take(1).ObserveOn(defaultScheduler);
+        this.HookDisabled = this.hookDisabledSubject.Take(1).ObserveOn(defaultScheduler);
 
-        this.KeyTyped = this.keyTypedSubject.AsObservable();
-        this.KeyPressed = this.keyPressedSubject.AsObservable();
-        this.KeyReleased = this.keyReleasedSubject.AsObservable();
+        this.KeyTyped = this.keyTypedSubject.ObserveOn(defaultScheduler);
+        this.KeyPressed = this.keyPressedSubject.ObserveOn(defaultScheduler);
+        this.KeyReleased = this.keyReleasedSubject.ObserveOn(defaultScheduler);
 
-        this.MouseClicked = this.mouseClickedSubject.AsObservable();
-        this.MousePressed = this.mousePressedSubject.AsObservable();
-        this.MouseReleased = this.mouseReleasedSubject.AsObservable();
-        this.MouseMoved = this.mouseMovedSubject.AsObservable();
-        this.MouseDragged = this.mouseDraggedSubject.AsObservable();
+        this.MouseClicked = this.mouseClickedSubject.ObserveOn(defaultScheduler);
+        this.MousePressed = this.mousePressedSubject.ObserveOn(defaultScheduler);
+        this.MouseReleased = this.mouseReleasedSubject.ObserveOn(defaultScheduler);
+        this.MouseMoved = this.mouseMovedSubject.ObserveOn(defaultScheduler);
+        this.MouseDragged = this.mouseDraggedSubject.ObserveOn(defaultScheduler);
 
-        this.MouseWheel = this.mouseWheelSubject.AsObservable();
+        this.MouseWheel = this.mouseWheelSubject.ObserveOn(defaultScheduler);
     }
 
     /// <summary>

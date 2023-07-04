@@ -1,5 +1,6 @@
 namespace SharpHook.Sample;
 
+using System.Reactive.Concurrency;
 using System.Reactive.Linq;
 
 using SharpHook.Logging;
@@ -63,7 +64,7 @@ public static class Program
 
     private static IReactiveGlobalHook CreateHook()
     {
-        var hook = new SimpleReactiveGlobalHook();
+        var hook = new SimpleReactiveGlobalHook(TaskPoolScheduler.Default);
 
         hook.HookEnabled.Subscribe(OnHookEvent);
         hook.HookDisabled.Subscribe(OnHookEvent);
