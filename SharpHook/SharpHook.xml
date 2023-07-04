@@ -2008,6 +2008,107 @@
         <member name="F:SharpHook.Native.ModifierMask.ScrollLock">
             <summary>Scroll Lock</summary>
         </member>
+        <member name="T:SharpHook.Native.ModifierMaskExtensions">
+            <summary>
+            Contains extension methods for <see cref="T:SharpHook.Native.ModifierMask" />.
+            </summary>
+        </member>
+        <member name="M:SharpHook.Native.ModifierMaskExtensions.HasShift(SharpHook.Native.ModifierMask)">
+            <summary>
+            Returns <see langword="true" /> if the modifier mask contains either <see cref="F:SharpHook.Native.ModifierMask.LeftShift" /> or
+            <see cref="F:SharpHook.Native.ModifierMask.RightShift"/>. Otherwise, returns <see langword="false" />.
+            </summary>
+            <param name="mask">The modifier mask to check.</param>
+            <returns>
+            <see langword="true" /> if the modifier mask contains either <see cref="F:SharpHook.Native.ModifierMask.LeftShift" /> or
+            <see cref="F:SharpHook.Native.ModifierMask.RightShift"/>. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Native.ModifierMaskExtensions.HasCtrl(SharpHook.Native.ModifierMask)">
+            <summary>
+            Returns <see langword="true" /> if the modifier mask contains either <see cref="F:SharpHook.Native.ModifierMask.LeftCtrl" /> or
+            <see cref="F:SharpHook.Native.ModifierMask.RightCtrl"/>. Otherwise, returns <see langword="false" />.
+            </summary>
+            <param name="mask">The modifier mask to check.</param>
+            <returns>
+            <see langword="true" /> if the modifier mask contains either <see cref="F:SharpHook.Native.ModifierMask.LeftCtrl" /> or
+            <see cref="F:SharpHook.Native.ModifierMask.RightCtrl"/>. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Native.ModifierMaskExtensions.HasAlt(SharpHook.Native.ModifierMask)">
+            <summary>
+            Returns <see langword="true" /> if the modifier mask contains either <see cref="F:SharpHook.Native.ModifierMask.LeftAlt" /> or
+            <see cref="F:SharpHook.Native.ModifierMask.RightAlt"/>. Otherwise, returns <see langword="false" />.
+            </summary>
+            <param name="mask">The modifier mask to check.</param>
+            <returns>
+            <see langword="true" /> if the modifier mask contains either <see cref="F:SharpHook.Native.ModifierMask.LeftAlt" /> or
+            <see cref="F:SharpHook.Native.ModifierMask.RightAlt"/>. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Native.ModifierMaskExtensions.HasMeta(SharpHook.Native.ModifierMask)">
+            <summary>
+            Returns <see langword="true" /> if the modifier mask contains either <see cref="F:SharpHook.Native.ModifierMask.LeftMeta" /> or
+            <see cref="F:SharpHook.Native.ModifierMask.RightMeta"/>. Otherwise, returns <see langword="false" />.
+            </summary>
+            <param name="mask">The modifier mask to check.</param>
+            <returns>
+            <see langword="true" /> if the modifier mask contains either <see cref="F:SharpHook.Native.ModifierMask.LeftMeta" /> or
+            <see cref="F:SharpHook.Native.ModifierMask.RightMeta"/>. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Native.ModifierMaskExtensions.HasAny(SharpHook.Native.ModifierMask,SharpHook.Native.ModifierMask)">
+            <summary>
+            Returns <see langword="true" /> if the modifier mask contains any of the specified modifiers.
+            Otherwise, returns <see langword="false" />.
+            </summary>
+            <param name="mask">The modifier mask to check.</param>
+            <param name="modifiers">The modifiers to check against.</param>
+            <returns>
+            <see langword="true" /> if the modifier mask contains any of the specified modifiers.
+            Otherwise, <see langword="false" />.
+            </returns>
+            <remarks>
+            This method returns <see langword="false" /> is <paramref name="modifiers" /> equals
+            <see cref="F:SharpHook.Native.ModifierMask.None" />.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Native.ModifierMaskExtensions.HasAll(SharpHook.Native.ModifierMask,SharpHook.Native.ModifierMask)">
+            <summary>
+            Returns <see langword="true" /> if the modifier mask contains all of the specified modifiers.
+            Otherwise, returns <see langword="false" />.
+            </summary>
+            <param name="mask">The modifier mask to check.</param>
+            <param name="modifiers">The modifiers to check against.</param>
+            <returns>
+            <see langword="true" /> if the modifier mask contains all of the specified modifiers.
+            Otherwise, <see langword="false" />.
+            </returns>
+            <remarks>
+            This method returns <see langword="true" /> is <paramref name="modifiers" /> equals
+            <see cref="F:SharpHook.Native.ModifierMask.None" />.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Native.ModifierMaskExtensions.Split(SharpHook.Native.ModifierMask)">
+            <summary>
+            Splits a modifier mask into an array of individual modifiers.
+            </summary>
+            <param name="mask">The modifier mask to split.</param>
+            <returns>
+            An array of individual modifiers contained in <paramref name="mask" />,
+            or an empty array if <paramref name="mask" /> is <see cref="F:SharpHook.Native.ModifierMask.None" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Native.ModifierMaskExtensions.Merge(SharpHook.Native.ModifierMask[])">
+            <summary>
+            Merges an array of modifiers into a single modifier mask.
+            </summary>
+            <param name="modifiers">The modifiers to merge.</param>
+            <returns>A modifier mask which contains the specified modifiers.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="modifiers" /> is <see langword="null" />.
+            </exception>
+        </member>
         <member name="T:SharpHook.Native.MouseButton">
             <summary>
             Represents a mouse button.
