@@ -3118,6 +3118,119 @@ references:
   commentId: F:SharpHook.Native.ModifierMask.Shift
   fullName: SharpHook.Native.ModifierMask.Shift
   nameWithType: ModifierMask.Shift
+- uid: SharpHook.Native.ModifierMaskExtensions
+  name: ModifierMaskExtensions
+  href: api/SharpHook.Native.ModifierMaskExtensions.html
+  commentId: T:SharpHook.Native.ModifierMaskExtensions
+  fullName: SharpHook.Native.ModifierMaskExtensions
+  nameWithType: ModifierMaskExtensions
+- uid: SharpHook.Native.ModifierMaskExtensions.HasAll(SharpHook.Native.ModifierMask,SharpHook.Native.ModifierMask)
+  name: HasAll(ModifierMask, ModifierMask)
+  href: api/SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_HasAll_SharpHook_Native_ModifierMask_SharpHook_Native_ModifierMask_
+  commentId: M:SharpHook.Native.ModifierMaskExtensions.HasAll(SharpHook.Native.ModifierMask,SharpHook.Native.ModifierMask)
+  fullName: SharpHook.Native.ModifierMaskExtensions.HasAll(SharpHook.Native.ModifierMask, SharpHook.Native.ModifierMask)
+  nameWithType: ModifierMaskExtensions.HasAll(ModifierMask, ModifierMask)
+- uid: SharpHook.Native.ModifierMaskExtensions.HasAll*
+  name: HasAll
+  href: api/SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_HasAll_
+  commentId: Overload:SharpHook.Native.ModifierMaskExtensions.HasAll
+  isSpec: "True"
+  fullName: SharpHook.Native.ModifierMaskExtensions.HasAll
+  nameWithType: ModifierMaskExtensions.HasAll
+- uid: SharpHook.Native.ModifierMaskExtensions.HasAlt(SharpHook.Native.ModifierMask)
+  name: HasAlt(ModifierMask)
+  href: api/SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_HasAlt_SharpHook_Native_ModifierMask_
+  commentId: M:SharpHook.Native.ModifierMaskExtensions.HasAlt(SharpHook.Native.ModifierMask)
+  fullName: SharpHook.Native.ModifierMaskExtensions.HasAlt(SharpHook.Native.ModifierMask)
+  nameWithType: ModifierMaskExtensions.HasAlt(ModifierMask)
+- uid: SharpHook.Native.ModifierMaskExtensions.HasAlt*
+  name: HasAlt
+  href: api/SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_HasAlt_
+  commentId: Overload:SharpHook.Native.ModifierMaskExtensions.HasAlt
+  isSpec: "True"
+  fullName: SharpHook.Native.ModifierMaskExtensions.HasAlt
+  nameWithType: ModifierMaskExtensions.HasAlt
+- uid: SharpHook.Native.ModifierMaskExtensions.HasAny(SharpHook.Native.ModifierMask,SharpHook.Native.ModifierMask)
+  name: HasAny(ModifierMask, ModifierMask)
+  href: api/SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_HasAny_SharpHook_Native_ModifierMask_SharpHook_Native_ModifierMask_
+  commentId: M:SharpHook.Native.ModifierMaskExtensions.HasAny(SharpHook.Native.ModifierMask,SharpHook.Native.ModifierMask)
+  fullName: SharpHook.Native.ModifierMaskExtensions.HasAny(SharpHook.Native.ModifierMask, SharpHook.Native.ModifierMask)
+  nameWithType: ModifierMaskExtensions.HasAny(ModifierMask, ModifierMask)
+- uid: SharpHook.Native.ModifierMaskExtensions.HasAny*
+  name: HasAny
+  href: api/SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_HasAny_
+  commentId: Overload:SharpHook.Native.ModifierMaskExtensions.HasAny
+  isSpec: "True"
+  fullName: SharpHook.Native.ModifierMaskExtensions.HasAny
+  nameWithType: ModifierMaskExtensions.HasAny
+- uid: SharpHook.Native.ModifierMaskExtensions.HasCtrl(SharpHook.Native.ModifierMask)
+  name: HasCtrl(ModifierMask)
+  href: api/SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_HasCtrl_SharpHook_Native_ModifierMask_
+  commentId: M:SharpHook.Native.ModifierMaskExtensions.HasCtrl(SharpHook.Native.ModifierMask)
+  fullName: SharpHook.Native.ModifierMaskExtensions.HasCtrl(SharpHook.Native.ModifierMask)
+  nameWithType: ModifierMaskExtensions.HasCtrl(ModifierMask)
+- uid: SharpHook.Native.ModifierMaskExtensions.HasCtrl*
+  name: HasCtrl
+  href: api/SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_HasCtrl_
+  commentId: Overload:SharpHook.Native.ModifierMaskExtensions.HasCtrl
+  isSpec: "True"
+  fullName: SharpHook.Native.ModifierMaskExtensions.HasCtrl
+  nameWithType: ModifierMaskExtensions.HasCtrl
+- uid: SharpHook.Native.ModifierMaskExtensions.HasMeta(SharpHook.Native.ModifierMask)
+  name: HasMeta(ModifierMask)
+  href: api/SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_HasMeta_SharpHook_Native_ModifierMask_
+  commentId: M:SharpHook.Native.ModifierMaskExtensions.HasMeta(SharpHook.Native.ModifierMask)
+  fullName: SharpHook.Native.ModifierMaskExtensions.HasMeta(SharpHook.Native.ModifierMask)
+  nameWithType: ModifierMaskExtensions.HasMeta(ModifierMask)
+- uid: SharpHook.Native.ModifierMaskExtensions.HasMeta*
+  name: HasMeta
+  href: api/SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_HasMeta_
+  commentId: Overload:SharpHook.Native.ModifierMaskExtensions.HasMeta
+  isSpec: "True"
+  fullName: SharpHook.Native.ModifierMaskExtensions.HasMeta
+  nameWithType: ModifierMaskExtensions.HasMeta
+- uid: SharpHook.Native.ModifierMaskExtensions.HasShift(SharpHook.Native.ModifierMask)
+  name: HasShift(ModifierMask)
+  href: api/SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_HasShift_SharpHook_Native_ModifierMask_
+  commentId: M:SharpHook.Native.ModifierMaskExtensions.HasShift(SharpHook.Native.ModifierMask)
+  fullName: SharpHook.Native.ModifierMaskExtensions.HasShift(SharpHook.Native.ModifierMask)
+  nameWithType: ModifierMaskExtensions.HasShift(ModifierMask)
+- uid: SharpHook.Native.ModifierMaskExtensions.HasShift*
+  name: HasShift
+  href: api/SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_HasShift_
+  commentId: Overload:SharpHook.Native.ModifierMaskExtensions.HasShift
+  isSpec: "True"
+  fullName: SharpHook.Native.ModifierMaskExtensions.HasShift
+  nameWithType: ModifierMaskExtensions.HasShift
+- uid: SharpHook.Native.ModifierMaskExtensions.Merge(SharpHook.Native.ModifierMask[])
+  name: Merge(ModifierMask[])
+  href: api/SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_Merge_SharpHook_Native_ModifierMask___
+  commentId: M:SharpHook.Native.ModifierMaskExtensions.Merge(SharpHook.Native.ModifierMask[])
+  name.vb: Merge(ModifierMask())
+  fullName: SharpHook.Native.ModifierMaskExtensions.Merge(SharpHook.Native.ModifierMask[])
+  fullName.vb: SharpHook.Native.ModifierMaskExtensions.Merge(SharpHook.Native.ModifierMask())
+  nameWithType: ModifierMaskExtensions.Merge(ModifierMask[])
+  nameWithType.vb: ModifierMaskExtensions.Merge(ModifierMask())
+- uid: SharpHook.Native.ModifierMaskExtensions.Merge*
+  name: Merge
+  href: api/SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_Merge_
+  commentId: Overload:SharpHook.Native.ModifierMaskExtensions.Merge
+  isSpec: "True"
+  fullName: SharpHook.Native.ModifierMaskExtensions.Merge
+  nameWithType: ModifierMaskExtensions.Merge
+- uid: SharpHook.Native.ModifierMaskExtensions.Split(SharpHook.Native.ModifierMask)
+  name: Split(ModifierMask)
+  href: api/SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_Split_SharpHook_Native_ModifierMask_
+  commentId: M:SharpHook.Native.ModifierMaskExtensions.Split(SharpHook.Native.ModifierMask)
+  fullName: SharpHook.Native.ModifierMaskExtensions.Split(SharpHook.Native.ModifierMask)
+  nameWithType: ModifierMaskExtensions.Split(ModifierMask)
+- uid: SharpHook.Native.ModifierMaskExtensions.Split*
+  name: Split
+  href: api/SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_Split_
+  commentId: Overload:SharpHook.Native.ModifierMaskExtensions.Split
+  isSpec: "True"
+  fullName: SharpHook.Native.ModifierMaskExtensions.Split
+  nameWithType: ModifierMaskExtensions.Split
 - uid: SharpHook.Native.MouseButton
   name: MouseButton
   href: api/SharpHook.Native.MouseButton.html

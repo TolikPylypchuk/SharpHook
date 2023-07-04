@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.HookEventArgs.html",
-          "hash": "Vfz9hHujy/FvIEiDfVqSwaETKc1sG+ucOB9b07dv/sY="
+          "hash": "3IeQ3g2FeyhMgbw5CXPbBNCGCr6/pgjMCbL5N4P99MU="
         }
       },
       "is_incremental": false,
@@ -45,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.HookException.html",
-          "hash": "8Bofy97qpotpIFPcp9kHlxLtzJQPeDQ0sEPaWaechTU="
+          "hash": "MpZ4fUtod/rCg/gHclIypv3vWKkfYuQiRg0doyXueZ4="
         }
       },
       "is_incremental": false,
@@ -81,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.KeyboardHookEventArgs.html",
-          "hash": "eie0FHCtzKIU3dVD2U++3cfIDW2O+URKXG7MO47bZII="
+          "hash": "qv2MlGPnRIkmqmXecwJVpSpyTCSFrNfCUed1gHl8zTM="
         }
       },
       "is_incremental": false,
@@ -141,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Logging.LogEventArgs.html",
-          "hash": "CWnsebmbDbjQKPoCaDCvvc6vjMFb6fzORfuD/pIx60o="
+          "hash": "3WeQe8M9NCmU8UONUySDC9Azj57cpv0L7Moyu7oAX68="
         }
       },
       "is_incremental": false,
@@ -177,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.MouseHookEventArgs.html",
-          "hash": "HhAmF4ha7AzCyStf2uTqbJJov3BW0rH+1cNGiPyIfu8="
+          "hash": "5NNzp7p4do8nYjOqXpteZUFM1OKhpWJERtYy9olv2/4="
         }
       },
       "is_incremental": false,
@@ -189,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.MouseWheelHookEventArgs.html",
-          "hash": "og0UR1q40/n+ArFZ5HzS1EPOOy4j2i3mm5NddNMg4fE="
+          "hash": "vbU1OdYLEeS9vHYy2f+e50AKuaCBEeVqGkiG0a+ZfrM="
         }
       },
       "is_incremental": false,
@@ -285,7 +285,19 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.ModifierMask.html",
-          "hash": "eqc+xY/RkNgMQMSWNICsuAXMKhbgqvfjg8J7sdP82uQ="
+          "hash": "MmxZqtZqFRzKbC3MW+YmuEeNQPNXDR8TP0G5lXDAQsI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Native.ModifierMaskExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Native.ModifierMaskExtensions.html",
+          "hash": "RvcXShrLANm9dJQ9gYekp+KT7XkWRTAMvGgsvECEdgY="
         }
       },
       "is_incremental": false,
@@ -405,7 +417,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.html",
-          "hash": "yQLIFGVi/5RXgdZgWuGRNc8yACR+tcrqe0LjhG7UsrU="
+          "hash": "s2Ao6EVsTy8RjFnEZemvInhKy78+4SLPtX1CIFV7ixs="
         }
       },
       "is_incremental": false,
@@ -429,7 +441,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Providers.IGlobalHookProvider.html",
-          "hash": "RHW6Kf5wb+eorR+jqpEZ5r2opQhS/J2OaBMMfMEUsdg="
+          "hash": "f4K+i7EQ5fgoAn+DeQja6aZ1DZPZEvDodDKlOO/iYu4="
         }
       },
       "is_incremental": false,
@@ -441,7 +453,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Providers.ILoggingProvider.html",
-          "hash": "MIiOmlYxG4HOb6l7C3L0GbrFYGE+4iW2oAaLuhl5iwI="
+          "hash": "ysbTLkz82wldrHo9kicRrk9cwNTJdNeZJ7L7QBWTYy0="
         }
       },
       "is_incremental": false,
@@ -477,7 +489,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Providers.UioHookProvider.html",
-          "hash": "SVEGAEQSG8HDk95LQVDtZ8sxUiFtIkOb7y9QwmhsVtQ="
+          "hash": "0HAB4ojHNoJm1oBzHycmkvsfYZCortBTf6uWvXiBYts="
         }
       },
       "is_incremental": false,
@@ -645,7 +657,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "SPrQ+9ew1bgCp8hkSK7TZc6wwdmdeNju8U016vGPj6I="
+          "hash": "WYg27ERrpITOxbmSUHM6yDrFu/23HwslM/2NHTd0E9Q="
         }
       },
       "is_incremental": false,
@@ -826,7 +838,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 52,
+          "total_file_count": 53,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {
