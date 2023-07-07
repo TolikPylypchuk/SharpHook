@@ -41,6 +41,22 @@
         </ContentWithTargetPath>
     </ItemGroup>
 
+    <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst' And '$(Platform)' == 'x64'">
+        <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\maccatalyst-x64\native\libuiohook.dylib">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>libuiohook.dylib</TargetPath>
+            <Pack>False</Pack>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst' And '$(Platform)' == 'ARM64'">
+        <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\maccatalyst-arm64\native\libuiohook.dylib">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <TargetPath>libuiohook.dylib</TargetPath>
+            <Pack>False</Pack>
+        </ContentWithTargetPath>
+    </ItemGroup>
+
     <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Linux')) And '$(Platform)' == 'x64'">
         <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\linux-x64\native\libuiohook.so">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

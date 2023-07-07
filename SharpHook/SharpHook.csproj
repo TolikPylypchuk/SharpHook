@@ -70,6 +70,14 @@
       <PackagePath>runtimes/linux-arm64/native/libuiohook.so</PackagePath>
       <Pack>True</Pack>
     </None>
+    <None Include="lib\maccatalyst-x64\libuiohook.dylib">
+      <PackagePath>runtimes/maccatalyst-x64/native/libuiohook.dylib</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\maccatalyst-arm64\libuiohook.dylib">
+      <PackagePath>runtimes/maccatalyst-arm64/native/libuiohook.dylib</PackagePath>
+      <Pack>True</Pack>
+    </None>
     <None Include="lib\osx-x64\libuiohook.dylib">
       <PackagePath>runtimes/osx-x64/native/libuiohook.dylib</PackagePath>
       <Pack>True</Pack>
