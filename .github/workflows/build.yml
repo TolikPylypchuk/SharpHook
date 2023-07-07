@@ -82,7 +82,7 @@ jobs:
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-mac-catalyst:
-    runs-on: macos-latest
+    runs-on: macos-13
 
     steps:
       - name: Checkout
@@ -92,14 +92,14 @@ jobs:
       - name: Compile
         env:
           CC: clang
-          CFLAGS: '-O2 -g -miphoneos-version-min=13.1 -isysroot `xcrun --sdk macosx --show-sdk-path` -fembed-bitcode'
-          LDFLAGS: '-isysroot `xcrun --sdk macosx --show-sdk-path`'
+          CFLAGS: '-O2 -g -target arm64-apple-ios13.1-macabi -miphoneos-version-min=13.1 -fembed-bitcode'
         shell: bash
         run: |
+          sudo xcode-select -s '/Applications/Xcode_14.3.app/Contents/Developer'
           cd libuiohook
           cmake -B ${{github.workspace}}/build \
             -G "Unix Makefiles" \
-            -D CMAKE_INSTALL_PREFIX=./dist/catalyst/universal \
+            -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/darwin/catalyst \
             -D CMAKE_VERBOSE_MAKEFILE=true \
             -D CMAKE_OSX_ARCHITECTURES='x86_64;arm64' \
             -D BUILD_SHARED_LIBS=ON \
@@ -132,12 +132,12 @@ jobs:
         run: |
           sudo rm -Rf /etc/apt/sources.list.d
           sudo bash -c 'source /etc/lsb-release && echo "
-          deb [arch=amd64,i386] https://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME} main universe
-          deb [arch=amd64,i386] https://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME}-updates main universe
-          deb [arch=amd64,i386] https://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME}-backports main universe
-          deb [arch=arm64,armhf] https://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME} main universe
-          deb [arch=arm64,armhf] https://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME}-updates main universe
-          deb [arch=arm64,armhf] https://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME}-backports main universe
+          deb [arch=amd64,i386] http://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME} main universe
+          deb [arch=amd64,i386] http://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME}-updates main universe
+          deb [arch=amd64,i386] http://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME}-backports main universe
+          deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME} main universe
+          deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME}-updates main universe
+          deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME}-backports main universe
           " > /etc/apt/sources.list'
           sudo dpkg --add-architecture armhf
           sudo apt update -mqy
@@ -192,12 +192,12 @@ jobs:
         run: |
           sudo rm -Rf /etc/apt/sources.list.d
           sudo bash -c 'source /etc/lsb-release && echo "
-          deb [arch=amd64,i386] https://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME} main universe
-          deb [arch=amd64,i386] https://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME}-updates main universe
-          deb [arch=amd64,i386] https://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME}-backports main universe
-          deb [arch=arm64,armhf] https://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME} main universe
-          deb [arch=arm64,armhf] https://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME}-updates main universe
-          deb [arch=arm64,armhf] https://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME}-backports main universe
+          deb [arch=amd64,i386] http://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME} main universe
+          deb [arch=amd64,i386] http://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME}-updates main universe
+          deb [arch=amd64,i386] http://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME}-backports main universe
+          deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME} main universe
+          deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME}-updates main universe
+          deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME}-backports main universe
           " > /etc/apt/sources.list'
           sudo dpkg --add-architecture arm64
           sudo apt update -mqy
@@ -419,19 +419,19 @@ jobs:
         with:
           name: libuiohook-build
           path: libuiohook-build
-      - name: Move libuiohook
+      - name: Copy libuiohook
         shell: pwsh
         run: |
-          mv libuiohook-build\linux\arm\lib\libuiohook.so SharpHook\lib\linux-arm\
-          mv libuiohook-build\linux\arm64\lib\libuiohook.so SharpHook\lib\linux-arm64\
-          mv libuiohook-build\linux\x86_64\lib\libuiohook.so SharpHook\lib\linux-x64\
-          mv libuiohook-build\catalyst\universal\lib\libuiohook.dylib SharpHook\lib\maccatalyst-arm64\
-          mv libuiohook-build\catalyst\universal\lib\libuiohook.dylib SharpHook\lib\maccatalyst-x64\
-          mv libuiohook-build\darwin\arm64\lib\libuiohook.dylib SharpHook\lib\osx-arm64\
-          mv libuiohook-build\darwin\x86_64\lib\libuiohook.dylib SharpHook\lib\osx-x64\
-          mv libuiohook-build\windows\arm64\bin\uiohook.dll SharpHook\lib\win-arm64\
-          mv libuiohook-build\windows\x86\bin\uiohook.dll SharpHook\lib\win-x86\
-          mv libuiohook-build\windows\x86_64\bin\uiohook.dll SharpHook\lib\win-x64\
+          cp libuiohook-build\linux\arm\lib\libuiohook.so SharpHook\lib\linux-arm\
+          cp libuiohook-build\linux\arm64\lib\libuiohook.so SharpHook\lib\linux-arm64\
+          cp libuiohook-build\linux\x86_64\lib\libuiohook.so SharpHook\lib\linux-x64\
+          cp libuiohook-build\darwin\catalyst\lib\libuiohook.dylib SharpHook\lib\maccatalyst-arm64\
+          cp libuiohook-build\darwin\catalyst\lib\libuiohook.dylib SharpHook\lib\maccatalyst-x64\
+          cp libuiohook-build\darwin\arm64\lib\libuiohook.dylib SharpHook\lib\osx-arm64\
+          cp libuiohook-build\darwin\x86_64\lib\libuiohook.dylib SharpHook\lib\osx-x64\
+          cp libuiohook-build\windows\arm64\bin\uiohook.dll SharpHook\lib\win-arm64\
+          cp libuiohook-build\windows\x86\bin\uiohook.dll SharpHook\lib\win-x86\
+          cp libuiohook-build\windows\x86_64\bin\uiohook.dll SharpHook\lib\win-x64\
       - name: Pack SharpHook
         shell: pwsh
         run: |
