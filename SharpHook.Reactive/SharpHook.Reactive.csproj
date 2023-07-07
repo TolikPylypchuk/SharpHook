@@ -13,7 +13,6 @@
     <Authors>Tolik Pylypchuk</Authors>
     <Company>Tolik Pylypchuk</Company>
     <Product>SharpHook</Product>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Copyright>(c) 2021 Anatoliy Pylypchuk</Copyright>
     <Description>Provides a cross-platform global keyboard and mouse hook for .NET, and the ability to simulate input events</Description>
@@ -44,10 +43,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\LICENSE">
-      <Pack>True</Pack>
-      <PackagePath />
-    </None>
     <None Include="..\icon.png">
       <Pack>True</Pack>
       <PackagePath />
