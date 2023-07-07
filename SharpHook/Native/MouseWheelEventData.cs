@@ -61,7 +61,7 @@ public struct MouseWheelEventData : IEquatable<MouseWheelEventData>
     /// <returns>
     /// <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
     /// </returns>
-    public override readonly bool Equals(object? obj) =>
+    public readonly override bool Equals(object? obj) =>
         obj is MouseWheelEventData data && this.Equals(data);
 
     /// <summary>
@@ -83,14 +83,14 @@ public struct MouseWheelEventData : IEquatable<MouseWheelEventData>
     /// Gets the hash code of this object.
     /// </summary>
     /// <returns>The hash code of this object.</returns>
-    public override readonly int GetHashCode() =>
+    public readonly override int GetHashCode() =>
         HashCodeUtil.GetHashCode(this.X, this.Y, this.Type, this.Rotation, this.Delta, this.Direction);
 
     /// <summary>
     /// Returns the string representation of this object.
     /// </summary>
     /// <returns>The string representation of this object.</returns>
-    public override readonly string ToString() =>
+    public readonly override string ToString() =>
         $"{nameof(MouseWheelEventData)}: {nameof(this.X)} = {this.X}; {nameof(this.Y)} = {this.Y}; " +
         $"{nameof(this.Type)} = {this.Type}; {nameof(this.Rotation)} = {this.Rotation}; " +
         $"{nameof(this.Delta)} = {this.Delta}; {nameof(this.Direction)} = {this.Direction}";

@@ -48,7 +48,7 @@ public struct ScreenData : IEquatable<ScreenData>
     /// <returns>
     /// <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
     /// </returns>
-    public override readonly bool Equals(object? obj) =>
+    public readonly override bool Equals(object? obj) =>
         obj is ScreenData data && this.Equals(data);
 
     /// <summary>
@@ -69,14 +69,14 @@ public struct ScreenData : IEquatable<ScreenData>
     /// Gets the hash code of this object.
     /// </summary>
     /// <returns>The hash code of this object.</returns>
-    public override readonly int GetHashCode() =>
+    public readonly override int GetHashCode() =>
         HashCodeUtil.GetHashCode(this.Number, this.X, this.Y, this.Width, this.Height);
 
     /// <summary>
     /// Returns the string representation of this object.
     /// </summary>
     /// <returns>The string representation of this object.</returns>
-    public override readonly string ToString() =>
+    public readonly override string ToString() =>
         $"{nameof(ScreenData)}: {nameof(this.Number)} = {this.Number}; {nameof(this.X)} = {this.X}; " +
         $"{nameof(this.Y)} = {this.Y}; {nameof(this.Width)} = {this.Width}; {nameof(this.Height)} = {this.Height}";
 

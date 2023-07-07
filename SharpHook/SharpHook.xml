@@ -2921,7 +2921,6 @@
             </list>
             </para>
             </remarks>
-            <seealso cref="T:SharpHook.EventSimulator" />
         </member>
         <member name="T:SharpHook.Providers.IGlobalHookProvider">
             <summary>
@@ -3146,7 +3145,6 @@
             </list>
             </para>
             </remarks>
-            <seealso cref="T:SharpHook.EventSimulator" />
         </member>
         <member name="M:SharpHook.Providers.UioHookProvider.CreateScreenInfo">
             <summary>

@@ -81,6 +81,5 @@ public interface IEventSimulationProvider
     /// </list>
     /// </para>
     /// </remarks>
-    /// <seealso cref="EventSimulator" />
     UioHookResult PostEvent(ref UioHookEvent e);
 }

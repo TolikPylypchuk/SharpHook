@@ -136,7 +136,6 @@ public sealed class UioHookProvider :
     /// </list>
     /// </para>
     /// </remarks>
-    /// <seealso cref="EventSimulator" />
     public UioHookResult PostEvent(ref UioHookEvent e) =>
         UioHook.PostEvent(ref e);
 
