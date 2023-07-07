@@ -1288,6 +1288,9 @@
         <member name="F:SharpHook.Native.KeyCode.VcBackquote">
             <summary>`</summary>
         </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSection">
+            <summary>§</summary>
+        </member>
         <member name="F:SharpHook.Native.KeyCode.Vc0">
             <summary>0</summary>
         </member>
