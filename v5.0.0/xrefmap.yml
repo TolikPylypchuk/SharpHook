@@ -2770,6 +2770,12 @@ references:
   commentId: F:SharpHook.Native.KeyCode.VcScrollLock
   fullName: SharpHook.Native.KeyCode.VcScrollLock
   nameWithType: KeyCode.VcScrollLock
+- uid: SharpHook.Native.KeyCode.VcSection
+  name: VcSection
+  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcSection
+  commentId: F:SharpHook.Native.KeyCode.VcSection
+  fullName: SharpHook.Native.KeyCode.VcSection
+  nameWithType: KeyCode.VcSection
 - uid: SharpHook.Native.KeyCode.VcSemicolon
   name: VcSemicolon
   href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcSemicolon
