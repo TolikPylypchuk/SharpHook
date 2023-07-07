@@ -1,15 +1,9 @@
 namespace SharpHook.Native;
 
-using System.Diagnostics.CodeAnalysis;
-
 /// <summary>
 /// Represents a virtual key code.
 /// </summary>
 /// <seealso cref="KeyboardEventData" />
-[SuppressMessage(
-    "Design",
-    "CA1069:Enums values should not be duplicated",
-    Justification = "This is how the values are defined in libuiohook")]
 public enum KeyCode : ushort
 {
     /// <summary>Escape</summary>
@@ -90,35 +84,35 @@ public enum KeyCode : ushort
     /// <summary>`</summary>
     VcBackquote = 0x00C0,
 
+    /// <summary>0</summary>
+    Vc0 = 0x0030,
+
     /// <summary>1</summary>
-    Vc1 = 0x0030,
+    Vc1 = 0x0031,
 
     /// <summary>2</summary>
-    Vc2 = 0x0031,
+    Vc2 = 0x0032,
 
     /// <summary>3</summary>
-    Vc3 = 0x0032,
+    Vc3 = 0x0033,
 
     /// <summary>4</summary>
-    Vc4 = 0x0033,
+    Vc4 = 0x0034,
 
     /// <summary>5</summary>
-    Vc5 = 0x0034,
+    Vc5 = 0x0035,
 
     /// <summary>6</summary>
-    Vc6 = 0x0035,
+    Vc6 = 0x0036,
 
     /// <summary>7</summary>
-    Vc7 = 0x0036,
+    Vc7 = 0x0037,
 
     /// <summary>8</summary>
-    Vc8 = 0x0037,
+    Vc8 = 0x0038,
 
     /// <summary>9</summary>
-    Vc9 = 0x0038,
-
-    /// <summary>0</summary>
-    Vc0 = 0x0039,
+    Vc9 = 0x0039,
 
     /// <summary>+</summary>
     VcPlus = 0x0209,
@@ -400,37 +394,37 @@ public enum KeyCode : ushort
     VcNumPad9 = 0x0069,
 
     /// <summary>Num-Pad End</summary>
-    VcNumPadEnd = 0xEE00 | VcNumPad1,
+    VcNumPadEnd = 0xEE00 | VcEnd,
 
     /// <summary>Num-Pad Down</summary>
-    VcNumPadDown = 0xEE00 | VcNumPad2,
+    VcNumPadDown = 0xEE00 | VcDown,
 
     /// <summary>Num-Pad Page Down</summary>
-    VcNumPadPageDown = 0xEE00 | VcNumPad3,
+    VcNumPadPageDown = 0xEE00 | VcPageDown,
 
     /// <summary>Num-Pad Left</summary>
-    VcNumPadLeft = 0xEE00 | VcNumPad4,
+    VcNumPadLeft = 0xEE00 | VcLeft,
 
     /// <summary>Num-Pad Begin</summary>
-    VcNumPadBegin = 0xEE00 | VcNumPad5,
+    VcNumPadBegin = 0xEE00 | VcBegin,
 
     /// <summary>Num-Pad Right</summary>
-    VcNumPadRight = 0xEE00 | VcNumPad6,
+    VcNumPadRight = 0xEE00 | VcRight,
 
     /// <summary>Num-Pad Home</summary>
-    VcNumPadHome = 0xEE00 | VcNumPad7,
+    VcNumPadHome = 0xEE00 | VcHome,
 
     /// <summary>Num-Pad Up</summary>
-    VcNumPadUp = 0xEE00 | VcNumPad8,
+    VcNumPadUp = 0xEE00 | VcUp,
 
     /// <summary>Num-Pad Page Up</summary>
-    VcNumPadPageUp = 0xEE00 | VcNumPad9,
+    VcNumPadPageUp = 0xEE00 | VcPageUp,
 
     /// <summary>Num-Pad Insert</summary>
-    VcNumPadInsert = 0xEE00 | VcNumPad0,
+    VcNumPadInsert = 0xEE00 | VcInsert,
 
     /// <summary>Num-Pad Delete</summary>
-    VcNumPadDelete = 0xEE00 | VcNumPadSeparator,
+    VcNumPadDelete = 0xEE00 | VcDelete,
 
     /// <summary>Left Shift</summary>
     VcLeftShift = 0xA010,
