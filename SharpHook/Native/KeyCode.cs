@@ -84,6 +84,9 @@ public enum KeyCode : ushort
     /// <summary>`</summary>
     VcBackquote = 0x00C0,
 
+    /// <summary>§</summary>
+    VcSection = 0x00C1,
+
     /// <summary>0</summary>
     Vc0 = 0x0030,
 
