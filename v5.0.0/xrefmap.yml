@@ -2044,6 +2044,12 @@ references:
   commentId: F:SharpHook.Native.KeyCode.VcE
   fullName: SharpHook.Native.KeyCode.VcE
   nameWithType: KeyCode.VcE
+- uid: SharpHook.Native.KeyCode.VcEisu
+  name: VcEisu
+  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcEisu
+  commentId: F:SharpHook.Native.KeyCode.VcEisu
+  fullName: SharpHook.Native.KeyCode.VcEisu
+  nameWithType: KeyCode.VcEisu
 - uid: SharpHook.Native.KeyCode.VcEnd
   name: VcEnd
   href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcEnd
@@ -2260,6 +2266,12 @@ references:
   commentId: F:SharpHook.Native.KeyCode.VcHalfWidth
   fullName: SharpHook.Native.KeyCode.VcHalfWidth
   nameWithType: KeyCode.VcHalfWidth
+- uid: SharpHook.Native.KeyCode.VcHelp
+  name: VcHelp
+  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcHelp
+  commentId: F:SharpHook.Native.KeyCode.VcHelp
+  fullName: SharpHook.Native.KeyCode.VcHelp
+  nameWithType: KeyCode.VcHelp
 - uid: SharpHook.Native.KeyCode.VcHiragana
   name: VcHiragana
   href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcHiragana
@@ -2518,12 +2530,6 @@ references:
   commentId: F:SharpHook.Native.KeyCode.VcNumPadClear
   fullName: SharpHook.Native.KeyCode.VcNumPadClear
   nameWithType: KeyCode.VcNumPadClear
-- uid: SharpHook.Native.KeyCode.VcNumPadComma
-  name: VcNumPadComma
-  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcNumPadComma
-  commentId: F:SharpHook.Native.KeyCode.VcNumPadComma
-  fullName: SharpHook.Native.KeyCode.VcNumPadComma
-  nameWithType: KeyCode.VcNumPadComma
 - uid: SharpHook.Native.KeyCode.VcNumPadDecimal
   name: VcNumPadDecimal
   href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcNumPadDecimal
@@ -2950,6 +2956,12 @@ references:
   commentId: F:SharpHook.Native.KeyCode.VcY
   fullName: SharpHook.Native.KeyCode.VcY
   nameWithType: KeyCode.VcY
+- uid: SharpHook.Native.KeyCode.VcYen
+  name: VcYen
+  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcYen
+  commentId: F:SharpHook.Native.KeyCode.VcYen
+  fullName: SharpHook.Native.KeyCode.VcYen
+  nameWithType: KeyCode.VcYen
 - uid: SharpHook.Native.KeyCode.VcZ
   name: VcZ
   href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcZ
