@@ -1567,9 +1567,6 @@
         <member name="F:SharpHook.Native.KeyCode.VcNumPadSeparator">
             <summary>Num-Pad Separator</summary>
         </member>
-        <member name="F:SharpHook.Native.KeyCode.VcNumPadComma">
-            <summary>Num-Pad Comma</summary>
-        </member>
         <member name="F:SharpHook.Native.KeyCode.VcNumPad0">
             <summary>Num-Pad 0</summary>
         </member>
@@ -1656,9 +1653,7 @@
             </summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcAltGraph">
-            <summary>
-            Alt Graph
-            </summary>
+            <summary>Alt Graph</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcLeftMeta">
             <summary>
@@ -1672,6 +1667,12 @@
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcContextMenu">
             <summary>Context Menu</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcFunction">
+            <summary>Function</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcHelp">
+            <summary>Help</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcPower">
             <summary>Power</summary>
@@ -1811,6 +1812,9 @@
         <member name="F:SharpHook.Native.KeyCode.VcHiragana">
             <summary>Hiragana</summary>
         </member>
+        <member name="F:SharpHook.Native.KeyCode.VcEisu">
+            <summary>Eisu</summary>
+        </member>
         <member name="F:SharpHook.Native.KeyCode.VcAccept">
             <summary>Accept</summary>
         </member>
@@ -1849,6 +1853,9 @@
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcUnderscore">
             <summary>_</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcYen">
+            <summary>Yen</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcSunHelp">
             <summary>Sun Help</summary>

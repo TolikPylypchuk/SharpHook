@@ -363,9 +363,6 @@ public enum KeyCode : ushort
     /// <summary>Num-Pad Separator</summary>
     VcNumPadSeparator = 0x006C,
 
-    /// <summary>Num-Pad Comma</summary>
-    VcNumPadComma = 0x007E,
-
     /// <summary>Num-Pad 0</summary>
     VcNumPad0 = 0x0060,
 
@@ -397,37 +394,37 @@ public enum KeyCode : ushort
     VcNumPad9 = 0x0069,
 
     /// <summary>Num-Pad End</summary>
-    VcNumPadEnd = 0xEE00 | VcEnd,
+    VcNumPadEnd = 0xEE00 | VcNumPad1,
 
     /// <summary>Num-Pad Down</summary>
-    VcNumPadDown = 0xEE00 | VcDown,
+    VcNumPadDown = 0xEE00 | VcNumPad2,
 
     /// <summary>Num-Pad Page Down</summary>
-    VcNumPadPageDown = 0xEE00 | VcPageDown,
+    VcNumPadPageDown = 0xEE00 | VcNumPad3,
 
     /// <summary>Num-Pad Left</summary>
-    VcNumPadLeft = 0xEE00 | VcLeft,
+    VcNumPadLeft = 0xEE00 | VcNumPad4,
 
     /// <summary>Num-Pad Begin</summary>
-    VcNumPadBegin = 0xEE00 | VcBegin,
+    VcNumPadBegin = 0xEE | VcNumPad5,
 
     /// <summary>Num-Pad Right</summary>
-    VcNumPadRight = 0xEE00 | VcRight,
+    VcNumPadRight = 0xEE00 | VcNumPad6,
 
     /// <summary>Num-Pad Home</summary>
-    VcNumPadHome = 0xEE00 | VcHome,
+    VcNumPadHome = 0xEE00 | VcNumPad7,
 
     /// <summary>Num-Pad Up</summary>
-    VcNumPadUp = 0xEE00 | VcUp,
+    VcNumPadUp = 0xEE00 | VcNumPad8,
 
     /// <summary>Num-Pad Page Up</summary>
-    VcNumPadPageUp = 0xEE00 | VcPageUp,
+    VcNumPadPageUp = 0xEE00 | VcNumPad9,
 
     /// <summary>Num-Pad Insert</summary>
-    VcNumPadInsert = 0xEE00 | VcInsert,
+    VcNumPadInsert = 0xEE00 | VcNumPad0,
 
     /// <summary>Num-Pad Delete</summary>
-    VcNumPadDelete = 0xEE00 | VcDelete,
+    VcNumPadDelete = 0xEE00 | VcNumPadSeparator,
 
     /// <summary>Left Shift</summary>
     VcLeftShift = 0xA010,
@@ -451,9 +448,7 @@ public enum KeyCode : ushort
     /// </summary>
     VcRightAlt = 0xB012,
 
-    /// <summary>
-    /// Alt Graph
-    /// </summary>
+    /// <summary>Alt Graph</summary>
     VcAltGraph = 0xFF7E,
 
     /// <summary>
@@ -468,6 +463,15 @@ public enum KeyCode : ushort
 
     /// <summary>Context Menu</summary>
     VcContextMenu = 0x020D,
+
+    /// <summary>Function</summary>
+    VcFunction = 0x020E,
+
+    /// <summary>Function key when used to change an input source on macOS</summary>
+    VcChangeInputSource = 0x020F,
+
+    /// <summary>Help</summary>
+    VcHelp = 0xE026,
 
     /// <summary>Power</summary>
     VcPower = 0xE05E,
@@ -506,7 +510,7 @@ public enum KeyCode : ushort
     VcVolumeUp = 0xE02E,
 
     /// <summary>Browser</summary>
-    VcAppBrowser = 0xE020,
+    VcAppBrowser = 0xE025,
 
     /// <summary>Calculator</summary>
     VcAppCalculator = 0xE021,
@@ -607,6 +611,9 @@ public enum KeyCode : ushort
     /// <summary>Hiragana</summary>
     VcHiragana = 0x00F2,
 
+    /// <summary>Eisu</summary>
+    VcEisu = 0x00E9,
+
     /// <summary>Accept</summary>
     VcAccept = 0x001E,
 
@@ -646,6 +653,9 @@ public enum KeyCode : ushort
     /// <summary>_</summary>
     VcUnderscore = 0x020B,
 
+    /// <summary>Yen</summary>
+    VcYen = 0x020C,
+
     /// <summary>Sun Help</summary>
     VcSunHelp = 0xFF75,
 
@@ -662,7 +672,7 @@ public enum KeyCode : ushort
     VcSunOpen = 0xFF74,
 
     /// <summary>Sun Find</summary>
-    VcSunFind = 0xFF7E,
+    VcSunFind = 0xFF70,
 
     /// <summary>Sun Again</summary>
     VcSunAgain = 0xFF79,
