@@ -1852,6 +1852,12 @@ references:
   commentId: F:SharpHook.Native.KeyCode.VcCapsLock
   fullName: SharpHook.Native.KeyCode.VcCapsLock
   nameWithType: KeyCode.VcCapsLock
+- uid: SharpHook.Native.KeyCode.VcChangeInputSource
+  name: VcChangeInputSource
+  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcChangeInputSource
+  commentId: F:SharpHook.Native.KeyCode.VcChangeInputSource
+  fullName: SharpHook.Native.KeyCode.VcChangeInputSource
+  nameWithType: KeyCode.VcChangeInputSource
 - uid: SharpHook.Native.KeyCode.VcCircumflex
   name: VcCircumflex
   href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcCircumflex
