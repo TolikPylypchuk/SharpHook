@@ -2242,6 +2242,12 @@ references:
   commentId: F:SharpHook.Native.KeyCode.VcFullWidth
   fullName: SharpHook.Native.KeyCode.VcFullWidth
   nameWithType: KeyCode.VcFullWidth
+- uid: SharpHook.Native.KeyCode.VcFunction
+  name: VcFunction
+  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcFunction
+  commentId: F:SharpHook.Native.KeyCode.VcFunction
+  fullName: SharpHook.Native.KeyCode.VcFunction
+  nameWithType: KeyCode.VcFunction
 - uid: SharpHook.Native.KeyCode.VcG
   name: VcG
   href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcG
