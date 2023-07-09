@@ -291,6 +291,15 @@ public enum KeyCode : ushort
     /// <summary>Print Screen</summary>
     VcPrintScreen = 0x009A,
 
+    /// <summary>Print</summary>
+    VcPrint = 0x009C,
+
+    /// <summary>Select</summary>
+    VcSelect = 0x009D,
+
+    /// <summary>Execute</summary>
+    VcExecute = 0x009E,
+
     /// <summary>Scroll Lock</summary>
     VcScrollLock = 0x0091,
 
@@ -299,6 +308,9 @@ public enum KeyCode : ushort
 
     /// <summary>Cancel</summary>
     VcCancel = 0x00D3,
+
+    /// <summary>Help</summary>
+    VcHelp = 0x009F,
 
     /// <summary>Insert</summary>
     VcInsert = 0x009B,
@@ -470,9 +482,6 @@ public enum KeyCode : ushort
     /// <summary>Function key when used to change an input source on macOS</summary>
     VcChangeInputSource = 0x020F,
 
-    /// <summary>Help</summary>
-    VcHelp = 0xE026,
-
     /// <summary>Power</summary>
     VcPower = 0xE05E,
 
@@ -596,58 +605,76 @@ public enum KeyCode : ushort
     /// <summary>Semivoiced Sound (dead key)</summary>
     VcDeadSemivoicedSound = 0x008F,
 
-    /// <summary>Katakana</summary>
+    /// <summary>IME Katakana mode</summary>
     VcKatakana = 0x00F1,
 
-    /// <summary>Kana</summary>
+    /// <summary>IME Kana mode</summary>
     VcKana = 0x0015,
 
-    /// <summary>Kana Lock</summary>
+    /// <summary>IME Kana Lock</summary>
     VcKanaLock = 0x0106,
 
-    /// <summary>Kanji</summary>
+    /// <summary>IME Kanji mode</summary>
     VcKanji = 0x0019,
 
-    /// <summary>Hiragana</summary>
+    /// <summary>IME Hiragana mode</summary>
     VcHiragana = 0x00F2,
 
-    /// <summary>Eisu</summary>
-    VcEisu = 0x00E9,
+    /// <summary>IME Hangul mode</summary>
+    VcHangul = 0x00E9,
 
-    /// <summary>Accept</summary>
+    /// <summary>IME Junja mode</summary>
+    VcJunja = 0x00E8,
+
+    /// <summary>IME Final mode</summary>
+    VcFinal = 0x00E7,
+
+    /// <summary>IME Hanja mode</summary>
+    VcHanja = 0x00E6,
+
+    /// <summary>IME Accept</summary>
     VcAccept = 0x001E,
 
-    /// <summary>Convert</summary>
+    /// <summary>IME Convert (henkan)</summary>
     VcConvert = 0x001C,
 
-    /// <summary>Compose</summary>
-    VcCompose = 0xFF20,
-
-    /// <summary>Input Method On/Off</summary>
-    VcInputMethodOnOff = 0x0107,
-
-    /// <summary>All Candidates</summary>
-    VcAllCandidates = 0x0100,
-
-    /// <summary>Alphanumeric</summary>
-    VcAlphanumeric = 0x00F0,
-
-    /// <summary>Code Input</summary>
-    VcCodeInput = 0x0102,
-
-    /// <summary>Wull Width</summary>
-    VcFullWidth = 0x00F3,
-
-    /// <summary>Half Width</summary>
-    VcHalfWidth = 0x00F4,
-
-    /// <summary>Non-Convert</summary>
+    /// <summary>IME Non-Convert (muhenkan)</summary>
     VcNonConvert = 0x001D,
 
-    /// <summary>Previous Candidate</summary>
+    /// <summary>IME Compose (multi-key)</summary>
+    VcCompose = 0xFF20,
+
+    /// <summary>IME On</summary>
+    VcImeOn = 0x0109,
+
+    /// <summary>IME Off</summary>
+    VcImeOff = 0x0108,
+
+    /// <summary>IME Mode Change</summary>
+    VcModeChange = 0x0107,
+
+    /// <summary>IME Process</summary>
+    VcProcess = 0x0105,
+
+    /// <summary>IME All Candidates (zen koho)</summary>
+    VcAllCandidates = 0x0100,
+
+    /// <summary>IME Alphanumeric mode (eisū)</summary>
+    VcAlphanumeric = 0x00F0,
+
+    /// <summary>IME Code Input (Kanji bangou)</summary>
+    VcCodeInput = 0x0102,
+
+    /// <summary>IME Wull Width (zenkaku)</summary>
+    VcFullWidth = 0x00F3,
+
+    /// <summary>IME Half Width (hankaku)</summary>
+    VcHalfWidth = 0x00F4,
+
+    /// <summary>IME Previous Candidate (mae koho)</summary>
     VcPreviousCandidate = 0x0101,
 
-    /// <summary>Roman Characters</summary>
+    /// <summary>IME Roman Characters (rōmaji)</summary>
     VcRomanCharacters = 0x00F5,
 
     /// <summary>_</summary>
@@ -655,9 +682,6 @@ public enum KeyCode : ushort
 
     /// <summary>Yen</summary>
     VcYen = 0x020C,
-
-    /// <summary>Sun Help</summary>
-    VcSunHelp = 0xFF75,
 
     /// <summary>Sun Stop</summary>
     VcSunStop = 0xFF78,

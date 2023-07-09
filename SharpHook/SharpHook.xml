@@ -1495,6 +1495,15 @@
         <member name="F:SharpHook.Native.KeyCode.VcPrintScreen">
             <summary>Print Screen</summary>
         </member>
+        <member name="F:SharpHook.Native.KeyCode.VcPrint">
+            <summary>Print</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcSelect">
+            <summary>Select</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcExecute">
+            <summary>Execute</summary>
+        </member>
         <member name="F:SharpHook.Native.KeyCode.VcScrollLock">
             <summary>Scroll Lock</summary>
         </member>
@@ -1503,6 +1512,9 @@
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcCancel">
             <summary>Cancel</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcHelp">
+            <summary>Help</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcInsert">
             <summary>Insert</summary>
@@ -1671,8 +1683,8 @@
         <member name="F:SharpHook.Native.KeyCode.VcFunction">
             <summary>Function</summary>
         </member>
-        <member name="F:SharpHook.Native.KeyCode.VcHelp">
-            <summary>Help</summary>
+        <member name="F:SharpHook.Native.KeyCode.VcChangeInputSource">
+            <summary>Function key when used to change an input source on macOS</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcPower">
             <summary>Power</summary>
@@ -1798,67 +1810,82 @@
             <summary>Semivoiced Sound (dead key)</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcKatakana">
-            <summary>Katakana</summary>
+            <summary>IME Katakana mode</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcKana">
-            <summary>Kana</summary>
+            <summary>IME Kana mode</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcKanaLock">
-            <summary>Kana Lock</summary>
+            <summary>IME Kana Lock</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcKanji">
-            <summary>Kanji</summary>
+            <summary>IME Kanji mode</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcHiragana">
-            <summary>Hiragana</summary>
+            <summary>IME Hiragana mode</summary>
         </member>
-        <member name="F:SharpHook.Native.KeyCode.VcEisu">
-            <summary>Eisu</summary>
+        <member name="F:SharpHook.Native.KeyCode.VcHangul">
+            <summary>IME Hangul mode</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcJunja">
+            <summary>IME Junja mode</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcFinal">
+            <summary>IME Final mode</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcHanja">
+            <summary>IME Hanja mode</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcAccept">
-            <summary>Accept</summary>
+            <summary>IME Accept</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcConvert">
-            <summary>Convert</summary>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcCompose">
-            <summary>Compose</summary>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcInputMethodOnOff">
-            <summary>Input Method On/Off</summary>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcAllCandidates">
-            <summary>All Candidates</summary>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcAlphanumeric">
-            <summary>Alphanumeric</summary>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcCodeInput">
-            <summary>Code Input</summary>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcFullWidth">
-            <summary>Wull Width</summary>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcHalfWidth">
-            <summary>Half Width</summary>
+            <summary>IME Convert (henkan)</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcNonConvert">
-            <summary>Non-Convert</summary>
+            <summary>IME Non-Convert (muhenkan)</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcCompose">
+            <summary>IME Compose (multi-key)</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcImeOn">
+            <summary>IME On</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcImeOff">
+            <summary>IME Off</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcModeChange">
+            <summary>IME Mode Change</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcProcess">
+            <summary>IME Process</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcAllCandidates">
+            <summary>IME All Candidates (zen koho)</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcAlphanumeric">
+            <summary>IME Alphanumeric mode (eisū)</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcCodeInput">
+            <summary>IME Code Input (Kanji bangou)</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcFullWidth">
+            <summary>IME Wull Width (zenkaku)</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcHalfWidth">
+            <summary>IME Half Width (hankaku)</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcPreviousCandidate">
-            <summary>Previous Candidate</summary>
+            <summary>IME Previous Candidate (mae koho)</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcRomanCharacters">
-            <summary>Roman Characters</summary>
+            <summary>IME Roman Characters (rōmaji)</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcUnderscore">
             <summary>_</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcYen">
             <summary>Yen</summary>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcSunHelp">
-            <summary>Sun Help</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcSunStop">
             <summary>Sun Stop</summary>
