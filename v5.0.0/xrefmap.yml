@@ -2050,12 +2050,6 @@ references:
   commentId: F:SharpHook.Native.KeyCode.VcE
   fullName: SharpHook.Native.KeyCode.VcE
   nameWithType: KeyCode.VcE
-- uid: SharpHook.Native.KeyCode.VcEisu
-  name: VcEisu
-  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcEisu
-  commentId: F:SharpHook.Native.KeyCode.VcEisu
-  fullName: SharpHook.Native.KeyCode.VcEisu
-  nameWithType: KeyCode.VcEisu
 - uid: SharpHook.Native.KeyCode.VcEnd
   name: VcEnd
   href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcEnd
@@ -2092,6 +2086,12 @@ references:
   commentId: F:SharpHook.Native.KeyCode.VcExclamationMark
   fullName: SharpHook.Native.KeyCode.VcExclamationMark
   nameWithType: KeyCode.VcExclamationMark
+- uid: SharpHook.Native.KeyCode.VcExecute
+  name: VcExecute
+  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcExecute
+  commentId: F:SharpHook.Native.KeyCode.VcExecute
+  fullName: SharpHook.Native.KeyCode.VcExecute
+  nameWithType: KeyCode.VcExecute
 - uid: SharpHook.Native.KeyCode.VcF
   name: VcF
   href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcF
@@ -2242,6 +2242,12 @@ references:
   commentId: F:SharpHook.Native.KeyCode.VcF9
   fullName: SharpHook.Native.KeyCode.VcF9
   nameWithType: KeyCode.VcF9
+- uid: SharpHook.Native.KeyCode.VcFinal
+  name: VcFinal
+  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcFinal
+  commentId: F:SharpHook.Native.KeyCode.VcFinal
+  fullName: SharpHook.Native.KeyCode.VcFinal
+  nameWithType: KeyCode.VcFinal
 - uid: SharpHook.Native.KeyCode.VcFullWidth
   name: VcFullWidth
   href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcFullWidth
@@ -2278,6 +2284,18 @@ references:
   commentId: F:SharpHook.Native.KeyCode.VcHalfWidth
   fullName: SharpHook.Native.KeyCode.VcHalfWidth
   nameWithType: KeyCode.VcHalfWidth
+- uid: SharpHook.Native.KeyCode.VcHangul
+  name: VcHangul
+  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcHangul
+  commentId: F:SharpHook.Native.KeyCode.VcHangul
+  fullName: SharpHook.Native.KeyCode.VcHangul
+  nameWithType: KeyCode.VcHangul
+- uid: SharpHook.Native.KeyCode.VcHanja
+  name: VcHanja
+  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcHanja
+  commentId: F:SharpHook.Native.KeyCode.VcHanja
+  fullName: SharpHook.Native.KeyCode.VcHanja
+  nameWithType: KeyCode.VcHanja
 - uid: SharpHook.Native.KeyCode.VcHelp
   name: VcHelp
   href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcHelp
@@ -2302,12 +2320,18 @@ references:
   commentId: F:SharpHook.Native.KeyCode.VcI
   fullName: SharpHook.Native.KeyCode.VcI
   nameWithType: KeyCode.VcI
-- uid: SharpHook.Native.KeyCode.VcInputMethodOnOff
-  name: VcInputMethodOnOff
-  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcInputMethodOnOff
-  commentId: F:SharpHook.Native.KeyCode.VcInputMethodOnOff
-  fullName: SharpHook.Native.KeyCode.VcInputMethodOnOff
-  nameWithType: KeyCode.VcInputMethodOnOff
+- uid: SharpHook.Native.KeyCode.VcImeOff
+  name: VcImeOff
+  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcImeOff
+  commentId: F:SharpHook.Native.KeyCode.VcImeOff
+  fullName: SharpHook.Native.KeyCode.VcImeOff
+  nameWithType: KeyCode.VcImeOff
+- uid: SharpHook.Native.KeyCode.VcImeOn
+  name: VcImeOn
+  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcImeOn
+  commentId: F:SharpHook.Native.KeyCode.VcImeOn
+  fullName: SharpHook.Native.KeyCode.VcImeOn
+  nameWithType: KeyCode.VcImeOn
 - uid: SharpHook.Native.KeyCode.VcInsert
   name: VcInsert
   href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcInsert
@@ -2320,6 +2344,12 @@ references:
   commentId: F:SharpHook.Native.KeyCode.VcJ
   fullName: SharpHook.Native.KeyCode.VcJ
   nameWithType: KeyCode.VcJ
+- uid: SharpHook.Native.KeyCode.VcJunja
+  name: VcJunja
+  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcJunja
+  commentId: F:SharpHook.Native.KeyCode.VcJunja
+  fullName: SharpHook.Native.KeyCode.VcJunja
+  nameWithType: KeyCode.VcJunja
 - uid: SharpHook.Native.KeyCode.VcK
   name: VcK
   href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcK
@@ -2440,6 +2470,12 @@ references:
   commentId: F:SharpHook.Native.KeyCode.VcMinus
   fullName: SharpHook.Native.KeyCode.VcMinus
   nameWithType: KeyCode.VcMinus
+- uid: SharpHook.Native.KeyCode.VcModeChange
+  name: VcModeChange
+  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcModeChange
+  commentId: F:SharpHook.Native.KeyCode.VcModeChange
+  fullName: SharpHook.Native.KeyCode.VcModeChange
+  nameWithType: KeyCode.VcModeChange
 - uid: SharpHook.Native.KeyCode.VcN
   name: VcN
   href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcN
@@ -2716,12 +2752,24 @@ references:
   commentId: F:SharpHook.Native.KeyCode.VcPreviousCandidate
   fullName: SharpHook.Native.KeyCode.VcPreviousCandidate
   nameWithType: KeyCode.VcPreviousCandidate
+- uid: SharpHook.Native.KeyCode.VcPrint
+  name: VcPrint
+  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcPrint
+  commentId: F:SharpHook.Native.KeyCode.VcPrint
+  fullName: SharpHook.Native.KeyCode.VcPrint
+  nameWithType: KeyCode.VcPrint
 - uid: SharpHook.Native.KeyCode.VcPrintScreen
   name: VcPrintScreen
   href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcPrintScreen
   commentId: F:SharpHook.Native.KeyCode.VcPrintScreen
   fullName: SharpHook.Native.KeyCode.VcPrintScreen
   nameWithType: KeyCode.VcPrintScreen
+- uid: SharpHook.Native.KeyCode.VcProcess
+  name: VcProcess
+  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcProcess
+  commentId: F:SharpHook.Native.KeyCode.VcProcess
+  fullName: SharpHook.Native.KeyCode.VcProcess
+  nameWithType: KeyCode.VcProcess
 - uid: SharpHook.Native.KeyCode.VcQ
   name: VcQ
   href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcQ
@@ -2794,6 +2842,12 @@ references:
   commentId: F:SharpHook.Native.KeyCode.VcSection
   fullName: SharpHook.Native.KeyCode.VcSection
   nameWithType: KeyCode.VcSection
+- uid: SharpHook.Native.KeyCode.VcSelect
+  name: VcSelect
+  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcSelect
+  commentId: F:SharpHook.Native.KeyCode.VcSelect
+  fullName: SharpHook.Native.KeyCode.VcSelect
+  nameWithType: KeyCode.VcSelect
 - uid: SharpHook.Native.KeyCode.VcSemicolon
   name: VcSemicolon
   href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcSemicolon
@@ -2848,12 +2902,6 @@ references:
   commentId: F:SharpHook.Native.KeyCode.VcSunFront
   fullName: SharpHook.Native.KeyCode.VcSunFront
   nameWithType: KeyCode.VcSunFront
-- uid: SharpHook.Native.KeyCode.VcSunHelp
-  name: VcSunHelp
-  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcSunHelp
-  commentId: F:SharpHook.Native.KeyCode.VcSunHelp
-  fullName: SharpHook.Native.KeyCode.VcSunHelp
-  nameWithType: KeyCode.VcSunHelp
 - uid: SharpHook.Native.KeyCode.VcSunOpen
   name: VcSunOpen
   href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcSunOpen
