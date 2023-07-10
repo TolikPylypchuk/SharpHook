@@ -1720,6 +1720,18 @@ references:
   commentId: F:SharpHook.Native.KeyCode.VcAmpersand
   fullName: SharpHook.Native.KeyCode.VcAmpersand
   nameWithType: KeyCode.VcAmpersand
+- uid: SharpHook.Native.KeyCode.VcApp1
+  name: VcApp1
+  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcApp1
+  commentId: F:SharpHook.Native.KeyCode.VcApp1
+  fullName: SharpHook.Native.KeyCode.VcApp1
+  nameWithType: KeyCode.VcApp1
+- uid: SharpHook.Native.KeyCode.VcApp2
+  name: VcApp2
+  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcApp2
+  commentId: F:SharpHook.Native.KeyCode.VcApp2
+  fullName: SharpHook.Native.KeyCode.VcApp2
+  nameWithType: KeyCode.VcApp2
 - uid: SharpHook.Native.KeyCode.VcAppBrowser
   name: VcAppBrowser
   href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcAppBrowser
@@ -2470,6 +2482,12 @@ references:
   commentId: F:SharpHook.Native.KeyCode.VcMinus
   fullName: SharpHook.Native.KeyCode.VcMinus
   nameWithType: KeyCode.VcMinus
+- uid: SharpHook.Native.KeyCode.VcMisc
+  name: VcMisc
+  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcMisc
+  commentId: F:SharpHook.Native.KeyCode.VcMisc
+  fullName: SharpHook.Native.KeyCode.VcMisc
+  nameWithType: KeyCode.VcMisc
 - uid: SharpHook.Native.KeyCode.VcModeChange
   name: VcModeChange
   href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcModeChange
