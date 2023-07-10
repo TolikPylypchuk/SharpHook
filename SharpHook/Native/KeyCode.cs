@@ -288,6 +288,9 @@ public enum KeyCode : ushort
     /// <summary>Space</summary>
     VcSpace = 0x0020,
 
+    /// <summary>Miscellaneous OEM-specific key</summary>
+    VcMisc = 0x0E01,
+
     /// <summary>Print Screen</summary>
     VcPrintScreen = 0x009A,
 
@@ -518,19 +521,25 @@ public enum KeyCode : ushort
     /// <summary>Volume Up</summary>
     VcVolumeUp = 0xE02E,
 
-    /// <summary>Browser</summary>
+    /// <summary>Launch app 1</summary>
+    VcApp1 = 0xE026,
+
+    /// <summary>Launch app 2</summary>
+    VcApp2 = 0xE027,
+
+    /// <summary>Launch browser</summary>
     VcAppBrowser = 0xE025,
 
-    /// <summary>Calculator</summary>
+    /// <summary>Launch calculator</summary>
     VcAppCalculator = 0xE021,
 
-    /// <summary>Mail</summary>
+    /// <summary>Launch mail</summary>
     VcAppMail = 0xE06C,
 
-    /// <summary>Music</summary>
+    /// <summary>Launch music</summary>
     VcAppMusic = 0xE03C,
 
-    /// <summary>Pictures</summary>
+    /// <summary>Launch pictures</summary>
     VcAppPictures = 0xE064,
 
     /// <summary>Browser Search</summary>

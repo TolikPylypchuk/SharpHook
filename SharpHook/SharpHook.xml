@@ -1492,6 +1492,9 @@
         <member name="F:SharpHook.Native.KeyCode.VcSpace">
             <summary>Space</summary>
         </member>
+        <member name="F:SharpHook.Native.KeyCode.VcMisc">
+            <summary>Miscellaneous OEM-specific key</summary>
+        </member>
         <member name="F:SharpHook.Native.KeyCode.VcPrintScreen">
             <summary>Print Screen</summary>
         </member>
@@ -1722,20 +1725,26 @@
         <member name="F:SharpHook.Native.KeyCode.VcVolumeUp">
             <summary>Volume Up</summary>
         </member>
+        <member name="F:SharpHook.Native.KeyCode.VcApp1">
+            <summary>Launch app 1</summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyCode.VcApp2">
+            <summary>Launch app 2</summary>
+        </member>
         <member name="F:SharpHook.Native.KeyCode.VcAppBrowser">
-            <summary>Browser</summary>
+            <summary>Launch browser</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcAppCalculator">
-            <summary>Calculator</summary>
+            <summary>Launch calculator</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcAppMail">
-            <summary>Mail</summary>
+            <summary>Launch mail</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcAppMusic">
-            <summary>Music</summary>
+            <summary>Launch music</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcAppPictures">
-            <summary>Pictures</summary>
+            <summary>Launch pictures</summary>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcBrowserSearch">
             <summary>Browser Search</summary>
