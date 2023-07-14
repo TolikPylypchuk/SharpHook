@@ -1618,12 +1618,6 @@ references:
   commentId: T:SharpHook.Native.KeyCode
   fullName: SharpHook.Native.KeyCode
   nameWithType: KeyCode
-- uid: SharpHook.Native.KeyCode.CharUndefined
-  name: CharUndefined
-  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_CharUndefined
-  commentId: F:SharpHook.Native.KeyCode.CharUndefined
-  fullName: SharpHook.Native.KeyCode.CharUndefined
-  nameWithType: KeyCode.CharUndefined
 - uid: SharpHook.Native.KeyCode.Vc0
   name: Vc0
   href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_Vc0
