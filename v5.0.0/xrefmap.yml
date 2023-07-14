@@ -1558,7 +1558,14 @@ references:
 - uid: SharpHook.Native.KeyboardEventData.KeyChar
   name: KeyChar
   href: api/SharpHook.Native.KeyboardEventData.html#SharpHook_Native_KeyboardEventData_KeyChar
-  commentId: F:SharpHook.Native.KeyboardEventData.KeyChar
+  commentId: P:SharpHook.Native.KeyboardEventData.KeyChar
+  fullName: SharpHook.Native.KeyboardEventData.KeyChar
+  nameWithType: KeyboardEventData.KeyChar
+- uid: SharpHook.Native.KeyboardEventData.KeyChar*
+  name: KeyChar
+  href: api/SharpHook.Native.KeyboardEventData.html#SharpHook_Native_KeyboardEventData_KeyChar_
+  commentId: Overload:SharpHook.Native.KeyboardEventData.KeyChar
+  isSpec: "True"
   fullName: SharpHook.Native.KeyboardEventData.KeyChar
   nameWithType: KeyboardEventData.KeyChar
 - uid: SharpHook.Native.KeyboardEventData.KeyCode
@@ -1599,6 +1606,12 @@ references:
   commentId: F:SharpHook.Native.KeyboardEventData.RawCode
   fullName: SharpHook.Native.KeyboardEventData.RawCode
   nameWithType: KeyboardEventData.RawCode
+- uid: SharpHook.Native.KeyboardEventData.RawKeyChar
+  name: RawKeyChar
+  href: api/SharpHook.Native.KeyboardEventData.html#SharpHook_Native_KeyboardEventData_RawKeyChar
+  commentId: F:SharpHook.Native.KeyboardEventData.RawKeyChar
+  fullName: SharpHook.Native.KeyboardEventData.RawKeyChar
+  nameWithType: KeyboardEventData.RawKeyChar
 - uid: SharpHook.Native.KeyboardEventData.ToString
   name: ToString()
   href: api/SharpHook.Native.KeyboardEventData.html#SharpHook_Native_KeyboardEventData_ToString
