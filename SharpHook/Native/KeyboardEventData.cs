@@ -32,11 +32,21 @@ public struct KeyboardEventData : IEquatable<KeyboardEventData>
     /// <remarks>
     /// <para>This field is available only for the <see cref="EventType.KeyTyped" /> event.</para>
     /// <para>
-    /// This field is of type <see cref="UInt16" /> purely for marshalling reasons.
-    /// It should be used as a <see cref="Char" />.
+    /// In general <see cref="KeyChar" /> should be used instead of this field. This field is of type
+    /// <see cref="UInt16" /> purely for marshalling reasons. It should be used as a <see cref="Char" />.
     /// </para>
     /// </remarks>
-    public ushort KeyChar;
+    public ushort RawKeyChar;
+
+    /// <summary>
+    /// The character of the key.
+    /// </summary>
+    /// <value>The character of the key.</value>
+    /// <remarks>
+    /// <para>This property is available only for the <see cref="EventType.KeyTyped" /> event.</para>
+    /// </remarks>
+    public readonly char KeyChar =>
+        (char)this.RawKeyChar;
 
     /// <summary>
     /// Compares this object to another object for equality.
@@ -58,14 +68,14 @@ public struct KeyboardEventData : IEquatable<KeyboardEventData>
     public readonly bool Equals(KeyboardEventData data) =>
         this.KeyCode == data.KeyCode &&
            this.RawCode == data.RawCode &&
-           this.KeyChar == data.KeyChar;
+           this.RawKeyChar == data.RawKeyChar;
 
     /// <summary>
     /// Gets the hash code of this object.
     /// </summary>
     /// <returns>The hash code of this object.</returns>
     public readonly override int GetHashCode() =>
-        HashCodeUtil.GetHashCode(this.KeyCode, this.RawCode, this.KeyChar);
+        HashCodeUtil.GetHashCode(this.KeyCode, this.RawCode, this.RawKeyChar);
 
     /// <summary>
     /// Returns the string representation of this object.
@@ -73,7 +83,7 @@ public struct KeyboardEventData : IEquatable<KeyboardEventData>
     /// <returns>The string representation of this object.</returns>
     public readonly override string ToString() =>
         $"{nameof(KeyboardEventData)}: {nameof(this.KeyCode)} = {this.KeyCode}; " +
-        $"{nameof(this.RawCode)} = {this.RawCode}; {nameof(this.KeyChar)} = {(char)this.KeyChar}";
+        $"{nameof(this.RawCode)} = {this.RawCode}; {nameof(this.KeyChar)} = {this.KeyChar}";
 
     /// <summary>
     /// Compares two objects for equality.

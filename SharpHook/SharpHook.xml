@@ -1141,7 +1141,7 @@
             </summary>
             <value>The raw key code.</value>
         </member>
-        <member name="F:SharpHook.Native.KeyboardEventData.KeyChar">
+        <member name="F:SharpHook.Native.KeyboardEventData.RawKeyChar">
             <summary>
             The character of the key.
             </summary>
@@ -1149,9 +1149,18 @@
             <remarks>
             <para>This field is available only for the <see cref="F:SharpHook.Native.EventType.KeyTyped" /> event.</para>
             <para>
-            This field is of type <see cref="T:System.UInt16" /> purely for marshalling reasons.
-            It should be used as a <see cref="T:System.Char" />.
+            In general <see cref="P:SharpHook.Native.KeyboardEventData.KeyChar" /> should be used instead of this field. This field is of type
+            <see cref="T:System.UInt16" /> purely for marshalling reasons. It should be used as a <see cref="T:System.Char" />.
             </para>
+            </remarks>
+        </member>
+        <member name="P:SharpHook.Native.KeyboardEventData.KeyChar">
+            <summary>
+            The character of the key.
+            </summary>
+            <value>The character of the key.</value>
+            <remarks>
+            <para>This property is available only for the <see cref="F:SharpHook.Native.EventType.KeyTyped" /> event.</para>
             </remarks>
         </member>
         <member name="M:SharpHook.Native.KeyboardEventData.Equals(System.Object)">
