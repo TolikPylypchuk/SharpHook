@@ -1322,13 +1322,9 @@
             <summary>F24</summary>
             <remarks>Available on: Windows, Linux</remarks>
         </member>
-        <member name="F:SharpHook.Native.KeyCode.VcBackquote">
+        <member name="F:SharpHook.Native.KeyCode.VcBackQuote">
             <summary>`</summary>
             <remarks>Available on: Windows, macOS, Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcSection">
-            <summary>§</summary>
-            <remarks>Available on: macOS</remarks>
         </member>
         <member name="F:SharpHook.Native.KeyCode.Vc0">
             <summary>0</summary>
@@ -1538,9 +1534,10 @@
         </member>
         <member name="F:SharpHook.Native.KeyCode.Vc102">
             <summary>
-            The &lt;&gt; keys on the US standard keyboard, or the \| key on the non-US 102-key keyboard
+            The &lt;&gt; keys on the US standard keyboard, or the \| key on the non-US 102-key keyboard,
+            or the Section key (§) on the macOS ISO keyboard
             </summary>
-            <remarks>Available on: Windows, Linux</remarks>
+            <remarks>Available on: Windows, macOS, Linux</remarks>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcMisc">
             <summary>Miscellaneous OEM-specific key</summary>

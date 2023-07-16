@@ -111,11 +111,7 @@ public enum KeyCode : ushort
 
     /// <summary>`</summary>
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
-    VcBackquote = 0x00C0,
-
-    /// <summary>§</summary>
-    /// <remarks>Available on: macOS</remarks>
-    VcSection = 0x00C1,
+    VcBackQuote = 0x00C0,
 
     /// <summary>0</summary>
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
@@ -324,9 +320,10 @@ public enum KeyCode : ushort
     VcSpace = 0x0020,
 
     /// <summary>
-    /// The &lt;&gt; keys on the US standard keyboard, or the \| key on the non-US 102-key keyboard
+    /// The &lt;&gt; keys on the US standard keyboard, or the \| key on the non-US 102-key keyboard,
+    /// or the Section key (§) on the macOS ISO keyboard
     /// </summary>
-    /// <remarks>Available on: Windows, Linux</remarks>
+    /// <remarks>Available on: Windows, macOS, Linux</remarks>
     Vc102 = 0x0099,
 
     /// <summary>Miscellaneous OEM-specific key</summary>
