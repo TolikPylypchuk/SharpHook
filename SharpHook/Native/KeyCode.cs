@@ -157,10 +157,6 @@ public enum KeyCode : ushort
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
     Vc9 = 0x0039,
 
-    /// <summary>+</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcPlus = 0x0209,
-
     /// <summary>-</summary>
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
     VcMinus = 0x002D,
@@ -169,31 +165,9 @@ public enum KeyCode : ushort
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
     VcEquals = 0x003D,
 
-    /// <summary>*</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcAsterisk = 0x0097,
-
-    /// <summary>@</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcAt = 0x0200,
-
-    /// <summary>&amp;</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcAmpersand = 0x0096,
-
-    /// <summary>$</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcDollar = 0x0203,
-
-    /// <summary>!</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcExclamationMark = 0x0205,
-
-    /// <summary>¡</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcExclamationDown = 0x0206,
-
-    /// <summary>Backspace (on Windows and Linux) or Delete (on macOS)</summary>
+    /// <summary>
+    /// Backspace (on Windows and Linux) or Delete (on macOS)
+    /// </summary>
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
     VcBackspace = 0x0008,
 
@@ -321,10 +295,6 @@ public enum KeyCode : ushort
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
     VcBackSlash = 0x005D,
 
-    /// <summary>:</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcColon = 0x0201,
-
     /// <summary>;</summary>
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
     VcSemicolon = 0x003B,
@@ -333,21 +303,9 @@ public enum KeyCode : ushort
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
     VcQuote = 0x00DE,
 
-    /// <summary>"</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcDoubleQuote = 0x0098,
-
     /// <summary>Enter</summary>
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
     VcEnter = 0x000A,
-
-    /// <summary>&lt;</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcLess = 0x0099,
-
-    /// <summary>&gt;</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcGreater = 0x00A0,
 
     /// <summary>,</summary>
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
@@ -361,29 +319,15 @@ public enum KeyCode : ushort
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
     VcSlash = 0x002F,
 
-    /// <summary>#</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcNumberSign = 0x0208,
-
-    /// <summary>{</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcOpenBrace = 0x00A1,
-
-    /// <summary>}</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcCloseBrace = 0x00A2,
-
-    /// <summary>(</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcOpenParenthesis = 0x0207,
-
-    /// <summary>)</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcCloseParenthesis = 0x020A,
-
     /// <summary>Space</summary>
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
     VcSpace = 0x0020,
+
+    /// <summary>
+    /// The &lt;&gt; keys on the US standard keyboard, or the \| key on the non-US 102-key keyboard
+    /// </summary>
+    /// <remarks>Available on: Windows, Linux</remarks>
+    Vc102 = 0x0099,
 
     /// <summary>Miscellaneous OEM-specific key</summary>
     /// <remarks>Available on: Windows</remarks>
@@ -394,7 +338,7 @@ public enum KeyCode : ushort
     VcPrintScreen = 0x009A,
 
     /// <summary>Print</summary>
-    /// <remarks>Available on: Windows</remarks>
+    /// <remarks>Available on: Windows, Linux</remarks>
     VcPrint = 0x009C,
 
     /// <summary>Select</summary>
@@ -425,7 +369,9 @@ public enum KeyCode : ushort
     /// <remarks>Available on: Windows, Linux</remarks>
     VcInsert = 0x009B,
 
-    /// <summary>Delete (on Windows and Linux) or Forward Delete (on macOS)</summary>
+    /// <summary>
+    /// Delete (on Windows and Linux) or Forward Delete (on macOS)
+    /// </summary>
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
     VcDelete = 0x007F,
 
@@ -453,10 +399,6 @@ public enum KeyCode : ushort
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
     VcLeft = 0x0025,
 
-    /// <summary>Begin</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcBegin = 0xFF58,
-
     /// <summary>Right Arrow</summary>
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
     VcRight = 0x0027,
@@ -470,26 +412,26 @@ public enum KeyCode : ushort
     VcNumLock = 0x0090,
 
     /// <summary>Num-Pad Clear</summary>
-    /// <remarks>Available on: Windows, macOS, Linux</remarks>
+    /// <remarks>Available on: Windows, macOS</remarks>
     VcNumPadClear = 0x000C,
 
-    /// <summary>Num-Pad Divide</summary>
+    /// <summary>Num-Pad /</summary>
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
     VcNumPadDivide = 0x006F,
 
-    /// <summary>Num-Pad Multiply</summary>
+    /// <summary>Num-Pad *</summary>
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
     VcNumPadMultiply = 0x006A,
 
-    /// <summary>Num-Pad Subtract</summary>
+    /// <summary>Num-Pad -</summary>
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
     VcNumPadSubtract = 0x006D,
 
-    /// <summary>Num-Pad Equals</summary>
+    /// <summary>Num-Pad =</summary>
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
     VcNumPadEquals = 0x007C,
 
-    /// <summary>Num-Pad Add</summary>
+    /// <summary>Num-Pad +</summary>
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
     VcNumPadAdd = 0x006B,
 
@@ -504,6 +446,10 @@ public enum KeyCode : ushort
     /// <summary>Num-Pad Separator</summary>
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
     VcNumPadSeparator = 0x006C,
+
+    /// <summary>Num-Pad ±</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcNumPadPlusMinus = 0x007E,
 
     /// <summary>Num-Pad 0</summary>
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
@@ -545,49 +491,13 @@ public enum KeyCode : ushort
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
     VcNumPad9 = 0x0069,
 
-    /// <summary>Num-Pad End</summary>
+    /// <summary>Num-Pad (</summary>
     /// <remarks>Available on: Linux</remarks>
-    VcNumPadEnd = 0xEE00 | VcNumPad1,
+    VcNumPadOpenParenthesis = 0xEE01,
 
-    /// <summary>Num-Pad Down</summary>
+    /// <summary>Num-Pad )</summary>
     /// <remarks>Available on: Linux</remarks>
-    VcNumPadDown = 0xEE00 | VcNumPad2,
-
-    /// <summary>Num-Pad Page Down</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcNumPadPageDown = 0xEE00 | VcNumPad3,
-
-    /// <summary>Num-Pad Left</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcNumPadLeft = 0xEE00 | VcNumPad4,
-
-    /// <summary>Num-Pad Begin</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcNumPadBegin = 0xEE | VcNumPad5,
-
-    /// <summary>Num-Pad Right</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcNumPadRight = 0xEE00 | VcNumPad6,
-
-    /// <summary>Num-Pad Home</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcNumPadHome = 0xEE00 | VcNumPad7,
-
-    /// <summary>Num-Pad Up</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcNumPadUp = 0xEE00 | VcNumPad8,
-
-    /// <summary>Num-Pad Page Up</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcNumPadPageUp = 0xEE00 | VcNumPad9,
-
-    /// <summary>Num-Pad Insert</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcNumPadInsert = 0xEE00 | VcNumPad0,
-
-    /// <summary>Num-Pad Delete</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcNumPadDelete = 0xEE00 | VcNumPadSeparator,
+    VcNumPadCloseParenthesis = 0xEE02,
 
     /// <summary>Left Shift</summary>
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
@@ -617,10 +527,6 @@ public enum KeyCode : ushort
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
     VcRightAlt = 0xB012,
 
-    /// <summary>Alt Graph</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcAltGraph = 0xFF7E,
-
     /// <summary>
     /// Left Win (on Windows), Command (on macOS), or Super/Meta (on Linux)
     /// </summary>
@@ -641,7 +547,9 @@ public enum KeyCode : ushort
     /// <remarks>Available on: macOS</remarks>
     VcFunction = 0x020E,
 
-    /// <summary>Function key when used to change an input source on macOS</summary>
+    /// <summary>
+    /// Function key when used to change an input source on macOS
+    /// </summary>
     /// <remarks>Available on: macOS</remarks>
     VcChangeInputSource = 0x020F,
 
@@ -657,29 +565,49 @@ public enum KeyCode : ushort
     /// <remarks>Available on: Linux</remarks>
     VcWake = 0xE063,
 
-    /// <summary>Media Play</summary>
+    /// <summary>Media</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcMedia = 0xE023,
+
+    /// <summary>Play/Pause Media</summary>
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
     VcMediaPlay = 0xE022,
 
-    /// <summary>Media Stop</summary>
+    /// <summary>Stop Media</summary>
     /// <remarks>Available on: Windows, Linux</remarks>
     VcMediaStop = 0xE024,
 
-    /// <summary>Media Previous</summary>
+    /// <summary>Previous Media</summary>
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
     VcMediaPrevious = 0xE010,
 
-    /// <summary>Media Next</summary>
+    /// <summary>Next Media</summary>
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
     VcMediaNext = 0xE019,
 
-    /// <summary>Media Select</summary>
+    /// <summary>Select Media</summary>
     /// <remarks>Available on: Windows, Linux</remarks>
     VcMediaSelect = 0xE06D,
 
-    /// <summary>Media Eject</summary>
+    /// <summary>Eject Media</summary>
     /// <remarks>Available on: macOS, Linux</remarks>
     VcMediaEject = 0xE02C,
+
+    /// <summary>Close Media</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcMediaClose = 0xE02D,
+
+    /// <summary>Eject/Close Media</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcMediaEjectClose = 0xE02F,
+
+    /// <summary>Record Media</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcMediaRecord = 0xE031,
+
+    /// <summary>Rewind Media</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcMediaRewind = 0xE033,
 
     /// <summary>Volume Mute</summary>
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
@@ -693,13 +621,53 @@ public enum KeyCode : ushort
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
     VcVolumeUp = 0xE02E,
 
-    /// <summary>Launch app 1</summary>
+    /// <summary>Attn</summary>
     /// <remarks>Available on: Windows</remarks>
+    VcAttn = 0xE090,
+
+    /// <summary>CrSel</summary>
+    /// <remarks>Available on: Windows</remarks>
+    VcCrSel = 0xE091,
+
+    /// <summary>ExSel</summary>
+    /// <remarks>Available on: Windows</remarks>
+    VcExSel = 0xE092,
+
+    /// <summary>Erase EOF</summary>
+    /// <remarks>Available on: Windows</remarks>
+    VcEraseEof = 0xE093,
+
+    /// <summary>Play</summary>
+    /// <remarks>Available on: Windows, Linux</remarks>
+    VcPlay = 0xE094,
+
+    /// <summary>Zoom</summary>
+    /// <remarks>Available on: Windows</remarks>
+    VcZoom = 0xE095,
+
+    /// <summary>Reserved for future use</summary>
+    /// <remarks>Available on: Windows</remarks>
+    VcNoName = 0xE096,
+
+    /// <summary>PA1</summary>
+    /// <remarks>Available on: Windows</remarks>
+    VcPa1 = 0xE097,
+
+    /// <summary>Launch app 1</summary>
+    /// <remarks>Available on: Windows, Linux</remarks>
     VcApp1 = 0xE026,
 
     /// <summary>Launch app 2</summary>
-    /// <remarks>Available on: Windows</remarks>
+    /// <remarks>Available on: Windows, Linux</remarks>
     VcApp2 = 0xE027,
+
+    /// <summary>Launch app 3</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcApp3 = 0xE028,
+
+    /// <summary>Launch app 4</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcApp4 = 0xE029,
 
     /// <summary>Launch browser</summary>
     /// <remarks>Available on: Linux</remarks>
@@ -712,14 +680,6 @@ public enum KeyCode : ushort
     /// <summary>Launch mail</summary>
     /// <remarks>Available on: Windows, Linux</remarks>
     VcAppMail = 0xE06C,
-
-    /// <summary>Launch music</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcAppMusic = 0xE03C,
-
-    /// <summary>Launch pictures</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcAppPictures = 0xE064,
 
     /// <summary>Browser Search</summary>
     /// <remarks>Available on: Windows, Linux</remarks>
@@ -749,96 +709,28 @@ public enum KeyCode : ushort
     /// <remarks>Available on: Windows, Linux</remarks>
     VcBrowserFavorites = 0xE066,
 
-    /// <summary>^</summary>
+    /// <summary>IME Katakana/Hiragana toggle</summary>
     /// <remarks>Available on: Linux</remarks>
-    VcCircumflex = 0x0202,
-
-    /// <summary>` (dead key)</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcDeadGrave = 0x0080,
-
-    /// <summary>´ (dead key)</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcDeadAcute = 0x0081,
-
-    /// <summary>^ (dead key)</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcDeadCircumflex = 0x0082,
-
-    /// <summary>~ (dead key)</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcDeadTilde = 0x0083,
-
-    /// <summary>¯ (dead key)</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcDeadMacron = 0x0084,
-
-    /// <summary>˘ (dead key)</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcDeadBreve = 0x0085,
-
-    /// <summary>˙ (dead key)</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcDeadAboveDot = 0x0086,
-
-    /// <summary>¨ (dead key)</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcDeadDiaeresis = 0x0087,
-
-    /// <summary>˚ (dead key)</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcDeadAboveRing = 0x0088,
-
-    /// <summary>˝ (dead key)</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcDeadDoubleAcute = 0x0089,
-
-    /// <summary>ˇ (dead key)</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcDeadCaron = 0x008A,
-
-    /// <summary>¸ (dead key)</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcDeadCedilla = 0x008B,
-
-    /// <summary>˛ (dead key)</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcDeadOgonek = 0x008C,
-
-    /// <summary>Iota (dead key)</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcDeadIota = 0x008D,
-
-    /// <summary>Voiced Sound (dead key)</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcDeadVoicedSound = 0x008E,
-
-    /// <summary>Semivoiced Sound (dead key)</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcDeadSemivoicedSound = 0x008F,
+    VcKatakanaHiragana = 0x0106,
 
     /// <summary>IME Katakana mode</summary>
     /// <remarks>Available on: Linux</remarks>
     VcKatakana = 0x00F1,
 
-    /// <summary>IME Kana mode</summary>
-    /// <remarks>Available on: Windows, macOS, Linux</remarks>
-    VcKana = 0x0015,
-
-    /// <summary>IME Kana Lock</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcKanaLock = 0x0106,
-
-    /// <summary>IME Kanji mode</summary>
-    /// <remarks>Available on: Windows, Linux</remarks>
-    VcKanji = 0x0019,
-
     /// <summary>IME Hiragana mode</summary>
     /// <remarks>Available on: Linux</remarks>
     VcHiragana = 0x00F2,
 
-    /// <summary>IME Hangul mode</summary>
+    /// <summary>IME Kana mode</summary>
+    /// <remarks>Available on: Windows, macOS</remarks>
+    VcKana = 0x0015,
+
+    /// <summary>IME Kanji mode</summary>
     /// <remarks>Available on: Windows</remarks>
+    VcKanji = 0x0019,
+
+    /// <summary>IME Hangul mode</summary>
+    /// <remarks>Available on: Windows, Linux</remarks>
     VcHangul = 0x00E9,
 
     /// <summary>IME Junja mode</summary>
@@ -850,11 +742,11 @@ public enum KeyCode : ushort
     VcFinal = 0x00E7,
 
     /// <summary>IME Hanja mode</summary>
-    /// <remarks>Available on: Windows</remarks>
+    /// <remarks>Available on: Windows, Linux</remarks>
     VcHanja = 0x00E6,
 
     /// <summary>IME Accept</summary>
-    /// <remarks>Available on: Windows, Linux</remarks>
+    /// <remarks>Available on: Windows</remarks>
     VcAccept = 0x001E,
 
     /// <summary>IME Convert (henkan)</summary>
@@ -878,86 +770,318 @@ public enum KeyCode : ushort
     VcImeOff = 0x0108,
 
     /// <summary>IME Mode Change</summary>
-    /// <remarks>Available on: Windows</remarks>
+    /// <remarks>Available on: Windows, Linux</remarks>
     VcModeChange = 0x0107,
 
     /// <summary>IME Process</summary>
     /// <remarks>Available on: Windows</remarks>
     VcProcess = 0x0105,
 
-    /// <summary>IME All Candidates (zen koho)</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcAllCandidates = 0x0100,
-
     /// <summary>IME Alphanumeric mode (eisū)</summary>
-    /// <remarks>Available on: macOS, Linux</remarks>
+    /// <remarks>Available on: macOS</remarks>
     VcAlphanumeric = 0x00F0,
-
-    /// <summary>IME Code Input (Kanji bangou)</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcCodeInput = 0x0102,
-
-    /// <summary>IME Wull Width (zenkaku)</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcFullWidth = 0x00F3,
-
-    /// <summary>IME Half Width (hankaku)</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcHalfWidth = 0x00F4,
-
-    /// <summary>IME Previous Candidate (mae koho)</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcPreviousCandidate = 0x0101,
-
-    /// <summary>IME Roman Characters (rōmaji)</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcRomanCharacters = 0x00F5,
 
     /// <summary>_</summary>
     /// <remarks>Available on: macOS, Linux</remarks>
     VcUnderscore = 0x020B,
 
     /// <summary>Yen</summary>
-    /// <remarks>Available on: macOS</remarks>
+    /// <remarks>Available on: macOS, Linux</remarks>
     VcYen = 0x020C,
 
-    /// <summary>Stop (Sun keyboard)</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcSunStop = 0xFF78,
+    /// <summary>JP Comma</summary>
+    /// <remarks>Available on: macOS, Linux</remarks>
+    VcJpComma = 0x0210,
 
-    /// <summary>Props (Sun keyboard)</summary>
+    /// <summary>Stop</summary>
     /// <remarks>Available on: Linux</remarks>
-    VcSunProps = 0xFF76,
+    VcStop = 0xFF78,
 
-    /// <summary>Front (Sun keyboard)</summary>
+    /// <summary>Props</summary>
     /// <remarks>Available on: Linux</remarks>
-    VcSunFront = 0xFF77,
+    VcProps = 0xFF76,
 
-    /// <summary>Open (Sun keyboard)</summary>
+    /// <summary>Front</summary>
     /// <remarks>Available on: Linux</remarks>
-    VcSunOpen = 0xFF74,
+    VcFront = 0xFF77,
 
-    /// <summary>Find (Sun keyboard)</summary>
+    /// <summary>Open</summary>
     /// <remarks>Available on: Linux</remarks>
-    VcSunFind = 0xFF70,
+    VcOpen = 0xFF74,
 
-    /// <summary>Again (Sun keyboard)</summary>
+    /// <summary>Find</summary>
     /// <remarks>Available on: Linux</remarks>
-    VcSunAgain = 0xFF79,
+    VcFind = 0xFF70,
 
-    /// <summary>Undo (Sun keyboard)</summary>
+    /// <summary>Again</summary>
     /// <remarks>Available on: Linux</remarks>
-    VcSunUndo = 0xFF7A,
+    VcAgain = 0xFF79,
 
-    /// <summary>Copy (Sun keyboard)</summary>
+    /// <summary>Undo</summary>
     /// <remarks>Available on: Linux</remarks>
-    VcSunCopy = 0xFF7C,
+    VcUndo = 0xFF7A,
 
-    /// <summary>Paste (Sun keyboard)</summary>
+    /// <summary>Redo</summary>
     /// <remarks>Available on: Linux</remarks>
-    VcSunPaste = 0xFF7D,
+    VcRedo = 0xFF7F,
 
-    /// <summary>Cut (Sun keyboard)</summary>
+    /// <summary>Copy</summary>
     /// <remarks>Available on: Linux</remarks>
-    VcSunCut = 0xFF7B
+    VcCopy = 0xFF7C,
+
+    /// <summary>Paste</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcPaste = 0xFF7D,
+
+    /// <summary>Cut</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcCut = 0xFF7B,
+
+    /// <summary>Line Feed</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcLineFeed = 0xC001,
+
+    /// <summary>Macro</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcMacro = 0xC002,
+
+    /// <summary>Scale</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcScale = 0xC003,
+
+    /// <summary>Setup</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcSetup = 0xC004,
+
+    /// <summary>File</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcFile = 0xC005,
+
+    /// <summary>Send File</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcSendFile = 0xC006,
+
+    /// <summary>Delete File</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcDeleteFile = 0xC007,
+
+    /// <summary>MS DOS</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcMsDos = 0xC008,
+
+    /// <summary>Lock</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcLock = 0xC009,
+
+    /// <summary>Rotate Display</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcRotateDisplay = 0xC00A,
+
+    /// <summary>Cycle Windows</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcCycleWindows = 0xC00B,
+
+    /// <summary>Computer</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcComputer = 0xC00C,
+
+    /// <summary>Phone</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcPhone = 0xC00D,
+
+    /// <summary>ISO</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcIso = 0xC00E,
+
+    /// <summary>Config</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcConfig = 0xC00F,
+
+    /// <summary>Exit</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcExit = 0xC010,
+
+    /// <summary>Move</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcMove = 0xC011,
+
+    /// <summary>Edit</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcEdit = 0xC012,
+
+    /// <summary>Scroll Up</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcScrollUp = 0xC013,
+
+    /// <summary>Scroll Down</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcScrollDown = 0xC014,
+
+    /// <summary>New</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcNew = 0xC015,
+
+    /// <summary>Play CD</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcPlayCd = 0xC016,
+
+    /// <summary>Pause CD</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcPauseCd = 0xC017,
+
+    /// <summary>Dashboard</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcDashboard = 0xC018,
+
+    /// <summary>Suspend</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcSuspend = 0xC019,
+
+    /// <summary>Close</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcClose = 0xC01A,
+
+    /// <summary>Fast-Forward</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcFastForward = 0xC01C,
+
+    /// <summary>Bass Boost</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcBassBoost = 0xC01D,
+
+    /// <summary>HP</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcHp = 0xC01E,
+
+    /// <summary>Camera</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcCamera = 0xC01F,
+
+    /// <summary>Sound</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcSound = 0xC020,
+
+    /// <summary>Question</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcQuestion = 0xC021,
+
+    /// <summary>Email</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcEmail = 0xC022,
+
+    /// <summary>Chat</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcChat = 0xC023,
+
+    /// <summary>Connect</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcConnect = 0xC024,
+
+    /// <summary>Finance</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcFinance = 0xC025,
+
+    /// <summary>Sport</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcSport = 0xC026,
+
+    /// <summary>Shop</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcShop = 0xC027,
+
+    /// <summary>Alt Erase</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcAltErase = 0xC028,
+
+    /// <summary>Brightness Down</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcBrightnessDown = 0xC029,
+
+    /// <summary>Brightness Up</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcBrightnessUp = 0xC02A,
+
+    /// <summary>Brightness Cycle</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcBrightnesCycle = 0xC02B,
+
+    /// <summary>Brightness Auto</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcBrightnessAuto = 0xC02C,
+
+    /// <summary>Switch Video Mode</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcSwitchVideoMode = 0xC02D,
+
+    /// <summary>Keyboard Light Toggle</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcKeyboardLightToggle = 0xC02E,
+
+    /// <summary>Keyboard Light Down</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcKeyboardLightDown = 0xC02F,
+
+    /// <summary>Keyboard Light Up</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcKeyboardLightUp = 0xC030,
+
+    /// <summary>Send</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcSend = 0xC031,
+
+    /// <summary>Reply</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcReply = 0xC032,
+
+    /// <summary>Forward Mail</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcForwardMail = 0xC033,
+
+    /// <summary>Save</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcSave = 0xC034,
+
+    /// <summary>Documents</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcDocuments = 0xC035,
+
+    /// <summary>Battery</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcBattery = 0xC036,
+
+    /// <summary>Bluetooth</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcBluetooth = 0xC037,
+
+    /// <summary>WLAN</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcWlan = 0xC038,
+
+    /// <summary>UWB</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcUwb = 0xC039,
+
+    /// <summary>Unknown key (X11)</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcX11Unknown = 0xC03A,
+
+    /// <summary>Next Video</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcVideoNext = 0xC03B,
+
+    /// <summary>Previous Video</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcVideoPrevious = 0xC03C,
+
+    /// <summary>Display Off</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcDisplayOff = 0xC03D,
+
+    /// <summary>WWAN</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcWwan = 0xC03E,
+
+    /// <summary>RfKill</summary>
+    /// <remarks>Available on: Linux</remarks>
+    VcRfKill = 0xC03F
 }
