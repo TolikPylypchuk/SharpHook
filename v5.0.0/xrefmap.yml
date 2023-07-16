@@ -1781,12 +1781,12 @@ references:
   commentId: F:SharpHook.Native.KeyCode.VcB
   fullName: SharpHook.Native.KeyCode.VcB
   nameWithType: KeyCode.VcB
-- uid: SharpHook.Native.KeyCode.VcBackquote
-  name: VcBackquote
-  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcBackquote
-  commentId: F:SharpHook.Native.KeyCode.VcBackquote
-  fullName: SharpHook.Native.KeyCode.VcBackquote
-  nameWithType: KeyCode.VcBackquote
+- uid: SharpHook.Native.KeyCode.VcBackQuote
+  name: VcBackQuote
+  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcBackQuote
+  commentId: F:SharpHook.Native.KeyCode.VcBackQuote
+  fullName: SharpHook.Native.KeyCode.VcBackQuote
+  nameWithType: KeyCode.VcBackQuote
 - uid: SharpHook.Native.KeyCode.VcBackSlash
   name: VcBackSlash
   href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcBackSlash
@@ -2987,12 +2987,6 @@ references:
   commentId: F:SharpHook.Native.KeyCode.VcScrollUp
   fullName: SharpHook.Native.KeyCode.VcScrollUp
   nameWithType: KeyCode.VcScrollUp
-- uid: SharpHook.Native.KeyCode.VcSection
-  name: VcSection
-  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcSection
-  commentId: F:SharpHook.Native.KeyCode.VcSection
-  fullName: SharpHook.Native.KeyCode.VcSection
-  nameWithType: KeyCode.VcSection
 - uid: SharpHook.Native.KeyCode.VcSelect
   name: VcSelect
   href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcSelect
