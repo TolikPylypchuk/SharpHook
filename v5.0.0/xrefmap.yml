@@ -1937,12 +1937,6 @@ references:
   commentId: F:SharpHook.Native.KeyCode.VcComma
   fullName: SharpHook.Native.KeyCode.VcComma
   nameWithType: KeyCode.VcComma
-- uid: SharpHook.Native.KeyCode.VcCompose
-  name: VcCompose
-  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcCompose
-  commentId: F:SharpHook.Native.KeyCode.VcCompose
-  fullName: SharpHook.Native.KeyCode.VcCompose
-  nameWithType: KeyCode.VcCompose
 - uid: SharpHook.Native.KeyCode.VcComputer
   name: VcComputer
   href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcComputer
