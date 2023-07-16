@@ -1650,7 +1650,7 @@
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcNumPadEnter">
             <summary>Num-Pad Enter</summary>
-            <remarks>Available on: macOS, Linux</remarks>
+            <remarks>Available on: Windows, macOS, Linux</remarks>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcNumPadDecimal">
             <summary>Num-Pad Decimal</summary>
@@ -1969,10 +1969,6 @@
         <member name="F:SharpHook.Native.KeyCode.VcNonConvert">
             <summary>IME Non-Convert (muhenkan)</summary>
             <remarks>Available on: Windows, Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcCompose">
-            <summary>IME Compose (multi-key)</summary>
-            <remarks>Available on: Linux</remarks>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcImeOn">
             <summary>IME On</summary>

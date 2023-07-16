@@ -436,7 +436,7 @@ public enum KeyCode : ushort
     VcNumPadAdd = 0x006B,
 
     /// <summary>Num-Pad Enter</summary>
-    /// <remarks>Available on: macOS, Linux</remarks>
+    /// <remarks>Available on: Windows, macOS, Linux</remarks>
     VcNumPadEnter = 0x007D,
 
     /// <summary>Num-Pad Decimal</summary>
@@ -756,10 +756,6 @@ public enum KeyCode : ushort
     /// <summary>IME Non-Convert (muhenkan)</summary>
     /// <remarks>Available on: Windows, Linux</remarks>
     VcNonConvert = 0x001D,
-
-    /// <summary>IME Compose (multi-key)</summary>
-    /// <remarks>Available on: Linux</remarks>
-    VcCompose = 0xFF20,
 
     /// <summary>IME On</summary>
     /// <remarks>Available on: Windows</remarks>
