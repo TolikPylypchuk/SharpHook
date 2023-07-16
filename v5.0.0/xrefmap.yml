@@ -135,6 +135,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.EventSimulator.SimulateMouseWheel
   nameWithType: EventSimulator.SimulateMouseWheel
+- uid: SharpHook.EventSimulator.SimulateText(System.String)
+  name: SimulateText(String)
+  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateText_System_String_
+  commentId: M:SharpHook.EventSimulator.SimulateText(System.String)
+  fullName: SharpHook.EventSimulator.SimulateText(System.String)
+  nameWithType: EventSimulator.SimulateText(String)
+- uid: SharpHook.EventSimulator.SimulateText*
+  name: SimulateText
+  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateText_
+  commentId: Overload:SharpHook.EventSimulator.SimulateText
+  isSpec: "True"
+  fullName: SharpHook.EventSimulator.SimulateText
+  nameWithType: EventSimulator.SimulateText
 - uid: SharpHook.GlobalHookBase
   name: GlobalHookBase
   href: api/SharpHook.GlobalHookBase.html
@@ -758,6 +771,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.IEventSimulator.SimulateMouseWheel
   nameWithType: IEventSimulator.SimulateMouseWheel
+- uid: SharpHook.IEventSimulator.SimulateText(System.String)
+  name: SimulateText(String)
+  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateText_System_String_
+  commentId: M:SharpHook.IEventSimulator.SimulateText(System.String)
+  fullName: SharpHook.IEventSimulator.SimulateText(System.String)
+  nameWithType: IEventSimulator.SimulateText(String)
+- uid: SharpHook.IEventSimulator.SimulateText*
+  name: SimulateText
+  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateText_
+  commentId: Overload:SharpHook.IEventSimulator.SimulateText
+  isSpec: "True"
+  fullName: SharpHook.IEventSimulator.SimulateText
+  nameWithType: IEventSimulator.SimulateText
 - uid: SharpHook.IGlobalHook
   name: IGlobalHook
   href: api/SharpHook.IGlobalHook.html
@@ -4017,6 +4043,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.Native.UioHook.PostEvent
   nameWithType: UioHook.PostEvent
+- uid: SharpHook.Native.UioHook.PostText(System.String)
+  name: PostText(String)
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_PostText_System_String_
+  commentId: M:SharpHook.Native.UioHook.PostText(System.String)
+  fullName: SharpHook.Native.UioHook.PostText(System.String)
+  nameWithType: UioHook.PostText(String)
+- uid: SharpHook.Native.UioHook.PostText*
+  name: PostText
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_PostText_
+  commentId: Overload:SharpHook.Native.UioHook.PostText
+  isSpec: "True"
+  fullName: SharpHook.Native.UioHook.PostText
+  nameWithType: UioHook.PostText
 - uid: SharpHook.Native.UioHook.Run
   name: Run()
   href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_Run
@@ -4324,6 +4363,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.Providers.IEventSimulationProvider.PostEvent
   nameWithType: IEventSimulationProvider.PostEvent
+- uid: SharpHook.Providers.IEventSimulationProvider.PostText(System.String)
+  name: PostText(String)
+  href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_PostText_System_String_
+  commentId: M:SharpHook.Providers.IEventSimulationProvider.PostText(System.String)
+  fullName: SharpHook.Providers.IEventSimulationProvider.PostText(System.String)
+  nameWithType: IEventSimulationProvider.PostText(String)
+- uid: SharpHook.Providers.IEventSimulationProvider.PostText*
+  name: PostText
+  href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_PostText_
+  commentId: Overload:SharpHook.Providers.IEventSimulationProvider.PostText
+  isSpec: "True"
+  fullName: SharpHook.Providers.IEventSimulationProvider.PostText
+  nameWithType: IEventSimulationProvider.PostText
 - uid: SharpHook.Providers.IGlobalHookProvider
   name: IGlobalHookProvider
   href: api/SharpHook.Providers.IGlobalHookProvider.html
@@ -4617,6 +4669,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.Providers.UioHookProvider.PostEvent
   nameWithType: UioHookProvider.PostEvent
+- uid: SharpHook.Providers.UioHookProvider.PostText(System.String)
+  name: PostText(String)
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_PostText_System_String_
+  commentId: M:SharpHook.Providers.UioHookProvider.PostText(System.String)
+  fullName: SharpHook.Providers.UioHookProvider.PostText(System.String)
+  nameWithType: UioHookProvider.PostText(String)
+- uid: SharpHook.Providers.UioHookProvider.PostText*
+  name: PostText
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_PostText_
+  commentId: Overload:SharpHook.Providers.UioHookProvider.PostText
+  isSpec: "True"
+  fullName: SharpHook.Providers.UioHookProvider.PostText
+  nameWithType: UioHookProvider.PostText
 - uid: SharpHook.Providers.UioHookProvider.Run
   name: Run()
   href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_Run
