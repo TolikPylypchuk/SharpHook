@@ -140,6 +140,17 @@ public sealed class UioHookProvider :
         UioHook.PostEvent(ref e);
 
     /// <summary>
+    /// Simulates input of arbitrary Unicode characters.
+    /// </summary>
+    /// <param name="text">The Unicode characters to simulate.</param>
+    /// <returns>The result of the operation.</returns>
+    /// <remarks>
+    /// The text to simulate doesn't depend on the current keyboard layout.
+    /// </remarks>
+    public UioHookResult PostText(string text) =>
+        UioHook.PostText(text);
+
+    /// <summary>
     /// Gets the information about screens.
     /// </summary>
     /// <returns>The information about screens.</returns>

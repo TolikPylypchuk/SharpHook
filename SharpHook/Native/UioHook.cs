@@ -162,6 +162,23 @@ public static partial class UioHook
 #endif
 
     /// <summary>
+    /// Simulates input of arbitrary Unicode characters.
+    /// </summary>
+    /// <param name="text">The Unicode characters to simulate.</param>
+    /// <returns>The result of the operation.</returns>
+    /// <remarks>
+    /// The text to simulate doesn't depend on the current keyboard layout.
+    /// </remarks>
+    /// <seealso cref="EventSimulator" />
+#if NET7_0_OR_GREATER
+    [LibraryImport(LibUioHook, EntryPoint = "hook_post_text")]
+    public static partial UioHookResult PostText([MarshalAs(UnmanagedType.LPWStr)] string text);
+#else
+    [DllImport(LibUioHook, EntryPoint = "hook_post_text")]
+    public static extern UioHookResult PostText([MarshalAs(UnmanagedType.LPWStr)] string text);
+#endif
+
+    /// <summary>
     /// Gets the information about screens.
     /// </summary>
     /// <param name="count">The number of screens.</param>

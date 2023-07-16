@@ -82,4 +82,14 @@ public interface IEventSimulationProvider
     /// </para>
     /// </remarks>
     UioHookResult PostEvent(ref UioHookEvent e);
+
+    /// <summary>
+    /// Simulates input of arbitrary Unicode characters.
+    /// </summary>
+    /// <param name="text">The Unicode characters to simulate.</param>
+    /// <returns>The result of the operation.</returns>
+    /// <remarks>
+    /// The text to simulate doesn't depend on the current keyboard layout.
+    /// </remarks>
+    UioHookResult PostText(string text);
 }

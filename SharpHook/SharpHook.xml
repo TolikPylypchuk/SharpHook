@@ -39,6 +39,16 @@
             <param name="keyCode">The code of the key to release.</param>
             <returns>The result of the operation.</returns>
         </member>
+        <member name="M:SharpHook.EventSimulator.SimulateText(System.String)">
+            <summary>
+            Simulates input of arbitrary Unicode characters.
+            </summary>
+            <param name="text">The Unicode characters to simulate.</param>
+            <returns>The result of the operation.</returns>
+            <remarks>
+            The text to simulate doesn't depend on the current keyboard layout.
+            </remarks>
+        </member>
         <member name="M:SharpHook.EventSimulator.SimulateMousePress(SharpHook.Native.MouseButton)">
             <summary>
             Simulates pressing a mouse button at the current coordinates.
@@ -471,6 +481,16 @@
             </summary>
             <param name="keyCode">The code of the key to release.</param>
             <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.IEventSimulator.SimulateText(System.String)">
+            <summary>
+            Simulates input of arbitrary Unicode characters.
+            </summary>
+            <param name="text">The Unicode characters to simulate.</param>
+            <returns>The result of the operation.</returns>
+            <remarks>
+            The text to simulate doesn't depend on the current keyboard layout.
+            </remarks>
         </member>
         <member name="M:SharpHook.IEventSimulator.SimulateMousePress(SharpHook.Native.MouseButton)">
             <summary>
@@ -2963,6 +2983,17 @@
             </remarks>
             <seealso cref="T:SharpHook.EventSimulator" />
         </member>
+        <member name="M:SharpHook.Native.UioHook.PostText(System.String)">
+            <summary>
+            Simulates input of arbitrary Unicode characters.
+            </summary>
+            <param name="text">The Unicode characters to simulate.</param>
+            <returns>The result of the operation.</returns>
+            <remarks>
+            The text to simulate doesn't depend on the current keyboard layout.
+            </remarks>
+            <seealso cref="T:SharpHook.EventSimulator" />
+        </member>
         <member name="M:SharpHook.Native.UioHook.CreateScreenInfo(System.Byte@)">
             <summary>
             Gets the information about screens.
@@ -3327,6 +3358,16 @@
             </para>
             </remarks>
         </member>
+        <member name="M:SharpHook.Providers.IEventSimulationProvider.PostText(System.String)">
+            <summary>
+            Simulates input of arbitrary Unicode characters.
+            </summary>
+            <param name="text">The Unicode characters to simulate.</param>
+            <returns>The result of the operation.</returns>
+            <remarks>
+            The text to simulate doesn't depend on the current keyboard layout.
+            </remarks>
+        </member>
         <member name="T:SharpHook.Providers.IGlobalHookProvider">
             <summary>
             Represents a provider of low-level global hook functionality.
@@ -3549,6 +3590,16 @@
             </item>
             </list>
             </para>
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Providers.UioHookProvider.PostText(System.String)">
+            <summary>
+            Simulates input of arbitrary Unicode characters.
+            </summary>
+            <param name="text">The Unicode characters to simulate.</param>
+            <returns>The result of the operation.</returns>
+            <remarks>
+            The text to simulate doesn't depend on the current keyboard layout.
             </remarks>
         </member>
         <member name="M:SharpHook.Providers.UioHookProvider.CreateScreenInfo">
