@@ -63,14 +63,14 @@ public class EventSimulator : IEventSimulator
         });
 
     /// <summary>
-    /// Simulates input of arbitrary Unicode characters.
+    /// Simulates the input of arbitrary Unicode characters.
     /// </summary>
-    /// <param name="text">The Unicode characters to simulate.</param>
+    /// <param name="text">The text to simulate.</param>
     /// <returns>The result of the operation.</returns>
     /// <remarks>
     /// The text to simulate doesn't depend on the current keyboard layout.
     /// </remarks>
-    public UioHookResult SimulateText(string text) =>
+    public UioHookResult SimulateTextEntry(string text) =>
         this.simulationProvider.PostText(text);
 
     /// <summary>

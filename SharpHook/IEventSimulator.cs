@@ -25,14 +25,14 @@ public interface IEventSimulator
     UioHookResult SimulateKeyRelease(KeyCode keyCode);
 
     /// <summary>
-    /// Simulates input of arbitrary Unicode characters.
+    /// Simulates the input of arbitrary Unicode characters.
     /// </summary>
-    /// <param name="text">The Unicode characters to simulate.</param>
+    /// <param name="text">The text to simulate.</param>
     /// <returns>The result of the operation.</returns>
     /// <remarks>
     /// The text to simulate doesn't depend on the current keyboard layout.
     /// </remarks>
-    UioHookResult SimulateText(string text);
+    UioHookResult SimulateTextEntry(string text);
 
     /// <summary>
     /// Simulates pressing a mouse button at the current coordinates.

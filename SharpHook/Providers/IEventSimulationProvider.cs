@@ -44,7 +44,9 @@ public interface IEventSimulationProvider
     /// </item>
     /// <item>
     /// <term><see cref="EventType.KeyTyped" /></term>
-    /// <term>Events of this type are ignored.</term>
+    /// <term>
+    /// Events of this type are ignored. <see cref="PostText(string)" /> should be used to post Unicode characters.
+    /// </term>
     /// </item>
     /// <item>
     /// <term><see cref="EventType.MousePressed" /></term>
@@ -84,9 +86,9 @@ public interface IEventSimulationProvider
     UioHookResult PostEvent(ref UioHookEvent e);
 
     /// <summary>
-    /// Simulates input of arbitrary Unicode characters.
+    /// Simulates the input of arbitrary Unicode characters.
     /// </summary>
-    /// <param name="text">The Unicode characters to simulate.</param>
+    /// <param name="text">The text to simulate.</param>
     /// <returns>The result of the operation.</returns>
     /// <remarks>
     /// The text to simulate doesn't depend on the current keyboard layout.
