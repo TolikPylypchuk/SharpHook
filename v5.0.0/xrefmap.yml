@@ -135,19 +135,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.EventSimulator.SimulateMouseWheel
   nameWithType: EventSimulator.SimulateMouseWheel
-- uid: SharpHook.EventSimulator.SimulateText(System.String)
-  name: SimulateText(String)
-  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateText_System_String_
-  commentId: M:SharpHook.EventSimulator.SimulateText(System.String)
-  fullName: SharpHook.EventSimulator.SimulateText(System.String)
-  nameWithType: EventSimulator.SimulateText(String)
-- uid: SharpHook.EventSimulator.SimulateText*
-  name: SimulateText
-  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateText_
-  commentId: Overload:SharpHook.EventSimulator.SimulateText
+- uid: SharpHook.EventSimulator.SimulateTextEntry(System.String)
+  name: SimulateTextEntry(String)
+  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateTextEntry_System_String_
+  commentId: M:SharpHook.EventSimulator.SimulateTextEntry(System.String)
+  fullName: SharpHook.EventSimulator.SimulateTextEntry(System.String)
+  nameWithType: EventSimulator.SimulateTextEntry(String)
+- uid: SharpHook.EventSimulator.SimulateTextEntry*
+  name: SimulateTextEntry
+  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateTextEntry_
+  commentId: Overload:SharpHook.EventSimulator.SimulateTextEntry
   isSpec: "True"
-  fullName: SharpHook.EventSimulator.SimulateText
-  nameWithType: EventSimulator.SimulateText
+  fullName: SharpHook.EventSimulator.SimulateTextEntry
+  nameWithType: EventSimulator.SimulateTextEntry
 - uid: SharpHook.GlobalHookBase
   name: GlobalHookBase
   href: api/SharpHook.GlobalHookBase.html
@@ -771,19 +771,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.IEventSimulator.SimulateMouseWheel
   nameWithType: IEventSimulator.SimulateMouseWheel
-- uid: SharpHook.IEventSimulator.SimulateText(System.String)
-  name: SimulateText(String)
-  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateText_System_String_
-  commentId: M:SharpHook.IEventSimulator.SimulateText(System.String)
-  fullName: SharpHook.IEventSimulator.SimulateText(System.String)
-  nameWithType: IEventSimulator.SimulateText(String)
-- uid: SharpHook.IEventSimulator.SimulateText*
-  name: SimulateText
-  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateText_
-  commentId: Overload:SharpHook.IEventSimulator.SimulateText
+- uid: SharpHook.IEventSimulator.SimulateTextEntry(System.String)
+  name: SimulateTextEntry(String)
+  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateTextEntry_System_String_
+  commentId: M:SharpHook.IEventSimulator.SimulateTextEntry(System.String)
+  fullName: SharpHook.IEventSimulator.SimulateTextEntry(System.String)
+  nameWithType: IEventSimulator.SimulateTextEntry(String)
+- uid: SharpHook.IEventSimulator.SimulateTextEntry*
+  name: SimulateTextEntry
+  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateTextEntry_
+  commentId: Overload:SharpHook.IEventSimulator.SimulateTextEntry
   isSpec: "True"
-  fullName: SharpHook.IEventSimulator.SimulateText
-  nameWithType: IEventSimulator.SimulateText
+  fullName: SharpHook.IEventSimulator.SimulateTextEntry
+  nameWithType: IEventSimulator.SimulateTextEntry
 - uid: SharpHook.IGlobalHook
   name: IGlobalHook
   href: api/SharpHook.IGlobalHook.html
