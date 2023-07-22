@@ -1,5 +1,7 @@
 namespace SharpHook;
 
+using System;
+
 using SharpHook.Native;
 
 /// <summary>
@@ -10,6 +12,29 @@ using SharpHook.Native;
 /// </remarks>
 public interface IEventSimulator
 {
+    /// <summary>
+    /// Gets or sets the delay between simulating individual characters when simulating text on Linux.
+    /// </summary>
+    /// <value>The delay between simulating individual characters when simulating text on Linux.</value>
+    /// <remarks>
+    /// <para>
+    /// X11 doesn't support simulating arbitrary Unicode characters directly. Instead, for each character,
+    /// an unused key code is remapped to that character, and then key press/release is simulated. Since the receiving
+    /// application must react to the remapping, and may not do so instantaneously, a delay is needed for accurate
+    /// simulation.
+    /// </para>
+    /// <para>
+    /// The default delay is 50 milliseconds.
+    /// </para>
+    /// <para>
+    /// On Windows and macOS this property is ignored.
+    /// </para>
+    /// </remarks>
+    /// <exception cref="ArgumentOutOfRangeException">
+    /// <paramref name="value" /> represents a negative time span.
+    /// </exception>
+    TimeSpan TextSimulationDelayOnX11 { get; set; }
+
     /// <summary>
     /// Simulates pressing a key.
     /// </summary>
@@ -30,7 +55,12 @@ public interface IEventSimulator
     /// <param name="text">The text to simulate.</param>
     /// <returns>The result of the operation.</returns>
     /// <remarks>
+    /// <para>
+    /// Text entry simulation is not guaranteed to work correctly. View the docs for more info.
+    /// </para>
+    /// <para>
     /// The text to simulate doesn't depend on the current keyboard layout.
+    /// </para>
     /// </remarks>
     UioHookResult SimulateTextEntry(string text);
 

@@ -39,6 +39,41 @@ public class EventSimulator : IEventSimulator
     }
 
     /// <summary>
+    /// Gets or sets the delay between simulating individual characters when simulating text on Linux.
+    /// </summary>
+    /// <value>The delay between simulating individual characters when simulating text on Linux.</value>
+    /// <remarks>
+    /// <para>
+    /// X11 doesn't support simulating arbitrary Unicode characters directly. Instead, for each character,
+    /// an unused key code is remapped to that character, and then key press/release is simulated. Since the receiving
+    /// application must react to the remapping, and may not do so instantaneously, a delay is needed for accurate
+    /// simulation.
+    /// </para>
+    /// <para>
+    /// The default delay is 50 milliseconds.
+    /// </para>
+    /// <para>
+    /// On Windows and macOS this property is ignored.
+    /// </para>
+    /// </remarks>
+    /// <exception cref="ArgumentOutOfRangeException">
+    /// <paramref name="value" /> represents a negative time span.
+    /// </exception>
+    public TimeSpan TextSimulationDelayOnX11
+    {
+        get => TimeSpan.FromTicks((long)this.simulationProvider.GetPostTextDelayX11() / 100);
+        set
+        {
+            if (value.Ticks < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(value));
+            }
+
+            this.simulationProvider.SetPostTextDelayX11((ulong)(value.Ticks * 100));
+        }
+    }
+
+    /// <summary>
     /// Simulates pressing a key.
     /// </summary>
     /// <param name="keyCode">The code of the key to press.</param>
@@ -68,7 +103,12 @@ public class EventSimulator : IEventSimulator
     /// <param name="text">The text to simulate.</param>
     /// <returns>The result of the operation.</returns>
     /// <remarks>
+    /// <para>
+    /// Text entry simulation is not guaranteed to work correctly. View the docs for more info.
+    /// </para>
+    /// <para>
     /// The text to simulate doesn't depend on the current keyboard layout.
+    /// </para>
     /// </remarks>
     public UioHookResult SimulateTextEntry(string text) =>
         this.simulationProvider.PostText(text);
