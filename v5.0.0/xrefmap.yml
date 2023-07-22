@@ -32,19 +32,6 @@ references:
   isSpec: "True"
   fullName: SharpHook.EventSimulator.EventSimulator
   nameWithType: EventSimulator.EventSimulator
-- uid: SharpHook.EventSimulator.PostTextDelayOnX11
-  name: PostTextDelayOnX11
-  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_PostTextDelayOnX11
-  commentId: P:SharpHook.EventSimulator.PostTextDelayOnX11
-  fullName: SharpHook.EventSimulator.PostTextDelayOnX11
-  nameWithType: EventSimulator.PostTextDelayOnX11
-- uid: SharpHook.EventSimulator.PostTextDelayOnX11*
-  name: PostTextDelayOnX11
-  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_PostTextDelayOnX11_
-  commentId: Overload:SharpHook.EventSimulator.PostTextDelayOnX11
-  isSpec: "True"
-  fullName: SharpHook.EventSimulator.PostTextDelayOnX11
-  nameWithType: EventSimulator.PostTextDelayOnX11
 - uid: SharpHook.EventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode)
   name: SimulateKeyPress(KeyCode)
   href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateKeyPress_SharpHook_Native_KeyCode_
@@ -161,6 +148,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.EventSimulator.SimulateTextEntry
   nameWithType: EventSimulator.SimulateTextEntry
+- uid: SharpHook.EventSimulator.TextSimulationDelayOnX11
+  name: TextSimulationDelayOnX11
+  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_TextSimulationDelayOnX11
+  commentId: P:SharpHook.EventSimulator.TextSimulationDelayOnX11
+  fullName: SharpHook.EventSimulator.TextSimulationDelayOnX11
+  nameWithType: EventSimulator.TextSimulationDelayOnX11
+- uid: SharpHook.EventSimulator.TextSimulationDelayOnX11*
+  name: TextSimulationDelayOnX11
+  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_TextSimulationDelayOnX11_
+  commentId: Overload:SharpHook.EventSimulator.TextSimulationDelayOnX11
+  isSpec: "True"
+  fullName: SharpHook.EventSimulator.TextSimulationDelayOnX11
+  nameWithType: EventSimulator.TextSimulationDelayOnX11
 - uid: SharpHook.GlobalHookBase
   name: GlobalHookBase
   href: api/SharpHook.GlobalHookBase.html
@@ -681,19 +681,6 @@ references:
   commentId: T:SharpHook.IEventSimulator
   fullName: SharpHook.IEventSimulator
   nameWithType: IEventSimulator
-- uid: SharpHook.IEventSimulator.PostTextDelayOnX11
-  name: PostTextDelayOnX11
-  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_PostTextDelayOnX11
-  commentId: P:SharpHook.IEventSimulator.PostTextDelayOnX11
-  fullName: SharpHook.IEventSimulator.PostTextDelayOnX11
-  nameWithType: IEventSimulator.PostTextDelayOnX11
-- uid: SharpHook.IEventSimulator.PostTextDelayOnX11*
-  name: PostTextDelayOnX11
-  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_PostTextDelayOnX11_
-  commentId: Overload:SharpHook.IEventSimulator.PostTextDelayOnX11
-  isSpec: "True"
-  fullName: SharpHook.IEventSimulator.PostTextDelayOnX11
-  nameWithType: IEventSimulator.PostTextDelayOnX11
 - uid: SharpHook.IEventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode)
   name: SimulateKeyPress(KeyCode)
   href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateKeyPress_SharpHook_Native_KeyCode_
@@ -810,6 +797,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.IEventSimulator.SimulateTextEntry
   nameWithType: IEventSimulator.SimulateTextEntry
+- uid: SharpHook.IEventSimulator.TextSimulationDelayOnX11
+  name: TextSimulationDelayOnX11
+  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_TextSimulationDelayOnX11
+  commentId: P:SharpHook.IEventSimulator.TextSimulationDelayOnX11
+  fullName: SharpHook.IEventSimulator.TextSimulationDelayOnX11
+  nameWithType: IEventSimulator.TextSimulationDelayOnX11
+- uid: SharpHook.IEventSimulator.TextSimulationDelayOnX11*
+  name: TextSimulationDelayOnX11
+  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_TextSimulationDelayOnX11_
+  commentId: Overload:SharpHook.IEventSimulator.TextSimulationDelayOnX11
+  isSpec: "True"
+  fullName: SharpHook.IEventSimulator.TextSimulationDelayOnX11
+  nameWithType: IEventSimulator.TextSimulationDelayOnX11
 - uid: SharpHook.IGlobalHook
   name: IGlobalHook
   href: api/SharpHook.IGlobalHook.html
