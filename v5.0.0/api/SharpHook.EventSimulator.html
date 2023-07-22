@@ -183,6 +183,70 @@
       </tr>
     </tbody>
   </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_EventSimulator_PostTextDelayOnX11.md&amp;value=---%0Auid%3A%20SharpHook.EventSimulator.PostTextDelayOnX11%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/EventSimulator.cs/#L62">View Source</a>
+  </span>
+  <a id="SharpHook_EventSimulator_PostTextDelayOnX11_" data-uid="SharpHook.EventSimulator.PostTextDelayOnX11*"></a>
+  <h4 id="SharpHook_EventSimulator_PostTextDelayOnX11" data-uid="SharpHook.EventSimulator.PostTextDelayOnX11">PostTextDelayOnX11</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the delay between simulating individual characters when simulating text on Linux.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan PostTextDelayOnX11 { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
+        <td><p>The delay between simulating individual characters when simulating text on Linux.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="SharpHook_EventSimulator_PostTextDelayOnX11_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+X11 doesn&apos;t support posting arbitrary Unicode characters directly. Instead, for each character,
+an unused key code is remapped to that character, and then key press/release is simulated. Since the receiving
+application must react to the remapping, and may not do so instantaneously, a delay is needed for accurate
+simulation.
+</p>
+<p>
+The default delay is 50 milliseconds.
+</p>
+<p>
+On Windows and macOS this property is ignored.
+</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">value</code> represents a negative time span.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
@@ -190,7 +254,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_EventSimulator_SimulateKeyPress_SharpHook_Native_KeyCode_.md&amp;value=---%0Auid%3A%20SharpHook.EventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/EventSimulator.cs/#L46">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/EventSimulator.cs/#L81">View Source</a>
   </span>
   <a id="SharpHook_EventSimulator_SimulateKeyPress_" data-uid="SharpHook.EventSimulator.SimulateKeyPress*"></a>
   <h4 id="SharpHook_EventSimulator_SimulateKeyPress_SharpHook_Native_KeyCode_" data-uid="SharpHook.EventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode)">SimulateKeyPress(KeyCode)</h4>
@@ -240,7 +304,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_EventSimulator_SimulateKeyRelease_SharpHook_Native_KeyCode_.md&amp;value=---%0Auid%3A%20SharpHook.EventSimulator.SimulateKeyRelease(SharpHook.Native.KeyCode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/EventSimulator.cs/#L58">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/EventSimulator.cs/#L93">View Source</a>
   </span>
   <a id="SharpHook_EventSimulator_SimulateKeyRelease_" data-uid="SharpHook.EventSimulator.SimulateKeyRelease*"></a>
   <h4 id="SharpHook_EventSimulator_SimulateKeyRelease_SharpHook_Native_KeyCode_" data-uid="SharpHook.EventSimulator.SimulateKeyRelease(SharpHook.Native.KeyCode)">SimulateKeyRelease(KeyCode)</h4>
@@ -290,7 +354,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_EventSimulator_SimulateMouseMovement_System_Int16_System_Int16_.md&amp;value=---%0Auid%3A%20SharpHook.EventSimulator.SimulateMouseMovement(System.Int16%2CSystem.Int16)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/EventSimulator.cs/#L134">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/EventSimulator.cs/#L174">View Source</a>
   </span>
   <a id="SharpHook_EventSimulator_SimulateMouseMovement_" data-uid="SharpHook.EventSimulator.SimulateMouseMovement*"></a>
   <h4 id="SharpHook_EventSimulator_SimulateMouseMovement_System_Int16_System_Int16_" data-uid="SharpHook.EventSimulator.SimulateMouseMovement(System.Int16,System.Int16)">SimulateMouseMovement(Int16, Int16)</h4>
@@ -346,7 +410,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_EventSimulator_SimulateMouseMovementRelative_System_Int16_System_Int16_.md&amp;value=---%0Auid%3A%20SharpHook.EventSimulator.SimulateMouseMovementRelative(System.Int16%2CSystem.Int16)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/EventSimulator.cs/#L147">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/EventSimulator.cs/#L187">View Source</a>
   </span>
   <a id="SharpHook_EventSimulator_SimulateMouseMovementRelative_" data-uid="SharpHook.EventSimulator.SimulateMouseMovementRelative*"></a>
   <h4 id="SharpHook_EventSimulator_SimulateMouseMovementRelative_System_Int16_System_Int16_" data-uid="SharpHook.EventSimulator.SimulateMouseMovementRelative(System.Int16,System.Int16)">SimulateMouseMovementRelative(Int16, Int16)</h4>
@@ -402,7 +466,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_EventSimulator_SimulateMousePress_SharpHook_Native_MouseButton_.md&amp;value=---%0Auid%3A%20SharpHook.EventSimulator.SimulateMousePress(SharpHook.Native.MouseButton)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/EventSimulator.cs/#L81">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/EventSimulator.cs/#L121">View Source</a>
   </span>
   <a id="SharpHook_EventSimulator_SimulateMousePress_" data-uid="SharpHook.EventSimulator.SimulateMousePress*"></a>
   <h4 id="SharpHook_EventSimulator_SimulateMousePress_SharpHook_Native_MouseButton_" data-uid="SharpHook.EventSimulator.SimulateMousePress(SharpHook.Native.MouseButton)">SimulateMousePress(MouseButton)</h4>
@@ -452,7 +516,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_EventSimulator_SimulateMousePress_System_Int16_System_Int16_SharpHook_Native_MouseButton_.md&amp;value=---%0Auid%3A%20SharpHook.EventSimulator.SimulateMousePress(System.Int16%2CSystem.Int16%2CSharpHook.Native.MouseButton)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/EventSimulator.cs/#L95">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/EventSimulator.cs/#L135">View Source</a>
   </span>
   <a id="SharpHook_EventSimulator_SimulateMousePress_" data-uid="SharpHook.EventSimulator.SimulateMousePress*"></a>
   <h4 id="SharpHook_EventSimulator_SimulateMousePress_System_Int16_System_Int16_SharpHook_Native_MouseButton_" data-uid="SharpHook.EventSimulator.SimulateMousePress(System.Int16,System.Int16,SharpHook.Native.MouseButton)">SimulateMousePress(Int16, Int16, MouseButton)</h4>
@@ -514,7 +578,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_EventSimulator_SimulateMouseRelease_SharpHook_Native_MouseButton_.md&amp;value=---%0Auid%3A%20SharpHook.EventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/EventSimulator.cs/#L107">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/EventSimulator.cs/#L147">View Source</a>
   </span>
   <a id="SharpHook_EventSimulator_SimulateMouseRelease_" data-uid="SharpHook.EventSimulator.SimulateMouseRelease*"></a>
   <h4 id="SharpHook_EventSimulator_SimulateMouseRelease_SharpHook_Native_MouseButton_" data-uid="SharpHook.EventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton)">SimulateMouseRelease(MouseButton)</h4>
@@ -564,7 +628,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_EventSimulator_SimulateMouseRelease_System_Int16_System_Int16_SharpHook_Native_MouseButton_.md&amp;value=---%0Auid%3A%20SharpHook.EventSimulator.SimulateMouseRelease(System.Int16%2CSystem.Int16%2CSharpHook.Native.MouseButton)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/EventSimulator.cs/#L121">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/EventSimulator.cs/#L161">View Source</a>
   </span>
   <a id="SharpHook_EventSimulator_SimulateMouseRelease_" data-uid="SharpHook.EventSimulator.SimulateMouseRelease*"></a>
   <h4 id="SharpHook_EventSimulator_SimulateMouseRelease_System_Int16_System_Int16_SharpHook_Native_MouseButton_" data-uid="SharpHook.EventSimulator.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Native.MouseButton)">SimulateMouseRelease(Int16, Int16, MouseButton)</h4>
@@ -626,7 +690,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_EventSimulator_SimulateMouseWheel_System_UInt16_System_Int16_.md&amp;value=---%0Auid%3A%20SharpHook.EventSimulator.SimulateMouseWheel(System.UInt16%2CSystem.Int16)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/EventSimulator.cs/#L164">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/EventSimulator.cs/#L204">View Source</a>
   </span>
   <a id="SharpHook_EventSimulator_SimulateMouseWheel_" data-uid="SharpHook.EventSimulator.SimulateMouseWheel*"></a>
   <h4 id="SharpHook_EventSimulator_SimulateMouseWheel_System_UInt16_System_Int16_" data-uid="SharpHook.EventSimulator.SimulateMouseWheel(System.UInt16,System.Int16)">SimulateMouseWheel(UInt16, Int16)</h4>
@@ -686,7 +750,7 @@ indicates that the wheel will be rotated up.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_EventSimulator_SimulateTextEntry_System_String_.md&amp;value=---%0Auid%3A%20SharpHook.EventSimulator.SimulateTextEntry(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/EventSimulator.cs/#L73">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/EventSimulator.cs/#L113">View Source</a>
   </span>
   <a id="SharpHook_EventSimulator_SimulateTextEntry_" data-uid="SharpHook.EventSimulator.SimulateTextEntry*"></a>
   <h4 id="SharpHook_EventSimulator_SimulateTextEntry_System_String_" data-uid="SharpHook.EventSimulator.SimulateTextEntry(System.String)">SimulateTextEntry(String)</h4>
@@ -732,7 +796,12 @@ indicates that the wheel will be rotated up.</p>
     </tbody>
   </table>
   <h5 id="SharpHook_EventSimulator_SimulateTextEntry_System_String__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>The text to simulate doesn't depend on the current keyboard layout.</p>
+  <div class="markdown level1 remarks"><p>
+Text entry simulation is not guaranteed to work correctly. View the docs for more info.
+</p>
+<p>
+The text to simulate doesn&apos;t depend on the current keyboard layout.
+</p>
 </div>
   <h3 id="implements">Implements</h3>
   <div>

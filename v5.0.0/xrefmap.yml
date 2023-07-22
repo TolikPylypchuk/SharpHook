@@ -32,6 +32,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.EventSimulator.EventSimulator
   nameWithType: EventSimulator.EventSimulator
+- uid: SharpHook.EventSimulator.PostTextDelayOnX11
+  name: PostTextDelayOnX11
+  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_PostTextDelayOnX11
+  commentId: P:SharpHook.EventSimulator.PostTextDelayOnX11
+  fullName: SharpHook.EventSimulator.PostTextDelayOnX11
+  nameWithType: EventSimulator.PostTextDelayOnX11
+- uid: SharpHook.EventSimulator.PostTextDelayOnX11*
+  name: PostTextDelayOnX11
+  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_PostTextDelayOnX11_
+  commentId: Overload:SharpHook.EventSimulator.PostTextDelayOnX11
+  isSpec: "True"
+  fullName: SharpHook.EventSimulator.PostTextDelayOnX11
+  nameWithType: EventSimulator.PostTextDelayOnX11
 - uid: SharpHook.EventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode)
   name: SimulateKeyPress(KeyCode)
   href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateKeyPress_SharpHook_Native_KeyCode_
@@ -668,6 +681,19 @@ references:
   commentId: T:SharpHook.IEventSimulator
   fullName: SharpHook.IEventSimulator
   nameWithType: IEventSimulator
+- uid: SharpHook.IEventSimulator.PostTextDelayOnX11
+  name: PostTextDelayOnX11
+  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_PostTextDelayOnX11
+  commentId: P:SharpHook.IEventSimulator.PostTextDelayOnX11
+  fullName: SharpHook.IEventSimulator.PostTextDelayOnX11
+  nameWithType: IEventSimulator.PostTextDelayOnX11
+- uid: SharpHook.IEventSimulator.PostTextDelayOnX11*
+  name: PostTextDelayOnX11
+  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_PostTextDelayOnX11_
+  commentId: Overload:SharpHook.IEventSimulator.PostTextDelayOnX11
+  isSpec: "True"
+  fullName: SharpHook.IEventSimulator.PostTextDelayOnX11
+  nameWithType: IEventSimulator.PostTextDelayOnX11
 - uid: SharpHook.IEventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode)
   name: SimulateKeyPress(KeyCode)
   href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateKeyPress_SharpHook_Native_KeyCode_
@@ -4027,6 +4053,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.Native.UioHook.GetPointerSensitivity
   nameWithType: UioHook.GetPointerSensitivity
+- uid: SharpHook.Native.UioHook.GetPostTextDelayX11
+  name: GetPostTextDelayX11()
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetPostTextDelayX11
+  commentId: M:SharpHook.Native.UioHook.GetPostTextDelayX11
+  fullName: SharpHook.Native.UioHook.GetPostTextDelayX11()
+  nameWithType: UioHook.GetPostTextDelayX11()
+- uid: SharpHook.Native.UioHook.GetPostTextDelayX11*
+  name: GetPostTextDelayX11
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetPostTextDelayX11_
+  commentId: Overload:SharpHook.Native.UioHook.GetPostTextDelayX11
+  isSpec: "True"
+  fullName: SharpHook.Native.UioHook.GetPostTextDelayX11
+  nameWithType: UioHook.GetPostTextDelayX11
 - uid: SharpHook.Native.UioHook.PostEvent(SharpHook.Native.UioHookEvent@)
   name: PostEvent(ref UioHookEvent)
   href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_PostEvent_SharpHook_Native_UioHookEvent__
@@ -4095,6 +4134,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.Native.UioHook.SetLoggerProc
   nameWithType: UioHook.SetLoggerProc
+- uid: SharpHook.Native.UioHook.SetPostTextDelayX11(System.UInt64)
+  name: SetPostTextDelayX11(UInt64)
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetPostTextDelayX11_System_UInt64_
+  commentId: M:SharpHook.Native.UioHook.SetPostTextDelayX11(System.UInt64)
+  fullName: SharpHook.Native.UioHook.SetPostTextDelayX11(System.UInt64)
+  nameWithType: UioHook.SetPostTextDelayX11(UInt64)
+- uid: SharpHook.Native.UioHook.SetPostTextDelayX11*
+  name: SetPostTextDelayX11
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetPostTextDelayX11_
+  commentId: Overload:SharpHook.Native.UioHook.SetPostTextDelayX11
+  isSpec: "True"
+  fullName: SharpHook.Native.UioHook.SetPostTextDelayX11
+  nameWithType: UioHook.SetPostTextDelayX11
 - uid: SharpHook.Native.UioHook.Stop
   name: Stop()
   href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_Stop
@@ -4347,6 +4399,19 @@ references:
   commentId: T:SharpHook.Providers.IEventSimulationProvider
   fullName: SharpHook.Providers.IEventSimulationProvider
   nameWithType: IEventSimulationProvider
+- uid: SharpHook.Providers.IEventSimulationProvider.GetPostTextDelayX11
+  name: GetPostTextDelayX11()
+  href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_GetPostTextDelayX11
+  commentId: M:SharpHook.Providers.IEventSimulationProvider.GetPostTextDelayX11
+  fullName: SharpHook.Providers.IEventSimulationProvider.GetPostTextDelayX11()
+  nameWithType: IEventSimulationProvider.GetPostTextDelayX11()
+- uid: SharpHook.Providers.IEventSimulationProvider.GetPostTextDelayX11*
+  name: GetPostTextDelayX11
+  href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_GetPostTextDelayX11_
+  commentId: Overload:SharpHook.Providers.IEventSimulationProvider.GetPostTextDelayX11
+  isSpec: "True"
+  fullName: SharpHook.Providers.IEventSimulationProvider.GetPostTextDelayX11
+  nameWithType: IEventSimulationProvider.GetPostTextDelayX11
 - uid: SharpHook.Providers.IEventSimulationProvider.PostEvent(SharpHook.Native.UioHookEvent@)
   name: PostEvent(ref UioHookEvent)
   href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_PostEvent_SharpHook_Native_UioHookEvent__
@@ -4376,6 +4441,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.Providers.IEventSimulationProvider.PostText
   nameWithType: IEventSimulationProvider.PostText
+- uid: SharpHook.Providers.IEventSimulationProvider.SetPostTextDelayX11(System.UInt64)
+  name: SetPostTextDelayX11(UInt64)
+  href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_SetPostTextDelayX11_System_UInt64_
+  commentId: M:SharpHook.Providers.IEventSimulationProvider.SetPostTextDelayX11(System.UInt64)
+  fullName: SharpHook.Providers.IEventSimulationProvider.SetPostTextDelayX11(System.UInt64)
+  nameWithType: IEventSimulationProvider.SetPostTextDelayX11(UInt64)
+- uid: SharpHook.Providers.IEventSimulationProvider.SetPostTextDelayX11*
+  name: SetPostTextDelayX11
+  href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_SetPostTextDelayX11_
+  commentId: Overload:SharpHook.Providers.IEventSimulationProvider.SetPostTextDelayX11
+  isSpec: "True"
+  fullName: SharpHook.Providers.IEventSimulationProvider.SetPostTextDelayX11
+  nameWithType: IEventSimulationProvider.SetPostTextDelayX11
 - uid: SharpHook.Providers.IGlobalHookProvider
   name: IGlobalHookProvider
   href: api/SharpHook.Providers.IGlobalHookProvider.html
@@ -4640,6 +4718,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.Providers.UioHookProvider.GetPointerSensitivity
   nameWithType: UioHookProvider.GetPointerSensitivity
+- uid: SharpHook.Providers.UioHookProvider.GetPostTextDelayX11
+  name: GetPostTextDelayX11()
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_GetPostTextDelayX11
+  commentId: M:SharpHook.Providers.UioHookProvider.GetPostTextDelayX11
+  fullName: SharpHook.Providers.UioHookProvider.GetPostTextDelayX11()
+  nameWithType: UioHookProvider.GetPostTextDelayX11()
+- uid: SharpHook.Providers.UioHookProvider.GetPostTextDelayX11*
+  name: GetPostTextDelayX11
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_GetPostTextDelayX11_
+  commentId: Overload:SharpHook.Providers.UioHookProvider.GetPostTextDelayX11
+  isSpec: "True"
+  fullName: SharpHook.Providers.UioHookProvider.GetPostTextDelayX11
+  nameWithType: UioHookProvider.GetPostTextDelayX11
 - uid: SharpHook.Providers.UioHookProvider.Instance
   name: Instance
   href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_Instance
@@ -4721,6 +4812,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.Providers.UioHookProvider.SetLoggerProc
   nameWithType: UioHookProvider.SetLoggerProc
+- uid: SharpHook.Providers.UioHookProvider.SetPostTextDelayX11(System.UInt64)
+  name: SetPostTextDelayX11(UInt64)
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_SetPostTextDelayX11_System_UInt64_
+  commentId: M:SharpHook.Providers.UioHookProvider.SetPostTextDelayX11(System.UInt64)
+  fullName: SharpHook.Providers.UioHookProvider.SetPostTextDelayX11(System.UInt64)
+  nameWithType: UioHookProvider.SetPostTextDelayX11(UInt64)
+- uid: SharpHook.Providers.UioHookProvider.SetPostTextDelayX11*
+  name: SetPostTextDelayX11
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_SetPostTextDelayX11_
+  commentId: Overload:SharpHook.Providers.UioHookProvider.SetPostTextDelayX11
+  isSpec: "True"
+  fullName: SharpHook.Providers.UioHookProvider.SetPostTextDelayX11
+  nameWithType: UioHookProvider.SetPostTextDelayX11
 - uid: SharpHook.Providers.UioHookProvider.Stop
   name: Stop()
   href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_Stop

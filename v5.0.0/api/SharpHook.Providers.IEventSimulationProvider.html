@@ -86,6 +86,52 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Providers_IEventSimulationProvider_GetPostTextDelayX11.md&amp;value=---%0Auid%3A%20SharpHook.Providers.IEventSimulationProvider.GetPostTextDelayX11%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Providers/IEventSimulationProvider.cs/#L121">View Source</a>
+  </span>
+  <a id="SharpHook_Providers_IEventSimulationProvider_GetPostTextDelayX11_" data-uid="SharpHook.Providers.IEventSimulationProvider.GetPostTextDelayX11*"></a>
+  <h4 id="SharpHook_Providers_IEventSimulationProvider_GetPostTextDelayX11" data-uid="SharpHook.Providers.IEventSimulationProvider.GetPostTextDelayX11">GetPostTextDelayX11()</h4>
+  <div class="markdown level1 summary"><p>Gets the delay (in nanoseconds) between posting individual characters when posting text on Linux.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ulong GetPostTextDelayX11()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">UInt64</a></td>
+        <td><p>The delay (in nanoseconds) between posting individual characters when posting text on Linux.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="SharpHook_Providers_IEventSimulationProvider_GetPostTextDelayX11_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+X11 doesn&apos;t support posting arbitrary Unicode characters directly. Instead, for each character,
+an unused key code is remapped to that character, and then key press/release is simulated. Since the receiving
+application must react to the remapping, and may not do so instantaneously, a delay is needed for accurate
+simulation.
+</p>
+<p>
+The default delay is 50 milliseconds.
+</p>
+<p>
+On Windows and macOS this method always returns 0.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Providers_IEventSimulationProvider_PostEvent_SharpHook_Native_UioHookEvent__.md&amp;value=---%0Auid%3A%20SharpHook.Providers.IEventSimulationProvider.PostEvent(SharpHook.Native.UioHookEvent%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -160,7 +206,7 @@ Only <a class="xref" href="SharpHook.Native.MouseWheelEventData.html#SharpHook_N
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Providers_IEventSimulationProvider_PostText_System_String_.md&amp;value=---%0Auid%3A%20SharpHook.Providers.IEventSimulationProvider.PostText(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Providers/IEventSimulationProvider.cs/#L96">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Providers/IEventSimulationProvider.cs/#L101">View Source</a>
   </span>
   <a id="SharpHook_Providers_IEventSimulationProvider_PostText_" data-uid="SharpHook.Providers.IEventSimulationProvider.PostText*"></a>
   <h4 id="SharpHook_Providers_IEventSimulationProvider_PostText_System_String_" data-uid="SharpHook.Providers.IEventSimulationProvider.PostText(System.String)">PostText(String)</h4>
@@ -206,7 +252,60 @@ Only <a class="xref" href="SharpHook.Native.MouseWheelEventData.html#SharpHook_N
     </tbody>
   </table>
   <h5 id="SharpHook_Providers_IEventSimulationProvider_PostText_System_String__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>The text to simulate doesn't depend on the current keyboard layout.</p>
+  <div class="markdown level1 remarks"><p>
+Text entry simulation is not guaranteed to work correctly. View the docs for more info.
+</p>
+<p>
+The text to simulate doesn&apos;t depend on the current keyboard layout.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Providers_IEventSimulationProvider_SetPostTextDelayX11_System_UInt64_.md&amp;value=---%0Auid%3A%20SharpHook.Providers.IEventSimulationProvider.SetPostTextDelayX11(System.UInt64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Providers/IEventSimulationProvider.cs/#L143">View Source</a>
+  </span>
+  <a id="SharpHook_Providers_IEventSimulationProvider_SetPostTextDelayX11_" data-uid="SharpHook.Providers.IEventSimulationProvider.SetPostTextDelayX11*"></a>
+  <h4 id="SharpHook_Providers_IEventSimulationProvider_SetPostTextDelayX11_System_UInt64_" data-uid="SharpHook.Providers.IEventSimulationProvider.SetPostTextDelayX11(System.UInt64)">SetPostTextDelayX11(UInt64)</h4>
+  <div class="markdown level1 summary"><p>Sets the delay (in nanoseconds) between posting individual characters when posting text on Linux.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetPostTextDelayX11(ulong delayNanoseconds)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">UInt64</a></td>
+        <td><span class="parametername">delayNanoseconds</span></td>
+        <td><p>The delay (in nanoseconds) between posting individual characters when posting text on Linux.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="SharpHook_Providers_IEventSimulationProvider_SetPostTextDelayX11_System_UInt64__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+X11 doesn&apos;t support posting arbitrary Unicode characters directly. Instead, for each character,
+an unused key code is remapped to that character, and then key press/release is simulated. Since the receiving
+application must react to the remapping, and may not do so instantaneously, a delay is needed for accurate
+simulation.
+</p>
+<p>
+The default delay is 50 milliseconds.
+</p>
+<p>
+On Windows and macOS this method does nothing.
+</p>
 </div>
   <h3 id="seealso">See Also</h3>
   <div class="seealso">
