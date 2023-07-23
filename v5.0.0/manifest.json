@@ -405,7 +405,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Native.UioHookResult.html",
-          "hash": "+PFRcz0mQPsuLEnmfscE77NwUU2ct1N6S0rdIjN9jt8="
+          "hash": "rEEVv3zyJ/Daoxojz5kUToK0rZDXTWCaqxVeVYp5D1k="
         }
       },
       "is_incremental": false,
@@ -633,7 +633,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Testing.TestProvider.html",
-          "hash": "GSRIbh77R1uGxYJxOfoe2ZXThRWUwejvXBJ0jVmf1Jk="
+          "hash": "KVD/wrMPNjV6vk/QXg9vIDJFKLs2Kx5xZyK8+rDGoME="
         }
       },
       "is_incremental": false,

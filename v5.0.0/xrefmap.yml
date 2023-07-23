@@ -4333,6 +4333,12 @@ references:
   commentId: F:SharpHook.Native.UioHookResult.ErrorOutOfMemory
   fullName: SharpHook.Native.UioHookResult.ErrorOutOfMemory
   nameWithType: UioHookResult.ErrorOutOfMemory
+- uid: SharpHook.Native.UioHookResult.ErrorPostTextNull
+  name: ErrorPostTextNull
+  href: api/SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_ErrorPostTextNull
+  commentId: F:SharpHook.Native.UioHookResult.ErrorPostTextNull
+  fullName: SharpHook.Native.UioHookResult.ErrorPostTextNull
+  nameWithType: UioHookResult.ErrorPostTextNull
 - uid: SharpHook.Native.UioHookResult.ErrorSetWindowsHookEx
   name: ErrorSetWindowsHookEx
   href: api/SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_ErrorSetWindowsHookEx
