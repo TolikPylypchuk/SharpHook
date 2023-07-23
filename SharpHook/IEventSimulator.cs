@@ -62,6 +62,7 @@ public interface IEventSimulator
     /// The text to simulate doesn't depend on the current keyboard layout.
     /// </para>
     /// </remarks>
+    /// <exception cref="ArgumentNullException"><paramref name="text" /> is <see langword="null" />.</exception>
     UioHookResult SimulateTextEntry(string text);
 
     /// <summary>

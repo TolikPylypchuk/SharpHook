@@ -76,6 +76,7 @@
             The text to simulate doesn't depend on the current keyboard layout.
             </para>
             </remarks>
+            <exception cref="T:System.ArgumentNullException"><paramref name="text" /> is <see langword="null" />.</exception>
         </member>
         <member name="M:SharpHook.EventSimulator.SimulateMousePress(SharpHook.Native.MouseButton)">
             <summary>
@@ -547,6 +548,7 @@
             The text to simulate doesn't depend on the current keyboard layout.
             </para>
             </remarks>
+            <exception cref="T:System.ArgumentNullException"><paramref name="text" /> is <see langword="null" />.</exception>
         </member>
         <member name="M:SharpHook.IEventSimulator.SimulateMousePress(SharpHook.Native.MouseButton)">
             <summary>
@@ -4033,6 +4035,152 @@
             <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
             Otherwise, <see langword="false" />.
             </value>
+        </member>
+        <member name="T:SharpHook.Testing.TestProvider">
+            <summary>
+            A provider of low-level functionality which can be used in tests.
+            </summary>
+        </member>
+        <member name="P:SharpHook.Testing.TestProvider.PostedEvents">
+            <summary>
+            Gets the events that have been posted using <see cref="M:SharpHook.Testing.TestProvider.PostEvent(SharpHook.Native.UioHookEvent@)" />.
+            </summary>
+        </member>
+        <member name="P:SharpHook.Testing.TestProvider.PostedText">
+            <summary>
+            Gets the text that has been posted using <see cref="M:SharpHook.Testing.TestProvider.PostText(System.String)" />.
+            </summary>
+        </member>
+        <member name="P:SharpHook.Testing.TestProvider.IsRunning">
+            <summary>
+            Gets the value which indicates whether this provider runs the testing hook.
+            </summary>
+            <value><see langword="true" /> if the testing hook is running. Otherwise, <see langword="false" />.</value>
+        </member>
+        <member name="P:SharpHook.Testing.TestProvider.RunResult">
+            <summary>
+            Gets or sets the result of the <see cref="M:SharpHook.Testing.TestProvider.Run" /> method. If anything other than
+            <see cref="F:SharpHook.Native.UioHookResult.Success" /> is set, then the testing hook won't be started.
+            </summary>
+            <value>The result of the <see cref="M:SharpHook.Testing.TestProvider.Run" /> method.</value>
+        </member>
+        <member name="P:SharpHook.Testing.TestProvider.StopResult">
+            <summary>
+            Gets or sets the result of the <see cref="M:SharpHook.Testing.TestProvider.Stop" /> method. If anything other than
+            <see cref="F:SharpHook.Native.UioHookResult.Success" /> is set, then the testing hook won't be stopped.
+            </summary>
+            <value>The result of the <see cref="M:SharpHook.Testing.TestProvider.Stop" /> method.</value>
+        </member>
+        <member name="P:SharpHook.Testing.TestProvider.PostEventResult">
+            <summary>
+            Gets or sets the result of the <see cref="M:SharpHook.Testing.TestProvider.PostEvent(SharpHook.Native.UioHookEvent@)" /> method. If anything other than
+            <see cref="F:SharpHook.Native.UioHookResult.Success" /> is set, then the event won't be posted.
+            </summary>
+            <value>The result of the <see cref="M:SharpHook.Testing.TestProvider.PostEvent(SharpHook.Native.UioHookEvent@)" /> method.</value>
+        </member>
+        <member name="P:SharpHook.Testing.TestProvider.PostTextResult">
+            <summary>
+            Gets or sets the result of the <see cref="M:SharpHook.Testing.TestProvider.PostText(System.String)" /> method. If anything other than
+            <see cref="F:SharpHook.Native.UioHookResult.Success" /> is set, then the text won't be posted.
+            </summary>
+            <value>The result of the <see cref="M:SharpHook.Testing.TestProvider.PostText(System.String)" /> method.</value>
+        </member>
+        <member name="P:SharpHook.Testing.TestProvider.PostTextDelayX11">
+            <summary>
+            Gets or sets the delay (in nanoseconds) between posting individual characters when posting text on Linux.
+            </summary>
+            <returns>The delay (in nanoseconds) between posting individual characters when posting text on Linux.</returns>
+        </member>
+        <member name="P:SharpHook.Testing.TestProvider.ScreenInfo">
+            <summary>
+            Gets or sets the information about screens for testing.
+            </summary>
+            <returns>The information about screens.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="value" /> is <see langword="nul" />.</exception>
+        </member>
+        <member name="P:SharpHook.Testing.TestProvider.AutoRepeatRate">
+            <summary>
+            Gets or sets the auto-repeat rate for testing.
+            </summary>
+            <returns>The auto-repeat rate.</returns>
+        </member>
+        <member name="P:SharpHook.Testing.TestProvider.AutoRepeatDelay">
+            <summary>
+            Gets or sets the auto-repeat delay for testing.
+            </summary>
+            <returns>The auto-repeat rate.</returns>
+        </member>
+        <member name="P:SharpHook.Testing.TestProvider.PointerAccelerationMultiplier">
+            <summary>
+            Gets or sets the pointer acceleration multiplier for testing.
+            </summary>
+            <returns>The pointer acceleration multiplier.</returns>
+        </member>
+        <member name="P:SharpHook.Testing.TestProvider.PointerAccelerationThreshold">
+            <summary>
+            Gets or sets the pointer acceleration threshold for testing.
+            </summary>
+            <returns>The pointer acceleration threshold.</returns>
+        </member>
+        <member name="P:SharpHook.Testing.TestProvider.PointerSensitivity">
+            <summary>
+            Gets or sets the pointer sensitivity for testing.
+            </summary>
+            <returns>The pointer sensitivity.</returns>
+        </member>
+        <member name="P:SharpHook.Testing.TestProvider.MultiClickTime">
+            <summary>
+            Gets or sets the multi-click time for testing.
+            </summary>
+            <returns>The multi-click time.</returns>
+        </member>
+        <member name="M:SharpHook.Testing.TestProvider.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)">
+            <summary>
+            Sets the hook callback function for testing.
+            </summary>
+            <param name="dispatchProc">
+            The function to call when an event is raised, or <see langword="null" /> to unset the function.
+            </param>
+            <param name="userData">
+            Custom data to pass to the callback.
+            </param>
+        </member>
+        <member name="M:SharpHook.Testing.TestProvider.Run">
+            <summary>
+            Runs the testing hook if <see cref="P:SharpHook.Testing.TestProvider.RunResult" /> is set to <see cref="F:SharpHook.Native.UioHookResult.Success" />. Otherwise,
+            does nothing.
+            </summary>
+            <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.RunResult" />.</returns>
+            <remarks>
+            The testing hook is an event loop which receives events from the <see cref="M:SharpHook.Testing.TestProvider.PostEvent(SharpHook.Native.UioHookEvent@)" />
+            method. The hook can be started and stopped multiple times, but cannot be started when it's already running.
+            </remarks>
+            <exception cref="T:System.InvalidOperationException">The hook is already running.</exception>
+        </member>
+        <member name="M:SharpHook.Testing.TestProvider.Stop">
+            <summary>
+            Stops the testing hook if <see cref="P:SharpHook.Testing.TestProvider.StopResult" /> is set to <see cref="F:SharpHook.Native.UioHookResult.Success" />. Otherwise,
+            does nothing.
+            </summary>
+            <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.StopResult" />.</returns>
+        </member>
+        <member name="M:SharpHook.Testing.TestProvider.PostEvent(SharpHook.Native.UioHookEvent@)">
+            <summary>
+            Posts an input event if <see cref="P:SharpHook.Testing.TestProvider.PostEventResult" /> is set to <see cref="F:SharpHook.Native.UioHookResult.Success" /> -
+            this event will be dispatched if the provider is running. Otherwise, does nothing.
+            </summary>
+            <param name="e">The event to post.</param>
+            <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.PostEventResult" />.</returns>
+            <remarks>This method returns after the event has been handled.</remarks>
+        </member>
+        <member name="M:SharpHook.Testing.TestProvider.PostText(System.String)">
+            <summary>
+            Simulates the input of arbitrary Unicode characters if <see cref="P:SharpHook.Testing.TestProvider.PostTextResult" /> is set to
+            <see cref="F:SharpHook.Native.UioHookResult.Success" />. Otherwise, does nothing.
+            </summary>
+            <param name="text">The text to simulate.</param>
+            <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.PostTextResult" />.</returns>
+            <remarks>This method doesn't cause any input events to be created, unlike real text entry simulation.</remarks>
         </member>
     </members>
 </doc>

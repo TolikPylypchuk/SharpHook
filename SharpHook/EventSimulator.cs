@@ -110,8 +110,9 @@ public class EventSimulator : IEventSimulator
     /// The text to simulate doesn't depend on the current keyboard layout.
     /// </para>
     /// </remarks>
+    /// <exception cref="ArgumentNullException"><paramref name="text" /> is <see langword="null" />.</exception>
     public UioHookResult SimulateTextEntry(string text) =>
-        this.simulationProvider.PostText(text);
+        this.simulationProvider.PostText(text ?? throw new ArgumentNullException(nameof(text)));
 
     /// <summary>
     /// Simulates pressing a mouse button at the current coordinates.

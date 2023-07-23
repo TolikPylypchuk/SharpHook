@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpHook.Sample", "SharpHo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpHook.Reactive", "SharpHook.Reactive\SharpHook.Reactive.csproj", "{0D5ED184-523C-48E7-9054-6BE4F7CA7D68}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpHook.Tests", "SharpHook.Tests\SharpHook.Tests.csproj", "{52B05F84-4172-4074-91AE-B05F970EFC2D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,26 @@ Global
 		{0D5ED184-523C-48E7-9054-6BE4F7CA7D68}.Release|x64.Build.0 = Release|x64
 		{0D5ED184-523C-48E7-9054-6BE4F7CA7D68}.Release|x86.ActiveCfg = Release|x86
 		{0D5ED184-523C-48E7-9054-6BE4F7CA7D68}.Release|x86.Build.0 = Release|x86
+		{52B05F84-4172-4074-91AE-B05F970EFC2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52B05F84-4172-4074-91AE-B05F970EFC2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52B05F84-4172-4074-91AE-B05F970EFC2D}.Debug|ARM32.ActiveCfg = Debug|Any CPU
+		{52B05F84-4172-4074-91AE-B05F970EFC2D}.Debug|ARM32.Build.0 = Debug|Any CPU
+		{52B05F84-4172-4074-91AE-B05F970EFC2D}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{52B05F84-4172-4074-91AE-B05F970EFC2D}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{52B05F84-4172-4074-91AE-B05F970EFC2D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{52B05F84-4172-4074-91AE-B05F970EFC2D}.Debug|x64.Build.0 = Debug|Any CPU
+		{52B05F84-4172-4074-91AE-B05F970EFC2D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{52B05F84-4172-4074-91AE-B05F970EFC2D}.Debug|x86.Build.0 = Debug|Any CPU
+		{52B05F84-4172-4074-91AE-B05F970EFC2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52B05F84-4172-4074-91AE-B05F970EFC2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52B05F84-4172-4074-91AE-B05F970EFC2D}.Release|ARM32.ActiveCfg = Release|Any CPU
+		{52B05F84-4172-4074-91AE-B05F970EFC2D}.Release|ARM32.Build.0 = Release|Any CPU
+		{52B05F84-4172-4074-91AE-B05F970EFC2D}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{52B05F84-4172-4074-91AE-B05F970EFC2D}.Release|ARM64.Build.0 = Release|Any CPU
+		{52B05F84-4172-4074-91AE-B05F970EFC2D}.Release|x64.ActiveCfg = Release|Any CPU
+		{52B05F84-4172-4074-91AE-B05F970EFC2D}.Release|x64.Build.0 = Release|Any CPU
+		{52B05F84-4172-4074-91AE-B05F970EFC2D}.Release|x86.ActiveCfg = Release|Any CPU
+		{52B05F84-4172-4074-91AE-B05F970EFC2D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
