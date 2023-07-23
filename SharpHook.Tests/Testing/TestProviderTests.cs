@@ -244,6 +244,23 @@ public sealed class TestProviderTests
         Assert.Equal(result, actualResult);
     }
 
+    [Fact(DisplayName = "PostText should return an error when text is null")]
+    public void PostTextNull()
+    {
+        // Arrange
+
+        var provider = new TestProvider();
+
+        // Act
+
+        var actualResult = provider.PostText(null!);
+
+        // Assert
+
+        Assert.Equal(UioHookResult.ErrorPostTextNull, actualResult);
+        Assert.Empty(provider.PostedText);
+    }
+
     [Fact(DisplayName = "Setting the logger callback should do nothing")]
     public void SetLoggerProc() =>
         ((ILoggingProvider)new TestProvider()).SetLoggerProc(delegate { }, IntPtr.Zero);

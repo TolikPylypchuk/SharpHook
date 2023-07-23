@@ -247,10 +247,18 @@ public class TestProvider :
     /// <see cref="UioHookResult.Success" />. Otherwise, does nothing.
     /// </summary>
     /// <param name="text">The text to simulate.</param>
-    /// <returns>The value of <see cref="PostTextResult" />.</returns>
+    /// <returns>
+    /// The value of <see cref="PostTextResult" />, or <see cref="UioHookResult.ErrorPostTextNull" /> if
+    /// <paramref name="text" /> is <see langword="null" />.
+    /// </returns>
     /// <remarks>This method doesn't cause any input events to be created, unlike real text entry simulation.</remarks>
     public UioHookResult PostText(string text)
     {
+        if (text is null)
+        {
+            return UioHookResult.ErrorPostTextNull;
+        }
+
         var result = this.PostTextResult;
 
         if (result == UioHookResult.Success)

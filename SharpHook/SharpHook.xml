@@ -3316,6 +3316,11 @@
             Out of memory
             </summary>
         </member>
+        <member name="F:SharpHook.Native.UioHookResult.ErrorPostTextNull">
+            <summary>
+            A <see langword="null" /> string was passed to <see cref="M:SharpHook.Native.UioHook.PostText(System.String)" />.
+            </summary>
+        </member>
         <member name="F:SharpHook.Native.UioHookResult.ErrorXOpenDisplay">
             <summary>
             XOpenDisplay failed (X11)
@@ -4179,7 +4184,10 @@
             <see cref="F:SharpHook.Native.UioHookResult.Success" />. Otherwise, does nothing.
             </summary>
             <param name="text">The text to simulate.</param>
-            <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.PostTextResult" />.</returns>
+            <returns>
+            The value of <see cref="P:SharpHook.Testing.TestProvider.PostTextResult" />, or <see cref="F:SharpHook.Native.UioHookResult.ErrorPostTextNull" /> if
+            <paramref name="text" /> is <see langword="null" />.
+            </returns>
             <remarks>This method doesn't cause any input events to be created, unlike real text entry simulation.</remarks>
         </member>
     </members>

@@ -22,6 +22,11 @@ public enum UioHookResult
     ErrorOutOfMemory = 0x02,
 
     /// <summary>
+    /// A <see langword="null" /> string was passed to <see cref="UioHook.PostText(string)" />.
+    /// </summary>
+    ErrorPostTextNull = 0x03,
+
+    /// <summary>
     /// XOpenDisplay failed (X11)
     /// </summary>
     ErrorXOpenDisplay = 0x20,
