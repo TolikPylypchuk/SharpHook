@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.EventSimulator.html",
-          "hash": "DiqkoZJ7h9zrVA/QhiyX4edk2vCHrWGLhQnNAm1TkBc="
+          "hash": "xeqCW0u3nyrD6C0zSKaVKhLJ6K39THLE12iQ1vyzNI4="
         }
       },
       "is_incremental": false,
@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.HookEventArgs.html",
-          "hash": "3IeQ3g2FeyhMgbw5CXPbBNCGCr6/pgjMCbL5N4P99MU="
+          "hash": "7oRQ7jUD5bsilBTz2hdMPbI7t3Sllw9J/+xPfCxlQw0="
         }
       },
       "is_incremental": false,
@@ -633,7 +633,7 @@
       "output": {
         ".html": {
           "relative_path": "api/SharpHook.Testing.TestProvider.html",
-          "hash": "KVD/wrMPNjV6vk/QXg9vIDJFKLs2Kx5xZyK8+rDGoME="
+          "hash": "nI8Ewso0EHtlPPhiQV4KHW5xS6vO0eBbIaQoIqUNpPg="
         }
       },
       "is_incremental": false,

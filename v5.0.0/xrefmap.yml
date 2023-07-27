@@ -6007,6 +6007,58 @@ references:
   isSpec: "True"
   fullName: SharpHook.Testing.TestProvider.AutoRepeatRate
   nameWithType: TestProvider.AutoRepeatRate
+- uid: SharpHook.Testing.TestProvider.HookDisabledDateTime
+  name: HookDisabledDateTime
+  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_HookDisabledDateTime
+  commentId: P:SharpHook.Testing.TestProvider.HookDisabledDateTime
+  fullName: SharpHook.Testing.TestProvider.HookDisabledDateTime
+  nameWithType: TestProvider.HookDisabledDateTime
+- uid: SharpHook.Testing.TestProvider.HookDisabledDateTime*
+  name: HookDisabledDateTime
+  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_HookDisabledDateTime_
+  commentId: Overload:SharpHook.Testing.TestProvider.HookDisabledDateTime
+  isSpec: "True"
+  fullName: SharpHook.Testing.TestProvider.HookDisabledDateTime
+  nameWithType: TestProvider.HookDisabledDateTime
+- uid: SharpHook.Testing.TestProvider.HookDisabledModifierMask
+  name: HookDisabledModifierMask
+  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_HookDisabledModifierMask
+  commentId: P:SharpHook.Testing.TestProvider.HookDisabledModifierMask
+  fullName: SharpHook.Testing.TestProvider.HookDisabledModifierMask
+  nameWithType: TestProvider.HookDisabledModifierMask
+- uid: SharpHook.Testing.TestProvider.HookDisabledModifierMask*
+  name: HookDisabledModifierMask
+  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_HookDisabledModifierMask_
+  commentId: Overload:SharpHook.Testing.TestProvider.HookDisabledModifierMask
+  isSpec: "True"
+  fullName: SharpHook.Testing.TestProvider.HookDisabledModifierMask
+  nameWithType: TestProvider.HookDisabledModifierMask
+- uid: SharpHook.Testing.TestProvider.HookEnabledDateTime
+  name: HookEnabledDateTime
+  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_HookEnabledDateTime
+  commentId: P:SharpHook.Testing.TestProvider.HookEnabledDateTime
+  fullName: SharpHook.Testing.TestProvider.HookEnabledDateTime
+  nameWithType: TestProvider.HookEnabledDateTime
+- uid: SharpHook.Testing.TestProvider.HookEnabledDateTime*
+  name: HookEnabledDateTime
+  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_HookEnabledDateTime_
+  commentId: Overload:SharpHook.Testing.TestProvider.HookEnabledDateTime
+  isSpec: "True"
+  fullName: SharpHook.Testing.TestProvider.HookEnabledDateTime
+  nameWithType: TestProvider.HookEnabledDateTime
+- uid: SharpHook.Testing.TestProvider.HookEnabledModifierMask
+  name: HookEnabledModifierMask
+  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_HookEnabledModifierMask
+  commentId: P:SharpHook.Testing.TestProvider.HookEnabledModifierMask
+  fullName: SharpHook.Testing.TestProvider.HookEnabledModifierMask
+  nameWithType: TestProvider.HookEnabledModifierMask
+- uid: SharpHook.Testing.TestProvider.HookEnabledModifierMask*
+  name: HookEnabledModifierMask
+  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_HookEnabledModifierMask_
+  commentId: Overload:SharpHook.Testing.TestProvider.HookEnabledModifierMask
+  isSpec: "True"
+  fullName: SharpHook.Testing.TestProvider.HookEnabledModifierMask
+  nameWithType: TestProvider.HookEnabledModifierMask
 - uid: SharpHook.Testing.TestProvider.IsRunning
   name: IsRunning
   href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_IsRunning
