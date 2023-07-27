@@ -161,6 +161,80 @@ public sealed class TestProviderTests
         thread.Join();
     }
 
+    [Fact(DisplayName = "HookEnabled should be raised when the hook is started")]
+    public void HookEnabled()
+    {
+        // Arrange
+
+        var dateTime = DateTimeOffset.UtcNow;
+        var modifierMask = ModifierMask.LeftCtrl | ModifierMask.LeftShift;
+
+        // Act
+
+        var provider = new TestProvider
+        {
+            HookEnabledDateTime = () => dateTime,
+            HookEnabledModifierMask = modifierMask
+        };
+
+        var thread = RunAndWaitForStart(provider);
+
+        // Assert
+
+        var hookEnabledEvents = provider.PostedEvents
+            .Where(e => e.Type == EventType.HookEnabled)
+            .ToList();
+
+        Assert.Single(hookEnabledEvents);
+
+        var hookEnabledEvent = hookEnabledEvents[0];
+
+        Assert.Equal(dateTime.ToUnixTimeMilliseconds(), (long)hookEnabledEvent.Time);
+        Assert.Equal(modifierMask, hookEnabledEvent.Mask);
+        Assert.Equal(EventReservedValueMask.None, hookEnabledEvent.Reserved);
+
+        // Clean up
+
+        provider.Stop();
+        thread.Join();
+    }
+
+    [Fact(DisplayName = "HookDisabled should be raised when the hook is stopped")]
+    public void HookDisabled()
+    {
+        // Arrange
+
+        var dateTime = DateTimeOffset.UtcNow;
+        var modifierMask = ModifierMask.LeftCtrl | ModifierMask.LeftShift;
+
+        // Act
+
+        var provider = new TestProvider
+        {
+            HookDisabledDateTime = () => dateTime,
+            HookDisabledModifierMask = modifierMask
+        };
+
+        var thread = RunAndWaitForStart(provider);
+
+        provider.Stop();
+        thread.Join();
+
+        // Assert
+
+        var hookDisabledEvents = provider.PostedEvents
+            .Where(e => e.Type == EventType.HookDisabled)
+            .ToList();
+
+        Assert.Single(hookDisabledEvents);
+
+        var hookDisabledEvent = hookDisabledEvents[0];
+
+        Assert.Equal(dateTime.ToUnixTimeMilliseconds(), (long)hookDisabledEvent.Time);
+        Assert.Equal(modifierMask, hookDisabledEvent.Mask);
+        Assert.Equal(EventReservedValueMask.None, hookDisabledEvent.Reserved);
+    }
+
     [Fact(DisplayName = "PostEvent should post an event")]
     public void PostEvent()
     {

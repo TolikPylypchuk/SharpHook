@@ -4062,6 +4062,28 @@
             </summary>
             <value><see langword="true" /> if the testing hook is running. Otherwise, <see langword="false" />.</value>
         </member>
+        <member name="P:SharpHook.Testing.TestProvider.HookEnabledDateTime">
+            <summary>
+            Gets or sets the function which will be called to set the date/time of the event of type
+            <see cref="F:SharpHook.Native.EventType.HookEnabled" />.
+            </summary>
+        </member>
+        <member name="P:SharpHook.Testing.TestProvider.HookDisabledDateTime">
+            <summary>
+            Gets or sets the function which will be called to set the date/time of the event of type
+            <see cref="F:SharpHook.Native.EventType.HookDisabled" />.
+            </summary>
+        </member>
+        <member name="P:SharpHook.Testing.TestProvider.HookEnabledModifierMask">
+            <summary>
+            Gets or sets the modifier mask of the event of type <see cref="F:SharpHook.Native.EventType.HookEnabled" />.
+            </summary>
+        </member>
+        <member name="P:SharpHook.Testing.TestProvider.HookDisabledModifierMask">
+            <summary>
+            Gets or sets the modifier mask of the event of type <see cref="F:SharpHook.Native.EventType.HookDisabled" />.
+            </summary>
+        </member>
         <member name="P:SharpHook.Testing.TestProvider.RunResult">
             <summary>
             Gets or sets the result of the <see cref="M:SharpHook.Testing.TestProvider.Run" /> method. If anything other than

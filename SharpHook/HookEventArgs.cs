@@ -2,7 +2,6 @@ namespace SharpHook;
 
 using System;
 
-using SharpHook.Internal;
 using SharpHook.Native;
 
 /// <summary>
@@ -21,7 +20,7 @@ public class HookEventArgs : EventArgs
     public HookEventArgs(UioHookEvent rawEvent)
     {
         this.RawEvent = rawEvent;
-        this.EventTime = rawEvent.Time.ToDateTimeOffset();
+        this.EventTime = DateTimeOffset.FromUnixTimeMilliseconds((long)rawEvent.Time);
     }
 
     /// <summary>

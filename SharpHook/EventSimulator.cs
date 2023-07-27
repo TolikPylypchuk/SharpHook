@@ -28,15 +28,8 @@ public class EventSimulator : IEventSimulator
     /// <exception cref="ArgumentNullException">
     /// <paramref name="simulationProvider" /> is <see langword="null" />.
     /// </exception>
-    public EventSimulator(IEventSimulationProvider simulationProvider)
-    {
-        if (simulationProvider is null)
-        {
-            throw new ArgumentNullException(nameof(simulationProvider));
-        }
-
-        this.simulationProvider = simulationProvider;
-    }
+    public EventSimulator(IEventSimulationProvider simulationProvider) =>
+        this.simulationProvider = simulationProvider ?? throw new ArgumentNullException(nameof(simulationProvider));
 
     /// <summary>
     /// Gets or sets the delay between simulating individual characters when simulating text on Linux.

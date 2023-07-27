@@ -11,7 +11,7 @@ using SharpHook.Providers;
 /// <summary>
 /// A provider of low-level functionality which can be used in tests.
 /// </summary>
-public class TestProvider :
+public sealed class TestProvider :
     IGlobalHookProvider,
     ILoggingProvider,
     IEventSimulationProvider,
@@ -30,6 +30,9 @@ public class TestProvider :
     private IntPtr userData;
     private ScreenData[] screenInfo = Array.Empty<ScreenData>();
 
+    private Func<DateTimeOffset> hookEnabledDateTime = () => DateTimeOffset.UtcNow;
+    private Func<DateTimeOffset> hookDisabledDateTime = () => DateTimeOffset.UtcNow;
+
     /// <summary>
     /// Gets the events that have been posted using <see cref="PostEvent(ref UioHookEvent)" />.
     /// </summary>
@@ -47,6 +50,36 @@ public class TestProvider :
     /// </summary>
     /// <value><see langword="true" /> if the testing hook is running. Otherwise, <see langword="false" />.</value>
     public bool IsRunning { get; private set; }
+
+    /// <summary>
+    /// Gets or sets the function which will be called to set the date/time of the event of type
+    /// <see cref="EventType.HookEnabled" />.
+    /// </summary>
+    public Func<DateTimeOffset> HookEnabledDateTime
+    {
+        get => this.hookEnabledDateTime;
+        set => this.hookEnabledDateTime = value ?? throw new ArgumentNullException(nameof(value));
+    }
+
+    /// <summary>
+    /// Gets or sets the function which will be called to set the date/time of the event of type
+    /// <see cref="EventType.HookDisabled" />.
+    /// </summary>
+    public Func<DateTimeOffset> HookDisabledDateTime
+    {
+        get => this.hookDisabledDateTime;
+        set => this.hookDisabledDateTime = value ?? throw new ArgumentNullException(nameof(value));
+    }
+
+    /// <summary>
+    /// Gets or sets the modifier mask of the event of type <see cref="EventType.HookEnabled" />.
+    /// </summary>
+    public ModifierMask HookEnabledModifierMask { get; set; } = ModifierMask.None;
+
+    /// <summary>
+    /// Gets or sets the modifier mask of the event of type <see cref="EventType.HookDisabled" />.
+    /// </summary>
+    public ModifierMask HookDisabledModifierMask { get; set; } = ModifierMask.None;
 
     /// <summary>
     /// Gets or sets the result of the <see cref="Run()" /> method. If anything other than
@@ -167,6 +200,17 @@ public class TestProvider :
             return result;
         }
 
+        var hookEnabled = new UioHookEvent
+        {
+            Type = EventType.HookEnabled,
+            Time = (ulong)this.HookEnabledDateTime().ToUnixTimeMilliseconds(),
+            Mask = this.HookEnabledModifierMask,
+            Reserved = EventReservedValueMask.None
+        };
+
+        this.dispatchProc?.Invoke(ref hookEnabled, this.userData);
+        this.postedEvents.Add(hookEnabled);
+
         this.cancellationTokenSource = new();
         this.IsRunning = true;
 
@@ -192,15 +236,29 @@ public class TestProvider :
     {
         var result = this.StopResult;
 
-        if (result == UioHookResult.Success)
+        if (result != UioHookResult.Success)
         {
-            this.IsRunning = false;
-            if (this.cancellationTokenSource is not null)
-            {
-                this.cancellationTokenSource.Cancel();
-                this.cancellationTokenSource.Dispose();
-                this.cancellationTokenSource = null;
-            }
+            return result;
+        }
+
+        var hookDisabled = new UioHookEvent
+        {
+            Type = EventType.HookDisabled,
+            Time = (ulong)this.HookDisabledDateTime().ToUnixTimeMilliseconds(),
+            Mask = this.HookDisabledModifierMask,
+            Reserved = EventReservedValueMask.None
+        };
+
+        this.dispatchProc?.Invoke(ref hookDisabled, this.userData);
+        this.postedEvents.Add(hookDisabled);
+
+        this.IsRunning = false;
+
+        if (this.cancellationTokenSource is not null)
+        {
+            this.cancellationTokenSource.Cancel();
+            this.cancellationTokenSource.Dispose();
+            this.cancellationTokenSource = null;
         }
 
         return result;
@@ -222,8 +280,6 @@ public class TestProvider :
             return result;
         }
 
-        this.postedEvents.Add(e);
-
         if (this.IsRunning && cancellationTokenSource is not null)
         {
             this.hookEvents.Add(e);
@@ -238,6 +294,8 @@ public class TestProvider :
                 }
             } catch (OperationCanceledException) { }
         }
+
+        this.postedEvents.Add(e);
 
         return result;
     }
