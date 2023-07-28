@@ -5975,6 +5975,51 @@ references:
   commentId: N:SharpHook.Testing
   fullName: SharpHook.Testing
   nameWithType: SharpHook.Testing
+- uid: SharpHook.Testing.TestEventHandledEventArgs
+  name: TestEventHandledEventArgs
+  href: api/SharpHook.Testing.TestEventHandledEventArgs.html
+  commentId: T:SharpHook.Testing.TestEventHandledEventArgs
+  fullName: SharpHook.Testing.TestEventHandledEventArgs
+  nameWithType: TestEventHandledEventArgs
+- uid: SharpHook.Testing.TestEventHandledEventArgs.#ctor(SharpHook.Native.UioHookEvent,System.Boolean)
+  name: TestEventHandledEventArgs(UioHookEvent, Boolean)
+  href: api/SharpHook.Testing.TestEventHandledEventArgs.html#SharpHook_Testing_TestEventHandledEventArgs__ctor_SharpHook_Native_UioHookEvent_System_Boolean_
+  commentId: M:SharpHook.Testing.TestEventHandledEventArgs.#ctor(SharpHook.Native.UioHookEvent,System.Boolean)
+  fullName: SharpHook.Testing.TestEventHandledEventArgs.TestEventHandledEventArgs(SharpHook.Native.UioHookEvent, System.Boolean)
+  nameWithType: TestEventHandledEventArgs.TestEventHandledEventArgs(UioHookEvent, Boolean)
+- uid: SharpHook.Testing.TestEventHandledEventArgs.#ctor*
+  name: TestEventHandledEventArgs
+  href: api/SharpHook.Testing.TestEventHandledEventArgs.html#SharpHook_Testing_TestEventHandledEventArgs__ctor_
+  commentId: Overload:SharpHook.Testing.TestEventHandledEventArgs.#ctor
+  isSpec: "True"
+  fullName: SharpHook.Testing.TestEventHandledEventArgs.TestEventHandledEventArgs
+  nameWithType: TestEventHandledEventArgs.TestEventHandledEventArgs
+- uid: SharpHook.Testing.TestEventHandledEventArgs.Event
+  name: Event
+  href: api/SharpHook.Testing.TestEventHandledEventArgs.html#SharpHook_Testing_TestEventHandledEventArgs_Event
+  commentId: P:SharpHook.Testing.TestEventHandledEventArgs.Event
+  fullName: SharpHook.Testing.TestEventHandledEventArgs.Event
+  nameWithType: TestEventHandledEventArgs.Event
+- uid: SharpHook.Testing.TestEventHandledEventArgs.Event*
+  name: Event
+  href: api/SharpHook.Testing.TestEventHandledEventArgs.html#SharpHook_Testing_TestEventHandledEventArgs_Event_
+  commentId: Overload:SharpHook.Testing.TestEventHandledEventArgs.Event
+  isSpec: "True"
+  fullName: SharpHook.Testing.TestEventHandledEventArgs.Event
+  nameWithType: TestEventHandledEventArgs.Event
+- uid: SharpHook.Testing.TestEventHandledEventArgs.HookCalled
+  name: HookCalled
+  href: api/SharpHook.Testing.TestEventHandledEventArgs.html#SharpHook_Testing_TestEventHandledEventArgs_HookCalled
+  commentId: P:SharpHook.Testing.TestEventHandledEventArgs.HookCalled
+  fullName: SharpHook.Testing.TestEventHandledEventArgs.HookCalled
+  nameWithType: TestEventHandledEventArgs.HookCalled
+- uid: SharpHook.Testing.TestEventHandledEventArgs.HookCalled*
+  name: HookCalled
+  href: api/SharpHook.Testing.TestEventHandledEventArgs.html#SharpHook_Testing_TestEventHandledEventArgs_HookCalled_
+  commentId: Overload:SharpHook.Testing.TestEventHandledEventArgs.HookCalled
+  isSpec: "True"
+  fullName: SharpHook.Testing.TestEventHandledEventArgs.HookCalled
+  nameWithType: TestEventHandledEventArgs.HookCalled
 - uid: SharpHook.Testing.TestProvider
   name: TestProvider
   href: api/SharpHook.Testing.TestProvider.html
@@ -6166,6 +6211,22 @@ references:
   isSpec: "True"
   fullName: SharpHook.Testing.TestProvider.PostEvent
   nameWithType: TestProvider.PostEvent
+- uid: SharpHook.Testing.TestProvider.PostEventAndWaitForHandler(SharpHook.Native.UioHookEvent@,System.Threading.CancellationToken)
+  name: PostEventAndWaitForHandler(ref UioHookEvent, CancellationToken)
+  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEventAndWaitForHandler_SharpHook_Native_UioHookEvent__System_Threading_CancellationToken_
+  commentId: M:SharpHook.Testing.TestProvider.PostEventAndWaitForHandler(SharpHook.Native.UioHookEvent@,System.Threading.CancellationToken)
+  name.vb: PostEventAndWaitForHandler(ByRef UioHookEvent, CancellationToken)
+  fullName: SharpHook.Testing.TestProvider.PostEventAndWaitForHandler(ref SharpHook.Native.UioHookEvent, System.Threading.CancellationToken)
+  fullName.vb: SharpHook.Testing.TestProvider.PostEventAndWaitForHandler(ByRef SharpHook.Native.UioHookEvent, System.Threading.CancellationToken)
+  nameWithType: TestProvider.PostEventAndWaitForHandler(ref UioHookEvent, CancellationToken)
+  nameWithType.vb: TestProvider.PostEventAndWaitForHandler(ByRef UioHookEvent, CancellationToken)
+- uid: SharpHook.Testing.TestProvider.PostEventAndWaitForHandler*
+  name: PostEventAndWaitForHandler
+  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEventAndWaitForHandler_
+  commentId: Overload:SharpHook.Testing.TestProvider.PostEventAndWaitForHandler
+  isSpec: "True"
+  fullName: SharpHook.Testing.TestProvider.PostEventAndWaitForHandler
+  nameWithType: TestProvider.PostEventAndWaitForHandler
 - uid: SharpHook.Testing.TestProvider.PostEventResult
   name: PostEventResult
   href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEventResult
@@ -6231,6 +6292,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.Testing.TestProvider.Run
   nameWithType: TestProvider.Run
+- uid: SharpHook.Testing.TestProvider.RunAndWaitForStart(System.Threading.CancellationToken)
+  name: RunAndWaitForStart(CancellationToken)
+  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunAndWaitForStart_System_Threading_CancellationToken_
+  commentId: M:SharpHook.Testing.TestProvider.RunAndWaitForStart(System.Threading.CancellationToken)
+  fullName: SharpHook.Testing.TestProvider.RunAndWaitForStart(System.Threading.CancellationToken)
+  nameWithType: TestProvider.RunAndWaitForStart(CancellationToken)
+- uid: SharpHook.Testing.TestProvider.RunAndWaitForStart*
+  name: RunAndWaitForStart
+  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunAndWaitForStart_
+  commentId: Overload:SharpHook.Testing.TestProvider.RunAndWaitForStart
+  isSpec: "True"
+  fullName: SharpHook.Testing.TestProvider.RunAndWaitForStart
+  nameWithType: TestProvider.RunAndWaitForStart
 - uid: SharpHook.Testing.TestProvider.RunResult
   name: RunResult
   href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunResult
@@ -6466,3 +6540,9 @@ references:
   isSpec: "True"
   fullName: SharpHook.Testing.TestProvider.StopResult
   nameWithType: TestProvider.StopResult
+- uid: SharpHook.Testing.TestProvider.TestEventHandled
+  name: TestEventHandled
+  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_TestEventHandled
+  commentId: E:SharpHook.Testing.TestProvider.TestEventHandled
+  fullName: SharpHook.Testing.TestProvider.TestEventHandled
+  nameWithType: TestProvider.TestEventHandled

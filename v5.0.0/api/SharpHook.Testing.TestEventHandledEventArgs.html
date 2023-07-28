@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class EmptyLogSource
+    <title>Class TestEventHandledEventArgs
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class EmptyLogSource
+    <meta name="title" content="Class TestEventHandledEventArgs
    ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -68,26 +68,25 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="SharpHook.Logging.EmptyLogSource">
+            <article class="content wrap" id="_content" data-uid="SharpHook.Testing.TestEventHandledEventArgs">
   
   
-  <h1 id="SharpHook_Logging_EmptyLogSource" data-uid="SharpHook.Logging.EmptyLogSource" class="text-break">Class EmptyLogSource
+  <h1 id="SharpHook_Testing_TestEventHandledEventArgs" data-uid="SharpHook.Testing.TestEventHandledEventArgs" class="text-break">Class TestEventHandledEventArgs
   </h1>
-  <div class="markdown level0 summary"><p>Represents a souce of libuiohook logs which never raises any events.</p>
+  <div class="markdown level0 summary"><p>Event args for <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_TestEventHandled">TestEventHandled</a>.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><span class="xref">EmptyLogSource</span></div>
-  </div>
-  <div class="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
-    <div><span class="xref">System.IDisposable</span></div>
+    <div class="level1"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs">EventArgs</a></div>
+    <div class="level2"><span class="xref">TestEventHandledEventArgs</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs.empty#system-eventargs-empty">EventArgs.Empty</a>
+    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
     </div>
@@ -110,34 +109,105 @@
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="SharpHook.Logging.html">SharpHook.Logging</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="SharpHook.Testing.html">SharpHook.Testing</a></h6>
   <h6><strong>Assembly</strong>: SharpHook.dll</h6>
-  <h5 id="SharpHook_Logging_EmptyLogSource_syntax">Syntax</h5>
+  <h5 id="SharpHook_Testing_TestEventHandledEventArgs_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class EmptyLogSource : ILogSource, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public class TestEventHandledEventArgs : EventArgs</code></pre>
   </div>
-  <h5 id="SharpHook_Logging_EmptyLogSource_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>This class exists primarily to be used instead of <a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a> in release builds of client apps as they
-will most probably not need any logs from libuiohook. Also, unlike <a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a> this class doesn't need
-the Visual C++ Redistributable package to be installed on Windows.</p>
-</div>
-  <h3 id="properties">Properties
+  <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Logging_EmptyLogSource_IsDisposed.md&amp;value=---%0Auid%3A%20SharpHook.Logging.EmptyLogSource.IsDisposed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestEventHandledEventArgs__ctor_SharpHook_Native_UioHookEvent_System_Boolean_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestEventHandledEventArgs.%23ctor(SharpHook.Native.UioHookEvent%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/EmptyLogSource.cs/#L24">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestEventHandledEventArgs.cs/#L17">View Source</a>
   </span>
-  <a id="SharpHook_Logging_EmptyLogSource_IsDisposed_" data-uid="SharpHook.Logging.EmptyLogSource.IsDisposed*"></a>
-  <h4 id="SharpHook_Logging_EmptyLogSource_IsDisposed" data-uid="SharpHook.Logging.EmptyLogSource.IsDisposed">IsDisposed</h4>
-  <div class="markdown level1 summary"><p>Gets the value which indicates whether the log source is disposed.</p>
+  <a id="SharpHook_Testing_TestEventHandledEventArgs__ctor_" data-uid="SharpHook.Testing.TestEventHandledEventArgs.#ctor*"></a>
+  <h4 id="SharpHook_Testing_TestEventHandledEventArgs__ctor_SharpHook_Native_UioHookEvent_System_Boolean_" data-uid="SharpHook.Testing.TestEventHandledEventArgs.#ctor(SharpHook.Native.UioHookEvent,System.Boolean)">TestEventHandledEventArgs(UioHookEvent, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsDisposed { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public TestEventHandledEventArgs(UioHookEvent event, bool hookCalled)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.UioHookEvent.html">UioHookEvent</a></td>
+        <td><span class="parametername">event</span></td>
+        <td><p>The event which was handled.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">hookCalled</span></td>
+        <td><p>The value which specifies whether the hook was called for this event.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestEventHandledEventArgs_Event.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestEventHandledEventArgs.Event%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestEventHandledEventArgs.cs/#L27">View Source</a>
+  </span>
+  <a id="SharpHook_Testing_TestEventHandledEventArgs_Event_" data-uid="SharpHook.Testing.TestEventHandledEventArgs.Event*"></a>
+  <h4 id="SharpHook_Testing_TestEventHandledEventArgs_Event" data-uid="SharpHook.Testing.TestEventHandledEventArgs.Event">Event</h4>
+  <div class="markdown level1 summary"><p>Gets the event which was handled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UioHookEvent Event { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.UioHookEvent.html">UioHookEvent</a></td>
+        <td><p>The event which was handled.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestEventHandledEventArgs_HookCalled.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestEventHandledEventArgs.HookCalled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestEventHandledEventArgs.cs/#L35">View Source</a>
+  </span>
+  <a id="SharpHook_Testing_TestEventHandledEventArgs_HookCalled_" data-uid="SharpHook.Testing.TestEventHandledEventArgs.HookCalled*"></a>
+  <h4 id="SharpHook_Testing_TestEventHandledEventArgs_HookCalled" data-uid="SharpHook.Testing.TestEventHandledEventArgs.HookCalled">HookCalled</h4>
+  <div class="markdown level1 summary"><p>Gets the value which specifies whether the hook was called for this event - <span class="xref">true</span> if the test
+provider was running when <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent__">PostEvent(ref UioHookEvent)</a> was called, and
+<span class="xref">false</span> otherwise.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool HookCalled { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -150,79 +220,11 @@ the Visual C++ Redistributable package to be installed on Windows.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td><p><span class="xref">true</span> if the log source is disposed. Otherwise, <span class="xref">false</span>.</p>
+        <td><p>The value which specifies whether the hook was called for this event</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="SharpHook_Logging_EmptyLogSource_IsDisposed_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Since empty log sources don't do anything, it doesn't matter whether they are disposed.</p>
-</div>
-  <h3 id="methods">Methods
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Logging_EmptyLogSource_Dispose.md&amp;value=---%0Auid%3A%20SharpHook.Logging.EmptyLogSource.Dispose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/EmptyLogSource.cs/#L32">View Source</a>
-  </span>
-  <a id="SharpHook_Logging_EmptyLogSource_Dispose_" data-uid="SharpHook.Logging.EmptyLogSource.Dispose*"></a>
-  <h4 id="SharpHook_Logging_EmptyLogSource_Dispose" data-uid="SharpHook.Logging.EmptyLogSource.Dispose">Dispose()</h4>
-  <div class="markdown level1 summary"><p>Marks this object as disposed.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
-  </div>
-  <h5 id="SharpHook_Logging_EmptyLogSource_Dispose_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Since empty log sources don't do anything, it doesn't matter whether they are disposed.</p>
-</div>
-  <h3 id="events">Events
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Logging_EmptyLogSource_MessageLogged.md&amp;value=---%0Auid%3A%20SharpHook.Logging.EmptyLogSource.MessageLogged%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/EmptyLogSource.cs/#L38">View Source</a>
-  </span>
-  <h4 id="SharpHook_Logging_EmptyLogSource_MessageLogged" data-uid="SharpHook.Logging.EmptyLogSource.MessageLogged">MessageLogged</h4>
-  <div class="markdown level1 summary"><p>An event which is never raised.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;LogEventArgs&gt; MessageLogged</code></pre>
-  </div>
-  <h5 class="eventType">Event Type</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.Logging.LogEventArgs.html">LogEventArgs</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a>
-  </div>
-  <div>
-      <span class="xref">System.IDisposable</span>
-  </div>
-  <h3 id="seealso">See Also</h3>
-  <div class="seealso">
-      <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
-      <div><a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a></div>
-  </div>
 </article>
           </div>
           
@@ -231,10 +233,10 @@ the Visual C++ Redistributable package to be installed on Windows.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Logging_EmptyLogSource.md&amp;value=---%0Auid%3A%20SharpHook.Logging.EmptyLogSource%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestEventHandledEventArgs.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestEventHandledEventArgs%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/EmptyLogSource.cs/#L15" class="contribution-link">View Source</a>
+                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestEventHandledEventArgs.cs/#L10" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
