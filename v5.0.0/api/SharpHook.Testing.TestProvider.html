@@ -126,7 +126,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_AutoRepeatDelay.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.AutoRepeatDelay%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L140">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L132">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_AutoRepeatDelay_" data-uid="SharpHook.Testing.TestProvider.AutoRepeatDelay*"></a>
   <h4 id="SharpHook_Testing_TestProvider_AutoRepeatDelay" data-uid="SharpHook.Testing.TestProvider.AutoRepeatDelay">AutoRepeatDelay</h4>
@@ -158,7 +158,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_AutoRepeatRate.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.AutoRepeatRate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L134">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L126">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_AutoRepeatRate_" data-uid="SharpHook.Testing.TestProvider.AutoRepeatRate*"></a>
   <h4 id="SharpHook_Testing_TestProvider_AutoRepeatRate" data-uid="SharpHook.Testing.TestProvider.AutoRepeatRate">AutoRepeatRate</h4>
@@ -187,20 +187,20 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_HookDisabledDateTime.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.HookDisabledDateTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_EventDateTime.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.EventDateTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L69">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L60">View Source</a>
   </span>
-  <a id="SharpHook_Testing_TestProvider_HookDisabledDateTime_" data-uid="SharpHook.Testing.TestProvider.HookDisabledDateTime*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_HookDisabledDateTime" data-uid="SharpHook.Testing.TestProvider.HookDisabledDateTime">HookDisabledDateTime</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the function which will be called to set the date/time of the event of type
-<a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_HookDisabled">HookDisabled</a>.</p>
+  <a id="SharpHook_Testing_TestProvider_EventDateTime_" data-uid="SharpHook.Testing.TestProvider.EventDateTime*"></a>
+  <h4 id="SharpHook_Testing_TestProvider_EventDateTime" data-uid="SharpHook.Testing.TestProvider.EventDateTime">EventDateTime</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the function which will be called to set the date/time of the <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_HookEnabled">HookEnabled</a>
+and <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_HookDisabled">HookDisabled</a> events.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Func&lt;DateTimeOffset&gt; HookDisabledDateTime { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Func&lt;EventType, DateTimeOffset&gt; EventDateTime { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -212,26 +212,43 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Func</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="SharpHook.Native.EventType.html">EventType</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a>&gt;</td>
         <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">value</code> is <span class="xref">null</span>.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_HookDisabledModifierMask.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.HookDisabledModifierMask%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_EventMask.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.EventMask%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L83">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L71">View Source</a>
   </span>
-  <a id="SharpHook_Testing_TestProvider_HookDisabledModifierMask_" data-uid="SharpHook.Testing.TestProvider.HookDisabledModifierMask*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_HookDisabledModifierMask" data-uid="SharpHook.Testing.TestProvider.HookDisabledModifierMask">HookDisabledModifierMask</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the modifier mask of the event of type <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_HookDisabled">HookDisabled</a>.</p>
+  <a id="SharpHook_Testing_TestProvider_EventMask_" data-uid="SharpHook.Testing.TestProvider.EventMask*"></a>
+  <h4 id="SharpHook_Testing_TestProvider_EventMask" data-uid="SharpHook.Testing.TestProvider.EventMask">EventMask</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the function which will be called to set the mask of the <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_HookEnabled">HookEnabled</a>
+and <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_HookDisabled">HookDisabled</a> events.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ModifierMask HookDisabledModifierMask { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Func&lt;EventType, ModifierMask&gt; EventMask { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -243,71 +260,24 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="SharpHook.Native.EventType.html">EventType</a>, <a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_HookEnabledDateTime.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.HookEnabledDateTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L59">View Source</a>
-  </span>
-  <a id="SharpHook_Testing_TestProvider_HookEnabledDateTime_" data-uid="SharpHook.Testing.TestProvider.HookEnabledDateTime*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_HookEnabledDateTime" data-uid="SharpHook.Testing.TestProvider.HookEnabledDateTime">HookEnabledDateTime</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the function which will be called to set the date/time of the event of type
-<a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_HookEnabled">HookEnabled</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Func&lt;DateTimeOffset&gt; HookEnabledDateTime { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Description</th>
+        <th>Condition</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Func</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_HookEnabledModifierMask.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.HookEnabledModifierMask%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L78">View Source</a>
-  </span>
-  <a id="SharpHook_Testing_TestProvider_HookEnabledModifierMask_" data-uid="SharpHook.Testing.TestProvider.HookEnabledModifierMask*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_HookEnabledModifierMask" data-uid="SharpHook.Testing.TestProvider.HookEnabledModifierMask">HookEnabledModifierMask</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the modifier mask of the event of type <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_HookEnabled">HookEnabled</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ModifierMask HookEnabledModifierMask { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a></td>
-        <td></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">value</code> is <span class="xref">null</span>.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -348,7 +318,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_MultiClickTime.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.MultiClickTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L164">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L156">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_MultiClickTime_" data-uid="SharpHook.Testing.TestProvider.MultiClickTime*"></a>
   <h4 id="SharpHook_Testing_TestProvider_MultiClickTime" data-uid="SharpHook.Testing.TestProvider.MultiClickTime">MultiClickTime</h4>
@@ -380,7 +350,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_PointerAccelerationMultiplier.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.PointerAccelerationMultiplier%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L146">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L138">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_PointerAccelerationMultiplier_" data-uid="SharpHook.Testing.TestProvider.PointerAccelerationMultiplier*"></a>
   <h4 id="SharpHook_Testing_TestProvider_PointerAccelerationMultiplier" data-uid="SharpHook.Testing.TestProvider.PointerAccelerationMultiplier">PointerAccelerationMultiplier</h4>
@@ -412,7 +382,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_PointerAccelerationThreshold.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.PointerAccelerationThreshold%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L152">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L144">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_PointerAccelerationThreshold_" data-uid="SharpHook.Testing.TestProvider.PointerAccelerationThreshold*"></a>
   <h4 id="SharpHook_Testing_TestProvider_PointerAccelerationThreshold" data-uid="SharpHook.Testing.TestProvider.PointerAccelerationThreshold">PointerAccelerationThreshold</h4>
@@ -444,7 +414,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_PointerSensitivity.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.PointerSensitivity%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L158">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L150">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_PointerSensitivity_" data-uid="SharpHook.Testing.TestProvider.PointerSensitivity*"></a>
   <h4 id="SharpHook_Testing_TestProvider_PointerSensitivity" data-uid="SharpHook.Testing.TestProvider.PointerSensitivity">PointerSensitivity</h4>
@@ -538,7 +508,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_PostEventResult.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.PostEventResult%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L104">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L96">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_PostEventResult_" data-uid="SharpHook.Testing.TestProvider.PostEventResult*"></a>
   <h4 id="SharpHook_Testing_TestProvider_PostEventResult" data-uid="SharpHook.Testing.TestProvider.PostEventResult">PostEventResult</h4>
@@ -571,7 +541,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_PostTextDelayX11.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.PostTextDelayX11%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L117">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L109">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_PostTextDelayX11_" data-uid="SharpHook.Testing.TestProvider.PostTextDelayX11*"></a>
   <h4 id="SharpHook_Testing_TestProvider_PostTextDelayX11" data-uid="SharpHook.Testing.TestProvider.PostTextDelayX11">PostTextDelayX11</h4>
@@ -603,7 +573,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_PostTextResult.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.PostTextResult%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L111">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L103">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_PostTextResult_" data-uid="SharpHook.Testing.TestProvider.PostTextResult*"></a>
   <h4 id="SharpHook_Testing_TestProvider_PostTextResult" data-uid="SharpHook.Testing.TestProvider.PostTextResult">PostTextResult</h4>
@@ -636,7 +606,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_RunResult.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.RunResult%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L90">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L82">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_RunResult_" data-uid="SharpHook.Testing.TestProvider.RunResult*"></a>
   <h4 id="SharpHook_Testing_TestProvider_RunResult" data-uid="SharpHook.Testing.TestProvider.RunResult">RunResult</h4>
@@ -669,7 +639,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_ScreenInfo.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.ScreenInfo%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L124">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L116">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_ScreenInfo_" data-uid="SharpHook.Testing.TestProvider.ScreenInfo*"></a>
   <h4 id="SharpHook_Testing_TestProvider_ScreenInfo" data-uid="SharpHook.Testing.TestProvider.ScreenInfo">ScreenInfo</h4>
@@ -707,7 +677,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">value</code> is <span class="xref">langword_csharp_nul</span>.</p>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">value</code> is <span class="xref">null</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -717,7 +687,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_StopResult.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.StopResult%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L97">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L89">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_StopResult_" data-uid="SharpHook.Testing.TestProvider.StopResult*"></a>
   <h4 id="SharpHook_Testing_TestProvider_StopResult" data-uid="SharpHook.Testing.TestProvider.StopResult">StopResult</h4>
@@ -752,7 +722,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent__.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.PostEvent(SharpHook.Native.UioHookEvent%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L315">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L309">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_PostEvent_" data-uid="SharpHook.Testing.TestProvider.PostEvent*"></a>
   <h4 id="SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent__" data-uid="SharpHook.Testing.TestProvider.PostEvent(SharpHook.Native.UioHookEvent@)">PostEvent(ref UioHookEvent)</h4>
@@ -807,7 +777,7 @@ to inspect the value of <a class="xref" href="SharpHook.Native.UioHookEvent.html
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_PostEventAndWaitForHandler_SharpHook_Native_UioHookEvent__System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.PostEventAndWaitForHandler(SharpHook.Native.UioHookEvent%40%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L351">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L345">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_PostEventAndWaitForHandler_" data-uid="SharpHook.Testing.TestProvider.PostEventAndWaitForHandler*"></a>
   <h4 id="SharpHook_Testing_TestProvider_PostEventAndWaitForHandler_SharpHook_Native_UioHookEvent__System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestProvider.PostEventAndWaitForHandler(SharpHook.Native.UioHookEvent@,System.Threading.CancellationToken)">PostEventAndWaitForHandler(ref UioHookEvent, CancellationToken)</h4>
@@ -854,7 +824,7 @@ this event will be dispatched if the provider is running. Otherwise, does nothin
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
-        <td><p>A <span class="xref">System.Threading.Tasks.Task</span> which finishes when the event has been handled, and contains the handler result, or
+        <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the event has been handled, and contains the handler result, or
 <span class="xref">null</span> if the event was not posted.</p>
 </td>
       </tr>
@@ -868,7 +838,7 @@ this event will be dispatched if the provider is running. Otherwise, does nothin
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_PostText_System_String_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.PostText(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L403">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L397">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_PostText_" data-uid="SharpHook.Testing.TestProvider.PostText*"></a>
   <h4 id="SharpHook_Testing_TestProvider_PostText_System_String_" data-uid="SharpHook.Testing.TestProvider.PostText(System.String)">PostText(String)</h4>
@@ -923,7 +893,7 @@ this event will be dispatched if the provider is running. Otherwise, does nothin
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_Run.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.Run%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L191">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L183">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_Run_" data-uid="SharpHook.Testing.TestProvider.Run*"></a>
   <h4 id="SharpHook_Testing_TestProvider_Run" data-uid="SharpHook.Testing.TestProvider.Run">Run()</h4>
@@ -976,7 +946,7 @@ method. The hook can be started and stopped multiple times, but cannot be starte
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_RunAndWaitForStart_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.RunAndWaitForStart(System.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L251">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L244">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_RunAndWaitForStart_" data-uid="SharpHook.Testing.TestProvider.RunAndWaitForStart*"></a>
   <h4 id="SharpHook_Testing_TestProvider_RunAndWaitForStart_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestProvider.RunAndWaitForStart(System.Threading.CancellationToken)">RunAndWaitForStart(CancellationToken)</h4>
@@ -1016,8 +986,8 @@ method. The hook can be started and stopped multiple times, but cannot be starte
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
-        <td><p>A <span class="xref">System.Threading.Tasks.Task</span> which finishes when the hook has been started.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the hook has been started.</p>
 </td>
       </tr>
     </tbody>
@@ -1047,7 +1017,7 @@ method. The hook can be started and stopped multiple times, but cannot be starte
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_SetDispatchProc_SharpHook_Native_DispatchProc_System_IntPtr_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.SetDispatchProc(SharpHook.Native.DispatchProc%2CSystem.IntPtr)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L175">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L167">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_SetDispatchProc_" data-uid="SharpHook.Testing.TestProvider.SetDispatchProc*"></a>
   <h4 id="SharpHook_Testing_TestProvider_SetDispatchProc_SharpHook_Native_DispatchProc_System_IntPtr_" data-uid="SharpHook.Testing.TestProvider.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)">SetDispatchProc(DispatchProc, IntPtr)</h4>
@@ -1087,7 +1057,7 @@ method. The hook can be started and stopped multiple times, but cannot be starte
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_Stop.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.Stop%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L273">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L266">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_Stop_" data-uid="SharpHook.Testing.TestProvider.Stop*"></a>
   <h4 id="SharpHook_Testing_TestProvider_Stop" data-uid="SharpHook.Testing.TestProvider.Stop">Stop()</h4>
@@ -1122,7 +1092,7 @@ does nothing.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_TestEventHandled.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.TestEventHandled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L433">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L427">View Source</a>
   </span>
   <h4 id="SharpHook_Testing_TestProvider_TestEventHandled" data-uid="SharpHook.Testing.TestProvider.TestEventHandled">TestEventHandled</h4>
   <div class="markdown level1 summary"><p>An event which is raised when an input event posted via <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent__">PostEvent(ref UioHookEvent)</a> has been
@@ -1155,7 +1125,7 @@ handled. The input event's <a class="xref" href="SharpHook.Native.UioHookEvent.h
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_SharpHook_Providers_IEventSimulationProvider_GetPostTextDelayX11.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.SharpHook%23Providers%23IEventSimulationProvider%23GetPostTextDelayX11%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L438">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L432">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_SharpHook_Providers_IEventSimulationProvider_GetPostTextDelayX11_" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IEventSimulationProvider#GetPostTextDelayX11*"></a>
   <h4 id="SharpHook_Testing_TestProvider_SharpHook_Providers_IEventSimulationProvider_GetPostTextDelayX11" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IEventSimulationProvider#GetPostTextDelayX11">IEventSimulationProvider.GetPostTextDelayX11()</h4>
@@ -1185,7 +1155,7 @@ handled. The input event's <a class="xref" href="SharpHook.Native.UioHookEvent.h
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_SharpHook_Providers_IEventSimulationProvider_SetPostTextDelayX11_System_UInt64_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.SharpHook%23Providers%23IEventSimulationProvider%23SetPostTextDelayX11(System.UInt64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L441">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L435">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_SharpHook_Providers_IEventSimulationProvider_SetPostTextDelayX11_" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IEventSimulationProvider#SetPostTextDelayX11*"></a>
   <h4 id="SharpHook_Testing_TestProvider_SharpHook_Providers_IEventSimulationProvider_SetPostTextDelayX11_System_UInt64_" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IEventSimulationProvider#SetPostTextDelayX11(System.UInt64)">IEventSimulationProvider.SetPostTextDelayX11(UInt64)</h4>
@@ -1217,7 +1187,7 @@ handled. The input event's <a class="xref" href="SharpHook.Native.UioHookEvent.h
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_SharpHook_Providers_ILoggingProvider_SetLoggerProc_SharpHook_Native_LoggerProc_System_IntPtr_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.SharpHook%23Providers%23ILoggingProvider%23SetLoggerProc(SharpHook.Native.LoggerProc%2CSystem.IntPtr)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L435">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L429">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_SharpHook_Providers_ILoggingProvider_SetLoggerProc_" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#ILoggingProvider#SetLoggerProc*"></a>
   <h4 id="SharpHook_Testing_TestProvider_SharpHook_Providers_ILoggingProvider_SetLoggerProc_SharpHook_Native_LoggerProc_System_IntPtr_" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#ILoggingProvider#SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)">ILoggingProvider.SetLoggerProc(LoggerProc, IntPtr)</h4>
@@ -1254,7 +1224,7 @@ handled. The input event's <a class="xref" href="SharpHook.Native.UioHookEvent.h
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetAutoRepeatDelay.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.SharpHook%23Providers%23IMouseInfoProvider%23GetAutoRepeatDelay%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L450">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L444">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetAutoRepeatDelay_" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IMouseInfoProvider#GetAutoRepeatDelay*"></a>
   <h4 id="SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetAutoRepeatDelay" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IMouseInfoProvider#GetAutoRepeatDelay">IMouseInfoProvider.GetAutoRepeatDelay()</h4>
@@ -1284,7 +1254,7 @@ handled. The input event's <a class="xref" href="SharpHook.Native.UioHookEvent.h
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetAutoRepeatRate.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.SharpHook%23Providers%23IMouseInfoProvider%23GetAutoRepeatRate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L447">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L441">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetAutoRepeatRate_" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IMouseInfoProvider#GetAutoRepeatRate*"></a>
   <h4 id="SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetAutoRepeatRate" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IMouseInfoProvider#GetAutoRepeatRate">IMouseInfoProvider.GetAutoRepeatRate()</h4>
@@ -1314,7 +1284,7 @@ handled. The input event's <a class="xref" href="SharpHook.Native.UioHookEvent.h
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetMultiClickTime.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.SharpHook%23Providers%23IMouseInfoProvider%23GetMultiClickTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L462">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L456">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetMultiClickTime_" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IMouseInfoProvider#GetMultiClickTime*"></a>
   <h4 id="SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetMultiClickTime" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IMouseInfoProvider#GetMultiClickTime">IMouseInfoProvider.GetMultiClickTime()</h4>
@@ -1344,7 +1314,7 @@ handled. The input event's <a class="xref" href="SharpHook.Native.UioHookEvent.h
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetPointerAccelerationMultiplier.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.SharpHook%23Providers%23IMouseInfoProvider%23GetPointerAccelerationMultiplier%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L453">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L447">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetPointerAccelerationMultiplier_" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IMouseInfoProvider#GetPointerAccelerationMultiplier*"></a>
   <h4 id="SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetPointerAccelerationMultiplier" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IMouseInfoProvider#GetPointerAccelerationMultiplier">IMouseInfoProvider.GetPointerAccelerationMultiplier()</h4>
@@ -1374,7 +1344,7 @@ handled. The input event's <a class="xref" href="SharpHook.Native.UioHookEvent.h
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetPointerAccelerationThreshold.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.SharpHook%23Providers%23IMouseInfoProvider%23GetPointerAccelerationThreshold%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L456">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L450">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetPointerAccelerationThreshold_" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IMouseInfoProvider#GetPointerAccelerationThreshold*"></a>
   <h4 id="SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetPointerAccelerationThreshold" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IMouseInfoProvider#GetPointerAccelerationThreshold">IMouseInfoProvider.GetPointerAccelerationThreshold()</h4>
@@ -1404,7 +1374,7 @@ handled. The input event's <a class="xref" href="SharpHook.Native.UioHookEvent.h
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetPointerSensitivity.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.SharpHook%23Providers%23IMouseInfoProvider%23GetPointerSensitivity%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L459">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L453">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetPointerSensitivity_" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IMouseInfoProvider#GetPointerSensitivity*"></a>
   <h4 id="SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetPointerSensitivity" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IMouseInfoProvider#GetPointerSensitivity">IMouseInfoProvider.GetPointerSensitivity()</h4>
@@ -1434,7 +1404,7 @@ handled. The input event's <a class="xref" href="SharpHook.Native.UioHookEvent.h
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestProvider_SharpHook_Providers_IScreenInfoProvider_CreateScreenInfo.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestProvider.SharpHook%23Providers%23IScreenInfoProvider%23CreateScreenInfo%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L444">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestProvider.cs/#L438">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestProvider_SharpHook_Providers_IScreenInfoProvider_CreateScreenInfo_" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IScreenInfoProvider#CreateScreenInfo*"></a>
   <h4 id="SharpHook_Testing_TestProvider_SharpHook_Providers_IScreenInfoProvider_CreateScreenInfo" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IScreenInfoProvider#CreateScreenInfo">IScreenInfoProvider.CreateScreenInfo()</h4>
