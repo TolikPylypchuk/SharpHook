@@ -165,8 +165,8 @@ public sealed class TestProviderTests
 
         var provider = new TestProvider
         {
-            HookEnabledDateTime = () => dateTime,
-            HookEnabledModifierMask = modifierMask
+            EventDateTime = t => dateTime,
+            EventMask = t => modifierMask
         };
 
         await provider.RunAndWaitForStart();
@@ -202,8 +202,8 @@ public sealed class TestProviderTests
 
         var provider = new TestProvider
         {
-            HookDisabledDateTime = () => dateTime,
-            HookDisabledModifierMask = modifierMask
+            EventDateTime = t => dateTime,
+            EventMask = t => modifierMask
         };
 
         await provider.RunAndWaitForStart();

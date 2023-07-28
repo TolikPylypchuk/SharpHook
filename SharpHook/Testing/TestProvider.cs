@@ -31,8 +31,8 @@ public sealed class TestProvider :
     private IntPtr userData;
     private ScreenData[] screenInfo = Array.Empty<ScreenData>();
 
-    private Func<DateTimeOffset> hookEnabledDateTime = () => DateTimeOffset.UtcNow;
-    private Func<DateTimeOffset> hookDisabledDateTime = () => DateTimeOffset.UtcNow;
+    private Func<EventType, DateTimeOffset> eventDateTime = t => DateTimeOffset.UtcNow;
+    private Func<EventType, ModifierMask> eventMask = t => ModifierMask.None;
 
     /// <summary>
     /// Gets the events that have been posted using <see cref="PostEvent(ref UioHookEvent)" />.
@@ -53,34 +53,26 @@ public sealed class TestProvider :
     public bool IsRunning { get; private set; }
 
     /// <summary>
-    /// Gets or sets the function which will be called to set the date/time of the event of type
-    /// <see cref="EventType.HookEnabled" />.
+    /// Gets or sets the function which will be called to set the date/time of the <see cref="EventType.HookEnabled" />
+    /// and <see cref="EventType.HookDisabled" /> events.
     /// </summary>
-    public Func<DateTimeOffset> HookEnabledDateTime
+    /// <exception cref="ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
+    public Func<EventType, DateTimeOffset> EventDateTime
     {
-        get => this.hookEnabledDateTime;
-        set => this.hookEnabledDateTime = value ?? throw new ArgumentNullException(nameof(value));
+        get => this.eventDateTime;
+        set => this.eventDateTime = value ?? throw new ArgumentNullException(nameof(value));
     }
 
     /// <summary>
-    /// Gets or sets the function which will be called to set the date/time of the event of type
-    /// <see cref="EventType.HookDisabled" />.
+    /// Gets or sets the function which will be called to set the mask of the <see cref="EventType.HookEnabled" />
+    /// and <see cref="EventType.HookDisabled" /> events.
     /// </summary>
-    public Func<DateTimeOffset> HookDisabledDateTime
+    /// <exception cref="ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
+    public Func<EventType, ModifierMask> EventMask
     {
-        get => this.hookDisabledDateTime;
-        set => this.hookDisabledDateTime = value ?? throw new ArgumentNullException(nameof(value));
+        get => this.eventMask;
+        set => this.eventMask = value ?? throw new ArgumentNullException(nameof(value));
     }
-
-    /// <summary>
-    /// Gets or sets the modifier mask of the event of type <see cref="EventType.HookEnabled" />.
-    /// </summary>
-    public ModifierMask HookEnabledModifierMask { get; set; } = ModifierMask.None;
-
-    /// <summary>
-    /// Gets or sets the modifier mask of the event of type <see cref="EventType.HookDisabled" />.
-    /// </summary>
-    public ModifierMask HookDisabledModifierMask { get; set; } = ModifierMask.None;
 
     /// <summary>
     /// Gets or sets the result of the <see cref="Run()" /> method. If anything other than
@@ -120,7 +112,7 @@ public sealed class TestProvider :
     /// Gets or sets the information about screens for testing.
     /// </summary>
     /// <returns>The information about screens.</returns>
-    /// <exception cref="ArgumentNullException"><paramref name="value" /> is <see langword="nul" />.</exception>
+    /// <exception cref="ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
     public ScreenData[] ScreenInfo
     {
         get => this.screenInfo;
@@ -206,11 +198,12 @@ public sealed class TestProvider :
         this.cancellationTokenSource = new();
         this.IsRunning = true;
 
+        var type = EventType.HookEnabled;
         var hookEnabled = new UioHookEvent
         {
-            Type = EventType.HookEnabled,
-            Time = (ulong)this.HookEnabledDateTime().ToUnixTimeMilliseconds(),
-            Mask = this.HookEnabledModifierMask,
+            Type = type,
+            Time = (ulong)this.EventDateTime(type).ToUnixTimeMilliseconds(),
+            Mask = this.EventMask(type),
             Reserved = EventReservedValueMask.None
         };
 
@@ -279,11 +272,12 @@ public sealed class TestProvider :
             return result;
         }
 
+        var type = EventType.HookDisabled;
         var hookDisabled = new UioHookEvent
         {
-            Type = EventType.HookDisabled,
-            Time = (ulong)this.HookDisabledDateTime().ToUnixTimeMilliseconds(),
-            Mask = this.HookDisabledModifierMask,
+            Type = type,
+            Time = (ulong)this.EventDateTime(type).ToUnixTimeMilliseconds(),
+            Mask = this.EventMask(type),
             Reserved = EventReservedValueMask.None
         };
 
@@ -357,7 +351,7 @@ public sealed class TestProvider :
 
         var eventCopy = e;
 
-        void Handler(object sender, TestEventHandledEventArgs args)
+        void Handler(object? sender, TestEventHandledEventArgs args)
         {
             var localCopy = eventCopy;
 

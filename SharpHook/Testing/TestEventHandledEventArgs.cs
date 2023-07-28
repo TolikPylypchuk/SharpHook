@@ -5,7 +5,7 @@ using System;
 using SharpHook.Native;
 
 /// <summary>
-/// Event args for <see cref="TestProvider.TestEventHandled" />.
+/// Event args for <see cref="TestProvider.TestEventHandled" /> and <see cref="TestGlobalHook.TestEventHandled" />.
 /// </summary>
 public class TestEventHandledEventArgs : EventArgs
 {
