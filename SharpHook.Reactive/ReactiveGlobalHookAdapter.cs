@@ -2,6 +2,7 @@ namespace SharpHook.Reactive;
 
 using System;
 using System.Reactive;
+using System.Reactive.Concurrency;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
@@ -11,7 +12,6 @@ using System.Threading.Tasks;
 /// <summary>
 /// Adapts an <see cref="IGlobalHook" /> to the <see cref="IReactiveGlobalHook" /> interface.
 /// </summary>
-/// <remarks>This class preserves the sender of hook events - the original hook will be the sender.</remarks>
 /// <seealso cref="IGlobalHook" />
 /// <seealso cref="IReactiveGlobalHook" />
 public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
@@ -41,8 +41,25 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
     /// <param name="hook">The hook to adapt.</param>
     /// <exception cref="ArgumentNullException"><paramref name="hook" /> is <see langword="null" />.</exception>
     public ReactiveGlobalHookAdapter(IGlobalHook hook)
+        : this(hook, ImmediateScheduler.Instance)
+    { }
+
+    /// <summary>
+    /// Initializes a new instance of <see cref="ReactiveGlobalHookAdapter" />.
+    /// </summary>
+    /// <param name="hook">The hook to adapt.</param>
+    /// <param name="defaultScheduler">The default scheduler for observables.</param>
+    /// <exception cref="ArgumentNullException">
+    /// <paramref name="hook" /> or <paramref name="defaultScheduler" /> is <see langword="null" />.
+    /// </exception>
+    public ReactiveGlobalHookAdapter(IGlobalHook hook, IScheduler defaultScheduler)
     {
         this.hook = hook ?? throw new ArgumentNullException(nameof(hook));
+
+        if (defaultScheduler is null)
+        {
+            throw new ArgumentNullException(nameof(defaultScheduler));
+        }
 
         this.subscriptions.Add(
             Observable.FromEventPattern<HookEventArgs>(
@@ -110,20 +127,20 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
                 .Select(e => e.EventArgs)
                 .Subscribe(this.mouseWheelSubject));
 
-        this.HookEnabled = this.hookEnabledSubject.Take(1).AsObservable();
-        this.HookDisabled = this.hookDisabledSubject.Take(1).AsObservable();
+        this.HookEnabled = this.hookEnabledSubject.Take(1).ObserveOn(defaultScheduler);
+        this.HookDisabled = this.hookDisabledSubject.Take(1).ObserveOn(defaultScheduler);
 
-        this.KeyTyped = this.keyTypedSubject.AsObservable();
-        this.KeyPressed = this.keyPressedSubject.AsObservable();
-        this.KeyReleased = this.keyReleasedSubject.AsObservable();
+        this.KeyTyped = this.keyTypedSubject.ObserveOn(defaultScheduler);
+        this.KeyPressed = this.keyPressedSubject.ObserveOn(defaultScheduler);
+        this.KeyReleased = this.keyReleasedSubject.ObserveOn(defaultScheduler);
 
-        this.MouseClicked = this.mouseClickedSubject.AsObservable();
-        this.MousePressed = this.mousePressedSubject.AsObservable();
-        this.MouseReleased = this.mouseReleasedSubject.AsObservable();
-        this.MouseMoved = this.mouseMovedSubject.AsObservable();
-        this.MouseDragged = this.mouseDraggedSubject.AsObservable();
+        this.MouseClicked = this.mouseClickedSubject.ObserveOn(defaultScheduler);
+        this.MousePressed = this.mousePressedSubject.ObserveOn(defaultScheduler);
+        this.MouseReleased = this.mouseReleasedSubject.ObserveOn(defaultScheduler);
+        this.MouseMoved = this.mouseMovedSubject.ObserveOn(defaultScheduler);
+        this.MouseDragged = this.mouseDraggedSubject.ObserveOn(defaultScheduler);
 
-        this.MouseWheel = this.mouseWheelSubject.AsObservable();
+        this.MouseWheel = this.mouseWheelSubject.ObserveOn(defaultScheduler);
     }
 
     /// <summary>
