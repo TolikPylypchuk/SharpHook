@@ -3,7 +3,7 @@ namespace SharpHook.Testing;
 public sealed class TestProviderTests
 {
     [Fact(DisplayName = "SetDispatchProc, Run, and PostEvent should work together")]
-    public void SetDispatchProc()
+    public async void SetDispatchProc()
     {
         // Arrange
 
@@ -25,9 +25,9 @@ public sealed class TestProviderTests
             },
             userData);
 
-        var thread = RunAndWaitForStart(provider);
+        await provider.RunAndWaitForStart();
 
-        provider.PostEvent(ref eventToPost);
+        await provider.PostEventAndWaitForHandler(ref eventToPost);
 
         // Assert
 
@@ -37,11 +37,10 @@ public sealed class TestProviderTests
         // Clean up
 
         provider.Stop();
-        thread.Join();
     }
 
     [Fact(DisplayName = "Events should be suppressible")]
-    public void SuppressEvent()
+    public async void SuppressEvent()
     {
         // Arrange
 
@@ -55,22 +54,22 @@ public sealed class TestProviderTests
             (ref UioHookEvent e, IntPtr data) => e.Reserved |= EventReservedValueMask.SuppressEvent,
             IntPtr.Zero);
 
-        var thread = RunAndWaitForStart(provider);
+        await provider.RunAndWaitForStart();
 
-        provider.PostEvent(ref eventToPost);
+        var result = await provider.PostEventAndWaitForHandler(ref eventToPost);
 
         // Assert
 
-        Assert.True(eventToPost.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
+        Assert.NotNull(result);
+        Assert.True(result.Event.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
 
         // Clean up
 
         provider.Stop();
-        thread.Join();
     }
 
     [Fact(DisplayName = "Run and Stop should change the state of the provider")]
-    public void RunAndStop()
+    public async void RunAndStop()
     {
         // Arrange
 
@@ -78,38 +77,31 @@ public sealed class TestProviderTests
 
         // Act + Assert
 
-        var thread = RunAndWaitForStart(provider);
+        await provider.RunAndWaitForStart();
+
         Assert.True(provider.IsRunning);
 
         var result = provider.Stop();
         Assert.False(provider.IsRunning);
 
         Assert.Equal(UioHookResult.Success, result);
-
-        // Clean up
-
-        thread.Join();
     }
 
     [Fact(DisplayName = "Run should throw if the provider is already running")]
-    public void RunWhenAlreadyRunning()
+    public async void RunWhenAlreadyRunning()
     {
         // Arrange
 
         var provider = new TestProvider();
+        await provider.RunAndWaitForStart();
 
-        // Act
-
-        var thread = RunAndWaitForStart(provider);
-
-        // Assert
+        // Act + Assert
 
         Assert.Throws<InvalidOperationException>(() => provider.Run());
 
         // Clean up
 
         provider.Stop();
-        thread.Join();
     }
 
     [Theory(DisplayName = "Run should return an error if configured to do so")]
@@ -135,7 +127,7 @@ public sealed class TestProviderTests
 
     [Theory(DisplayName = "Stop should return an error if configured to do so")]
     [ClassData(typeof(FailedUioHookResultsData))]
-    public void StopFail(UioHookResult result)
+    public async void StopFail(UioHookResult result)
     {
         // Arrange
 
@@ -144,9 +136,10 @@ public sealed class TestProviderTests
             StopResult = result
         };
 
+        await provider.RunAndWaitForStart();
+
         // Act
 
-        var thread = RunAndWaitForStart(provider);
         var actualResult = provider.Stop();
 
         // Assert
@@ -158,11 +151,10 @@ public sealed class TestProviderTests
 
         provider.StopResult = UioHookResult.Success;
         provider.Stop();
-        thread.Join();
     }
 
     [Fact(DisplayName = "HookEnabled should be raised when the hook is started")]
-    public void HookEnabled()
+    public async void HookEnabled()
     {
         // Arrange
 
@@ -177,7 +169,7 @@ public sealed class TestProviderTests
             HookEnabledModifierMask = modifierMask
         };
 
-        var thread = RunAndWaitForStart(provider);
+        await provider.RunAndWaitForStart();
 
         // Assert
 
@@ -196,11 +188,10 @@ public sealed class TestProviderTests
         // Clean up
 
         provider.Stop();
-        thread.Join();
     }
 
     [Fact(DisplayName = "HookDisabled should be raised when the hook is stopped")]
-    public void HookDisabled()
+    public async void HookDisabled()
     {
         // Arrange
 
@@ -215,10 +206,9 @@ public sealed class TestProviderTests
             HookDisabledModifierMask = modifierMask
         };
 
-        var thread = RunAndWaitForStart(provider);
+        await provider.RunAndWaitForStart();
 
         provider.Stop();
-        thread.Join();
 
         // Assert
 
@@ -525,24 +515,6 @@ public sealed class TestProviderTests
 
         Assert.Equal(multiClickTime, provider.MultiClickTime);
         Assert.Equal(multiClickTime, ((IMouseInfoProvider)provider).GetMultiClickTime());
-    }
-
-    private static Thread RunAndWaitForStart(TestProvider provider)
-    {
-        var thread = new Thread(() =>
-        {
-            var result = provider.Run();
-            Assert.Equal(UioHookResult.Success, result);
-        });
-
-        thread.Start();
-
-        while (!provider.IsRunning)
-        {
-            Thread.Yield();
-        }
-
-        return thread;
     }
 
     private static UioHookEvent CreateUioHookEvent() =>
