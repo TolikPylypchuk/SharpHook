@@ -14,6 +14,18 @@ using SharpHook.Internal;
 public struct KeyboardEventData : IEquatable<KeyboardEventData>
 {
     /// <summary>
+    /// The value of <see cref="RawKeyChar" /> in events of type <see cref="EventType.KeyPressed" /> and
+    /// <see cref="EventType.KeyReleased" />.
+    /// </summary>
+    public static readonly ushort RawUndefinedChar = 0xFF;
+
+    /// <summary>
+    /// The value of <see cref="KeyChar" /> in events of type <see cref="EventType.KeyPressed" /> and
+    /// <see cref="EventType.KeyReleased" />.
+    /// </summary>
+    public static readonly char UndefinedChar = (char)RawUndefinedChar;
+
+    /// <summary>
     /// The key code.
     /// </summary>
     /// <value>The key code.</value>

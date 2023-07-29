@@ -1,6 +1,7 @@
 namespace SharpHook.Logging;
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 using SharpHook.Native;
 using SharpHook.Providers;
@@ -21,6 +22,7 @@ using SharpHook.Providers;
 /// <seealso cref="LogEventArgs" />
 /// <seealso cref="LogEntry" />
 /// <seealso cref="LogEntryParser" />
+[ExcludeFromCodeCoverage]
 public sealed class LogSource : ILogSource
 {
     private readonly LogEntryParser parser;

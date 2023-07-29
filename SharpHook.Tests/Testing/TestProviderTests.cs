@@ -2,13 +2,13 @@ namespace SharpHook.Testing;
 
 public sealed class TestProviderTests
 {
-    [Fact(DisplayName = "SetDispatchProc, Run, and PostEvent should work together")]
-    public async void SetDispatchProc()
+    public TestProviderTests() =>
+        Arb.Register<Generators>();
+
+    [Property(DisplayName = "SetDispatchProc, Run, and PostEvent should work together")]
+    public async void SetDispatchProc(UioHookEvent eventToPost, IntPtr userData)
     {
         // Arrange
-
-        var eventToPost = CreateUioHookEvent();
-        var userData = (IntPtr)1;
 
         var actualEvent = new UioHookEvent();
         var actualUserData = IntPtr.Zero;
@@ -27,24 +27,50 @@ public sealed class TestProviderTests
 
         await provider.RunAndWaitForStart();
 
-        await provider.PostEventAndWaitForHandler(ref eventToPost);
+        var args = await provider.PostEventAndWaitForHandler(ref eventToPost);
 
         // Assert
 
         Assert.Equal(eventToPost, actualEvent);
         Assert.Equal(userData, actualUserData);
 
+        Assert.NotNull(args);
+        Assert.True(args.HookCalled);
+        Assert.Equal(eventToPost, args.Event);
+
         // Clean up
 
         provider.Stop();
     }
 
-    [Fact(DisplayName = "Events should be suppressible")]
-    public async void SuppressEvent()
+    [Property(DisplayName = "Run and PostEvent should work without SetDispatchProc")]
+    public async void RunPostEvent(UioHookEvent eventToPost)
     {
         // Arrange
 
-        var eventToPost = CreateUioHookEvent();
+        var provider = new TestProvider();
+
+        // Act
+
+        await provider.RunAndWaitForStart();
+
+        var args = await provider.PostEventAndWaitForHandler(ref eventToPost);
+
+        // Assert
+
+        Assert.NotNull(args);
+        Assert.True(args.HookCalled);
+        Assert.Equal(eventToPost, args.Event);
+
+        // Clean up
+
+        provider.Stop();
+    }
+
+    [Property(DisplayName = "Events should be suppressible")]
+    public async void SuppressEvent(UioHookEvent eventToPost)
+    {
+        // Arrange
 
         var provider = new TestProvider();
 
@@ -61,6 +87,7 @@ public sealed class TestProviderTests
         // Assert
 
         Assert.NotNull(result);
+        Assert.True(result.HookCalled);
         Assert.True(result.Event.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
 
         // Clean up
@@ -104,15 +131,31 @@ public sealed class TestProviderTests
         provider.Stop();
     }
 
-    [Theory(DisplayName = "Run should return an error if configured to do so")]
-    [ClassData(typeof(FailedUioHookResultsData))]
-    public void RunFail(UioHookResult result)
+    [Fact(DisplayName = "RunAndWaitForStart should throw if the provider is already running")]
+    public async void RunAndWaitForStartWhenAlreadyRunning()
+    {
+        // Arrange
+
+        var provider = new TestProvider();
+        await provider.RunAndWaitForStart();
+
+        // Act + Assert
+
+        await Assert.ThrowsAsync<InvalidOperationException>(() => provider.RunAndWaitForStart());
+
+        // Clean up
+
+        provider.Stop();
+    }
+
+    [Property(DisplayName = "Run should return an error if configured to do so")]
+    public void RunFail(FailedUioHookResult result)
     {
         // Arrange
 
         var provider = new TestProvider
         {
-            RunResult = result
+            RunResult = result.Value
         };
 
         // Act
@@ -122,18 +165,17 @@ public sealed class TestProviderTests
         // Assert
 
         Assert.False(provider.IsRunning);
-        Assert.Equal(result, actualResult);
+        Assert.Equal(result.Value, actualResult);
     }
 
-    [Theory(DisplayName = "Stop should return an error if configured to do so")]
-    [ClassData(typeof(FailedUioHookResultsData))]
-    public async void StopFail(UioHookResult result)
+    [Property(DisplayName = "Stop should return an error if configured to do so")]
+    public async void StopFail(FailedUioHookResult result)
     {
         // Arrange
 
         var provider = new TestProvider
         {
-            StopResult = result
+            StopResult = result.Value
         };
 
         await provider.RunAndWaitForStart();
@@ -144,7 +186,7 @@ public sealed class TestProviderTests
 
         // Assert
 
-        Assert.Equal(result, actualResult);
+        Assert.Equal(result.Value, actualResult);
         Assert.True(provider.IsRunning);
 
         // Clean up
@@ -190,19 +232,14 @@ public sealed class TestProviderTests
         provider.Stop();
     }
 
-    [Fact(DisplayName = "HookDisabled should be raised when the hook is stopped")]
-    public async void HookDisabled()
+    [Property(DisplayName = "HookDisabled should be raised when the hook is stopped")]
+    public async void HookDisabled(DateTimeAfterEpoch dateTime, ModifierMask modifierMask)
     {
-        // Arrange
-
-        var dateTime = DateTimeOffset.UtcNow;
-        var modifierMask = ModifierMask.LeftCtrl | ModifierMask.LeftShift;
-
         // Act
 
         var provider = new TestProvider
         {
-            EventDateTime = t => dateTime,
+            EventDateTime = t => dateTime.Value,
             EventMask = t => modifierMask
         };
 
@@ -220,17 +257,15 @@ public sealed class TestProviderTests
 
         var hookDisabledEvent = hookDisabledEvents[0];
 
-        Assert.Equal(dateTime.ToUnixTimeMilliseconds(), (long)hookDisabledEvent.Time);
+        Assert.Equal(dateTime.Value.ToUnixTimeMilliseconds(), (long)hookDisabledEvent.Time);
         Assert.Equal(modifierMask, hookDisabledEvent.Mask);
         Assert.Equal(EventReservedValueMask.None, hookDisabledEvent.Reserved);
     }
 
-    [Fact(DisplayName = "PostEvent should post an event")]
-    public void PostEvent()
+    [Property(DisplayName = "PostEvent should post an event")]
+    public void PostEvent(UioHookEvent eventToPost)
     {
         // Arrange
-
-        var eventToPost = CreateUioHookEvent();
 
         var provider = new TestProvider();
 
@@ -245,17 +280,14 @@ public sealed class TestProviderTests
         Assert.Equal(eventToPost, provider.PostedEvents[0]);
     }
 
-    [Theory(DisplayName = "PostEvent should return an error if configured to do so")]
-    [ClassData(typeof(FailedUioHookResultsData))]
-    public void PostEventFail(UioHookResult result)
+    [Property(DisplayName = "PostEvent should return an error if configured to do so")]
+    public void PostEventFail(UioHookEvent eventToPost, FailedUioHookResult result)
     {
         // Arrange
 
-        var eventToPost = CreateUioHookEvent();
-
         var provider = new TestProvider
         {
-            PostEventResult = result
+            PostEventResult = result.Value
         };
 
         // Act
@@ -265,47 +297,82 @@ public sealed class TestProviderTests
         // Assert
 
         Assert.Empty(provider.PostedEvents);
-        Assert.Equal(result, actualResult);
+        Assert.Equal(result.Value, actualResult);
     }
 
-    [Fact(DisplayName = "PostText should post text")]
-    public void PostText()
+    [Property(DisplayName = "PostEvent should raise an event about posted event when not running")]
+    public async void PostEventRaisesEvent(UioHookEvent eventToPost)
     {
         // Arrange
 
-        const string text = "text";
         var provider = new TestProvider();
 
         // Act
 
-        var actualResult = provider.PostText(text);
+        var args = await provider.PostEventAndWaitForHandler(ref eventToPost);
 
         // Assert
 
-        Assert.Equal(UioHookResult.Success, actualResult);
-        Assert.Single(provider.PostedText);
-        Assert.Equal(text, provider.PostedText[0]);
+        Assert.NotNull(args);
+        Assert.False(args.HookCalled);
+        Assert.Equal(eventToPost, args.Event);
     }
 
-    [Theory(DisplayName = "PostText should return an error if configured to do so")]
-    [ClassData(typeof(FailedUioHookResultsData))]
-    public void PostTextFail(UioHookResult result)
+    [Property(DisplayName = "PostEventAndWaitForHandler should return null if configured to do so")]
+    public async void PostEventAndWaitForHandlerFail(UioHookEvent eventToPost, FailedUioHookResult result)
     {
         // Arrange
 
         var provider = new TestProvider
         {
-            PostTextResult = result
+            PostEventResult = result.Value
         };
 
         // Act
 
-        var actualResult = provider.PostText("text");
+        var args = await provider.PostEventAndWaitForHandler(ref eventToPost);
+
+        // Assert
+
+        Assert.Null(args);
+    }
+
+    [Property(DisplayName = "PostText should post text")]
+    public void PostText(NonNull<string> text)
+    {
+        // Arrange
+
+        var provider = new TestProvider();
+
+        // Act
+
+        var actualResult = provider.PostText(text.Get);
+
+        // Assert
+
+        Assert.Equal(UioHookResult.Success, actualResult);
+        Assert.Single(provider.PostedText);
+        Assert.Equal(text.Get, provider.PostedText[0]);
+    }
+
+    [Property(DisplayName = "PostText should return an error if configured to do so")]
+    public void PostTextFail(NonNull<string> text, FailedUioHookResult result)
+    {
+        // Arrange
+
+        var provider = new TestProvider
+        {
+            PostTextResult = result.Value
+        };
+
+        // Act
+
+        var actualResult = provider.PostText(text.Get);
 
         // Assert
 
         Assert.Empty(provider.PostedText);
-        Assert.Equal(result, actualResult);
+        Assert.Equal(result.Value, actualResult);
     }
 
     [Fact(DisplayName = "PostText should return an error when text is null")]
@@ -329,13 +396,33 @@ public sealed class TestProviderTests
     public void SetLoggerProc() =>
         ((ILoggingProvider)new TestProvider()).SetLoggerProc(delegate { }, IntPtr.Zero);
 
-    [Fact(DisplayName = "Post text delay should be settable through the property")]
-    public void PostTextDelayX11()
+    [Fact(DisplayName = "EventDateTime should not be settable to null")]
+    public void EventDateTimeNull()
     {
         // Arrange
 
-        const ulong postTextDelay = 10;
+        var provider = new TestProvider();
 
+        // Act + Assert
+
+        Assert.Throws<ArgumentNullException>(() => provider.EventDateTime = null!);
+    }
+
+    [Fact(DisplayName = "EventMask should not be settable to null")]
+    public void EventMaskNull()
+    {
+        // Arrange
+
+        var provider = new TestProvider();
+
+        // Act + Assert
+
+        Assert.Throws<ArgumentNullException>(() => provider.EventMask = null!);
+    }
+
+    [Property(DisplayName = "Post text delay should be settable through the property")]
+    public void PostTextDelayX11(ulong postTextDelay)
+    {
         // Act
 
         var provider = new TestProvider
@@ -349,13 +436,9 @@ public sealed class TestProviderTests
         Assert.Equal(postTextDelay, ((IEventSimulationProvider)provider).GetPostTextDelayX11());
     }
 
-    [Fact(DisplayName = "Post text delay should be settable through the method")]
-    public void SetPostTextDelayX11()
+    [Property(DisplayName = "Post text delay should be settable through the method")]
+    public void SetPostTextDelayX11(ulong postTextDelay)
     {
-        // Arrange
-
-        const ulong postTextDelay = 10;
-
         // Act
 
         var provider = new TestProvider();
@@ -367,12 +450,12 @@ public sealed class TestProviderTests
         Assert.Equal(postTextDelay, ((IEventSimulationProvider)provider).GetPostTextDelayX11());
     }
 
-    [Fact(DisplayName = "Screen info should be settable")]
-    public void ScreenInfo()
+    [Property(DisplayName = "Screen info should be settable")]
+    public void ScreenInfo(byte number, short x, short y, ushort width, ushort height)
     {
         // Arrange
 
-        var screenInfo = new[] { new ScreenData { Number = 1, X = 0, Y = 0, Width = 1920, Height = 1080 } };
+        var screenInfo = new[] { new ScreenData { Number = number, X = x, Y = y, Width = width, Height = height } };
 
         // Act
 
@@ -397,13 +480,9 @@ public sealed class TestProviderTests
     public void ScreenInfoNull() =>
         Assert.Throws<ArgumentNullException>(() => new TestProvider { ScreenInfo = null! });
 
-    [Fact(DisplayName = "Auto-repeat rate should be settable")]
-    public void AutoRepeatRate()
+    [Property(DisplayName = "Auto-repeat rate should be settable")]
+    public void AutoRepeatRate(int autoRepeatRate)
     {
-        // Arrange
-
-        const int autoRepeatRate = 10;
-
         // Act
 
         var provider = new TestProvider
@@ -417,13 +496,9 @@ public sealed class TestProviderTests
         Assert.Equal(autoRepeatRate, ((IMouseInfoProvider)provider).GetAutoRepeatRate());
     }
 
-    [Fact(DisplayName = "Auto-repeat delay should be settable")]
-    public void AutoRepeatDelay()
+    [Property(DisplayName = "Auto-repeat delay should be settable")]
+    public void AutoRepeatDelay(int autoRepeatDelay)
     {
-        // Arrange
-
-        const int autoRepeatDelay = 10;
-
         // Act
 
         var provider = new TestProvider
@@ -437,13 +512,9 @@ public sealed class TestProviderTests
         Assert.Equal(autoRepeatDelay, ((IMouseInfoProvider)provider).GetAutoRepeatDelay());
     }
 
-    [Fact(DisplayName = "Pointer acceleration multiplier should be settable")]
-    public void PointerAccelerationMultiplier()
+    [Property(DisplayName = "Pointer acceleration multiplier should be settable")]
+    public void PointerAccelerationMultiplier(int multiplier)
     {
-        // Arrange
-
-        const int multiplier = 10;
-
         // Act
 
         var provider = new TestProvider
@@ -457,13 +528,9 @@ public sealed class TestProviderTests
         Assert.Equal(multiplier, ((IMouseInfoProvider)provider).GetPointerAccelerationMultiplier());
     }
 
-    [Fact(DisplayName = "Pointer acceleration threshold should be settable")]
-    public void PointerAccelerationThreshold()
+    [Property(DisplayName = "Pointer acceleration threshold should be settable")]
+    public void PointerAccelerationThreshold(int threshold)
     {
-        // Arrange
-
-        const int threshold = 10;
-
         // Act
 
         var provider = new TestProvider
@@ -477,13 +544,9 @@ public sealed class TestProviderTests
         Assert.Equal(threshold, ((IMouseInfoProvider)provider).GetPointerAccelerationThreshold());
     }
 
-    [Fact(DisplayName = "Pointer sensitivity should be settable")]
-    public void PointerSensitivity()
+    [Property(DisplayName = "Pointer sensitivity should be settable")]
+    public void PointerSensitivity(int sensitivity)
     {
-        // Arrange
-
-        const int sensitivity = 10;
-
         // Act
 
         var provider = new TestProvider
@@ -497,13 +560,9 @@ public sealed class TestProviderTests
         Assert.Equal(sensitivity, ((IMouseInfoProvider)provider).GetPointerSensitivity());
     }
 
-    [Fact(DisplayName = "Multi-click time should be settable")]
-    public void MultiClickTime()
+    [Property(DisplayName = "Multi-click time should be settable")]
+    public void MultiClickTime(int multiClickTime)
     {
-        // Arrange
-
-        const int multiClickTime = 10;
-
         // Act
 
         var provider = new TestProvider
@@ -516,19 +575,4 @@ public sealed class TestProviderTests
         Assert.Equal(multiClickTime, provider.MultiClickTime);
         Assert.Equal(multiClickTime, ((IMouseInfoProvider)provider).GetMultiClickTime());
     }
-
-    private static UioHookEvent CreateUioHookEvent() =>
-        new()
-        {
-            Type = EventType.KeyPressed,
-            Time = (ulong)DateTimeOffset.UtcNow.ToUnixTimeMilliseconds(),
-            Mask = ModifierMask.None,
-            Reserved = EventReservedValueMask.None,
-            Keyboard = new KeyboardEventData
-            {
-                KeyCode = KeyCode.Vc1,
-                RawCode = 1,
-                RawKeyChar = 0xFF
-            }
-        };
 }

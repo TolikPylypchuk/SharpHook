@@ -1214,6 +1214,18 @@
             <seealso cref="T:SharpHook.KeyboardHookEventArgs" />
             <seealso cref="T:SharpHook.Native.KeyCode" />
         </member>
+        <member name="F:SharpHook.Native.KeyboardEventData.RawUndefinedChar">
+            <summary>
+            The value of <see cref="F:SharpHook.Native.KeyboardEventData.RawKeyChar" /> in events of type <see cref="F:SharpHook.Native.EventType.KeyPressed" /> and
+            <see cref="F:SharpHook.Native.EventType.KeyReleased" />.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.KeyboardEventData.UndefinedChar">
+            <summary>
+            The value of <see cref="P:SharpHook.Native.KeyboardEventData.KeyChar" /> in events of type <see cref="F:SharpHook.Native.EventType.KeyPressed" /> and
+            <see cref="F:SharpHook.Native.EventType.KeyReleased" />.
+            </summary>
+        </member>
         <member name="F:SharpHook.Native.KeyboardEventData.KeyCode">
             <summary>
             The key code.
@@ -4114,6 +4126,7 @@
             Gets or sets the function which will map key codes to characters.
             </summary>
             <exception cref="T:System.ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
+            <remarks>By default every key code maps to an empty character sequence.</remarks>
         </member>
         <member name="P:SharpHook.Testing.TestGlobalHook.KeyCodeToRawCode">
             <summary>
@@ -4132,6 +4145,16 @@
             Gets or sets the function which will specify the current mouse Y-coordinate.
             </summary>
             <exception cref="T:System.ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
+        </member>
+        <member name="P:SharpHook.Testing.TestGlobalHook.MouseClickCount">
+            <summary>
+            Gets or sets the click count for events of type <see cref="F:SharpHook.Native.EventType.MouseClicked" />.
+            </summary>
+            <value>The click count for events of type <see cref="F:SharpHook.Native.EventType.MouseClicked" />.</value>
+            <remarks>
+            Events of type <see cref="F:SharpHook.Native.EventType.MouseClicked" /> won't be simulated if this property has the value of
+            <c>0</c>. The default value is <c>1</c>.
+            </remarks>
         </member>
         <member name="P:SharpHook.Testing.TestGlobalHook.RunResult">
             <summary>
@@ -4259,6 +4282,29 @@
             characters for <paramref name="keyCode" />.
             </remarks>
         </member>
+        <member name="M:SharpHook.Testing.TestGlobalHook.SimulateKeyPressAndWaitForHandler(SharpHook.Native.KeyCode,System.Threading.CancellationToken)">
+            <summary>
+            Simulates pressing a key if <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateKeyPressResult" /> is <see cref="F:SharpHook.Native.UioHookResult.Success" />.
+            Otherwise, does nothing.
+            </summary>
+            <param name="keyCode">The code of the key to press.</param>
+            <param name="cancellationToken">
+            The token to monitor for cancellation requests. The default value is <see cref="P:System.Threading.CancellationToken.None" />.
+            </param>
+            <returns>
+            A <see cref="T:System.Threading.Tasks.Task" /> which finishes when the event has been handled, and contains the handler result, or
+            <see langword="null" /> if the event was not simulated.
+            </returns>
+            <remarks>
+            <para>
+            This method simulates <see cref="F:SharpHook.Native.EventType.KeyTyped" /> events as well if <see cref="P:SharpHook.Testing.TestGlobalHook.KeyCodeToChars" /> returns
+            characters for <paramref name="keyCode" />.
+            </para>
+            <para>
+            Do not use this method inside the global hook as it will result in a deadlock.
+            </para>
+            </remarks>
+        </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.SimulateKeyRelease(SharpHook.Native.KeyCode)">
             <summary>
             Simulates releasing a key if <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateKeyReleaseResult" /> is <see cref="F:SharpHook.Native.UioHookResult.Success" />.
@@ -4266,6 +4312,23 @@
             </summary>
             <param name="keyCode">The code of the key to release.</param>
             <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateKeyReleaseResult" />.</returns>
+        </member>
+        <member name="M:SharpHook.Testing.TestGlobalHook.SimulateKeyReleaseAndWaitForHandler(SharpHook.Native.KeyCode,System.Threading.CancellationToken)">
+            <summary>
+            Simulates releasing a key if <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateKeyReleaseResult" /> is <see cref="F:SharpHook.Native.UioHookResult.Success" />.
+            Otherwise, does nothing.
+            </summary>
+            <param name="keyCode">The code of the key to release.</param>
+            <param name="cancellationToken">
+            The token to monitor for cancellation requests. The default value is <see cref="P:System.Threading.CancellationToken.None" />.
+            </param>
+            <returns>
+            A <see cref="T:System.Threading.Tasks.Task" /> which finishes when the event has been handled, and contains the handler result, or
+            <see langword="null" /> if the event was not simulated.
+            </returns>
+            <remarks>
+            Do not use this method inside the global hook as it will result in a deadlock.
+            </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.SimulateTextEntry(System.String)">
             <summary>
@@ -4284,6 +4347,23 @@
             <param name="button">The mouse button to press.</param>
             <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMousePressResult" />.</returns>
         </member>
+        <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMousePressAndWaitForHandler(SharpHook.Native.MouseButton,System.Threading.CancellationToken)">
+            <summary>
+            Simulates pressing a mouse button at the current coordinates if <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMousePressResult" /> is
+            <see cref="F:SharpHook.Native.UioHookResult.Success" />. Otherwise, does nothing.
+            </summary>
+            <param name="button">The mouse button to press.</param>
+            <param name="cancellationToken">
+            The token to monitor for cancellation requests. The default value is <see cref="P:System.Threading.CancellationToken.None" />.
+            </param>
+            <returns>
+            A <see cref="T:System.Threading.Tasks.Task" /> which finishes when the event has been handled, and contains the handler result, or
+            <see langword="null" /> if the event was not simulated.
+            </returns>
+            <remarks>
+            Do not use this method inside the global hook as it will result in a deadlock.
+            </remarks>
+        </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMousePress(System.Int16,System.Int16,SharpHook.Native.MouseButton)">
             <summary>
             Simulates pressing a mouse button at the specified coordinates if <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMousePressResult" /> is
@@ -4294,6 +4374,25 @@
             <param name="button">The mouse button to press.</param>
             <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMousePressResult" />.</returns>
         </member>
+        <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMousePressAndWaitForHandler(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.Threading.CancellationToken)">
+            <summary>
+            Simulates pressing a mouse button at the specified coordinates if <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMousePressResult" /> is
+            <see cref="F:SharpHook.Native.UioHookResult.Success" />. Otherwise, does nothing.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to press.</param>
+            <param name="cancellationToken">
+            The token to monitor for cancellation requests. The default value is <see cref="P:System.Threading.CancellationToken.None" />.
+            </param>
+            <returns>
+            A <see cref="T:System.Threading.Tasks.Task" /> which finishes when the event has been handled, and contains the handler result, or
+            <see langword="null" /> if the event was not simulated.
+            </returns>
+            <remarks>
+            Do not use this method inside the global hook as it will result in a deadlock.
+            </remarks>
+        </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(SharpHook.Native.MouseButton)">
             <summary>
             Simulates releasing a mouse button at the current coordinates if <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseResult" /> is
@@ -4301,6 +4400,33 @@
             </summary>
             <param name="button">The mouse button to release.</param>
             <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseResult" />.</returns>
+            <remarks>
+            This method simulates a <see cref="F:SharpHook.Native.EventType.MouseClicked" /> event as well if <see cref="P:SharpHook.Testing.TestGlobalHook.MouseClickCount" />
+            is greater than <c>0</c>.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForHandler(SharpHook.Native.MouseButton,System.Threading.CancellationToken)">
+            <summary>
+            Simulates releasing a mouse button at the current coordinates if <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseResult" /> is
+            <see cref="F:SharpHook.Native.UioHookResult.Success" />. Otherwise, does nothing.
+            </summary>
+            <param name="button">The mouse button to release.</param>
+            <param name="cancellationToken">
+            The token to monitor for cancellation requests. The default value is <see cref="P:System.Threading.CancellationToken.None" />.
+            </param>
+            <returns>
+            A <see cref="T:System.Threading.Tasks.Task" /> which finishes when the event has been handled, and contains the handler result, or
+            <see langword="null" /> if the event was not simulated.
+            </returns>
+            <remarks>
+            <para>
+            This method simulates a <see cref="F:SharpHook.Native.EventType.MouseClicked" /> event as well if <see cref="P:SharpHook.Testing.TestGlobalHook.MouseClickCount" />
+            is greater than <c>0</c>.
+            </para>
+            <para>
+            Do not use this method inside the global hook as it will result in a deadlock.
+            </para>
+            </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Native.MouseButton)">
             <summary>
@@ -4311,6 +4437,35 @@
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
             <param name="button">The mouse button to release.</param>
             <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseResult" />.</returns>
+            <remarks>
+            This method simulates a <see cref="F:SharpHook.Native.EventType.MouseClicked" /> event as well if <see cref="P:SharpHook.Testing.TestGlobalHook.MouseClickCount" />
+            is greater than <c>0</c>.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForHandler(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.Threading.CancellationToken)">
+            <summary>
+            Simulates releasing a mouse button at the specified coordinates if <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseResult" /> is
+            <see cref="F:SharpHook.Native.UioHookResult.Success" />. Otherwise, does nothing.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to release.</param>
+            <param name="cancellationToken">
+            The token to monitor for cancellation requests. The default value is <see cref="P:System.Threading.CancellationToken.None" />.
+            </param>
+            <returns>
+            A <see cref="T:System.Threading.Tasks.Task" /> which finishes when the event has been handled, and contains the handler result, or
+            <see langword="null" /> if the event was not simulated.
+            </returns>
+            <remarks>
+            <para>
+            This method simulates a <see cref="F:SharpHook.Native.EventType.MouseClicked" /> event as well if <see cref="P:SharpHook.Testing.TestGlobalHook.MouseClickCount" />
+            is greater than <c>0</c>.
+            </para>
+            <para>
+            Do not use this method inside the global hook as it will result in a deadlock.
+            </para>
+            </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMouseMovement(System.Int16,System.Int16)">
             <summary>
@@ -4322,6 +4477,24 @@
             <returns>The result of the operation.</returns>
             <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMouseMovementResult" />.</returns>
         </member>
+        <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMouseMovementAndWaitForHandler(System.Int16,System.Int16,System.Threading.CancellationToken)">
+            <summary>
+            Simulates moving a mouse pointer if <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMouseMovementResult" /> is
+            <see cref="F:SharpHook.Native.UioHookResult.Success" />. Otherwise, does nothing.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="cancellationToken">
+            The token to monitor for cancellation requests. The default value is <see cref="P:System.Threading.CancellationToken.None" />.
+            </param>
+            <returns>
+            A <see cref="T:System.Threading.Tasks.Task" /> which finishes when the event has been handled, and contains the handler result, or
+            <see langword="null" /> if the event was not simulated.
+            </returns>
+            <remarks>
+            Do not use this method inside the global hook as it will result in a deadlock.
+            </remarks>
+        </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMouseMovementRelative(System.Int16,System.Int16)">
             <summary>
             Simulates moving a mouse pointer relative to the current cursor position if
@@ -4330,6 +4503,24 @@
             <param name="x">The X-coordinate offset.</param>
             <param name="y">The Y-coordinate offset.</param>
             <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMouseMovementResult" />.</returns>
+        </member>
+        <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMouseMovementRelativeAndWaitForHandler(System.Int16,System.Int16,System.Threading.CancellationToken)">
+            <summary>
+            Simulates moving a mouse pointer relative to the current cursor position if
+            <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMouseMovementResult" /> is <see cref="F:SharpHook.Native.UioHookResult.Success" />. Otherwise, does nothing.
+            </summary>
+            <param name="x">The X-coordinate offset.</param>
+            <param name="y">The Y-coordinate offset.</param>
+            <param name="cancellationToken">
+            The token to monitor for cancellation requests. The default value is <see cref="P:System.Threading.CancellationToken.None" />.
+            </param>
+            <returns>
+            A <see cref="T:System.Threading.Tasks.Task" /> which finishes when the event has been handled, and contains the handler result, or
+            <see langword="null" /> if the event was not simulated.
+            </returns>
+            <remarks>
+            Do not use this method inside the global hook as it will result in a deadlock.
+            </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMouseWheel(System.UInt16,System.Int16)">
             <summary>
@@ -4342,6 +4533,30 @@
             <remarks>
             A positive <paramref name="rotation" /> value indicates that the wheel will be rotated down and a negative value
             indicates that the wheel will be rotated up.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMouseWheelAndWaitForHandler(System.UInt16,System.Int16,System.Threading.CancellationToken)">
+            <summary>
+            Simulates scrolling the mouse wheel if <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMouseWheelResult" /> is
+            <see cref="F:SharpHook.Native.UioHookResult.Success" />. Otherwise, does nothing.
+            </summary>
+            <param name="delta">The scroll delta.</param>
+            <param name="rotation">The wheel rotation.</param>
+            <param name="cancellationToken">
+            The token to monitor for cancellation requests. The default value is <see cref="P:System.Threading.CancellationToken.None" />.
+            </param>
+            <returns>
+            A <see cref="T:System.Threading.Tasks.Task" /> which finishes when the event has been handled, and contains the handler result, or
+            <see langword="null" /> if the event was not simulated.
+            </returns>
+            <remarks>
+            <para>
+            A positive <paramref name="rotation" /> value indicates that the wheel will be rotated down and a negative value
+            indicates that the wheel will be rotated up.
+            </para>
+            <para>
+            Do not use this method inside the global hook as it will result in a deadlock.
+            </para>
             </remarks>
         </member>
         <member name="E:SharpHook.Testing.TestGlobalHook.HookEnabled">
@@ -4598,7 +4813,7 @@
             <see langword="null" /> if the event was not posted.
             </returns>
             <remarks>
-            Do not use this method inside an input event handler as it will result in a deadlock.
+            Do not use this method inside the global hook as it will result in a deadlock.
             </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestProvider.PostText(System.String)">

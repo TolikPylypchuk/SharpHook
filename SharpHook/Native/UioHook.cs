@@ -1,9 +1,7 @@
 namespace SharpHook.Native;
 
 using System;
-#if NET5_0_OR_GREATER
 using System.Diagnostics.CodeAnalysis;
-#endif
 using System.Runtime.InteropServices;
 
 /// <summary>
@@ -15,6 +13,7 @@ using System.Runtime.InteropServices;
     "CA1401:P/Invokes should not be visible",
     Justification = "These methods are the whole point of the project")]
 #endif
+[ExcludeFromCodeCoverage]
 public static partial class UioHook
 {
     private const string LibUioHook = "uiohook";

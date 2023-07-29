@@ -1,6 +1,7 @@
 namespace SharpHook.Logging;
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 /// <summary>
 /// Represents a souce of libuiohook logs which never raises any events.
@@ -12,6 +13,7 @@ using System;
 /// </remarks>
 /// <seealso cref="ILogSource" />
 /// <seealso cref="LogSource" />
+[ExcludeFromCodeCoverage]
 public sealed class EmptyLogSource : ILogSource
 {
     /// <summary>

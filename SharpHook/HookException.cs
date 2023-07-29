@@ -1,6 +1,7 @@
 namespace SharpHook;
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 
 using SharpHook.Native;
@@ -9,6 +10,7 @@ using SharpHook.Native;
 /// Represents an exception related to the global hook.
 /// </summary>
 [Serializable]
+[ExcludeFromCodeCoverage]
 public sealed class HookException : Exception
 {
     /// <summary>

@@ -1,6 +1,7 @@
 namespace SharpHook.Logging;
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 /// <summary>
 /// Event args for logging events.
@@ -8,6 +9,7 @@ using System;
 /// <seealso cref="ILogSource" />
 /// <seealso cref="LogSource" />
 /// <seealso cref="Logging.LogEntry" />
+[ExcludeFromCodeCoverage]
 public sealed class LogEventArgs : EventArgs
 {
     /// <summary>

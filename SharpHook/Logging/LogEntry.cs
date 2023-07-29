@@ -2,6 +2,7 @@ namespace SharpHook.Logging;
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 using SharpHook.Internal;
@@ -35,6 +36,7 @@ using SharpHook.Native;
 /// <seealso cref="LogSource" />
 /// <seealso cref="LogEventArgs" />
 /// <seealso cref="LogEntryParser" />
+[ExcludeFromCodeCoverage]
 public sealed class LogEntry : IEquatable<LogEntry>
 {
     /// <summary>

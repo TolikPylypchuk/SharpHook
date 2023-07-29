@@ -14,8 +14,6 @@ using SharpHook.Native;
 /// </summary>
 public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
 {
-    private static readonly ushort UndefinedChar = 0xFF;
-
     private readonly BlockingCollection<UioHookEvent> hookEvents = new();
 
     private CancellationTokenSource? cancellationTokenSource;
@@ -76,6 +74,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// Gets or sets the function which will map key codes to characters.
     /// </summary>
     /// <exception cref="ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
+    /// <remarks>By default every key code maps to an empty character sequence.</remarks>
     public Func<KeyCode, IEnumerable<char>> KeyCodeToChars
     {
         get => this.keyCodeToChars;
@@ -111,6 +110,16 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
         get => this.currentMouseY;
         set => this.currentMouseY = value ?? throw new ArgumentNullException(nameof(value));
     }
+
+    /// <summary>
+    /// Gets or sets the click count for events of type <see cref="EventType.MouseClicked" />.
+    /// </summary>
+    /// <value>The click count for events of type <see cref="EventType.MouseClicked" />.</value>
+    /// <remarks>
+    /// Events of type <see cref="EventType.MouseClicked" /> won't be simulated if this property has the value of
+    /// <c>0</c>. The default value is <c>1</c>.
+    /// </remarks>
+    public ushort MouseClickCount { get; set; } = 1;
 
     /// <summary>
     /// Gets or sets the result of the <see cref="Run()" /> and <see cref="RunAsync" /> methods. If anything other than
@@ -199,16 +208,15 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
         this.cancellationTokenSource = new();
         this.IsRunning = true;
 
-        var type = EventType.HookEnabled;
         var hookEnabled = new UioHookEvent
         {
-            Type = type,
-            Time = (ulong)this.EventDateTime(type).ToUnixTimeMilliseconds(),
-            Mask = this.EventMask(type),
+            Type = EventType.HookEnabled,
+            Time = (ulong)this.EventDateTime(EventType.HookEnabled).ToUnixTimeMilliseconds(),
+            Mask = this.EventMask(EventType.HookEnabled),
             Reserved = EventReservedValueMask.None
         };
 
-        this.DispatchEvent(new HookEventArgs(hookEnabled));
+        this.DispatchEvent(ref hookEnabled);
         this.SetStarted(true);
 
         while (this.IsRunning)
@@ -216,15 +224,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
             try
             {
                 var currentEvent = this.hookEvents.Take(cancellationTokenSource.Token);
-
-                var eventArgs = HookEventArgs.FromEvent(currentEvent);
-                this.DispatchEvent(eventArgs);
-
-                if (eventArgs.SuppressEvent)
-                {
-                    currentEvent.Reserved |= EventReservedValueMask.SuppressEvent;
-                }
-
+                this.DispatchEvent(ref currentEvent);
                 this.TestEventHandled?.Invoke(this, new TestEventHandledEventArgs(currentEvent, true));
             } catch (OperationCanceledException) { }
         }
@@ -296,16 +296,15 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
             throw new HookException(result);
         }
 
-        var type = EventType.HookDisabled;
         var hookDisabled = new UioHookEvent
         {
-            Type = type,
-            Time = (ulong)this.EventDateTime(type).ToUnixTimeMilliseconds(),
-            Mask = this.EventMask(type),
+            Type = EventType.HookDisabled,
+            Time = (ulong)this.EventDateTime(EventType.HookDisabled).ToUnixTimeMilliseconds(),
+            Mask = this.EventMask(EventType.HookDisabled),
             Reserved = EventReservedValueMask.None
         };
 
-        this.DispatchEvent(new HookEventArgs(hookDisabled));
+        this.DispatchEvent(ref hookDisabled);
 
         this.IsRunning = false;
 
@@ -344,7 +343,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
                 {
                     KeyCode = keyCode,
                     RawCode = rawCode,
-                    RawKeyChar = UndefinedChar
+                    RawKeyChar = KeyboardEventData.RawUndefinedChar
                 }
             });
 
@@ -365,12 +364,41 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
                     }
                 };
 
-                this.DispatchEvent(HookEventArgs.FromEvent(e));
+                this.hookEvents.Add(e);
             }
         }
 
         return result;
     }
+
+    /// <summary>
+    /// Simulates pressing a key if <see cref="SimulateKeyPressResult" /> is <see cref="UioHookResult.Success" />.
+    /// Otherwise, does nothing.
+    /// </summary>
+    /// <param name="keyCode">The code of the key to press.</param>
+    /// <param name="cancellationToken">
+    /// The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.
+    /// </param>
+    /// <returns>
+    /// A <see cref="Task" /> which finishes when the event has been handled, and contains the handler result, or
+    /// <see langword="null" /> if the event was not simulated.
+    /// </returns>
+    /// <remarks>
+    /// <para>
+    /// This method simulates <see cref="EventType.KeyTyped" /> events as well if <see cref="KeyCodeToChars" /> returns
+    /// characters for <paramref name="keyCode" />.
+    /// </para>
+    /// <para>
+    /// Do not use this method inside the global hook as it will result in a deadlock.
+    /// </para>
+    /// </remarks>
+    public Task<TestEventHandledEventArgs?> SimulateKeyPressAndWaitForHandler(
+        KeyCode keyCode,
+        CancellationToken cancellationToken = default) =>
+        this.SimulateEventAndWaitForHandler(
+            () => this.SimulateKeyPress(keyCode),
+            e => e.Type == EventType.KeyPressed && e.Keyboard.KeyCode == keyCode,
+            cancellationToken);
 
     /// <summary>
     /// Simulates releasing a key if <see cref="SimulateKeyReleaseResult" /> is <see cref="UioHookResult.Success" />.
@@ -390,9 +418,32 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
                 {
                     KeyCode = keyCode,
                     RawCode = 1,
-                    RawKeyChar = UndefinedChar
+                    RawKeyChar = KeyboardEventData.RawUndefinedChar
                 }
             });
+
+    /// <summary>
+    /// Simulates releasing a key if <see cref="SimulateKeyReleaseResult" /> is <see cref="UioHookResult.Success" />.
+    /// Otherwise, does nothing.
+    /// </summary>
+    /// <param name="keyCode">The code of the key to release.</param>
+    /// <param name="cancellationToken">
+    /// The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.
+    /// </param>
+    /// <returns>
+    /// A <see cref="Task" /> which finishes when the event has been handled, and contains the handler result, or
+    /// <see langword="null" /> if the event was not simulated.
+    /// </returns>
+    /// <remarks>
+    /// Do not use this method inside the global hook as it will result in a deadlock.
+    /// </remarks>
+    public Task<TestEventHandledEventArgs?> SimulateKeyReleaseAndWaitForHandler(
+        KeyCode keyCode,
+        CancellationToken cancellationToken = default) =>
+        this.SimulateEventAndWaitForHandler(
+            () => this.SimulateKeyRelease(keyCode),
+            e => e.Type == EventType.KeyReleased && e.Keyboard.KeyCode == keyCode,
+            cancellationToken);
 
     /// <summary>
     /// Simulates the input of arbitrary Unicode characters if <see cref="SimulateTextEntryResult" /> is
@@ -428,6 +479,26 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
         this.SimulateMousePress(this.currentMouseX(), this.currentMouseY(), button);
 
     /// <summary>
+    /// Simulates pressing a mouse button at the current coordinates if <see cref="SimulateMousePressResult" /> is
+    /// <see cref="UioHookResult.Success" />. Otherwise, does nothing.
+    /// </summary>
+    /// <param name="button">The mouse button to press.</param>
+    /// <param name="cancellationToken">
+    /// The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.
+    /// </param>
+    /// <returns>
+    /// A <see cref="Task" /> which finishes when the event has been handled, and contains the handler result, or
+    /// <see langword="null" /> if the event was not simulated.
+    /// </returns>
+    /// <remarks>
+    /// Do not use this method inside the global hook as it will result in a deadlock.
+    /// </remarks>
+    public Task<TestEventHandledEventArgs?> SimulateMousePressAndWaitForHandler(
+        MouseButton button,
+        CancellationToken cancellationToken = default) =>
+        this.SimulateMousePressAndWaitForHandler(this.currentMouseX(), this.currentMouseY(), button, cancellationToken);
+
+    /// <summary>
     /// Simulates pressing a mouse button at the specified coordinates if <see cref="SimulateMousePressResult" /> is
     /// <see cref="UioHookResult.Success" />. Otherwise, does nothing.
     /// </summary>
@@ -452,13 +523,71 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
             });
 
     /// <summary>
+    /// Simulates pressing a mouse button at the specified coordinates if <see cref="SimulateMousePressResult" /> is
+    /// <see cref="UioHookResult.Success" />. Otherwise, does nothing.
+    /// </summary>
+    /// <param name="x">The target X-coordinate of the mouse pointer.</param>
+    /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
+    /// <param name="button">The mouse button to press.</param>
+    /// <param name="cancellationToken">
+    /// The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.
+    /// </param>
+    /// <returns>
+    /// A <see cref="Task" /> which finishes when the event has been handled, and contains the handler result, or
+    /// <see langword="null" /> if the event was not simulated.
+    /// </returns>
+    /// <remarks>
+    /// Do not use this method inside the global hook as it will result in a deadlock.
+    /// </remarks>
+    public Task<TestEventHandledEventArgs?> SimulateMousePressAndWaitForHandler(
+        short x,
+        short y,
+        MouseButton button,
+        CancellationToken cancellationToken = default) =>
+        this.SimulateEventAndWaitForHandler(
+            () => this.SimulateMousePress(x, y, button),
+            e => e.Type == EventType.MousePressed && e.Mouse.X == x && e.Mouse.Y == y && e.Mouse.Button == button,
+            cancellationToken);
+
+    /// <summary>
     /// Simulates releasing a mouse button at the current coordinates if <see cref="SimulateMouseReleaseResult" /> is
     /// <see cref="UioHookResult.Success" />. Otherwise, does nothing.
     /// </summary>
     /// <param name="button">The mouse button to release.</param>
     /// <returns>The value of <see cref="SimulateMouseReleaseResult" />.</returns>
+    /// <remarks>
+    /// This method simulates a <see cref="EventType.MouseClicked" /> event as well if <see cref="MouseClickCount" />
+    /// is greater than <c>0</c>.
+    /// </remarks>
     public UioHookResult SimulateMouseRelease(MouseButton button) =>
         this.SimulateMouseRelease(this.currentMouseX(), this.currentMouseY(), button);
+
+    /// <summary>
+    /// Simulates releasing a mouse button at the current coordinates if <see cref="SimulateMouseReleaseResult" /> is
+    /// <see cref="UioHookResult.Success" />. Otherwise, does nothing.
+    /// </summary>
+    /// <param name="button">The mouse button to release.</param>
+    /// <param name="cancellationToken">
+    /// The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.
+    /// </param>
+    /// <returns>
+    /// A <see cref="Task" /> which finishes when the event has been handled, and contains the handler result, or
+    /// <see langword="null" /> if the event was not simulated.
+    /// </returns>
+    /// <remarks>
+    /// <para>
+    /// This method simulates a <see cref="EventType.MouseClicked" /> event as well if <see cref="MouseClickCount" />
+    /// is greater than <c>0</c>.
+    /// </para>
+    /// <para>
+    /// Do not use this method inside the global hook as it will result in a deadlock.
+    /// </para>
+    /// </remarks>
+    public Task<TestEventHandledEventArgs?> SimulateMouseReleaseAndWaitForHandler(
+        MouseButton button,
+        CancellationToken cancellationToken = default) =>
+        this.SimulateMouseReleaseAndWaitForHandler(
+            this.currentMouseX(), this.currentMouseY(), button, cancellationToken);
 
     /// <summary>
     /// Simulates releasing a mouse button at the specified coordinates if <see cref="SimulateMouseReleaseResult" /> is
@@ -468,8 +597,13 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
     /// <param name="button">The mouse button to release.</param>
     /// <returns>The value of <see cref="SimulateMouseReleaseResult" />.</returns>
-    public UioHookResult SimulateMouseRelease(short x, short y, MouseButton button) =>
-        this.SimulateEvent(
+    /// <remarks>
+    /// This method simulates a <see cref="EventType.MouseClicked" /> event as well if <see cref="MouseClickCount" />
+    /// is greater than <c>0</c>.
+    /// </remarks>
+    public UioHookResult SimulateMouseRelease(short x, short y, MouseButton button)
+    {
+        var result = this.SimulateEvent(
             this.SimulateMouseReleaseResult,
             new UioHookEvent
             {
@@ -483,6 +617,63 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
                     Y = y
                 }
             });
+
+        ushort clickCount = this.MouseClickCount;
+
+        if (result == UioHookResult.Success && clickCount != 0)
+        {
+            var e = new UioHookEvent
+            {
+                Type = EventType.MouseClicked,
+                Time = (ulong)this.EventDateTime(EventType.MouseClicked).ToUnixTimeMilliseconds(),
+                Mask = this.EventMask(EventType.MouseClicked),
+                Mouse = new MouseEventData
+                {
+                    Button = button,
+                    X = x,
+                    Y = y,
+                    Clicks = clickCount
+                }
+            };
+
+            this.hookEvents.Add(e);
+        }
+
+        return result;
+    }
+
+    /// <summary>
+    /// Simulates releasing a mouse button at the specified coordinates if <see cref="SimulateMouseReleaseResult" /> is
+    /// <see cref="UioHookResult.Success" />. Otherwise, does nothing.
+    /// </summary>
+    /// <param name="x">The target X-coordinate of the mouse pointer.</param>
+    /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
+    /// <param name="button">The mouse button to release.</param>
+    /// <param name="cancellationToken">
+    /// The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.
+    /// </param>
+    /// <returns>
+    /// A <see cref="Task" /> which finishes when the event has been handled, and contains the handler result, or
+    /// <see langword="null" /> if the event was not simulated.
+    /// </returns>
+    /// <remarks>
+    /// <para>
+    /// This method simulates a <see cref="EventType.MouseClicked" /> event as well if <see cref="MouseClickCount" />
+    /// is greater than <c>0</c>.
+    /// </para>
+    /// <para>
+    /// Do not use this method inside the global hook as it will result in a deadlock.
+    /// </para>
+    /// </remarks>
+    public Task<TestEventHandledEventArgs?> SimulateMouseReleaseAndWaitForHandler(
+        short x,
+        short y,
+        MouseButton button,
+        CancellationToken cancellationToken = default) =>
+        this.SimulateEventAndWaitForHandler(
+            () => this.SimulateMouseRelease(x, y, button),
+            e => e.Type == EventType.MouseReleased && e.Mouse.X == x && e.Mouse.Y == y && e.Mouse.Button == button,
+            cancellationToken);
 
     /// <summary>
     /// Simulates moving a mouse pointer if <see cref="SimulateMouseMovementResult" /> is
@@ -508,6 +699,31 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
             });
 
     /// <summary>
+    /// Simulates moving a mouse pointer if <see cref="SimulateMouseMovementResult" /> is
+    /// <see cref="UioHookResult.Success" />. Otherwise, does nothing.
+    /// </summary>
+    /// <param name="x">The target X-coordinate of the mouse pointer.</param>
+    /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
+    /// <param name="cancellationToken">
+    /// The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.
+    /// </param>
+    /// <returns>
+    /// A <see cref="Task" /> which finishes when the event has been handled, and contains the handler result, or
+    /// <see langword="null" /> if the event was not simulated.
+    /// </returns>
+    /// <remarks>
+    /// Do not use this method inside the global hook as it will result in a deadlock.
+    /// </remarks>
+    public Task<TestEventHandledEventArgs?> SimulateMouseMovementAndWaitForHandler(
+        short x,
+        short y,
+        CancellationToken cancellationToken = default) =>
+        this.SimulateEventAndWaitForHandler(
+            () => this.SimulateMouseMovement(x, y),
+            e => e.Type == EventType.MouseMoved && e.Mouse.X == x && e.Mouse.Y == y,
+            cancellationToken);
+
+    /// <summary>
     /// Simulates moving a mouse pointer relative to the current cursor position if
     /// <see cref="SimulateMouseMovementResult" /> is <see cref="UioHookResult.Success" />. Otherwise, does nothing.
     /// </summary>
@@ -516,6 +732,29 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <returns>The value of <see cref="SimulateMouseMovementResult" />.</returns>
     public UioHookResult SimulateMouseMovementRelative(short x, short y) =>
         this.SimulateMouseMovement((short)(this.currentMouseX() + x), (short)(this.currentMouseY() + y));
+
+    /// <summary>
+    /// Simulates moving a mouse pointer relative to the current cursor position if
+    /// <see cref="SimulateMouseMovementResult" /> is <see cref="UioHookResult.Success" />. Otherwise, does nothing.
+    /// </summary>
+    /// <param name="x">The X-coordinate offset.</param>
+    /// <param name="y">The Y-coordinate offset.</param>
+    /// <param name="cancellationToken">
+    /// The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.
+    /// </param>
+    /// <returns>
+    /// A <see cref="Task" /> which finishes when the event has been handled, and contains the handler result, or
+    /// <see langword="null" /> if the event was not simulated.
+    /// </returns>
+    /// <remarks>
+    /// Do not use this method inside the global hook as it will result in a deadlock.
+    /// </remarks>
+    public Task<TestEventHandledEventArgs?> SimulateMouseMovementRelativeAndWaitForHandler(
+        short x,
+        short y,
+        CancellationToken cancellationToken = default) =>
+        this.SimulateMouseMovementAndWaitForHandler(
+            (short)(this.currentMouseX() + x), (short)(this.currentMouseY() + y), cancellationToken);
 
     /// <summary>
     /// Simulates scrolling the mouse wheel if <see cref="SimulateMouseWheelResult" /> is
@@ -545,46 +784,100 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
                 }
             });
 
-    private void DispatchEvent(HookEventArgs eventArgs)
-    {
-        switch (eventArgs)
-        {
-            case { RawEvent.Type: EventType.HookEnabled }:
-                this.HookEnabled?.Invoke(this, eventArgs);
-                break;
-            case { RawEvent.Type: EventType.HookDisabled }:
-                this.HookDisabled?.Invoke(this, eventArgs);
-                break;
-            case KeyboardHookEventArgs e and { RawEvent.Type: EventType.KeyPressed }:
-                this.KeyPressed?.Invoke(this, e);
-                break;
-            case KeyboardHookEventArgs e and { RawEvent.Type: EventType.KeyReleased }:
-                this.KeyReleased?.Invoke(this, e);
-                break;
-            case KeyboardHookEventArgs e and { RawEvent.Type: EventType.KeyTyped }:
-                this.KeyTyped?.Invoke(this, e);
-                break;
-            case MouseHookEventArgs e and { RawEvent.Type: EventType.MousePressed }:
-                this.MousePressed?.Invoke(this, e);
-                break;
-            case MouseHookEventArgs e and { RawEvent.Type: EventType.MouseReleased }:
-                this.MouseReleased?.Invoke(this, e);
-                break;
-            case MouseHookEventArgs e and { RawEvent.Type: EventType.MouseClicked }:
-                this.MouseClicked?.Invoke(this, e);
-                break;
-            case MouseHookEventArgs e and { RawEvent.Type: EventType.MouseMoved }:
-                this.MouseMoved?.Invoke(this, e);
-                break;
-            case MouseHookEventArgs e and { RawEvent.Type: EventType.MouseDragged }:
-                this.MouseDragged?.Invoke(this, e);
-                break;
-            case MouseWheelHookEventArgs e and { RawEvent.Type: EventType.MouseWheel }:
-                this.MouseWheel?.Invoke(this, e);
-                break;
-        }
+    /// <summary>
+    /// Simulates scrolling the mouse wheel if <see cref="SimulateMouseWheelResult" /> is
+    /// <see cref="UioHookResult.Success" />. Otherwise, does nothing.
+    /// </summary>
+    /// <param name="delta">The scroll delta.</param>
+    /// <param name="rotation">The wheel rotation.</param>
+    /// <param name="cancellationToken">
+    /// The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.
+    /// </param>
+    /// <returns>
+    /// A <see cref="Task" /> which finishes when the event has been handled, and contains the handler result, or
+    /// <see langword="null" /> if the event was not simulated.
+    /// </returns>
+    /// <remarks>
+    /// <para>
+    /// A positive <paramref name="rotation" /> value indicates that the wheel will be rotated down and a negative value
+    /// indicates that the wheel will be rotated up.
+    /// </para>
+    /// <para>
+    /// Do not use this method inside the global hook as it will result in a deadlock.
+    /// </para>
+    /// </remarks>
+    public Task<TestEventHandledEventArgs?> SimulateMouseWheelAndWaitForHandler(
+        ushort delta,
+        short rotation,
+        CancellationToken cancellationToken = default) =>
+        this.SimulateEventAndWaitForHandler(
+            () => this.SimulateMouseWheel(delta, rotation),
+            e => e.Type == EventType.MouseWheel && e.Wheel.Delta == delta && e.Wheel.Rotation == rotation,
+            cancellationToken);
 
-        this.simulatedEvents.Add(eventArgs);
+    private void DispatchEvent(ref UioHookEvent e)
+    {
+        HookEventArgs? args = null;
+
+        switch (e.Type)
+        {
+            case EventType.HookEnabled:
+                this.HookEnabled?.Invoke(this, args = new HookEventArgs(e));
+                break;
+            case EventType.HookDisabled:
+                this.HookEnabled?.Invoke(this, args = new HookEventArgs(e));
+                break;
+            case EventType.KeyTyped:
+                var keyTypedArgs = new KeyboardHookEventArgs(e);
+                args = keyTypedArgs;
+                this.KeyTyped?.Invoke(this, keyTypedArgs);
+                break;
+            case EventType.KeyPressed:
+                var keyPressedArgs = new KeyboardHookEventArgs(e);
+                args = keyPressedArgs;
+                this.KeyTyped?.Invoke(this, keyPressedArgs);
+                break;
+            case EventType.KeyReleased:
+                var keyReleasedArgs = new KeyboardHookEventArgs(e);
+                args = keyReleasedArgs;
+                this.KeyTyped?.Invoke(this, keyReleasedArgs);
+                break;
+            case EventType.MouseClicked:
+                var mouseClickedArgs = new MouseHookEventArgs(e);
+                args = mouseClickedArgs;
+                this.MouseClicked?.Invoke(this, mouseClickedArgs);
+                break;
+            case EventType.MousePressed:
+                var mousePressedArgs = new MouseHookEventArgs(e);
+                args = mousePressedArgs;
+                this.MousePressed?.Invoke(this, mousePressedArgs);
+                break;
+            case EventType.MouseReleased:
+                var mouseReleasedArgs = new MouseHookEventArgs(e);
+                args = mouseReleasedArgs;
+                this.MouseReleased?.Invoke(this, mouseReleasedArgs);
+                break;
+            case EventType.MouseMoved:
+                var mouseMovedArgs = new MouseHookEventArgs(e);
+                args = mouseMovedArgs;
+                this.MouseMoved?.Invoke(this, mouseMovedArgs);
+                break;
+            case EventType.MouseDragged:
+                var mouseDraggedArgs = new MouseHookEventArgs(e);
+                args = mouseDraggedArgs;
+                this.MouseDragged?.Invoke(this, mouseDraggedArgs);
+                break;
+            case EventType.MouseWheel:
+                var mouseWheelArgs = new MouseWheelHookEventArgs(e);
+                args = mouseWheelArgs;
+                this.MouseWheel?.Invoke(this, mouseWheelArgs);
+                break;
+        };
+
+        if (args != null && args.SuppressEvent)
+        {
+            e.Reserved |= EventReservedValueMask.SuppressEvent;
+        }
     }
 
     private void SetStarted(bool started)
@@ -600,10 +893,40 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     {
         if (result == UioHookResult.Success)
         {
-            this.DispatchEvent(HookEventArgs.FromEvent(e));
+            this.hookEvents.Add(e);
         }
 
         return result;
+    }
+
+    private Task<TestEventHandledEventArgs?> SimulateEventAndWaitForHandler(
+        Func<UioHookResult> simulate,
+        Func<UioHookEvent, bool> shouldHandle,
+        CancellationToken cancellationToken = default)
+    {
+        var completionSource = new TaskCompletionSource<TestEventHandledEventArgs?>();
+        cancellationToken.Register(completionSource.SetCanceled);
+
+        void Handler(object? sender, TestEventHandledEventArgs args)
+        {
+            if (shouldHandle(args.Event))
+            {
+                this.TestEventHandled -= Handler;
+                completionSource.SetResult(args);
+            }
+        }
+
+        this.TestEventHandled += Handler;
+
+        var result = simulate();
+
+        if (result != UioHookResult.Success)
+        {
+            this.TestEventHandled -= Handler;
+            return Task.FromResult<TestEventHandledEventArgs?>(null);
+        }
+
+        return completionSource.Task;
     }
 
     private void ThrowIfRunning()

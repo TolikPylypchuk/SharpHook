@@ -2,6 +2,7 @@ namespace SharpHook.Logging;
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -18,6 +19,7 @@ using SharpHook.Native;
 /// extract the arguments. This means that on Windows this class requires the Visual C++ Redistributable package to be
 /// installed.
 /// </remarks>
+[ExcludeFromCodeCoverage]
 public sealed class LogEntryParser
 {
     private static readonly Regex ArgumentRegex = new(
@@ -293,7 +295,7 @@ public sealed class LogEntryParser
             ? Native.WindowsVsnprintf(buffer, size, format, args)
             : PlatformDetector.IsLinux ? Native.LinuxVsnprintf(buffer, size, format, args) : -1;
 
-    private struct FormatAndArguments
+    private readonly struct FormatAndArguments
     {
         internal FormatAndArguments(
             string format,

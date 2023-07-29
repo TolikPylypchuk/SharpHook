@@ -198,12 +198,11 @@ public sealed class TestProvider :
         this.cancellationTokenSource = new();
         this.IsRunning = true;
 
-        var type = EventType.HookEnabled;
         var hookEnabled = new UioHookEvent
         {
-            Type = type,
-            Time = (ulong)this.EventDateTime(type).ToUnixTimeMilliseconds(),
-            Mask = this.EventMask(type),
+            Type = EventType.HookEnabled,
+            Time = (ulong)this.EventDateTime(EventType.HookEnabled).ToUnixTimeMilliseconds(),
+            Mask = this.EventMask(EventType.HookEnabled),
             Reserved = EventReservedValueMask.None
         };
 
@@ -272,12 +271,11 @@ public sealed class TestProvider :
             return result;
         }
 
-        var type = EventType.HookDisabled;
         var hookDisabled = new UioHookEvent
         {
-            Type = type,
-            Time = (ulong)this.EventDateTime(type).ToUnixTimeMilliseconds(),
-            Mask = this.EventMask(type),
+            Type = EventType.HookDisabled,
+            Time = (ulong)this.EventDateTime(EventType.HookDisabled).ToUnixTimeMilliseconds(),
+            Mask = this.EventMask(EventType.HookDisabled),
             Reserved = EventReservedValueMask.None
         };
 
@@ -340,7 +338,7 @@ public sealed class TestProvider :
     /// <see langword="null" /> if the event was not posted.
     /// </returns>
     /// <remarks>
-    /// Do not use this method inside an input event handler as it will result in a deadlock.
+    /// Do not use this method inside the global hook as it will result in a deadlock.
     /// </remarks>
     public Task<TestEventHandledEventArgs?> PostEventAndWaitForHandler(
         ref UioHookEvent e,
