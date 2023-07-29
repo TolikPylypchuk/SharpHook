@@ -1677,6 +1677,12 @@ references:
   commentId: F:SharpHook.Native.KeyboardEventData.RawKeyChar
   fullName: SharpHook.Native.KeyboardEventData.RawKeyChar
   nameWithType: KeyboardEventData.RawKeyChar
+- uid: SharpHook.Native.KeyboardEventData.RawUndefinedChar
+  name: RawUndefinedChar
+  href: api/SharpHook.Native.KeyboardEventData.html#SharpHook_Native_KeyboardEventData_RawUndefinedChar
+  commentId: F:SharpHook.Native.KeyboardEventData.RawUndefinedChar
+  fullName: SharpHook.Native.KeyboardEventData.RawUndefinedChar
+  nameWithType: KeyboardEventData.RawUndefinedChar
 - uid: SharpHook.Native.KeyboardEventData.ToString
   name: ToString()
   href: api/SharpHook.Native.KeyboardEventData.html#SharpHook_Native_KeyboardEventData_ToString
@@ -1690,6 +1696,12 @@ references:
   isSpec: "True"
   fullName: SharpHook.Native.KeyboardEventData.ToString
   nameWithType: KeyboardEventData.ToString
+- uid: SharpHook.Native.KeyboardEventData.UndefinedChar
+  name: UndefinedChar
+  href: api/SharpHook.Native.KeyboardEventData.html#SharpHook_Native_KeyboardEventData_UndefinedChar
+  commentId: F:SharpHook.Native.KeyboardEventData.UndefinedChar
+  fullName: SharpHook.Native.KeyboardEventData.UndefinedChar
+  nameWithType: KeyboardEventData.UndefinedChar
 - uid: SharpHook.Native.KeyCode
   name: KeyCode
   href: api/SharpHook.Native.KeyCode.html
@@ -6205,6 +6217,19 @@ references:
   commentId: E:SharpHook.Testing.TestGlobalHook.KeyTyped
   fullName: SharpHook.Testing.TestGlobalHook.KeyTyped
   nameWithType: TestGlobalHook.KeyTyped
+- uid: SharpHook.Testing.TestGlobalHook.MouseClickCount
+  name: MouseClickCount
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_MouseClickCount
+  commentId: P:SharpHook.Testing.TestGlobalHook.MouseClickCount
+  fullName: SharpHook.Testing.TestGlobalHook.MouseClickCount
+  nameWithType: TestGlobalHook.MouseClickCount
+- uid: SharpHook.Testing.TestGlobalHook.MouseClickCount*
+  name: MouseClickCount
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_MouseClickCount_
+  commentId: Overload:SharpHook.Testing.TestGlobalHook.MouseClickCount
+  isSpec: "True"
+  fullName: SharpHook.Testing.TestGlobalHook.MouseClickCount
+  nameWithType: TestGlobalHook.MouseClickCount
 - uid: SharpHook.Testing.TestGlobalHook.MouseClicked
   name: MouseClicked
   href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_MouseClicked
@@ -6336,6 +6361,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.Testing.TestGlobalHook.SimulateKeyPress
   nameWithType: TestGlobalHook.SimulateKeyPress
+- uid: SharpHook.Testing.TestGlobalHook.SimulateKeyPressAndWaitForHandler(SharpHook.Native.KeyCode,System.Threading.CancellationToken)
+  name: SimulateKeyPressAndWaitForHandler(KeyCode, CancellationToken)
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyPressAndWaitForHandler_SharpHook_Native_KeyCode_System_Threading_CancellationToken_
+  commentId: M:SharpHook.Testing.TestGlobalHook.SimulateKeyPressAndWaitForHandler(SharpHook.Native.KeyCode,System.Threading.CancellationToken)
+  fullName: SharpHook.Testing.TestGlobalHook.SimulateKeyPressAndWaitForHandler(SharpHook.Native.KeyCode, System.Threading.CancellationToken)
+  nameWithType: TestGlobalHook.SimulateKeyPressAndWaitForHandler(KeyCode, CancellationToken)
+- uid: SharpHook.Testing.TestGlobalHook.SimulateKeyPressAndWaitForHandler*
+  name: SimulateKeyPressAndWaitForHandler
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyPressAndWaitForHandler_
+  commentId: Overload:SharpHook.Testing.TestGlobalHook.SimulateKeyPressAndWaitForHandler
+  isSpec: "True"
+  fullName: SharpHook.Testing.TestGlobalHook.SimulateKeyPressAndWaitForHandler
+  nameWithType: TestGlobalHook.SimulateKeyPressAndWaitForHandler
 - uid: SharpHook.Testing.TestGlobalHook.SimulateKeyPressResult
   name: SimulateKeyPressResult
   href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyPressResult
@@ -6362,6 +6400,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.Testing.TestGlobalHook.SimulateKeyRelease
   nameWithType: TestGlobalHook.SimulateKeyRelease
+- uid: SharpHook.Testing.TestGlobalHook.SimulateKeyReleaseAndWaitForHandler(SharpHook.Native.KeyCode,System.Threading.CancellationToken)
+  name: SimulateKeyReleaseAndWaitForHandler(KeyCode, CancellationToken)
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyReleaseAndWaitForHandler_SharpHook_Native_KeyCode_System_Threading_CancellationToken_
+  commentId: M:SharpHook.Testing.TestGlobalHook.SimulateKeyReleaseAndWaitForHandler(SharpHook.Native.KeyCode,System.Threading.CancellationToken)
+  fullName: SharpHook.Testing.TestGlobalHook.SimulateKeyReleaseAndWaitForHandler(SharpHook.Native.KeyCode, System.Threading.CancellationToken)
+  nameWithType: TestGlobalHook.SimulateKeyReleaseAndWaitForHandler(KeyCode, CancellationToken)
+- uid: SharpHook.Testing.TestGlobalHook.SimulateKeyReleaseAndWaitForHandler*
+  name: SimulateKeyReleaseAndWaitForHandler
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyReleaseAndWaitForHandler_
+  commentId: Overload:SharpHook.Testing.TestGlobalHook.SimulateKeyReleaseAndWaitForHandler
+  isSpec: "True"
+  fullName: SharpHook.Testing.TestGlobalHook.SimulateKeyReleaseAndWaitForHandler
+  nameWithType: TestGlobalHook.SimulateKeyReleaseAndWaitForHandler
 - uid: SharpHook.Testing.TestGlobalHook.SimulateKeyReleaseResult
   name: SimulateKeyReleaseResult
   href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyReleaseResult
@@ -6388,6 +6439,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.Testing.TestGlobalHook.SimulateMouseMovement
   nameWithType: TestGlobalHook.SimulateMouseMovement
+- uid: SharpHook.Testing.TestGlobalHook.SimulateMouseMovementAndWaitForHandler(System.Int16,System.Int16,System.Threading.CancellationToken)
+  name: SimulateMouseMovementAndWaitForHandler(Int16, Int16, CancellationToken)
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseMovementAndWaitForHandler_System_Int16_System_Int16_System_Threading_CancellationToken_
+  commentId: M:SharpHook.Testing.TestGlobalHook.SimulateMouseMovementAndWaitForHandler(System.Int16,System.Int16,System.Threading.CancellationToken)
+  fullName: SharpHook.Testing.TestGlobalHook.SimulateMouseMovementAndWaitForHandler(System.Int16, System.Int16, System.Threading.CancellationToken)
+  nameWithType: TestGlobalHook.SimulateMouseMovementAndWaitForHandler(Int16, Int16, CancellationToken)
+- uid: SharpHook.Testing.TestGlobalHook.SimulateMouseMovementAndWaitForHandler*
+  name: SimulateMouseMovementAndWaitForHandler
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseMovementAndWaitForHandler_
+  commentId: Overload:SharpHook.Testing.TestGlobalHook.SimulateMouseMovementAndWaitForHandler
+  isSpec: "True"
+  fullName: SharpHook.Testing.TestGlobalHook.SimulateMouseMovementAndWaitForHandler
+  nameWithType: TestGlobalHook.SimulateMouseMovementAndWaitForHandler
 - uid: SharpHook.Testing.TestGlobalHook.SimulateMouseMovementRelative(System.Int16,System.Int16)
   name: SimulateMouseMovementRelative(Int16, Int16)
   href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseMovementRelative_System_Int16_System_Int16_
@@ -6401,6 +6465,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.Testing.TestGlobalHook.SimulateMouseMovementRelative
   nameWithType: TestGlobalHook.SimulateMouseMovementRelative
+- uid: SharpHook.Testing.TestGlobalHook.SimulateMouseMovementRelativeAndWaitForHandler(System.Int16,System.Int16,System.Threading.CancellationToken)
+  name: SimulateMouseMovementRelativeAndWaitForHandler(Int16, Int16, CancellationToken)
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseMovementRelativeAndWaitForHandler_System_Int16_System_Int16_System_Threading_CancellationToken_
+  commentId: M:SharpHook.Testing.TestGlobalHook.SimulateMouseMovementRelativeAndWaitForHandler(System.Int16,System.Int16,System.Threading.CancellationToken)
+  fullName: SharpHook.Testing.TestGlobalHook.SimulateMouseMovementRelativeAndWaitForHandler(System.Int16, System.Int16, System.Threading.CancellationToken)
+  nameWithType: TestGlobalHook.SimulateMouseMovementRelativeAndWaitForHandler(Int16, Int16, CancellationToken)
+- uid: SharpHook.Testing.TestGlobalHook.SimulateMouseMovementRelativeAndWaitForHandler*
+  name: SimulateMouseMovementRelativeAndWaitForHandler
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseMovementRelativeAndWaitForHandler_
+  commentId: Overload:SharpHook.Testing.TestGlobalHook.SimulateMouseMovementRelativeAndWaitForHandler
+  isSpec: "True"
+  fullName: SharpHook.Testing.TestGlobalHook.SimulateMouseMovementRelativeAndWaitForHandler
+  nameWithType: TestGlobalHook.SimulateMouseMovementRelativeAndWaitForHandler
 - uid: SharpHook.Testing.TestGlobalHook.SimulateMouseMovementResult
   name: SimulateMouseMovementResult
   href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseMovementResult
@@ -6433,6 +6510,25 @@ references:
   isSpec: "True"
   fullName: SharpHook.Testing.TestGlobalHook.SimulateMousePress
   nameWithType: TestGlobalHook.SimulateMousePress
+- uid: SharpHook.Testing.TestGlobalHook.SimulateMousePressAndWaitForHandler(SharpHook.Native.MouseButton,System.Threading.CancellationToken)
+  name: SimulateMousePressAndWaitForHandler(MouseButton, CancellationToken)
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMousePressAndWaitForHandler_SharpHook_Native_MouseButton_System_Threading_CancellationToken_
+  commentId: M:SharpHook.Testing.TestGlobalHook.SimulateMousePressAndWaitForHandler(SharpHook.Native.MouseButton,System.Threading.CancellationToken)
+  fullName: SharpHook.Testing.TestGlobalHook.SimulateMousePressAndWaitForHandler(SharpHook.Native.MouseButton, System.Threading.CancellationToken)
+  nameWithType: TestGlobalHook.SimulateMousePressAndWaitForHandler(MouseButton, CancellationToken)
+- uid: SharpHook.Testing.TestGlobalHook.SimulateMousePressAndWaitForHandler(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.Threading.CancellationToken)
+  name: SimulateMousePressAndWaitForHandler(Int16, Int16, MouseButton, CancellationToken)
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMousePressAndWaitForHandler_System_Int16_System_Int16_SharpHook_Native_MouseButton_System_Threading_CancellationToken_
+  commentId: M:SharpHook.Testing.TestGlobalHook.SimulateMousePressAndWaitForHandler(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.Threading.CancellationToken)
+  fullName: SharpHook.Testing.TestGlobalHook.SimulateMousePressAndWaitForHandler(System.Int16, System.Int16, SharpHook.Native.MouseButton, System.Threading.CancellationToken)
+  nameWithType: TestGlobalHook.SimulateMousePressAndWaitForHandler(Int16, Int16, MouseButton, CancellationToken)
+- uid: SharpHook.Testing.TestGlobalHook.SimulateMousePressAndWaitForHandler*
+  name: SimulateMousePressAndWaitForHandler
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMousePressAndWaitForHandler_
+  commentId: Overload:SharpHook.Testing.TestGlobalHook.SimulateMousePressAndWaitForHandler
+  isSpec: "True"
+  fullName: SharpHook.Testing.TestGlobalHook.SimulateMousePressAndWaitForHandler
+  nameWithType: TestGlobalHook.SimulateMousePressAndWaitForHandler
 - uid: SharpHook.Testing.TestGlobalHook.SimulateMousePressResult
   name: SimulateMousePressResult
   href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMousePressResult
@@ -6465,6 +6561,25 @@ references:
   isSpec: "True"
   fullName: SharpHook.Testing.TestGlobalHook.SimulateMouseRelease
   nameWithType: TestGlobalHook.SimulateMouseRelease
+- uid: SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForHandler(SharpHook.Native.MouseButton,System.Threading.CancellationToken)
+  name: SimulateMouseReleaseAndWaitForHandler(MouseButton, CancellationToken)
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForHandler_SharpHook_Native_MouseButton_System_Threading_CancellationToken_
+  commentId: M:SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForHandler(SharpHook.Native.MouseButton,System.Threading.CancellationToken)
+  fullName: SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForHandler(SharpHook.Native.MouseButton, System.Threading.CancellationToken)
+  nameWithType: TestGlobalHook.SimulateMouseReleaseAndWaitForHandler(MouseButton, CancellationToken)
+- uid: SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForHandler(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.Threading.CancellationToken)
+  name: SimulateMouseReleaseAndWaitForHandler(Int16, Int16, MouseButton, CancellationToken)
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForHandler_System_Int16_System_Int16_SharpHook_Native_MouseButton_System_Threading_CancellationToken_
+  commentId: M:SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForHandler(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.Threading.CancellationToken)
+  fullName: SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForHandler(System.Int16, System.Int16, SharpHook.Native.MouseButton, System.Threading.CancellationToken)
+  nameWithType: TestGlobalHook.SimulateMouseReleaseAndWaitForHandler(Int16, Int16, MouseButton, CancellationToken)
+- uid: SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForHandler*
+  name: SimulateMouseReleaseAndWaitForHandler
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForHandler_
+  commentId: Overload:SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForHandler
+  isSpec: "True"
+  fullName: SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForHandler
+  nameWithType: TestGlobalHook.SimulateMouseReleaseAndWaitForHandler
 - uid: SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseResult
   name: SimulateMouseReleaseResult
   href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseResult
@@ -6491,6 +6606,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.Testing.TestGlobalHook.SimulateMouseWheel
   nameWithType: TestGlobalHook.SimulateMouseWheel
+- uid: SharpHook.Testing.TestGlobalHook.SimulateMouseWheelAndWaitForHandler(System.UInt16,System.Int16,System.Threading.CancellationToken)
+  name: SimulateMouseWheelAndWaitForHandler(UInt16, Int16, CancellationToken)
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseWheelAndWaitForHandler_System_UInt16_System_Int16_System_Threading_CancellationToken_
+  commentId: M:SharpHook.Testing.TestGlobalHook.SimulateMouseWheelAndWaitForHandler(System.UInt16,System.Int16,System.Threading.CancellationToken)
+  fullName: SharpHook.Testing.TestGlobalHook.SimulateMouseWheelAndWaitForHandler(System.UInt16, System.Int16, System.Threading.CancellationToken)
+  nameWithType: TestGlobalHook.SimulateMouseWheelAndWaitForHandler(UInt16, Int16, CancellationToken)
+- uid: SharpHook.Testing.TestGlobalHook.SimulateMouseWheelAndWaitForHandler*
+  name: SimulateMouseWheelAndWaitForHandler
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseWheelAndWaitForHandler_
+  commentId: Overload:SharpHook.Testing.TestGlobalHook.SimulateMouseWheelAndWaitForHandler
+  isSpec: "True"
+  fullName: SharpHook.Testing.TestGlobalHook.SimulateMouseWheelAndWaitForHandler
+  nameWithType: TestGlobalHook.SimulateMouseWheelAndWaitForHandler
 - uid: SharpHook.Testing.TestGlobalHook.SimulateMouseWheelResult
   name: SimulateMouseWheelResult
   href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseWheelResult
