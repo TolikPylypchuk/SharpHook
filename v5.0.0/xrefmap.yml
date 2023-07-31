@@ -6361,6 +6361,19 @@ references:
   isSpec: "True"
   fullName: SharpHook.Testing.TestGlobalHook.SimulatedEvents
   nameWithType: TestGlobalHook.SimulatedEvents
+- uid: SharpHook.Testing.TestGlobalHook.SimulatedText
+  name: SimulatedText
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulatedText
+  commentId: P:SharpHook.Testing.TestGlobalHook.SimulatedText
+  fullName: SharpHook.Testing.TestGlobalHook.SimulatedText
+  nameWithType: TestGlobalHook.SimulatedText
+- uid: SharpHook.Testing.TestGlobalHook.SimulatedText*
+  name: SimulatedText
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulatedText_
+  commentId: Overload:SharpHook.Testing.TestGlobalHook.SimulatedText
+  isSpec: "True"
+  fullName: SharpHook.Testing.TestGlobalHook.SimulatedText
+  nameWithType: TestGlobalHook.SimulatedText
 - uid: SharpHook.Testing.TestGlobalHook.SimulateKeyPress(SharpHook.Native.KeyCode)
   name: SimulateKeyPress(KeyCode)
   href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyPress_SharpHook_Native_KeyCode_
