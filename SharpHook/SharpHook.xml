@@ -4109,6 +4109,11 @@
             Gets the events that have been simulated using this instance.
             </summary>
         </member>
+        <member name="P:SharpHook.Testing.TestGlobalHook.SimulatedText">
+            <summary>
+            Gets the text that has been simulated using this instance.
+            </summary>
+        </member>
         <member name="P:SharpHook.Testing.TestGlobalHook.EventDateTime">
             <summary>
             Gets or sets the function which will be called to set the date/time of events.

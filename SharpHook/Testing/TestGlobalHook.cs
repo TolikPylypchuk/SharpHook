@@ -51,6 +51,12 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
         this.simulatedEvents.AsReadOnly();
 
     /// <summary>
+    /// Gets the text that has been simulated using this instance.
+    /// </summary>
+    public IReadOnlyList<string> SimulatedText =>
+        this.simulatedText.AsReadOnly();
+
+    /// <summary>
     /// Gets or sets the function which will be called to set the date/time of events.
     /// </summary>
     /// <exception cref="ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
@@ -299,6 +305,8 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// </remarks>
     public void Dispose()
     {
+        this.ThrowIfDisposed();
+
         var result = this.DisposeResult;
 
         if (result != UioHookResult.Success)
@@ -746,6 +754,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
             () => this.SimulateMouseRelease(x, y, button),
             e => e.Type == EventType.MouseReleased && e.Mouse.X == x && e.Mouse.Y == y && e.Mouse.Button == button,
             cancellationToken);
+
     /// <summary>
     /// Simulates releasing a mouse button at the specified coordinates if <see cref="SimulateMouseReleaseResult" /> is
     /// <see cref="UioHookResult.Success" />. Otherwise, does nothing.
@@ -982,9 +991,14 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
                 break;
         };
 
-        if (args != null && args.SuppressEvent)
+        if (args is not null)
         {
-            e.Reserved |= EventReservedValueMask.SuppressEvent;
+            if (args.SuppressEvent)
+            {
+                e.Reserved |= EventReservedValueMask.SuppressEvent;
+            }
+
+            this.simulatedEvents.Add(args);
         }
     }
 
