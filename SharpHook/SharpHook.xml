@@ -126,17 +126,17 @@
             <param name="y">The Y-coordinate offset.</param>
             <returns>The result of the operation.</returns>
         </member>
-        <member name="M:SharpHook.EventSimulator.SimulateMouseWheel(System.UInt16,System.Int16)">
+        <member name="M:SharpHook.EventSimulator.SimulateMouseWheel(System.Int16,SharpHook.Native.MouseWheelScrollDirection,SharpHook.Native.MouseWheelScrollType)">
             <summary>
             Simulates scrolling the mouse wheel.
             </summary>
-            <param name="delta">The scroll delta.</param>
-            <param name="rotation">The wheel rotation.</param>
+            <param name="rotation">
+            The wheel rotation. A positive value indicates that the wheel will be rotated up or right,
+            and a negative value indicates that the wheel will be rotated down or left.
+            </param>
+            <param name="direction">The scroll direction.</param>
+            <param name="type">The scroll type (considered only on macOS).</param>
             <returns>The result of the operation.</returns>
-            <remarks>
-            A positive <paramref name="rotation" /> value indicates that the wheel will be rotated down and a negative value
-            indicates that the wheel will be rotated up.
-            </remarks>
         </member>
         <member name="T:SharpHook.GlobalHookBase">
             <summary>
@@ -605,17 +605,17 @@
             <param name="y">The Y-coordinate offset.</param>
             <returns>The result of the operation.</returns>
         </member>
-        <member name="M:SharpHook.IEventSimulator.SimulateMouseWheel(System.UInt16,System.Int16)">
+        <member name="M:SharpHook.IEventSimulator.SimulateMouseWheel(System.Int16,SharpHook.Native.MouseWheelScrollDirection,SharpHook.Native.MouseWheelScrollType)">
             <summary>
             Simulates scrolling the mouse wheel.
             </summary>
-            <param name="delta">The scroll delta.</param>
-            <param name="rotation">The wheel rotation.</param>
+            <param name="rotation">
+            The wheel rotation. A positive value indicates that the wheel will be rotated up or right,
+            and a negative value indicates that the wheel will be rotated down or left.
+            </param>
+            <param name="direction">The scroll direction.</param>
+            <param name="type">The scroll type (considered only on macOS).</param>
             <returns>The result of the operation.</returns>
-            <remarks>
-            A positive <paramref name="rotation" /> value indicates that the wheel will be rotated down and a negative value
-            indicates that the wheel will be rotated up.
-            </remarks>
         </member>
         <member name="T:SharpHook.IGlobalHook">
             <summary>
@@ -2753,6 +2753,9 @@
             The wheel scroll type.
             </summary>
             <value>The wheel scroll type.</value>
+            <remarks>
+            On Linux this value is always equal to <see cref="F:SharpHook.Native.MouseWheelScrollType.UnitScroll" />.
+            </remarks>
         </member>
         <member name="F:SharpHook.Native.MouseWheelEventData.Rotation">
             <summary>
@@ -2760,15 +2763,26 @@
             </summary>
             <value>The wheel rotation.</value>
             <remarks>
-            A positive value indicates that the wheel was rotated down and a negative value indicates that the wheel was
-            rotated up.
+            A positive value indicates that the wheel was rotated up or right, and a negative value indicates that the wheel
+            was rotated down or left.
             </remarks>
         </member>
         <member name="F:SharpHook.Native.MouseWheelEventData.Delta">
             <summary>
-            The scroll delta.
+            The wheel delta.
             </summary>
-            <value>The scroll delta.</value>
+            <value>The wheel delta.</value>
+            <remarks>
+            <para>
+            On Windows this value is equal to the <c>WHEEL_DELTA</c> constant (<c>120</c>).
+            </para>
+            <para>
+            On macOS this value is the number of pixels per line.
+            </para>
+            <para>
+            On Linux this value is always equal to <c>100</c>.
+            </para>
+            </remarks>
         </member>
         <member name="F:SharpHook.Native.MouseWheelEventData.Direction">
             <summary>
@@ -2832,12 +2846,12 @@
             </summary>
             <seealso cref="T:SharpHook.Native.MouseWheelEventData" />
         </member>
-        <member name="F:SharpHook.Native.MouseWheelScrollDirection.VerticalDirection">
+        <member name="F:SharpHook.Native.MouseWheelScrollDirection.Vertical">
             <summary>
             Vertical scroll direction
             </summary>
         </member>
-        <member name="F:SharpHook.Native.MouseWheelScrollDirection.HorizontalDirection">
+        <member name="F:SharpHook.Native.MouseWheelScrollDirection.Horizontal">
             <summary>
             Horizontal scroll direction
             </summary>
@@ -4229,10 +4243,14 @@
         </member>
         <member name="P:SharpHook.Testing.TestGlobalHook.SimulateMouseWheelResult">
             <summary>
-            Gets or sets the result of the <see cref="M:SharpHook.Testing.TestGlobalHook.SimulateMouseWheel(System.UInt16,System.Int16)" /> method. If anything other than
-            <see cref="F:SharpHook.Native.UioHookResult.Success" /> is set, then the method will do nothing.
+            Gets or sets the result of the
+            <see cref="M:SharpHook.Testing.TestGlobalHook.SimulateMouseWheel(System.Int16,SharpHook.Native.MouseWheelScrollDirection,SharpHook.Native.MouseWheelScrollType)" /> method. If anything
+            other than <see cref="F:SharpHook.Native.UioHookResult.Success" /> is set, then the method will do nothing.
             </summary>
-            <value>The result of the <see cref="M:SharpHook.Testing.TestGlobalHook.SimulateMouseWheel(System.UInt16,System.Int16)" /> method.</value>
+            <value>
+            The result of the <see cref="M:SharpHook.Testing.TestGlobalHook.SimulateMouseWheel(System.Int16,SharpHook.Native.MouseWheelScrollDirection,SharpHook.Native.MouseWheelScrollType)" />
+            method.
+            </value>
         </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.Run">
             <summary>
@@ -4609,26 +4627,30 @@
             Do not use this method inside the global hook as it will result in a deadlock.
             </remarks>
         </member>
-        <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMouseWheel(System.UInt16,System.Int16)">
+        <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMouseWheel(System.Int16,SharpHook.Native.MouseWheelScrollDirection,SharpHook.Native.MouseWheelScrollType)">
             <summary>
             Simulates scrolling the mouse wheel if <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMouseWheelResult" /> is
             <see cref="F:SharpHook.Native.UioHookResult.Success" />. Otherwise, does nothing.
             </summary>
-            <param name="delta">The scroll delta.</param>
-            <param name="rotation">The wheel rotation.</param>
+            <param name="rotation">
+            The wheel rotation. A positive value indicates that the wheel will be rotated up or right,
+            and a negative value indicates that the wheel will be rotated down or left.
+            </param>
+            <param name="direction">The scroll direction.</param>
+            <param name="type">The scroll type.</param>
             <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMouseWheelResult" />.</returns>
-            <remarks>
-            A positive <paramref name="rotation" /> value indicates that the wheel will be rotated down and a negative value
-            indicates that the wheel will be rotated up.
-            </remarks>
         </member>
-        <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMouseWheelAndWaitForHandler(System.UInt16,System.Int16,System.Threading.CancellationToken)">
+        <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMouseWheelAndWaitForHandler(System.Int16,SharpHook.Native.MouseWheelScrollDirection,SharpHook.Native.MouseWheelScrollType,System.Threading.CancellationToken)">
             <summary>
             Simulates scrolling the mouse wheel if <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMouseWheelResult" /> is
             <see cref="F:SharpHook.Native.UioHookResult.Success" />. Otherwise, does nothing.
             </summary>
-            <param name="delta">The scroll delta.</param>
-            <param name="rotation">The wheel rotation.</param>
+            <param name="rotation">
+            The wheel rotation. A positive value indicates that the wheel will be rotated up or right,
+            and a negative value indicates that the wheel will be rotated down or left.
+            </param>
+            <param name="direction">The scroll direction.</param>
+            <param name="type">The scroll type.</param>
             <param name="cancellationToken">
             The token to monitor for cancellation requests. The default value is <see cref="P:System.Threading.CancellationToken.None" />.
             </param>
@@ -4637,13 +4659,7 @@
             <see langword="null" /> if the event was not simulated.
             </returns>
             <remarks>
-            <para>
-            A positive <paramref name="rotation" /> value indicates that the wheel will be rotated down and a negative value
-            indicates that the wheel will be rotated up.
-            </para>
-            <para>
             Do not use this method inside the global hook as it will result in a deadlock.
-            </para>
             </remarks>
         </member>
         <member name="E:SharpHook.Testing.TestGlobalHook.HookEnabled">

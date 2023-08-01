@@ -188,18 +188,21 @@ public class EventSimulator : IEventSimulator
     /// <summary>
     /// Simulates scrolling the mouse wheel.
     /// </summary>
-    /// <param name="delta">The scroll delta.</param>
-    /// <param name="rotation">The wheel rotation.</param>
+    /// <param name="rotation">
+    /// The wheel rotation. A positive value indicates that the wheel will be rotated up or right,
+    /// and a negative value indicates that the wheel will be rotated down or left.
+    /// </param>
+    /// <param name="direction">The scroll direction.</param>
+    /// <param name="type">The scroll type (considered only on macOS).</param>
     /// <returns>The result of the operation.</returns>
-    /// <remarks>
-    /// A positive <paramref name="rotation" /> value indicates that the wheel will be rotated down and a negative value
-    /// indicates that the wheel will be rotated up.
-    /// </remarks>
-    public UioHookResult SimulateMouseWheel(ushort delta, short rotation) =>
+    public UioHookResult SimulateMouseWheel(
+        short rotation,
+        MouseWheelScrollDirection direction = MouseWheelScrollDirection.Vertical,
+        MouseWheelScrollType type = MouseWheelScrollType.UnitScroll) =>
         this.PostEvent(new()
         {
             Type = EventType.MouseWheel,
-            Wheel = new() { Rotation = rotation, Delta = delta }
+            Wheel = new() { Rotation = rotation, Direction = direction, Type = type }
         });
 
     private UioHookResult PostEvent(UioHookEvent e) =>

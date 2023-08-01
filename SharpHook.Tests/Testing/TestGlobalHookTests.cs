@@ -757,10 +757,9 @@ public class TestGlobalHookTests
 
     [Property(DisplayName = "MouseWheel events should be simulated and handled")]
     public async void HandleMouseWheel(
-        ushort delta,
         short rotation,
-        short x,
-        short y,
+        MouseWheelScrollDirection direction,
+        MouseWheelScrollType type,
         DateTimeAfterEpoch dateTime,
         ModifierMask mask)
     {
@@ -771,9 +770,7 @@ public class TestGlobalHookTests
         using var hook = new TestGlobalHook
         {
             EventDateTime = t => dateTime.Value,
-            EventMask = t => mask,
-            CurrentMouseX = () => x,
-            CurrentMouseY = () => y
+            EventMask = t => mask
         };
 
         // Act
@@ -786,15 +783,14 @@ public class TestGlobalHookTests
 
         await hook.RunAndWaitForStart();
 
-        var args = await hook.SimulateMouseWheelAndWaitForHandler(delta, rotation);
+        var args = await hook.SimulateMouseWheelAndWaitForHandler(rotation, direction, type);
 
         // Assert
 
         Assert.NotNull(actualEventArgs);
-        Assert.Equal(x, actualEventArgs.Data.X);
-        Assert.Equal(y, actualEventArgs.Data.Y);
-        Assert.Equal(delta, actualEventArgs.Data.Delta);
         Assert.Equal(rotation, actualEventArgs.Data.Rotation);
+        Assert.Equal(direction, actualEventArgs.Data.Direction);
+        Assert.Equal(type, actualEventArgs.Data.Type);
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
@@ -1160,7 +1156,11 @@ public class TestGlobalHookTests
     }
 
     [Property(DisplayName = "SimulateMouseWheel should return an error if configured to do so")]
-    public async void SimulateMouseWheelFail(FailedUioHookResult result, ushort delta, short rotation)
+    public async void SimulateMouseWheelFail(
+        FailedUioHookResult result,
+        short rotation,
+        MouseWheelScrollDirection direction,
+        MouseWheelScrollType type)
     {
         // Arrange
 
@@ -1171,8 +1171,8 @@ public class TestGlobalHookTests
 
         // Act
 
-        var actualResult = hook.SimulateMouseWheel(delta, rotation);
-        var asyncResult = await hook.SimulateMouseWheelAndWaitForHandler(delta, rotation);
+        var actualResult = hook.SimulateMouseWheel(rotation, direction, type);
+        var asyncResult = await hook.SimulateMouseWheelAndWaitForHandler(rotation, direction, type);
 
         // Assert
 

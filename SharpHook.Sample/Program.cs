@@ -11,8 +11,6 @@ using SharpHook.Reactive.Logging;
 
 public static class Program
 {
-    private static readonly IEventSimulator Simulator = new EventSimulator();
-
     private static void Main()
     {
         Directory.SetCurrentDirectory(AppContext.BaseDirectory);
@@ -29,12 +27,6 @@ public static class Program
         logSource.MinLevel = LogLevel.Info;
 
         Console.WriteLine("---------- Press q to quit ----------\n");
-
-        Task.Run(async () =>
-        {
-            await Task.Delay(500);
-            await SimulateInputEvents();
-        });
 
         var hook = CreateHook();
         hook.Run();
@@ -89,26 +81,6 @@ public static class Program
         hook.MouseWheel.Subscribe(OnHookEvent);
 
         return hook;
-    }
-
-    private static async Task SimulateInputEvents()
-    {
-        Simulator.SimulateMouseMovementRelative(50, 50);
-        await Task.Delay(50);
-
-        Simulator.SimulateMousePress(MouseButton.Button1);
-        await Task.Delay(50);
-
-        Simulator.SimulateMouseRelease(MouseButton.Button1);
-        await Task.Delay(50);
-
-        Simulator.SimulateKeyPress(KeyCode.VcA);
-        await Task.Delay(50);
-
-        Simulator.SimulateKeyRelease(KeyCode.VcA);
-        await Task.Delay(50);
-
-        Simulator.SimulateMouseWheel(10, -1);
     }
 
     private static void OnHookEvent(HookEventArgs e) =>

@@ -30,6 +30,9 @@ public struct MouseWheelEventData : IEquatable<MouseWheelEventData>
     /// The wheel scroll type.
     /// </summary>
     /// <value>The wheel scroll type.</value>
+    /// <remarks>
+    /// On Linux this value is always equal to <see cref="MouseWheelScrollType.UnitScroll" />.
+    /// </remarks>
     public MouseWheelScrollType Type;
 
     /// <summary>
@@ -37,15 +40,26 @@ public struct MouseWheelEventData : IEquatable<MouseWheelEventData>
     /// </summary>
     /// <value>The wheel rotation.</value>
     /// <remarks>
-    /// A positive value indicates that the wheel was rotated down and a negative value indicates that the wheel was
-    /// rotated up.
+    /// A positive value indicates that the wheel was rotated up or right, and a negative value indicates that the wheel
+    /// was rotated down or left.
     /// </remarks>
     public short Rotation;
 
     /// <summary>
-    /// The scroll delta.
+    /// The wheel delta.
     /// </summary>
-    /// <value>The scroll delta.</value>
+    /// <value>The wheel delta.</value>
+    /// <remarks>
+    /// <para>
+    /// On Windows this value is equal to the <c>WHEEL_DELTA</c> constant (<c>120</c>).
+    /// </para>
+    /// <para>
+    /// On macOS this value is the number of pixels per line.
+    /// </para>
+    /// <para>
+    /// On Linux this value is always equal to <c>100</c>.
+    /// </para>
+    /// </remarks>
     public ushort Delta;
 
     /// <summary>

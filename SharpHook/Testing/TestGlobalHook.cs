@@ -194,10 +194,14 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     public UioHookResult SimulateMouseMovementResult { get; set; } = UioHookResult.Success;
 
     /// <summary>
-    /// Gets or sets the result of the <see cref="SimulateMouseWheel(ushort, short)" /> method. If anything other than
-    /// <see cref="UioHookResult.Success" /> is set, then the method will do nothing.
+    /// Gets or sets the result of the
+    /// <see cref="SimulateMouseWheel(short, MouseWheelScrollDirection, MouseWheelScrollType)" /> method. If anything
+    /// other than <see cref="UioHookResult.Success" /> is set, then the method will do nothing.
     /// </summary>
-    /// <value>The result of the <see cref="SimulateMouseWheel(ushort, short)" /> method.</value>
+    /// <value>
+    /// The result of the <see cref="SimulateMouseWheel(short, MouseWheelScrollDirection, MouseWheelScrollType)" />
+    /// method.
+    /// </value>
     public UioHookResult SimulateMouseWheelResult { get; set; } = UioHookResult.Success;
 
     /// <summary>
@@ -877,14 +881,17 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// Simulates scrolling the mouse wheel if <see cref="SimulateMouseWheelResult" /> is
     /// <see cref="UioHookResult.Success" />. Otherwise, does nothing.
     /// </summary>
-    /// <param name="delta">The scroll delta.</param>
-    /// <param name="rotation">The wheel rotation.</param>
+    /// <param name="rotation">
+    /// The wheel rotation. A positive value indicates that the wheel will be rotated up or right,
+    /// and a negative value indicates that the wheel will be rotated down or left.
+    /// </param>
+    /// <param name="direction">The scroll direction.</param>
+    /// <param name="type">The scroll type.</param>
     /// <returns>The value of <see cref="SimulateMouseWheelResult" />.</returns>
-    /// <remarks>
-    /// A positive <paramref name="rotation" /> value indicates that the wheel will be rotated down and a negative value
-    /// indicates that the wheel will be rotated up.
-    /// </remarks>
-    public UioHookResult SimulateMouseWheel(ushort delta, short rotation) =>
+    public UioHookResult SimulateMouseWheel(
+        short rotation,
+        MouseWheelScrollDirection direction = MouseWheelScrollDirection.Vertical,
+        MouseWheelScrollType type = MouseWheelScrollType.UnitScroll) =>
         this.SimulateEvent(
             this.SimulateMouseWheelResult,
             new UioHookEvent
@@ -894,10 +901,9 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
                 Mask = this.EventMask(EventType.MouseWheel),
                 Wheel = new MouseWheelEventData
                 {
-                    X = this.currentMouseX(),
-                    Y = this.currentMouseY(),
-                    Delta = delta,
-                    Rotation = rotation
+                    Rotation = rotation,
+                    Direction = direction,
+                    Type = type
                 }
             });
 
@@ -905,8 +911,12 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// Simulates scrolling the mouse wheel if <see cref="SimulateMouseWheelResult" /> is
     /// <see cref="UioHookResult.Success" />. Otherwise, does nothing.
     /// </summary>
-    /// <param name="delta">The scroll delta.</param>
-    /// <param name="rotation">The wheel rotation.</param>
+    /// <param name="rotation">
+    /// The wheel rotation. A positive value indicates that the wheel will be rotated up or right,
+    /// and a negative value indicates that the wheel will be rotated down or left.
+    /// </param>
+    /// <param name="direction">The scroll direction.</param>
+    /// <param name="type">The scroll type.</param>
     /// <param name="cancellationToken">
     /// The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.
     /// </param>
@@ -915,21 +925,17 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <see langword="null" /> if the event was not simulated.
     /// </returns>
     /// <remarks>
-    /// <para>
-    /// A positive <paramref name="rotation" /> value indicates that the wheel will be rotated down and a negative value
-    /// indicates that the wheel will be rotated up.
-    /// </para>
-    /// <para>
     /// Do not use this method inside the global hook as it will result in a deadlock.
-    /// </para>
     /// </remarks>
     public Task<TestEventHandledEventArgs?> SimulateMouseWheelAndWaitForHandler(
-        ushort delta,
         short rotation,
+        MouseWheelScrollDirection direction = MouseWheelScrollDirection.Vertical,
+        MouseWheelScrollType type = MouseWheelScrollType.UnitScroll,
         CancellationToken cancellationToken = default) =>
         this.SimulateEventAndWaitForHandler(
-            () => this.SimulateMouseWheel(delta, rotation),
-            e => e.Type == EventType.MouseWheel && e.Wheel.Delta == delta && e.Wheel.Rotation == rotation,
+            () => this.SimulateMouseWheel(rotation, direction, type),
+            e => e.Type == EventType.MouseWheel &&
+                e.Wheel.Rotation == rotation && e.Wheel.Direction == direction && e.Wheel.Type == type,
             cancellationToken);
 
     private void DispatchEvent(ref UioHookEvent e)
