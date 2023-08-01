@@ -30,9 +30,6 @@ public struct MouseWheelEventData : IEquatable<MouseWheelEventData>
     /// The wheel scroll type.
     /// </summary>
     /// <value>The wheel scroll type.</value>
-    /// <remarks>
-    /// On Linux this value is always equal to <see cref="MouseWheelScrollType.UnitScroll" />.
-    /// </remarks>
     public MouseWheelScrollType Type;
 
     /// <summary>
@@ -40,8 +37,8 @@ public struct MouseWheelEventData : IEquatable<MouseWheelEventData>
     /// </summary>
     /// <value>The wheel rotation.</value>
     /// <remarks>
-    /// A positive value indicates that the wheel was rotated up or right, and a negative value indicates that the wheel
-    /// was rotated down or left.
+    /// A positive value indicates that the wheel was rotated up or left, and a negative value indicates that the wheel
+    /// was rotated down or right.
     /// </remarks>
     public short Rotation;
 

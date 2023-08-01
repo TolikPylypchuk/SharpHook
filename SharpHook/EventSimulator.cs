@@ -97,10 +97,23 @@ public class EventSimulator : IEventSimulator
     /// <returns>The result of the operation.</returns>
     /// <remarks>
     /// <para>
-    /// Text entry simulation is not guaranteed to work correctly. View the docs for more info.
+    /// The text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16 (including
+    /// surrogate pairs, e.g. emojis) is supported.
     /// </para>
     /// <para>
-    /// The text to simulate doesn't depend on the current keyboard layout.
+    /// On Windows text simulation should work correctly and consistently.
+    /// </para>
+    /// <para>
+    /// On macOS applications are not required to process text simulation, but most of them should handle it correctly.
+    /// </para>
+    /// <para>
+    /// X11 doesn't support text simulation directly. Instead, for each character, an unused key code is remapped to
+    /// that character, and then key press/release is simulated. Since the receiving application must react to the
+    /// remapping, and may not do so instantaneously, a delay is needed for accurate simulation. This means that text
+    /// simulation on Linux works slowly and is not guaranteed to be correct. <see cref="TextSimulationDelayOnX11" />
+    /// can be used to increase (or decrease) the delay if needed - longer dealys add consistency but may be more
+    /// jarring to end users. <see cref="TextSimulationDelayOnX11" /> can also be used to get the currently configured
+    /// delay - the default is 50 milliseconds.
     /// </para>
     /// </remarks>
     /// <exception cref="ArgumentNullException"><paramref name="text" /> is <see langword="null" />.</exception>
@@ -189,12 +202,27 @@ public class EventSimulator : IEventSimulator
     /// Simulates scrolling the mouse wheel.
     /// </summary>
     /// <param name="rotation">
-    /// The wheel rotation. A positive value indicates that the wheel will be rotated up or right,
-    /// and a negative value indicates that the wheel will be rotated down or left.
+    /// The wheel rotation. A positive value indicates that the wheel will be rotated up or left,
+    /// and a negative value indicates that the wheel will be rotated down or right.
     /// </param>
     /// <param name="direction">The scroll direction.</param>
     /// <param name="type">The scroll type (considered only on macOS).</param>
     /// <returns>The result of the operation.</returns>
+    /// <remarks>
+    /// <para>
+    /// On Windows the value <c>120</c> represents the default wheel step. As such, multiples of <c>120</c> can be used,
+    /// but it's not required. The value of <paramref name="type" /> is ignored.
+    /// </para>
+    /// <para>
+    /// On macOS it's recommended to use values between <c>-10</c> and <c>10</c>. This will result in quite a small
+    /// scroll amount with pixel scrolling, so <see cref="MouseWheelScrollType.BlockScroll" /> is recommended for line
+    /// scrolling instead of pixel scrolling.
+    /// </para>
+    /// <para>
+    /// On Linux there is no fixed recommendation, but multiples of <c>100</c> can be used. The value of
+    /// <paramref name="type" /> is ignored.
+    /// </para>
+    /// </remarks>
     public UioHookResult SimulateMouseWheel(
         short rotation,
         MouseWheelScrollDirection direction = MouseWheelScrollDirection.Vertical,

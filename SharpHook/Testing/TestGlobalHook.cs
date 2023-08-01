@@ -406,13 +406,8 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <see langword="null" /> if the event was not simulated.
     /// </returns>
     /// <remarks>
-    /// <para>
     /// This method simulates <see cref="EventType.KeyTyped" /> events as well if <see cref="KeyCodeToChars" /> returns
     /// characters for <paramref name="keyCode" />.
-    /// </para>
-    /// <para>
-    /// Do not use this method inside the global hook as it will result in a deadlock.
-    /// </para>
     /// </remarks>
     public Task<TestEventHandledEventArgs?> SimulateKeyPressAndWaitForHandler(
         KeyCode keyCode,
@@ -436,13 +431,8 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// contains the handler result, or <see langword="null" /> if the event was not simulated.
     /// </returns>
     /// <remarks>
-    /// <para>
     /// This method should be used only if <see cref="KeyCodeToChars" /> returns <paramref name="keyChar" /> for
     /// <paramref name="keyCode" />, otherwise the resulting task will never finish.
-    /// </para>
-    /// <para>
-    /// Do not use this method inside the global hook as it will result in a deadlock.
-    /// </para>
     /// </remarks>
     public Task<TestEventHandledEventArgs?> SimulateKeyPressAndWaitForKeyTypedHandler(
         KeyCode keyCode,
@@ -491,9 +481,6 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// A <see cref="Task" /> which finishes when the event has been handled, and contains the handler result, or
     /// <see langword="null" /> if the event was not simulated.
     /// </returns>
-    /// <remarks>
-    /// Do not use this method inside the global hook as it will result in a deadlock.
-    /// </remarks>
     public Task<TestEventHandledEventArgs?> SimulateKeyReleaseAndWaitForHandler(
         KeyCode keyCode,
         CancellationToken cancellationToken = default) =>
@@ -508,6 +495,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// </summary>
     /// <param name="text">The text to simulate.</param>
     /// <returns>The value of <see cref="SimulateTextEntryResult" />.</returns>
+    /// <remarks>This method doesn't cause any input events to be created, unlike real text entry simulation.</remarks>
     /// <exception cref="ArgumentNullException"><paramref name="text" /> is <see langword="null" />.</exception>
     public UioHookResult SimulateTextEntry(string text)
     {
@@ -547,9 +535,6 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// A <see cref="Task" /> which finishes when the event has been handled, and contains the handler result, or
     /// <see langword="null" /> if the event was not simulated.
     /// </returns>
-    /// <remarks>
-    /// Do not use this method inside the global hook as it will result in a deadlock.
-    /// </remarks>
     public Task<TestEventHandledEventArgs?> SimulateMousePressAndWaitForHandler(
         MouseButton button,
         CancellationToken cancellationToken = default) =>
@@ -593,9 +578,6 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// A <see cref="Task" /> which finishes when the event has been handled, and contains the handler result, or
     /// <see langword="null" /> if the event was not simulated.
     /// </returns>
-    /// <remarks>
-    /// Do not use this method inside the global hook as it will result in a deadlock.
-    /// </remarks>
     public Task<TestEventHandledEventArgs?> SimulateMousePressAndWaitForHandler(
         short x,
         short y,
@@ -632,13 +614,8 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <see langword="null" /> if the event was not simulated.
     /// </returns>
     /// <remarks>
-    /// <para>
     /// This method simulates a <see cref="EventType.MouseClicked" /> event as well if <see cref="MouseClickCount" />
     /// is greater than <c>0</c>.
-    /// </para>
-    /// <para>
-    /// Do not use this method inside the global hook as it will result in a deadlock.
-    /// </para>
     /// </remarks>
     public Task<TestEventHandledEventArgs?> SimulateMouseReleaseAndWaitForHandler(
         MouseButton button,
@@ -659,13 +636,8 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <see langword="null" /> if the event was not simulated.
     /// </returns>
     /// <remarks>
-    /// <para>
     /// This method simulates a <see cref="EventType.MouseClicked" /> event as well if <see cref="MouseClickCount" />
     /// is greater than <c>0</c>.
-    /// </para>
-    /// <para>
-    /// Do not use this method inside the global hook as it will result in a deadlock.
-    /// </para>
     /// </remarks>
     public Task<TestEventHandledEventArgs?> SimulateMouseReleaseAndWaitForMouseClickHandler(
         MouseButton button,
@@ -741,13 +713,8 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <see langword="null" /> if the event was not simulated.
     /// </returns>
     /// <remarks>
-    /// <para>
     /// This method simulates a <see cref="EventType.MouseClicked" /> event as well if <see cref="MouseClickCount" />
     /// is greater than <c>0</c>.
-    /// </para>
-    /// <para>
-    /// Do not use this method inside the global hook as it will result in a deadlock.
-    /// </para>
     /// </remarks>
     public Task<TestEventHandledEventArgs?> SimulateMouseReleaseAndWaitForHandler(
         short x,
@@ -774,13 +741,8 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <see langword="null" /> if the event was not simulated.
     /// </returns>
     /// <remarks>
-    /// <para>
     /// This method should be called only when <see cref="MouseClickCount" /> returns a non-zero value, otherwise the
     /// resulting task will never finish.
-    /// </para>
-    /// <para>
-    /// Do not use this method inside the global hook as it will result in a deadlock.
-    /// </para>
     /// </remarks>
     public Task<TestEventHandledEventArgs?> SimulateMouseReleaseAndWaitForMouseClickHandler(
         short x,
@@ -832,9 +794,6 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// A <see cref="Task" /> which finishes when the event has been handled, and contains the handler result, or
     /// <see langword="null" /> if the event was not simulated.
     /// </returns>
-    /// <remarks>
-    /// Do not use this method inside the global hook as it will result in a deadlock.
-    /// </remarks>
     public Task<TestEventHandledEventArgs?> SimulateMouseMovementAndWaitForHandler(
         short x,
         short y,
@@ -867,9 +826,6 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// A <see cref="Task" /> which finishes when the event has been handled, and contains the handler result, or
     /// <see langword="null" /> if the event was not simulated.
     /// </returns>
-    /// <remarks>
-    /// Do not use this method inside the global hook as it will result in a deadlock.
-    /// </remarks>
     public Task<TestEventHandledEventArgs?> SimulateMouseMovementRelativeAndWaitForHandler(
         short x,
         short y,
@@ -882,8 +838,8 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <see cref="UioHookResult.Success" />. Otherwise, does nothing.
     /// </summary>
     /// <param name="rotation">
-    /// The wheel rotation. A positive value indicates that the wheel will be rotated up or right,
-    /// and a negative value indicates that the wheel will be rotated down or left.
+    /// The wheel rotation. A positive value indicates that the wheel will be rotated up or left,
+    /// and a negative value indicates that the wheel will be rotated down or right.
     /// </param>
     /// <param name="direction">The scroll direction.</param>
     /// <param name="type">The scroll type.</param>
@@ -924,9 +880,6 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// A <see cref="Task" /> which finishes when the event has been handled, and contains the handler result, or
     /// <see langword="null" /> if the event was not simulated.
     /// </returns>
-    /// <remarks>
-    /// Do not use this method inside the global hook as it will result in a deadlock.
-    /// </remarks>
     public Task<TestEventHandledEventArgs?> SimulateMouseWheelAndWaitForHandler(
         short rotation,
         MouseWheelScrollDirection direction = MouseWheelScrollDirection.Vertical,

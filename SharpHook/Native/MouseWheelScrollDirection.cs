@@ -7,12 +7,12 @@ namespace SharpHook.Native;
 public enum MouseWheelScrollDirection : byte
 {
     /// <summary>
-    /// Vertical scroll direction
+    /// Vertical scroll direction.
     /// </summary>
     Vertical = 3,
 
     /// <summary>
-    /// Horizontal scroll direction
+    /// Horizontal scroll direction.
     /// </summary>
     Horizontal = 4
 }

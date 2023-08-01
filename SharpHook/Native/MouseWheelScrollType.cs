@@ -7,12 +7,12 @@ namespace SharpHook.Native;
 public enum MouseWheelScrollType : byte
 {
     /// <summary>
-    /// Unit scroll
+    /// The default scroll type on Windows and Linux, and the pixel scroll type on macOS.
     /// </summary>
     UnitScroll = 1,
 
     /// <summary>
-    /// Block scroll
+    /// The page scroll type on Windows, and the line scroll type on macOS. Not available on Linux.
     /// </summary>
     BlockScroll = 2,
 }
