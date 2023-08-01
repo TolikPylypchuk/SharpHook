@@ -1,6 +1,7 @@
 namespace SharpHook;
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 using SharpHook.Native;
 using SharpHook.Providers;
@@ -17,6 +18,7 @@ public class EventSimulator : IEventSimulator
     /// <summary>
     /// Initializes a new instance of the <see cref="EventSimulator" /> class.
     /// </summary>
+    [ExcludeFromCodeCoverage]
     public EventSimulator()
         : this(UioHookProvider.Instance)
     { }
