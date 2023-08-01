@@ -1178,7 +1178,7 @@ characters for <code data-dev-comment-type="paramref" class="paramref">keyCode</
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateKeyPressAndWaitForHandler_SharpHook_Native_KeyCode_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateKeyPressAndWaitForHandler(SharpHook.Native.KeyCode%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L417">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L412">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestGlobalHook_SimulateKeyPressAndWaitForHandler_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateKeyPressAndWaitForHandler*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateKeyPressAndWaitForHandler_SharpHook_Native_KeyCode_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateKeyPressAndWaitForHandler(SharpHook.Native.KeyCode,System.Threading.CancellationToken)">SimulateKeyPressAndWaitForHandler(KeyCode, CancellationToken)</h4>
@@ -1232,20 +1232,15 @@ Otherwise, does nothing.</p>
     </tbody>
   </table>
   <h5 id="SharpHook_Testing_TestGlobalHook_SimulateKeyPressAndWaitForHandler_SharpHook_Native_KeyCode_System_Threading_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-This method simulates <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_KeyTyped">KeyTyped</a> events as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_KeyCodeToChars">KeyCodeToChars</a> returns
-characters for <code data-dev-comment-type="paramref" class="paramref">keyCode</code>.
-</p>
-<p>
-Do not use this method inside the global hook as it will result in a deadlock.
-</p>
+  <div class="markdown level1 remarks"><p>This method simulates <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_KeyTyped">KeyTyped</a> events as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_KeyCodeToChars">KeyCodeToChars</a> returns
+characters for <code data-dev-comment-type="paramref" class="paramref">keyCode</code>.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateKeyPressAndWaitForKeyTypedHandler_SharpHook_Native_KeyCode_System_Char_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateKeyPressAndWaitForKeyTypedHandler(SharpHook.Native.KeyCode%2CSystem.Char%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L447">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L437">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestGlobalHook_SimulateKeyPressAndWaitForKeyTypedHandler_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateKeyPressAndWaitForKeyTypedHandler*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateKeyPressAndWaitForKeyTypedHandler_SharpHook_Native_KeyCode_System_Char_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateKeyPressAndWaitForKeyTypedHandler(SharpHook.Native.KeyCode,System.Char,System.Threading.CancellationToken)">SimulateKeyPressAndWaitForKeyTypedHandler(KeyCode, Char, CancellationToken)</h4>
@@ -1305,20 +1300,15 @@ contains the handler result, or <span class="xref">null</span> if the event was 
     </tbody>
   </table>
   <h5 id="SharpHook_Testing_TestGlobalHook_SimulateKeyPressAndWaitForKeyTypedHandler_SharpHook_Native_KeyCode_System_Char_System_Threading_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-This method should be used only if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_KeyCodeToChars">KeyCodeToChars</a> returns <code data-dev-comment-type="paramref" class="paramref">keyChar</code> for
-<code data-dev-comment-type="paramref" class="paramref">keyCode</code>, otherwise the resulting task will never finish.
-</p>
-<p>
-Do not use this method inside the global hook as it will result in a deadlock.
-</p>
+  <div class="markdown level1 remarks"><p>This method should be used only if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_KeyCodeToChars">KeyCodeToChars</a> returns <code data-dev-comment-type="paramref" class="paramref">keyChar</code> for
+<code data-dev-comment-type="paramref" class="paramref">keyCode</code>, otherwise the resulting task will never finish.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateKeyRelease_SharpHook_Native_KeyCode_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateKeyRelease(SharpHook.Native.KeyCode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L462">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L452">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestGlobalHook_SimulateKeyRelease_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateKeyRelease*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateKeyRelease_SharpHook_Native_KeyCode_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateKeyRelease(SharpHook.Native.KeyCode)">SimulateKeyRelease(KeyCode)</h4>
@@ -1369,7 +1359,7 @@ Otherwise, does nothing.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateKeyReleaseAndWaitForHandler_SharpHook_Native_KeyCode_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateKeyReleaseAndWaitForHandler(SharpHook.Native.KeyCode%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L497">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L484">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestGlobalHook_SimulateKeyReleaseAndWaitForHandler_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateKeyReleaseAndWaitForHandler*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateKeyReleaseAndWaitForHandler_SharpHook_Native_KeyCode_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateKeyReleaseAndWaitForHandler(SharpHook.Native.KeyCode,System.Threading.CancellationToken)">SimulateKeyReleaseAndWaitForHandler(KeyCode, CancellationToken)</h4>
@@ -1422,15 +1412,12 @@ Otherwise, does nothing.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="SharpHook_Testing_TestGlobalHook_SimulateKeyReleaseAndWaitForHandler_SharpHook_Native_KeyCode_System_Threading_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Do not use this method inside the global hook as it will result in a deadlock.</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMouseMovement_System_Int16_System_Int16_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMouseMovement(System.Int16%2CSystem.Int16)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L803">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L765">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMouseMovement_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseMovement*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseMovement_System_Int16_System_Int16_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseMovement(System.Int16,System.Int16)">SimulateMouseMovement(Int16, Int16)</h4>
@@ -1487,7 +1474,7 @@ Otherwise, does nothing.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMouseMovementAndWaitForHandler_System_Int16_System_Int16_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMouseMovementAndWaitForHandler(System.Int16%2CSystem.Int16%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L838">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L797">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMouseMovementAndWaitForHandler_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseMovementAndWaitForHandler*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseMovementAndWaitForHandler_System_Int16_System_Int16_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseMovementAndWaitForHandler(System.Int16,System.Int16,System.Threading.CancellationToken)">SimulateMouseMovementAndWaitForHandler(Int16, Int16, CancellationToken)</h4>
@@ -1546,15 +1533,12 @@ Otherwise, does nothing.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="SharpHook_Testing_TestGlobalHook_SimulateMouseMovementAndWaitForHandler_System_Int16_System_Int16_System_Threading_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Do not use this method inside the global hook as it will result in a deadlock.</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMouseMovementRelative_System_Int16_System_Int16_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMouseMovementRelative(System.Int16%2CSystem.Int16)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L854">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L813">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMouseMovementRelative_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseMovementRelative*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseMovementRelative_System_Int16_System_Int16_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseMovementRelative(System.Int16,System.Int16)">SimulateMouseMovementRelative(Int16, Int16)</h4>
@@ -1611,7 +1595,7 @@ Otherwise, does nothing.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMouseMovementRelativeAndWaitForHandler_System_Int16_System_Int16_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMouseMovementRelativeAndWaitForHandler(System.Int16%2CSystem.Int16%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L873">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L829">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMouseMovementRelativeAndWaitForHandler_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseMovementRelativeAndWaitForHandler*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseMovementRelativeAndWaitForHandler_System_Int16_System_Int16_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseMovementRelativeAndWaitForHandler(System.Int16,System.Int16,System.Threading.CancellationToken)">SimulateMouseMovementRelativeAndWaitForHandler(Int16, Int16, CancellationToken)</h4>
@@ -1670,15 +1654,12 @@ Otherwise, does nothing.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="SharpHook_Testing_TestGlobalHook_SimulateMouseMovementRelativeAndWaitForHandler_System_Int16_System_Int16_System_Threading_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Do not use this method inside the global hook as it will result in a deadlock.</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMousePress_SharpHook_Native_MouseButton_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMousePress(SharpHook.Native.MouseButton)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L535">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L523">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMousePress_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMousePress*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMousePress_SharpHook_Native_MouseButton_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMousePress(SharpHook.Native.MouseButton)">SimulateMousePress(MouseButton)</h4>
@@ -1729,7 +1710,7 @@ Otherwise, does nothing.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMousePress_System_Int16_System_Int16_SharpHook_Native_MouseButton_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMousePress(System.Int16%2CSystem.Int16%2CSharpHook.Native.MouseButton)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L566">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L551">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMousePress_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMousePress*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMousePress_System_Int16_System_Int16_SharpHook_Native_MouseButton_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMousePress(System.Int16,System.Int16,SharpHook.Native.MouseButton)">SimulateMousePress(Int16, Int16, MouseButton)</h4>
@@ -1792,7 +1773,7 @@ Otherwise, does nothing.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMousePressAndWaitForHandler_SharpHook_Native_MouseButton_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMousePressAndWaitForHandler(SharpHook.Native.MouseButton%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L553">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L538">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMousePressAndWaitForHandler_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMousePressAndWaitForHandler*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMousePressAndWaitForHandler_SharpHook_Native_MouseButton_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMousePressAndWaitForHandler(SharpHook.Native.MouseButton,System.Threading.CancellationToken)">SimulateMousePressAndWaitForHandler(MouseButton, CancellationToken)</h4>
@@ -1845,15 +1826,12 @@ Otherwise, does nothing.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="SharpHook_Testing_TestGlobalHook_SimulateMousePressAndWaitForHandler_SharpHook_Native_MouseButton_System_Threading_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Do not use this method inside the global hook as it will result in a deadlock.</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMousePressAndWaitForHandler_System_Int16_System_Int16_SharpHook_Native_MouseButton_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMousePressAndWaitForHandler(System.Int16%2CSystem.Int16%2CSharpHook.Native.MouseButton%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L599">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L581">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMousePressAndWaitForHandler_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMousePressAndWaitForHandler*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMousePressAndWaitForHandler_System_Int16_System_Int16_SharpHook_Native_MouseButton_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMousePressAndWaitForHandler(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.Threading.CancellationToken)">SimulateMousePressAndWaitForHandler(Int16, Int16, MouseButton, CancellationToken)</h4>
@@ -1918,15 +1896,12 @@ Otherwise, does nothing.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="SharpHook_Testing_TestGlobalHook_SimulateMousePressAndWaitForHandler_System_Int16_System_Int16_SharpHook_Native_MouseButton_System_Threading_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Do not use this method inside the global hook as it will result in a deadlock.</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_SharpHook_Native_MouseButton_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(SharpHook.Native.MouseButton)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L619">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L601">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseRelease*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_SharpHook_Native_MouseButton_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(SharpHook.Native.MouseButton)">SimulateMouseRelease(MouseButton)</h4>
@@ -1981,7 +1956,7 @@ is greater than <code>0</code>.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_System_Int16_System_Int16_SharpHook_Native_MouseButton_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(System.Int16%2CSystem.Int16%2CSharpHook.Native.MouseButton)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L688">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L660">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseRelease*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_System_Int16_System_Int16_SharpHook_Native_MouseButton_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Native.MouseButton)">SimulateMouseRelease(Int16, Int16, MouseButton)</h4>
@@ -2048,7 +2023,7 @@ is greater than <code>0</code>.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForHandler_SharpHook_Native_MouseButton_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForHandler(SharpHook.Native.MouseButton%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L643">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L620">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForHandler_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForHandler*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForHandler_SharpHook_Native_MouseButton_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForHandler(SharpHook.Native.MouseButton,System.Threading.CancellationToken)">SimulateMouseReleaseAndWaitForHandler(MouseButton, CancellationToken)</h4>
@@ -2102,20 +2077,15 @@ is greater than <code>0</code>.</p>
     </tbody>
   </table>
   <h5 id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForHandler_SharpHook_Native_MouseButton_System_Threading_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-This method simulates a <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseClicked">MouseClicked</a> event as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_MouseClickCount">MouseClickCount</a>
-is greater than <code>0</code>.
-</p>
-<p>
-Do not use this method inside the global hook as it will result in a deadlock.
-</p>
+  <div class="markdown level1 remarks"><p>This method simulates a <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseClicked">MouseClicked</a> event as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_MouseClickCount">MouseClickCount</a>
+is greater than <code>0</code>.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForHandler_System_Int16_System_Int16_SharpHook_Native_MouseButton_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForHandler(System.Int16%2CSystem.Int16%2CSharpHook.Native.MouseButton%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L752">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L719">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForHandler_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForHandler*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForHandler_System_Int16_System_Int16_SharpHook_Native_MouseButton_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForHandler(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.Threading.CancellationToken)">SimulateMouseReleaseAndWaitForHandler(Int16, Int16, MouseButton, CancellationToken)</h4>
@@ -2181,20 +2151,15 @@ Do not use this method inside the global hook as it will result in a deadlock.
     </tbody>
   </table>
   <h5 id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForHandler_System_Int16_System_Int16_SharpHook_Native_MouseButton_System_Threading_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-This method simulates a <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseClicked">MouseClicked</a> event as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_MouseClickCount">MouseClickCount</a>
-is greater than <code>0</code>.
-</p>
-<p>
-Do not use this method inside the global hook as it will result in a deadlock.
-</p>
+  <div class="markdown level1 remarks"><p>This method simulates a <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseClicked">MouseClicked</a> event as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_MouseClickCount">MouseClickCount</a>
+is greater than <code>0</code>.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForMouseClickHandler_SharpHook_Native_MouseButton_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForMouseClickHandler(SharpHook.Native.MouseButton%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L670">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L642">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForMouseClickHandler_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForMouseClickHandler*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForMouseClickHandler_SharpHook_Native_MouseButton_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForMouseClickHandler(SharpHook.Native.MouseButton,System.Threading.CancellationToken)">SimulateMouseReleaseAndWaitForMouseClickHandler(MouseButton, CancellationToken)</h4>
@@ -2248,20 +2213,15 @@ Do not use this method inside the global hook as it will result in a deadlock.
     </tbody>
   </table>
   <h5 id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForMouseClickHandler_SharpHook_Native_MouseButton_System_Threading_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-This method simulates a <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseClicked">MouseClicked</a> event as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_MouseClickCount">MouseClickCount</a>
-is greater than <code>0</code>.
-</p>
-<p>
-Do not use this method inside the global hook as it will result in a deadlock.
-</p>
+  <div class="markdown level1 remarks"><p>This method simulates a <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseClicked">MouseClicked</a> event as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_MouseClickCount">MouseClickCount</a>
+is greater than <code>0</code>.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForMouseClickHandler_System_Int16_System_Int16_SharpHook_Native_MouseButton_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForMouseClickHandler(System.Int16%2CSystem.Int16%2CSharpHook.Native.MouseButton%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L785">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L747">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForMouseClickHandler_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForMouseClickHandler*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForMouseClickHandler_System_Int16_System_Int16_SharpHook_Native_MouseButton_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForMouseClickHandler(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.Threading.CancellationToken)">SimulateMouseReleaseAndWaitForMouseClickHandler(Int16, Int16, MouseButton, CancellationToken)</h4>
@@ -2327,20 +2287,15 @@ Do not use this method inside the global hook as it will result in a deadlock.
     </tbody>
   </table>
   <h5 id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForMouseClickHandler_System_Int16_System_Int16_SharpHook_Native_MouseButton_System_Threading_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-This method should be called only when <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_MouseClickCount">MouseClickCount</a> returns a non-zero value, otherwise the
-resulting task will never finish.
-</p>
-<p>
-Do not use this method inside the global hook as it will result in a deadlock.
-</p>
+  <div class="markdown level1 remarks"><p>This method should be called only when <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_MouseClickCount">MouseClickCount</a> returns a non-zero value, otherwise the
+resulting task will never finish.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMouseWheel_System_Int16_SharpHook_Native_MouseWheelScrollDirection_SharpHook_Native_MouseWheelScrollType_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMouseWheel(System.Int16%2CSharpHook.Native.MouseWheelScrollDirection%2CSharpHook.Native.MouseWheelScrollType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L891">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L847">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMouseWheel_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseWheel*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseWheel_System_Int16_SharpHook_Native_MouseWheelScrollDirection_SharpHook_Native_MouseWheelScrollType_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseWheel(System.Int16,SharpHook.Native.MouseWheelScrollDirection,SharpHook.Native.MouseWheelScrollType)">SimulateMouseWheel(Int16, MouseWheelScrollDirection, MouseWheelScrollType)</h4>
@@ -2365,8 +2320,8 @@ Do not use this method inside the global hook as it will result in a deadlock.
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">Int16</a></td>
         <td><span class="parametername">rotation</span></td>
-        <td><p>The wheel rotation. A positive value indicates that the wheel will be rotated up or right,
-and a negative value indicates that the wheel will be rotated down or left.</p>
+        <td><p>The wheel rotation. A positive value indicates that the wheel will be rotated up or left,
+and a negative value indicates that the wheel will be rotated down or right.</p>
 </td>
       </tr>
       <tr>
@@ -2404,7 +2359,7 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMouseWheelAndWaitForHandler_System_Int16_SharpHook_Native_MouseWheelScrollDirection_SharpHook_Native_MouseWheelScrollType_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMouseWheelAndWaitForHandler(System.Int16%2CSharpHook.Native.MouseWheelScrollDirection%2CSharpHook.Native.MouseWheelScrollType%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L930">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L883">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMouseWheelAndWaitForHandler_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseWheelAndWaitForHandler*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseWheelAndWaitForHandler_System_Int16_SharpHook_Native_MouseWheelScrollDirection_SharpHook_Native_MouseWheelScrollType_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseWheelAndWaitForHandler(System.Int16,SharpHook.Native.MouseWheelScrollDirection,SharpHook.Native.MouseWheelScrollType,System.Threading.CancellationToken)">SimulateMouseWheelAndWaitForHandler(Int16, MouseWheelScrollDirection, MouseWheelScrollType, CancellationToken)</h4>
@@ -2470,15 +2425,12 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="SharpHook_Testing_TestGlobalHook_SimulateMouseWheelAndWaitForHandler_System_Int16_SharpHook_Native_MouseWheelScrollDirection_SharpHook_Native_MouseWheelScrollType_System_Threading_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Do not use this method inside the global hook as it will result in a deadlock.</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateTextEntry_System_String_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateTextEntry(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L512">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L500">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestGlobalHook_SimulateTextEntry_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateTextEntry*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateTextEntry_System_String_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateTextEntry(System.String)">SimulateTextEntry(String)</h4>
@@ -2524,6 +2476,9 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="SharpHook_Testing_TestGlobalHook_SimulateTextEntry_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method doesn't cause any input events to be created, unlike real text entry simulation.</p>
+</div>
   <h5 class="exceptions">Exceptions</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -2547,7 +2502,7 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_HookDisabled.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.HookDisabled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1088">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1041">View Source</a>
   </span>
   <h4 id="SharpHook_Testing_TestGlobalHook_HookDisabled" data-uid="SharpHook.Testing.TestGlobalHook.HookDisabled">HookDisabled</h4>
   <div class="markdown level1 summary"><p>An event which is raised when the global hook is disabled.</p>
@@ -2580,7 +2535,7 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_HookEnabled.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.HookEnabled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1082">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1035">View Source</a>
   </span>
   <h4 id="SharpHook_Testing_TestGlobalHook_HookEnabled" data-uid="SharpHook.Testing.TestGlobalHook.HookEnabled">HookEnabled</h4>
   <div class="markdown level1 summary"><p>An event which is raised when the global hook is enabled.</p>
@@ -2613,7 +2568,7 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_KeyPressed.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.KeyPressed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1098">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1051">View Source</a>
   </span>
   <h4 id="SharpHook_Testing_TestGlobalHook_KeyPressed" data-uid="SharpHook.Testing.TestGlobalHook.KeyPressed">KeyPressed</h4>
   <div class="markdown level1 summary"><p>An event which is raised when a key is pressed.</p>
@@ -2643,7 +2598,7 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_KeyReleased.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.KeyReleased%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1103">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1056">View Source</a>
   </span>
   <h4 id="SharpHook_Testing_TestGlobalHook_KeyReleased" data-uid="SharpHook.Testing.TestGlobalHook.KeyReleased">KeyReleased</h4>
   <div class="markdown level1 summary"><p>An event which is raised when a key is released.</p>
@@ -2673,7 +2628,7 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_KeyTyped.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.KeyTyped%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1093">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1046">View Source</a>
   </span>
   <h4 id="SharpHook_Testing_TestGlobalHook_KeyTyped" data-uid="SharpHook.Testing.TestGlobalHook.KeyTyped">KeyTyped</h4>
   <div class="markdown level1 summary"><p>An event which is raised when a key is typed.</p>
@@ -2703,7 +2658,7 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_MouseClicked.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.MouseClicked%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1108">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1061">View Source</a>
   </span>
   <h4 id="SharpHook_Testing_TestGlobalHook_MouseClicked" data-uid="SharpHook.Testing.TestGlobalHook.MouseClicked">MouseClicked</h4>
   <div class="markdown level1 summary"><p>An event which is raised when a mouse button is clicked.</p>
@@ -2733,7 +2688,7 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_MouseDragged.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.MouseDragged%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1128">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1081">View Source</a>
   </span>
   <h4 id="SharpHook_Testing_TestGlobalHook_MouseDragged" data-uid="SharpHook.Testing.TestGlobalHook.MouseDragged">MouseDragged</h4>
   <div class="markdown level1 summary"><p>An event which is raised when the mouse cursor is dragged.</p>
@@ -2763,7 +2718,7 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_MouseMoved.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.MouseMoved%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1123">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1076">View Source</a>
   </span>
   <h4 id="SharpHook_Testing_TestGlobalHook_MouseMoved" data-uid="SharpHook.Testing.TestGlobalHook.MouseMoved">MouseMoved</h4>
   <div class="markdown level1 summary"><p>An event which is raised when the mouse cursor is moved.</p>
@@ -2793,7 +2748,7 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_MousePressed.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.MousePressed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1113">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1066">View Source</a>
   </span>
   <h4 id="SharpHook_Testing_TestGlobalHook_MousePressed" data-uid="SharpHook.Testing.TestGlobalHook.MousePressed">MousePressed</h4>
   <div class="markdown level1 summary"><p>An event which is raised when a mouse button is pressed.</p>
@@ -2823,7 +2778,7 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_MouseReleased.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.MouseReleased%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1118">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1071">View Source</a>
   </span>
   <h4 id="SharpHook_Testing_TestGlobalHook_MouseReleased" data-uid="SharpHook.Testing.TestGlobalHook.MouseReleased">MouseReleased</h4>
   <div class="markdown level1 summary"><p>An event which is raised when a mouse button is released.</p>
@@ -2853,7 +2808,7 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_MouseWheel.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.MouseWheel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1133">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1086">View Source</a>
   </span>
   <h4 id="SharpHook_Testing_TestGlobalHook_MouseWheel" data-uid="SharpHook.Testing.TestGlobalHook.MouseWheel">MouseWheel</h4>
   <div class="markdown level1 summary"><p>An event which is raised when the mouse wheel is scrolled.</p>
@@ -2883,7 +2838,7 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_TestEventHandled.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.TestEventHandled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1139">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1092">View Source</a>
   </span>
   <h4 id="SharpHook_Testing_TestGlobalHook_TestEventHandled" data-uid="SharpHook.Testing.TestGlobalHook.TestEventHandled">TestEventHandled</h4>
   <div class="markdown level1 summary"><p>An event which is raised when a simulated input event has been handled. The input event's
@@ -2916,7 +2871,7 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SharpHook_IEventSimulator_TextSimulationDelayOnX11.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SharpHook%23IEventSimulator%23TextSimulationDelayOnX11%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1145">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1098">View Source</a>
   </span>
   <a id="SharpHook_Testing_TestGlobalHook_SharpHook_IEventSimulator_TextSimulationDelayOnX11_" data-uid="SharpHook.Testing.TestGlobalHook.SharpHook#IEventSimulator#TextSimulationDelayOnX11*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SharpHook_IEventSimulator_TextSimulationDelayOnX11" data-uid="SharpHook.Testing.TestGlobalHook.SharpHook#IEventSimulator#TextSimulationDelayOnX11">IEventSimulator.TextSimulationDelayOnX11</h4>
