@@ -105,10 +105,10 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_MouseWheelEventData_Delta.md&amp;value=---%0Auid%3A%20SharpHook.Native.MouseWheelEventData.Delta%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/MouseWheelEventData.cs/#L49">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/MouseWheelEventData.cs/#L63">View Source</a>
   </span>
   <h4 id="SharpHook_Native_MouseWheelEventData_Delta" data-uid="SharpHook.Native.MouseWheelEventData.Delta">Delta</h4>
-  <div class="markdown level1 summary"><p>The scroll delta.</p>
+  <div class="markdown level1 summary"><p>The wheel delta.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -126,17 +126,28 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">UInt16</a></td>
-        <td><p>The scroll delta.</p>
+        <td><p>The wheel delta.</p>
 </td>
       </tr>
     </tbody>
   </table>
+  <h5 id="SharpHook_Native_MouseWheelEventData_Delta_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+On Windows this value is equal to the <code>WHEEL_DELTA</code> constant (<code>120</code>).
+</p>
+<p>
+On macOS this value is the number of pixels per line.
+</p>
+<p>
+On Linux this value is always equal to <code>100</code>.
+</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_MouseWheelEventData_Direction.md&amp;value=---%0Auid%3A%20SharpHook.Native.MouseWheelEventData.Direction%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/MouseWheelEventData.cs/#L55">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/MouseWheelEventData.cs/#L69">View Source</a>
   </span>
   <h4 id="SharpHook_Native_MouseWheelEventData_Direction" data-uid="SharpHook.Native.MouseWheelEventData.Direction">Direction</h4>
   <div class="markdown level1 summary"><p>The wheel scroll direction.</p>
@@ -167,7 +178,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_MouseWheelEventData_Rotation.md&amp;value=---%0Auid%3A%20SharpHook.Native.MouseWheelEventData.Rotation%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/MouseWheelEventData.cs/#L43">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/MouseWheelEventData.cs/#L46">View Source</a>
   </span>
   <h4 id="SharpHook_Native_MouseWheelEventData_Rotation" data-uid="SharpHook.Native.MouseWheelEventData.Rotation">Rotation</h4>
   <div class="markdown level1 summary"><p>The wheel rotation.</p>
@@ -194,15 +205,15 @@
     </tbody>
   </table>
   <h5 id="SharpHook_Native_MouseWheelEventData_Rotation_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>A positive value indicates that the wheel was rotated down and a negative value indicates that the wheel was
-rotated up.</p>
+  <div class="markdown level1 remarks"><p>A positive value indicates that the wheel was rotated up or right, and a negative value indicates that the wheel
+was rotated down or left.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_MouseWheelEventData_Type.md&amp;value=---%0Auid%3A%20SharpHook.Native.MouseWheelEventData.Type%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/MouseWheelEventData.cs/#L33">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/MouseWheelEventData.cs/#L36">View Source</a>
   </span>
   <h4 id="SharpHook_Native_MouseWheelEventData_Type" data-uid="SharpHook.Native.MouseWheelEventData.Type">Type</h4>
   <div class="markdown level1 summary"><p>The wheel scroll type.</p>
@@ -228,6 +239,9 @@ rotated up.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="SharpHook_Native_MouseWheelEventData_Type_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>On Linux this value is always equal to <a class="xref" href="SharpHook.Native.MouseWheelScrollType.html#SharpHook_Native_MouseWheelScrollType_UnitScroll">UnitScroll</a>.</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_MouseWheelEventData_X.md&amp;value=---%0Auid%3A%20SharpHook.Native.MouseWheelEventData.X%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -297,7 +311,7 @@ rotated up.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_MouseWheelEventData_Equals_SharpHook_Native_MouseWheelEventData_.md&amp;value=---%0Auid%3A%20SharpHook.Native.MouseWheelEventData.Equals(SharpHook.Native.MouseWheelEventData)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/MouseWheelEventData.cs/#L74">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/MouseWheelEventData.cs/#L88">View Source</a>
   </span>
   <a id="SharpHook_Native_MouseWheelEventData_Equals_" data-uid="SharpHook.Native.MouseWheelEventData.Equals*"></a>
   <h4 id="SharpHook_Native_MouseWheelEventData_Equals_SharpHook_Native_MouseWheelEventData_" data-uid="SharpHook.Native.MouseWheelEventData.Equals(SharpHook.Native.MouseWheelEventData)">Equals(MouseWheelEventData)</h4>
@@ -347,7 +361,7 @@ rotated up.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_MouseWheelEventData_Equals_System_Object_.md&amp;value=---%0Auid%3A%20SharpHook.Native.MouseWheelEventData.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/MouseWheelEventData.cs/#L64">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/MouseWheelEventData.cs/#L78">View Source</a>
   </span>
   <a id="SharpHook_Native_MouseWheelEventData_Equals_" data-uid="SharpHook.Native.MouseWheelEventData.Equals*"></a>
   <h4 id="SharpHook_Native_MouseWheelEventData_Equals_System_Object_" data-uid="SharpHook.Native.MouseWheelEventData.Equals(System.Object)">Equals(Object)</h4>
@@ -399,7 +413,7 @@ rotated up.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_MouseWheelEventData_GetHashCode.md&amp;value=---%0Auid%3A%20SharpHook.Native.MouseWheelEventData.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/MouseWheelEventData.cs/#L86">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/MouseWheelEventData.cs/#L100">View Source</a>
   </span>
   <a id="SharpHook_Native_MouseWheelEventData_GetHashCode_" data-uid="SharpHook.Native.MouseWheelEventData.GetHashCode*"></a>
   <h4 id="SharpHook_Native_MouseWheelEventData_GetHashCode" data-uid="SharpHook.Native.MouseWheelEventData.GetHashCode">GetHashCode()</h4>
@@ -433,7 +447,7 @@ rotated up.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_MouseWheelEventData_ToString.md&amp;value=---%0Auid%3A%20SharpHook.Native.MouseWheelEventData.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/MouseWheelEventData.cs/#L93">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/MouseWheelEventData.cs/#L107">View Source</a>
   </span>
   <a id="SharpHook_Native_MouseWheelEventData_ToString_" data-uid="SharpHook.Native.MouseWheelEventData.ToString*"></a>
   <h4 id="SharpHook_Native_MouseWheelEventData_ToString" data-uid="SharpHook.Native.MouseWheelEventData.ToString">ToString()</h4>
@@ -469,7 +483,7 @@ rotated up.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_MouseWheelEventData_op_Equality_SharpHook_Native_MouseWheelEventData_SharpHook_Native_MouseWheelEventData_.md&amp;value=---%0Auid%3A%20SharpHook.Native.MouseWheelEventData.op_Equality(SharpHook.Native.MouseWheelEventData%2CSharpHook.Native.MouseWheelEventData)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/MouseWheelEventData.cs/#L106">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/MouseWheelEventData.cs/#L120">View Source</a>
   </span>
   <a id="SharpHook_Native_MouseWheelEventData_op_Equality_" data-uid="SharpHook.Native.MouseWheelEventData.op_Equality*"></a>
   <h4 id="SharpHook_Native_MouseWheelEventData_op_Equality_SharpHook_Native_MouseWheelEventData_SharpHook_Native_MouseWheelEventData_" data-uid="SharpHook.Native.MouseWheelEventData.op_Equality(SharpHook.Native.MouseWheelEventData,SharpHook.Native.MouseWheelEventData)">Equality(MouseWheelEventData, MouseWheelEventData)</h4>
@@ -525,7 +539,7 @@ rotated up.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_MouseWheelEventData_op_Inequality_SharpHook_Native_MouseWheelEventData_SharpHook_Native_MouseWheelEventData_.md&amp;value=---%0Auid%3A%20SharpHook.Native.MouseWheelEventData.op_Inequality(SharpHook.Native.MouseWheelEventData%2CSharpHook.Native.MouseWheelEventData)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/MouseWheelEventData.cs/#L117">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/MouseWheelEventData.cs/#L131">View Source</a>
   </span>
   <a id="SharpHook_Native_MouseWheelEventData_op_Inequality_" data-uid="SharpHook.Native.MouseWheelEventData.op_Inequality*"></a>
   <h4 id="SharpHook_Native_MouseWheelEventData_op_Inequality_SharpHook_Native_MouseWheelEventData_SharpHook_Native_MouseWheelEventData_" data-uid="SharpHook.Native.MouseWheelEventData.op_Inequality(SharpHook.Native.MouseWheelEventData,SharpHook.Native.MouseWheelEventData)">Inequality(MouseWheelEventData, MouseWheelEventData)</h4>

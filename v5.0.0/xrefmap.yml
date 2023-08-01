@@ -122,12 +122,12 @@ references:
   isSpec: "True"
   fullName: SharpHook.EventSimulator.SimulateMouseRelease
   nameWithType: EventSimulator.SimulateMouseRelease
-- uid: SharpHook.EventSimulator.SimulateMouseWheel(System.UInt16,System.Int16)
-  name: SimulateMouseWheel(UInt16, Int16)
-  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMouseWheel_System_UInt16_System_Int16_
-  commentId: M:SharpHook.EventSimulator.SimulateMouseWheel(System.UInt16,System.Int16)
-  fullName: SharpHook.EventSimulator.SimulateMouseWheel(System.UInt16, System.Int16)
-  nameWithType: EventSimulator.SimulateMouseWheel(UInt16, Int16)
+- uid: SharpHook.EventSimulator.SimulateMouseWheel(System.Int16,SharpHook.Native.MouseWheelScrollDirection,SharpHook.Native.MouseWheelScrollType)
+  name: SimulateMouseWheel(Int16, MouseWheelScrollDirection, MouseWheelScrollType)
+  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMouseWheel_System_Int16_SharpHook_Native_MouseWheelScrollDirection_SharpHook_Native_MouseWheelScrollType_
+  commentId: M:SharpHook.EventSimulator.SimulateMouseWheel(System.Int16,SharpHook.Native.MouseWheelScrollDirection,SharpHook.Native.MouseWheelScrollType)
+  fullName: SharpHook.EventSimulator.SimulateMouseWheel(System.Int16, SharpHook.Native.MouseWheelScrollDirection, SharpHook.Native.MouseWheelScrollType)
+  nameWithType: EventSimulator.SimulateMouseWheel(Int16, MouseWheelScrollDirection, MouseWheelScrollType)
 - uid: SharpHook.EventSimulator.SimulateMouseWheel*
   name: SimulateMouseWheel
   href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMouseWheel_
@@ -784,12 +784,12 @@ references:
   isSpec: "True"
   fullName: SharpHook.IEventSimulator.SimulateMouseRelease
   nameWithType: IEventSimulator.SimulateMouseRelease
-- uid: SharpHook.IEventSimulator.SimulateMouseWheel(System.UInt16,System.Int16)
-  name: SimulateMouseWheel(UInt16, Int16)
-  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMouseWheel_System_UInt16_System_Int16_
-  commentId: M:SharpHook.IEventSimulator.SimulateMouseWheel(System.UInt16,System.Int16)
-  fullName: SharpHook.IEventSimulator.SimulateMouseWheel(System.UInt16, System.Int16)
-  nameWithType: IEventSimulator.SimulateMouseWheel(UInt16, Int16)
+- uid: SharpHook.IEventSimulator.SimulateMouseWheel(System.Int16,SharpHook.Native.MouseWheelScrollDirection,SharpHook.Native.MouseWheelScrollType)
+  name: SimulateMouseWheel(Int16, MouseWheelScrollDirection, MouseWheelScrollType)
+  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMouseWheel_System_Int16_SharpHook_Native_MouseWheelScrollDirection_SharpHook_Native_MouseWheelScrollType_
+  commentId: M:SharpHook.IEventSimulator.SimulateMouseWheel(System.Int16,SharpHook.Native.MouseWheelScrollDirection,SharpHook.Native.MouseWheelScrollType)
+  fullName: SharpHook.IEventSimulator.SimulateMouseWheel(System.Int16, SharpHook.Native.MouseWheelScrollDirection, SharpHook.Native.MouseWheelScrollType)
+  nameWithType: IEventSimulator.SimulateMouseWheel(Int16, MouseWheelScrollDirection, MouseWheelScrollType)
 - uid: SharpHook.IEventSimulator.SimulateMouseWheel*
   name: SimulateMouseWheel
   href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMouseWheel_
@@ -3835,18 +3835,18 @@ references:
   commentId: T:SharpHook.Native.MouseWheelScrollDirection
   fullName: SharpHook.Native.MouseWheelScrollDirection
   nameWithType: MouseWheelScrollDirection
-- uid: SharpHook.Native.MouseWheelScrollDirection.HorizontalDirection
-  name: HorizontalDirection
-  href: api/SharpHook.Native.MouseWheelScrollDirection.html#SharpHook_Native_MouseWheelScrollDirection_HorizontalDirection
-  commentId: F:SharpHook.Native.MouseWheelScrollDirection.HorizontalDirection
-  fullName: SharpHook.Native.MouseWheelScrollDirection.HorizontalDirection
-  nameWithType: MouseWheelScrollDirection.HorizontalDirection
-- uid: SharpHook.Native.MouseWheelScrollDirection.VerticalDirection
-  name: VerticalDirection
-  href: api/SharpHook.Native.MouseWheelScrollDirection.html#SharpHook_Native_MouseWheelScrollDirection_VerticalDirection
-  commentId: F:SharpHook.Native.MouseWheelScrollDirection.VerticalDirection
-  fullName: SharpHook.Native.MouseWheelScrollDirection.VerticalDirection
-  nameWithType: MouseWheelScrollDirection.VerticalDirection
+- uid: SharpHook.Native.MouseWheelScrollDirection.Horizontal
+  name: Horizontal
+  href: api/SharpHook.Native.MouseWheelScrollDirection.html#SharpHook_Native_MouseWheelScrollDirection_Horizontal
+  commentId: F:SharpHook.Native.MouseWheelScrollDirection.Horizontal
+  fullName: SharpHook.Native.MouseWheelScrollDirection.Horizontal
+  nameWithType: MouseWheelScrollDirection.Horizontal
+- uid: SharpHook.Native.MouseWheelScrollDirection.Vertical
+  name: Vertical
+  href: api/SharpHook.Native.MouseWheelScrollDirection.html#SharpHook_Native_MouseWheelScrollDirection_Vertical
+  commentId: F:SharpHook.Native.MouseWheelScrollDirection.Vertical
+  fullName: SharpHook.Native.MouseWheelScrollDirection.Vertical
+  nameWithType: MouseWheelScrollDirection.Vertical
 - uid: SharpHook.Native.MouseWheelScrollType
   name: MouseWheelScrollType
   href: api/SharpHook.Native.MouseWheelScrollType.html
@@ -6651,12 +6651,12 @@ references:
   isSpec: "True"
   fullName: SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseResult
   nameWithType: TestGlobalHook.SimulateMouseReleaseResult
-- uid: SharpHook.Testing.TestGlobalHook.SimulateMouseWheel(System.UInt16,System.Int16)
-  name: SimulateMouseWheel(UInt16, Int16)
-  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseWheel_System_UInt16_System_Int16_
-  commentId: M:SharpHook.Testing.TestGlobalHook.SimulateMouseWheel(System.UInt16,System.Int16)
-  fullName: SharpHook.Testing.TestGlobalHook.SimulateMouseWheel(System.UInt16, System.Int16)
-  nameWithType: TestGlobalHook.SimulateMouseWheel(UInt16, Int16)
+- uid: SharpHook.Testing.TestGlobalHook.SimulateMouseWheel(System.Int16,SharpHook.Native.MouseWheelScrollDirection,SharpHook.Native.MouseWheelScrollType)
+  name: SimulateMouseWheel(Int16, MouseWheelScrollDirection, MouseWheelScrollType)
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseWheel_System_Int16_SharpHook_Native_MouseWheelScrollDirection_SharpHook_Native_MouseWheelScrollType_
+  commentId: M:SharpHook.Testing.TestGlobalHook.SimulateMouseWheel(System.Int16,SharpHook.Native.MouseWheelScrollDirection,SharpHook.Native.MouseWheelScrollType)
+  fullName: SharpHook.Testing.TestGlobalHook.SimulateMouseWheel(System.Int16, SharpHook.Native.MouseWheelScrollDirection, SharpHook.Native.MouseWheelScrollType)
+  nameWithType: TestGlobalHook.SimulateMouseWheel(Int16, MouseWheelScrollDirection, MouseWheelScrollType)
 - uid: SharpHook.Testing.TestGlobalHook.SimulateMouseWheel*
   name: SimulateMouseWheel
   href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseWheel_
@@ -6664,12 +6664,12 @@ references:
   isSpec: "True"
   fullName: SharpHook.Testing.TestGlobalHook.SimulateMouseWheel
   nameWithType: TestGlobalHook.SimulateMouseWheel
-- uid: SharpHook.Testing.TestGlobalHook.SimulateMouseWheelAndWaitForHandler(System.UInt16,System.Int16,System.Threading.CancellationToken)
-  name: SimulateMouseWheelAndWaitForHandler(UInt16, Int16, CancellationToken)
-  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseWheelAndWaitForHandler_System_UInt16_System_Int16_System_Threading_CancellationToken_
-  commentId: M:SharpHook.Testing.TestGlobalHook.SimulateMouseWheelAndWaitForHandler(System.UInt16,System.Int16,System.Threading.CancellationToken)
-  fullName: SharpHook.Testing.TestGlobalHook.SimulateMouseWheelAndWaitForHandler(System.UInt16, System.Int16, System.Threading.CancellationToken)
-  nameWithType: TestGlobalHook.SimulateMouseWheelAndWaitForHandler(UInt16, Int16, CancellationToken)
+- uid: SharpHook.Testing.TestGlobalHook.SimulateMouseWheelAndWaitForHandler(System.Int16,SharpHook.Native.MouseWheelScrollDirection,SharpHook.Native.MouseWheelScrollType,System.Threading.CancellationToken)
+  name: SimulateMouseWheelAndWaitForHandler(Int16, MouseWheelScrollDirection, MouseWheelScrollType, CancellationToken)
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseWheelAndWaitForHandler_System_Int16_SharpHook_Native_MouseWheelScrollDirection_SharpHook_Native_MouseWheelScrollType_System_Threading_CancellationToken_
+  commentId: M:SharpHook.Testing.TestGlobalHook.SimulateMouseWheelAndWaitForHandler(System.Int16,SharpHook.Native.MouseWheelScrollDirection,SharpHook.Native.MouseWheelScrollType,System.Threading.CancellationToken)
+  fullName: SharpHook.Testing.TestGlobalHook.SimulateMouseWheelAndWaitForHandler(System.Int16, SharpHook.Native.MouseWheelScrollDirection, SharpHook.Native.MouseWheelScrollType, System.Threading.CancellationToken)
+  nameWithType: TestGlobalHook.SimulateMouseWheelAndWaitForHandler(Int16, MouseWheelScrollDirection, MouseWheelScrollType, CancellationToken)
 - uid: SharpHook.Testing.TestGlobalHook.SimulateMouseWheelAndWaitForHandler*
   name: SimulateMouseWheelAndWaitForHandler
   href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseWheelAndWaitForHandler_
