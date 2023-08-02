@@ -431,13 +431,27 @@ jobs:
           cp libuiohook-build\windows\arm64\bin\uiohook.dll SharpHook\lib\win-arm64\
           cp libuiohook-build\windows\x86\bin\uiohook.dll SharpHook\lib\win-x86\
           cp libuiohook-build\windows\x86_64\bin\uiohook.dll SharpHook\lib\win-x64\
+      - name: Build SharpHook
+        shell: pwsh
+        run: |
+          cd SharpHook
+          dotnet build --nologo -c Release /p:ContinuousIntegrationBuild=true
+          cd ..\SharpHook.Reactive
+          dotnet build --nologo -c Release /p:ContinuousIntegrationBuild=true
+          cd ..\SharpHook.Tests
+          dotnet build --nologo -c Release /p:ContinuousIntegrationBuild=true
+      - name: Test SharpHook
+        shell: pwsh
+        run: |
+          cd SharpHook.Tests
+          dotnet test --no-build --nologo -c Release
       - name: Pack SharpHook
         shell: pwsh
         run: |
           cd SharpHook
-          dotnet pack --nologo -c Release -o ${{github.workspace}}\build\ /p:ContinuousIntegrationBuild=true
+          dotnet pack --no-build --nologo -c Release -o ${{github.workspace}}\build\
           cd ..\SharpHook.Reactive
-          dotnet pack --nologo -c Release -o ${{github.workspace}}\build\ /p:ContinuousIntegrationBuild=true
+          dotnet pack --no-build --nologo -c Release -o ${{github.workspace}}\build\
       - name: Upload SharpHook
         uses: actions/upload-artifact@v3
         with:
