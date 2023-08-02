@@ -1,10 +1,5 @@
 namespace SharpHook.Providers;
 
-using System;
-using System.Diagnostics.CodeAnalysis;
-
-using SharpHook.Native;
-
 /// <summary>
 /// A provider of low-level functionality which delegates it to the <see cref="UioHook" /> class.
 /// </summary>
@@ -186,7 +181,7 @@ public sealed class UioHookProvider :
     /// The default delay is 50 milliseconds.
     /// </para>
     /// <para>
-    /// On Windows and macOS this method always returns 0.
+    /// On Windows and macOS this method always returns <c>0</c>.
     /// </para>
     /// </remarks>
     public ulong GetPostTextDelayX11() =>

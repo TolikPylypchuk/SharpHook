@@ -1,10 +1,5 @@
 namespace SharpHook;
 
-using System;
-
-using SharpHook.Native;
-using SharpHook.Providers;
-
 /// <summary>
 /// Represents an implementation of <see cref="IGlobalHook" /> which raises events on the same thread on which
 /// the hook itself runs.

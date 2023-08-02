@@ -1,8 +1,5 @@
 namespace SharpHook.Logging;
 
-using System;
-using System.Diagnostics.CodeAnalysis;
-
 /// <summary>
 /// Represents a souce of libuiohook logs which never raises any events.
 /// </summary>

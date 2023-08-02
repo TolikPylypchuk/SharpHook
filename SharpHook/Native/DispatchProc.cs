@@ -1,8 +1,5 @@
 namespace SharpHook.Native;
 
-using System;
-using System.Runtime.InteropServices;
-
 /// <summary>
 /// Represents a function which is called when an event occurs.
 /// </summary>

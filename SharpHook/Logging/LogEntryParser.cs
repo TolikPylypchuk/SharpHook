@@ -1,15 +1,7 @@
 namespace SharpHook.Logging;
 
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
-
-using SharpHook.Internal;
-using SharpHook.Native;
 
 /// <summary>
 /// Creates log entries from native log formats and arguments.
@@ -221,7 +213,7 @@ public sealed class LogEntryParser
         var buffer = IntPtr.Zero;
         try
         {
-            var count = Native.MacVasprintf(ref buffer, format, args);
+            var count = NativeStringFunctions.MacVasprintf(ref buffer, format, args);
             return count != -1 ? buffer.ToStringFromUtf8() : String.Empty;
         } finally
         {
@@ -237,7 +229,7 @@ public sealed class LogEntryParser
 
         UseStructurePointer(listStructure, listPointer =>
         {
-            byteLength = Native.LinuxVsnprintf(IntPtr.Zero, UIntPtr.Zero, format, listPointer) + 1;
+            byteLength = NativeStringFunctions.LinuxVsnprintf(IntPtr.Zero, UIntPtr.Zero, format, listPointer) + 1;
         });
 
         var utf8Buffer = IntPtr.Zero;
@@ -248,7 +240,7 @@ public sealed class LogEntryParser
 
             return UseStructurePointer(listStructure, listPointer =>
             {
-                int result = Native.LinuxVsprintf(utf8Buffer, format, listPointer);
+                int result = NativeStringFunctions.LinuxVsprintf(utf8Buffer, format, listPointer);
                 return result >= 0 ? utf8Buffer.ToStringFromUtf8() : String.Empty;
             });
         } finally
@@ -287,13 +279,13 @@ public sealed class LogEntryParser
 
     private int Vsprintf(IntPtr buffer, IntPtr format, IntPtr args) =>
         PlatformDetector.IsWindows
-            ? Native.WindowsVsprintf(buffer, format, args)
-            : PlatformDetector.IsLinux ? Native.LinuxVsprintf(buffer, format, args) : -1;
+            ? NativeStringFunctions.WindowsVsprintf(buffer, format, args)
+            : PlatformDetector.IsLinux ? NativeStringFunctions.LinuxVsprintf(buffer, format, args) : -1;
 
     private int Vsnprintf(IntPtr buffer, UIntPtr size, IntPtr format, IntPtr args) =>
         PlatformDetector.IsWindows
-            ? Native.WindowsVsnprintf(buffer, size, format, args)
-            : PlatformDetector.IsLinux ? Native.LinuxVsnprintf(buffer, size, format, args) : -1;
+            ? NativeStringFunctions.WindowsVsnprintf(buffer, size, format, args)
+            : PlatformDetector.IsLinux ? NativeStringFunctions.LinuxVsnprintf(buffer, size, format, args) : -1;
 
     private readonly struct FormatAndArguments
     {

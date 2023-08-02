@@ -1,13 +1,6 @@
 namespace SharpHook.Testing;
 
-using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-
-using SharpHook.Native;
 
 /// <summary>
 /// A global hook and event simulator which can be used in tests.

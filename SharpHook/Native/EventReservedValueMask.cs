@@ -1,7 +1,5 @@
 namespace SharpHook.Native;
 
-using System;
-
 /// <summary>
 /// Represents possible values of the <see cref="UioHookEvent.Reserved" /> field.
 /// </summary>

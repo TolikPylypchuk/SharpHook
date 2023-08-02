@@ -1,11 +1,5 @@
 namespace SharpHook.Reactive.Logging;
 
-using System;
-using System.Reactive.Linq;
-using System.Reactive.Subjects;
-
-using SharpHook.Logging;
-
 /// <summary>
 /// Adapts an <see cref="ILogSource" /> to the <see cref="IReactiveLogSource" /> interface.
 /// </summary>

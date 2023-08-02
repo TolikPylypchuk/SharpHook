@@ -1,9 +1,5 @@
 namespace SharpHook.Reactive.Logging;
 
-using System;
-
-using SharpHook.Logging;
-
 /// <summary>
 /// Represents a reactive source of libuiohook logs.
 /// </summary>

@@ -1,9 +1,5 @@
 namespace SharpHook.Testing;
 
-using System;
-
-using SharpHook.Native;
-
 /// <summary>
 /// Event args for <see cref="TestProvider.TestEventHandled" /> and <see cref="TestGlobalHook.TestEventHandled" />.
 /// </summary>

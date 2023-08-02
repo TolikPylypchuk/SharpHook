@@ -1,14 +1,5 @@
 namespace SharpHook.Reactive;
 
-using System;
-using System.Reactive;
-using System.Reactive.Concurrency;
-using System.Reactive.Disposables;
-using System.Reactive.Linq;
-using System.Reactive.Subjects;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
-
 /// <summary>
 /// Adapts an <see cref="IGlobalHook" /> to the <see cref="IReactiveGlobalHook" /> interface.
 /// </summary>

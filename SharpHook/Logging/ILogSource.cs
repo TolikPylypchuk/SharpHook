@@ -1,7 +1,5 @@
 namespace SharpHook.Logging;
 
-using System;
-
 /// <summary>
 /// Represents a source of libuiohook logs.
 /// </summary>

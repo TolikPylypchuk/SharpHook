@@ -1,7 +1,5 @@
 namespace SharpHook.Providers;
 
-using SharpHook.Native;
-
 /// <summary>
 /// Represents a provider of low-level event simulation functionality.
 /// </summary>
@@ -129,7 +127,7 @@ public interface IEventSimulationProvider
     /// The default delay is 50 milliseconds.
     /// </para>
     /// <para>
-    /// On Windows and macOS this method always returns 0.
+    /// On Windows and macOS this method always returns <c>0</c>.
     /// </para>
     /// </remarks>
     ulong GetPostTextDelayX11();

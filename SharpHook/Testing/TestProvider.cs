@@ -1,13 +1,6 @@
 namespace SharpHook.Testing;
 
-using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-
-using SharpHook.Native;
-using SharpHook.Providers;
 
 /// <summary>
 /// A provider of low-level functionality which can be used in tests.

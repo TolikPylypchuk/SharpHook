@@ -1,13 +1,5 @@
 namespace SharpHook;
 
-using System;
-using System.Runtime.CompilerServices;
-using System.Threading;
-using System.Threading.Tasks;
-
-using SharpHook.Providers;
-using SharpHook.Native;
-
 /// <summary>
 /// Represents an abstract implementation of <see cref="IGlobalHook" /> which raises events only when there is at least
 /// one subscriber.

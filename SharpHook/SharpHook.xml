@@ -3619,7 +3619,7 @@
             The default delay is 50 milliseconds.
             </para>
             <para>
-            On Windows and macOS this method always returns 0.
+            On Windows and macOS this method always returns <c>0</c>.
             </para>
             </remarks>
         </member>
@@ -3914,7 +3914,7 @@
             The default delay is 50 milliseconds.
             </para>
             <para>
-            On Windows and macOS this method always returns 0.
+            On Windows and macOS this method always returns <c>0</c>.
             </para>
             </remarks>
         </member>

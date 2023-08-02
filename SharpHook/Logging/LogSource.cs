@@ -1,11 +1,5 @@
 namespace SharpHook.Logging;
 
-using System;
-using System.Diagnostics.CodeAnalysis;
-
-using SharpHook.Native;
-using SharpHook.Providers;
-
 /// <summary>
 /// Represents a source of libuiohook logs.
 /// </summary>

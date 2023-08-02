@@ -1,8 +1,5 @@
 namespace SharpHook.Logging;
 
-using System;
-using System.Diagnostics.CodeAnalysis;
-
 /// <summary>
 /// Event args for logging events.
 /// </summary>

@@ -1,11 +1,5 @@
 namespace SharpHook;
 
-using System;
-using System.Diagnostics.CodeAnalysis;
-
-using SharpHook.Native;
-using SharpHook.Providers;
-
 /// <summary>
 /// A keyboard and mouse event simulator which posts events to the OS.
 /// </summary>

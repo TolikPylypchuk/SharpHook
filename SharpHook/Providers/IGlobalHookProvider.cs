@@ -1,9 +1,5 @@
 namespace SharpHook.Providers;
 
-using System;
-
-using SharpHook.Native;
-
 /// <summary>
 /// Represents a provider of low-level global hook functionality.
 /// </summary>

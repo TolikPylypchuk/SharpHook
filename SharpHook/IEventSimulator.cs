@@ -1,9 +1,5 @@
 namespace SharpHook;
 
-using System;
-
-using SharpHook.Native;
-
 /// <summary>
 /// Represents an object which can simulate keyboard and mouse events.
 /// </summary>

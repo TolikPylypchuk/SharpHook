@@ -1,11 +1,5 @@
 namespace SharpHook.Internal;
 
-using System;
-using System.Diagnostics.CodeAnalysis;
-using System.Runtime.CompilerServices;
-using System.Threading;
-using System.Threading.Tasks;
-
 [ExcludeFromCodeCoverage]
 internal sealed class TaskQueue : IDisposable
 {

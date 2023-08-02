@@ -1,8 +1,5 @@
 namespace SharpHook.Native;
 
-using System;
-using System.Linq;
-
 /// <summary>
 /// Contains extension methods for <see cref="ModifierMask" />.
 /// </summary>

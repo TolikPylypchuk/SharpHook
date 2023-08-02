@@ -1,7 +1,5 @@
 namespace SharpHook;
 
-using SharpHook.Native;
-
 /// <summary>
 /// Event args for mouse-related hook events.
 /// </summary>

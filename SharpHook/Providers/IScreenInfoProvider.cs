@@ -1,7 +1,5 @@
 namespace SharpHook.Providers;
 
-using SharpHook.Native;
-
 /// <summary>
 /// Represents a provider of low-level screen info functionality.
 /// </summary>
