@@ -1,9 +1,11 @@
 namespace SharpHook.Internal;
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Text;
 
+[ExcludeFromCodeCoverage]
 internal static class StringUtil
 {
     internal static string ToStringFromUtf8(this IntPtr nativeString)

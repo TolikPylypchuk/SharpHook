@@ -1,8 +1,10 @@
 namespace SharpHook.Internal;
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
+[ExcludeFromCodeCoverage]
 internal static class PlatformDetector
 {
     internal static bool IsWindows =>

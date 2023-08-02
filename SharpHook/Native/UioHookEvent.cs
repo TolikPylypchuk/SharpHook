@@ -1,6 +1,7 @@
 namespace SharpHook.Native;
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
 using SharpHook.Internal;
@@ -42,6 +43,7 @@ using SharpHook.Internal;
 /// <seealso cref="KeyboardEventData" />
 /// <seealso cref="MouseEventData" />
 /// <seealso cref="MouseWheelEventData" />
+[ExcludeFromCodeCoverage]
 [StructLayout(LayoutKind.Explicit)]
 public struct UioHookEvent : IEquatable<UioHookEvent>
 {

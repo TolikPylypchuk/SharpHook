@@ -1,7 +1,6 @@
 namespace SharpHook.Native;
 
 using System;
-using System.Linq;
 
 /// <summary>
 /// Represents a virtual modifier mask.

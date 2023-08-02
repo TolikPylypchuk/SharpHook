@@ -1,6 +1,6 @@
 namespace SharpHook;
 
-public class EventSimulatorTests
+public sealed class EventSimulatorTests
 {
     private const int NanosecondsPerTick = 100;
 

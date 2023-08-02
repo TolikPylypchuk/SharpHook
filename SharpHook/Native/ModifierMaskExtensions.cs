@@ -67,7 +67,7 @@ public static class ModifierMaskExtensions
     /// Otherwise, <see langword="false" />.
     /// </returns>
     /// <remarks>
-    /// This method returns <see langword="false" /> is <paramref name="modifiers" /> equals
+    /// This method returns <see langword="false" /> if <paramref name="modifiers" /> equals
     /// <see cref="ModifierMask.None" />.
     /// </remarks>
     public static bool HasAny(this ModifierMask mask, ModifierMask modifiers) =>
@@ -84,11 +84,11 @@ public static class ModifierMaskExtensions
     /// Otherwise, <see langword="false" />.
     /// </returns>
     /// <remarks>
-    /// This method returns <see langword="true" /> is <paramref name="modifiers" /> equals
+    /// This method returns <see langword="true" /> if <paramref name="modifiers" /> equals
     /// <see cref="ModifierMask.None" />.
     /// </remarks>
     public static bool HasAll(this ModifierMask mask, ModifierMask modifiers) =>
-        modifiers.Split().All(m => mask.HasFlag(m));
+        (mask & modifiers) == modifiers;
 
     /// <summary>
     /// Splits a modifier mask into an array of individual modifiers.

@@ -1,6 +1,7 @@
 namespace SharpHook.Native;
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
 using SharpHook.Internal;
@@ -10,6 +11,7 @@ using SharpHook.Internal;
 /// </summary>
 /// <seealso cref="KeyboardHookEventArgs" />
 /// <seealso cref="SharpHook.Native.KeyCode" />
+[ExcludeFromCodeCoverage]
 [StructLayout(LayoutKind.Sequential)]
 public struct KeyboardEventData : IEquatable<KeyboardEventData>
 {

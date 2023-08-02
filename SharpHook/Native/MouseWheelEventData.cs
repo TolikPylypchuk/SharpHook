@@ -1,6 +1,7 @@
 namespace SharpHook.Native;
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
 using SharpHook.Internal;
@@ -11,6 +12,7 @@ using SharpHook.Internal;
 /// <seealso cref="MouseWheelHookEventArgs" />
 /// <seealso cref="MouseWheelScrollType" />
 /// <seealso cref="MouseWheelScrollDirection" />
+[ExcludeFromCodeCoverage]
 [StructLayout(LayoutKind.Sequential)]
 public struct MouseWheelEventData : IEquatable<MouseWheelEventData>
 {

@@ -2627,7 +2627,7 @@
             Otherwise, <see langword="false" />.
             </returns>
             <remarks>
-            This method returns <see langword="false" /> is <paramref name="modifiers" /> equals
+            This method returns <see langword="false" /> if <paramref name="modifiers" /> equals
             <see cref="F:SharpHook.Native.ModifierMask.None" />.
             </remarks>
         </member>
@@ -2643,7 +2643,7 @@
             Otherwise, <see langword="false" />.
             </returns>
             <remarks>
-            This method returns <see langword="true" /> is <paramref name="modifiers" /> equals
+            This method returns <see langword="true" /> if <paramref name="modifiers" /> equals
             <see cref="F:SharpHook.Native.ModifierMask.None" />.
             </remarks>
         </member>

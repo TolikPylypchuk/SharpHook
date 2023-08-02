@@ -1,11 +1,13 @@
 namespace SharpHook.Internal;
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 #if NET7_0_OR_GREATER
 using System.Runtime.CompilerServices;
 #endif
 using System.Runtime.InteropServices;
 
+[ExcludeFromCodeCoverage]
 internal static partial class Native
 {
     private const string Msvcrt = "msvcrt";

@@ -1,6 +1,7 @@
 namespace SharpHook.Providers;
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 using SharpHook.Native;
 
@@ -8,6 +9,7 @@ using SharpHook.Native;
 /// A provider of low-level functionality which delegates it to the <see cref="UioHook" /> class.
 /// </summary>
 /// <seealso cref="UioHook" />
+[ExcludeFromCodeCoverage]
 public sealed class UioHookProvider :
     IGlobalHookProvider,
     ILoggingProvider,

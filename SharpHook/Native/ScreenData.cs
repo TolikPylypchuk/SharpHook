@@ -1,6 +1,7 @@
 namespace SharpHook.Native;
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 
 using SharpHook.Internal;
@@ -8,6 +9,7 @@ using SharpHook.Internal;
 /// <summary>
 /// Represents screen-related data.
 /// </summary>
+[ExcludeFromCodeCoverage]
 [StructLayout(LayoutKind.Sequential)]
 public struct ScreenData : IEquatable<ScreenData>
 {
