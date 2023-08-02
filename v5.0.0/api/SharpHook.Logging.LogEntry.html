@@ -81,25 +81,6 @@
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">LogEntry</span></div>
   </div>
-  <div class="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="SharpHook.Logging.LogEntry.html">LogEntry</a>&gt;</div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="SharpHook.Logging.html">SharpHook.Logging</a></h6>
   <h6><strong>Assembly</strong>: SharpHook.dll</h6>
   <h5 id="SharpHook_Logging_LogEntry_syntax">Syntax</h5>
@@ -129,13 +110,13 @@ class to create them in the logging callback.
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Logging_LogEntry__ctor_SharpHook_Native_LogLevel_System_String_System_String_System_String_System_Collections_Generic_IReadOnlyList_System_Object__System_Collections_Generic_IReadOnlyList_System_String__System_Collections_Generic_IReadOnlyList_System_String__.md&amp;value=---%0Auid%3A%20SharpHook.Logging.LogEntry.%23ctor(SharpHook.Native.LogLevel%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.Collections.Generic.IReadOnlyList%7BSystem.Object%7D%2CSystem.Collections.Generic.IReadOnlyList%7BSystem.String%7D%2CSystem.Collections.Generic.IReadOnlyList%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Logging_LogEntry__ctor_LogLevel_System_String_System_String_System_String_IReadOnlyList_System_Object__IReadOnlyList_System_String__IReadOnlyList_System_String__.md&amp;value=---%0Auid%3A%20SharpHook.Logging.LogEntry.%23ctor(LogLevel%2CSystem.String%2CSystem.String%2CSystem.String%2CIReadOnlyList%7BSystem.Object%7D%2CIReadOnlyList%7BSystem.String%7D%2CIReadOnlyList%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L52">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L44">View Source</a>
   </span>
   <a id="SharpHook_Logging_LogEntry__ctor_" data-uid="SharpHook.Logging.LogEntry.#ctor*"></a>
-  <h4 id="SharpHook_Logging_LogEntry__ctor_SharpHook_Native_LogLevel_System_String_System_String_System_String_System_Collections_Generic_IReadOnlyList_System_Object__System_Collections_Generic_IReadOnlyList_System_String__System_Collections_Generic_IReadOnlyList_System_String__" data-uid="SharpHook.Logging.LogEntry.#ctor(SharpHook.Native.LogLevel,System.String,System.String,System.String,System.Collections.Generic.IReadOnlyList{System.Object},System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{System.String})">LogEntry(LogLevel, String, String, String, IReadOnlyList&lt;Object&gt;, IReadOnlyList&lt;String&gt;, IReadOnlyList&lt;String&gt;)</h4>
+  <h4 id="SharpHook_Logging_LogEntry__ctor_LogLevel_System_String_System_String_System_String_IReadOnlyList_System_Object__IReadOnlyList_System_String__IReadOnlyList_System_String__" data-uid="SharpHook.Logging.LogEntry.#ctor(LogLevel,System.String,System.String,System.String,IReadOnlyList{System.Object},IReadOnlyList{System.String},IReadOnlyList{System.String})">LogEntry(LogLevel, String, String, String, IReadOnlyList&lt;Object&gt;, IReadOnlyList&lt;String&gt;, IReadOnlyList&lt;String&gt;)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="SharpHook.Logging.LogEntry.html">LogEntry</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -154,7 +135,7 @@ class to create them in the logging callback.
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="SharpHook.Native.LogLevel.html">LogLevel</a></td>
+        <td><span class="xref">LogLevel</span></td>
         <td><span class="parametername">level</span></td>
         <td><p>The log level.</p>
 </td>
@@ -178,19 +159,19 @@ class to create them in the logging callback.
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a>&gt;</td>
+        <td><span class="xref">IReadOnlyList</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a>&gt;</td>
         <td><span class="parametername">arguments</span></td>
         <td><p>The arguments of the log entry which can be used in <code>String.Format</code>.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td><span class="xref">IReadOnlyList</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
         <td><span class="parametername">rawArguments</span></td>
         <td><p>The arguments as they appear in the entry's full text.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td><span class="xref">IReadOnlyList</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
         <td><span class="parametername">argumentPlaceholders</span></td>
         <td><p>The argument placeholders from the native format.</p>
 </td>
@@ -204,7 +185,7 @@ class to create them in the logging callback.
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Logging_LogEntry_Level.md&amp;value=---%0Auid%3A%20SharpHook.Logging.LogEntry.Level%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L74">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L66">View Source</a>
   </span>
   <h4 id="SharpHook_Logging_LogEntry_Level" data-uid="SharpHook.Logging.LogEntry.Level">Level</h4>
   <div class="markdown level1 summary"><p>Gets the level of the current log entry.</p>
@@ -224,7 +205,7 @@ class to create them in the logging callback.
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="SharpHook.Native.LogLevel.html">LogLevel</a></td>
+        <td><span class="xref">LogLevel</span></td>
         <td><p>The level of the current log entry.</p>
 </td>
       </tr>
@@ -237,7 +218,7 @@ class to create them in the logging callback.
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Logging_LogEntry_ArgumentPlaceholders.md&amp;value=---%0Auid%3A%20SharpHook.Logging.LogEntry.ArgumentPlaceholders%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L112">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L104">View Source</a>
   </span>
   <a id="SharpHook_Logging_LogEntry_ArgumentPlaceholders_" data-uid="SharpHook.Logging.LogEntry.ArgumentPlaceholders*"></a>
   <h4 id="SharpHook_Logging_LogEntry_ArgumentPlaceholders" data-uid="SharpHook.Logging.LogEntry.ArgumentPlaceholders">ArgumentPlaceholders</h4>
@@ -258,7 +239,7 @@ class to create them in the logging callback.
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td><span class="xref">IReadOnlyList</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
         <td><p>The argument placeholders from the native format.</p>
 </td>
       </tr>
@@ -269,7 +250,7 @@ class to create them in the logging callback.
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Logging_LogEntry_Arguments.md&amp;value=---%0Auid%3A%20SharpHook.Logging.LogEntry.Arguments%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L99">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L91">View Source</a>
   </span>
   <a id="SharpHook_Logging_LogEntry_Arguments_" data-uid="SharpHook.Logging.LogEntry.Arguments*"></a>
   <h4 id="SharpHook_Logging_LogEntry_Arguments" data-uid="SharpHook.Logging.LogEntry.Arguments">Arguments</h4>
@@ -290,7 +271,7 @@ class to create them in the logging callback.
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a>&gt;</td>
+        <td><span class="xref">IReadOnlyList</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a>&gt;</td>
         <td><p>The arguments of the current log entry.</p>
 </td>
       </tr>
@@ -304,7 +285,7 @@ class to create them in the logging callback.
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Logging_LogEntry_Format.md&amp;value=---%0Auid%3A%20SharpHook.Logging.LogEntry.Format%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L86">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L78">View Source</a>
   </span>
   <a id="SharpHook_Logging_LogEntry_Format_" data-uid="SharpHook.Logging.LogEntry.Format*"></a>
   <h4 id="SharpHook_Logging_LogEntry_Format" data-uid="SharpHook.Logging.LogEntry.Format">Format</h4>
@@ -336,7 +317,7 @@ class to create them in the logging callback.
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Logging_LogEntry_FullText.md&amp;value=---%0Auid%3A%20SharpHook.Logging.LogEntry.FullText%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L80">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L72">View Source</a>
   </span>
   <a id="SharpHook_Logging_LogEntry_FullText_" data-uid="SharpHook.Logging.LogEntry.FullText*"></a>
   <h4 id="SharpHook_Logging_LogEntry_FullText" data-uid="SharpHook.Logging.LogEntry.FullText">FullText</h4>
@@ -368,7 +349,7 @@ class to create them in the logging callback.
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Logging_LogEntry_Function.md&amp;value=---%0Auid%3A%20SharpHook.Logging.LogEntry.Function%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L119">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L111">View Source</a>
   </span>
   <a id="SharpHook_Logging_LogEntry_Function_" data-uid="SharpHook.Logging.LogEntry.Function*"></a>
   <h4 id="SharpHook_Logging_LogEntry_Function" data-uid="SharpHook.Logging.LogEntry.Function">Function</h4>
@@ -403,7 +384,7 @@ class to create them in the logging callback.
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Logging_LogEntry_NativeFormat.md&amp;value=---%0Auid%3A%20SharpHook.Logging.LogEntry.NativeFormat%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L92">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L84">View Source</a>
   </span>
   <a id="SharpHook_Logging_LogEntry_NativeFormat_" data-uid="SharpHook.Logging.LogEntry.NativeFormat*"></a>
   <h4 id="SharpHook_Logging_LogEntry_NativeFormat" data-uid="SharpHook.Logging.LogEntry.NativeFormat">NativeFormat</h4>
@@ -435,7 +416,7 @@ class to create them in the logging callback.
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Logging_LogEntry_RawArguments.md&amp;value=---%0Auid%3A%20SharpHook.Logging.LogEntry.RawArguments%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L106">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L98">View Source</a>
   </span>
   <a id="SharpHook_Logging_LogEntry_RawArguments_" data-uid="SharpHook.Logging.LogEntry.RawArguments*"></a>
   <h4 id="SharpHook_Logging_LogEntry_RawArguments" data-uid="SharpHook.Logging.LogEntry.RawArguments">RawArguments</h4>
@@ -456,7 +437,7 @@ class to create them in the logging callback.
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td><span class="xref">IReadOnlyList</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
         <td><p>The arguments of the current log entry as they appear in entry's full text.</p>
 </td>
       </tr>
@@ -470,7 +451,7 @@ class to create them in the logging callback.
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Logging_LogEntry_SourceLine.md&amp;value=---%0Auid%3A%20SharpHook.Logging.LogEntry.SourceLine%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L127">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L119">View Source</a>
   </span>
   <a id="SharpHook_Logging_LogEntry_SourceLine_" data-uid="SharpHook.Logging.LogEntry.SourceLine*"></a>
   <h4 id="SharpHook_Logging_LogEntry_SourceLine" data-uid="SharpHook.Logging.LogEntry.SourceLine">SourceLine</h4>
@@ -507,7 +488,7 @@ class to create them in the logging callback.
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Logging_LogEntry_Equals_SharpHook_Logging_LogEntry_.md&amp;value=---%0Auid%3A%20SharpHook.Logging.LogEntry.Equals(SharpHook.Logging.LogEntry)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L147">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L139">View Source</a>
   </span>
   <a id="SharpHook_Logging_LogEntry_Equals_" data-uid="SharpHook.Logging.LogEntry.Equals*"></a>
   <h4 id="SharpHook_Logging_LogEntry_Equals_SharpHook_Logging_LogEntry_" data-uid="SharpHook.Logging.LogEntry.Equals(SharpHook.Logging.LogEntry)">Equals(LogEntry)</h4>
@@ -557,7 +538,7 @@ class to create them in the logging callback.
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Logging_LogEntry_Equals_System_Object_.md&amp;value=---%0Auid%3A%20SharpHook.Logging.LogEntry.Equals(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L137">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L129">View Source</a>
   </span>
   <a id="SharpHook_Logging_LogEntry_Equals_" data-uid="SharpHook.Logging.LogEntry.Equals*"></a>
   <h4 id="SharpHook_Logging_LogEntry_Equals_System_Object_" data-uid="SharpHook.Logging.LogEntry.Equals(System.Object)">Equals(Object)</h4>
@@ -602,14 +583,12 @@ class to create them in the logging callback.
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Logging_LogEntry_GetHashCode.md&amp;value=---%0Auid%3A%20SharpHook.Logging.LogEntry.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L160">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L152">View Source</a>
   </span>
   <a id="SharpHook_Logging_LogEntry_GetHashCode_" data-uid="SharpHook.Logging.LogEntry.GetHashCode*"></a>
   <h4 id="SharpHook_Logging_LogEntry_GetHashCode" data-uid="SharpHook.Logging.LogEntry.GetHashCode">GetHashCode()</h4>
@@ -636,14 +615,12 @@ class to create them in the logging callback.
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Logging_LogEntry_ToString.md&amp;value=---%0Auid%3A%20SharpHook.Logging.LogEntry.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L173">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L165">View Source</a>
   </span>
   <a id="SharpHook_Logging_LogEntry_ToString_" data-uid="SharpHook.Logging.LogEntry.ToString*"></a>
   <h4 id="SharpHook_Logging_LogEntry_ToString" data-uid="SharpHook.Logging.LogEntry.ToString">ToString()</h4>
@@ -670,8 +647,6 @@ class to create them in the logging callback.
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a></div>
   <h3 id="operators">Operators
   </h3>
   <span class="small pull-right mobile-hide">
@@ -679,7 +654,7 @@ class to create them in the logging callback.
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Logging_LogEntry_op_Equality_SharpHook_Logging_LogEntry_SharpHook_Logging_LogEntry_.md&amp;value=---%0Auid%3A%20SharpHook.Logging.LogEntry.op_Equality(SharpHook.Logging.LogEntry%2CSharpHook.Logging.LogEntry)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L184">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L176">View Source</a>
   </span>
   <a id="SharpHook_Logging_LogEntry_op_Equality_" data-uid="SharpHook.Logging.LogEntry.op_Equality*"></a>
   <h4 id="SharpHook_Logging_LogEntry_op_Equality_SharpHook_Logging_LogEntry_SharpHook_Logging_LogEntry_" data-uid="SharpHook.Logging.LogEntry.op_Equality(SharpHook.Logging.LogEntry,SharpHook.Logging.LogEntry)">Equality(LogEntry, LogEntry)</h4>
@@ -735,7 +710,7 @@ class to create them in the logging callback.
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Logging_LogEntry_op_Inequality_SharpHook_Logging_LogEntry_SharpHook_Logging_LogEntry_.md&amp;value=---%0Auid%3A%20SharpHook.Logging.LogEntry.op_Inequality(SharpHook.Logging.LogEntry%2CSharpHook.Logging.LogEntry)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L195">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L187">View Source</a>
   </span>
   <a id="SharpHook_Logging_LogEntry_op_Inequality_" data-uid="SharpHook.Logging.LogEntry.op_Inequality*"></a>
   <h4 id="SharpHook_Logging_LogEntry_op_Inequality_SharpHook_Logging_LogEntry_SharpHook_Logging_LogEntry_" data-uid="SharpHook.Logging.LogEntry.op_Inequality(SharpHook.Logging.LogEntry,SharpHook.Logging.LogEntry)">Inequality(LogEntry, LogEntry)</h4>
@@ -786,10 +761,6 @@ class to create them in the logging callback.
       </tr>
     </tbody>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">System.IEquatable&lt;T&gt;</a>
-  </div>
   <h3 id="seealso">See Also</h3>
   <div class="seealso">
       <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
@@ -808,7 +779,7 @@ class to create them in the logging callback.
                     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Logging_LogEntry.md&amp;value=---%0Auid%3A%20SharpHook.Logging.LogEntry%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L39" class="contribution-link">View Source</a>
+                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Logging/LogEntry.cs/#L31" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

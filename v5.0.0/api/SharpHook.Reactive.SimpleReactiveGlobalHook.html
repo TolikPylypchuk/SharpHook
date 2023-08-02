@@ -84,7 +84,7 @@
   <div class="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="SharpHook.Reactive.IReactiveGlobalHook.html">IReactiveGlobalHook</a></div>
-    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    <div><span class="xref">IDisposable</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -114,7 +114,7 @@
   <h6><strong>Assembly</strong>: SharpHook.Reactive.dll</h6>
   <h5 id="SharpHook_Reactive_SimpleReactiveGlobalHook_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -123,7 +123,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook__ctor.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L45">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L34">View Source</a>
   </span>
   <a id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor*"></a>
   <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor">SimpleReactiveGlobalHook()</h4>
@@ -136,13 +136,13 @@
   </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_SharpHook_Providers_IGlobalHookProvider_.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.%23ctor(SharpHook.Providers.IGlobalHookProvider)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_IGlobalHookProvider_.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.%23ctor(IGlobalHookProvider)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L67">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L56">View Source</a>
   </span>
   <a id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor*"></a>
-  <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_SharpHook_Providers_IGlobalHookProvider_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider)">SimpleReactiveGlobalHook(IGlobalHookProvider)</h4>
+  <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_IGlobalHookProvider_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(IGlobalHookProvider)">SimpleReactiveGlobalHook(IGlobalHookProvider)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.Reactive.SimpleReactiveGlobalHook.html">SimpleReactiveGlobalHook</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -161,38 +161,22 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html">IGlobalHookProvider</a></td>
+        <td><span class="xref">IGlobalHookProvider</span></td>
         <td><span class="parametername">globalHookProvider</span></td>
         <td><p>The underlying global hook provider.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">globalHookProvider</code> is <span class="xref">null</span>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_SharpHook_Providers_IGlobalHookProvider_System_Boolean_.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.%23ctor(SharpHook.Providers.IGlobalHookProvider%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_IGlobalHookProvider_System_Boolean_.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.%23ctor(IGlobalHookProvider%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L120">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L109">View Source</a>
   </span>
   <a id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor*"></a>
-  <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_SharpHook_Providers_IGlobalHookProvider_System_Boolean_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider,System.Boolean)">SimpleReactiveGlobalHook(IGlobalHookProvider, Boolean)</h4>
+  <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_IGlobalHookProvider_System_Boolean_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(IGlobalHookProvider,System.Boolean)">SimpleReactiveGlobalHook(IGlobalHookProvider, Boolean)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.Reactive.SimpleReactiveGlobalHook.html">SimpleReactiveGlobalHook</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -211,7 +195,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html">IGlobalHookProvider</a></td>
+        <td><span class="xref">IGlobalHookProvider</span></td>
         <td><span class="parametername">globalHookProvider</span></td>
         <td><p>The underlying global hook provider.</p>
 </td>
@@ -225,18 +209,164 @@ Otherwise, <span class="xref">false</span>.</p>
       </tr>
     </tbody>
   </table>
-  <h5 class="exceptions">Exceptions</h5>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_IScheduler_.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.%23ctor(IScheduler)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L45">View Source</a>
+  </span>
+  <a id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor*"></a>
+  <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_IScheduler_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(IScheduler)">SimpleReactiveGlobalHook(IScheduler)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.Reactive.SimpleReactiveGlobalHook.html">SimpleReactiveGlobalHook</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SimpleReactiveGlobalHook(IScheduler defaultScheduler)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Condition</th>
+        <th>Name</th>
+        <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">globalHookProvider</code> is <span class="xref">null</span>.</p>
+        <td><span class="xref">IScheduler</span></td>
+        <td><span class="parametername">defaultScheduler</span></td>
+        <td><p>The default scheduler for observables.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_IScheduler_IGlobalHookProvider_.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.%23ctor(IScheduler%2CIGlobalHookProvider)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L79">View Source</a>
+  </span>
+  <a id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor*"></a>
+  <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_IScheduler_IGlobalHookProvider_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(IScheduler,IGlobalHookProvider)">SimpleReactiveGlobalHook(IScheduler, IGlobalHookProvider)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.Reactive.SimpleReactiveGlobalHook.html">SimpleReactiveGlobalHook</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SimpleReactiveGlobalHook(IScheduler defaultScheduler, IGlobalHookProvider globalHookProvider)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IScheduler</span></td>
+        <td><span class="parametername">defaultScheduler</span></td>
+        <td><p>The default scheduler for observables.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IGlobalHookProvider</span></td>
+        <td><span class="parametername">globalHookProvider</span></td>
+        <td><p>The underlying global hook provider.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_IScheduler_IGlobalHookProvider_System_Boolean_.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.%23ctor(IScheduler%2CIGlobalHookProvider%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L125">View Source</a>
+  </span>
+  <a id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor*"></a>
+  <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_IScheduler_IGlobalHookProvider_System_Boolean_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(IScheduler,IGlobalHookProvider,System.Boolean)">SimpleReactiveGlobalHook(IScheduler, IGlobalHookProvider, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.Reactive.SimpleReactiveGlobalHook.html">SimpleReactiveGlobalHook</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SimpleReactiveGlobalHook(IScheduler defaultScheduler, IGlobalHookProvider globalHookProvider, bool runAsyncOnBackgroundThread)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IScheduler</span></td>
+        <td><span class="parametername">defaultScheduler</span></td>
+        <td><p>The default scheduler for observables.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IGlobalHookProvider</span></td>
+        <td><span class="parametername">globalHookProvider</span></td>
+        <td><p>The underlying global hook provider.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">runAsyncOnBackgroundThread</span></td>
+        <td><p><span class="xref">true</span> if <a class="xref" href="SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_RunAsync">RunAsync()</a> should run the hook on a background thread.
+Otherwise, <span class="xref">false</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_IScheduler_System_Boolean_.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.%23ctor(IScheduler%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L94">View Source</a>
+  </span>
+  <a id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor*"></a>
+  <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_IScheduler_System_Boolean_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(IScheduler,System.Boolean)">SimpleReactiveGlobalHook(IScheduler, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.Reactive.SimpleReactiveGlobalHook.html">SimpleReactiveGlobalHook</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SimpleReactiveGlobalHook(IScheduler defaultScheduler, bool runAsyncOnBackgroundThread)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IScheduler</span></td>
+        <td><span class="parametername">defaultScheduler</span></td>
+        <td><p>The default scheduler for observables.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">runAsyncOnBackgroundThread</span></td>
+        <td><p><span class="xref">true</span> if <a class="xref" href="SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_RunAsync">RunAsync()</a> should run the hook on a background thread.
+Otherwise, <span class="xref">false</span>.</p>
 </td>
       </tr>
     </tbody>
@@ -246,7 +376,7 @@ Otherwise, <span class="xref">false</span>.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_System_Boolean_.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.%23ctor(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L78">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L67">View Source</a>
   </span>
   <a id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor*"></a>
   <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_System_Boolean_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(System.Boolean)">SimpleReactiveGlobalHook(Boolean)</h4>
@@ -276,232 +406,6 @@ Otherwise, <span class="xref">false</span>.</p>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_System_Reactive_Concurrency_IScheduler_.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.%23ctor(System.Reactive.Concurrency.IScheduler)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L56">View Source</a>
-  </span>
-  <a id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor*"></a>
-  <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_System_Reactive_Concurrency_IScheduler_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(System.Reactive.Concurrency.IScheduler)">SimpleReactiveGlobalHook(IScheduler)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.Reactive.SimpleReactiveGlobalHook.html">SimpleReactiveGlobalHook</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SimpleReactiveGlobalHook(IScheduler defaultScheduler)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Reactive.Concurrency.IScheduler</span></td>
-        <td><span class="parametername">defaultScheduler</span></td>
-        <td><p>The default scheduler for observables.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">defaultScheduler</code> is <span class="xref">null</span>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_System_Reactive_Concurrency_IScheduler_SharpHook_Providers_IGlobalHookProvider_.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.%23ctor(System.Reactive.Concurrency.IScheduler%2CSharpHook.Providers.IGlobalHookProvider)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L90">View Source</a>
-  </span>
-  <a id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor*"></a>
-  <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_System_Reactive_Concurrency_IScheduler_SharpHook_Providers_IGlobalHookProvider_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(System.Reactive.Concurrency.IScheduler,SharpHook.Providers.IGlobalHookProvider)">SimpleReactiveGlobalHook(IScheduler, IGlobalHookProvider)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.Reactive.SimpleReactiveGlobalHook.html">SimpleReactiveGlobalHook</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SimpleReactiveGlobalHook(IScheduler defaultScheduler, IGlobalHookProvider globalHookProvider)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Reactive.Concurrency.IScheduler</span></td>
-        <td><span class="parametername">defaultScheduler</span></td>
-        <td><p>The default scheduler for observables.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html">IGlobalHookProvider</a></td>
-        <td><span class="parametername">globalHookProvider</span></td>
-        <td><p>The underlying global hook provider.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">defaultScheduler</code> or <code data-dev-comment-type="paramref" class="paramref">globalHookProvider</code> is <span class="xref">null</span>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_System_Reactive_Concurrency_IScheduler_SharpHook_Providers_IGlobalHookProvider_System_Boolean_.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.%23ctor(System.Reactive.Concurrency.IScheduler%2CSharpHook.Providers.IGlobalHookProvider%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L136">View Source</a>
-  </span>
-  <a id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor*"></a>
-  <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_System_Reactive_Concurrency_IScheduler_SharpHook_Providers_IGlobalHookProvider_System_Boolean_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(System.Reactive.Concurrency.IScheduler,SharpHook.Providers.IGlobalHookProvider,System.Boolean)">SimpleReactiveGlobalHook(IScheduler, IGlobalHookProvider, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.Reactive.SimpleReactiveGlobalHook.html">SimpleReactiveGlobalHook</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SimpleReactiveGlobalHook(IScheduler defaultScheduler, IGlobalHookProvider globalHookProvider, bool runAsyncOnBackgroundThread)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Reactive.Concurrency.IScheduler</span></td>
-        <td><span class="parametername">defaultScheduler</span></td>
-        <td><p>The default scheduler for observables.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html">IGlobalHookProvider</a></td>
-        <td><span class="parametername">globalHookProvider</span></td>
-        <td><p>The underlying global hook provider.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td><span class="parametername">runAsyncOnBackgroundThread</span></td>
-        <td><p><span class="xref">true</span> if <a class="xref" href="SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_RunAsync">RunAsync()</a> should run the hook on a background thread.
-Otherwise, <span class="xref">false</span>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">defaultScheduler</code> or <code data-dev-comment-type="paramref" class="paramref">globalHookProvider</code> is <span class="xref">null</span>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_System_Reactive_Concurrency_IScheduler_System_Boolean_.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.%23ctor(System.Reactive.Concurrency.IScheduler%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L105">View Source</a>
-  </span>
-  <a id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor*"></a>
-  <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_System_Reactive_Concurrency_IScheduler_System_Boolean_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(System.Reactive.Concurrency.IScheduler,System.Boolean)">SimpleReactiveGlobalHook(IScheduler, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.Reactive.SimpleReactiveGlobalHook.html">SimpleReactiveGlobalHook</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SimpleReactiveGlobalHook(IScheduler defaultScheduler, bool runAsyncOnBackgroundThread)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Reactive.Concurrency.IScheduler</span></td>
-        <td><span class="parametername">defaultScheduler</span></td>
-        <td><p>The default scheduler for observables.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td><span class="parametername">runAsyncOnBackgroundThread</span></td>
-        <td><p><span class="xref">true</span> if <a class="xref" href="SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_RunAsync">RunAsync()</a> should run the hook on a background thread.
-Otherwise, <span class="xref">false</span>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">defaultScheduler</code> is <span class="xref">null</span>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="properties">Properties
   </h3>
   <span class="small pull-right mobile-hide">
@@ -509,7 +413,7 @@ Otherwise, <span class="xref">false</span>.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook_HookDisabled.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.HookDisabled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L208">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L197">View Source</a>
   </span>
   <a id="SharpHook_Reactive_SimpleReactiveGlobalHook_HookDisabled_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.HookDisabled*"></a>
   <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook_HookDisabled" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.HookDisabled">HookDisabled</h4>
@@ -530,14 +434,14 @@ Otherwise, <span class="xref">false</span>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="SharpHook.HookEventArgs.html">HookEventArgs</a>&gt;</td>
+        <td><span class="xref">IObservable</span>&lt;<a class="xref" href="SharpHook.HookEventArgs.html">HookEventArgs</a>&gt;</td>
         <td><p>An observable which emits a value when the global hook is disabled.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 id="SharpHook_Reactive_SimpleReactiveGlobalHook_HookDisabled_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>The observable emits a value when the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose#system-idisposable-dispose">Dispose()</a> method is called and then
+  <div class="markdown level1 remarks"><p>The observable emits a value when the <see cref="!:IDisposable.Dispose"></see> method is called and then
 immediately completes.</p>
 </div>
   <span class="small pull-right mobile-hide">
@@ -545,7 +449,7 @@ immediately completes.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook_HookEnabled.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.HookEnabled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L198">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L187">View Source</a>
   </span>
   <a id="SharpHook_Reactive_SimpleReactiveGlobalHook_HookEnabled_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.HookEnabled*"></a>
   <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook_HookEnabled" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.HookEnabled">HookEnabled</h4>
@@ -566,7 +470,7 @@ immediately completes.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="SharpHook.HookEventArgs.html">HookEventArgs</a>&gt;</td>
+        <td><span class="xref">IObservable</span>&lt;<a class="xref" href="SharpHook.HookEventArgs.html">HookEventArgs</a>&gt;</td>
         <td><p>An observable which emits a value when the global hook is enabled.</p>
 </td>
       </tr>
@@ -581,7 +485,7 @@ then immediately completes.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook_IsDisposed.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.IsDisposed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L188">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L177">View Source</a>
   </span>
   <a id="SharpHook_Reactive_SimpleReactiveGlobalHook_IsDisposed_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.IsDisposed*"></a>
   <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook_IsDisposed" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.IsDisposed">IsDisposed</h4>
@@ -616,7 +520,7 @@ then immediately completes.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook_IsRunning.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.IsRunning%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L181">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L170">View Source</a>
   </span>
   <a id="SharpHook_Reactive_SimpleReactiveGlobalHook_IsRunning_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.IsRunning*"></a>
   <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook_IsRunning" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.IsRunning">IsRunning</h4>
@@ -648,7 +552,7 @@ then immediately completes.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook_KeyPressed.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.KeyPressed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L220">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L209">View Source</a>
   </span>
   <a id="SharpHook_Reactive_SimpleReactiveGlobalHook_KeyPressed_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.KeyPressed*"></a>
   <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook_KeyPressed" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.KeyPressed">KeyPressed</h4>
@@ -669,7 +573,7 @@ then immediately completes.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a>&gt;</td>
+        <td><span class="xref">IObservable</span>&lt;<a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a>&gt;</td>
         <td><p>An observable which emits a value when a key is pressed.</p>
 </td>
       </tr>
@@ -680,7 +584,7 @@ then immediately completes.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook_KeyReleased.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.KeyReleased%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L226">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L215">View Source</a>
   </span>
   <a id="SharpHook_Reactive_SimpleReactiveGlobalHook_KeyReleased_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.KeyReleased*"></a>
   <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook_KeyReleased" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.KeyReleased">KeyReleased</h4>
@@ -701,7 +605,7 @@ then immediately completes.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a>&gt;</td>
+        <td><span class="xref">IObservable</span>&lt;<a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a>&gt;</td>
         <td><p>An observable which emits a value when a key is released.</p>
 </td>
       </tr>
@@ -712,7 +616,7 @@ then immediately completes.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook_KeyTyped.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.KeyTyped%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L214">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L203">View Source</a>
   </span>
   <a id="SharpHook_Reactive_SimpleReactiveGlobalHook_KeyTyped_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.KeyTyped*"></a>
   <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook_KeyTyped" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.KeyTyped">KeyTyped</h4>
@@ -733,7 +637,7 @@ then immediately completes.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a>&gt;</td>
+        <td><span class="xref">IObservable</span>&lt;<a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a>&gt;</td>
         <td><p>An observable which emits a value when a key is typed.</p>
 </td>
       </tr>
@@ -744,7 +648,7 @@ then immediately completes.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook_MouseClicked.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.MouseClicked%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L232">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L221">View Source</a>
   </span>
   <a id="SharpHook_Reactive_SimpleReactiveGlobalHook_MouseClicked_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.MouseClicked*"></a>
   <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook_MouseClicked" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.MouseClicked">MouseClicked</h4>
@@ -765,7 +669,7 @@ then immediately completes.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
+        <td><span class="xref">IObservable</span>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
         <td><p>An observable which emits a value when a mouse button is clicked.</p>
 </td>
       </tr>
@@ -776,7 +680,7 @@ then immediately completes.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook_MouseDragged.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.MouseDragged%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L256">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L245">View Source</a>
   </span>
   <a id="SharpHook_Reactive_SimpleReactiveGlobalHook_MouseDragged_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.MouseDragged*"></a>
   <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook_MouseDragged" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.MouseDragged">MouseDragged</h4>
@@ -797,7 +701,7 @@ then immediately completes.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
+        <td><span class="xref">IObservable</span>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
         <td><p>An observable which emits a value when the mouse cursor is dragged.</p>
 </td>
       </tr>
@@ -808,7 +712,7 @@ then immediately completes.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook_MouseMoved.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.MouseMoved%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L250">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L239">View Source</a>
   </span>
   <a id="SharpHook_Reactive_SimpleReactiveGlobalHook_MouseMoved_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.MouseMoved*"></a>
   <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook_MouseMoved" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.MouseMoved">MouseMoved</h4>
@@ -829,7 +733,7 @@ then immediately completes.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
+        <td><span class="xref">IObservable</span>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
         <td><p>An observable which emits a value when the mouse cursor is moved.</p>
 </td>
       </tr>
@@ -840,7 +744,7 @@ then immediately completes.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook_MousePressed.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.MousePressed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L238">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L227">View Source</a>
   </span>
   <a id="SharpHook_Reactive_SimpleReactiveGlobalHook_MousePressed_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.MousePressed*"></a>
   <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook_MousePressed" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.MousePressed">MousePressed</h4>
@@ -861,7 +765,7 @@ then immediately completes.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
+        <td><span class="xref">IObservable</span>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
         <td><p>An observable which emits a value when a mouse button is pressed.</p>
 </td>
       </tr>
@@ -872,7 +776,7 @@ then immediately completes.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook_MouseReleased.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.MouseReleased%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L244">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L233">View Source</a>
   </span>
   <a id="SharpHook_Reactive_SimpleReactiveGlobalHook_MouseReleased_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.MouseReleased*"></a>
   <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook_MouseReleased" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.MouseReleased">MouseReleased</h4>
@@ -893,7 +797,7 @@ then immediately completes.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
+        <td><span class="xref">IObservable</span>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
         <td><p>An observable which emits a value when a mouse button is released.</p>
 </td>
       </tr>
@@ -904,7 +808,7 @@ then immediately completes.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook_MouseWheel.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.MouseWheel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L262">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L251">View Source</a>
   </span>
   <a id="SharpHook_Reactive_SimpleReactiveGlobalHook_MouseWheel_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.MouseWheel*"></a>
   <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook_MouseWheel" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.MouseWheel">MouseWheel</h4>
@@ -925,7 +829,7 @@ then immediately completes.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="SharpHook.MouseWheelHookEventArgs.html">MouseWheelHookEventArgs</a>&gt;</td>
+        <td><span class="xref">IObservable</span>&lt;<a class="xref" href="SharpHook.MouseWheelHookEventArgs.html">MouseWheelHookEventArgs</a>&gt;</td>
         <td><p>An observable which emits a value when the mouse wheel is scrolled.</p>
 </td>
       </tr>
@@ -938,7 +842,7 @@ then immediately completes.</p>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook_Dispose.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.Dispose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L355">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L344">View Source</a>
   </span>
   <a id="SharpHook_Reactive_SimpleReactiveGlobalHook_Dispose_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.Dispose*"></a>
   <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook_Dispose" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.Dispose">Dispose()</h4>
@@ -974,7 +878,7 @@ of <a class="xref" href="SharpHook.Reactive.IReactiveGlobalHook.html">IReactiveG
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook_Finalize.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.Finalize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L174">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L163">View Source</a>
   </span>
   <a id="SharpHook_Reactive_SimpleReactiveGlobalHook_Finalize_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.Finalize*"></a>
   <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook_Finalize" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.Finalize">Finalize()</h4>
@@ -990,12 +894,12 @@ of <a class="xref" href="SharpHook.Reactive.IReactiveGlobalHook.html">IReactiveG
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook_Run.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.Run%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L271">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L260">View Source</a>
   </span>
   <a id="SharpHook_Reactive_SimpleReactiveGlobalHook_Run_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.Run*"></a>
   <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook_Run" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.Run">Run()</h4>
   <div class="markdown level1 summary"><p>Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
-<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose#system-idisposable-dispose">Dispose()</a> method.</p>
+<see cref="!:IDisposable.Dispose"></see> method.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1016,16 +920,6 @@ of <a class="xref" href="SharpHook.Reactive.IReactiveGlobalHook.html">IReactiveG
         <td><p>Starting the global hook has failed.</p>
 </td>
       </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
-        <td><p>The global hook is already running.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></td>
-        <td><p>The global hook has been disposed.</p>
-</td>
-      </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
@@ -1033,12 +927,12 @@ of <a class="xref" href="SharpHook.Reactive.IReactiveGlobalHook.html">IReactiveG
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook_RunAsync.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook.RunAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L307">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L296">View Source</a>
   </span>
   <a id="SharpHook_Reactive_SimpleReactiveGlobalHook_RunAsync_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.RunAsync*"></a>
   <h4 id="SharpHook_Reactive_SimpleReactiveGlobalHook_RunAsync" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.RunAsync">RunAsync()</h4>
   <div class="markdown level1 summary"><p>Runs the global hook without blocking the current thread. The hook can be destroyed by calling the
-<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose#system-idisposable-dispose">Dispose()</a> method.</p>
+<see cref="!:IDisposable.Dispose"></see> method.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1055,7 +949,7 @@ of <a class="xref" href="SharpHook.Reactive.IReactiveGlobalHook.html">IReactiveG
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<span class="xref">System.Reactive.Unit</span>&gt;</td>
+        <td><span class="xref">IObservable</span>&lt;<span class="xref">Unit</span>&gt;</td>
         <td><p>An observable which is completed when the hook is destroyed.</p>
 </td>
       </tr>
@@ -1079,16 +973,6 @@ immediately completes when the hook is destroyed.</p>
         <td><p>Starting the global hook has failed.</p>
 </td>
       </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
-        <td><p>The global hook is already running.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></td>
-        <td><p>The global hook has been disposed.</p>
-</td>
-      </tr>
     </tbody>
   </table>
   <h3 id="implements">Implements</h3>
@@ -1096,7 +980,7 @@ immediately completes when the hook is destroyed.</p>
       <a class="xref" href="SharpHook.Reactive.IReactiveGlobalHook.html">IReactiveGlobalHook</a>
   </div>
   <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">System.IDisposable</a>
+      <span class="xref">IDisposable</span>
   </div>
   <h3 id="seealso">See Also</h3>
   <div class="seealso">
@@ -1113,7 +997,7 @@ immediately completes when the hook is destroyed.</p>
                     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Reactive_SimpleReactiveGlobalHook.md&amp;value=---%0Auid%3A%20SharpHook.Reactive.SimpleReactiveGlobalHook%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L18" class="contribution-link">View Source</a>
+                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook.Reactive/SimpleReactiveGlobalHook.cs/#L7" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

@@ -89,7 +89,7 @@
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Providers_IGlobalHookProvider_Run.md&amp;value=---%0Auid%3A%20SharpHook.Providers.IGlobalHookProvider.Run%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Providers/IGlobalHookProvider.cs/#L29">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Providers/IGlobalHookProvider.cs/#L25">View Source</a>
   </span>
   <a id="SharpHook_Providers_IGlobalHookProvider_Run_" data-uid="SharpHook.Providers.IGlobalHookProvider.Run*"></a>
   <h4 id="SharpHook_Providers_IGlobalHookProvider_Run" data-uid="SharpHook.Providers.IGlobalHookProvider.Run">Run()</h4>
@@ -110,7 +110,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
+        <td><span class="xref">UioHookResult</span></td>
         <td><p>The result of the operation.</p>
 </td>
       </tr>
@@ -118,19 +118,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Providers_IGlobalHookProvider_SetDispatchProc_SharpHook_Native_DispatchProc_System_IntPtr_.md&amp;value=---%0Auid%3A%20SharpHook.Providers.IGlobalHookProvider.SetDispatchProc(SharpHook.Native.DispatchProc%2CSystem.IntPtr)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Providers_IGlobalHookProvider_SetDispatchProc_System_Nullable_DispatchProc__IntPtr_.md&amp;value=---%0Auid%3A%20SharpHook.Providers.IGlobalHookProvider.SetDispatchProc(System.Nullable%7BDispatchProc%7D%2CIntPtr)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Providers/IGlobalHookProvider.cs/#L23">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Providers/IGlobalHookProvider.cs/#L19">View Source</a>
   </span>
   <a id="SharpHook_Providers_IGlobalHookProvider_SetDispatchProc_" data-uid="SharpHook.Providers.IGlobalHookProvider.SetDispatchProc*"></a>
-  <h4 id="SharpHook_Providers_IGlobalHookProvider_SetDispatchProc_SharpHook_Native_DispatchProc_System_IntPtr_" data-uid="SharpHook.Providers.IGlobalHookProvider.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)">SetDispatchProc(DispatchProc, IntPtr)</h4>
+  <h4 id="SharpHook_Providers_IGlobalHookProvider_SetDispatchProc_System_Nullable_DispatchProc__IntPtr_" data-uid="SharpHook.Providers.IGlobalHookProvider.SetDispatchProc(System.Nullable{DispatchProc},IntPtr)">SetDispatchProc(Nullable&lt;DispatchProc&gt;, IntPtr)</h4>
   <div class="markdown level1 summary"><p>Sets the hook callback function.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void SetDispatchProc(DispatchProc dispatchProc, IntPtr userData)</code></pre>
+    <pre><code class="lang-csharp hljs">void SetDispatchProc(DispatchProc? dispatchProc, IntPtr userData)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -143,29 +143,25 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="SharpHook.Native.DispatchProc.html">DispatchProc</a></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<span class="xref">DispatchProc</span>&gt;</td>
         <td><span class="parametername">dispatchProc</span></td>
         <td><p>The function to call when an event is raised, or <span class="xref">null</span> to unset the function.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></td>
+        <td><span class="xref">IntPtr</span></td>
         <td><span class="parametername">userData</span></td>
-        <td><p>Custom data to pass to the callback. Should not be used, and <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr.zero#system-intptr-zero">Zero</a> should always be passed.</p>
+        <td><p>Custom data to pass to the callback. Should not be used, and <see cref="!:IntPtr.Zero"></see> should always be passed.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="SharpHook_Providers_IGlobalHookProvider_SetDispatchProc_SharpHook_Native_DispatchProc_System_IntPtr__seealso">See Also</h5>
-  <div class="seealso">
-      <div><a class="xref" href="SharpHook.Native.DispatchProc.html">DispatchProc</a></div>
-  </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Providers_IGlobalHookProvider_Stop.md&amp;value=---%0Auid%3A%20SharpHook.Providers.IGlobalHookProvider.Stop%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Providers/IGlobalHookProvider.cs/#L35">View Source</a>
+    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Providers/IGlobalHookProvider.cs/#L31">View Source</a>
   </span>
   <a id="SharpHook_Providers_IGlobalHookProvider_Stop_" data-uid="SharpHook.Providers.IGlobalHookProvider.Stop*"></a>
   <h4 id="SharpHook_Providers_IGlobalHookProvider_Stop" data-uid="SharpHook.Providers.IGlobalHookProvider.Stop">Stop()</h4>
@@ -186,7 +182,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
+        <td><span class="xref">UioHookResult</span></td>
         <td><p>The result of the operation.</p>
 </td>
       </tr>
@@ -207,7 +203,7 @@
                     <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Providers_IGlobalHookProvider.md&amp;value=---%0Auid%3A%20SharpHook.Providers.IGlobalHookProvider%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Providers/IGlobalHookProvider.cs/#L11" class="contribution-link">View Source</a>
+                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Providers/IGlobalHookProvider.cs/#L7" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
