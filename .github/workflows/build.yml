@@ -81,7 +81,7 @@ jobs:
           name: libuiohook-build
           path: ${{github.workspace}}/dist/**/*
 
-  libuiohook-mac-catalyst:
+  libuiohook-mac-catalyst-arm64:
     runs-on: macos-13
 
     steps:
@@ -99,9 +99,46 @@ jobs:
           cd libuiohook
           cmake -B ${{github.workspace}}/build \
             -G "Unix Makefiles" \
-            -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/darwin/catalyst \
+            -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/catalyst/arm64 \
             -D CMAKE_VERBOSE_MAKEFILE=true \
-            -D CMAKE_OSX_ARCHITECTURES='x86_64;arm64' \
+            -D CMAKE_OSX_ARCHITECTURES='arm64' \
+            -D BUILD_SHARED_LIBS=ON \
+            -D MAC_CATALYST=ON \
+            -D USE_APPLICATION_SERVICES=OFF \
+            -D USE_APPKIT=OFF \
+            -D USE_EPOCH_TIME=ON
+          cmake --build ${{github.workspace}}/build \
+            --parallel 2 \
+            --config RelWithDebInfo \
+            --clean-first
+          cmake --install ${{github.workspace}}/build --config RelWithDebInfo
+      - name: Upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: libuiohook-build
+          path: ${{github.workspace}}/dist/**/*
+
+  libuiohook-mac-catalyst-x64:
+    runs-on: macos-13
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - name: Compile
+        env:
+          CC: clang
+          CFLAGS: '-O2 -g -target x86_64-apple-ios13.1-macabi -miphoneos-version-min=13.1 -fembed-bitcode'
+        shell: bash
+        run: |
+          sudo xcode-select -s '/Applications/Xcode_14.3.app/Contents/Developer'
+          cd libuiohook
+          cmake -B ${{github.workspace}}/build \
+            -G "Unix Makefiles" \
+            -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/catalyst/x86_64 \
+            -D CMAKE_VERBOSE_MAKEFILE=true \
+            -D CMAKE_OSX_ARCHITECTURES='x86_64' \
             -D BUILD_SHARED_LIBS=ON \
             -D MAC_CATALYST=ON \
             -D USE_APPLICATION_SERVICES=OFF \
@@ -393,7 +430,8 @@ jobs:
     needs:
       - libuiohook-macos-arm64
       - libuiohook-macos-x64
-      - libuiohook-mac-catalyst
+      - libuiohook-mac-catalyst-arm64
+      - libuiohook-mac-catalyst-x64
       - libuiohook-linux-arm
       - libuiohook-linux-arm64
       - libuiohook-linux-x64
@@ -418,19 +456,19 @@ jobs:
         with:
           name: libuiohook-build
           path: libuiohook-build
-      - name: Copy libuiohook
+      - name: Move libuiohook
         shell: pwsh
         run: |
-          cp libuiohook-build\linux\arm\lib\libuiohook.so SharpHook\lib\linux-arm\
-          cp libuiohook-build\linux\arm64\lib\libuiohook.so SharpHook\lib\linux-arm64\
-          cp libuiohook-build\linux\x86_64\lib\libuiohook.so SharpHook\lib\linux-x64\
-          cp libuiohook-build\darwin\catalyst\lib\libuiohook.dylib SharpHook\lib\maccatalyst-arm64\
-          cp libuiohook-build\darwin\catalyst\lib\libuiohook.dylib SharpHook\lib\maccatalyst-x64\
-          cp libuiohook-build\darwin\arm64\lib\libuiohook.dylib SharpHook\lib\osx-arm64\
-          cp libuiohook-build\darwin\x86_64\lib\libuiohook.dylib SharpHook\lib\osx-x64\
-          cp libuiohook-build\windows\arm64\bin\uiohook.dll SharpHook\lib\win-arm64\
-          cp libuiohook-build\windows\x86\bin\uiohook.dll SharpHook\lib\win-x86\
-          cp libuiohook-build\windows\x86_64\bin\uiohook.dll SharpHook\lib\win-x64\
+          mv libuiohook-build\linux\arm\lib\libuiohook.so SharpHook\lib\linux-arm\
+          mv libuiohook-build\linux\arm64\lib\libuiohook.so SharpHook\lib\linux-arm64\
+          mv libuiohook-build\linux\x86_64\lib\libuiohook.so SharpHook\lib\linux-x64\
+          mv libuiohook-build\catalyst\arm64\lib\libuiohook.dylib SharpHook\lib\maccatalyst-arm64\
+          mv libuiohook-build\catalyst\x86_64\lib\libuiohook.dylib SharpHook\lib\maccatalyst-x64\
+          mv libuiohook-build\darwin\arm64\lib\libuiohook.dylib SharpHook\lib\osx-arm64\
+          mv libuiohook-build\darwin\x86_64\lib\libuiohook.dylib SharpHook\lib\osx-x64\
+          mv libuiohook-build\windows\arm64\bin\uiohook.dll SharpHook\lib\win-arm64\
+          mv libuiohook-build\windows\x86\bin\uiohook.dll SharpHook\lib\win-x86\
+          mv libuiohook-build\windows\x86_64\bin\uiohook.dll SharpHook\lib\win-x64\
       - name: Build SharpHook
         shell: pwsh
         run: |
