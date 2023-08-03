@@ -12,7 +12,7 @@
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
-      
+      <meta name="docfx:rel" content="../">
       
       
       <meta name="docfx:docurl" content="https://github.com/TolikPylypchuk/SharpHook/blob/master/docs/articles/intro.md/#L1">
@@ -43,6 +43,10 @@
           </button>
           <div class="collapse navbar-collapse" id="navpanel">
             <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
             </div>
           </div>
         </div>
@@ -124,7 +128,6 @@ the availability of SharpHook on various platforms:</p>
 <a href="https://github.com/dotnet/core/blob/main/release-notes/5.0/5.0-supported-os.md">dropped</a> in .NET 5.</p>
 <p>libuiohook only supports X11 on Linux. Wayland support <a href="https://github.com/kwhat/libuiohook/issues/100">may be coming</a>,
 but it's not yet here.</p>
-<p>Next article: <a href="native.html">Native Functions</a>.</p>
 </article>
 
         <div class="contribution d-print-none">
@@ -140,11 +143,12 @@ but it's not yet here.</p>
       </div>
     </main>
 
+    <div class="container-xxl search-results" id="search-results"></div>
 
     <footer class="border-top">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          <span>Created by <a href="https://tolik.io">Tolik Pylypchuk</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
         </div>
       </div>
     </footer>

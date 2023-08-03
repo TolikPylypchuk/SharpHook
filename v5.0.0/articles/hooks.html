@@ -12,7 +12,7 @@
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
-      
+      <meta name="docfx:rel" content="../">
       
       
       <meta name="docfx:docurl" content="https://github.com/TolikPylypchuk/SharpHook/blob/master/docs/articles/hooks.md/#L1">
@@ -43,6 +43,10 @@
           </button>
           <div class="collapse navbar-collapse" id="navpanel">
             <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
             </div>
           </div>
         </div>
@@ -141,7 +145,6 @@ ignored since event handlers are run on other threads.</p>
 <p>The library also provides the <code>SharpHook.GlobalHookBase</code> class which you can extend to create your own implementation
 of the global hook. It calls the appropriate event handlers, and you only need to implement a strategy for dispatching
 the events. It also contains a destructor which will stop the global hook if this object is not reachable anymore.</p>
-<p>Next article: <a href="reactive.html">Reactive Global Hooks</a>.</p>
 </article>
 
         <div class="contribution d-print-none">
@@ -157,11 +160,12 @@ the events. It also contains a destructor which will stop the global hook if thi
       </div>
     </main>
 
+    <div class="container-xxl search-results" id="search-results"></div>
 
     <footer class="border-top">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          <span>Created by <a href="https://tolik.io">Tolik Pylypchuk</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
         </div>
       </div>
     </footer>

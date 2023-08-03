@@ -14,7 +14,7 @@
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
-      
+      <meta name="docfx:rel" content="../">
       
       
       
@@ -45,6 +45,10 @@
           </button>
           <div class="collapse navbar-collapse" id="navpanel">
             <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
             </div>
           </div>
         </div>
@@ -79,7 +83,7 @@
 
   <h1 id="SharpHook_IEventSimulator" data-uid="SharpHook.IEventSimulator" class="text-break">
     Interface IEventSimulator
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/IEventSimulator.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/87e63b1b6229fdc13d574d65451e72831becefba/SharpHook/IEventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -118,7 +122,7 @@
 
   <h3 id="SharpHook_IEventSimulator_TextSimulationDelayOnX11" data-uid="SharpHook.IEventSimulator.TextSimulationDelayOnX11">
   TextSimulationDelayOnX11
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/IEventSimulator.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/87e63b1b6229fdc13d574d65451e72831becefba/SharpHook/IEventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the delay between simulating individual characters when simulating text on Linux.</p>
@@ -175,7 +179,7 @@ On Windows and macOS this property is ignored.
 
   <h3 id="SharpHook_IEventSimulator_SimulateKeyPress_SharpHook_Native_KeyCode_" data-uid="SharpHook.IEventSimulator.SimulateKeyPress(SharpHook.Native.KeyCode)">
   SimulateKeyPress(KeyCode)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/IEventSimulator.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/87e63b1b6229fdc13d574d65451e72831becefba/SharpHook/IEventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Simulates pressing a key.</p>
@@ -214,7 +218,7 @@ On Windows and macOS this property is ignored.
 
   <h3 id="SharpHook_IEventSimulator_SimulateKeyRelease_SharpHook_Native_KeyCode_" data-uid="SharpHook.IEventSimulator.SimulateKeyRelease(SharpHook.Native.KeyCode)">
   SimulateKeyRelease(KeyCode)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/IEventSimulator.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/87e63b1b6229fdc13d574d65451e72831becefba/SharpHook/IEventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Simulates releasing a key.</p>
@@ -253,7 +257,7 @@ On Windows and macOS this property is ignored.
 
   <h3 id="SharpHook_IEventSimulator_SimulateMouseMovement_System_Int16_System_Int16_" data-uid="SharpHook.IEventSimulator.SimulateMouseMovement(System.Int16,System.Int16)">
   SimulateMouseMovement(short, short)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/IEventSimulator.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/87e63b1b6229fdc13d574d65451e72831becefba/SharpHook/IEventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Simulates moving a mouse pointer.</p>
@@ -295,7 +299,7 @@ On Windows and macOS this property is ignored.
 
   <h3 id="SharpHook_IEventSimulator_SimulateMouseMovementRelative_System_Int16_System_Int16_" data-uid="SharpHook.IEventSimulator.SimulateMouseMovementRelative(System.Int16,System.Int16)">
   SimulateMouseMovementRelative(short, short)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/IEventSimulator.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/87e63b1b6229fdc13d574d65451e72831becefba/SharpHook/IEventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Simulates moving a mouse pointer relative to the current cursor position.</p>
@@ -337,7 +341,7 @@ On Windows and macOS this property is ignored.
 
   <h3 id="SharpHook_IEventSimulator_SimulateMousePress_SharpHook_Native_MouseButton_" data-uid="SharpHook.IEventSimulator.SimulateMousePress(SharpHook.Native.MouseButton)">
   SimulateMousePress(MouseButton)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/IEventSimulator.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/87e63b1b6229fdc13d574d65451e72831becefba/SharpHook/IEventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Simulates pressing a mouse button at the current coordinates.</p>
@@ -376,7 +380,7 @@ On Windows and macOS this property is ignored.
 
   <h3 id="SharpHook_IEventSimulator_SimulateMousePress_System_Int16_System_Int16_SharpHook_Native_MouseButton_" data-uid="SharpHook.IEventSimulator.SimulateMousePress(System.Int16,System.Int16,SharpHook.Native.MouseButton)">
   SimulateMousePress(short, short, MouseButton)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/IEventSimulator.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/87e63b1b6229fdc13d574d65451e72831becefba/SharpHook/IEventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Simulates pressing a mouse button at the specified coordinates.</p>
@@ -421,7 +425,7 @@ On Windows and macOS this property is ignored.
 
   <h3 id="SharpHook_IEventSimulator_SimulateMouseRelease_SharpHook_Native_MouseButton_" data-uid="SharpHook.IEventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton)">
   SimulateMouseRelease(MouseButton)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/IEventSimulator.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/87e63b1b6229fdc13d574d65451e72831becefba/SharpHook/IEventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Simulates releasing a mouse button at the current coordinates.</p>
@@ -460,7 +464,7 @@ On Windows and macOS this property is ignored.
 
   <h3 id="SharpHook_IEventSimulator_SimulateMouseRelease_System_Int16_System_Int16_SharpHook_Native_MouseButton_" data-uid="SharpHook.IEventSimulator.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Native.MouseButton)">
   SimulateMouseRelease(short, short, MouseButton)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/IEventSimulator.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/87e63b1b6229fdc13d574d65451e72831becefba/SharpHook/IEventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Simulates releasing a mouse button at the specified coordinates.</p>
@@ -505,7 +509,7 @@ On Windows and macOS this property is ignored.
 
   <h3 id="SharpHook_IEventSimulator_SimulateMouseWheel_System_Int16_SharpHook_Native_MouseWheelScrollDirection_SharpHook_Native_MouseWheelScrollType_" data-uid="SharpHook.IEventSimulator.SimulateMouseWheel(System.Int16,SharpHook.Native.MouseWheelScrollDirection,SharpHook.Native.MouseWheelScrollType)">
   SimulateMouseWheel(short, MouseWheelScrollDirection, MouseWheelScrollType)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/IEventSimulator.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/87e63b1b6229fdc13d574d65451e72831becefba/SharpHook/IEventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Simulates scrolling the mouse wheel.</p>
@@ -566,7 +570,7 @@ On Linux there is no fixed recommendation, but multiples of <code>100</code> can
 
   <h3 id="SharpHook_IEventSimulator_SimulateTextEntry_System_String_" data-uid="SharpHook.IEventSimulator.SimulateTextEntry(System.String)">
   SimulateTextEntry(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/IEventSimulator.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/87e63b1b6229fdc13d574d65451e72831becefba/SharpHook/IEventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Simulates the input of arbitrary Unicode characters.</p>
@@ -632,7 +636,7 @@ delay - the default is 50 milliseconds.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/IEventSimulator.cs" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/87e63b1b6229fdc13d574d65451e72831becefba/SharpHook/IEventSimulator.cs" class="edit-link">Edit this page</a>
         </div>
 
         
@@ -643,11 +647,12 @@ delay - the default is 50 milliseconds.
       </div>
     </main>
 
+    <div class="container-xxl search-results" id="search-results"></div>
 
     <footer class="border-top">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          <span>Created by <a href="https://tolik.io">Tolik Pylypchuk</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
         </div>
       </div>
     </footer>

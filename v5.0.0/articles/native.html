@@ -12,7 +12,7 @@
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
-      
+      <meta name="docfx:rel" content="../">
       
       
       <meta name="docfx:docurl" content="https://github.com/TolikPylypchuk/SharpHook/blob/master/docs/articles/native.md/#L1">
@@ -43,6 +43,10 @@
           </button>
           <div class="collapse navbar-collapse" id="navpanel">
             <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
             </div>
           </div>
         </div>
@@ -257,7 +261,6 @@ in mind, and C doesn't have closures.</p>
 function. One is a native function which returns an unmanaged array of <code>ScreenData</code> objects (as an <code>IntPtr</code>) along
 with its length in an output parameter. Another is a wrapper which returs a managed array. Use the second one if you
 need it since it's safer. If you decide to use the native version then you must free the returned memory manually.</p>
-<p>Next article: <a href="hooks.html">Global Hooks</a>.</p>
 </article>
 
         <div class="contribution d-print-none">
@@ -273,11 +276,12 @@ need it since it's safer. If you decide to use the native version then you must 
       </div>
     </main>
 
+    <div class="container-xxl search-results" id="search-results"></div>
 
     <footer class="border-top">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          <span>Created by <a href="https://tolik.io">Tolik Pylypchuk</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
         </div>
       </div>
     </footer>

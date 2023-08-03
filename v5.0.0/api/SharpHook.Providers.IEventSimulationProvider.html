@@ -14,7 +14,7 @@
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
-      
+      <meta name="docfx:rel" content="../">
       
       
       
@@ -45,6 +45,10 @@
           </button>
           <div class="collapse navbar-collapse" id="navpanel">
             <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
             </div>
           </div>
         </div>
@@ -79,7 +83,7 @@
 
   <h1 id="SharpHook_Providers_IEventSimulationProvider" data-uid="SharpHook.Providers.IEventSimulationProvider" class="text-break">
     Interface IEventSimulationProvider
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Providers/IEventSimulationProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/87e63b1b6229fdc13d574d65451e72831becefba/SharpHook/Providers/IEventSimulationProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -115,7 +119,7 @@
 
   <h3 id="SharpHook_Providers_IEventSimulationProvider_GetPostTextDelayX11" data-uid="SharpHook.Providers.IEventSimulationProvider.GetPostTextDelayX11">
   GetPostTextDelayX11()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Providers/IEventSimulationProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/87e63b1b6229fdc13d574d65451e72831becefba/SharpHook/Providers/IEventSimulationProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the delay (in nanoseconds) between posting individual characters when posting text on Linux.</p>
@@ -168,7 +172,7 @@ On Windows and macOS this method always returns <code>0</code>.
 
   <h3 id="SharpHook_Providers_IEventSimulationProvider_PostEvent_SharpHook_Native_UioHookEvent__" data-uid="SharpHook.Providers.IEventSimulationProvider.PostEvent(SharpHook.Native.UioHookEvent@)">
   PostEvent(ref UioHookEvent)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Providers/IEventSimulationProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/87e63b1b6229fdc13d574d65451e72831becefba/SharpHook/Providers/IEventSimulationProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Posts a fake input event.</p>
@@ -235,7 +239,7 @@ Only <a class="xref" href="SharpHook.Native.MouseWheelEventData.html#SharpHook_N
 
   <h3 id="SharpHook_Providers_IEventSimulationProvider_PostText_System_String_" data-uid="SharpHook.Providers.IEventSimulationProvider.PostText(System.String)">
   PostText(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Providers/IEventSimulationProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/87e63b1b6229fdc13d574d65451e72831becefba/SharpHook/Providers/IEventSimulationProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Simulates the input of arbitrary Unicode characters.</p>
@@ -301,7 +305,7 @@ users. <a class="xref" href="SharpHook.Providers.IEventSimulationProvider.html#S
 
   <h3 id="SharpHook_Providers_IEventSimulationProvider_SetPostTextDelayX11_System_UInt64_" data-uid="SharpHook.Providers.IEventSimulationProvider.SetPostTextDelayX11(System.UInt64)">
   SetPostTextDelayX11(ulong)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Providers/IEventSimulationProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/87e63b1b6229fdc13d574d65451e72831becefba/SharpHook/Providers/IEventSimulationProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets the delay (in nanoseconds) between posting individual characters when posting text on Linux.</p>
@@ -358,7 +362,7 @@ On Windows and macOS this method does nothing.
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Providers/IEventSimulationProvider.cs" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/87e63b1b6229fdc13d574d65451e72831becefba/SharpHook/Providers/IEventSimulationProvider.cs" class="edit-link">Edit this page</a>
         </div>
 
         
@@ -369,11 +373,12 @@ On Windows and macOS this method does nothing.
       </div>
     </main>
 
+    <div class="container-xxl search-results" id="search-results"></div>
 
     <footer class="border-top">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          <span>Created by <a href="https://tolik.io">Tolik Pylypchuk</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
         </div>
       </div>
     </footer>

@@ -12,7 +12,7 @@
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
-      
+      <meta name="docfx:rel" content="../">
       
       
       <meta name="docfx:docurl" content="https://github.com/TolikPylypchuk/SharpHook/blob/master/docs/articles/logging.md/#L1">
@@ -43,6 +43,10 @@
           </button>
           <div class="collapse navbar-collapse" id="navpanel">
             <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
             </div>
           </div>
         </div>
@@ -236,7 +240,6 @@ placeholders. Only the specifier and length are considered (see the C's <code>pr
 <p>The <code>%a</code>, <code>%A</code>, and <code>%n</code> specifiers are not supported, as well as length <code>z</code> and <code>t</code>.</p>
 <p><code>LogEntry</code> also contains the <code>Function</code> and <code>SourceLine</code> properties. These are the first two arguments of the log
 message - the function name in the libuiohook source code, and the source code line.</p>
-<p>Next article: <a href="migration.html">Migration Guide</a>.</p>
 </article>
 
         <div class="contribution d-print-none">
@@ -252,11 +255,12 @@ message - the function name in the libuiohook source code, and the source code l
       </div>
     </main>
 
+    <div class="container-xxl search-results" id="search-results"></div>
 
     <footer class="border-top">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          <span>Created by <a href="https://tolik.io">Tolik Pylypchuk</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
         </div>
       </div>
     </footer>

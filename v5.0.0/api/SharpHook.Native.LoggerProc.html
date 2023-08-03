@@ -14,7 +14,7 @@
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
-      
+      <meta name="docfx:rel" content="../">
       
       
       
@@ -45,6 +45,10 @@
           </button>
           <div class="collapse navbar-collapse" id="navpanel">
             <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
             </div>
           </div>
         </div>
@@ -79,7 +83,7 @@
 
   <h1 id="SharpHook_Native_LoggerProc" data-uid="SharpHook.Native.LoggerProc" class="text-break">
     Delegate LoggerProc
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Native/LoggerProc.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/87e63b1b6229fdc13d574d65451e72831becefba/SharpHook/Native/LoggerProc.cs"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -130,7 +134,7 @@
 
   <h3 id="SharpHook_Native_LoggerProc__ctor_System_Object_System_IntPtr_" data-uid="SharpHook.Native.LoggerProc.#ctor(System.Object,System.IntPtr)">
   LoggerProc(object, nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Native/LoggerProc.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/87e63b1b6229fdc13d574d65451e72831becefba/SharpHook/Native/LoggerProc.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -173,7 +177,7 @@
 
   <h3 id="SharpHook_Native_LoggerProc_BeginInvoke_SharpHook_Native_LogLevel_System_IntPtr_System_IntPtr_System_IntPtr_System_AsyncCallback_System_Object_" data-uid="SharpHook.Native.LoggerProc.BeginInvoke(SharpHook.Native.LogLevel,System.IntPtr,System.IntPtr,System.IntPtr,System.AsyncCallback,System.Object)">
   BeginInvoke(LogLevel, nint, nint, nint, AsyncCallback, object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Native/LoggerProc.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/87e63b1b6229fdc13d574d65451e72831becefba/SharpHook/Native/LoggerProc.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -225,7 +229,7 @@
 
   <h3 id="SharpHook_Native_LoggerProc_EndInvoke_System_IAsyncResult_" data-uid="SharpHook.Native.LoggerProc.EndInvoke(System.IAsyncResult)">
   EndInvoke(IAsyncResult)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Native/LoggerProc.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/87e63b1b6229fdc13d574d65451e72831becefba/SharpHook/Native/LoggerProc.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -262,7 +266,7 @@
 
   <h3 id="SharpHook_Native_LoggerProc_Invoke_SharpHook_Native_LogLevel_System_IntPtr_System_IntPtr_System_IntPtr_" data-uid="SharpHook.Native.LoggerProc.Invoke(SharpHook.Native.LogLevel,System.IntPtr,System.IntPtr,System.IntPtr)">
   Invoke(LogLevel, nint, nint, nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Native/LoggerProc.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/87e63b1b6229fdc13d574d65451e72831becefba/SharpHook/Native/LoggerProc.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -309,7 +313,7 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Native/LoggerProc.cs" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/87e63b1b6229fdc13d574d65451e72831becefba/SharpHook/Native/LoggerProc.cs" class="edit-link">Edit this page</a>
         </div>
 
         
@@ -320,11 +324,12 @@
       </div>
     </main>
 
+    <div class="container-xxl search-results" id="search-results"></div>
 
     <footer class="border-top">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          <span>Created by <a href="https://tolik.io">Tolik Pylypchuk</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
         </div>
       </div>
     </footer>

@@ -12,7 +12,7 @@
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
       
-      
+      <meta name="docfx:rel" content="../">
       
       
       <meta name="docfx:docurl" content="https://github.com/TolikPylypchuk/SharpHook/blob/master/docs/articles/migration.md/#L1">
@@ -43,6 +43,10 @@
           </button>
           <div class="collapse navbar-collapse" id="navpanel">
             <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
             </div>
           </div>
         </div>
@@ -131,7 +135,6 @@ field does not contain the event's timestamp.</p>
 <p>The global hooks now throw an exception if the hook is started when it's already running. Also, possible exceptions are
 now part of the interface definition. All unexpected exceptions that can happen when starting and stopping the hook are
 now wrapped into <code>HookException</code> with the value of <code>UioHookResult.Failure</code>.</p>
-<p>Next article: <a href="about.html">About SharpHook</a>.</p>
 </article>
 
         <div class="contribution d-print-none">
@@ -147,11 +150,12 @@ now wrapped into <code>HookException</code> with the value of <code>UioHookResul
       </div>
     </main>
 
+    <div class="container-xxl search-results" id="search-results"></div>
 
     <footer class="border-top">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+          <span>Created by <a href="https://tolik.io">Tolik Pylypchuk</a>. Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
         </div>
       </div>
     </footer>
