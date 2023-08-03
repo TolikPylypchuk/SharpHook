@@ -86,15 +86,12 @@ the hook itself runs.</p>
   <div class="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a></div>
-    <div><span class="xref">IDisposable</span></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_IsRunning">GlobalHookBase.IsRunning</a>
-    </div>
-    <div>
-      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_IsDisposed">GlobalHookBase.IsDisposed</a>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_Finalize">GlobalHookBase.Finalize()</a>
     </div>
     <div>
       <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_Run">GlobalHookBase.Run()</a>
@@ -106,7 +103,7 @@ the hook itself runs.</p>
       <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_Dispose">GlobalHookBase.Dispose()</a>
     </div>
     <div>
-      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_DispatchEvent_UioHookEvent__">GlobalHookBase.DispatchEvent(UioHookEvent)</a>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_DispatchEvent_SharpHook_Native_UioHookEvent__">GlobalHookBase.DispatchEvent(UioHookEvent)</a>
     </div>
     <div>
       <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_OnHookEnabled_SharpHook_HookEventArgs_">GlobalHookBase.OnHookEnabled(HookEventArgs)</a>
@@ -148,6 +145,12 @@ the hook itself runs.</p>
       <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_ThrowIfDisposed_System_String_">GlobalHookBase.ThrowIfDisposed(String)</a>
     </div>
     <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_IsRunning">GlobalHookBase.IsRunning</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_IsDisposed">GlobalHookBase.IsDisposed</a>
+    </div>
+    <div>
       <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_HookEnabled">GlobalHookBase.HookEnabled</a>
     </div>
     <div>
@@ -180,27 +183,6 @@ the hook itself runs.</p>
     <div>
       <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MouseWheel">GlobalHookBase.MouseWheel</a>
     </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
-    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="SharpHook.html">SharpHook</a></h6>
   <h6><strong>Assembly</strong>: SharpHook.dll</h6>
@@ -215,13 +197,8 @@ need to do a lot of processing in the event handlers then consider using another
 </div>
   <h3 id="constructors">Constructors
   </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_SimpleGlobalHook__ctor.md&amp;value=---%0Auid%3A%20SharpHook.SimpleGlobalHook.%23ctor%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/SimpleGlobalHook.cs/#L20">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_SimpleGlobalHook__ctor_" data-uid="SharpHook.SimpleGlobalHook.#ctor*"></a>
   <h4 id="SharpHook_SimpleGlobalHook__ctor" data-uid="SharpHook.SimpleGlobalHook.#ctor">SimpleGlobalHook()</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.SimpleGlobalHook.html">SimpleGlobalHook</a>.</p>
@@ -231,15 +208,10 @@ need to do a lot of processing in the event handlers then consider using another
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public SimpleGlobalHook()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_SimpleGlobalHook__ctor_IGlobalHookProvider_.md&amp;value=---%0Auid%3A%20SharpHook.SimpleGlobalHook.%23ctor(IGlobalHookProvider)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/SimpleGlobalHook.cs/#L30">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_SimpleGlobalHook__ctor_" data-uid="SharpHook.SimpleGlobalHook.#ctor*"></a>
-  <h4 id="SharpHook_SimpleGlobalHook__ctor_IGlobalHookProvider_" data-uid="SharpHook.SimpleGlobalHook.#ctor(IGlobalHookProvider)">SimpleGlobalHook(IGlobalHookProvider)</h4>
+  <h4 id="SharpHook_SimpleGlobalHook__ctor_SharpHook_Providers_IGlobalHookProvider_" data-uid="SharpHook.SimpleGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider)">SimpleGlobalHook(IGlobalHookProvider)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.SimpleGlobalHook.html">SimpleGlobalHook</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -258,22 +230,33 @@ need to do a lot of processing in the event handlers then consider using another
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IGlobalHookProvider</span></td>
+        <td><a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html">IGlobalHookProvider</a></td>
         <td><span class="parametername">globalHookProvider</span></td>
         <td><p>The underlying global hook provider.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_SimpleGlobalHook__ctor_IGlobalHookProvider_System_Boolean_.md&amp;value=---%0Auid%3A%20SharpHook.SimpleGlobalHook.%23ctor(IGlobalHookProvider%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/SimpleGlobalHook.cs/#L56">View Source</a>
-  </span>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">globalHookProvider</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="SharpHook_SimpleGlobalHook__ctor_" data-uid="SharpHook.SimpleGlobalHook.#ctor*"></a>
-  <h4 id="SharpHook_SimpleGlobalHook__ctor_IGlobalHookProvider_System_Boolean_" data-uid="SharpHook.SimpleGlobalHook.#ctor(IGlobalHookProvider,System.Boolean)">SimpleGlobalHook(IGlobalHookProvider, Boolean)</h4>
+  <h4 id="SharpHook_SimpleGlobalHook__ctor_SharpHook_Providers_IGlobalHookProvider_System_Boolean_" data-uid="SharpHook.SimpleGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider,System.Boolean)">SimpleGlobalHook(IGlobalHookProvider, Boolean)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.SimpleGlobalHook.html">SimpleGlobalHook</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -292,7 +275,7 @@ need to do a lot of processing in the event handlers then consider using another
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IGlobalHookProvider</span></td>
+        <td><a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html">IGlobalHookProvider</a></td>
         <td><span class="parametername">globalHookProvider</span></td>
         <td><p>The underlying global hook provider.</p>
 </td>
@@ -306,13 +289,24 @@ Otherwise, <span class="xref">false</span>.</p>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_SimpleGlobalHook__ctor_System_Boolean_.md&amp;value=---%0Auid%3A%20SharpHook.SimpleGlobalHook.%23ctor(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/SimpleGlobalHook.cs/#L41">View Source</a>
-  </span>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">globalHookProvider</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="SharpHook_SimpleGlobalHook__ctor_" data-uid="SharpHook.SimpleGlobalHook.#ctor*"></a>
   <h4 id="SharpHook_SimpleGlobalHook__ctor_System_Boolean_" data-uid="SharpHook.SimpleGlobalHook.#ctor(System.Boolean)">SimpleGlobalHook(Boolean)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.SimpleGlobalHook.html">SimpleGlobalHook</a>.</p>
@@ -343,15 +337,10 @@ Otherwise, <span class="xref">false</span>.</p>
   </table>
   <h3 id="methods">Methods
   </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_SimpleGlobalHook_HandleHookEvent_UioHookEvent__.md&amp;value=---%0Auid%3A%20SharpHook.SimpleGlobalHook.HandleHookEvent(UioHookEvent%40)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/SimpleGlobalHook.cs/#L64">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_SimpleGlobalHook_HandleHookEvent_" data-uid="SharpHook.SimpleGlobalHook.HandleHookEvent*"></a>
-  <h4 id="SharpHook_SimpleGlobalHook_HandleHookEvent_UioHookEvent__" data-uid="SharpHook.SimpleGlobalHook.HandleHookEvent(UioHookEvent@)">HandleHookEvent(ref UioHookEvent)</h4>
+  <h4 id="SharpHook_SimpleGlobalHook_HandleHookEvent_SharpHook_Native_UioHookEvent__" data-uid="SharpHook.SimpleGlobalHook.HandleHookEvent(SharpHook.Native.UioHookEvent@)">HandleHookEvent(ref UioHookEvent)</h4>
   <div class="markdown level1 summary"><p>Handles the hook event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -370,7 +359,7 @@ Otherwise, <span class="xref">false</span>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">UioHookEvent</span></td>
+        <td><a class="xref" href="SharpHook.Native.UioHookEvent.html">UioHookEvent</a></td>
         <td><span class="parametername">e</span></td>
         <td><p>The event to handle.</p>
 </td>
@@ -378,13 +367,13 @@ Otherwise, <span class="xref">false</span>.</p>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_HandleHookEvent_UioHookEvent__">GlobalHookBase.HandleHookEvent(ref UioHookEvent)</a></div>
+  <div><a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_HandleHookEvent_SharpHook_Native_UioHookEvent__">GlobalHookBase.HandleHookEvent(ref UioHookEvent)</a></div>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a>
   </div>
   <div>
-      <span class="xref">IDisposable</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">System.IDisposable</a>
   </div>
   <h3 id="seealso">See Also</h3>
   <div class="seealso">
@@ -399,12 +388,6 @@ Otherwise, <span class="xref">false</span>.</p>
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
-                  <li>
-                    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_SimpleGlobalHook.md&amp;value=---%0Auid%3A%20SharpHook.SimpleGlobalHook%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/SimpleGlobalHook.cs/#L15" class="contribution-link">View Source</a>
-                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
@@ -423,12 +406,12 @@ Otherwise, <span class="xref">false</span>.</p>
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            <div>Copyright (c) 2021 Anatoliy Pylypchuk</div><span>Generated by <strong>DocFx</strong>.</span> <span>Icon made by <a href="https//www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com" title="Flaticon">www.flaticon.com</a></span></div>
             
+            <span>Generated by <strong>DocFX</strong></span>
           </div>
-        </footer></div>
-      
-    
+        </div>
+      </footer>
+    </div>
     
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>

@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Enum EventType
+    <title>Class EventType
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Enum EventType
+    <meta name="title" content="Class EventType
    ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -71,100 +71,399 @@
             <article class="content wrap" id="_content" data-uid="SharpHook.Native.EventType">
   
   
-  <h1 id="SharpHook_Native_EventType" data-uid="SharpHook.Native.EventType" class="text-break">Enum EventType
+  <h1 id="SharpHook_Native_EventType" data-uid="SharpHook.Native.EventType" class="text-break">Class EventType
   </h1>
   <div class="markdown level0 summary"><p>Represents the type of an input event which can be raised from a global hook or posted as a fake event.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">EventType</span></div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="SharpHook.Native.html">SharpHook.Native</a></h6>
   <h6><strong>Assembly</strong>: SharpHook.dll</h6>
   <h5 id="SharpHook_Native_EventType_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public enum EventType</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class EventType : Enum</code></pre>
   </div>
   <h3 id="fields">Fields
   </h3>
+  
+  
+  <h4 id="SharpHook_Native_EventType_HookDisabled" data-uid="SharpHook.Native.EventType.HookDisabled">HookDisabled</h4>
+  <div class="markdown level1 summary"><p>Raised when the global hook is stopped. Ignored when posted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const EventType HookDisabled</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
-        <th>Name</th>
+        <th>Type</th>
         <th>Description</th>
       </tr>
-    <thead>
+    </thead>
     <tbody>
       <tr>
-        <td id="SharpHook_Native_EventType_HookDisabled">HookDisabled</td>
-        <td><p>Raised when the global hook is stopped. Ignored when posted.</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_EventType_HookEnabled">HookEnabled</td>
-        <td><p>Raised when the global hook is started. Ignored when posted.</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_EventType_KeyPressed">KeyPressed</td>
-        <td><p>Raised when a key is pressed or posted to press a key.</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_EventType_KeyReleased">KeyReleased</td>
-        <td><p>Raised when a key is released or posted to release a key.</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_EventType_KeyTyped">KeyTyped</td>
-        <td><p>Raised when a character is typed. Ignored when posted.</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_EventType_MouseClicked">MouseClicked</td>
-        <td><p>Raised when a mouse button is clicked. Ignored when posted.</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_EventType_MouseDragged">MouseDragged</td>
-        <td><p>Raised when the mouse is dragged. Not recommended to post as it will be the same as <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseMoved">MouseMoved</a>.</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_EventType_MouseMoved">MouseMoved</td>
-        <td><p>Raised when the mouse is moved or posted to move the mouse.</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_EventType_MouseMovedRelativeToCursor">MouseMovedRelativeToCursor</td>
-        <td><p>Posted to move the mouse relative to the current cursor position. Never raised.</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_EventType_MousePressed">MousePressed</td>
-        <td><p>Raised when a mouse button is pressed or posted to press a mouse button.</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_EventType_MousePressedIgnoreCoordinates">MousePressedIgnoreCoordinates</td>
-        <td><p>Posted to press a mouse button at the current coordinates. Never raised.</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_EventType_MouseReleased">MouseReleased</td>
-        <td><p>Raised when a mouse button is released or posted to release a mouse button.</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_EventType_MouseReleasedIgnoreCoordinates">MouseReleasedIgnoreCoordinates</td>
-        <td><p>Posted to release a mouse button at the current coordinates. Never raised.</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_EventType_MouseWheel">MouseWheel</td>
-        <td><p>Raised when the mouse wheel is scrolled or posted to scroll the mouse wheel.</p>
-</td>
+        <td><a class="xref" href="SharpHook.Native.EventType.html">EventType</a></td>
+        <td></td>
       </tr>
     </tbody>
-  </thead></thead></table>
-  <h5 id="SharpHook_Native_EventType_seealso">See Also</h5>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_EventType_HookEnabled" data-uid="SharpHook.Native.EventType.HookEnabled">HookEnabled</h4>
+  <div class="markdown level1 summary"><p>Raised when the global hook is started. Ignored when posted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const EventType HookEnabled</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.EventType.html">EventType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_EventType_KeyPressed" data-uid="SharpHook.Native.EventType.KeyPressed">KeyPressed</h4>
+  <div class="markdown level1 summary"><p>Raised when a key is pressed or posted to press a key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const EventType KeyPressed</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.EventType.html">EventType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_EventType_KeyReleased" data-uid="SharpHook.Native.EventType.KeyReleased">KeyReleased</h4>
+  <div class="markdown level1 summary"><p>Raised when a key is released or posted to release a key.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const EventType KeyReleased</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.EventType.html">EventType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_EventType_KeyTyped" data-uid="SharpHook.Native.EventType.KeyTyped">KeyTyped</h4>
+  <div class="markdown level1 summary"><p>Raised when a character is typed. Ignored when posted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const EventType KeyTyped</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.EventType.html">EventType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_EventType_MouseClicked" data-uid="SharpHook.Native.EventType.MouseClicked">MouseClicked</h4>
+  <div class="markdown level1 summary"><p>Raised when a mouse button is clicked. Ignored when posted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const EventType MouseClicked</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.EventType.html">EventType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_EventType_MouseDragged" data-uid="SharpHook.Native.EventType.MouseDragged">MouseDragged</h4>
+  <div class="markdown level1 summary"><p>Raised when the mouse is dragged. Not recommended to post as it will be the same as <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseMoved">MouseMoved</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const EventType MouseDragged</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.EventType.html">EventType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_EventType_MouseMoved" data-uid="SharpHook.Native.EventType.MouseMoved">MouseMoved</h4>
+  <div class="markdown level1 summary"><p>Raised when the mouse is moved or posted to move the mouse.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const EventType MouseMoved</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.EventType.html">EventType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_EventType_MouseMovedRelativeToCursor" data-uid="SharpHook.Native.EventType.MouseMovedRelativeToCursor">MouseMovedRelativeToCursor</h4>
+  <div class="markdown level1 summary"><p>Posted to move the mouse relative to the current cursor position. Never raised.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const EventType MouseMovedRelativeToCursor</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.EventType.html">EventType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_EventType_MousePressed" data-uid="SharpHook.Native.EventType.MousePressed">MousePressed</h4>
+  <div class="markdown level1 summary"><p>Raised when a mouse button is pressed or posted to press a mouse button.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const EventType MousePressed</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.EventType.html">EventType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_EventType_MousePressedIgnoreCoordinates" data-uid="SharpHook.Native.EventType.MousePressedIgnoreCoordinates">MousePressedIgnoreCoordinates</h4>
+  <div class="markdown level1 summary"><p>Posted to press a mouse button at the current coordinates. Never raised.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const EventType MousePressedIgnoreCoordinates</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.EventType.html">EventType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_EventType_MouseReleased" data-uid="SharpHook.Native.EventType.MouseReleased">MouseReleased</h4>
+  <div class="markdown level1 summary"><p>Raised when a mouse button is released or posted to release a mouse button.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const EventType MouseReleased</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.EventType.html">EventType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_EventType_MouseReleasedIgnoreCoordinates" data-uid="SharpHook.Native.EventType.MouseReleasedIgnoreCoordinates">MouseReleasedIgnoreCoordinates</h4>
+  <div class="markdown level1 summary"><p>Posted to release a mouse button at the current coordinates. Never raised.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const EventType MouseReleasedIgnoreCoordinates</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.EventType.html">EventType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_EventType_MouseWheel" data-uid="SharpHook.Native.EventType.MouseWheel">MouseWheel</h4>
+  <div class="markdown level1 summary"><p>Raised when the mouse wheel is scrolled or posted to scroll the mouse wheel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const EventType MouseWheel</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.EventType.html">EventType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_EventType_value__" data-uid="SharpHook.Native.EventType.value__">value__</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int value__</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="seealso">See Also</h3>
   <div class="seealso">
       <div><a class="xref" href="SharpHook.Native.UioHookEvent.html">UioHookEvent</a></div>
       <div><a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_PostEvent_SharpHook_Native_UioHookEvent__">PostEvent(ref UioHookEvent)</a></div>
@@ -176,12 +475,6 @@
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
-                  <li>
-                    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_EventType.md&amp;value=---%0Auid%3A%20SharpHook.Native.EventType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/EventType.cs/#L8" class="contribution-link">View Source</a>
-                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
@@ -200,12 +493,12 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            <div>Copyright (c) 2021 Anatoliy Pylypchuk</div><span>Generated by <strong>DocFx</strong>.</span> <span>Icon made by <a href="https//www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com" title="Flaticon">www.flaticon.com</a></span></div>
             
+            <span>Generated by <strong>DocFX</strong></span>
           </div>
-        </footer></div>
-      
-    
+        </div>
+      </footer>
+    </div>
     
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>

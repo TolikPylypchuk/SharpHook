@@ -84,48 +84,31 @@
   <div class="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a></div>
-    <div><span class="xref">IDisposable</span></div>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     <div><a class="xref" href="SharpHook.IEventSimulator.html">IEventSimulator</a></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">Object.Equals(Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">Object.Equals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode#system-object-gethashcode">Object.GetHashCode()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype#system-object-gettype">Object.GetType()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone#system-object-memberwiseclone">Object.MemberwiseClone()</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals#system-object-referenceequals(system-object-system-object)">Object.ReferenceEquals(Object, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a>
-    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="SharpHook.Testing.html">SharpHook.Testing</a></h6>
   <h6><strong>Assembly</strong>: SharpHook.dll</h6>
   <h5 id="SharpHook_Testing_TestGlobalHook_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class TestGlobalHook : IGlobalHook, IEventSimulator</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class TestGlobalHook : Object, IGlobalHook, IEventSimulator</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="SharpHook_Testing_TestGlobalHook__ctor_" data-uid="SharpHook.Testing.TestGlobalHook.#ctor*"></a>
+  <h4 id="SharpHook_Testing_TestGlobalHook__ctor" data-uid="SharpHook.Testing.TestGlobalHook.#ctor">TestGlobalHook()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TestGlobalHook()</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_CurrentMouseX.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.CurrentMouseX%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L97">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_CurrentMouseX_" data-uid="SharpHook.Testing.TestGlobalHook.CurrentMouseX*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_CurrentMouseX" data-uid="SharpHook.Testing.TestGlobalHook.CurrentMouseX">CurrentMouseX</h4>
   <div class="markdown level1 summary"><p>Gets or sets the function which will specify the current mouse X-coordinate.</p>
@@ -145,18 +128,29 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">Int16</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">Int16</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_CurrentMouseY.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.CurrentMouseY%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L107">View Source</a>
-  </span>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">value</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_CurrentMouseY_" data-uid="SharpHook.Testing.TestGlobalHook.CurrentMouseY*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_CurrentMouseY" data-uid="SharpHook.Testing.TestGlobalHook.CurrentMouseY">CurrentMouseY</h4>
   <div class="markdown level1 summary"><p>Gets or sets the function which will specify the current mouse Y-coordinate.</p>
@@ -176,22 +170,33 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">Int16</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-1">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">Int16</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_DisposeResult.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.DisposeResult%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L145">View Source</a>
-  </span>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">value</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_DisposeResult_" data-uid="SharpHook.Testing.TestGlobalHook.DisposeResult*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_DisposeResult" data-uid="SharpHook.Testing.TestGlobalHook.DisposeResult">DisposeResult</h4>
   <div class="markdown level1 summary"><p>Gets or sets the result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_Dispose">Dispose()</a> method. If anything other than
-<see cref="!:UioHookResult.Success"></see> is set, then the method will throw a <a class="xref" href="SharpHook.HookException.html">HookException</a>.</p>
+<a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a> is set, then the method will throw a <a class="xref" href="SharpHook.HookException.html">HookException</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -208,23 +213,18 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">UioHookResult</span></td>
+        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
         <td><p>The result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_Dispose">Dispose()</a> method.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_DragMouseWhenMoving.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.DragMouseWhenMoving%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L131">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_DragMouseWhenMoving_" data-uid="SharpHook.Testing.TestGlobalHook.DragMouseWhenMoving*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_DragMouseWhenMoving" data-uid="SharpHook.Testing.TestGlobalHook.DragMouseWhenMoving">DragMouseWhenMoving</h4>
   <div class="markdown level1 summary"><p>Gets or sets the value which indicates whether simulating mouse movement will simulate events of type
-<see cref="!:EventType.MouseDragged"></see>.</p>
+<a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseDragged">MouseDragged</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -243,18 +243,13 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
         <td><p><span class="xref">true</span> if simulating mouse movement should simulate events of type
-<see cref="!:EventType.MouseDragged"></see>. Otherwise, <span class="xref">false</span>.</p>
+<a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseDragged">MouseDragged</a>. Otherwise, <span class="xref">false</span>.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_EventDateTime.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.EventDateTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L56">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_EventDateTime_" data-uid="SharpHook.Testing.TestGlobalHook.EventDateTime*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_EventDateTime" data-uid="SharpHook.Testing.TestGlobalHook.EventDateTime">EventDateTime</h4>
   <div class="markdown level1 summary"><p>Gets or sets the function which will be called to set the date/time of events.</p>
@@ -274,18 +269,29 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;<span class="xref">EventType</span>, <span class="xref">DateTimeOffset</span>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="SharpHook.Native.EventType.html">EventType</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_EventMask.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.EventMask%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L66">View Source</a>
-  </span>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">value</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_EventMask_" data-uid="SharpHook.Testing.TestGlobalHook.EventMask*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_EventMask" data-uid="SharpHook.Testing.TestGlobalHook.EventMask">EventMask</h4>
   <div class="markdown level1 summary"><p>Gets or sets the function which will be called to set the mask of events.</p>
@@ -305,18 +311,29 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;<span class="xref">EventType</span>, <span class="xref">ModifierMask</span>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="SharpHook.Native.EventType.html">EventType</a>, <a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_IsDisposed.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.IsDisposed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L38">View Source</a>
-  </span>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">value</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_IsDisposed_" data-uid="SharpHook.Testing.TestGlobalHook.IsDisposed*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_IsDisposed" data-uid="SharpHook.Testing.TestGlobalHook.IsDisposed">IsDisposed</h4>
   <div class="markdown level1 summary"><p>Gets the value which indicates whether the global hook is disposed.</p>
@@ -345,13 +362,8 @@
   <h5 id="SharpHook_Testing_TestGlobalHook_IsDisposed_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>A disposed global hook cannot be started again.</p>
 </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_IsRunning.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.IsRunning%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L31">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_IsRunning_" data-uid="SharpHook.Testing.TestGlobalHook.IsRunning*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_IsRunning" data-uid="SharpHook.Testing.TestGlobalHook.IsRunning">IsRunning</h4>
   <div class="markdown level1 summary"><p>Gets the value which indicates whether the global hook is running.</p>
@@ -377,13 +389,8 @@
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_KeyCodeToChars.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.KeyCodeToChars%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L77">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_KeyCodeToChars_" data-uid="SharpHook.Testing.TestGlobalHook.KeyCodeToChars*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_KeyCodeToChars" data-uid="SharpHook.Testing.TestGlobalHook.KeyCodeToChars">KeyCodeToChars</h4>
   <div class="markdown level1 summary"><p>Gets or sets the function which will map key codes to characters.</p>
@@ -403,7 +410,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;<span class="xref">KeyCode</span>, <span class="xref">IEnumerable</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">Char</a>&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="SharpHook.Native.KeyCode.html">KeyCode</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">Char</a>&gt;&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -411,13 +418,24 @@
   <h5 id="SharpHook_Testing_TestGlobalHook_KeyCodeToChars_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>By default every key code maps to an empty character sequence.</p>
 </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_KeyCodeToRawCode.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.KeyCodeToRawCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L87">View Source</a>
-  </span>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">value</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_KeyCodeToRawCode_" data-uid="SharpHook.Testing.TestGlobalHook.KeyCodeToRawCode*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_KeyCodeToRawCode" data-uid="SharpHook.Testing.TestGlobalHook.KeyCodeToRawCode">KeyCodeToRawCode</h4>
   <div class="markdown level1 summary"><p>Gets or sets the function which will map key codes to raw key codes.</p>
@@ -437,21 +455,32 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Func</span>&lt;<span class="xref">KeyCode</span>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">UInt16</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="SharpHook.Native.KeyCode.html">KeyCode</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">UInt16</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_MouseClickCount.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.MouseClickCount%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L121">View Source</a>
-  </span>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">value</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_MouseClickCount_" data-uid="SharpHook.Testing.TestGlobalHook.MouseClickCount*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_MouseClickCount" data-uid="SharpHook.Testing.TestGlobalHook.MouseClickCount">MouseClickCount</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the click count for events of type <see cref="!:EventType.MouseClicked"></see>.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the click count for events of type <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseClicked">MouseClicked</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -469,26 +498,21 @@
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">UInt16</a></td>
-        <td><p>The click count for events of type <see cref="!:EventType.MouseClicked"></see>.</p>
+        <td><p>The click count for events of type <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseClicked">MouseClicked</a>.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <h5 id="SharpHook_Testing_TestGlobalHook_MouseClickCount_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Events of type <see cref="!:EventType.MouseClicked"></see> won't be simulated if this property has the value of
+  <div class="markdown level1 remarks"><p>Events of type <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseClicked">MouseClicked</a> won't be simulated if this property has the value of
 <code>0</code>. The default value is <code>1</code>.</p>
 </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_RunResult.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.RunResult%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L138">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_RunResult_" data-uid="SharpHook.Testing.TestGlobalHook.RunResult*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_RunResult" data-uid="SharpHook.Testing.TestGlobalHook.RunResult">RunResult</h4>
   <div class="markdown level1 summary"><p>Gets or sets the result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_Run">Run()</a> and <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_RunAsync">RunAsync()</a> methods. If anything other than
-<see cref="!:UioHookResult.Success"></see> is set, then the method will throw a <a class="xref" href="SharpHook.HookException.html">HookException</a>.</p>
+<a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a> is set, then the method will throw a <a class="xref" href="SharpHook.HookException.html">HookException</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -505,19 +529,14 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">UioHookResult</span></td>
+        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
         <td><p>The result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_Run">Run()</a> and <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_RunAsync">RunAsync()</a> methods.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulatedEvents.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulatedEvents%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L43">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulatedEvents_" data-uid="SharpHook.Testing.TestGlobalHook.SimulatedEvents*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulatedEvents" data-uid="SharpHook.Testing.TestGlobalHook.SimulatedEvents">SimulatedEvents</h4>
   <div class="markdown level1 summary"><p>Gets the events that have been simulated using this instance.</p>
@@ -537,18 +556,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IReadOnlyList</span>&lt;<a class="xref" href="SharpHook.HookEventArgs.html">HookEventArgs</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="SharpHook.HookEventArgs.html">HookEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulatedText.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulatedText%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L49">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulatedText_" data-uid="SharpHook.Testing.TestGlobalHook.SimulatedText*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulatedText" data-uid="SharpHook.Testing.TestGlobalHook.SimulatedText">SimulatedText</h4>
   <div class="markdown level1 summary"><p>Gets the text that has been simulated using this instance.</p>
@@ -568,22 +582,17 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IReadOnlyList</span>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateKeyPressResult.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateKeyPressResult%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L152">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateKeyPressResult_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateKeyPressResult*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateKeyPressResult" data-uid="SharpHook.Testing.TestGlobalHook.SimulateKeyPressResult">SimulateKeyPressResult</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyPress_KeyCode_">SimulateKeyPress(KeyCode)</a> method. If anything other than
-<see cref="!:UioHookResult.Success"></see> is set, then the method will do nothing.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyPress_SharpHook_Native_KeyCode_">SimulateKeyPress(KeyCode)</a> method. If anything other than
+<a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a> is set, then the method will do nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -600,23 +609,18 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">UioHookResult</span></td>
-        <td><p>The result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyPress_KeyCode_">SimulateKeyPress(KeyCode)</a> method.</p>
+        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
+        <td><p>The result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyPress_SharpHook_Native_KeyCode_">SimulateKeyPress(KeyCode)</a> method.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateKeyReleaseResult.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateKeyReleaseResult%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L159">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateKeyReleaseResult_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateKeyReleaseResult*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateKeyReleaseResult" data-uid="SharpHook.Testing.TestGlobalHook.SimulateKeyReleaseResult">SimulateKeyReleaseResult</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyRelease_KeyCode_">SimulateKeyRelease(KeyCode)</a> method. If anything other than
-<see cref="!:UioHookResult.Success"></see> is set, then the method will do nothing.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyRelease_SharpHook_Native_KeyCode_">SimulateKeyRelease(KeyCode)</a> method. If anything other than
+<a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a> is set, then the method will do nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -633,23 +637,18 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">UioHookResult</span></td>
-        <td><p>The result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyRelease_KeyCode_">SimulateKeyRelease(KeyCode)</a> method.</p>
+        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
+        <td><p>The result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyRelease_SharpHook_Native_KeyCode_">SimulateKeyRelease(KeyCode)</a> method.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMouseMovementResult.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMouseMovementResult%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L187">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMouseMovementResult_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseMovementResult*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseMovementResult" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseMovementResult">SimulateMouseMovementResult</h4>
   <div class="markdown level1 summary"><p>Gets or sets the result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseMovement_System_Int16_System_Int16_">SimulateMouseMovement(Int16, Int16)</a> method. If anything other than
-<see cref="!:UioHookResult.Success"></see> is set, then the method will do nothing.</p>
+<a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a> is set, then the method will do nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -666,23 +665,18 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">UioHookResult</span></td>
+        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
         <td><p>The result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseMovement_System_Int16_System_Int16_">SimulateMouseMovement(Int16, Int16)</a> method.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMousePressResult.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMousePressResult%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L173">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMousePressResult_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMousePressResult*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMousePressResult" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMousePressResult">SimulateMousePressResult</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMousePress_MouseButton_">SimulateMousePress(MouseButton)</a> method. If anything other than
-<see cref="!:UioHookResult.Success"></see> is set, then the method will do nothing.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMousePress_SharpHook_Native_MouseButton_">SimulateMousePress(MouseButton)</a> method. If anything other than
+<a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a> is set, then the method will do nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -699,23 +693,18 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">UioHookResult</span></td>
-        <td><p>The result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMousePress_MouseButton_">SimulateMousePress(MouseButton)</a> method.</p>
+        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
+        <td><p>The result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMousePress_SharpHook_Native_MouseButton_">SimulateMousePress(MouseButton)</a> method.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseResult.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseResult%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L180">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseResult_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseResult*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseResult" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseResult">SimulateMouseReleaseResult</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_MouseButton_">SimulateMouseRelease(MouseButton)</a> method. If anything other than
-<see cref="!:UioHookResult.Success"></see> is set, then the method will do nothing.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_SharpHook_Native_MouseButton_">SimulateMouseRelease(MouseButton)</a> method. If anything other than
+<a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a> is set, then the method will do nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -732,24 +721,19 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">UioHookResult</span></td>
-        <td><p>The result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_MouseButton_">SimulateMouseRelease(MouseButton)</a> method.</p>
+        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
+        <td><p>The result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_SharpHook_Native_MouseButton_">SimulateMouseRelease(MouseButton)</a> method.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMouseWheelResult.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMouseWheelResult%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L198">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMouseWheelResult_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseWheelResult*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseWheelResult" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseWheelResult">SimulateMouseWheelResult</h4>
   <div class="markdown level1 summary"><p>Gets or sets the result of the
-<a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseWheel_System_Int16_MouseWheelScrollDirection_MouseWheelScrollType_">SimulateMouseWheel(Int16, MouseWheelScrollDirection, MouseWheelScrollType)</a> method. If anything
-other than <see cref="!:UioHookResult.Success"></see> is set, then the method will do nothing.</p>
+<a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseWheel_System_Int16_SharpHook_Native_MouseWheelScrollDirection_SharpHook_Native_MouseWheelScrollType_">SimulateMouseWheel(Int16, MouseWheelScrollDirection, MouseWheelScrollType)</a> method. If anything
+other than <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a> is set, then the method will do nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -766,24 +750,19 @@ other than <see cref="!:UioHookResult.Success"></see> is set, then the method wi
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">UioHookResult</span></td>
-        <td><p>The result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseWheel_System_Int16_MouseWheelScrollDirection_MouseWheelScrollType_">SimulateMouseWheel(Int16, MouseWheelScrollDirection, MouseWheelScrollType)</a>
+        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
+        <td><p>The result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseWheel_System_Int16_SharpHook_Native_MouseWheelScrollDirection_SharpHook_Native_MouseWheelScrollType_">SimulateMouseWheel(Int16, MouseWheelScrollDirection, MouseWheelScrollType)</a>
 method.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateTextEntryResult.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateTextEntryResult%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L166">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateTextEntryResult_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateTextEntryResult*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateTextEntryResult" data-uid="SharpHook.Testing.TestGlobalHook.SimulateTextEntryResult">SimulateTextEntryResult</h4>
   <div class="markdown level1 summary"><p>Gets or sets the result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateTextEntry_System_String_">SimulateTextEntry(String)</a> method. If anything other than
-<see cref="!:UioHookResult.Success"></see> is set, then the method will do nothing.</p>
+<a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a> is set, then the method will do nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -800,7 +779,7 @@ method.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">UioHookResult</span></td>
+        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
         <td><p>The result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateTextEntry_System_String_">SimulateTextEntry(String)</a> method.</p>
 </td>
       </tr>
@@ -808,13 +787,8 @@ method.</p>
   </table>
   <h3 id="methods">Methods
   </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_Dispose.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.Dispose%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L303">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_Dispose_" data-uid="SharpHook.Testing.TestGlobalHook.Dispose*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_Dispose" data-uid="SharpHook.Testing.TestGlobalHook.Dispose">Dispose()</h4>
   <div class="markdown level1 summary"><p>Destroys the global hook.</p>
@@ -838,22 +812,17 @@ method.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="SharpHook.HookException.html">HookException</a></td>
-        <td><p><a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_DisposeResult">DisposeResult</a> was set to something other than <see cref="!:UioHookResult.Success"></see>.</p>
+        <td><p><a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_DisposeResult">DisposeResult</a> was set to something other than <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_Run.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.Run%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L209">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_Run_" data-uid="SharpHook.Testing.TestGlobalHook.Run*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_Run" data-uid="SharpHook.Testing.TestGlobalHook.Run">Run()</h4>
   <div class="markdown level1 summary"><p>Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
-<see cref="!:IDisposable.Dispose"></see> method.</p>
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose#system-idisposable-dispose">Dispose()</a> method.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -871,22 +840,27 @@ method.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="SharpHook.HookException.html">HookException</a></td>
-        <td><p><a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_RunResult">RunResult</a> was set to something other than <see cref="!:UioHookResult.Success"></see>.</p>
+        <td><p><a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_RunResult">RunResult</a> was set to something other than <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>The global hook is already running.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></td>
+        <td><p>The global hook has been disposed.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_RunAndWaitForStart_CancellationToken_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.RunAndWaitForStart(CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L279">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_RunAndWaitForStart_" data-uid="SharpHook.Testing.TestGlobalHook.RunAndWaitForStart*"></a>
-  <h4 id="SharpHook_Testing_TestGlobalHook_RunAndWaitForStart_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.RunAndWaitForStart(CancellationToken)">RunAndWaitForStart(CancellationToken)</h4>
+  <h4 id="SharpHook_Testing_TestGlobalHook_RunAndWaitForStart_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.RunAndWaitForStart(System.Threading.CancellationToken)">RunAndWaitForStart(CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Runs the global hook without blocking the current thread. The hook can be destroyed by calling the
-<see cref="!:IDisposable.Dispose"></see> method.</p>
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose#system-idisposable-dispose">Dispose()</a> method.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -904,9 +878,9 @@ method.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td><p>The token to monitor for cancellation requests. The default value is <see cref="!:CancellationToken.None"></see>.</p>
+        <td><p>The token to monitor for cancellation requests. The default value is <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken.none#system-threading-cancellationtoken-none">None</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -921,8 +895,8 @@ method.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span></td>
-        <td><p>A <see cref="!:Task"></see> which finishes when the hook has been started.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the hook has been started.</p>
 </td>
       </tr>
     </tbody>
@@ -938,22 +912,27 @@ method.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="SharpHook.HookException.html">HookException</a></td>
-        <td><p><a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_RunResult">RunResult</a> was set to something other than <see cref="!:UioHookResult.Success"></see>.</p>
+        <td><p><a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_RunResult">RunResult</a> was set to something other than <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>The global hook is already running.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></td>
+        <td><p>The global hook has been disposed.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_RunAsync.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.RunAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L256">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_RunAsync_" data-uid="SharpHook.Testing.TestGlobalHook.RunAsync*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_RunAsync" data-uid="SharpHook.Testing.TestGlobalHook.RunAsync">RunAsync()</h4>
   <div class="markdown level1 summary"><p>Runs the global hook without blocking the current thread. The hook can be destroyed by calling the
-<see cref="!:IDisposable.Dispose"></see> method.</p>
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose#system-idisposable-dispose">Dispose()</a> method.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -970,8 +949,8 @@ method.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span></td>
-        <td><p>A <see cref="!:Task"></see> which finishes when the hook is destroyed.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the hook is destroyed.</p>
 </td>
       </tr>
     </tbody>
@@ -987,21 +966,26 @@ method.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="SharpHook.HookException.html">HookException</a></td>
-        <td><p><a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_RunResult">RunResult</a> was set to something other than <see cref="!:UioHookResult.Success"></see>.</p>
+        <td><p><a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_RunResult">RunResult</a> was set to something other than <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>The global hook is already running.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></td>
+        <td><p>The global hook has been disposed.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateKeyPress_KeyCode_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateKeyPress(KeyCode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L346">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateKeyPress_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateKeyPress*"></a>
-  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateKeyPress_KeyCode_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateKeyPress(KeyCode)">SimulateKeyPress(KeyCode)</h4>
-  <div class="markdown level1 summary"><p>Simulates pressing a key if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyPressResult">SimulateKeyPressResult</a> is <see cref="!:UioHookResult.Success"></see>.
+  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateKeyPress_SharpHook_Native_KeyCode_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateKeyPress(SharpHook.Native.KeyCode)">SimulateKeyPress(KeyCode)</h4>
+  <div class="markdown level1 summary"><p>Simulates pressing a key if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyPressResult">SimulateKeyPressResult</a> is <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>.
 Otherwise, does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1020,7 +1004,7 @@ Otherwise, does nothing.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">KeyCode</span></td>
+        <td><a class="xref" href="SharpHook.Native.KeyCode.html">KeyCode</a></td>
         <td><span class="parametername">keyCode</span></td>
         <td><p>The code of the key to press.</p>
 </td>
@@ -1037,26 +1021,21 @@ Otherwise, does nothing.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">UioHookResult</span></td>
+        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
         <td><p>The value of <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyPressResult">SimulateKeyPressResult</a>.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="SharpHook_Testing_TestGlobalHook_SimulateKeyPress_KeyCode__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method simulates <see cref="!:EventType.KeyTyped"></see> events as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_KeyCodeToChars">KeyCodeToChars</a> returns
+  <h5 id="SharpHook_Testing_TestGlobalHook_SimulateKeyPress_SharpHook_Native_KeyCode__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method simulates <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_KeyTyped">KeyTyped</a> events as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_KeyCodeToChars">KeyCodeToChars</a> returns
 characters for <code data-dev-comment-type="paramref" class="paramref">keyCode</code>.</p>
 </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateKeyPressAndWaitForHandler_KeyCode_CancellationToken_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateKeyPressAndWaitForHandler(KeyCode%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L405">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateKeyPressAndWaitForHandler_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateKeyPressAndWaitForHandler*"></a>
-  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateKeyPressAndWaitForHandler_KeyCode_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateKeyPressAndWaitForHandler(KeyCode,CancellationToken)">SimulateKeyPressAndWaitForHandler(KeyCode, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Simulates pressing a key if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyPressResult">SimulateKeyPressResult</a> is <see cref="!:UioHookResult.Success"></see>.
+  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateKeyPressAndWaitForHandler_SharpHook_Native_KeyCode_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateKeyPressAndWaitForHandler(SharpHook.Native.KeyCode,System.Threading.CancellationToken)">SimulateKeyPressAndWaitForHandler(KeyCode, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Simulates pressing a key if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyPressResult">SimulateKeyPressResult</a> is <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>.
 Otherwise, does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1075,15 +1054,15 @@ Otherwise, does nothing.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">KeyCode</span></td>
+        <td><a class="xref" href="SharpHook.Native.KeyCode.html">KeyCode</a></td>
         <td><span class="parametername">keyCode</span></td>
         <td><p>The code of the key to press.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td><p>The token to monitor for cancellation requests. The default value is <see cref="!:CancellationToken.None"></see>.</p>
+        <td><p>The token to monitor for cancellation requests. The default value is <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken.none#system-threading-cancellationtoken-none">None</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -1098,27 +1077,22 @@ Otherwise, does nothing.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
-        <td><p>A <see cref="!:Task"></see> which finishes when the event has been handled, and contains the handler result, or
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
+        <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the event has been handled, and contains the handler result, or
 <span class="xref">null</span> if the event was not simulated.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="SharpHook_Testing_TestGlobalHook_SimulateKeyPressAndWaitForHandler_KeyCode_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method simulates <see cref="!:EventType.KeyTyped"></see> events as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_KeyCodeToChars">KeyCodeToChars</a> returns
+  <h5 id="SharpHook_Testing_TestGlobalHook_SimulateKeyPressAndWaitForHandler_SharpHook_Native_KeyCode_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method simulates <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_KeyTyped">KeyTyped</a> events as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_KeyCodeToChars">KeyCodeToChars</a> returns
 characters for <code data-dev-comment-type="paramref" class="paramref">keyCode</code>.</p>
 </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateKeyPressAndWaitForKeyTypedHandler_KeyCode_System_Char_CancellationToken_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateKeyPressAndWaitForKeyTypedHandler(KeyCode%2CSystem.Char%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L430">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateKeyPressAndWaitForKeyTypedHandler_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateKeyPressAndWaitForKeyTypedHandler*"></a>
-  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateKeyPressAndWaitForKeyTypedHandler_KeyCode_System_Char_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateKeyPressAndWaitForKeyTypedHandler(KeyCode,System.Char,CancellationToken)">SimulateKeyPressAndWaitForKeyTypedHandler(KeyCode, Char, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Simulates pressing a key if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyPressResult">SimulateKeyPressResult</a> is <see cref="!:UioHookResult.Success"></see>.
+  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateKeyPressAndWaitForKeyTypedHandler_SharpHook_Native_KeyCode_System_Char_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateKeyPressAndWaitForKeyTypedHandler(SharpHook.Native.KeyCode,System.Char,System.Threading.CancellationToken)">SimulateKeyPressAndWaitForKeyTypedHandler(KeyCode, Char, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Simulates pressing a key if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyPressResult">SimulateKeyPressResult</a> is <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>.
 Otherwise, does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1137,7 +1111,7 @@ Otherwise, does nothing.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">KeyCode</span></td>
+        <td><a class="xref" href="SharpHook.Native.KeyCode.html">KeyCode</a></td>
         <td><span class="parametername">keyCode</span></td>
         <td><p>The code of the key to press.</p>
 </td>
@@ -1145,13 +1119,13 @@ Otherwise, does nothing.</p>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">Char</a></td>
         <td><span class="parametername">keyChar</span></td>
-        <td><p>The char of the <see cref="!:EventType.KeyTyped"></see> event which should be awaited.</p>
+        <td><p>The char of the <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_KeyTyped">KeyTyped</a> event which should be awaited.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td><p>The token to monitor for cancellation requests. The default value is <see cref="!:CancellationToken.None"></see>.</p>
+        <td><p>The token to monitor for cancellation requests. The default value is <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken.none#system-threading-cancellationtoken-none">None</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -1166,27 +1140,22 @@ Otherwise, does nothing.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
-        <td><p>A <see cref="!:Task"></see> which finishes when the <see cref="!:EventType.KeyTyped"></see> event has been handled, and
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
+        <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_KeyTyped">KeyTyped</a> event has been handled, and
 contains the handler result, or <span class="xref">null</span> if the event was not simulated.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="SharpHook_Testing_TestGlobalHook_SimulateKeyPressAndWaitForKeyTypedHandler_KeyCode_System_Char_CancellationToken__remarks">Remarks</h5>
+  <h5 id="SharpHook_Testing_TestGlobalHook_SimulateKeyPressAndWaitForKeyTypedHandler_SharpHook_Native_KeyCode_System_Char_System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This method should be used only if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_KeyCodeToChars">KeyCodeToChars</a> returns <code data-dev-comment-type="paramref" class="paramref">keyChar</code> for
 <code data-dev-comment-type="paramref" class="paramref">keyCode</code>, otherwise the resulting task will never finish.</p>
 </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateKeyRelease_KeyCode_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateKeyRelease(KeyCode)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L445">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateKeyRelease_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateKeyRelease*"></a>
-  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateKeyRelease_KeyCode_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateKeyRelease(KeyCode)">SimulateKeyRelease(KeyCode)</h4>
-  <div class="markdown level1 summary"><p>Simulates releasing a key if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyReleaseResult">SimulateKeyReleaseResult</a> is <see cref="!:UioHookResult.Success"></see>.
+  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateKeyRelease_SharpHook_Native_KeyCode_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateKeyRelease(SharpHook.Native.KeyCode)">SimulateKeyRelease(KeyCode)</h4>
+  <div class="markdown level1 summary"><p>Simulates releasing a key if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyReleaseResult">SimulateKeyReleaseResult</a> is <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>.
 Otherwise, does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1205,7 +1174,7 @@ Otherwise, does nothing.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">KeyCode</span></td>
+        <td><a class="xref" href="SharpHook.Native.KeyCode.html">KeyCode</a></td>
         <td><span class="parametername">keyCode</span></td>
         <td><p>The code of the key to release.</p>
 </td>
@@ -1222,22 +1191,17 @@ Otherwise, does nothing.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">UioHookResult</span></td>
+        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
         <td><p>The value of <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyReleaseResult">SimulateKeyReleaseResult</a>.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateKeyReleaseAndWaitForHandler_KeyCode_CancellationToken_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateKeyReleaseAndWaitForHandler(KeyCode%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L477">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateKeyReleaseAndWaitForHandler_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateKeyReleaseAndWaitForHandler*"></a>
-  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateKeyReleaseAndWaitForHandler_KeyCode_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateKeyReleaseAndWaitForHandler(KeyCode,CancellationToken)">SimulateKeyReleaseAndWaitForHandler(KeyCode, CancellationToken)</h4>
-  <div class="markdown level1 summary"><p>Simulates releasing a key if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyReleaseResult">SimulateKeyReleaseResult</a> is <see cref="!:UioHookResult.Success"></see>.
+  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateKeyReleaseAndWaitForHandler_SharpHook_Native_KeyCode_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateKeyReleaseAndWaitForHandler(SharpHook.Native.KeyCode,System.Threading.CancellationToken)">SimulateKeyReleaseAndWaitForHandler(KeyCode, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Simulates releasing a key if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyReleaseResult">SimulateKeyReleaseResult</a> is <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>.
 Otherwise, does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1256,15 +1220,15 @@ Otherwise, does nothing.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">KeyCode</span></td>
+        <td><a class="xref" href="SharpHook.Native.KeyCode.html">KeyCode</a></td>
         <td><span class="parametername">keyCode</span></td>
         <td><p>The code of the key to release.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td><p>The token to monitor for cancellation requests. The default value is <see cref="!:CancellationToken.None"></see>.</p>
+        <td><p>The token to monitor for cancellation requests. The default value is <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken.none#system-threading-cancellationtoken-none">None</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -1279,24 +1243,19 @@ Otherwise, does nothing.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
-        <td><p>A <see cref="!:Task"></see> which finishes when the event has been handled, and contains the handler result, or
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
+        <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the event has been handled, and contains the handler result, or
 <span class="xref">null</span> if the event was not simulated.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMouseMovement_System_Int16_System_Int16_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMouseMovement(System.Int16%2CSystem.Int16)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L758">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMouseMovement_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseMovement*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseMovement_System_Int16_System_Int16_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseMovement(System.Int16,System.Int16)">SimulateMouseMovement(Int16, Int16)</h4>
   <div class="markdown level1 summary"><p>Simulates moving a mouse pointer if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseMovementResult">SimulateMouseMovementResult</a> is
-<see cref="!:UioHookResult.Success"></see>. Otherwise, does nothing.</p>
+<a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise, does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1337,23 +1296,18 @@ Otherwise, does nothing.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">UioHookResult</span></td>
+        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
         <td><p>The result of the operation.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMouseMovementAndWaitForHandler_System_Int16_System_Int16_CancellationToken_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMouseMovementAndWaitForHandler(System.Int16%2CSystem.Int16%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L790">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMouseMovementAndWaitForHandler_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseMovementAndWaitForHandler*"></a>
-  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseMovementAndWaitForHandler_System_Int16_System_Int16_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseMovementAndWaitForHandler(System.Int16,System.Int16,CancellationToken)">SimulateMouseMovementAndWaitForHandler(Int16, Int16, CancellationToken)</h4>
+  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseMovementAndWaitForHandler_System_Int16_System_Int16_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseMovementAndWaitForHandler(System.Int16,System.Int16,System.Threading.CancellationToken)">SimulateMouseMovementAndWaitForHandler(Int16, Int16, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Simulates moving a mouse pointer if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseMovementResult">SimulateMouseMovementResult</a> is
-<see cref="!:UioHookResult.Success"></see>. Otherwise, does nothing.</p>
+<a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise, does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1383,9 +1337,9 @@ Otherwise, does nothing.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td><p>The token to monitor for cancellation requests. The default value is <see cref="!:CancellationToken.None"></see>.</p>
+        <td><p>The token to monitor for cancellation requests. The default value is <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken.none#system-threading-cancellationtoken-none">None</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -1400,24 +1354,19 @@ Otherwise, does nothing.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
-        <td><p>A <see cref="!:Task"></see> which finishes when the event has been handled, and contains the handler result, or
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
+        <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the event has been handled, and contains the handler result, or
 <span class="xref">null</span> if the event was not simulated.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMouseMovementRelative_System_Int16_System_Int16_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMouseMovementRelative(System.Int16%2CSystem.Int16)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L806">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMouseMovementRelative_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseMovementRelative*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseMovementRelative_System_Int16_System_Int16_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseMovementRelative(System.Int16,System.Int16)">SimulateMouseMovementRelative(Int16, Int16)</h4>
   <div class="markdown level1 summary"><p>Simulates moving a mouse pointer relative to the current cursor position if
-<a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseMovementResult">SimulateMouseMovementResult</a> is <see cref="!:UioHookResult.Success"></see>. Otherwise, does nothing.</p>
+<a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseMovementResult">SimulateMouseMovementResult</a> is <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise, does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1458,23 +1407,18 @@ Otherwise, does nothing.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">UioHookResult</span></td>
+        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
         <td><p>The value of <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseMovementResult">SimulateMouseMovementResult</a>.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMouseMovementRelativeAndWaitForHandler_System_Int16_System_Int16_CancellationToken_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMouseMovementRelativeAndWaitForHandler(System.Int16%2CSystem.Int16%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L822">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMouseMovementRelativeAndWaitForHandler_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseMovementRelativeAndWaitForHandler*"></a>
-  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseMovementRelativeAndWaitForHandler_System_Int16_System_Int16_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseMovementRelativeAndWaitForHandler(System.Int16,System.Int16,CancellationToken)">SimulateMouseMovementRelativeAndWaitForHandler(Int16, Int16, CancellationToken)</h4>
+  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseMovementRelativeAndWaitForHandler_System_Int16_System_Int16_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseMovementRelativeAndWaitForHandler(System.Int16,System.Int16,System.Threading.CancellationToken)">SimulateMouseMovementRelativeAndWaitForHandler(Int16, Int16, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Simulates moving a mouse pointer relative to the current cursor position if
-<a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseMovementResult">SimulateMouseMovementResult</a> is <see cref="!:UioHookResult.Success"></see>. Otherwise, does nothing.</p>
+<a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseMovementResult">SimulateMouseMovementResult</a> is <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise, does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1504,9 +1448,9 @@ Otherwise, does nothing.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td><p>The token to monitor for cancellation requests. The default value is <see cref="!:CancellationToken.None"></see>.</p>
+        <td><p>The token to monitor for cancellation requests. The default value is <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken.none#system-threading-cancellationtoken-none">None</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -1521,24 +1465,19 @@ Otherwise, does nothing.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
-        <td><p>A <see cref="!:Task"></see> which finishes when the event has been handled, and contains the handler result, or
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
+        <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the event has been handled, and contains the handler result, or
 <span class="xref">null</span> if the event was not simulated.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMousePress_MouseButton_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMousePress(MouseButton)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L516">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMousePress_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMousePress*"></a>
-  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMousePress_MouseButton_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMousePress(MouseButton)">SimulateMousePress(MouseButton)</h4>
+  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMousePress_SharpHook_Native_MouseButton_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMousePress(SharpHook.Native.MouseButton)">SimulateMousePress(MouseButton)</h4>
   <div class="markdown level1 summary"><p>Simulates pressing a mouse button at the current coordinates if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMousePressResult">SimulateMousePressResult</a> is
-<see cref="!:UioHookResult.Success"></see>. Otherwise, does nothing.</p>
+<a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise, does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1556,7 +1495,7 @@ Otherwise, does nothing.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MouseButton</span></td>
+        <td><a class="xref" href="SharpHook.Native.MouseButton.html">MouseButton</a></td>
         <td><span class="parametername">button</span></td>
         <td><p>The mouse button to press.</p>
 </td>
@@ -1573,23 +1512,18 @@ Otherwise, does nothing.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">UioHookResult</span></td>
+        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
         <td><p>The value of <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMousePressResult">SimulateMousePressResult</a>.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMousePress_System_Int16_System_Int16_MouseButton_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMousePress(System.Int16%2CSystem.Int16%2CMouseButton)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L544">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMousePress_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMousePress*"></a>
-  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMousePress_System_Int16_System_Int16_MouseButton_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMousePress(System.Int16,System.Int16,MouseButton)">SimulateMousePress(Int16, Int16, MouseButton)</h4>
+  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMousePress_System_Int16_System_Int16_SharpHook_Native_MouseButton_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMousePress(System.Int16,System.Int16,SharpHook.Native.MouseButton)">SimulateMousePress(Int16, Int16, MouseButton)</h4>
   <div class="markdown level1 summary"><p>Simulates pressing a mouse button at the specified coordinates if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMousePressResult">SimulateMousePressResult</a> is
-<see cref="!:UioHookResult.Success"></see>. Otherwise, does nothing.</p>
+<a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise, does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1619,7 +1553,7 @@ Otherwise, does nothing.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">MouseButton</span></td>
+        <td><a class="xref" href="SharpHook.Native.MouseButton.html">MouseButton</a></td>
         <td><span class="parametername">button</span></td>
         <td><p>The mouse button to press.</p>
 </td>
@@ -1636,23 +1570,18 @@ Otherwise, does nothing.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">UioHookResult</span></td>
+        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
         <td><p>The value of <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMousePressResult">SimulateMousePressResult</a>.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMousePressAndWaitForHandler_MouseButton_CancellationToken_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMousePressAndWaitForHandler(MouseButton%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L531">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMousePressAndWaitForHandler_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMousePressAndWaitForHandler*"></a>
-  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMousePressAndWaitForHandler_MouseButton_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMousePressAndWaitForHandler(MouseButton,CancellationToken)">SimulateMousePressAndWaitForHandler(MouseButton, CancellationToken)</h4>
+  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMousePressAndWaitForHandler_SharpHook_Native_MouseButton_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMousePressAndWaitForHandler(SharpHook.Native.MouseButton,System.Threading.CancellationToken)">SimulateMousePressAndWaitForHandler(MouseButton, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Simulates pressing a mouse button at the current coordinates if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMousePressResult">SimulateMousePressResult</a> is
-<see cref="!:UioHookResult.Success"></see>. Otherwise, does nothing.</p>
+<a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise, does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1670,15 +1599,15 @@ Otherwise, does nothing.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MouseButton</span></td>
+        <td><a class="xref" href="SharpHook.Native.MouseButton.html">MouseButton</a></td>
         <td><span class="parametername">button</span></td>
         <td><p>The mouse button to press.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td><p>The token to monitor for cancellation requests. The default value is <see cref="!:CancellationToken.None"></see>.</p>
+        <td><p>The token to monitor for cancellation requests. The default value is <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken.none#system-threading-cancellationtoken-none">None</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -1693,24 +1622,19 @@ Otherwise, does nothing.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
-        <td><p>A <see cref="!:Task"></see> which finishes when the event has been handled, and contains the handler result, or
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
+        <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the event has been handled, and contains the handler result, or
 <span class="xref">null</span> if the event was not simulated.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMousePressAndWaitForHandler_System_Int16_System_Int16_MouseButton_CancellationToken_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMousePressAndWaitForHandler(System.Int16%2CSystem.Int16%2CMouseButton%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L574">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMousePressAndWaitForHandler_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMousePressAndWaitForHandler*"></a>
-  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMousePressAndWaitForHandler_System_Int16_System_Int16_MouseButton_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMousePressAndWaitForHandler(System.Int16,System.Int16,MouseButton,CancellationToken)">SimulateMousePressAndWaitForHandler(Int16, Int16, MouseButton, CancellationToken)</h4>
+  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMousePressAndWaitForHandler_System_Int16_System_Int16_SharpHook_Native_MouseButton_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMousePressAndWaitForHandler(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.Threading.CancellationToken)">SimulateMousePressAndWaitForHandler(Int16, Int16, MouseButton, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Simulates pressing a mouse button at the specified coordinates if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMousePressResult">SimulateMousePressResult</a> is
-<see cref="!:UioHookResult.Success"></see>. Otherwise, does nothing.</p>
+<a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise, does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1740,15 +1664,15 @@ Otherwise, does nothing.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">MouseButton</span></td>
+        <td><a class="xref" href="SharpHook.Native.MouseButton.html">MouseButton</a></td>
         <td><span class="parametername">button</span></td>
         <td><p>The mouse button to press.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td><p>The token to monitor for cancellation requests. The default value is <see cref="!:CancellationToken.None"></see>.</p>
+        <td><p>The token to monitor for cancellation requests. The default value is <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken.none#system-threading-cancellationtoken-none">None</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -1763,24 +1687,19 @@ Otherwise, does nothing.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
-        <td><p>A <see cref="!:Task"></see> which finishes when the event has been handled, and contains the handler result, or
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
+        <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the event has been handled, and contains the handler result, or
 <span class="xref">null</span> if the event was not simulated.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_MouseButton_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(MouseButton)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L594">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseRelease*"></a>
-  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_MouseButton_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(MouseButton)">SimulateMouseRelease(MouseButton)</h4>
+  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_SharpHook_Native_MouseButton_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(SharpHook.Native.MouseButton)">SimulateMouseRelease(MouseButton)</h4>
   <div class="markdown level1 summary"><p>Simulates releasing a mouse button at the current coordinates if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseResult">SimulateMouseReleaseResult</a> is
-<see cref="!:UioHookResult.Success"></see>. Otherwise, does nothing.</p>
+<a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise, does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1798,7 +1717,7 @@ Otherwise, does nothing.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MouseButton</span></td>
+        <td><a class="xref" href="SharpHook.Native.MouseButton.html">MouseButton</a></td>
         <td><span class="parametername">button</span></td>
         <td><p>The mouse button to release.</p>
 </td>
@@ -1815,27 +1734,22 @@ Otherwise, does nothing.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">UioHookResult</span></td>
+        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
         <td><p>The value of <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseResult">SimulateMouseReleaseResult</a>.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_MouseButton__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method simulates a <see cref="!:EventType.MouseClicked"></see> event as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_MouseClickCount">MouseClickCount</a>
+  <h5 id="SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_SharpHook_Native_MouseButton__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method simulates a <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseClicked">MouseClicked</a> event as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_MouseClickCount">MouseClickCount</a>
 is greater than <code>0</code>.</p>
 </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_System_Int16_System_Int16_MouseButton_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(System.Int16%2CSystem.Int16%2CMouseButton)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L653">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseRelease*"></a>
-  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_System_Int16_System_Int16_MouseButton_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(System.Int16,System.Int16,MouseButton)">SimulateMouseRelease(Int16, Int16, MouseButton)</h4>
+  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_System_Int16_System_Int16_SharpHook_Native_MouseButton_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Native.MouseButton)">SimulateMouseRelease(Int16, Int16, MouseButton)</h4>
   <div class="markdown level1 summary"><p>Simulates releasing a mouse button at the specified coordinates if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseResult">SimulateMouseReleaseResult</a> is
-<see cref="!:UioHookResult.Success"></see>. Otherwise, does nothing.</p>
+<a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise, does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1865,7 +1779,7 @@ is greater than <code>0</code>.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">MouseButton</span></td>
+        <td><a class="xref" href="SharpHook.Native.MouseButton.html">MouseButton</a></td>
         <td><span class="parametername">button</span></td>
         <td><p>The mouse button to release.</p>
 </td>
@@ -1882,27 +1796,22 @@ is greater than <code>0</code>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">UioHookResult</span></td>
+        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
         <td><p>The value of <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseResult">SimulateMouseReleaseResult</a>.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_System_Int16_System_Int16_MouseButton__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method simulates a <see cref="!:EventType.MouseClicked"></see> event as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_MouseClickCount">MouseClickCount</a>
+  <h5 id="SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_System_Int16_System_Int16_SharpHook_Native_MouseButton__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method simulates a <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseClicked">MouseClicked</a> event as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_MouseClickCount">MouseClickCount</a>
 is greater than <code>0</code>.</p>
 </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForHandler_MouseButton_CancellationToken_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForHandler(MouseButton%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L613">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForHandler_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForHandler*"></a>
-  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForHandler_MouseButton_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForHandler(MouseButton,CancellationToken)">SimulateMouseReleaseAndWaitForHandler(MouseButton, CancellationToken)</h4>
+  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForHandler_SharpHook_Native_MouseButton_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForHandler(SharpHook.Native.MouseButton,System.Threading.CancellationToken)">SimulateMouseReleaseAndWaitForHandler(MouseButton, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Simulates releasing a mouse button at the current coordinates if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseResult">SimulateMouseReleaseResult</a> is
-<see cref="!:UioHookResult.Success"></see>. Otherwise, does nothing.</p>
+<a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise, does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1920,15 +1829,15 @@ is greater than <code>0</code>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MouseButton</span></td>
+        <td><a class="xref" href="SharpHook.Native.MouseButton.html">MouseButton</a></td>
         <td><span class="parametername">button</span></td>
         <td><p>The mouse button to release.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td><p>The token to monitor for cancellation requests. The default value is <see cref="!:CancellationToken.None"></see>.</p>
+        <td><p>The token to monitor for cancellation requests. The default value is <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken.none#system-threading-cancellationtoken-none">None</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -1943,28 +1852,23 @@ is greater than <code>0</code>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
-        <td><p>A <see cref="!:Task"></see> which finishes when the event has been handled, and contains the handler result, or
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
+        <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the event has been handled, and contains the handler result, or
 <span class="xref">null</span> if the event was not simulated.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForHandler_MouseButton_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method simulates a <see cref="!:EventType.MouseClicked"></see> event as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_MouseClickCount">MouseClickCount</a>
+  <h5 id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForHandler_SharpHook_Native_MouseButton_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method simulates a <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseClicked">MouseClicked</a> event as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_MouseClickCount">MouseClickCount</a>
 is greater than <code>0</code>.</p>
 </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForHandler_System_Int16_System_Int16_MouseButton_CancellationToken_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForHandler(System.Int16%2CSystem.Int16%2CMouseButton%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L712">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForHandler_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForHandler*"></a>
-  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForHandler_System_Int16_System_Int16_MouseButton_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForHandler(System.Int16,System.Int16,MouseButton,CancellationToken)">SimulateMouseReleaseAndWaitForHandler(Int16, Int16, MouseButton, CancellationToken)</h4>
+  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForHandler_System_Int16_System_Int16_SharpHook_Native_MouseButton_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForHandler(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.Threading.CancellationToken)">SimulateMouseReleaseAndWaitForHandler(Int16, Int16, MouseButton, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Simulates releasing a mouse button at the specified coordinates if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseResult">SimulateMouseReleaseResult</a> is
-<see cref="!:UioHookResult.Success"></see>. Otherwise, does nothing.</p>
+<a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise, does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1994,15 +1898,15 @@ is greater than <code>0</code>.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">MouseButton</span></td>
+        <td><a class="xref" href="SharpHook.Native.MouseButton.html">MouseButton</a></td>
         <td><span class="parametername">button</span></td>
         <td><p>The mouse button to release.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td><p>The token to monitor for cancellation requests. The default value is <see cref="!:CancellationToken.None"></see>.</p>
+        <td><p>The token to monitor for cancellation requests. The default value is <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken.none#system-threading-cancellationtoken-none">None</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -2017,28 +1921,23 @@ is greater than <code>0</code>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
-        <td><p>A <see cref="!:Task"></see> which finishes when the event has been handled, and contains the handler result, or
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
+        <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the event has been handled, and contains the handler result, or
 <span class="xref">null</span> if the event was not simulated.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForHandler_System_Int16_System_Int16_MouseButton_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method simulates a <see cref="!:EventType.MouseClicked"></see> event as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_MouseClickCount">MouseClickCount</a>
+  <h5 id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForHandler_System_Int16_System_Int16_SharpHook_Native_MouseButton_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method simulates a <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseClicked">MouseClicked</a> event as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_MouseClickCount">MouseClickCount</a>
 is greater than <code>0</code>.</p>
 </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForMouseClickHandler_MouseButton_CancellationToken_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForMouseClickHandler(MouseButton%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L635">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForMouseClickHandler_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForMouseClickHandler*"></a>
-  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForMouseClickHandler_MouseButton_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForMouseClickHandler(MouseButton,CancellationToken)">SimulateMouseReleaseAndWaitForMouseClickHandler(MouseButton, CancellationToken)</h4>
+  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForMouseClickHandler_SharpHook_Native_MouseButton_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForMouseClickHandler(SharpHook.Native.MouseButton,System.Threading.CancellationToken)">SimulateMouseReleaseAndWaitForMouseClickHandler(MouseButton, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Simulates releasing a mouse button at the current coordinates if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseResult">SimulateMouseReleaseResult</a> is
-<see cref="!:UioHookResult.Success"></see>. Otherwise, does nothing.</p>
+<a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise, does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -2056,15 +1955,15 @@ is greater than <code>0</code>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">MouseButton</span></td>
+        <td><a class="xref" href="SharpHook.Native.MouseButton.html">MouseButton</a></td>
         <td><span class="parametername">button</span></td>
         <td><p>The mouse button to release.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td><p>The token to monitor for cancellation requests. The default value is <see cref="!:CancellationToken.None"></see>.</p>
+        <td><p>The token to monitor for cancellation requests. The default value is <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken.none#system-threading-cancellationtoken-none">None</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -2079,28 +1978,23 @@ is greater than <code>0</code>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
-        <td><p>A <see cref="!:Task"></see> which finishes when the event has been handled, and contains the handler result, or
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
+        <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the event has been handled, and contains the handler result, or
 <span class="xref">null</span> if the event was not simulated.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForMouseClickHandler_MouseButton_CancellationToken__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method simulates a <see cref="!:EventType.MouseClicked"></see> event as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_MouseClickCount">MouseClickCount</a>
+  <h5 id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForMouseClickHandler_SharpHook_Native_MouseButton_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method simulates a <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseClicked">MouseClicked</a> event as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_MouseClickCount">MouseClickCount</a>
 is greater than <code>0</code>.</p>
 </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForMouseClickHandler_System_Int16_System_Int16_MouseButton_CancellationToken_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForMouseClickHandler(System.Int16%2CSystem.Int16%2CMouseButton%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L740">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForMouseClickHandler_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForMouseClickHandler*"></a>
-  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForMouseClickHandler_System_Int16_System_Int16_MouseButton_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForMouseClickHandler(System.Int16,System.Int16,MouseButton,CancellationToken)">SimulateMouseReleaseAndWaitForMouseClickHandler(Int16, Int16, MouseButton, CancellationToken)</h4>
+  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForMouseClickHandler_System_Int16_System_Int16_SharpHook_Native_MouseButton_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseAndWaitForMouseClickHandler(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.Threading.CancellationToken)">SimulateMouseReleaseAndWaitForMouseClickHandler(Int16, Int16, MouseButton, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Simulates releasing a mouse button at the specified coordinates if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseResult">SimulateMouseReleaseResult</a> is
-<see cref="!:UioHookResult.Success"></see>. Otherwise, does nothing.</p>
+<a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise, does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -2130,15 +2024,15 @@ is greater than <code>0</code>.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">MouseButton</span></td>
+        <td><a class="xref" href="SharpHook.Native.MouseButton.html">MouseButton</a></td>
         <td><span class="parametername">button</span></td>
         <td><p>The mouse button to release.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td><p>The token to monitor for cancellation requests. The default value is <see cref="!:CancellationToken.None"></see>.</p>
+        <td><p>The token to monitor for cancellation requests. The default value is <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken.none#system-threading-cancellationtoken-none">None</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -2153,33 +2047,28 @@ is greater than <code>0</code>.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
-        <td><p>A <see cref="!:Task"></see> which finishes when the event has been handled, and contains the handler result, or
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
+        <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the event has been handled, and contains the handler result, or
 <span class="xref">null</span> if the event was not simulated.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForMouseClickHandler_System_Int16_System_Int16_MouseButton_CancellationToken__remarks">Remarks</h5>
+  <h5 id="SharpHook_Testing_TestGlobalHook_SimulateMouseReleaseAndWaitForMouseClickHandler_System_Int16_System_Int16_SharpHook_Native_MouseButton_System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This method should be called only when <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_MouseClickCount">MouseClickCount</a> returns a non-zero value, otherwise the
 resulting task will never finish.</p>
 </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMouseWheel_System_Int16_MouseWheelScrollDirection_MouseWheelScrollType_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMouseWheel(System.Int16%2CMouseWheelScrollDirection%2CMouseWheelScrollType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L840">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMouseWheel_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseWheel*"></a>
-  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseWheel_System_Int16_MouseWheelScrollDirection_MouseWheelScrollType_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseWheel(System.Int16,MouseWheelScrollDirection,MouseWheelScrollType)">SimulateMouseWheel(Int16, MouseWheelScrollDirection, MouseWheelScrollType)</h4>
+  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseWheel_System_Int16_SharpHook_Native_MouseWheelScrollDirection_SharpHook_Native_MouseWheelScrollType_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseWheel(System.Int16,SharpHook.Native.MouseWheelScrollDirection,SharpHook.Native.MouseWheelScrollType)">SimulateMouseWheel(Int16, MouseWheelScrollDirection, MouseWheelScrollType)</h4>
   <div class="markdown level1 summary"><p>Simulates scrolling the mouse wheel if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseWheelResult">SimulateMouseWheelResult</a> is
-<see cref="!:UioHookResult.Success"></see>. Otherwise, does nothing.</p>
+<a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise, does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public UioHookResult SimulateMouseWheel(short rotation, MouseWheelScrollDirection direction = null, MouseWheelScrollType type = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public UioHookResult SimulateMouseWheel(short rotation, MouseWheelScrollDirection direction, MouseWheelScrollType type)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2199,13 +2088,13 @@ and a negative value indicates that the wheel will be rotated down or right.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">MouseWheelScrollDirection</span></td>
+        <td><a class="xref" href="SharpHook.Native.MouseWheelScrollDirection.html">MouseWheelScrollDirection</a></td>
         <td><span class="parametername">direction</span></td>
         <td><p>The scroll direction.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">MouseWheelScrollType</span></td>
+        <td><a class="xref" href="SharpHook.Native.MouseWheelScrollType.html">MouseWheelScrollType</a></td>
         <td><span class="parametername">type</span></td>
         <td><p>The scroll type.</p>
 </td>
@@ -2222,28 +2111,23 @@ and a negative value indicates that the wheel will be rotated down or right.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">UioHookResult</span></td>
+        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
         <td><p>The value of <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseWheelResult">SimulateMouseWheelResult</a>.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateMouseWheelAndWaitForHandler_System_Int16_MouseWheelScrollDirection_MouseWheelScrollType_CancellationToken_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateMouseWheelAndWaitForHandler(System.Int16%2CMouseWheelScrollDirection%2CMouseWheelScrollType%2CCancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L876">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateMouseWheelAndWaitForHandler_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseWheelAndWaitForHandler*"></a>
-  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseWheelAndWaitForHandler_System_Int16_MouseWheelScrollDirection_MouseWheelScrollType_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseWheelAndWaitForHandler(System.Int16,MouseWheelScrollDirection,MouseWheelScrollType,CancellationToken)">SimulateMouseWheelAndWaitForHandler(Int16, MouseWheelScrollDirection, MouseWheelScrollType, CancellationToken)</h4>
+  <h4 id="SharpHook_Testing_TestGlobalHook_SimulateMouseWheelAndWaitForHandler_System_Int16_SharpHook_Native_MouseWheelScrollDirection_SharpHook_Native_MouseWheelScrollType_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateMouseWheelAndWaitForHandler(System.Int16,SharpHook.Native.MouseWheelScrollDirection,SharpHook.Native.MouseWheelScrollType,System.Threading.CancellationToken)">SimulateMouseWheelAndWaitForHandler(Int16, MouseWheelScrollDirection, MouseWheelScrollType, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>Simulates scrolling the mouse wheel if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseWheelResult">SimulateMouseWheelResult</a> is
-<see cref="!:UioHookResult.Success"></see>. Otherwise, does nothing.</p>
+<a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise, does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TestEventHandledEventArgs&gt; SimulateMouseWheelAndWaitForHandler(short rotation, MouseWheelScrollDirection direction = null, MouseWheelScrollType type = null, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TestEventHandledEventArgs&gt; SimulateMouseWheelAndWaitForHandler(short rotation, MouseWheelScrollDirection direction, MouseWheelScrollType type, CancellationToken cancellationToken = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2263,21 +2147,21 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">MouseWheelScrollDirection</span></td>
+        <td><a class="xref" href="SharpHook.Native.MouseWheelScrollDirection.html">MouseWheelScrollDirection</a></td>
         <td><span class="parametername">direction</span></td>
         <td><p>The scroll direction.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">MouseWheelScrollType</span></td>
+        <td><a class="xref" href="SharpHook.Native.MouseWheelScrollType.html">MouseWheelScrollType</a></td>
         <td><span class="parametername">type</span></td>
         <td><p>The scroll type.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">CancellationToken</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
         <td><span class="parametername">cancellationToken</span></td>
-        <td><p>The token to monitor for cancellation requests. The default value is <see cref="!:CancellationToken.None"></see>.</p>
+        <td><p>The token to monitor for cancellation requests. The default value is <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken.none#system-threading-cancellationtoken-none">None</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -2292,24 +2176,19 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
-        <td><p>A <see cref="!:Task"></see> which finishes when the event has been handled, and contains the handler result, or
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
+        <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the event has been handled, and contains the handler result, or
 <span class="xref">null</span> if the event was not simulated.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SimulateTextEntry_System_String_.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SimulateTextEntry(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L493">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SimulateTextEntry_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateTextEntry*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SimulateTextEntry_System_String_" data-uid="SharpHook.Testing.TestGlobalHook.SimulateTextEntry(System.String)">SimulateTextEntry(String)</h4>
   <div class="markdown level1 summary"><p>Simulates the input of arbitrary Unicode characters if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateTextEntryResult">SimulateTextEntryResult</a> is
-<see cref="!:UioHookResult.Success"></see>. Otherwise, does nothing.</p>
+<a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise, does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -2344,7 +2223,7 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">UioHookResult</span></td>
+        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
         <td><p>The value of <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateTextEntryResult">SimulateTextEntryResult</a>.</p>
 </td>
       </tr>
@@ -2353,22 +2232,33 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
   <h5 id="SharpHook_Testing_TestGlobalHook_SimulateTextEntry_System_String__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This method doesn't cause any input events to be created, unlike real text entry simulation.</p>
 </div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td><p><code data-dev-comment-type="paramref" class="paramref">text</code> is <span class="xref">null</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="events">Events
   </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_HookDisabled.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.HookDisabled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1034">View Source</a>
-  </span>
+  
+  
   <h4 id="SharpHook_Testing_TestGlobalHook_HookDisabled" data-uid="SharpHook.Testing.TestGlobalHook.HookDisabled">HookDisabled</h4>
   <div class="markdown level1 summary"><p>An event which is raised when the global hook is disabled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;HookEventArgs&gt;? HookDisabled</code></pre>
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;HookEventArgs&gt; HookDisabled</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2380,28 +2270,23 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<span class="xref">EventHandler</span>&lt;<a class="xref" href="SharpHook.HookEventArgs.html">HookEventArgs</a>&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.HookEventArgs.html">HookEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h5 id="SharpHook_Testing_TestGlobalHook_HookDisabled_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This event is raised when the <see cref="!:IDisposable.Dispose"></see> method is called.</p>
+  <div class="markdown level1 remarks"><p>This event is raised when the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose#system-idisposable-dispose">Dispose()</a> method is called.</p>
 </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_HookEnabled.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.HookEnabled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1028">View Source</a>
-  </span>
+  
+  
   <h4 id="SharpHook_Testing_TestGlobalHook_HookEnabled" data-uid="SharpHook.Testing.TestGlobalHook.HookEnabled">HookEnabled</h4>
   <div class="markdown level1 summary"><p>An event which is raised when the global hook is enabled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;HookEventArgs&gt;? HookEnabled</code></pre>
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;HookEventArgs&gt; HookEnabled</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2413,7 +2298,7 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<span class="xref">EventHandler</span>&lt;<a class="xref" href="SharpHook.HookEventArgs.html">HookEventArgs</a>&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.HookEventArgs.html">HookEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -2421,20 +2306,15 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
   <h5 id="SharpHook_Testing_TestGlobalHook_HookEnabled_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This event is raised when the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_Run">Run()</a> or <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_RunAsync">RunAsync()</a> method is called.</p>
 </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_KeyPressed.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.KeyPressed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1044">View Source</a>
-  </span>
+  
+  
   <h4 id="SharpHook_Testing_TestGlobalHook_KeyPressed" data-uid="SharpHook.Testing.TestGlobalHook.KeyPressed">KeyPressed</h4>
   <div class="markdown level1 summary"><p>An event which is raised when a key is pressed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;KeyboardHookEventArgs&gt;? KeyPressed</code></pre>
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;KeyboardHookEventArgs&gt; KeyPressed</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2446,25 +2326,20 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<span class="xref">EventHandler</span>&lt;<a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a>&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_KeyReleased.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.KeyReleased%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1049">View Source</a>
-  </span>
+  
+  
   <h4 id="SharpHook_Testing_TestGlobalHook_KeyReleased" data-uid="SharpHook.Testing.TestGlobalHook.KeyReleased">KeyReleased</h4>
   <div class="markdown level1 summary"><p>An event which is raised when a key is released.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;KeyboardHookEventArgs&gt;? KeyReleased</code></pre>
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;KeyboardHookEventArgs&gt; KeyReleased</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2476,25 +2351,20 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<span class="xref">EventHandler</span>&lt;<a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a>&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_KeyTyped.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.KeyTyped%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1039">View Source</a>
-  </span>
+  
+  
   <h4 id="SharpHook_Testing_TestGlobalHook_KeyTyped" data-uid="SharpHook.Testing.TestGlobalHook.KeyTyped">KeyTyped</h4>
   <div class="markdown level1 summary"><p>An event which is raised when a key is typed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;KeyboardHookEventArgs&gt;? KeyTyped</code></pre>
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;KeyboardHookEventArgs&gt; KeyTyped</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2506,25 +2376,20 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<span class="xref">EventHandler</span>&lt;<a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a>&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_MouseClicked.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.MouseClicked%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1054">View Source</a>
-  </span>
+  
+  
   <h4 id="SharpHook_Testing_TestGlobalHook_MouseClicked" data-uid="SharpHook.Testing.TestGlobalHook.MouseClicked">MouseClicked</h4>
   <div class="markdown level1 summary"><p>An event which is raised when a mouse button is clicked.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;MouseHookEventArgs&gt;? MouseClicked</code></pre>
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;MouseHookEventArgs&gt; MouseClicked</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2536,25 +2401,20 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<span class="xref">EventHandler</span>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_MouseDragged.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.MouseDragged%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1074">View Source</a>
-  </span>
+  
+  
   <h4 id="SharpHook_Testing_TestGlobalHook_MouseDragged" data-uid="SharpHook.Testing.TestGlobalHook.MouseDragged">MouseDragged</h4>
   <div class="markdown level1 summary"><p>An event which is raised when the mouse cursor is dragged.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;MouseHookEventArgs&gt;? MouseDragged</code></pre>
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;MouseHookEventArgs&gt; MouseDragged</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2566,25 +2426,20 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<span class="xref">EventHandler</span>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_MouseMoved.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.MouseMoved%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1069">View Source</a>
-  </span>
+  
+  
   <h4 id="SharpHook_Testing_TestGlobalHook_MouseMoved" data-uid="SharpHook.Testing.TestGlobalHook.MouseMoved">MouseMoved</h4>
   <div class="markdown level1 summary"><p>An event which is raised when the mouse cursor is moved.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;MouseHookEventArgs&gt;? MouseMoved</code></pre>
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;MouseHookEventArgs&gt; MouseMoved</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2596,25 +2451,20 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<span class="xref">EventHandler</span>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_MousePressed.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.MousePressed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1059">View Source</a>
-  </span>
+  
+  
   <h4 id="SharpHook_Testing_TestGlobalHook_MousePressed" data-uid="SharpHook.Testing.TestGlobalHook.MousePressed">MousePressed</h4>
   <div class="markdown level1 summary"><p>An event which is raised when a mouse button is pressed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;MouseHookEventArgs&gt;? MousePressed</code></pre>
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;MouseHookEventArgs&gt; MousePressed</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2626,25 +2476,20 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<span class="xref">EventHandler</span>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_MouseReleased.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.MouseReleased%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1064">View Source</a>
-  </span>
+  
+  
   <h4 id="SharpHook_Testing_TestGlobalHook_MouseReleased" data-uid="SharpHook.Testing.TestGlobalHook.MouseReleased">MouseReleased</h4>
   <div class="markdown level1 summary"><p>An event which is raised when a mouse button is released.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;MouseHookEventArgs&gt;? MouseReleased</code></pre>
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;MouseHookEventArgs&gt; MouseReleased</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2656,25 +2501,20 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<span class="xref">EventHandler</span>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_MouseWheel.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.MouseWheel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1079">View Source</a>
-  </span>
+  
+  
   <h4 id="SharpHook_Testing_TestGlobalHook_MouseWheel" data-uid="SharpHook.Testing.TestGlobalHook.MouseWheel">MouseWheel</h4>
   <div class="markdown level1 summary"><p>An event which is raised when the mouse wheel is scrolled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;MouseWheelHookEventArgs&gt;? MouseWheel</code></pre>
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;MouseWheelHookEventArgs&gt; MouseWheel</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2686,26 +2526,21 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<span class="xref">EventHandler</span>&lt;<a class="xref" href="SharpHook.MouseWheelHookEventArgs.html">MouseWheelHookEventArgs</a>&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.MouseWheelHookEventArgs.html">MouseWheelHookEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_TestEventHandled.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.TestEventHandled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1085">View Source</a>
-  </span>
+  
+  
   <h4 id="SharpHook_Testing_TestGlobalHook_TestEventHandled" data-uid="SharpHook.Testing.TestGlobalHook.TestEventHandled">TestEventHandled</h4>
   <div class="markdown level1 summary"><p>An event which is raised when a simulated input event has been handled. The input event's
-<see cref="!:UioHookEvent.Reserved"></see> field can be inspected using this event.</p>
+<a class="xref" href="SharpHook.Native.UioHookEvent.html#SharpHook_Native_UioHookEvent_Reserved">Reserved</a> field can be inspected using this event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;TestEventHandledEventArgs&gt;? TestEventHandled</code></pre>
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;TestEventHandledEventArgs&gt; TestEventHandled</code></pre>
   </div>
   <h5 class="eventType">Event Type</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2717,20 +2552,15 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<span class="xref">EventHandler</span>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h3 id="eii">Explicit Interface Implementations
   </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook_SharpHook_IEventSimulator_TextSimulationDelayOnX11.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook.SharpHook%23IEventSimulator%23TextSimulationDelayOnX11%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L1091">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_Testing_TestGlobalHook_SharpHook_IEventSimulator_TextSimulationDelayOnX11_" data-uid="SharpHook.Testing.TestGlobalHook.SharpHook#IEventSimulator#TextSimulationDelayOnX11*"></a>
   <h4 id="SharpHook_Testing_TestGlobalHook_SharpHook_IEventSimulator_TextSimulationDelayOnX11" data-uid="SharpHook.Testing.TestGlobalHook.SharpHook#IEventSimulator#TextSimulationDelayOnX11">IEventSimulator.TextSimulationDelayOnX11</h4>
   <div class="markdown level1 summary"><p>Gets or sets the delay (in nanoseconds) between posting individual characters when posting text on Linux.</p>
@@ -2750,7 +2580,7 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">TimeSpan</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
         <td><p>The delay (in nanoseconds) between posting individual characters when posting text on Linux.</p>
 </td>
       </tr>
@@ -2761,7 +2591,7 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
       <a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a>
   </div>
   <div>
-      <span class="xref">IDisposable</span>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">System.IDisposable</a>
   </div>
   <div>
       <a class="xref" href="SharpHook.IEventSimulator.html">IEventSimulator</a>
@@ -2773,12 +2603,6 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
-                  <li>
-                    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Testing_TestGlobalHook.md&amp;value=---%0Auid%3A%20SharpHook.Testing.TestGlobalHook%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Testing/TestGlobalHook.cs/#L8" class="contribution-link">View Source</a>
-                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
@@ -2797,12 +2621,12 @@ and a negative value indicates that the wheel will be rotated down or left.</p>
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            <div>Copyright (c) 2021 Anatoliy Pylypchuk</div><span>Generated by <strong>DocFx</strong>.</span> <span>Icon made by <a href="https//www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com" title="Flaticon">www.flaticon.com</a></span></div>
             
+            <span>Generated by <strong>DocFX</strong></span>
           </div>
-        </footer></div>
-      
-    
+        </div>
+      </footer>
+    </div>
     
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>

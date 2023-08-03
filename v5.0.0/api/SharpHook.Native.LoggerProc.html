@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Delegate LoggerProc
+    <title>Class LoggerProc
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Delegate LoggerProc
+    <meta name="title" content="Class LoggerProc
    ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -71,16 +71,67 @@
             <article class="content wrap" id="_content" data-uid="SharpHook.Native.LoggerProc">
   
   
-  <h1 id="SharpHook_Native_LoggerProc" data-uid="SharpHook.Native.LoggerProc" class="text-break">Delegate LoggerProc
+  <h1 id="SharpHook_Native_LoggerProc" data-uid="SharpHook.Native.LoggerProc" class="text-break">Class LoggerProc
   </h1>
   <div class="markdown level0 summary"><p>Represents a function which is called when a logging event occurs.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">LoggerProc</span></div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="SharpHook.Native.html">SharpHook.Native</a></h6>
   <h6><strong>Assembly</strong>: SharpHook.dll</h6>
   <h5 id="SharpHook_Native_LoggerProc_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public delegate void LoggerProc(LogLevel level, IntPtr userData, IntPtr format, IntPtr args);</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class LoggerProc : MulticastDelegate</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="SharpHook_Native_LoggerProc__ctor_" data-uid="SharpHook.Native.LoggerProc.#ctor*"></a>
+  <h4 id="SharpHook_Native_LoggerProc__ctor_System_Object_System_IntPtr_" data-uid="SharpHook.Native.LoggerProc.#ctor(System.Object,System.IntPtr)">LoggerProc(Object, IntPtr)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LoggerProc(object object, IntPtr method)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td><span class="parametername">object</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></td>
+        <td><span class="parametername">method</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="SharpHook_Native_LoggerProc_BeginInvoke_" data-uid="SharpHook.Native.LoggerProc.BeginInvoke*"></a>
+  <h4 id="SharpHook_Native_LoggerProc_BeginInvoke_SharpHook_Native_LogLevel_System_IntPtr_System_IntPtr_System_IntPtr_System_AsyncCallback_System_Object_" data-uid="SharpHook.Native.LoggerProc.BeginInvoke(SharpHook.Native.LogLevel,System.IntPtr,System.IntPtr,System.IntPtr,System.AsyncCallback,System.Object)">BeginInvoke(LogLevel, IntPtr, IntPtr, IntPtr, AsyncCallback, Object)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IAsyncResult BeginInvoke(LogLevel level, IntPtr userData, IntPtr format, IntPtr args, AsyncCallback callback, object object)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -95,32 +146,122 @@
       <tr>
         <td><a class="xref" href="SharpHook.Native.LogLevel.html">LogLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The log level.</p>
-</td>
+        <td></td>
       </tr>
       <tr>
-        <td><span class="xref">IntPtr</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></td>
         <td><span class="parametername">userData</span></td>
-        <td><p>The data that was passed to <a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetLoggerProc_SharpHook_Native_LoggerProc_IntPtr_">SetLoggerProc(LoggerProc, IntPtr)</a>. Should not be used.</p>
-</td>
+        <td></td>
       </tr>
       <tr>
-        <td><span class="xref">IntPtr</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></td>
         <td><span class="parametername">format</span></td>
-        <td><p>The format of the log message.</p>
-</td>
+        <td></td>
       </tr>
       <tr>
-        <td><span class="xref">IntPtr</span></td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></td>
         <td><span class="parametername">args</span></td>
-        <td><p>The arguments of the log message.</p>
-</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.asynccallback">AsyncCallback</a></td>
+        <td><span class="parametername">callback</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></td>
+        <td><span class="parametername">object</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncresult">IAsyncResult</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SharpHook_Native_LoggerProc_EndInvoke_" data-uid="SharpHook.Native.LoggerProc.EndInvoke*"></a>
+  <h4 id="SharpHook_Native_LoggerProc_EndInvoke_System_IAsyncResult_" data-uid="SharpHook.Native.LoggerProc.EndInvoke(System.IAsyncResult)">EndInvoke(IAsyncResult)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void EndInvoke(IAsyncResult result)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncresult">IAsyncResult</a></td>
+        <td><span class="parametername">result</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="SharpHook_Native_LoggerProc_Invoke_" data-uid="SharpHook.Native.LoggerProc.Invoke*"></a>
+  <h4 id="SharpHook_Native_LoggerProc_Invoke_SharpHook_Native_LogLevel_System_IntPtr_System_IntPtr_System_IntPtr_" data-uid="SharpHook.Native.LoggerProc.Invoke(SharpHook.Native.LogLevel,System.IntPtr,System.IntPtr,System.IntPtr)">Invoke(LogLevel, IntPtr, IntPtr, IntPtr)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Invoke(LogLevel level, IntPtr userData, IntPtr format, IntPtr args)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.LogLevel.html">LogLevel</a></td>
+        <td><span class="parametername">level</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></td>
+        <td><span class="parametername">userData</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></td>
+        <td><span class="parametername">format</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></td>
+        <td><span class="parametername">args</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
   <h3 id="seealso">See Also</h3>
   <div class="seealso">
-      <div><a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetLoggerProc_SharpHook_Native_LoggerProc_IntPtr_">SetLoggerProc(LoggerProc, IntPtr)</a></div>
+      <div><a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetLoggerProc_SharpHook_Native_LoggerProc_System_IntPtr_">SetLoggerProc(LoggerProc, IntPtr)</a></div>
   </div>
 </article>
           </div>
@@ -129,12 +270,6 @@
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
-                  <li>
-                    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_LoggerProc.md&amp;value=---%0Auid%3A%20SharpHook.Native.LoggerProc%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/LoggerProc.cs/#L13" class="contribution-link">View Source</a>
-                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
@@ -153,12 +288,12 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            <div>Copyright (c) 2021 Anatoliy Pylypchuk</div><span>Generated by <strong>DocFx</strong>.</span> <span>Icon made by <a href="https//www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com" title="Flaticon">www.flaticon.com</a></span></div>
             
+            <span>Generated by <strong>DocFX</strong></span>
           </div>
-        </footer></div>
-      
-    
+        </div>
+      </footer>
+    </div>
     
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>

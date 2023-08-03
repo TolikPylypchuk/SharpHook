@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Enum ModifierMask
+    <title>Class ModifierMask
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Enum ModifierMask
+    <meta name="title" content="Class ModifierMask
    ">
     <meta name="generator" content="docfx 2.59.4.0">
     
@@ -71,159 +71,598 @@
             <article class="content wrap" id="_content" data-uid="SharpHook.Native.ModifierMask">
   
   
-  <h1 id="SharpHook_Native_ModifierMask" data-uid="SharpHook.Native.ModifierMask" class="text-break">Enum ModifierMask
+  <h1 id="SharpHook_Native_ModifierMask" data-uid="SharpHook.Native.ModifierMask" class="text-break">Class ModifierMask
   </h1>
   <div class="markdown level0 summary"><p>Represents a virtual modifier mask.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">ModifierMask</span></div>
+  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="SharpHook.Native.html">SharpHook.Native</a></h6>
   <h6><strong>Assembly</strong>: SharpHook.dll</h6>
   <h5 id="SharpHook_Native_ModifierMask_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public enum ModifierMask : ushort</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class ModifierMask : Enum</code></pre>
   </div>
   <h3 id="fields">Fields
   </h3>
+  
+  
+  <h4 id="SharpHook_Native_ModifierMask_Alt" data-uid="SharpHook.Native.ModifierMask.Alt">Alt</h4>
+  <div class="markdown level1 summary"><p>Left or right Alt (on Windows and Linux) or Option (on macOS)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ModifierMask Alt</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
-        <th>Name</th>
+        <th>Type</th>
         <th>Description</th>
       </tr>
-    <thead>
+    </thead>
     <tbody>
       <tr>
-        <td id="SharpHook_Native_ModifierMask_Alt">Alt</td>
-        <td><p>Left or right Alt (on Windows and Linux) or Option (on macOS)</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_ModifierMask_Button1">Button1</td>
-        <td><p>Mouse button 1 (usually the left mouse button)</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_ModifierMask_Button2">Button2</td>
-        <td><p>Mouse button 2 (usually the right mouse button)</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_ModifierMask_Button3">Button3</td>
-        <td><p>Mouse button 3</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_ModifierMask_Button4">Button4</td>
-        <td><p>Mouse button 4</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_ModifierMask_Button5">Button5</td>
-        <td><p>Mouse button 5</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_ModifierMask_CapsLock">CapsLock</td>
-        <td><p>Caps Lock</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_ModifierMask_Ctrl">Ctrl</td>
-        <td><p>Left or right Control</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_ModifierMask_LeftAlt">LeftAlt</td>
-        <td><p>Left Alt (on Windows and Linux) or Option (on macOS)</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_ModifierMask_LeftCtrl">LeftCtrl</td>
-        <td><p>Left Control</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_ModifierMask_LeftMeta">LeftMeta</td>
-        <td><p>Left Win (on Windows), Command (on macOS), or Super/Meta (on Linux)</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_ModifierMask_LeftShift">LeftShift</td>
-        <td><p>Left Shift</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_ModifierMask_Meta">Meta</td>
-        <td><p>Left or right Win (on Windows), Command (on macOS), or Super/Meta (on Linux)</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_ModifierMask_None">None</td>
-        <td><p>No modifier</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_ModifierMask_NumLock">NumLock</td>
-        <td><p>Num Lock</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_ModifierMask_RightAlt">RightAlt</td>
-        <td><p>Right Alt (on Windows and Linux) or Option (on macOS)</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_ModifierMask_RightCtrl">RightCtrl</td>
-        <td><p>Right Control</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_ModifierMask_RightMeta">RightMeta</td>
-        <td><p>Right Win (on Windows), Command (on macOS), or Super/Meta (on Linux)</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_ModifierMask_RightShift">RightShift</td>
-        <td><p>Right Shift</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_ModifierMask_ScrollLock">ScrollLock</td>
-        <td><p>Scroll Lock</p>
-</td>
-      </tr>
-      <tr>
-        <td id="SharpHook_Native_ModifierMask_Shift">Shift</td>
-        <td><p>Left or right Shift</p>
-</td>
+        <td><a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a></td>
+        <td></td>
       </tr>
     </tbody>
-  </thead></thead></table>
-  <h5 id="SharpHook_Native_ModifierMask_seealso">See Also</h5>
-  <div class="seealso">
-      <div><a class="xref" href="SharpHook.Native.UioHookEvent.html">UioHookEvent</a></div>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_ModifierMask_Button1" data-uid="SharpHook.Native.ModifierMask.Button1">Button1</h4>
+  <div class="markdown level1 summary"><p>Mouse button 1 (usually the left mouse button)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ModifierMask Button1</code></pre>
   </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_ModifierMask_Button2" data-uid="SharpHook.Native.ModifierMask.Button2">Button2</h4>
+  <div class="markdown level1 summary"><p>Mouse button 2 (usually the right mouse button)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ModifierMask Button2</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_ModifierMask_Button3" data-uid="SharpHook.Native.ModifierMask.Button3">Button3</h4>
+  <div class="markdown level1 summary"><p>Mouse button 3</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ModifierMask Button3</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_ModifierMask_Button4" data-uid="SharpHook.Native.ModifierMask.Button4">Button4</h4>
+  <div class="markdown level1 summary"><p>Mouse button 4</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ModifierMask Button4</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_ModifierMask_Button5" data-uid="SharpHook.Native.ModifierMask.Button5">Button5</h4>
+  <div class="markdown level1 summary"><p>Mouse button 5</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ModifierMask Button5</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_ModifierMask_CapsLock" data-uid="SharpHook.Native.ModifierMask.CapsLock">CapsLock</h4>
+  <div class="markdown level1 summary"><p>Caps Lock</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ModifierMask CapsLock</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_ModifierMask_Ctrl" data-uid="SharpHook.Native.ModifierMask.Ctrl">Ctrl</h4>
+  <div class="markdown level1 summary"><p>Left or right Control</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ModifierMask Ctrl</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_ModifierMask_LeftAlt" data-uid="SharpHook.Native.ModifierMask.LeftAlt">LeftAlt</h4>
+  <div class="markdown level1 summary"><p>Left Alt (on Windows and Linux) or Option (on macOS)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ModifierMask LeftAlt</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_ModifierMask_LeftCtrl" data-uid="SharpHook.Native.ModifierMask.LeftCtrl">LeftCtrl</h4>
+  <div class="markdown level1 summary"><p>Left Control</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ModifierMask LeftCtrl</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_ModifierMask_LeftMeta" data-uid="SharpHook.Native.ModifierMask.LeftMeta">LeftMeta</h4>
+  <div class="markdown level1 summary"><p>Left Win (on Windows), Command (on macOS), or Super/Meta (on Linux)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ModifierMask LeftMeta</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_ModifierMask_LeftShift" data-uid="SharpHook.Native.ModifierMask.LeftShift">LeftShift</h4>
+  <div class="markdown level1 summary"><p>Left Shift</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ModifierMask LeftShift</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_ModifierMask_Meta" data-uid="SharpHook.Native.ModifierMask.Meta">Meta</h4>
+  <div class="markdown level1 summary"><p>Left or right Win (on Windows), Command (on macOS), or Super/Meta (on Linux)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ModifierMask Meta</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_ModifierMask_None" data-uid="SharpHook.Native.ModifierMask.None">None</h4>
+  <div class="markdown level1 summary"><p>No modifier</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ModifierMask None</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_ModifierMask_NumLock" data-uid="SharpHook.Native.ModifierMask.NumLock">NumLock</h4>
+  <div class="markdown level1 summary"><p>Num Lock</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ModifierMask NumLock</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_ModifierMask_RightAlt" data-uid="SharpHook.Native.ModifierMask.RightAlt">RightAlt</h4>
+  <div class="markdown level1 summary"><p>Right Alt (on Windows and Linux) or Option (on macOS)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ModifierMask RightAlt</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_ModifierMask_RightCtrl" data-uid="SharpHook.Native.ModifierMask.RightCtrl">RightCtrl</h4>
+  <div class="markdown level1 summary"><p>Right Control</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ModifierMask RightCtrl</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_ModifierMask_RightMeta" data-uid="SharpHook.Native.ModifierMask.RightMeta">RightMeta</h4>
+  <div class="markdown level1 summary"><p>Right Win (on Windows), Command (on macOS), or Super/Meta (on Linux)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ModifierMask RightMeta</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_ModifierMask_RightShift" data-uid="SharpHook.Native.ModifierMask.RightShift">RightShift</h4>
+  <div class="markdown level1 summary"><p>Right Shift</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ModifierMask RightShift</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_ModifierMask_ScrollLock" data-uid="SharpHook.Native.ModifierMask.ScrollLock">ScrollLock</h4>
+  <div class="markdown level1 summary"><p>Scroll Lock</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ModifierMask ScrollLock</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_ModifierMask_Shift" data-uid="SharpHook.Native.ModifierMask.Shift">Shift</h4>
+  <div class="markdown level1 summary"><p>Left or right Shift</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const ModifierMask Shift</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="SharpHook_Native_ModifierMask_value__" data-uid="SharpHook.Native.ModifierMask.value__">value__</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ushort value__</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">UInt16</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
-      <a class="xref" href="SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_HasShift_SharpHook_Native_ModifierMask_">ModifierMaskExtensions.HasShift()</a>
+      <a class="xref" href="SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_HasShift_SharpHook_Native_ModifierMask_">ModifierMaskExtensions.HasShift(ModifierMask)</a>
   </div>
   <div>
-      <a class="xref" href="SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_HasCtrl_SharpHook_Native_ModifierMask_">ModifierMaskExtensions.HasCtrl()</a>
+      <a class="xref" href="SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_HasCtrl_SharpHook_Native_ModifierMask_">ModifierMaskExtensions.HasCtrl(ModifierMask)</a>
   </div>
   <div>
-      <a class="xref" href="SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_HasAlt_SharpHook_Native_ModifierMask_">ModifierMaskExtensions.HasAlt()</a>
+      <a class="xref" href="SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_HasAlt_SharpHook_Native_ModifierMask_">ModifierMaskExtensions.HasAlt(ModifierMask)</a>
   </div>
   <div>
-      <a class="xref" href="SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_HasMeta_SharpHook_Native_ModifierMask_">ModifierMaskExtensions.HasMeta()</a>
+      <a class="xref" href="SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_HasMeta_SharpHook_Native_ModifierMask_">ModifierMaskExtensions.HasMeta(ModifierMask)</a>
   </div>
   <div>
-      <a class="xref" href="SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_HasAny_SharpHook_Native_ModifierMask_SharpHook_Native_ModifierMask_">ModifierMaskExtensions.HasAny(ModifierMask)</a>
+      <a class="xref" href="SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_HasAny_SharpHook_Native_ModifierMask_SharpHook_Native_ModifierMask_">ModifierMaskExtensions.HasAny(ModifierMask, ModifierMask)</a>
   </div>
   <div>
-      <a class="xref" href="SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_HasAll_SharpHook_Native_ModifierMask_SharpHook_Native_ModifierMask_">ModifierMaskExtensions.HasAll(ModifierMask)</a>
+      <a class="xref" href="SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_HasAll_SharpHook_Native_ModifierMask_SharpHook_Native_ModifierMask_">ModifierMaskExtensions.HasAll(ModifierMask, ModifierMask)</a>
   </div>
   <div>
-      <a class="xref" href="SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_Split_SharpHook_Native_ModifierMask_">ModifierMaskExtensions.Split()</a>
+      <a class="xref" href="SharpHook.Native.ModifierMaskExtensions.html#SharpHook_Native_ModifierMaskExtensions_Split_SharpHook_Native_ModifierMask_">ModifierMaskExtensions.Split(ModifierMask)</a>
+  </div>
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="SharpHook.Native.UioHookEvent.html">UioHookEvent</a></div>
   </div>
 </article>
           </div>
@@ -232,12 +671,6 @@
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
-                  <li>
-                    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_Native_ModifierMask.md&amp;value=---%0Auid%3A%20SharpHook.Native.ModifierMask%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/Native/ModifierMask.cs/#L7" class="contribution-link">View Source</a>
-                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
@@ -256,12 +689,12 @@
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            <div>Copyright (c) 2021 Anatoliy Pylypchuk</div><span>Generated by <strong>DocFx</strong>.</span> <span>Icon made by <a href="https//www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com" title="Flaticon">www.flaticon.com</a></span></div>
             
+            <span>Generated by <strong>DocFX</strong></span>
           </div>
-        </footer></div>
-      
-    
+        </div>
+      </footer>
+    </div>
     
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>

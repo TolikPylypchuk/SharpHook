@@ -84,13 +84,8 @@
   </div>
   <h3 id="properties">Properties
   </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_IGlobalHook_IsDisposed.md&amp;value=---%0Auid%3A%20SharpHook.IGlobalHook.IsDisposed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/IGlobalHook.cs/#L22">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_IGlobalHook_IsDisposed_" data-uid="SharpHook.IGlobalHook.IsDisposed*"></a>
   <h4 id="SharpHook_IGlobalHook_IsDisposed" data-uid="SharpHook.IGlobalHook.IsDisposed">IsDisposed</h4>
   <div class="markdown level1 summary"><p>Gets the value which indicates whether the global hook is disposed.</p>
@@ -119,13 +114,8 @@
   <h5 id="SharpHook_IGlobalHook_IsDisposed_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>A disposed global hook cannot be started again.</p>
 </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_IGlobalHook_IsRunning.md&amp;value=---%0Auid%3A%20SharpHook.IGlobalHook.IsRunning%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/IGlobalHook.cs/#L15">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_IGlobalHook_IsRunning_" data-uid="SharpHook.IGlobalHook.IsRunning*"></a>
   <h4 id="SharpHook_IGlobalHook_IsRunning" data-uid="SharpHook.IGlobalHook.IsRunning">IsRunning</h4>
   <div class="markdown level1 summary"><p>Gets the value which indicates whether the global hook is running.</p>
@@ -153,17 +143,12 @@
   </table>
   <h3 id="methods">Methods
   </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_IGlobalHook_Run.md&amp;value=---%0Auid%3A%20SharpHook.IGlobalHook.Run%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/IGlobalHook.cs/#L31">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_IGlobalHook_Run_" data-uid="SharpHook.IGlobalHook.Run*"></a>
   <h4 id="SharpHook_IGlobalHook_Run" data-uid="SharpHook.IGlobalHook.Run">Run()</h4>
   <div class="markdown level1 summary"><p>Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
-<see cref="!:IDisposable.Dispose"></see> method.</p>
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose#system-idisposable-dispose">Dispose()</a> method.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -184,19 +169,24 @@
         <td><p>Starting the global hook has failed.</p>
 </td>
       </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>The global hook is already running.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></td>
+        <td><p>The global hook has been disposed.</p>
+</td>
+      </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_IGlobalHook_RunAsync.md&amp;value=---%0Auid%3A%20SharpHook.IGlobalHook.RunAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/IGlobalHook.cs/#L45">View Source</a>
-  </span>
+  
+  
   <a id="SharpHook_IGlobalHook_RunAsync_" data-uid="SharpHook.IGlobalHook.RunAsync*"></a>
   <h4 id="SharpHook_IGlobalHook_RunAsync" data-uid="SharpHook.IGlobalHook.RunAsync">RunAsync()</h4>
   <div class="markdown level1 summary"><p>Runs the global hook without blocking the current thread. The hook can be destroyed by calling the
-<see cref="!:IDisposable.Dispose"></see> method.</p>
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose#system-idisposable-dispose">Dispose()</a> method.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -213,8 +203,8 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Task</span></td>
-        <td><p>A <see cref="!:Task"></see> which finishes when the hook is destroyed.</p>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the hook is destroyed.</p>
 </td>
       </tr>
     </tbody>
@@ -237,17 +227,22 @@ the current thread is to run it on a separate thread.</p>
         <td><p>Starting the global hook has failed.</p>
 </td>
       </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>The global hook is already running.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></td>
+        <td><p>The global hook has been disposed.</p>
+</td>
+      </tr>
     </tbody>
   </table>
   <h3 id="events">Events
   </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_IGlobalHook_HookDisabled.md&amp;value=---%0Auid%3A%20SharpHook.IGlobalHook.HookDisabled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/IGlobalHook.cs/#L57">View Source</a>
-  </span>
+  
+  
   <h4 id="SharpHook_IGlobalHook_HookDisabled" data-uid="SharpHook.IGlobalHook.HookDisabled">HookDisabled</h4>
   <div class="markdown level1 summary"><p>An event which is raised when the global hook is disabled.</p>
 </div>
@@ -266,21 +261,16 @@ the current thread is to run it on a separate thread.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">EventHandler</span>&lt;<a class="xref" href="SharpHook.HookEventArgs.html">HookEventArgs</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.HookEventArgs.html">HookEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <h5 id="SharpHook_IGlobalHook_HookDisabled_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This event is raised when the <see cref="!:IDisposable.Dispose"></see> method is called.</p>
+  <div class="markdown level1 remarks"><p>This event is raised when the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose#system-idisposable-dispose">Dispose()</a> method is called.</p>
 </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_IGlobalHook_HookEnabled.md&amp;value=---%0Auid%3A%20SharpHook.IGlobalHook.HookEnabled%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/IGlobalHook.cs/#L51">View Source</a>
-  </span>
+  
+  
   <h4 id="SharpHook_IGlobalHook_HookEnabled" data-uid="SharpHook.IGlobalHook.HookEnabled">HookEnabled</h4>
   <div class="markdown level1 summary"><p>An event which is raised when the global hook is enabled.</p>
 </div>
@@ -299,7 +289,7 @@ the current thread is to run it on a separate thread.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">EventHandler</span>&lt;<a class="xref" href="SharpHook.HookEventArgs.html">HookEventArgs</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.HookEventArgs.html">HookEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -307,13 +297,8 @@ the current thread is to run it on a separate thread.</p>
   <h5 id="SharpHook_IGlobalHook_HookEnabled_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This event is raised when the <a class="xref" href="SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_Run">Run()</a> or <a class="xref" href="SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_RunAsync">RunAsync()</a> method is called.</p>
 </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_IGlobalHook_KeyPressed.md&amp;value=---%0Auid%3A%20SharpHook.IGlobalHook.KeyPressed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/IGlobalHook.cs/#L67">View Source</a>
-  </span>
+  
+  
   <h4 id="SharpHook_IGlobalHook_KeyPressed" data-uid="SharpHook.IGlobalHook.KeyPressed">KeyPressed</h4>
   <div class="markdown level1 summary"><p>An event which is raised when a key is pressed.</p>
 </div>
@@ -332,18 +317,13 @@ the current thread is to run it on a separate thread.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">EventHandler</span>&lt;<a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_IGlobalHook_KeyReleased.md&amp;value=---%0Auid%3A%20SharpHook.IGlobalHook.KeyReleased%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/IGlobalHook.cs/#L72">View Source</a>
-  </span>
+  
+  
   <h4 id="SharpHook_IGlobalHook_KeyReleased" data-uid="SharpHook.IGlobalHook.KeyReleased">KeyReleased</h4>
   <div class="markdown level1 summary"><p>An event which is raised when a key is released.</p>
 </div>
@@ -362,18 +342,13 @@ the current thread is to run it on a separate thread.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">EventHandler</span>&lt;<a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_IGlobalHook_KeyTyped.md&amp;value=---%0Auid%3A%20SharpHook.IGlobalHook.KeyTyped%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/IGlobalHook.cs/#L62">View Source</a>
-  </span>
+  
+  
   <h4 id="SharpHook_IGlobalHook_KeyTyped" data-uid="SharpHook.IGlobalHook.KeyTyped">KeyTyped</h4>
   <div class="markdown level1 summary"><p>An event which is raised when a key is typed.</p>
 </div>
@@ -392,18 +367,13 @@ the current thread is to run it on a separate thread.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">EventHandler</span>&lt;<a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_IGlobalHook_MouseClicked.md&amp;value=---%0Auid%3A%20SharpHook.IGlobalHook.MouseClicked%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/IGlobalHook.cs/#L77">View Source</a>
-  </span>
+  
+  
   <h4 id="SharpHook_IGlobalHook_MouseClicked" data-uid="SharpHook.IGlobalHook.MouseClicked">MouseClicked</h4>
   <div class="markdown level1 summary"><p>An event which is raised when a mouse button is clicked.</p>
 </div>
@@ -422,18 +392,13 @@ the current thread is to run it on a separate thread.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">EventHandler</span>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_IGlobalHook_MouseDragged.md&amp;value=---%0Auid%3A%20SharpHook.IGlobalHook.MouseDragged%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/IGlobalHook.cs/#L97">View Source</a>
-  </span>
+  
+  
   <h4 id="SharpHook_IGlobalHook_MouseDragged" data-uid="SharpHook.IGlobalHook.MouseDragged">MouseDragged</h4>
   <div class="markdown level1 summary"><p>An event which is raised when the mouse cursor is dragged.</p>
 </div>
@@ -452,18 +417,13 @@ the current thread is to run it on a separate thread.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">EventHandler</span>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_IGlobalHook_MouseMoved.md&amp;value=---%0Auid%3A%20SharpHook.IGlobalHook.MouseMoved%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/IGlobalHook.cs/#L92">View Source</a>
-  </span>
+  
+  
   <h4 id="SharpHook_IGlobalHook_MouseMoved" data-uid="SharpHook.IGlobalHook.MouseMoved">MouseMoved</h4>
   <div class="markdown level1 summary"><p>An event which is raised when the mouse cursor is moved.</p>
 </div>
@@ -482,18 +442,13 @@ the current thread is to run it on a separate thread.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">EventHandler</span>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_IGlobalHook_MousePressed.md&amp;value=---%0Auid%3A%20SharpHook.IGlobalHook.MousePressed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/IGlobalHook.cs/#L82">View Source</a>
-  </span>
+  
+  
   <h4 id="SharpHook_IGlobalHook_MousePressed" data-uid="SharpHook.IGlobalHook.MousePressed">MousePressed</h4>
   <div class="markdown level1 summary"><p>An event which is raised when a mouse button is pressed.</p>
 </div>
@@ -512,18 +467,13 @@ the current thread is to run it on a separate thread.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">EventHandler</span>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_IGlobalHook_MouseReleased.md&amp;value=---%0Auid%3A%20SharpHook.IGlobalHook.MouseReleased%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/IGlobalHook.cs/#L87">View Source</a>
-  </span>
+  
+  
   <h4 id="SharpHook_IGlobalHook_MouseReleased" data-uid="SharpHook.IGlobalHook.MouseReleased">MouseReleased</h4>
   <div class="markdown level1 summary"><p>An event which is raised when a mouse button is released.</p>
 </div>
@@ -542,18 +492,13 @@ the current thread is to run it on a separate thread.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">EventHandler</span>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_IGlobalHook_MouseWheel.md&amp;value=---%0Auid%3A%20SharpHook.IGlobalHook.MouseWheel%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/IGlobalHook.cs/#L102">View Source</a>
-  </span>
+  
+  
   <h4 id="SharpHook_IGlobalHook_MouseWheel" data-uid="SharpHook.IGlobalHook.MouseWheel">MouseWheel</h4>
   <div class="markdown level1 summary"><p>An event which is raised when the mouse wheel is scrolled.</p>
 </div>
@@ -572,7 +517,7 @@ the current thread is to run it on a separate thread.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">EventHandler</span>&lt;<a class="xref" href="SharpHook.MouseWheelHookEventArgs.html">MouseWheelHookEventArgs</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.MouseWheelHookEventArgs.html">MouseWheelHookEventArgs</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -590,12 +535,6 @@ the current thread is to run it on a separate thread.</p>
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
-                  <li>
-                    <a href="https://github.com/TolikPylypchuk/SharpHook/new/master/apiSpec/new?filename=SharpHook_IGlobalHook.md&amp;value=---%0Auid%3A%20SharpHook.IGlobalHook%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/TolikPylypchuk/SharpHook/blob/master/SharpHook/IGlobalHook.cs/#L9" class="contribution-link">View Source</a>
-                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
@@ -614,12 +553,12 @@ the current thread is to run it on a separate thread.</p>
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            <div>Copyright (c) 2021 Anatoliy Pylypchuk</div><span>Generated by <strong>DocFx</strong>.</span> <span>Icon made by <a href="https//www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com" title="Flaticon">www.flaticon.com</a></span></div>
             
+            <span>Generated by <strong>DocFX</strong></span>
           </div>
-        </footer></div>
-      
-    
+        </div>
+      </footer>
+    </div>
     
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
