@@ -8,11 +8,9 @@
       "source_relative_path": "api/SharpHook.EventSimulator.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.EventSimulator.html",
-          "hash": "13Llu++DkMliNqEnuNfkKO/ctWbuEjfs0B9cWNCkrUQ="
+          "relative_path": "api/SharpHook.EventSimulator.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -20,11 +18,9 @@
       "source_relative_path": "api/SharpHook.GlobalHookBase.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.GlobalHookBase.html",
-          "hash": "aTQstSrWgo2vX05DrZbnURQ6h1IjBkztX5JCe9EpDSU="
+          "relative_path": "api/SharpHook.GlobalHookBase.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -32,11 +28,9 @@
       "source_relative_path": "api/SharpHook.HookEventArgs.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.HookEventArgs.html",
-          "hash": "Agrh++aRe525fJiMRzeHb6Hd32sw6gnVn+OkODyt+YM="
+          "relative_path": "api/SharpHook.HookEventArgs.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -44,11 +38,9 @@
       "source_relative_path": "api/SharpHook.HookException.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.HookException.html",
-          "hash": "gHN4c38e97EP6WH6WlvE+db58JthyBLrH8O8Sk1BmeY="
+          "relative_path": "api/SharpHook.HookException.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -56,11 +48,9 @@
       "source_relative_path": "api/SharpHook.IEventSimulator.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.IEventSimulator.html",
-          "hash": "5rus59HAD8Lfka/p7+n2jwS5BxDTCHVxk2OeKh4TU+Q="
+          "relative_path": "api/SharpHook.IEventSimulator.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -68,11 +58,9 @@
       "source_relative_path": "api/SharpHook.IGlobalHook.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.IGlobalHook.html",
-          "hash": "WnifDxrteURFiN+n3JuT2vHve/545GcMhs65vxqEBJg="
+          "relative_path": "api/SharpHook.IGlobalHook.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -80,11 +68,9 @@
       "source_relative_path": "api/SharpHook.KeyboardHookEventArgs.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.KeyboardHookEventArgs.html",
-          "hash": "A0V1Zm5a5T+2DUhBfMK/itGeXw1suxsLf82LzfvXKIU="
+          "relative_path": "api/SharpHook.KeyboardHookEventArgs.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -92,11 +78,9 @@
       "source_relative_path": "api/SharpHook.Logging.EmptyLogSource.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Logging.EmptyLogSource.html",
-          "hash": "ifs8hBj2GWK8L7i7RFrRIqc+/6JsdwwI/V7BADxZyJU="
+          "relative_path": "api/SharpHook.Logging.EmptyLogSource.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -104,11 +88,9 @@
       "source_relative_path": "api/SharpHook.Logging.ILogSource.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Logging.ILogSource.html",
-          "hash": "m9F4Hs5VGyyWKk6wJkM/wM+gM1uY3Wgljr3Bb432Mbc="
+          "relative_path": "api/SharpHook.Logging.ILogSource.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -116,11 +98,9 @@
       "source_relative_path": "api/SharpHook.Logging.LogEntry.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Logging.LogEntry.html",
-          "hash": "N7kwvG/X+TKRovI8btMFq0m0cqXPYmX4P3Npf6BCues="
+          "relative_path": "api/SharpHook.Logging.LogEntry.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -128,11 +108,9 @@
       "source_relative_path": "api/SharpHook.Logging.LogEntryParser.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Logging.LogEntryParser.html",
-          "hash": "xhiM0FFq2hJHlQaiPDiDv0BnCSKfHollvlAQo4llmlc="
+          "relative_path": "api/SharpHook.Logging.LogEntryParser.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -140,11 +118,9 @@
       "source_relative_path": "api/SharpHook.Logging.LogEventArgs.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Logging.LogEventArgs.html",
-          "hash": "SEIkJJgfZYBEVXp5z+k73Rxnn5iYABGVcGyJ2/BH7wg="
+          "relative_path": "api/SharpHook.Logging.LogEventArgs.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -152,11 +128,9 @@
       "source_relative_path": "api/SharpHook.Logging.LogSource.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Logging.LogSource.html",
-          "hash": "ESnMK9LFM8KMDl2k5mztjM0EjcPeibtstyfEh2+j/TQ="
+          "relative_path": "api/SharpHook.Logging.LogSource.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -164,11 +138,9 @@
       "source_relative_path": "api/SharpHook.Logging.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Logging.html",
-          "hash": "eJKJWNVYiyXk0xS5AznO3OgDW8yqAUwYTxUXruxfLfw="
+          "relative_path": "api/SharpHook.Logging.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -176,11 +148,9 @@
       "source_relative_path": "api/SharpHook.MouseHookEventArgs.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.MouseHookEventArgs.html",
-          "hash": "ZxBu/xediFk8mSbYSK0YqsEtst7XPPmRHEz4JGTQb0Q="
+          "relative_path": "api/SharpHook.MouseHookEventArgs.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -188,11 +158,9 @@
       "source_relative_path": "api/SharpHook.MouseWheelHookEventArgs.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.MouseWheelHookEventArgs.html",
-          "hash": "jChN5DHhueEr4sXq2U+FqMuSiFEEpvF4UeWR8NJjYT0="
+          "relative_path": "api/SharpHook.MouseWheelHookEventArgs.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -200,11 +168,9 @@
       "source_relative_path": "api/SharpHook.Native.DispatchProc.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Native.DispatchProc.html",
-          "hash": "D3w5OnFe9R3cdgIXBV9bF0W5KCXN7XAC9rkLnMw1sO0="
+          "relative_path": "api/SharpHook.Native.DispatchProc.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -212,11 +178,9 @@
       "source_relative_path": "api/SharpHook.Native.EventReservedValueMask.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Native.EventReservedValueMask.html",
-          "hash": "EviCj69OG4vqvW746Izy1/Oa8tqxh8tnm94kEp5ennA="
+          "relative_path": "api/SharpHook.Native.EventReservedValueMask.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -224,11 +188,9 @@
       "source_relative_path": "api/SharpHook.Native.EventType.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Native.EventType.html",
-          "hash": "Dc7JmJzQJZaVnsrF5EfHIi8G7GAt9aAcm/y589iILMk="
+          "relative_path": "api/SharpHook.Native.EventType.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -236,11 +198,9 @@
       "source_relative_path": "api/SharpHook.Native.KeyCode.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Native.KeyCode.html",
-          "hash": "eZszSw/7lUx+fmLVT/6hu1WAx1Qa2T/NY7+hWlqIkVU="
+          "relative_path": "api/SharpHook.Native.KeyCode.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -248,11 +208,9 @@
       "source_relative_path": "api/SharpHook.Native.KeyboardEventData.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Native.KeyboardEventData.html",
-          "hash": "qHYsCk8gMHZ19IkW4iwDx2/1qWnTMNtw9tzTdvrbCS8="
+          "relative_path": "api/SharpHook.Native.KeyboardEventData.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -260,11 +218,9 @@
       "source_relative_path": "api/SharpHook.Native.LogLevel.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Native.LogLevel.html",
-          "hash": "6U2Z6vXXjcE9papecWqZ/1jlvb3//ZTLIMf3MiKgZf0="
+          "relative_path": "api/SharpHook.Native.LogLevel.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -272,11 +228,9 @@
       "source_relative_path": "api/SharpHook.Native.LoggerProc.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Native.LoggerProc.html",
-          "hash": "XXX+vK1/wUlwTibJjhfsWjPt47/ogtMnUvvWAE548jM="
+          "relative_path": "api/SharpHook.Native.LoggerProc.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -284,11 +238,9 @@
       "source_relative_path": "api/SharpHook.Native.ModifierMask.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Native.ModifierMask.html",
-          "hash": "0GV2cqS27uAA4ZedgX078up2qC1f85sTB+alGEDaCus="
+          "relative_path": "api/SharpHook.Native.ModifierMask.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -296,11 +248,9 @@
       "source_relative_path": "api/SharpHook.Native.ModifierMaskExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Native.ModifierMaskExtensions.html",
-          "hash": "rzpTHqN4Bpy6u4qeIxS2iPr64zkrzVmNX05nWUxSUr8="
+          "relative_path": "api/SharpHook.Native.ModifierMaskExtensions.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -308,11 +258,9 @@
       "source_relative_path": "api/SharpHook.Native.MouseButton.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Native.MouseButton.html",
-          "hash": "zEY5WeSlCHJfFNFeY139lVxmGLCIB/aH5UtqNsZgH1U="
+          "relative_path": "api/SharpHook.Native.MouseButton.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -320,11 +268,9 @@
       "source_relative_path": "api/SharpHook.Native.MouseEventData.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Native.MouseEventData.html",
-          "hash": "4R3GAcxSqmIefJWNjJlDfBtn+I+ocg+s16QEtQb5wDo="
+          "relative_path": "api/SharpHook.Native.MouseEventData.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -332,11 +278,9 @@
       "source_relative_path": "api/SharpHook.Native.MouseWheelEventData.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Native.MouseWheelEventData.html",
-          "hash": "MrUiPVGdbXCZysDU/OD9iVC7TIsKYLPquOu7pKA0P+E="
+          "relative_path": "api/SharpHook.Native.MouseWheelEventData.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -344,11 +288,9 @@
       "source_relative_path": "api/SharpHook.Native.MouseWheelScrollDirection.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Native.MouseWheelScrollDirection.html",
-          "hash": "1xw2B0tPeRW+WzLgs8BkIvClH3J50+u+yOVxximAA6o="
+          "relative_path": "api/SharpHook.Native.MouseWheelScrollDirection.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -356,11 +298,9 @@
       "source_relative_path": "api/SharpHook.Native.MouseWheelScrollType.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Native.MouseWheelScrollType.html",
-          "hash": "j2ovleZAHqHzdkC4yVu2CQrE7/pEI9tlNQjv8RCXziw="
+          "relative_path": "api/SharpHook.Native.MouseWheelScrollType.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -368,11 +308,9 @@
       "source_relative_path": "api/SharpHook.Native.ScreenData.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Native.ScreenData.html",
-          "hash": "DnEuCC+06sqf+3orgPpXiFG6Ade0ohlFTNEJV0taTG8="
+          "relative_path": "api/SharpHook.Native.ScreenData.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -380,11 +318,9 @@
       "source_relative_path": "api/SharpHook.Native.UioHook.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Native.UioHook.html",
-          "hash": "xNMuq/PaGemfl0val8vryGhU3kHO4+SI8qrKY8pCR3g="
+          "relative_path": "api/SharpHook.Native.UioHook.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -392,11 +328,9 @@
       "source_relative_path": "api/SharpHook.Native.UioHookEvent.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Native.UioHookEvent.html",
-          "hash": "QIR7CeeEuZJz04PQlqVpt0PnYw7K2+oLhsQjG7EVC8k="
+          "relative_path": "api/SharpHook.Native.UioHookEvent.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -404,11 +338,9 @@
       "source_relative_path": "api/SharpHook.Native.UioHookResult.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Native.UioHookResult.html",
-          "hash": "MAToYpfj+0BlODTlu/W24dsmtuKrvrgNVkZEdVzjS+w="
+          "relative_path": "api/SharpHook.Native.UioHookResult.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -416,11 +348,9 @@
       "source_relative_path": "api/SharpHook.Native.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Native.html",
-          "hash": "kHrowbpqUIHRH7VVkTZEtyVIQMViWv3ci0Ziega+odE="
+          "relative_path": "api/SharpHook.Native.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -428,11 +358,9 @@
       "source_relative_path": "api/SharpHook.Providers.IEventSimulationProvider.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Providers.IEventSimulationProvider.html",
-          "hash": "L71gGS9/0urvSCyuAHGIn+tJMR25Qcqk0VrX9FQtr14="
+          "relative_path": "api/SharpHook.Providers.IEventSimulationProvider.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -440,11 +368,9 @@
       "source_relative_path": "api/SharpHook.Providers.IGlobalHookProvider.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Providers.IGlobalHookProvider.html",
-          "hash": "oubk74UikVLCMT5B5NuAvL+1+/a2BSfqPoB7QsoB59M="
+          "relative_path": "api/SharpHook.Providers.IGlobalHookProvider.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -452,11 +378,9 @@
       "source_relative_path": "api/SharpHook.Providers.ILoggingProvider.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Providers.ILoggingProvider.html",
-          "hash": "4HpPqw88PiK2ztYOHrqnHzkWmOJhERgF7Ye2h+4bkjQ="
+          "relative_path": "api/SharpHook.Providers.ILoggingProvider.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -464,11 +388,9 @@
       "source_relative_path": "api/SharpHook.Providers.IMouseInfoProvider.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Providers.IMouseInfoProvider.html",
-          "hash": "ZHrhTxs/Gi4OZiK+8bAOA+DNfAzOFkUs0Dqo3H1qgNg="
+          "relative_path": "api/SharpHook.Providers.IMouseInfoProvider.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -476,11 +398,9 @@
       "source_relative_path": "api/SharpHook.Providers.IScreenInfoProvider.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Providers.IScreenInfoProvider.html",
-          "hash": "vD7NN/QBQJYoZqQ/PyllXZIwKJTs3401v21gb7hd2L8="
+          "relative_path": "api/SharpHook.Providers.IScreenInfoProvider.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -488,11 +408,9 @@
       "source_relative_path": "api/SharpHook.Providers.UioHookProvider.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Providers.UioHookProvider.html",
-          "hash": "fNNCqN0rAg5a4a0YcrAbIy+cKU3N0NbGSHWKJndohz8="
+          "relative_path": "api/SharpHook.Providers.UioHookProvider.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -500,11 +418,9 @@
       "source_relative_path": "api/SharpHook.Providers.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Providers.html",
-          "hash": "WICFPhMGFYg9ioYddfCKLHH5lRlf7PL0Ri77ntiyva8="
+          "relative_path": "api/SharpHook.Providers.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -512,11 +428,9 @@
       "source_relative_path": "api/SharpHook.Reactive.IReactiveGlobalHook.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Reactive.IReactiveGlobalHook.html",
-          "hash": "NphTJGkeIM8ul/MGrL2+6vGOjpzEKPHUvYzeSnHfrbs="
+          "relative_path": "api/SharpHook.Reactive.IReactiveGlobalHook.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -524,11 +438,9 @@
       "source_relative_path": "api/SharpHook.Reactive.Logging.IReactiveLogSource.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Reactive.Logging.IReactiveLogSource.html",
-          "hash": "0StxSLXXzSq3EqXWBgxhL67SjmNponbBYg+lwpOs9+s="
+          "relative_path": "api/SharpHook.Reactive.Logging.IReactiveLogSource.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -536,11 +448,9 @@
       "source_relative_path": "api/SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.html",
-          "hash": "sogBL2IL7hBqkKQZ8drn1/IQSfUC4UdINzBVIHa4ElA="
+          "relative_path": "api/SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -548,11 +458,9 @@
       "source_relative_path": "api/SharpHook.Reactive.Logging.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Reactive.Logging.html",
-          "hash": "8szPZ1amWxYaKVDRzH15iiIX+vlADXZb2c3eguPGkpY="
+          "relative_path": "api/SharpHook.Reactive.Logging.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -560,11 +468,9 @@
       "source_relative_path": "api/SharpHook.Reactive.ReactiveGlobalHookAdapter.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html",
-          "hash": "Bg02IqXWNkFd1Ajv+RU/rpAbWNPgAwD4zHZJ5Lms6qE="
+          "relative_path": "api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -572,11 +478,9 @@
       "source_relative_path": "api/SharpHook.Reactive.SimpleReactiveGlobalHook.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Reactive.SimpleReactiveGlobalHook.html",
-          "hash": "m8TceGnfp9AzSSbv2u18Um0dveckdJdSQhh1zcZvj7I="
+          "relative_path": "api/SharpHook.Reactive.SimpleReactiveGlobalHook.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -584,11 +488,9 @@
       "source_relative_path": "api/SharpHook.Reactive.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Reactive.html",
-          "hash": "ua2OubMpWETypTUZogspQQNMisWZJom8fZwFFVlOPr8="
+          "relative_path": "api/SharpHook.Reactive.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -596,11 +498,9 @@
       "source_relative_path": "api/SharpHook.SimpleGlobalHook.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.SimpleGlobalHook.html",
-          "hash": "CdrWZsl+noesihlvsERUGYecznMMSWTJHLs+GWyiAqg="
+          "relative_path": "api/SharpHook.SimpleGlobalHook.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -608,11 +508,9 @@
       "source_relative_path": "api/SharpHook.TaskPoolGlobalHook.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.TaskPoolGlobalHook.html",
-          "hash": "b9YbbMHdIIKQJghpxu9UnLLyQtofzOSI52kiHqfcDdo="
+          "relative_path": "api/SharpHook.TaskPoolGlobalHook.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -620,11 +518,9 @@
       "source_relative_path": "api/SharpHook.TaskPoolGlobalHookOptions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.TaskPoolGlobalHookOptions.html",
-          "hash": "7knvLHqWgs+uBaf7UbqMmasRIT0AiSr8On9XczSdJkM="
+          "relative_path": "api/SharpHook.TaskPoolGlobalHookOptions.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -632,11 +528,9 @@
       "source_relative_path": "api/SharpHook.Testing.TestEventHandledEventArgs.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Testing.TestEventHandledEventArgs.html",
-          "hash": "Ix3DvgnAMdgdOaD7Wdji81gK9Dp2B9ZTMBNXrmld1Jk="
+          "relative_path": "api/SharpHook.Testing.TestEventHandledEventArgs.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -644,11 +538,9 @@
       "source_relative_path": "api/SharpHook.Testing.TestGlobalHook.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Testing.TestGlobalHook.html",
-          "hash": "ZI7B+Lk+l8WTtBeRxcctDUpCisJK/LPNxHSA/MMWTRI="
+          "relative_path": "api/SharpHook.Testing.TestGlobalHook.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -656,11 +548,9 @@
       "source_relative_path": "api/SharpHook.Testing.TestProvider.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Testing.TestProvider.html",
-          "hash": "H0HGHrLVV6QLwNLN01BdCsA0YNaP3OBEIgnQ+SiRSCQ="
+          "relative_path": "api/SharpHook.Testing.TestProvider.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -668,11 +558,9 @@
       "source_relative_path": "api/SharpHook.Testing.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Testing.html",
-          "hash": "aBER0wmRlGvHXUfIuVhNE1HHpxfAro3Pf1u7F0CkNKA="
+          "relative_path": "api/SharpHook.Testing.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -680,11 +568,9 @@
       "source_relative_path": "api/SharpHook.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.html",
-          "hash": "PaYQhUrEYxHb6qmO9eTnLQKf5tYQeqJn/FX+jjt7ins="
+          "relative_path": "api/SharpHook.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -692,11 +578,9 @@
       "source_relative_path": "api/index.md",
       "output": {
         ".html": {
-          "relative_path": "api/index.html",
-          "hash": "lpO6dfk8IQd3ymLOrhkNNZDLOseWcMeawabsGPJrFWY="
+          "relative_path": "api/index.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -704,11 +588,12 @@
       "source_relative_path": "api/toc.yml",
       "output": {
         ".html": {
-          "relative_path": "api/toc.html",
-          "hash": "8CJKzTlonTJUUewnmqrbkw5P4QlE8oCd3/bnQnMzBzQ="
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -716,11 +601,9 @@
       "source_relative_path": "articles/about.md",
       "output": {
         ".html": {
-          "relative_path": "articles/about.html",
-          "hash": "3H7u+/TyT0QXAfJ1v3wo0WLqhLxhu1WOTDTPSlIKLlo="
+          "relative_path": "articles/about.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -728,11 +611,9 @@
       "source_relative_path": "articles/hooks.md",
       "output": {
         ".html": {
-          "relative_path": "articles/hooks.html",
-          "hash": "QEaPO3psiJOlZgD1bONy7MX65oPbUgWCa0ZBDWScwLY="
+          "relative_path": "articles/hooks.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -740,11 +621,9 @@
       "source_relative_path": "articles/intro.md",
       "output": {
         ".html": {
-          "relative_path": "articles/intro.html",
-          "hash": "4pPRw8c5eLu6Gw94klukLeEMTFfDeCQHnWpZgDs/JQc="
+          "relative_path": "articles/intro.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -752,11 +631,9 @@
       "source_relative_path": "articles/logging.md",
       "output": {
         ".html": {
-          "relative_path": "articles/logging.html",
-          "hash": "uDZu+H+2UR+5S/6Tg5mUAqEJi60FGpkmMFAOa99G+PY="
+          "relative_path": "articles/logging.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -764,11 +641,9 @@
       "source_relative_path": "articles/migration.md",
       "output": {
         ".html": {
-          "relative_path": "articles/migration.html",
-          "hash": "8QbbExecsz8lqZY02zyQjYeI1lgXiwjB54nAB//OTWI="
+          "relative_path": "articles/migration.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -776,11 +651,9 @@
       "source_relative_path": "articles/native.md",
       "output": {
         ".html": {
-          "relative_path": "articles/native.html",
-          "hash": "TuA8jjRX5jC/auNSI4HIoqfVhKzMwSsaQcCx3DJk7d4="
+          "relative_path": "articles/native.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -788,11 +661,9 @@
       "source_relative_path": "articles/reactive.md",
       "output": {
         ".html": {
-          "relative_path": "articles/reactive.html",
-          "hash": "cfXxsaBf8LFmjNF749BppfUEYzOhRf/l9z17EcVkiUc="
+          "relative_path": "articles/reactive.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -800,11 +671,9 @@
       "source_relative_path": "articles/simulation.md",
       "output": {
         ".html": {
-          "relative_path": "articles/simulation.html",
-          "hash": "nrdTYYiENkScBx2V6aXCScnYpaER4j6toeQ+pP3vRfw="
+          "relative_path": "articles/simulation.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -812,11 +681,12 @@
       "source_relative_path": "articles/toc.yml",
       "output": {
         ".html": {
-          "relative_path": "articles/toc.html",
-          "hash": "bzIIyTnXK5joMkx5MqiwxXvUTqUH45p04IEwyEN/8Ow="
+          "relative_path": "articles/toc.html"
+        },
+        ".json": {
+          "relative_path": "articles/toc.json"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -827,7 +697,6 @@
           "relative_path": "favicon.ico"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -835,11 +704,9 @@
       "source_relative_path": "index.md",
       "output": {
         ".html": {
-          "relative_path": "index.html",
-          "hash": "4xX0tUIL04+KlFyo2s4BqKs1lZ+R8d9bS7GomIpsUFA="
+          "relative_path": "index.html"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -850,7 +717,6 @@
           "relative_path": "logo.png"
         }
       },
-      "is_incremental": false,
       "version": ""
     },
     {
@@ -858,62 +724,13 @@
       "source_relative_path": "toc.yml",
       "output": {
         ".html": {
-          "relative_path": "toc.html",
-          "hash": "XqbaU15nM0zpIO2JMHhgFOxguHLkyXtyVBIFzeYfanA="
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
         }
       },
-      "is_incremental": false,
       "version": ""
-    }
-  ],
-  "incremental_info": [
-    {
-      "status": {
-        "can_incremental": false,
-        "details": "Cannot build incrementally because last build info is missing.",
-        "incrementalPhase": "build",
-        "total_file_count": 0,
-        "skipped_file_count": 0,
-        "full_build_reason_code": "NoAvailableBuildCache"
-      },
-      "processors": {
-        "ConceptualDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 10,
-          "skipped_file_count": 0
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 57,
-          "skipped_file_count": 0
-        },
-        "ResourceDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build",
-          "total_file_count": 0,
-          "skipped_file_count": 0
-        },
-        "TocDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build",
-          "total_file_count": 0,
-          "skipped_file_count": 0
-        }
-      }
-    },
-    {
-      "status": {
-        "can_incremental": false,
-        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
-        "incrementalPhase": "postProcessing",
-        "total_file_count": 0,
-        "skipped_file_count": 0
-      },
-      "processors": {}
     }
   ],
   "version_info": {},

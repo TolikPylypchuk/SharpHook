@@ -1,606 +1,195 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class UioHookResult
-   </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class UioHookResult
-   ">
-    <meta name="generator" content="docfx 2.59.4.0">
-    
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-    
-    
-    
+      <title>Enum UioHookResult
+ </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Enum UioHookResult
+ ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      
+      
+      
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.png" alt="">
-              </a>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
             </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
-              </form>
-            </div>
-          </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
           </div>
         </div>
-      </header>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
           </div>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="SharpHook.Native.UioHookResult">
-  
-  
-  <h1 id="SharpHook_Native_UioHookResult" data-uid="SharpHook.Native.UioHookResult" class="text-break">Class UioHookResult
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="SharpHook.Native.UioHookResult">
+
+
+
+
+  <h1 id="SharpHook_Native_UioHookResult" data-uid="SharpHook.Native.UioHookResult" class="text-break">
+    Enum UioHookResult
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Native/UioHookResult.cs"><i class="bi bi-code-slash"></i></a>
   </h1>
-  <div class="markdown level0 summary"><p>Represents a result of an operation of libuiohook.</p>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SharpHook.html">SharpHook</a>.<a class="xref" href="SharpHook.Native.html">Native</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a result of an operation of libuiohook.</p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><span class="xref">UioHookResult</span></div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="SharpHook.Native.html">SharpHook.Native</a></h6>
-  <h6><strong>Assembly</strong>: SharpHook.dll</h6>
-  <h5 id="SharpHook_Native_UioHookResult_syntax">Syntax</h5>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class UioHookResult : Enum</code></pre>
+    <pre><code class="lang-csharp hljs">public enum UioHookResult</code></pre>
   </div>
-  <h3 id="fields">Fields
-  </h3>
-  
-  
-  <h4 id="SharpHook_Native_UioHookResult_ErrorAxApiDisabled" data-uid="SharpHook.Native.UioHookResult.ErrorAxApiDisabled">ErrorAxApiDisabled</h4>
-  <div class="markdown level1 summary"><p>Accessibility API is disabled for the process (macOS)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const UioHookResult ErrorAxApiDisabled</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="SharpHook_Native_UioHookResult_ErrorCreateEventPort" data-uid="SharpHook.Native.UioHookResult.ErrorCreateEventPort">ErrorCreateEventPort</h4>
-  <div class="markdown level1 summary"><p>Failed to create an event port (macOS)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const UioHookResult ErrorCreateEventPort</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="SharpHook_Native_UioHookResult_ErrorCreateInvisibleWindow" data-uid="SharpHook.Native.UioHookResult.ErrorCreateInvisibleWindow">ErrorCreateInvisibleWindow</h4>
-  <div class="markdown level1 summary"><p>Couldn't create an invisible window which will listen to screen changes (Windows)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const UioHookResult ErrorCreateInvisibleWindow</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="SharpHook_Native_UioHookResult_ErrorCreateObserver" data-uid="SharpHook.Native.UioHookResult.ErrorCreateObserver">ErrorCreateObserver</h4>
-  <div class="markdown level1 summary"><p>CFRunLoopObserverCreate failed (macOS)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const UioHookResult ErrorCreateObserver</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="SharpHook_Native_UioHookResult_ErrorCreateRunLoopSource" data-uid="SharpHook.Native.UioHookResult.ErrorCreateRunLoopSource">ErrorCreateRunLoopSource</h4>
-  <div class="markdown level1 summary"><p>CFRunLoopSourceCreate or CFMachPortCreateRunLoopSource failed (macOS)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const UioHookResult ErrorCreateRunLoopSource</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="SharpHook_Native_UioHookResult_ErrorGetModuleHandle" data-uid="SharpHook.Native.UioHookResult.ErrorGetModuleHandle">ErrorGetModuleHandle</h4>
-  <div class="markdown level1 summary"><p>Couldn't get a module handle for SetWindowsHookEx (Windows)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const UioHookResult ErrorGetModuleHandle</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="SharpHook_Native_UioHookResult_ErrorGetRunLoop" data-uid="SharpHook.Native.UioHookResult.ErrorGetRunLoop">ErrorGetRunLoop</h4>
-  <div class="markdown level1 summary"><p>CFRunLoopGetCurrent failed (macOS)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const UioHookResult ErrorGetRunLoop</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="SharpHook_Native_UioHookResult_ErrorOutOfMemory" data-uid="SharpHook.Native.UioHookResult.ErrorOutOfMemory">ErrorOutOfMemory</h4>
-  <div class="markdown level1 summary"><p>Out of memory</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const UioHookResult ErrorOutOfMemory</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="SharpHook_Native_UioHookResult_ErrorPostTextNull" data-uid="SharpHook.Native.UioHookResult.ErrorPostTextNull">ErrorPostTextNull</h4>
-  <div class="markdown level1 summary"><p>A <span class="xref">null</span> string was passed to <a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_PostText_System_String_">PostText(String)</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const UioHookResult ErrorPostTextNull</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="SharpHook_Native_UioHookResult_ErrorSetWindowsHookEx" data-uid="SharpHook.Native.UioHookResult.ErrorSetWindowsHookEx">ErrorSetWindowsHookEx</h4>
-  <div class="markdown level1 summary"><p>SetWindowsHookEx failed (Windows)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const UioHookResult ErrorSetWindowsHookEx</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="SharpHook_Native_UioHookResult_ErrorXOpenDisplay" data-uid="SharpHook.Native.UioHookResult.ErrorXOpenDisplay">ErrorXOpenDisplay</h4>
-  <div class="markdown level1 summary"><p>XOpenDisplay failed (X11)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const UioHookResult ErrorXOpenDisplay</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="SharpHook_Native_UioHookResult_ErrorXRecordAllocRange" data-uid="SharpHook.Native.UioHookResult.ErrorXRecordAllocRange">ErrorXRecordAllocRange</h4>
-  <div class="markdown level1 summary"><p>XRecordAllocRange failed (X11)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const UioHookResult ErrorXRecordAllocRange</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="SharpHook_Native_UioHookResult_ErrorXRecordCreateContext" data-uid="SharpHook.Native.UioHookResult.ErrorXRecordCreateContext">ErrorXRecordCreateContext</h4>
-  <div class="markdown level1 summary"><p>XRecordCreateContext failed (X11)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const UioHookResult ErrorXRecordCreateContext</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="SharpHook_Native_UioHookResult_ErrorXRecordEnableContext" data-uid="SharpHook.Native.UioHookResult.ErrorXRecordEnableContext">ErrorXRecordEnableContext</h4>
-  <div class="markdown level1 summary"><p>XRecordEnableContext failed (X11)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const UioHookResult ErrorXRecordEnableContext</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="SharpHook_Native_UioHookResult_ErrorXRecordGetContext" data-uid="SharpHook.Native.UioHookResult.ErrorXRecordGetContext">ErrorXRecordGetContext</h4>
-  <div class="markdown level1 summary"><p>XRecordGetContext failed (X11)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const UioHookResult ErrorXRecordGetContext</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="SharpHook_Native_UioHookResult_ErrorXRecordNotFound" data-uid="SharpHook.Native.UioHookResult.ErrorXRecordNotFound">ErrorXRecordNotFound</h4>
-  <div class="markdown level1 summary"><p>XRecord not found (X11)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const UioHookResult ErrorXRecordNotFound</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="SharpHook_Native_UioHookResult_Failure" data-uid="SharpHook.Native.UioHookResult.Failure">Failure</h4>
-  <div class="markdown level1 summary"><p>Failure</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const UioHookResult Failure</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="SharpHook_Native_UioHookResult_Success" data-uid="SharpHook.Native.UioHookResult.Success">Success</h4>
-  <div class="markdown level1 summary"><p>Success</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const UioHookResult Success</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="SharpHook_Native_UioHookResult_value__" data-uid="SharpHook.Native.UioHookResult.value__">value__</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int value__</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="seealso">See Also</h3>
+
+
+
+
+
+
+
+
+
+  <h2 id="fields">Fields
+</h2>
+  <dl class="parameters">
+    <dt id="SharpHook_Native_UioHookResult_ErrorAxApiDisabled"><code>ErrorAxApiDisabled = 64</code></dt>
+    <dd><p>Accessibility API is disabled for the process (macOS)</p>
+</dd>
+    <dt id="SharpHook_Native_UioHookResult_ErrorCreateEventPort"><code>ErrorCreateEventPort = 65</code></dt>
+    <dd><p>Failed to create an event port (macOS)</p>
+</dd>
+    <dt id="SharpHook_Native_UioHookResult_ErrorCreateInvisibleWindow"><code>ErrorCreateInvisibleWindow = 50</code></dt>
+    <dd><p>Couldn't create an invisible window which will listen to screen changes (Windows)</p>
+</dd>
+    <dt id="SharpHook_Native_UioHookResult_ErrorCreateObserver"><code>ErrorCreateObserver = 68</code></dt>
+    <dd><p>CFRunLoopObserverCreate failed (macOS)</p>
+</dd>
+    <dt id="SharpHook_Native_UioHookResult_ErrorCreateRunLoopSource"><code>ErrorCreateRunLoopSource = 66</code></dt>
+    <dd><p>CFRunLoopSourceCreate or CFMachPortCreateRunLoopSource failed (macOS)</p>
+</dd>
+    <dt id="SharpHook_Native_UioHookResult_ErrorGetModuleHandle"><code>ErrorGetModuleHandle = 49</code></dt>
+    <dd><p>Couldn't get a module handle for SetWindowsHookEx (Windows)</p>
+</dd>
+    <dt id="SharpHook_Native_UioHookResult_ErrorGetRunLoop"><code>ErrorGetRunLoop = 67</code></dt>
+    <dd><p>CFRunLoopGetCurrent failed (macOS)</p>
+</dd>
+    <dt id="SharpHook_Native_UioHookResult_ErrorOutOfMemory"><code>ErrorOutOfMemory = 2</code></dt>
+    <dd><p>Out of memory</p>
+</dd>
+    <dt id="SharpHook_Native_UioHookResult_ErrorPostTextNull"><code>ErrorPostTextNull = 3</code></dt>
+    <dd><p>A <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> string was passed to <a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_PostText_System_String_">PostText(string)</a>.</p>
+</dd>
+    <dt id="SharpHook_Native_UioHookResult_ErrorSetWindowsHookEx"><code>ErrorSetWindowsHookEx = 48</code></dt>
+    <dd><p>SetWindowsHookEx failed (Windows)</p>
+</dd>
+    <dt id="SharpHook_Native_UioHookResult_ErrorXOpenDisplay"><code>ErrorXOpenDisplay = 32</code></dt>
+    <dd><p>XOpenDisplay failed (X11)</p>
+</dd>
+    <dt id="SharpHook_Native_UioHookResult_ErrorXRecordAllocRange"><code>ErrorXRecordAllocRange = 34</code></dt>
+    <dd><p>XRecordAllocRange failed (X11)</p>
+</dd>
+    <dt id="SharpHook_Native_UioHookResult_ErrorXRecordCreateContext"><code>ErrorXRecordCreateContext = 35</code></dt>
+    <dd><p>XRecordCreateContext failed (X11)</p>
+</dd>
+    <dt id="SharpHook_Native_UioHookResult_ErrorXRecordEnableContext"><code>ErrorXRecordEnableContext = 36</code></dt>
+    <dd><p>XRecordEnableContext failed (X11)</p>
+</dd>
+    <dt id="SharpHook_Native_UioHookResult_ErrorXRecordGetContext"><code>ErrorXRecordGetContext = 37</code></dt>
+    <dd><p>XRecordGetContext failed (X11)</p>
+</dd>
+    <dt id="SharpHook_Native_UioHookResult_ErrorXRecordNotFound"><code>ErrorXRecordNotFound = 33</code></dt>
+    <dd><p>XRecord not found (X11)</p>
+</dd>
+    <dt id="SharpHook_Native_UioHookResult_Failure"><code>Failure = 1</code></dt>
+    <dd><p>Failure</p>
+</dd>
+    <dt id="SharpHook_Native_UioHookResult_Success"><code>Success = 0</code></dt>
+    <dd><p>Success</p>
+</dd>
+  </dl>
+
+
+
+  <h2 id="seealso">See Also</h2>
   <div class="seealso">
       <div><a class="xref" href="SharpHook.Native.UioHook.html">UioHook</a></div>
   </div>
 </article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Native/UioHookResult.cs" class="edit-link">Edit this page</a>
+        </div>
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    </footer>
   </body>
 </html>

@@ -1,1297 +1,1127 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class TestProvider
-   </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class TestProvider
-   ">
-    <meta name="generator" content="docfx 2.59.4.0">
-    
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-    
-    
-    
+      <title>Class TestProvider
+ </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class TestProvider
+ ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      
+      
+      
+      
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.png" alt="">
-              </a>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
             </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
-              </form>
-            </div>
-          </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
           </div>
         </div>
-      </header>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
           </div>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="SharpHook.Testing.TestProvider">
-  
-  
-  <h1 id="SharpHook_Testing_TestProvider" data-uid="SharpHook.Testing.TestProvider" class="text-break">Class TestProvider
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="SharpHook.Testing.TestProvider">
+
+
+
+  <h1 id="SharpHook_Testing_TestProvider" data-uid="SharpHook.Testing.TestProvider" class="text-break">
+    Class TestProvider
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h1>
-  <div class="markdown level0 summary"><p>A provider of low-level functionality which can be used in tests.</p>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SharpHook.html">SharpHook</a>.<a class="xref" href="SharpHook.Testing.html">Testing</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>A provider of low-level functionality which can be used in tests.</p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><span class="xref">TestProvider</span></div>
-  </div>
-  <div class="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html">IGlobalHookProvider</a></div>
-    <div><a class="xref" href="SharpHook.Providers.ILoggingProvider.html">ILoggingProvider</a></div>
-    <div><a class="xref" href="SharpHook.Providers.IEventSimulationProvider.html">IEventSimulationProvider</a></div>
-    <div><a class="xref" href="SharpHook.Providers.IScreenInfoProvider.html">IScreenInfoProvider</a></div>
-    <div><a class="xref" href="SharpHook.Providers.IMouseInfoProvider.html">IMouseInfoProvider</a></div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="SharpHook.Testing.html">SharpHook.Testing</a></h6>
-  <h6><strong>Assembly</strong>: SharpHook.dll</h6>
-  <h5 id="SharpHook_Testing_TestProvider_syntax">Syntax</h5>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class TestProvider : Object, IGlobalHookProvider, ILoggingProvider, IEventSimulationProvider, IScreenInfoProvider, IMouseInfoProvider</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class TestProvider : IGlobalHookProvider, ILoggingProvider, IEventSimulationProvider, IScreenInfoProvider, IMouseInfoProvider</code></pre>
   </div>
-  <h3 id="constructors">Constructors
-  </h3>
-  
-  
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">TestProvider</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html">IGlobalHookProvider</a></div>
+      <div><a class="xref" href="SharpHook.Providers.ILoggingProvider.html">ILoggingProvider</a></div>
+      <div><a class="xref" href="SharpHook.Providers.IEventSimulationProvider.html">IEventSimulationProvider</a></div>
+      <div><a class="xref" href="SharpHook.Providers.IScreenInfoProvider.html">IScreenInfoProvider</a></div>
+      <div><a class="xref" href="SharpHook.Providers.IMouseInfoProvider.html">IMouseInfoProvider</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
   <a id="SharpHook_Testing_TestProvider__ctor_" data-uid="SharpHook.Testing.TestProvider.#ctor*"></a>
-  <h4 id="SharpHook_Testing_TestProvider__ctor" data-uid="SharpHook.Testing.TestProvider.#ctor">TestProvider()</h4>
+
+  <h3 id="SharpHook_Testing_TestProvider__ctor" data-uid="SharpHook.Testing.TestProvider.#ctor">
+  TestProvider()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public TestProvider()</code></pre>
   </div>
-  <h3 id="properties">Properties
-  </h3>
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
   <a id="SharpHook_Testing_TestProvider_AutoRepeatDelay_" data-uid="SharpHook.Testing.TestProvider.AutoRepeatDelay*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_AutoRepeatDelay" data-uid="SharpHook.Testing.TestProvider.AutoRepeatDelay">AutoRepeatDelay</h4>
+
+  <h3 id="SharpHook_Testing_TestProvider_AutoRepeatDelay" data-uid="SharpHook.Testing.TestProvider.AutoRepeatDelay">
+  AutoRepeatDelay
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets the auto-repeat delay for testing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int AutoRepeatDelay { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td><p>The auto-repeat rate.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The auto-repeat rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="SharpHook_Testing_TestProvider_AutoRepeatRate_" data-uid="SharpHook.Testing.TestProvider.AutoRepeatRate*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_AutoRepeatRate" data-uid="SharpHook.Testing.TestProvider.AutoRepeatRate">AutoRepeatRate</h4>
+
+  <h3 id="SharpHook_Testing_TestProvider_AutoRepeatRate" data-uid="SharpHook.Testing.TestProvider.AutoRepeatRate">
+  AutoRepeatRate
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets the auto-repeat rate for testing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int AutoRepeatRate { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td><p>The auto-repeat rate.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The auto-repeat rate.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="SharpHook_Testing_TestProvider_EventDateTime_" data-uid="SharpHook.Testing.TestProvider.EventDateTime*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_EventDateTime" data-uid="SharpHook.Testing.TestProvider.EventDateTime">EventDateTime</h4>
+
+  <h3 id="SharpHook_Testing_TestProvider_EventDateTime" data-uid="SharpHook.Testing.TestProvider.EventDateTime">
+  EventDateTime
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets the function which will be called to set the date/time of the <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_HookEnabled">HookEnabled</a>
 and <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_HookDisabled">HookDisabled</a> events.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Func&lt;EventType, DateTimeOffset&gt; EventDateTime { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="SharpHook.Native.EventType.html">EventType</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">value</code> is <span class="xref">null</span>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="SharpHook.Native.EventType.html">EventType</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">value</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
   <a id="SharpHook_Testing_TestProvider_EventMask_" data-uid="SharpHook.Testing.TestProvider.EventMask*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_EventMask" data-uid="SharpHook.Testing.TestProvider.EventMask">EventMask</h4>
+
+  <h3 id="SharpHook_Testing_TestProvider_EventMask" data-uid="SharpHook.Testing.TestProvider.EventMask">
+  EventMask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets the function which will be called to set the mask of the <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_HookEnabled">HookEnabled</a>
 and <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_HookDisabled">HookDisabled</a> events.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Func&lt;EventType, ModifierMask&gt; EventMask { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="SharpHook.Native.EventType.html">EventType</a>, <a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">value</code> is <span class="xref">null</span>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="SharpHook.Native.EventType.html">EventType</a>, <a class="xref" href="SharpHook.Native.ModifierMask.html">ModifierMask</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">value</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
   <a id="SharpHook_Testing_TestProvider_IsRunning_" data-uid="SharpHook.Testing.TestProvider.IsRunning*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_IsRunning" data-uid="SharpHook.Testing.TestProvider.IsRunning">IsRunning</h4>
+
+  <h3 id="SharpHook_Testing_TestProvider_IsRunning" data-uid="SharpHook.Testing.TestProvider.IsRunning">
+  IsRunning
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets the value which indicates whether this provider runs the testing hook.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsRunning { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td><p><span class="xref">true</span> if the testing hook is running. Otherwise, <span class="xref">false</span>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the testing hook is running. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="SharpHook_Testing_TestProvider_MultiClickTime_" data-uid="SharpHook.Testing.TestProvider.MultiClickTime*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_MultiClickTime" data-uid="SharpHook.Testing.TestProvider.MultiClickTime">MultiClickTime</h4>
+
+  <h3 id="SharpHook_Testing_TestProvider_MultiClickTime" data-uid="SharpHook.Testing.TestProvider.MultiClickTime">
+  MultiClickTime
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets the multi-click time for testing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int MultiClickTime { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td><p>The multi-click time.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The multi-click time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="SharpHook_Testing_TestProvider_PointerAccelerationMultiplier_" data-uid="SharpHook.Testing.TestProvider.PointerAccelerationMultiplier*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_PointerAccelerationMultiplier" data-uid="SharpHook.Testing.TestProvider.PointerAccelerationMultiplier">PointerAccelerationMultiplier</h4>
+
+  <h3 id="SharpHook_Testing_TestProvider_PointerAccelerationMultiplier" data-uid="SharpHook.Testing.TestProvider.PointerAccelerationMultiplier">
+  PointerAccelerationMultiplier
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets the pointer acceleration multiplier for testing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int PointerAccelerationMultiplier { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td><p>The pointer acceleration multiplier.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The pointer acceleration multiplier.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="SharpHook_Testing_TestProvider_PointerAccelerationThreshold_" data-uid="SharpHook.Testing.TestProvider.PointerAccelerationThreshold*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_PointerAccelerationThreshold" data-uid="SharpHook.Testing.TestProvider.PointerAccelerationThreshold">PointerAccelerationThreshold</h4>
+
+  <h3 id="SharpHook_Testing_TestProvider_PointerAccelerationThreshold" data-uid="SharpHook.Testing.TestProvider.PointerAccelerationThreshold">
+  PointerAccelerationThreshold
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets the pointer acceleration threshold for testing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int PointerAccelerationThreshold { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td><p>The pointer acceleration threshold.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The pointer acceleration threshold.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="SharpHook_Testing_TestProvider_PointerSensitivity_" data-uid="SharpHook.Testing.TestProvider.PointerSensitivity*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_PointerSensitivity" data-uid="SharpHook.Testing.TestProvider.PointerSensitivity">PointerSensitivity</h4>
+
+  <h3 id="SharpHook_Testing_TestProvider_PointerSensitivity" data-uid="SharpHook.Testing.TestProvider.PointerSensitivity">
+  PointerSensitivity
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets the pointer sensitivity for testing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public int PointerSensitivity { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td><p>The pointer sensitivity.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="SharpHook_Testing_TestProvider_PostedEvents_" data-uid="SharpHook.Testing.TestProvider.PostedEvents*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_PostedEvents" data-uid="SharpHook.Testing.TestProvider.PostedEvents">PostedEvents</h4>
-  <div class="markdown level1 summary"><p>Gets the events that have been posted using <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent__">PostEvent(ref UioHookEvent)</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;UioHookEvent&gt; PostedEvents { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="SharpHook.Native.UioHookEvent.html">UioHookEvent</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="SharpHook_Testing_TestProvider_PostedText_" data-uid="SharpHook.Testing.TestProvider.PostedText*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_PostedText" data-uid="SharpHook.Testing.TestProvider.PostedText">PostedText</h4>
-  <div class="markdown level1 summary"><p>Gets the text that has been posted using <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostText_System_String_">PostText(String)</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;string&gt; PostedText { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The pointer sensitivity.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="SharpHook_Testing_TestProvider_PostEventResult_" data-uid="SharpHook.Testing.TestProvider.PostEventResult*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_PostEventResult" data-uid="SharpHook.Testing.TestProvider.PostEventResult">PostEventResult</h4>
+
+  <h3 id="SharpHook_Testing_TestProvider_PostEventResult" data-uid="SharpHook.Testing.TestProvider.PostEventResult">
+  PostEventResult
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets the result of the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent__">PostEvent(ref UioHookEvent)</a> method. If anything other than
 <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a> is set, then the event won't be posted.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public UioHookResult PostEventResult { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
-        <td><p>The result of the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent__">PostEvent(ref UioHookEvent)</a> method.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></dt>
+    <dd><p>The result of the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent__">PostEvent(ref UioHookEvent)</a> method.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="SharpHook_Testing_TestProvider_PostTextDelayX11_" data-uid="SharpHook.Testing.TestProvider.PostTextDelayX11*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_PostTextDelayX11" data-uid="SharpHook.Testing.TestProvider.PostTextDelayX11">PostTextDelayX11</h4>
+
+  <h3 id="SharpHook_Testing_TestProvider_PostTextDelayX11" data-uid="SharpHook.Testing.TestProvider.PostTextDelayX11">
+  PostTextDelayX11
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets the delay (in nanoseconds) between posting individual characters when posting text on Linux.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ulong PostTextDelayX11 { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">UInt64</a></td>
-        <td><p>The delay (in nanoseconds) between posting individual characters when posting text on Linux.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
+    <dd><p>The delay (in nanoseconds) between posting individual characters when posting text on Linux.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="SharpHook_Testing_TestProvider_PostTextResult_" data-uid="SharpHook.Testing.TestProvider.PostTextResult*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_PostTextResult" data-uid="SharpHook.Testing.TestProvider.PostTextResult">PostTextResult</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the result of the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostText_System_String_">PostText(String)</a> method. If anything other than
+
+  <h3 id="SharpHook_Testing_TestProvider_PostTextResult" data-uid="SharpHook.Testing.TestProvider.PostTextResult">
+  PostTextResult
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the result of the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostText_System_String_">PostText(string)</a> method. If anything other than
 <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a> is set, then the text won't be posted.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public UioHookResult PostTextResult { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
-        <td><p>The result of the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostText_System_String_">PostText(String)</a> method.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></dt>
+    <dd><p>The result of the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostText_System_String_">PostText(string)</a> method.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpHook_Testing_TestProvider_PostedEvents_" data-uid="SharpHook.Testing.TestProvider.PostedEvents*"></a>
+
+  <h3 id="SharpHook_Testing_TestProvider_PostedEvents" data-uid="SharpHook.Testing.TestProvider.PostedEvents">
+  PostedEvents
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the events that have been posted using <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent__">PostEvent(ref UioHookEvent)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;UioHookEvent&gt; PostedEvents { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="SharpHook.Native.UioHookEvent.html">UioHookEvent</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="SharpHook_Testing_TestProvider_PostedText_" data-uid="SharpHook.Testing.TestProvider.PostedText*"></a>
+
+  <h3 id="SharpHook_Testing_TestProvider_PostedText" data-uid="SharpHook.Testing.TestProvider.PostedText">
+  PostedText
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the text that has been posted using <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostText_System_String_">PostText(string)</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;string&gt; PostedText { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="SharpHook_Testing_TestProvider_RunResult_" data-uid="SharpHook.Testing.TestProvider.RunResult*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_RunResult" data-uid="SharpHook.Testing.TestProvider.RunResult">RunResult</h4>
+
+  <h3 id="SharpHook_Testing_TestProvider_RunResult" data-uid="SharpHook.Testing.TestProvider.RunResult">
+  RunResult
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets the result of the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_Run">Run()</a> method. If anything other than
 <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a> is set, then the testing hook won't be started.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public UioHookResult RunResult { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
-        <td><p>The result of the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_Run">Run()</a> method.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></dt>
+    <dd><p>The result of the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_Run">Run()</a> method.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="SharpHook_Testing_TestProvider_ScreenInfo_" data-uid="SharpHook.Testing.TestProvider.ScreenInfo*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_ScreenInfo" data-uid="SharpHook.Testing.TestProvider.ScreenInfo">ScreenInfo</h4>
+
+  <h3 id="SharpHook_Testing_TestProvider_ScreenInfo" data-uid="SharpHook.Testing.TestProvider.ScreenInfo">
+  ScreenInfo
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets the information about screens for testing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ScreenData[] ScreenInfo { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.ScreenData.html">ScreenData</a>[]</td>
-        <td><p>The information about screens.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
-        <td><p><code data-dev-comment-type="paramref" class="paramref">value</code> is <span class="xref">null</span>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.Native.ScreenData.html">ScreenData</a>[]</dt>
+    <dd><p>The information about screens.</p>
+</dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">value</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
   <a id="SharpHook_Testing_TestProvider_StopResult_" data-uid="SharpHook.Testing.TestProvider.StopResult*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_StopResult" data-uid="SharpHook.Testing.TestProvider.StopResult">StopResult</h4>
+
+  <h3 id="SharpHook_Testing_TestProvider_StopResult" data-uid="SharpHook.Testing.TestProvider.StopResult">
+  StopResult
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets the result of the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_Stop">Stop()</a> method. If anything other than
 <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a> is set, then the testing hook won't be stopped.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public UioHookResult StopResult { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
-        <td><p>The result of the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_Stop">Stop()</a> method.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-  </h3>
-  
-  
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></dt>
+    <dd><p>The result of the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_Stop">Stop()</a> method.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
   <a id="SharpHook_Testing_TestProvider_PostEvent_" data-uid="SharpHook.Testing.TestProvider.PostEvent*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent__" data-uid="SharpHook.Testing.TestProvider.PostEvent(SharpHook.Native.UioHookEvent@)">PostEvent(ref UioHookEvent)</h4>
+
+  <h3 id="SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent__" data-uid="SharpHook.Testing.TestProvider.PostEvent(SharpHook.Native.UioHookEvent@)">
+  PostEvent(ref UioHookEvent)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Posts an input event if <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEventResult">PostEventResult</a> is set to <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a> -
 this event will be dispatched if the provider is running. Otherwise, does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public UioHookResult PostEvent(ref UioHookEvent e)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookEvent.html">UioHookEvent</a></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>The event to post.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
-        <td><p>The value of <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEventResult">PostEventResult</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent___remarks">Remarks</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>e</code> <a class="xref" href="SharpHook.Native.UioHookEvent.html">UioHookEvent</a></dt>
+    <dd><p>The event to post.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></dt>
+    <dd><p>The value of <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEventResult">PostEventResult</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent___remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>This method returns before the event has been handled. The <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_TestEventHandled">TestEventHandled</a> event should be used
 to inspect the value of <a class="xref" href="SharpHook.Native.UioHookEvent.html#SharpHook_Native_UioHookEvent_Reserved">Reserved</a>.</p>
 </div>
-  
-  
+
+
+
+
   <a id="SharpHook_Testing_TestProvider_PostEventAndWaitForHandler_" data-uid="SharpHook.Testing.TestProvider.PostEventAndWaitForHandler*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_PostEventAndWaitForHandler_SharpHook_Native_UioHookEvent__System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestProvider.PostEventAndWaitForHandler(SharpHook.Native.UioHookEvent@,System.Threading.CancellationToken)">PostEventAndWaitForHandler(ref UioHookEvent, CancellationToken)</h4>
+
+  <h3 id="SharpHook_Testing_TestProvider_PostEventAndWaitForHandler_SharpHook_Native_UioHookEvent__System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestProvider.PostEventAndWaitForHandler(SharpHook.Native.UioHookEvent@,System.Threading.CancellationToken)">
+  PostEventAndWaitForHandler(ref UioHookEvent, CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Posts an input event if <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEventResult">PostEventResult</a> is set to <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a> -
 this event will be dispatched if the provider is running. Otherwise, does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TestEventHandledEventArgs&gt; PostEventAndWaitForHandler(ref UioHookEvent e, CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TestEventHandledEventArgs?&gt; PostEventAndWaitForHandler(ref UioHookEvent e, CancellationToken cancellationToken = default)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookEvent.html">UioHookEvent</a></td>
-        <td><span class="parametername">e</span></td>
-        <td><p>The event to post.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td><p>The token to monitor for cancellation requests. The default value is <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken.none#system-threading-cancellationtoken-none">None</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
-        <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the event has been handled, and contains the handler result, or
-<span class="xref">null</span> if the event was not posted.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="SharpHook_Testing_TestProvider_PostEventAndWaitForHandler_SharpHook_Native_UioHookEvent__System_Threading_CancellationToken__remarks">Remarks</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>e</code> <a class="xref" href="SharpHook.Native.UioHookEvent.html">UioHookEvent</a></dt>
+    <dd><p>The event to post.</p>
+</dd>
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The token to monitor for cancellation requests. The default value is <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken.none">None</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the event has been handled, and contains the handler result, or
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the event was not posted.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_Testing_TestProvider_PostEventAndWaitForHandler_SharpHook_Native_UioHookEvent__System_Threading_CancellationToken__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Do not use this method inside the global hook as it will result in a deadlock.</p>
 </div>
-  
-  
+
+
+
+
   <a id="SharpHook_Testing_TestProvider_PostText_" data-uid="SharpHook.Testing.TestProvider.PostText*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_PostText_System_String_" data-uid="SharpHook.Testing.TestProvider.PostText(System.String)">PostText(String)</h4>
+
+  <h3 id="SharpHook_Testing_TestProvider_PostText_System_String_" data-uid="SharpHook.Testing.TestProvider.PostText(System.String)">
+  PostText(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Simulates the input of arbitrary Unicode characters if <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostTextResult">PostTextResult</a> is set to
 <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise, does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public UioHookResult PostText(string text)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">text</span></td>
-        <td><p>The text to simulate.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
-        <td><p>The value of <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostTextResult">PostTextResult</a>, or <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_ErrorPostTextNull">ErrorPostTextNull</a> if
-<code data-dev-comment-type="paramref" class="paramref">text</code> is <span class="xref">null</span>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="SharpHook_Testing_TestProvider_PostText_System_String__remarks">Remarks</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The text to simulate.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></dt>
+    <dd><p>The value of <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostTextResult">PostTextResult</a>, or <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_ErrorPostTextNull">ErrorPostTextNull</a> if
+<code class="paramref">text</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_Testing_TestProvider_PostText_System_String__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>This method doesn't cause any input events to be created, unlike real text entry simulation.</p>
 </div>
-  
-  
+
+
+
+
   <a id="SharpHook_Testing_TestProvider_Run_" data-uid="SharpHook.Testing.TestProvider.Run*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_Run" data-uid="SharpHook.Testing.TestProvider.Run">Run()</h4>
+
+  <h3 id="SharpHook_Testing_TestProvider_Run" data-uid="SharpHook.Testing.TestProvider.Run">
+  Run()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Runs the testing hook if <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunResult">RunResult</a> is set to <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise,
 does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public UioHookResult Run()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
-        <td><p>The value of <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunResult">RunResult</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="SharpHook_Testing_TestProvider_Run_remarks">Remarks</h5>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></dt>
+    <dd><p>The value of <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunResult">RunResult</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_Testing_TestProvider_Run_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>The testing hook is an event loop which receives events from the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent__">PostEvent(ref UioHookEvent)</a>
 method. The hook can be started and stopped multiple times, but cannot be started when it's already running.</p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
-        <td><p>The hook is already running.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The hook is already running.</p>
+</dd>
+  </dl>
+
+
+
   <a id="SharpHook_Testing_TestProvider_RunAndWaitForStart_" data-uid="SharpHook.Testing.TestProvider.RunAndWaitForStart*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_RunAndWaitForStart_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestProvider.RunAndWaitForStart(System.Threading.CancellationToken)">RunAndWaitForStart(CancellationToken)</h4>
+
+  <h3 id="SharpHook_Testing_TestProvider_RunAndWaitForStart_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestProvider.RunAndWaitForStart(System.Threading.CancellationToken)">
+  RunAndWaitForStart(CancellationToken)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Runs the testing hook on a separate thread if <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunResult">RunResult</a> is set to
 <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise, does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task RunAndWaitForStart(CancellationToken cancellationToken = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task RunAndWaitForStart(CancellationToken cancellationToken = default)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td><p>The token to monitor for cancellation requests. The default value is <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken.none#system-threading-cancellationtoken-none">None</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
-        <td><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the hook has been started.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="SharpHook_Testing_TestProvider_RunAndWaitForStart_System_Threading_CancellationToken__remarks">Remarks</h5>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
+    <dd><p>The token to monitor for cancellation requests. The default value is <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken.none">None</a>.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the hook has been started.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_Testing_TestProvider_RunAndWaitForStart_System_Threading_CancellationToken__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>The testing hook is an event loop which receives events from the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent__">PostEvent(ref UioHookEvent)</a>
 method. The hook can be started and stopped multiple times, but cannot be started when it's already running.</p>
 </div>
-  <h5 class="exceptions">Exceptions</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Condition</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
-        <td><p>The hook is already running.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The hook is already running.</p>
+</dd>
+  </dl>
+
+
+
   <a id="SharpHook_Testing_TestProvider_SetDispatchProc_" data-uid="SharpHook.Testing.TestProvider.SetDispatchProc*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_SetDispatchProc_SharpHook_Native_DispatchProc_System_IntPtr_" data-uid="SharpHook.Testing.TestProvider.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)">SetDispatchProc(DispatchProc, IntPtr)</h4>
+
+  <h3 id="SharpHook_Testing_TestProvider_SetDispatchProc_SharpHook_Native_DispatchProc_System_IntPtr_" data-uid="SharpHook.Testing.TestProvider.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)">
+  SetDispatchProc(DispatchProc?, nint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Sets the hook callback function for testing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void SetDispatchProc(DispatchProc dispatchProc, IntPtr userData)</code></pre>
+    <pre><code class="lang-csharp hljs">public void SetDispatchProc(DispatchProc? dispatchProc, nint userData)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.DispatchProc.html">DispatchProc</a></td>
-        <td><span class="parametername">dispatchProc</span></td>
-        <td><p>The function to call when an event is raised, or <span class="xref">null</span> to unset the function.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></td>
-        <td><span class="parametername">userData</span></td>
-        <td><p>Custom data to pass to the callback.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dispatchProc</code> <a class="xref" href="SharpHook.Native.DispatchProc.html">DispatchProc</a></dt>
+    <dd><p>The function to call when an event is raised, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to unset the function.</p>
+</dd>
+    <dt><code>userData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd><p>Custom data to pass to the callback.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="SharpHook_Testing_TestProvider_Stop_" data-uid="SharpHook.Testing.TestProvider.Stop*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_Stop" data-uid="SharpHook.Testing.TestProvider.Stop">Stop()</h4>
+
+  <h3 id="SharpHook_Testing_TestProvider_Stop" data-uid="SharpHook.Testing.TestProvider.Stop">
+  Stop()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Stops the testing hook if <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_StopResult">StopResult</a> is set to <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise,
 does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public UioHookResult Stop()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></td>
-        <td><p>The value of <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_StopResult">StopResult</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="events">Events
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></dt>
+    <dd><p>The value of <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_StopResult">StopResult</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="events">Events
+</h2>
+
+
+
+  <h3 id="SharpHook_Testing_TestProvider_TestEventHandled" data-uid="SharpHook.Testing.TestProvider.TestEventHandled">
+  TestEventHandled
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
-  
-  
-  <h4 id="SharpHook_Testing_TestProvider_TestEventHandled" data-uid="SharpHook.Testing.TestProvider.TestEventHandled">TestEventHandled</h4>
+
   <div class="markdown level1 summary"><p>An event which is raised when an input event posted via <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent__">PostEvent(ref UioHookEvent)</a> has been
 handled. The input event's <a class="xref" href="SharpHook.Native.UioHookEvent.html#SharpHook_Native_UioHookEvent_Reserved">Reserved</a> field can be inspected using this event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;TestEventHandledEventArgs&gt; TestEventHandled</code></pre>
+    <pre><code class="lang-csharp hljs">public event EventHandler&lt;TestEventHandledEventArgs&gt;? TestEventHandled</code></pre>
   </div>
-  <h5 class="eventType">Event Type</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="eii">Explicit Interface Implementations
-  </h3>
-  
-  
-  <a id="SharpHook_Testing_TestProvider_SharpHook_Providers_IEventSimulationProvider_GetPostTextDelayX11_" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IEventSimulationProvider#GetPostTextDelayX11*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_SharpHook_Providers_IEventSimulationProvider_GetPostTextDelayX11" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IEventSimulationProvider#GetPostTextDelayX11">IEventSimulationProvider.GetPostTextDelayX11()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ulong IEventSimulationProvider.GetPostTextDelayX11()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">UInt64</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="SharpHook_Testing_TestProvider_SharpHook_Providers_IEventSimulationProvider_SetPostTextDelayX11_" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IEventSimulationProvider#SetPostTextDelayX11*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_SharpHook_Providers_IEventSimulationProvider_SetPostTextDelayX11_System_UInt64_" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IEventSimulationProvider#SetPostTextDelayX11(System.UInt64)">IEventSimulationProvider.SetPostTextDelayX11(UInt64)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void IEventSimulationProvider.SetPostTextDelayX11(ulong delayNanoseconds)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">UInt64</a></td>
-        <td><span class="parametername">delayNanoseconds</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="SharpHook_Testing_TestProvider_SharpHook_Providers_ILoggingProvider_SetLoggerProc_" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#ILoggingProvider#SetLoggerProc*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_SharpHook_Providers_ILoggingProvider_SetLoggerProc_SharpHook_Native_LoggerProc_System_IntPtr_" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#ILoggingProvider#SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)">ILoggingProvider.SetLoggerProc(LoggerProc, IntPtr)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void ILoggingProvider.SetLoggerProc(LoggerProc loggerProc, IntPtr userData)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.LoggerProc.html">LoggerProc</a></td>
-        <td><span class="parametername">loggerProc</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">IntPtr</a></td>
-        <td><span class="parametername">userData</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetAutoRepeatDelay_" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IMouseInfoProvider#GetAutoRepeatDelay*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetAutoRepeatDelay" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IMouseInfoProvider#GetAutoRepeatDelay">IMouseInfoProvider.GetAutoRepeatDelay()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">int IMouseInfoProvider.GetAutoRepeatDelay()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetAutoRepeatRate_" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IMouseInfoProvider#GetAutoRepeatRate*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetAutoRepeatRate" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IMouseInfoProvider#GetAutoRepeatRate">IMouseInfoProvider.GetAutoRepeatRate()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">int IMouseInfoProvider.GetAutoRepeatRate()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetMultiClickTime_" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IMouseInfoProvider#GetMultiClickTime*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetMultiClickTime" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IMouseInfoProvider#GetMultiClickTime">IMouseInfoProvider.GetMultiClickTime()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">int IMouseInfoProvider.GetMultiClickTime()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetPointerAccelerationMultiplier_" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IMouseInfoProvider#GetPointerAccelerationMultiplier*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetPointerAccelerationMultiplier" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IMouseInfoProvider#GetPointerAccelerationMultiplier">IMouseInfoProvider.GetPointerAccelerationMultiplier()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">int IMouseInfoProvider.GetPointerAccelerationMultiplier()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetPointerAccelerationThreshold_" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IMouseInfoProvider#GetPointerAccelerationThreshold*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetPointerAccelerationThreshold" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IMouseInfoProvider#GetPointerAccelerationThreshold">IMouseInfoProvider.GetPointerAccelerationThreshold()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">int IMouseInfoProvider.GetPointerAccelerationThreshold()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetPointerSensitivity_" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IMouseInfoProvider#GetPointerSensitivity*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_SharpHook_Providers_IMouseInfoProvider_GetPointerSensitivity" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IMouseInfoProvider#GetPointerSensitivity">IMouseInfoProvider.GetPointerSensitivity()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">int IMouseInfoProvider.GetPointerSensitivity()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="SharpHook_Testing_TestProvider_SharpHook_Providers_IScreenInfoProvider_CreateScreenInfo_" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IScreenInfoProvider#CreateScreenInfo*"></a>
-  <h4 id="SharpHook_Testing_TestProvider_SharpHook_Providers_IScreenInfoProvider_CreateScreenInfo" data-uid="SharpHook.Testing.TestProvider.SharpHook#Providers#IScreenInfoProvider#CreateScreenInfo">IScreenInfoProvider.CreateScreenInfo()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ScreenData[] IScreenInfoProvider.CreateScreenInfo()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="SharpHook.Native.ScreenData.html">ScreenData</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html">IGlobalHookProvider</a>
-  </div>
-  <div>
-      <a class="xref" href="SharpHook.Providers.ILoggingProvider.html">ILoggingProvider</a>
-  </div>
-  <div>
-      <a class="xref" href="SharpHook.Providers.IEventSimulationProvider.html">IEventSimulationProvider</a>
-  </div>
-  <div>
-      <a class="xref" href="SharpHook.Providers.IScreenInfoProvider.html">IScreenInfoProvider</a>
-  </div>
-  <div>
-      <a class="xref" href="SharpHook.Providers.IMouseInfoProvider.html">IMouseInfoProvider</a>
-  </div>
+
+
+
+
+
+
+  <h4 class="section">Event Type</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
 </article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/c1ad369ab7e3538aa04c7b45124e1b75e0a50526/SharpHook/Testing/TestProvider.cs" class="edit-link">Edit this page</a>
+        </div>
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    </footer>
   </body>
 </html>
