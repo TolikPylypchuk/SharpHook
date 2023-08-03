@@ -43,5 +43,3 @@ Windows defines a single 'step' of a mouse wheel as rotation value 120.
 
 Mouse wheel simulation is a little inconsistent across platforms, and not documented. View the source code of libuiohook
 for more details.
-
-Next article: [Logging](logging.md).

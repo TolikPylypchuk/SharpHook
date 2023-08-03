@@ -4,8 +4,8 @@
       "src": [
         {
           "files": [
-            "SharpHook/**/bin/Release/net7.0/SharpHook.dll",
-            "SharpHook.Reactive/**/bin/Release/net7.0/SharpHook.Reactive.dll"
+            "SharpHook/bin/Release/net7.0/SharpHook.dll",
+            "SharpHook.Reactive/bin/Release/net7.0/SharpHook.Reactive.dll"
           ],
           "src": "../"
         }
@@ -61,7 +61,9 @@
     "dest": "_site",
     "globalMetadata": {
       "_appLogoPath": "logo.png",
-      "_appFaviconPath": "favicon.ico"
+      "_appFaviconPath": "favicon.ico",
+      "_appFooter": "<span>Created by <a href=\"https://tolik.io\">Tolik Pylypchuk</a>. Made with <a href=\"https://dotnet.github.io/docfx\">docfx</a></span>",
+      "_enableSearch": "true"
     },
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],

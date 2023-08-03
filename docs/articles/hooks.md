@@ -79,5 +79,3 @@ ignored since event handlers are run on other threads.
 The library also provides the `SharpHook.GlobalHookBase` class which you can extend to create your own implementation
 of the global hook. It calls the appropriate event handlers, and you only need to implement a strategy for dispatching
 the events. It also contains a destructor which will stop the global hook if this object is not reachable anymore.
-
-Next article: [Reactive Global Hooks](reactive.md).

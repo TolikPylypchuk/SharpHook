@@ -196,5 +196,3 @@ The `%a`, `%A`, and `%n` specifiers are not supported, as well as length `z` and
 
 `LogEntry` also contains the `Function` and `SourceLine` properties. These are the first two arguments of the log
 message - the function name in the libuiohook source code, and the source code line.
-
-Next article: [Migration Guide](migration.md).

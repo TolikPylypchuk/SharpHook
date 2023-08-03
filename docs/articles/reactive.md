@@ -71,5 +71,3 @@ to `IGlobalHook`.
 Both classes contain a destructor which will stop the global hook if the object is not reachable anymore. All event
 observables of both classes will be completed when the hook is destroyed, be it from the `Dispose` method, or from the
 destructor.
-
-Next article: [Event Simulation](simulation.md).

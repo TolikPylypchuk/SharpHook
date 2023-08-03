@@ -25,6 +25,20 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpHook.Reactive", "Sharp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpHook.Tests", "SharpHook.Tests\SharpHook.Tests.csproj", "{52B05F84-4172-4074-91AE-B05F970EFC2D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Articles", "Articles", "{6089074E-B30F-43BD-83BD-AFFD60344F7D}"
+	ProjectSection(SolutionItems) = preProject
+		docs\articles\about.md = docs\articles\about.md
+		docs\articles\hooks.md = docs\articles\hooks.md
+		docs\index.md = docs\index.md
+		docs\articles\intro.md = docs\articles\intro.md
+		docs\articles\logging.md = docs\articles\logging.md
+		docs\articles\migration.md = docs\articles\migration.md
+		docs\articles\native.md = docs\articles\native.md
+		docs\articles\reactive.md = docs\articles\reactive.md
+		docs\articles\simulation.md = docs\articles\simulation.md
+		docs\articles\toc.yml = docs\articles\toc.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -122,6 +136,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6089074E-B30F-43BD-83BD-AFFD60344F7D} = {F4D4F489-E4F0-43DE-BF41-ED27C2537E3D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B2B720FB-7FA5-44F3-B727-8604B528B3C3}

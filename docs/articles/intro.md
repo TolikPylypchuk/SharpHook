@@ -59,5 +59,3 @@ the availability of SharpHook on various platforms:
 
 libuiohook only supports X11 on Linux. Wayland support [may be coming](https://github.com/kwhat/libuiohook/issues/100),
 but it's not yet here.
-
-Next article: [Native Functions](native.md).
