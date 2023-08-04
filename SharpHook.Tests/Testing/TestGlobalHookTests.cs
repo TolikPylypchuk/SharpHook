@@ -216,6 +216,7 @@ public sealed class TestGlobalHookTests
         short x,
         short y,
         MouseButton button,
+        ushort clicks,
         DateTimeAfterEpoch dateTime,
         ModifierMask mask)
     {
@@ -228,7 +229,8 @@ public sealed class TestGlobalHookTests
             EventDateTime = t => dateTime.Value,
             EventMask = t => mask,
             CurrentMouseX = () => x,
-            CurrentMouseY = () => y
+            CurrentMouseY = () => y,
+            MouseClickCount = clicks
         };
 
         // Act
@@ -249,7 +251,7 @@ public sealed class TestGlobalHookTests
         Assert.Equal(hook.CurrentMouseX(), actualEventArgs.Data.X);
         Assert.Equal(hook.CurrentMouseY(), actualEventArgs.Data.Y);
         Assert.Equal(button, actualEventArgs.Data.Button);
-        Assert.Equal(0, actualEventArgs.Data.Clicks);
+        Assert.Equal(clicks, actualEventArgs.Data.Clicks);
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
@@ -271,6 +273,7 @@ public sealed class TestGlobalHookTests
         short x,
         short y,
         MouseButton button,
+        ushort clicks,
         DateTimeAfterEpoch dateTime,
         ModifierMask mask)
     {
@@ -281,7 +284,8 @@ public sealed class TestGlobalHookTests
         using var hook = new TestGlobalHook
         {
             EventDateTime = t => dateTime.Value,
-            EventMask = t => mask
+            EventMask = t => mask,
+            MouseClickCount = clicks
         };
 
         // Act
@@ -302,7 +306,7 @@ public sealed class TestGlobalHookTests
         Assert.Equal(x, actualEventArgs.Data.X);
         Assert.Equal(y, actualEventArgs.Data.Y);
         Assert.Equal(button, actualEventArgs.Data.Button);
-        Assert.Equal(0, actualEventArgs.Data.Clicks);
+        Assert.Equal(clicks, actualEventArgs.Data.Clicks);
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
@@ -324,6 +328,7 @@ public sealed class TestGlobalHookTests
         short x,
         short y,
         MouseButton button,
+        ushort clicks,
         DateTimeAfterEpoch dateTime,
         ModifierMask mask)
     {
@@ -337,7 +342,8 @@ public sealed class TestGlobalHookTests
             EventMask = t => mask,
             CurrentMouseX = () => x,
             CurrentMouseY = () => y,
-            MouseClickCount = 0
+            MouseClickCount = clicks,
+            RaiseMouseClicked = false
         };
 
         // Act
@@ -358,7 +364,7 @@ public sealed class TestGlobalHookTests
         Assert.Equal(hook.CurrentMouseX(), actualEventArgs.Data.X);
         Assert.Equal(hook.CurrentMouseY(), actualEventArgs.Data.Y);
         Assert.Equal(button, actualEventArgs.Data.Button);
-        Assert.Equal(0, actualEventArgs.Data.Clicks);
+        Assert.Equal(clicks, actualEventArgs.Data.Clicks);
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
@@ -380,6 +386,7 @@ public sealed class TestGlobalHookTests
         short x,
         short y,
         MouseButton button,
+        ushort clicks,
         DateTimeAfterEpoch dateTime,
         ModifierMask mask)
     {
@@ -391,7 +398,8 @@ public sealed class TestGlobalHookTests
         {
             EventDateTime = t => dateTime.Value,
             EventMask = t => mask,
-            MouseClickCount = 0
+            MouseClickCount = clicks,
+            RaiseMouseClicked = false
         };
 
         // Act
@@ -412,7 +420,7 @@ public sealed class TestGlobalHookTests
         Assert.Equal(x, actualEventArgs.Data.X);
         Assert.Equal(y, actualEventArgs.Data.Y);
         Assert.Equal(button, actualEventArgs.Data.Button);
-        Assert.Equal(0, actualEventArgs.Data.Clicks);
+        Assert.Equal(clicks, actualEventArgs.Data.Clicks);
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
@@ -440,8 +448,6 @@ public sealed class TestGlobalHookTests
     {
         // Arrange
 
-        clicks = clicks != 0 ? clicks : (ushort)1;
-
         MouseHookEventArgs? actualEventArgs = null;
 
         using var hook = new TestGlobalHook
@@ -450,7 +456,8 @@ public sealed class TestGlobalHookTests
             EventMask = t => mask,
             CurrentMouseX = () => x,
             CurrentMouseY = () => y,
-            MouseClickCount = clicks
+            MouseClickCount = clicks,
+            RaiseMouseClicked = true
         };
 
         // Act
@@ -499,15 +506,14 @@ public sealed class TestGlobalHookTests
     {
         // Arrange
 
-        clicks = clicks != 0 ? clicks : (ushort)1;
-
         MouseHookEventArgs? actualEventArgs = null;
 
         using var hook = new TestGlobalHook
         {
             EventDateTime = t => dateTime.Value,
             EventMask = t => mask,
-            MouseClickCount = clicks
+            MouseClickCount = clicks,
+            RaiseMouseClicked = true
         };
 
         // Act

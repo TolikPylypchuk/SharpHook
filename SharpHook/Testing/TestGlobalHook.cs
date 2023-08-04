@@ -111,14 +111,23 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     }
 
     /// <summary>
-    /// Gets or sets the click count for events of type <see cref="EventType.MouseClicked" />.
+    /// Gets or sets the click count for events of type <see cref="EventType.MousePressed" />,
+    /// <see cref="EventType.MouseReleased" />, and <see cref="EventType.MouseClicked" />.
     /// </summary>
-    /// <value>The click count for events of type <see cref="EventType.MouseClicked" />.</value>
-    /// <remarks>
-    /// Events of type <see cref="EventType.MouseClicked" /> won't be simulated if this property has the value of
-    /// <c>0</c>. The default value is <c>1</c>.
-    /// </remarks>
+    /// <value>
+    /// The click count for events of type <see cref="EventType.MousePressed" />,
+    /// <see cref="EventType.MouseReleased" />, and <see cref="EventType.MouseClicked" />.
+    /// </value>
     public ushort MouseClickCount { get; set; } = 1;
+
+    /// <summary>
+    /// Gets or sets the value which specifies whether <see cref="EventType.MouseClicked" /> events should be raised
+    /// after <see cref="EventType.MouseReleased" /> events.
+    /// </summary>
+    /// <value>
+    /// <see langword="true" /> if <see cref="EventType.MouseClicked" /> events should be raised.
+    /// </value>
+    public bool RaiseMouseClicked { get; set; } = true;
 
     /// <summary>
     /// Gets or sets the value which indicates whether simulating mouse movement will simulate events of type
@@ -553,7 +562,8 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
                 {
                     Button = button,
                     X = x,
-                    Y = y
+                    Y = y,
+                    Clicks = this.MouseClickCount
                 }
             });
 
@@ -588,8 +598,8 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <param name="button">The mouse button to release.</param>
     /// <returns>The value of <see cref="SimulateMouseReleaseResult" />.</returns>
     /// <remarks>
-    /// This method simulates a <see cref="EventType.MouseClicked" /> event as well if <see cref="MouseClickCount" />
-    /// is greater than <c>0</c>.
+    /// This method simulates a <see cref="EventType.MouseClicked" /> event as well if <see cref="RaiseMouseClicked" />
+    /// is <see langword="true" />.
     /// </remarks>
     public UioHookResult SimulateMouseRelease(MouseButton button) =>
         this.SimulateMouseRelease(this.currentMouseX(), this.currentMouseY(), button);
@@ -607,8 +617,8 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <see langword="null" /> if the event was not simulated.
     /// </returns>
     /// <remarks>
-    /// This method simulates a <see cref="EventType.MouseClicked" /> event as well if <see cref="MouseClickCount" />
-    /// is greater than <c>0</c>.
+    /// This method simulates a <see cref="EventType.MouseClicked" /> event as well if <see cref="RaiseMouseClicked" />
+    /// is <see langword="true" />.
     /// </remarks>
     public Task<TestEventHandledEventArgs?> SimulateMouseReleaseAndWaitForHandler(
         MouseButton button,
@@ -629,8 +639,8 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <see langword="null" /> if the event was not simulated.
     /// </returns>
     /// <remarks>
-    /// This method simulates a <see cref="EventType.MouseClicked" /> event as well if <see cref="MouseClickCount" />
-    /// is greater than <c>0</c>.
+    /// This method should be called only when <see cref="RaiseMouseClicked" /> is <see langword="true" />, otherwise
+    /// the resulting task will never finish.
     /// </remarks>
     public Task<TestEventHandledEventArgs?> SimulateMouseReleaseAndWaitForMouseClickHandler(
         MouseButton button,
@@ -647,11 +657,13 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <param name="button">The mouse button to release.</param>
     /// <returns>The value of <see cref="SimulateMouseReleaseResult" />.</returns>
     /// <remarks>
-    /// This method simulates a <see cref="EventType.MouseClicked" /> event as well if <see cref="MouseClickCount" />
-    /// is greater than <c>0</c>.
+    /// This method simulates a <see cref="EventType.MouseClicked" /> event as well if <see cref="RaiseMouseClicked" />
+    /// is <see langword="true" />.
     /// </remarks>
     public UioHookResult SimulateMouseRelease(short x, short y, MouseButton button)
     {
+        ushort clickCount = this.MouseClickCount;
+
         var result = this.SimulateEvent(
             this.SimulateMouseReleaseResult,
             new UioHookEvent
@@ -663,11 +675,10 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
                 {
                     Button = button,
                     X = x,
-                    Y = y
+                    Y = y,
+                    Clicks = clickCount
                 }
             });
-
-        ushort clickCount = this.MouseClickCount;
 
         if (result == UioHookResult.Success && clickCount != 0)
         {
@@ -706,8 +717,8 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <see langword="null" /> if the event was not simulated.
     /// </returns>
     /// <remarks>
-    /// This method simulates a <see cref="EventType.MouseClicked" /> event as well if <see cref="MouseClickCount" />
-    /// is greater than <c>0</c>.
+    /// This method simulates a <see cref="EventType.MouseClicked" /> event as well if <see cref="RaiseMouseClicked" />
+    /// is <see langword="true" />.
     /// </remarks>
     public Task<TestEventHandledEventArgs?> SimulateMouseReleaseAndWaitForHandler(
         short x,
@@ -734,8 +745,8 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <see langword="null" /> if the event was not simulated.
     /// </returns>
     /// <remarks>
-    /// This method should be called only when <see cref="MouseClickCount" /> returns a non-zero value, otherwise the
-    /// resulting task will never finish.
+    /// This method should be called only when <see cref="RaiseMouseClicked" /> is <see langword="true" />, otherwise
+    /// the resulting task will never finish.
     /// </remarks>
     public Task<TestEventHandledEventArgs?> SimulateMouseReleaseAndWaitForMouseClickHandler(
         short x,

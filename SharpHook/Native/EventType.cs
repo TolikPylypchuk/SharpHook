@@ -20,6 +20,16 @@ public enum EventType
     /// <summary>
     /// Raised when a character is typed. Ignored when posted.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Events of this type are raised after events of type <see cref="KeyPressed" /> if the pressed key causes
+    /// characters to be typed. Since a single key press can cause multiple characters to be typed, a single event of
+    /// type <see cref="KeyPressed" /> can cause multiple events of type <see cref="KeyTyped" />.
+    /// </para>
+    /// <para>
+    /// Since events of this type are not raised by the OS, suppressing them has no effect.
+    /// </para>
+    /// </remarks>
     KeyTyped,
 
     /// <summary>
@@ -35,6 +45,14 @@ public enum EventType
     /// <summary>
     /// Raised when a mouse button is clicked. Ignored when posted.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Events of this type are raised after events of type <see cref="MouseReleased" /> if the mouse was not dragged.
+    /// </para>
+    /// <para>
+    /// Since events of this type are not raised by the OS, suppressing them has no effect.
+    /// </para>
+    /// </remarks>
     MouseClicked,
 
     /// <summary>
