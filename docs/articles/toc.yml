@@ -1,16 +1,17 @@
-- name: Introduction
-  href: intro.md
-- name: Native Functions
-  href: native.md
-- name: Global Hooks
-  href: hooks.md
-- name: Reactive Global Hooks
-  href: reactive.md
-- name: Event Simulation
-  href: simulation.md
-- name: Logging
-  href: logging.md
-- name: Migration Guide
-  href: migration.md
-- name: About SharpHook
-  href: about.md
+items:
+  - name: Introduction
+    href: intro.md
+  - name: Native Functions
+    href: native.md
+  - name: Global Hooks
+    href: hooks.md
+  - name: Reactive Global Hooks
+    href: reactive.md
+  - name: Event Simulation
+    href: simulation.md
+  - name: Logging
+    href: logging.md
+  - name: Migration Guide
+    href: migration.md
+  - name: About SharpHook
+    href: about.md

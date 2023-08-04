@@ -15,8 +15,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		CHANGELOG.md = CHANGELOG.md
 		docs\docfx.json = docs\docfx.json
 		icon.png = icon.png
+		docs\index.md = docs\index.md
 		LICENSE = LICENSE
 		README.md = README.md
+		docs\toc.yml = docs\toc.yml
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpHook.Sample", "SharpHook.Sample\SharpHook.Sample.csproj", "{FC6E4575-AEBD-480B-A3CD-FDF4252774B6}"
@@ -29,7 +31,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Articles", "Articles", "{60
 	ProjectSection(SolutionItems) = preProject
 		docs\articles\about.md = docs\articles\about.md
 		docs\articles\hooks.md = docs\articles\hooks.md
-		docs\index.md = docs\index.md
 		docs\articles\intro.md = docs\articles\intro.md
 		docs\articles\logging.md = docs\articles\logging.md
 		docs\articles\migration.md = docs\articles\migration.md

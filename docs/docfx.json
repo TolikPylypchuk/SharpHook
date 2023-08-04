@@ -62,7 +62,7 @@
     "globalMetadata": {
       "_appTitle": "SharpHook",
       "_appName": "SharpHook",
-      "_appFooter": "<span>Created by <a href=\"https://tolik.io\">Tolik Pylypchuk</a>. Made with <a href=\"https://dotnet.github.io/docfx\">docfx</a></span>",
+      "_appFooter": "<span>Created by <a href=\"https://tolik.io\">Tolik Pylypchuk</a>. Docs made with <a href=\"https://dotnet.github.io/docfx\">docfx</a></span>.",
       "_appLogoPath": "logo.png",
       "_appFaviconPath": "favicon.ico",
       "_enableSearch": "true",
