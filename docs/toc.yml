@@ -1,8 +1,7 @@
 items:
-  - name: Home Page
-    href: index.md
   - name: Articles
-    href: articles/toc.yml
+    href: articles/
+    homepage: index.md
   - name: API Docs
     href: api/
     homepage: api/index.md
