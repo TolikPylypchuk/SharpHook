@@ -72,8 +72,12 @@
     "fileMetadataFiles": [],
     "template": [
       "default",
-      "modern"
+      "modern",
+      "template"
     ],
+    "sitemap": {
+      "baseUrl": "https://sharphook.tolik.io/v5.0.0/"
+    },
     "postProcessors": [ "ExtractSearchIndex" ],
     "markdownEngineName": "markdig",
     "noLangKeyword": false,

@@ -13,12 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitmodules = .gitmodules
 		.github\workflows\build.yml = .github\workflows\build.yml
 		CHANGELOG.md = CHANGELOG.md
-		docs\docfx.json = docs\docfx.json
 		icon.png = icon.png
-		docs\index.md = docs\index.md
 		LICENSE = LICENSE
 		README.md = README.md
-		docs\toc.yml = docs\toc.yml
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpHook.Sample", "SharpHook.Sample\SharpHook.Sample.csproj", "{FC6E4575-AEBD-480B-A3CD-FDF4252774B6}"
@@ -37,6 +34,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Articles", "Articles", "{60
 		docs\articles\reactive.md = docs\articles\reactive.md
 		docs\articles\simulation.md = docs\articles\simulation.md
 		docs\articles\toc.yml = docs\articles\toc.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{97C59CA2-12AA-4290-8A9F-5AC10C4E2F49}"
+	ProjectSection(SolutionItems) = preProject
+		docs\docfx.json = docs\docfx.json
+		docs\index.md = docs\index.md
+		docs\template\public\main.js = docs\template\public\main.js
+		docs\toc.yml = docs\toc.yml
 	EndProjectSection
 EndProject
 Global
@@ -138,7 +143,8 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{6089074E-B30F-43BD-83BD-AFFD60344F7D} = {F4D4F489-E4F0-43DE-BF41-ED27C2537E3D}
+		{6089074E-B30F-43BD-83BD-AFFD60344F7D} = {97C59CA2-12AA-4290-8A9F-5AC10C4E2F49}
+		{97C59CA2-12AA-4290-8A9F-5AC10C4E2F49} = {F4D4F489-E4F0-43DE-BF41-ED27C2537E3D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B2B720FB-7FA5-44F3-B727-8604B528B3C3}

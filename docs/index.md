@@ -1,14 +1,10 @@
-# SharpHook
+# Introduction
 
-SharpHook provides a cross-platform global keyboard and mouse hook, event simulation, and text entry for .NET.
-It is a wrapper of [libuiohook](https://github.com/kwhat/libuiohook) and provides direct access to its features as
-well as higher-level types to work with it.
+SharpHook provides a cross-platform global keyboard and mouse hook, event simulation, and text entry for .NET. It is a
+wrapper of [libuiohook](https://github.com/TolikPylypchuk/libuiohook) and provides direct access to its features as well
+as higher-level types to work with it.
 
-The following articles can help you learn how to use this library.
-
-## GitHub Repository
-
-https://github.com/TolikPylypchuk/SharpHook
+The docs can help you learn how to use this library.
 
 ## Installation
 
@@ -16,7 +12,6 @@ https://github.com/TolikPylypchuk/SharpHook
 dotnet add package SharpHook --version 5.0.0
 dotnet add package SharpHook.Reactive --version 5.0.0
 ```
-
 
 ## Supported Platforms
 
