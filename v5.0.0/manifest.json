@@ -1,4 +1,7 @@
 {
+  "sitemap": {
+    "baseUrl": "https://sharphook.tolik.io/v5.0.0/"
+  },
   "homepages": [],
   "source_base_path": "D:/a/SharpHook/SharpHook/docs",
   "xrefmap": "xrefmap.yml",
