@@ -5,6 +5,7 @@ namespace SharpHook.Reactive.Logging;
 /// </summary>
 /// <seealso cref="ILogSource" />
 /// <seealso cref="IReactiveLogSource" />
+[ExcludeFromCodeCoverage]
 public sealed class ReactiveLogSourceAdapter : IReactiveLogSource
 {
     private readonly ILogSource logSource;

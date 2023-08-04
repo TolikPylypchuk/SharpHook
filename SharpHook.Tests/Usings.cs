@@ -1,3 +1,6 @@
+global using System.Reactive.Concurrency;
+global using System.Reactive.Linq;
+
 global using FsCheck;
 global using FsCheck.Xunit;
 
