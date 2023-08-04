@@ -262,22 +262,24 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
         this.ThrowIfRunning();
         this.ThrowIfDisposed();
 
+        UioHookResult result;
+
         try
         {
             this.globalHookProvider.SetDispatchProc(this.dispatchProc, IntPtr.Zero);
 
             this.IsRunning = true;
-            var result = this.globalHookProvider.Run();
+            result = this.globalHookProvider.Run();
             this.IsRunning = false;
-
-            if (result != UioHookResult.Success)
-            {
-                throw new HookException(result, this.FormatFailureMessage(Starting, result));
-            }
         } catch (Exception e)
         {
             this.IsRunning = false;
             throw new HookException(UioHookResult.Failure, e);
+        }
+
+        if (result != UioHookResult.Success)
+        {
+            throw new HookException(result, this.FormatFailureMessage(Starting, result));
         }
     }
 

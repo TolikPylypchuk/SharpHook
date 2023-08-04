@@ -680,7 +680,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
                 }
             });
 
-        if (result == UioHookResult.Success && clickCount != 0)
+        if (result == UioHookResult.Success && this.RaiseMouseClicked)
         {
             var e = new UioHookEvent
             {

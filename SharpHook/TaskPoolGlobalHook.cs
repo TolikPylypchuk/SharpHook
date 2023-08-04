@@ -31,6 +31,7 @@ public sealed class TaskPoolGlobalHook : GlobalHookBase
     /// Calling this constructor is the same as passing <see cref="TaskPoolGlobalHookOptions.Sequential" /> to the
     /// other constructor.
     /// </remarks>
+    [ExcludeFromCodeCoverage]
     public TaskPoolGlobalHook()
         : this(TaskPoolGlobalHookOptions.Sequential)
     { }
@@ -53,6 +54,7 @@ public sealed class TaskPoolGlobalHook : GlobalHookBase
     /// <exception cref="ArgumentNullException">
     /// <paramref name="options"/> is <see langword="null" />.
     /// </exception>
+    [ExcludeFromCodeCoverage]
     public TaskPoolGlobalHook(TaskPoolGlobalHookOptions options)
         : base(options?.RunAsyncOnBackgroundThread ?? false)
     {

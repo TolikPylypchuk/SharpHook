@@ -6,7 +6,7 @@
     <members>
         <member name="T:SharpHook.EventSimulator">
             <summary>
-            A keyboard and mouse event simulator which posts events to the OS.
+            A keyboard and mouse event simulator which posts events to a simulation provider (libuiohook by default).
             </summary>
             <seealso cref="T:SharpHook.Providers.IEventSimulationProvider" />
             <seealso cref="M:SharpHook.Native.UioHook.PostEvent(SharpHook.Native.UioHookEvent@)" />
@@ -168,8 +168,8 @@
         </member>
         <member name="T:SharpHook.GlobalHookBase">
             <summary>
-            Represents an abstract implementation of <see cref="T:SharpHook.IGlobalHook" /> which raises events only when there is at least
-            one subscriber.
+            Represents an abstract implementation of <see cref="T:SharpHook.IGlobalHook" /> which defines everything needed except for
+            a strategy for dispatching events and uses a global hook provider (libuiohook by default).
             </summary>
             <seealso cref="T:SharpHook.IGlobalHook" />
             <seealso cref="T:SharpHook.SimpleGlobalHook" />

@@ -1,8 +1,8 @@
 namespace SharpHook;
 
 /// <summary>
-/// Represents an abstract implementation of <see cref="IGlobalHook" /> which raises events only when there is at least
-/// one subscriber.
+/// Represents an abstract implementation of <see cref="IGlobalHook" /> which defines everything needed except for
+/// a strategy for dispatching events and uses a global hook provider (libuiohook by default).
 /// </summary>
 /// <seealso cref="IGlobalHook" />
 /// <seealso cref="SimpleGlobalHook" />
@@ -19,6 +19,7 @@ public abstract class GlobalHookBase : IGlobalHook
     /// <summary>
     /// Initializes a new instance of <see cref="GlobalHookBase" />.
     /// </summary>
+    [ExcludeFromCodeCoverage]
     protected GlobalHookBase()
         : this(false)
     { }
@@ -41,6 +42,7 @@ public abstract class GlobalHookBase : IGlobalHook
     /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
     /// Otherwise, <see langword="false" />.
     /// </param>
+    [ExcludeFromCodeCoverage]
     protected GlobalHookBase(bool runAsyncOnBackgroundThread)
         : this(UioHookProvider.Instance, runAsyncOnBackgroundThread)
     { }
@@ -71,6 +73,7 @@ public abstract class GlobalHookBase : IGlobalHook
     /// <summary>
     /// Destroys the global hook if it's running.
     /// </summary>
+    [ExcludeFromCodeCoverage]
     ~GlobalHookBase() =>
         this.Dispose(false);
 
@@ -99,22 +102,24 @@ public abstract class GlobalHookBase : IGlobalHook
         this.ThrowIfRunning();
         this.ThrowIfDisposed();
 
+        UioHookResult result;
+
         try
         {
             this.globalHookProvider.SetDispatchProc(this.dispatchProc, IntPtr.Zero);
 
             this.IsRunning = true;
-            var result = this.globalHookProvider.Run();
+            result = this.globalHookProvider.Run();
             this.IsRunning = false;
-
-            if (result != UioHookResult.Success)
-            {
-                throw new HookException(result, this.FormatFailureMessage(Starting, result));
-            }
         } catch (Exception e)
         {
             this.IsRunning = false;
             throw new HookException(UioHookResult.Failure, e);
+        }
+        
+        if (result != UioHookResult.Success)
+        {
+            throw new HookException(result, this.FormatFailureMessage(Starting, result));
         }
     }
 

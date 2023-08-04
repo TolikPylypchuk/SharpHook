@@ -1,7 +1,7 @@
 namespace SharpHook;
 
 /// <summary>
-/// A keyboard and mouse event simulator which posts events to the OS.
+/// A keyboard and mouse event simulator which posts events to a simulation provider (libuiohook by default).
 /// </summary>
 /// <seealso cref="IEventSimulationProvider" />
 /// <seealso cref="UioHook.PostEvent(ref UioHookEvent)" />
