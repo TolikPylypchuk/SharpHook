@@ -5455,21 +5455,6 @@ references:
   commentId: Overload:SharpHook.Reactive.ReactiveGlobalHookAdapter.Dispose
   fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.Dispose
   nameWithType: ReactiveGlobalHookAdapter.Dispose
-- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.Finalize
-  name: ~ReactiveGlobalHookAdapter()
-  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_Finalize
-  commentId: M:SharpHook.Reactive.ReactiveGlobalHookAdapter.Finalize
-  name.vb: ''
-  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.~ReactiveGlobalHookAdapter()
-  fullName.vb: ''
-  nameWithType: ReactiveGlobalHookAdapter.~ReactiveGlobalHookAdapter()
-  nameWithType.vb: ''
-- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.Finalize*
-  name: ~ReactiveGlobalHookAdapter
-  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_Finalize_
-  commentId: Overload:SharpHook.Reactive.ReactiveGlobalHookAdapter.Finalize
-  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.~ReactiveGlobalHookAdapter
-  nameWithType: ReactiveGlobalHookAdapter.~ReactiveGlobalHookAdapter
 - uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.HookDisabled
   name: HookDisabled
   href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_HookDisabled
