@@ -10,7 +10,7 @@
       <link rel="stylesheet" href="public/docfx.min.css">
       <link rel="stylesheet" href="public/main.css">
       <meta name="docfx:navrel" content="toc.html">
-      <meta name="docfx:tocrel" content="toc.html">
+      <meta name="docfx:tocrel" content="articles/toc.html">
       
       <meta name="docfx:rel" content="">
       
@@ -81,14 +81,53 @@
 <p>SharpHook provides a cross-platform global keyboard and mouse hook, event simulation, and text entry for .NET.
 It is a wrapper of <a href="https://github.com/kwhat/libuiohook">libuiohook</a> and provides direct access to its features as
 well as higher-level types to work with it.</p>
-<p>You can look through the <a href="articles/intro.html">articles</a> to find out more about this library, or dive into
-the <a href="api/index.html">API reference</a>.</p>
+<p>The following articles can help you learn how to use this library.</p>
 <h2 id="github-repository">GitHub Repository</h2>
 <p><a href="https://github.com/TolikPylypchuk/SharpHook">https://github.com/TolikPylypchuk/SharpHook</a></p>
 <h2 id="installation">Installation</h2>
 <pre><code>dotnet add package SharpHook --version 5.0.0
 dotnet add package SharpHook.Reactive --version 5.0.0
 </code></pre>
+<h2 id="supported-platforms">Supported Platforms</h2>
+<p>SharpHook targets .NET 6+, .NET Framework 4.6.1+, and .NET Standard 2.0. The following table describes
+the availability of SharpHook on various platforms:</p>
+<table>
+  <tr>
+    <th></th>
+    <th>Windows</th>
+    <th>macOS</th>
+    <th>Linux</th>
+  </tr>
+  <tr>
+    <th>x86</th>
+    <td>Yes</td>
+    <td>N/A</td>
+    <td>No<sup>1</sup></td>
+  </tr>
+  <tr>
+    <th>x64</th>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <th>Arm32</th>
+    <td>No<sup>2</sup></td>
+    <td>N/A</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <th>Arm64</th>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+</table>
+<p>[1] - Linux on x86 is <a href="https://github.com/dotnet/runtime/issues/7335">not supported</a> by .NET itself.</p>
+<p>[2] - Windows Arm32 support was
+<a href="https://github.com/dotnet/core/blob/main/release-notes/5.0/5.0-supported-os.md">dropped</a> in .NET 5.</p>
+<p>libuiohook only supports X11 on Linux. Wayland support <a href="https://github.com/kwhat/libuiohook/issues/100">may be coming</a>,
+but it's not yet here.</p>
 </article>
 
         <div class="contribution d-print-none">
