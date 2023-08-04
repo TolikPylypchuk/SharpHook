@@ -6451,6 +6451,18 @@ references:
   commentId: E:SharpHook.Testing.TestGlobalHook.MouseWheel
   fullName: SharpHook.Testing.TestGlobalHook.MouseWheel
   nameWithType: TestGlobalHook.MouseWheel
+- uid: SharpHook.Testing.TestGlobalHook.RaiseMouseClicked
+  name: RaiseMouseClicked
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_RaiseMouseClicked
+  commentId: P:SharpHook.Testing.TestGlobalHook.RaiseMouseClicked
+  fullName: SharpHook.Testing.TestGlobalHook.RaiseMouseClicked
+  nameWithType: TestGlobalHook.RaiseMouseClicked
+- uid: SharpHook.Testing.TestGlobalHook.RaiseMouseClicked*
+  name: RaiseMouseClicked
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_RaiseMouseClicked_
+  commentId: Overload:SharpHook.Testing.TestGlobalHook.RaiseMouseClicked
+  fullName: SharpHook.Testing.TestGlobalHook.RaiseMouseClicked
+  nameWithType: TestGlobalHook.RaiseMouseClicked
 - uid: SharpHook.Testing.TestGlobalHook.Run
   name: Run()
   href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_Run
