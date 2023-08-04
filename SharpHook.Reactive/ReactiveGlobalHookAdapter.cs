@@ -135,12 +135,6 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
     }
 
     /// <summary>
-    /// Destroys the global hook if it's running.
-    /// </summary>
-    ~ReactiveGlobalHookAdapter() =>
-        this.Dispose(false);
-
-    /// <summary>
     /// Gets the value which indicates whether the global hook is running.
     /// </summary>
     /// <value><see langword="true" /> if the global hook is running. Otherwise, <see langword="false" />.</value>
@@ -251,7 +245,7 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
     /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
     /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
     /// <remarks>
-    /// The hook is started on a separate thread. The returned observable is hot, and emits a single value and then
+    /// The hook is started on a separate thread. The returned observable is hot. It emits a single value and then
     /// immediately completes when the hook is destroyed.
     /// </remarks>
     public IObservable<Unit> RunAsync()
@@ -273,12 +267,6 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
     /// </remarks>
     public void Dispose()
     {
-        this.Dispose(true);
-        GC.SuppressFinalize(this);
-    }
-
-    private void Dispose(bool disposing)
-    {
         if (this.IsDisposed)
         {
             return;
@@ -287,18 +275,11 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
         this.hookDisabledSubject.Subscribe(_ =>
         {
             this.CompleteAllSubjects();
-
-            if (disposing)
-            {
-                this.subscriptions.Dispose();
-                this.DisposeAllSubjects();
-            }
+            this.subscriptions.Dispose();
+            this.DisposeAllSubjects();
         });
 
-        if (disposing)
-        {
-            this.hook.Dispose();
-        }
+        this.hook.Dispose();
     }
 
     private void CompleteAllSubjects()

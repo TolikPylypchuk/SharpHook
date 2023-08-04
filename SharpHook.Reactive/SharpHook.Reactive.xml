@@ -126,7 +126,7 @@
             the current thread is to run it on a separate thread.
             </para>
             <para>
-            The returned observable is hot, and emits a single value and then immediately completes when the hook is
+            The returned observable is hot. It emits a single value and then immediately completes when the hook is
             destroyed.
             </para>
             </remarks>
@@ -211,11 +211,6 @@
             <exception cref="T:System.ArgumentNullException">
             <paramref name="hook" /> or <paramref name="defaultScheduler" /> is <see langword="null" />.
             </exception>
-        </member>
-        <member name="M:SharpHook.Reactive.ReactiveGlobalHookAdapter.Finalize">
-            <summary>
-            Destroys the global hook if it's running.
-            </summary>
         </member>
         <member name="P:SharpHook.Reactive.ReactiveGlobalHookAdapter.IsRunning">
             <summary>
@@ -323,7 +318,7 @@
             <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
             <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
             <remarks>
-            The hook is started on a separate thread. The returned observable is hot, and emits a single value and then
+            The hook is started on a separate thread. The returned observable is hot. It emits a single value and then
             immediately completes when the hook is destroyed.
             </remarks>
         </member>
@@ -535,7 +530,7 @@
             <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
             <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
             <remarks>
-            The hook is started on a separate thread. The returned observable is hot, and emits a single value and then
+            The hook is started on a separate thread. The returned observable is hot. It emits a single value and then
             immediately completes when the hook is destroyed.
             </remarks>
         </member>

@@ -1,8 +1,8 @@
-namespace SharpHook;
+namespace SharpHook.Reactive;
 
-public sealed class SimpleGlobalHookTests
+public sealed class ReactiveGlobalHookAdapterTests
 {
-    public SimpleGlobalHookTests() =>
+    public ReactiveGlobalHookAdapterTests() =>
         Arb.Register<Generators>();
 
     [Fact(DisplayName = "IsRunning should be true only if the hook is running")]
@@ -11,7 +11,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new SimpleGlobalHook(provider);
+        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
 
         // Act + Assert
 
@@ -32,7 +32,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new SimpleGlobalHook(provider);
+        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
 
         // Act + Assert
 
@@ -54,27 +54,23 @@ public sealed class SimpleGlobalHookTests
             EventMask = t => mask
         };
 
-        var hook = new SimpleGlobalHook(provider);
+        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
 
-        object? actualSender = null;
         HookEventArgs? actualEventArgs = null;
 
         ulong time = (ulong)dateTime.Value.ToUnixTimeMilliseconds();
 
-        hook.HookEnabled += (sender, e) =>
+        hook.HookEnabled.Subscribe(e =>
         {
-            actualSender = sender;
             actualEventArgs = e;
             hook.Dispose();
-        };
+        });
 
         // Act
 
         hook.Run();
 
         // Assert
-
-        Assert.Same(hook, actualSender);
 
         Assert.NotNull(actualEventArgs);
 
@@ -94,28 +90,20 @@ public sealed class SimpleGlobalHookTests
             EventMask = t => mask
         };
 
-        var hook = new SimpleGlobalHook(provider);
+        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
 
-        object? actualSender = null;
         HookEventArgs? actualEventArgs = null;
 
         ulong time = (ulong)dateTime.Value.ToUnixTimeMilliseconds();
 
-        hook.HookEnabled += (sender, e) => hook.Dispose();
-
-        hook.HookDisabled += (sender, e) =>
-        {
-            actualSender = sender;
-            actualEventArgs = e;
-        };
+        hook.HookEnabled.Subscribe(e => hook.Dispose());
+        hook.HookDisabled.Subscribe(e => actualEventArgs = e);
 
         // Act
 
         hook.Run();
 
         // Assert
-
-        Assert.Same(hook, actualSender);
 
         Assert.NotNull(actualEventArgs);
 
@@ -130,7 +118,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(provider);
+        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
 
         var e = new UioHookEvent
         {
@@ -145,7 +133,7 @@ public sealed class SimpleGlobalHookTests
             }
         };
 
-        hook.KeyPressed += OnKeyPressed;
+        hook.KeyPressed.Subscribe(OnKeyPressed);
 
         // Act
 
@@ -155,10 +143,8 @@ public sealed class SimpleGlobalHookTests
 
         // Assert
 
-        void OnKeyPressed(object? sender, KeyboardHookEventArgs args)
+        void OnKeyPressed(KeyboardHookEventArgs args)
         {
-            Assert.Same(hook, sender);
-
             Assert.Equal(e, args.RawEvent);
             Assert.Equal(dateTime.Value, args.EventTime);
 
@@ -174,7 +160,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(provider);
+        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
 
         var e = new UioHookEvent
         {
@@ -189,7 +175,7 @@ public sealed class SimpleGlobalHookTests
             }
         };
 
-        hook.KeyReleased += OnKeyReleased;
+        hook.KeyReleased.Subscribe(OnKeyReleased);
 
         // Act
 
@@ -199,10 +185,8 @@ public sealed class SimpleGlobalHookTests
 
         // Assert
 
-        void OnKeyReleased(object? sender, KeyboardHookEventArgs args)
+        void OnKeyReleased(KeyboardHookEventArgs args)
         {
-            Assert.Same(hook, sender);
-
             Assert.Equal(e, args.RawEvent);
             Assert.Equal(dateTime.Value, args.EventTime);
 
@@ -223,7 +207,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(provider);
+        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
 
         var e = new UioHookEvent
         {
@@ -238,7 +222,7 @@ public sealed class SimpleGlobalHookTests
             }
         };
 
-        hook.KeyTyped += OnKeyTyped;
+        hook.KeyTyped.Subscribe(OnKeyTyped);
 
         // Act
 
@@ -248,10 +232,8 @@ public sealed class SimpleGlobalHookTests
 
         // Assert
 
-        void OnKeyTyped(object? sender, KeyboardHookEventArgs args)
+        void OnKeyTyped(KeyboardHookEventArgs args)
         {
-            Assert.Same(hook, sender);
-
             Assert.Equal(e, args.RawEvent);
             Assert.Equal(dateTime.Value, args.EventTime);
 
@@ -273,7 +255,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(provider);
+        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
 
         var e = new UioHookEvent
         {
@@ -289,7 +271,7 @@ public sealed class SimpleGlobalHookTests
             }
         };
 
-        hook.MousePressed += OnMousePressed;
+        hook.MousePressed.Subscribe(OnMousePressed);
 
         // Act
 
@@ -299,10 +281,8 @@ public sealed class SimpleGlobalHookTests
 
         // Assert
 
-        void OnMousePressed(object? sender, MouseHookEventArgs args)
+        void OnMousePressed(MouseHookEventArgs args)
         {
-            Assert.Same(hook, sender);
-
             Assert.Equal(e, args.RawEvent);
             Assert.Equal(dateTime.Value, args.EventTime);
 
@@ -325,7 +305,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(provider);
+        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
 
         var e = new UioHookEvent
         {
@@ -341,7 +321,7 @@ public sealed class SimpleGlobalHookTests
             }
         };
 
-        hook.MouseReleased += OnMouseReleased;
+        hook.MouseReleased.Subscribe(OnMouseReleased);
 
         // Act
 
@@ -351,10 +331,8 @@ public sealed class SimpleGlobalHookTests
 
         // Assert
 
-        void OnMouseReleased(object? sender, MouseHookEventArgs args)
+        void OnMouseReleased(MouseHookEventArgs args)
         {
-            Assert.Same(hook, sender);
-
             Assert.Equal(e, args.RawEvent);
             Assert.Equal(dateTime.Value, args.EventTime);
 
@@ -377,7 +355,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(provider);
+        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
 
         var e = new UioHookEvent
         {
@@ -393,7 +371,7 @@ public sealed class SimpleGlobalHookTests
             }
         };
 
-        hook.MouseClicked += OnMouseClicked;
+        hook.MouseClicked.Subscribe(OnMouseClicked);
 
         // Act
 
@@ -403,10 +381,8 @@ public sealed class SimpleGlobalHookTests
 
         // Assert
 
-        void OnMouseClicked(object? sender, MouseHookEventArgs args)
+        void OnMouseClicked(MouseHookEventArgs args)
         {
-            Assert.Same(hook, sender);
-
             Assert.Equal(e, args.RawEvent);
             Assert.Equal(dateTime.Value, args.EventTime);
 
@@ -423,7 +399,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(provider);
+        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
 
         var e = new UioHookEvent
         {
@@ -437,7 +413,7 @@ public sealed class SimpleGlobalHookTests
             }
         };
 
-        hook.MouseMoved += OnMouseMoved;
+        hook.MouseMoved.Subscribe(OnMouseMoved);
 
         // Act
 
@@ -447,10 +423,8 @@ public sealed class SimpleGlobalHookTests
 
         // Assert
 
-        void OnMouseMoved(object? sender, MouseHookEventArgs args)
+        void OnMouseMoved(MouseHookEventArgs args)
         {
-            Assert.Same(hook, sender);
-
             Assert.Equal(e, args.RawEvent);
             Assert.Equal(dateTime.Value, args.EventTime);
 
@@ -465,7 +439,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(provider);
+        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
 
         var e = new UioHookEvent
         {
@@ -479,7 +453,7 @@ public sealed class SimpleGlobalHookTests
             }
         };
 
-        hook.MouseDragged += OnMouseDragged;
+        hook.MouseDragged.Subscribe(OnMouseDragged);
 
         // Act
 
@@ -489,10 +463,8 @@ public sealed class SimpleGlobalHookTests
 
         // Assert
 
-        void OnMouseDragged(object? sender, MouseHookEventArgs args)
+        void OnMouseDragged(MouseHookEventArgs args)
         {
-            Assert.Same(hook, sender);
-
             Assert.Equal(e, args.RawEvent);
             Assert.Equal(dateTime.Value, args.EventTime);
 
@@ -515,7 +487,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(provider);
+        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
 
         var e = new UioHookEvent
         {
@@ -533,7 +505,7 @@ public sealed class SimpleGlobalHookTests
             }
         };
 
-        hook.MouseWheel += OnMouseWheel;
+        hook.MouseWheel.Subscribe(OnMouseWheel);
 
         // Act
 
@@ -543,10 +515,8 @@ public sealed class SimpleGlobalHookTests
 
         // Assert
 
-        void OnMouseWheel(object? sender, MouseWheelHookEventArgs args)
+        void OnMouseWheel(MouseWheelHookEventArgs args)
         {
-            Assert.Same(hook, sender);
-
             Assert.Equal(e, args.RawEvent);
             Assert.Equal(dateTime.Value, args.EventTime);
 
@@ -569,7 +539,7 @@ public sealed class SimpleGlobalHookTests
             RunResult = result.Value
         };
 
-        var hook = new SimpleGlobalHook(provider);
+        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
 
         // Act + Assert
 
@@ -587,11 +557,11 @@ public sealed class SimpleGlobalHookTests
             RunResult = result.Value
         };
 
-        var hook = new SimpleGlobalHook(provider);
+        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
 
         // Act + Assert
 
-        var exception = await Assert.ThrowsAsync<HookException>(hook.RunAsync);
+        var exception = await Assert.ThrowsAsync<HookException>(async () => await hook.RunAsync());
         Assert.Equal(result.Value, exception.Result);
     }
 
@@ -601,7 +571,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(provider);
+        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
 
         this.RunHookAndWaitForStart(hook);
 
@@ -616,13 +586,13 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(provider);
+        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
 
         this.RunHookAndWaitForStart(hook);
 
         // Act + Assert
 
-        await Assert.ThrowsAsync<InvalidOperationException>(hook.RunAsync);
+        await Assert.ThrowsAsync<InvalidOperationException>(async () => await hook.RunAsync());
     }
 
     [Fact(DisplayName = "Run should throw if the hook is disposed")]
@@ -630,7 +600,7 @@ public sealed class SimpleGlobalHookTests
     {
         // Arrange
 
-        var hook = new SimpleGlobalHook();
+        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook());
         hook.Dispose();
 
         // Act + Assert
@@ -643,12 +613,12 @@ public sealed class SimpleGlobalHookTests
     {
         // Arrange
 
-        var hook = new SimpleGlobalHook();
+        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook());
         hook.Dispose();
 
         // Act + Assert
 
-        await Assert.ThrowsAsync<ObjectDisposedException>(hook.RunAsync);
+        await Assert.ThrowsAsync<ObjectDisposedException>(async () => await hook.RunAsync());
     }
 
     [Property(DisplayName = "Dispose should throw if the hook failed to stop")]
@@ -661,7 +631,7 @@ public sealed class SimpleGlobalHookTests
             StopResult = result.Value
         };
 
-        var hook = new SimpleGlobalHook(provider);
+        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
 
         this.RunHookAndWaitForStart(hook);
 
@@ -671,11 +641,15 @@ public sealed class SimpleGlobalHookTests
         Assert.Equal(result.Value, exception.Result);
     }
 
-    [Fact(DisplayName = "SimpleGlobalHook should throw if the provider is null")]
+    [Fact(DisplayName = "ReactiveGlobalHookAdapter should throw if the hook is null")]
     public void ProviderNull() =>
-        Assert.Throws<ArgumentNullException>(() => new SimpleGlobalHook(null!));
+        Assert.Throws<ArgumentNullException>(() => new ReactiveGlobalHookAdapter(null!));
 
-    private void RunHookAndWaitForStart(IGlobalHook hook)
+    [Fact(DisplayName = "ReactiveGlobalHookAdapter should throw if the scheduler is null")]
+    public void SchedulerNull() =>
+        Assert.Throws<ArgumentNullException>(() => new ReactiveGlobalHookAdapter(new SimpleGlobalHook(), null!));
+
+    private void RunHookAndWaitForStart(IReactiveGlobalHook hook)
     {
         hook.RunAsync();
 
@@ -685,7 +659,7 @@ public sealed class SimpleGlobalHookTests
         }
     }
 
-    private void DisposeHookAndWaitForStop(IGlobalHook hook)
+    private void DisposeHookAndWaitForStop(IReactiveGlobalHook hook)
     {
         hook.Dispose();
 

@@ -292,7 +292,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
     /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
     /// <remarks>
-    /// The hook is started on a separate thread. The returned observable is hot, and emits a single value and then
+    /// The hook is started on a separate thread. The returned observable is hot. It emits a single value and then
     /// immediately completes when the hook is destroyed.
     /// </remarks>
     public IObservable<Unit> RunAsync()

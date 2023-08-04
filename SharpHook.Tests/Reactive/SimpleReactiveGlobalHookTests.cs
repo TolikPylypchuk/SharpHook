@@ -44,7 +44,7 @@ public sealed class SimpleReactiveGlobalHookTests
     }
 
     [Property(DisplayName = "HookEnabled events should be raised")]
-    public async void HookEnabled(DateTimeAfterEpoch dateTime, ModifierMask mask)
+    public void HookEnabled(DateTimeAfterEpoch dateTime, ModifierMask mask)
     {
         // Arrange
 
@@ -68,7 +68,7 @@ public sealed class SimpleReactiveGlobalHookTests
 
         // Act
 
-        await hook.RunAsync();
+        hook.Run();
 
         // Assert
 
@@ -80,7 +80,7 @@ public sealed class SimpleReactiveGlobalHookTests
     }
 
     [Property(DisplayName = "HookDisabled events should be raised")]
-    public async void HookDisabled(DateTimeAfterEpoch dateTime, ModifierMask mask)
+    public void HookDisabled(DateTimeAfterEpoch dateTime, ModifierMask mask)
     {
         // Arrange
 
@@ -101,7 +101,7 @@ public sealed class SimpleReactiveGlobalHookTests
 
         // Act
 
-        await hook.RunAsync();
+        hook.Run();
 
         // Assert
 

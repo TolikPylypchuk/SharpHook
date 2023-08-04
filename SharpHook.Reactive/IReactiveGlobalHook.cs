@@ -121,7 +121,7 @@ public interface IReactiveGlobalHook : IDisposable
     /// the current thread is to run it on a separate thread.
     /// </para>
     /// <para>
-    /// The returned observable is hot, and emits a single value and then immediately completes when the hook is
+    /// The returned observable is hot. It emits a single value and then immediately completes when the hook is
     /// destroyed.
     /// </para>
     /// </remarks>
