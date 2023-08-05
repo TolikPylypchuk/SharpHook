@@ -84,9 +84,12 @@ namespace also contains types which represent the data used by libuiohook.</p>
 <p>In general, you don't need to use the native methods directly. Instead, use the higher-level interfaces and classes
 provided by SharpHook. However, you should still read this article to know how the high-level features work under
 the hood.</p>
-<p><strong>Note</strong>: The libuiohook build used by SharpHook on Windows is statically linked to the C runtime which means that
-client apps don't need the Visual C++ Redistributable package. An exception is the logging functionality - this is
-explained further in the article about <a href="logging.html">logging</a>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The libuiohook build used by SharpHook on Windows is statically linked to the C runtime which means that client apps
+don't need the Visual C++ Redistributable package. An exception is the logging functionality - this is explained
+further in the article about <a href="logging.html">logging</a>.</p>
+</div>
 <h2 id="low-level-functionality-providers">Low-Level Functionality Providers</h2>
 <p>If you want to use the low-level functionality, you don't need to use the <code>UioHook</code> class directly. Instead you can use
 interfaces in the <code>SharpHook.Providers</code> namespace. The methods in those interfaces are the same as in the <code>UioHook</code>
@@ -107,13 +110,19 @@ to unset the callback function.</p>
 <p><code>Run</code> and <code>Stop</code> return a <code>UioHookResult</code> which specifies whether the result of the method was successful
 (<code>UioHookResult.Success</code>) or not (any other value).</p>
 <p>The methods described above are also defined in the <code>SharpHook.Providers.IGlobalHookProvider</code> interface.</p>
-<p><strong>Note</strong>: On macOS running the global hook requires that the main run-loop is present. libuiohook takes care of it if
-the hook is run on the main thread. It's also taken care of by UI frameworks since they need an event loop on the main
-thread to run. But if you're using a global hook in a console app or a background service and want to run it on some
-thread other than the main one then you should take care of it yourself. You can do that by P/Invoking the native
+<div class="NOTE">
+<h5>Note</h5>
+<p>On macOS running the global hook requires that the main run-loop is present. libuiohook takes care of it if the hook
+is run on the main thread. It's also taken care of by UI frameworks since they need an event loop on the main thread
+to run. But if you're using a global hook in a console app or a background service and want to run it on some thread
+other than the main one then you should take care of it yourself. You can do that by P/Invoking the native
 <code>CFRunLoopRun</code> function on the main thread.</p>
-<p><strong>Note</strong>: macOS also requires that the accessibility API be enabled for the application if it wants to create a global
-hook. If the accessiblity API is not enabled, then <code>Run</code> will fail and return <code>UioHookResult.ErrorAxApiDisabled</code>.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>macOS requires that the accessibility API be enabled for the application if it wants to create a global hook.
+If the accessiblity API is not enabled, then <code>Run</code> will fail and return <code>UioHookResult.ErrorAxApiDisabled</code>.</p>
+</div>
 <h2 id="input-events">Input Events</h2>
 <p>The <code>SharpHook.Native.UioHookEvent</code> struct contains information about events that have occured.</p>
 <p>There are several event types supported by libuiohook (contained in the event's <code>Type</code> field and defined in the
@@ -149,14 +158,20 @@ state of keyboard modifiers and the mouse state at the time of the event.</p>
 will consume it. Currently only one setting is supported - suppressing the event propagation. If it's set then
 libuiohook will not propagate the event further and it will effectively be blocked. The <code>Reserved</code> field should be set
 synchronously i.e. on the same thread which handles the event. Supressing events works only on Windows and macOS.</p>
+<div class="TIP">
+<h5>Tip</h5>
 <p>An application manifest is required on Windows to enable DPI awareness for your app. If it's not enabled then mouse
 coordinates will be wrong on high-DPI screens. You can look at the sample app in the SharpHook repository to see the
 manifest example.</p>
-<p><strong>Note</strong>: <code>KeyTyped</code> and <code>MouseClicked</code> events are not raised by the OS, but by libuiohook itself. <code>KeyTyped</code> is raised
-after <code>KeyPressed</code> if the key press has caused characters to be typed. Since a single key press can cause multiple
-characters to be typed, a single <code>KeyPressed</code> event can raise multiple <code>KeyTyped</code> events. <code>MouseClicked</code> is raised after
-<code>MouseReleased</code> if the cursor was not dragged. Since these events are raised by libuiohook, and not the OS, suppressing
-them has no effect.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>KeyTyped</code> and <code>MouseClicked</code> events are not raised by the OS, but by libuiohook itself. <code>KeyTyped</code> is raised after
+<code>KeyPressed</code> if the key press has caused characters to be typed. Since a single key press can cause multiple
+characters to be typed, a single <code>KeyPressed</code> event can raise multiple <code>KeyTyped</code> events. <code>MouseClicked</code> is raised
+after <code>MouseReleased</code> if the cursor was not dragged. Since these events are raised by libuiohook, and not the OS,
+suppressing them has no effect.</p>
+</div>
 <h2 id="simulating-input-events">Simulating Input Events</h2>
 <p><code>UioHook</code> contains the <code>PostEvent</code> method for simulating input events. It accepts a <code>UioHookEvent</code>, but it doesn't need
 all its fields. Only <code>Type</code> and <code>Keyboard</code>/<code>Mouse</code>/<code>Wheel</code> should be present.</p>

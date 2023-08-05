@@ -128,8 +128,11 @@ once when the <code>Dispose</code> method is called.</p>
 <p>Hook events are of type <code>HookEvent</code> or a derived type which contains more info. It's possible to suppress event
 propagation by setting the <code>SuppressEvent</code> property to <code>true</code> inside the event handler. This must be done synchronously
 and is only supported on Windows and macOS.</p>
-<p><strong>Important</strong>: Always use one instance of <code>IGlobalHook</code> at a time in the entire application since they all must use
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Always use one instance of <code>IGlobalHook</code> at a time in the entire application since they all must use
 the same static method to set the hook callback for libuiohook, so there may only be one callback at a time.</p>
+</div>
 <h2 id="the-default-implementations">The Default Implementations</h2>
 <p>SharpHook provides two implementations of <code>IGlobalHook</code>:</p>
 <ul>

@@ -126,6 +126,11 @@ complete when the global hook is destroyed. Running the hook when it's already r
 is safe - it just won't do anything (other than marking the instance as disposed). The <code>IsDisposed</code> property is also
 available.</p>
 <p>The <code>HookEnabled</code> and <code>HookDisabled</code> observables will emit a single event and then immediately complete afterwards.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Always use one instance of <code>IReactiveGlobalHook</code> at a time in the entire application since they all must use
+the same static method to set the hook callback for libuiohook, so there may only be one callback at a time.</p>
+</div>
 <h2 id="the-default-implementations">The Default Implementations</h2>
 <p>SharpHook.Reactive provides two implementations of <code>IReactiveGlobalHook</code>:</p>
 <ul>

@@ -104,8 +104,11 @@ private void OnMessageLogged(object? sender, LogEventArgs e) =&gt;
     this.logger.Log(this.AdaptLogLevel(e.LogEntry.Level), e.LogEntry.FullText);
 </code></pre>
 <p>You can get an instance of <code>LogSource</code> by using the static <code>Register</code> method.</p>
-<p><strong>Important</strong>: Always use one instance of <code>LogSource</code> at a time in the entire application since they all must use
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Always use one instance of <code>LogSource</code> at a time in the entire application since they all must use
 the same static method to set the log callback for libuiohook, so there may only be one callback at a time.</p>
+</div>
 <p>The <code>MessageLogged</code> event contains event args of type <code>LogEventArgs</code> which contains just one property of type
 <code>LogEntry</code>. This class contains the actual log message.</p>
 <p>The simplest way to use <code>LogEntry</code> is to use its <code>Level</code> and <code>FullText</code> properties. <code>FullText</code> is created using the log
@@ -150,10 +153,13 @@ arguments. It then parses the log message and the log format and extracts the ar
     // Handle the log entry instead of the native format and arguments
 }
 </code></pre>
-<p><strong>Note</strong>: Since <code>LogEntryParser</code> uses the C runtime, it requires the Visual C++ Redistributable package on Windows,
-unlike the rest of SharpHook. If you don't want your app to be dependent on this package, then you can use the
-<code>EmptyLogSource</code> class instead of <code>LogSource</code> in release builds of your app. <code>EmptyLogSource</code> implements <code>ILogSource</code>,
-but never raises the <code>MessageLogged</code> event and doesn't subscribe to libuiohook logs.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Since <code>LogEntryParser</code> uses the C runtime, it requires the Visual C++ Redistributable package on Windows, unlike the
+rest of SharpHook. If you don't want your app to be dependent on this package, then you can use the <code>EmptyLogSource</code>
+class instead of <code>LogSource</code> in release builds of your app. <code>EmptyLogSource</code> implements <code>ILogSource</code>, but never raises
+the <code>MessageLogged</code> event and doesn't subscribe to libuiohook logs.</p>
+</div>
 <h2 id="advanced-usage">Advanced Usage</h2>
 <p>If you use structured logging then you may want to use the message format and arguments directly, instead of using the
 formatted result. <code>LogEntry</code> contains properties which can help you with that:</p>
