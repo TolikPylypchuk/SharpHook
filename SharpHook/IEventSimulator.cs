@@ -66,7 +66,7 @@ public interface IEventSimulator
     /// that character, and then key press/release is simulated. Since the receiving application must react to the
     /// remapping, and may not do so instantaneously, a delay is needed for accurate simulation. This means that text
     /// simulation on Linux works slowly and is not guaranteed to be correct. <see cref="TextSimulationDelayOnX11" />
-    /// can be used to increase (or decrease) the delay if needed - longer dealys add consistency but may be more
+    /// can be used to increase (or decrease) the delay if needed - longer delays add consistency but may be more
     /// jarring to end users. <see cref="TextSimulationDelayOnX11" /> can also be used to get the currently configured
     /// delay - the default is 50 milliseconds.
     /// </para>

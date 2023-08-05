@@ -15,7 +15,7 @@ dotnet add package SharpHook.Reactive --version 5.0.0
 
 ## Supported Platforms
 
-SharpHook targets .NET 6+, .NET Framework 4.6.1+, and .NET Standard 2.0. The following table describes
+SharpHook targets .NET 6+, .NET Framework 4.6.2+, and .NET Standard 2.0. The following table describes
 the availability of SharpHook on various platforms:
 
 <table>
@@ -29,7 +29,7 @@ the availability of SharpHook on various platforms:
     <th>x86</th>
     <td>Yes</td>
     <td>N/A</td>
-    <td>No<sup>1</sup></td>
+    <td>No</td>
   </tr>
   <tr>
     <th>x64</th>
@@ -39,7 +39,7 @@ the availability of SharpHook on various platforms:
   </tr>
   <tr>
     <th>Arm32</th>
-    <td>No<sup>2</sup></td>
+    <td>No</td>
     <td>N/A</td>
     <td>Yes</td>
   </tr>
@@ -51,10 +51,13 @@ the availability of SharpHook on various platforms:
   </tr>
 </table>
 
-[1] - Linux on x86 is [not supported](https://github.com/dotnet/runtime/issues/7335) by .NET itself.
+Platform support notes:
 
-[2] - Windows Arm32 support was
-[dropped](https://github.com/dotnet/core/blob/main/release-notes/5.0/5.0-supported-os.md) in .NET 5.
+- Windows 10/11 is supported. Support for Windows on Arm32 was removed in version 5.0.0 since it was
+[removed in .NET 5](https://github.com/dotnet/core/blob/main/release-notes/5.0/5.0-supported-os.md).
 
-libuiohook only supports X11 on Linux. Wayland support [may be coming](https://github.com/kwhat/libuiohook/issues/100),
-but it's not yet here.
+- macOS 10.15+ is supported. Starting with version 5.0.0, Mac Catalyst is also supported (13.1+).
+
+- Linux distributions supported by .NET are supported by SharpHook. Linux on x86 is
+[not supported](https://github.com/dotnet/runtime/issues/7335) by .NET itself. Only X11 is supported - Wayland support
+[may be coming](https://github.com/kwhat/libuiohook/issues/100), but it's not yet here.

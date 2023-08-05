@@ -1,6 +1,6 @@
 # About SharpHook
 
-SharpHook. Version 4.2.1. Created by Tolik Pylypchuk.
+SharpHook. Version 5.0.0. Created by Tolik Pylypchuk.
 
 ## Library Status
 
