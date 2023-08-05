@@ -109,7 +109,7 @@ await hook.RunAsync();
 </code></pre>
 <p><code>IGlobalHook</code> contains separate events for every event type that can be raised by libuiohook. The sender of these
 events is the <code>IGlobalHook</code> itself.</p>
-<p>It also contains the <code>Run</code> and <code>RunAsync</code> methods which, well, run the global hook. <code>Run</code> runs it on the current thread,
+<p>It also contains the <code>Run</code> and <code>RunAsync</code> methods which run the global hook. <code>Run</code> runs it on the current thread,
 blocking it until the global hook is disposed. <code>RunAsync</code> runs the global hook in a non-blocking way and returns a
 <code>Task</code> - this task is finished when the hook is destroyed. Since the underlying native API is blocking, the only way to
 run the hook in a non-blocking way is to run it on a separate thread, and all default implementations do just that.</p>
@@ -123,6 +123,8 @@ using its <code>IsRunning</code> property.</p>
 the interface is that once a hook has been destroyed, it cannot be started again - you'll have to create a new instance.
 Calling <code>Dispose</code> when the hook is not running is safe - it just won't do anything (other than marking the instance as
 disposed). You can check whether the hook is disposed using the <code>IsDisposed</code> property.</p>
+<p>The <code>HookEnabled</code> event is raised once when the <code>Run</code> or <code>RunAsync</code> method is called. The <code>HookDisabled</code> event is raised
+once when the <code>Dispose</code> method is called.</p>
 <p>Hook events are of type <code>HookEvent</code> or a derived type which contains more info. It's possible to suppress event
 propagation by setting the <code>SuppressEvent</code> property to <code>true</code> inside the event handler. This must be done synchronously
 and is only supported on Windows and macOS.</p>
@@ -144,7 +146,7 @@ ignored since event handlers are run on other threads.</p>
 </ul>
 <p>The library also provides the <code>SharpHook.GlobalHookBase</code> class which you can extend to create your own implementation
 of the global hook. It calls the appropriate event handlers, and you only need to implement a strategy for dispatching
-the events. It also contains a destructor which will stop the global hook if this object is not reachable anymore.</p>
+the events. It also contains a finalizer which will stop the global hook if this object is not reachable anymore.</p>
 </article>
 
         <div class="contribution d-print-none">
