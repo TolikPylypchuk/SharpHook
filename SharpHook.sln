@@ -28,6 +28,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Articles", "Articles", "{60
 	ProjectSection(SolutionItems) = preProject
 		docs\articles\about.md = docs\articles\about.md
 		docs\articles\hooks.md = docs\articles\hooks.md
+		docs\articles\keycodes.md = docs\articles\keycodes.md
 		docs\articles\logging.md = docs\articles\logging.md
 		docs\articles\migration.md = docs\articles\migration.md
 		docs\articles\native.md = docs\articles\native.md

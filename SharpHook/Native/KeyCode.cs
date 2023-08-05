@@ -441,7 +441,7 @@ public enum KeyCode : ushort
     VcNumPadDecimal = 0x006E,
 
     /// <summary>Num-Pad Separator</summary>
-    /// <remarks>Available on: Windows, macOS, Linux</remarks>
+    /// <remarks>Available on: Windows, Linux</remarks>
     VcNumPadSeparator = 0x006C,
 
     /// <summary>Num-Pad ±</summary>
@@ -583,7 +583,7 @@ public enum KeyCode : ushort
     VcMediaNext = 0xE019,
 
     /// <summary>Select Media</summary>
-    /// <remarks>Available on: Windows, Linux</remarks>
+    /// <remarks>Available on: Windows</remarks>
     VcMediaSelect = 0xE06D,
 
     /// <summary>Eject Media</summary>
@@ -695,7 +695,7 @@ public enum KeyCode : ushort
     VcBrowserForward = 0xE069,
 
     /// <summary>Browser Stop</summary>
-    /// <remarks>Available on: Windows, Linux</remarks>
+    /// <remarks>Available on: Windows</remarks>
     VcBrowserStop = 0xE068,
 
     /// <summary>Browser Refresh</summary>

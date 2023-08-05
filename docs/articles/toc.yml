@@ -13,5 +13,7 @@ items:
     href: logging.md
   - name: Migration Guide
     href: migration.md
+  - name: Key Code Mappings
+    href: keycodes.md
   - name: About SharpHook
     href: about.md

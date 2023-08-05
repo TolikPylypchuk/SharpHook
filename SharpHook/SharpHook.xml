@@ -1826,7 +1826,7 @@
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcNumPadSeparator">
             <summary>Num-Pad Separator</summary>
-            <remarks>Available on: Windows, macOS, Linux</remarks>
+            <remarks>Available on: Windows, Linux</remarks>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcNumPadPlusMinus">
             <summary>Num-Pad ±</summary>
@@ -1968,7 +1968,7 @@
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcMediaSelect">
             <summary>Select Media</summary>
-            <remarks>Available on: Windows, Linux</remarks>
+            <remarks>Available on: Windows</remarks>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcMediaEject">
             <summary>Eject Media</summary>
@@ -2080,7 +2080,7 @@
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcBrowserStop">
             <summary>Browser Stop</summary>
-            <remarks>Available on: Windows, Linux</remarks>
+            <remarks>Available on: Windows</remarks>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcBrowserRefresh">
             <summary>Browser Refresh</summary>
