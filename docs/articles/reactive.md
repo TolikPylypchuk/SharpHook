@@ -45,8 +45,6 @@ The observables for events emit the `EventArgs`-derived types which are the same
 Unlike `IGlobalHook` you can't get the sender of the event by default. If you need to pass the hook itself as well, then
 use a closure.
 
-The `HookEnabled` and `HookDisabled` observables will emit a single event and then immediately complete afterwards.
-
 The `Run` and `RunAsync` methods are basically the same as in `IGlobalHook`, but `RunAsync` returns an
 `IObservable<Unit>` instead of a `Task` (the observable is hot). This observable will emit a single value and then
 complete when the global hook is destroyed. Running the hook when it's already running is also not allowed, and the
@@ -57,17 +55,18 @@ complete when the global hook is destroyed. Running the hook when it's already r
 is safe - it just won't do anything (other than marking the instance as disposed). The `IsDisposed` property is also
 available.
 
+The `HookEnabled` and `HookDisabled` observables will emit a single event and then immediately complete afterwards.
+
 ## The Default Implementations
 
 SharpHook.Reactive provides two implementations of `IReactiveGlobalHook`:
 
 - `SharpHook.Reactive.SimpleReactiveGlobalHook`. Since we're dealing with observables, it's up to you to decide when
-and where to handle the events through schedulers.
+and where to handle the events through schedulers. A default scheduler can be specified for all observables.
 
 - `SharpHook.Reactive.ReactiveGlobalHookAdapter` adapts an `IGlobalHook` to `IReactiveGlobalHook`. All
 subscriptions and changes are propagated to the adapted hook. There is no default adapter from `IReactiveGlobalHook`
-to `IGlobalHook`.
+to `IGlobalHook`. A default scheduler can be specified for all observables.
 
-Both classes contain a destructor which will stop the global hook if the object is not reachable anymore. All event
-observables of both classes will be completed when the hook is destroyed, be it from the `Dispose` method, or from the
-destructor.
+`SimpleReactiveGlobalHook` contains a finalizer which will stop the global hook if the object is not reachable anymore.
+All event observables of both classes will be completed when the hook is destroyed.

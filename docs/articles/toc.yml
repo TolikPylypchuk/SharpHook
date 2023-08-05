@@ -7,7 +7,7 @@ items:
     href: hooks.md
   - name: Reactive Global Hooks
     href: reactive.md
-  - name: Event Simulation
+  - name: Event and Text Entry Simulation
     href: simulation.md
   - name: Logging
     href: logging.md

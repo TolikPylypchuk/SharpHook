@@ -36,7 +36,7 @@ await hook.RunAsync();
 `IGlobalHook` contains separate events for every event type that can be raised by libuiohook. The sender of these
 events is the `IGlobalHook` itself.
 
-It also contains the `Run` and `RunAsync` methods which, well, run the global hook. `Run` runs it on the current thread,
+It also contains the `Run` and `RunAsync` methods which run the global hook. `Run` runs it on the current thread,
 blocking it until the global hook is disposed. `RunAsync` runs the global hook in a non-blocking way and returns a
 `Task` - this task is finished when the hook is destroyed. Since the underlying native API is blocking, the only way to
 run the hook in a non-blocking way is to run it on a separate thread, and all default implementations do just that.
@@ -54,6 +54,9 @@ using its `IsRunning` property.
 the interface is that once a hook has been destroyed, it cannot be started again - you'll have to create a new instance.
 Calling `Dispose` when the hook is not running is safe - it just won't do anything (other than marking the instance as
 disposed). You can check whether the hook is disposed using the `IsDisposed` property.
+
+The `HookEnabled` event is raised once when the `Run` or `RunAsync` method is called. The `HookDisabled` event is raised
+once when the `Dispose` method is called.
 
 Hook events are of type `HookEvent` or a derived type which contains more info. It's possible to suppress event
 propagation by setting the `SuppressEvent` property to `true` inside the event handler. This must be done synchronously
@@ -78,4 +81,4 @@ ignored since event handlers are run on other threads.
 
 The library also provides the `SharpHook.GlobalHookBase` class which you can extend to create your own implementation
 of the global hook. It calls the appropriate event handlers, and you only need to implement a strategy for dispatching
-the events. It also contains a destructor which will stop the global hook if this object is not reachable anymore.
+the events. It also contains a finalizer which will stop the global hook if this object is not reachable anymore.

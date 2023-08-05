@@ -1,11 +1,13 @@
-# Event Simulation
+# Event and Text Entry Simulation
 
-SharpHook provides the ability to simulate keyboard and mouse events in a cross-platform way as well. It provides the
-`IEventSimulator` interface, and the default implementation, `EventSimulator`, which calls `UioHook.PostEvent` to
-simulate the events. The methods in this interface return a `UioHookResult` to specify whether the event was simulated
-successfully, or not.
+SharpHook provides the ability to simulate keyboard and mouse events, as well as text entry, in a cross-platform way as
+well. It provides the `IEventSimulator` interface, and the default implementation, `EventSimulator`, which calls
+`UioHook.PostEvent` to simulate the events by default (though it's configurable). The methods in this interface return
+a `UioHookResult` to specify whether the event was simulated successfully, or not.
 
-Here's a quick example:
+## Event Simulation
+
+Input event simulation is quite straightforward. Here's a quick example:
 
 ```C#
 using SharpHook;
@@ -29,6 +31,12 @@ simulator.SimulateMousePress(MouseButton.Button1);
 // Release the left mouse button
 simulator.SimulateMouseRelease(MouseButton.Button1);
 
+// Press the left mouse button at (0, 0)
+simulator.SimulateMousePress(0, 0, MouseButton.Button1);
+
+// Release the left mouse button at (0, 0)
+simulator.SimulateMouseRelease(0, 0, MouseButton.Button1);
+
 // Move the mouse pointer to (0, 0)
 simulator.SimulateMouseMovement(0, 0);
 
@@ -36,10 +44,39 @@ simulator.SimulateMouseMovement(0, 0);
 simulator.SimulateMouseMovementRelative(50, 100);
 
 // Scroll the mouse wheel
-simulator.SimulateMouseWheel(2, -120);
+simulator.SimulateMouseWheel(
+    rotation: -120,
+    direction: MouseWheelScrollDirection.Vertical, // MouseWheelScrollDirection.Vertical by default
+    type: MouseWheelScrollType.UnitScroll); // MouseWheelScrollType.UnitScroll by default
 ```
 
-Windows defines a single 'step' of a mouse wheel as rotation value 120.
+Mouse wheel simulation is a little more complex than other events.
 
-Mouse wheel simulation is a little inconsistent across platforms, and not documented. View the source code of libuiohook
-for more details.
+A positive `rotation` value indicates that the wheel will be rotated up or left, and a negative value indicates that
+the wheel will be rotated down or right.
+
+On Windows the value 120 represents the default wheel step. As such, multiples of 120 can be used as the rotation value,
+but it's not required. The value of `type` is ignored.
+
+On macOS it's recommended to use values between -10 and 10. This will result in quite a small scroll amount with pixel
+scrolling, so `MouseWheelScrollType.BlockScroll` is recommended for line scrolling instead of pixel scrolling.
+
+On Linux there is no fixed recommendation, but multiples of 100 can be used. The value of `type` is ignored.
+
+## Text Entry Simulation
+
+Starting with version 5.0.0, SharpHook also provides text entry simulation. `IEventSimulator` contains the
+`SimulateTextEntry` method which accepts a `string`. The text to simulate doesn't depend on the current keyboard layout.
+The full range of UTF-16 (including surrogate pairs, e.g. emojis) is supported.
+
+On Windows text simulation should work correctly and consistently.
+
+On macOS applications are not required to process text simulation, but most of them should handle it correctly.
+
+X11 doesn't support text simulation directly. Instead, for each character, an unused key code is remapped to that
+character, and then key press/release is simulated. Since the receiving application must react to the remapping, and
+may not do so instantaneously, a delay is needed for accurate simulation. This means that text simulation on Linux works
+slowly and is not guaranteed to be correct. `IEventSimulator` contains the `TextSimulationDelayOnX11` property which can
+be used to increase (or decrease) the delay if needed - longer delays add consistency but may be more jarring to end
+users. Delays are configurable on a nanosecond level. On Windows and macOS setting `TextSimulationDelayOnX11` does
+nothing, and getting it always returns 0.

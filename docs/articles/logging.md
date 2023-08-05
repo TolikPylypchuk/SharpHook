@@ -40,7 +40,7 @@ private void OnMessageLogged(object? sender, LogEventArgs e) =>
 You can get an instance of `LogSource` by using the static `Register` method.
 
 **Important**: Always use one instance of `LogSource` at a time in the entire application since they all must use
-the same static method to set the log callback for libuiohook, and there may only be one callback at a time.
+the same static method to set the log callback for libuiohook, so there may only be one callback at a time.
 
 The `MessageLogged` event contains event args of type `LogEventArgs` which contains just one property of type
 `LogEntry`. This class contains the actual log message.
@@ -89,15 +89,11 @@ arguments. It then parses the log message and the log format and extracts the ar
 If you want to use your own callback then its form should be the following:
 
 ```
-private readonly LogEntryParser parser = new();
-
-// ...
-
 private void OnLog(LogLevel level, IntPtr userData, IntPtr format, IntPtr args)
 {
     // Filter by log level if needed
 
-    var logEntry = this.parser.ParseNativeLogEntry(level, format, args);
+    var logEntry = LogEntryParser.Instance.ParseNativeLogEntry(level, format, args);
 
     // Handle the log entry instead of the native format and arguments
 }
