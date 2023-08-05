@@ -629,6 +629,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/keycodes.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/keycodes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "articles/logging.md",
       "output": {
         ".html": {
