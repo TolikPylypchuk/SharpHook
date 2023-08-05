@@ -9,9 +9,10 @@ In general, you don't need to use the native methods directly. Instead, use the 
 provided by SharpHook. However, you should still read this article to know how the high-level features work under
 the hood.
 
-**Note**: The libuiohook build used by SharpHook on Windows is statically linked to the C runtime which means that
-client apps don't need the Visual C++ Redistributable package. An exception is the logging functionality - this is
-explained further in the article about [logging](logging.md).
+> [!NOTE]
+> The libuiohook build used by SharpHook on Windows is statically linked to the C runtime which means that client apps
+> don't need the Visual C++ Redistributable package. An exception is the logging functionality - this is explained
+> further in the article about [logging](logging.md).
 
 ## Low-Level Functionality Providers
 
@@ -40,14 +41,16 @@ to unset the callback function.
 
 The methods described above are also defined in the `SharpHook.Providers.IGlobalHookProvider` interface.
 
-**Note**: On macOS running the global hook requires that the main run-loop is present. libuiohook takes care of it if
-the hook is run on the main thread. It's also taken care of by UI frameworks since they need an event loop on the main
-thread to run. But if you're using a global hook in a console app or a background service and want to run it on some
-thread other than the main one then you should take care of it yourself. You can do that by P/Invoking the native
-`CFRunLoopRun` function on the main thread.
+> [!NOTE]
+> On macOS running the global hook requires that the main run-loop is present. libuiohook takes care of it if the hook
+> is run on the main thread. It's also taken care of by UI frameworks since they need an event loop on the main thread
+> to run. But if you're using a global hook in a console app or a background service and want to run it on some thread
+> other than the main one then you should take care of it yourself. You can do that by P/Invoking the native
+> `CFRunLoopRun` function on the main thread.
 
-**Note**: macOS also requires that the accessibility API be enabled for the application if it wants to create a global
-hook. If the accessiblity API is not enabled, then `Run` will fail and return `UioHookResult.ErrorAxApiDisabled`.
+> [!NOTE]
+> macOS requires that the accessibility API be enabled for the application if it wants to create a global hook.
+> If the accessiblity API is not enabled, then `Run` will fail and return `UioHookResult.ErrorAxApiDisabled`.
 
 ## Input Events
 
@@ -90,15 +93,17 @@ will consume it. Currently only one setting is supported - suppressing the event
 libuiohook will not propagate the event further and it will effectively be blocked. The `Reserved` field should be set
 synchronously i.e. on the same thread which handles the event. Supressing events works only on Windows and macOS.
 
-An application manifest is required on Windows to enable DPI awareness for your app. If it's not enabled then mouse
-coordinates will be wrong on high-DPI screens. You can look at the sample app in the SharpHook repository to see the
-manifest example.
+> [!TIP]
+> An application manifest is required on Windows to enable DPI awareness for your app. If it's not enabled then mouse
+> coordinates will be wrong on high-DPI screens. You can look at the sample app in the SharpHook repository to see the
+> manifest example.
 
-**Note**: `KeyTyped` and `MouseClicked` events are not raised by the OS, but by libuiohook itself. `KeyTyped` is raised
-after `KeyPressed` if the key press has caused characters to be typed. Since a single key press can cause multiple
-characters to be typed, a single `KeyPressed` event can raise multiple `KeyTyped` events. `MouseClicked` is raised after
-`MouseReleased` if the cursor was not dragged. Since these events are raised by libuiohook, and not the OS, suppressing
-them has no effect.
+> [!NOTE]
+> `KeyTyped` and `MouseClicked` events are not raised by the OS, but by libuiohook itself. `KeyTyped` is raised after
+> `KeyPressed` if the key press has caused characters to be typed. Since a single key press can cause multiple
+> characters to be typed, a single `KeyPressed` event can raise multiple `KeyTyped` events. `MouseClicked` is raised
+> after `MouseReleased` if the cursor was not dragged. Since these events are raised by libuiohook, and not the OS,
+> suppressing them has no effect.
 
 ## Simulating Input Events
 

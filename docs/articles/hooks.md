@@ -62,8 +62,9 @@ Hook events are of type `HookEvent` or a derived type which contains more info. 
 propagation by setting the `SuppressEvent` property to `true` inside the event handler. This must be done synchronously
 and is only supported on Windows and macOS.
 
-**Important**: Always use one instance of `IGlobalHook` at a time in the entire application since they all must use
-the same static method to set the hook callback for libuiohook, so there may only be one callback at a time.
+> [!IMPORTANT]
+> Always use one instance of `IGlobalHook` at a time in the entire application since they all must use
+> the same static method to set the hook callback for libuiohook, so there may only be one callback at a time.
 
 ## The Default Implementations
 

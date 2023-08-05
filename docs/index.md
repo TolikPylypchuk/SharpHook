@@ -4,8 +4,6 @@ SharpHook provides a cross-platform global keyboard and mouse hook, event simula
 wrapper of [libuiohook](https://github.com/TolikPylypchuk/libuiohook) and provides direct access to its features as well
 as higher-level types to work with it.
 
-The docs can help you learn how to use this library.
-
 ## Installation
 
 ```

@@ -39,8 +39,9 @@ private void OnMessageLogged(object? sender, LogEventArgs e) =>
 
 You can get an instance of `LogSource` by using the static `Register` method.
 
-**Important**: Always use one instance of `LogSource` at a time in the entire application since they all must use
-the same static method to set the log callback for libuiohook, so there may only be one callback at a time.
+> [!IMPORTANT]
+> Always use one instance of `LogSource` at a time in the entire application since they all must use
+> the same static method to set the log callback for libuiohook, so there may only be one callback at a time.
 
 The `MessageLogged` event contains event args of type `LogEventArgs` which contains just one property of type
 `LogEntry`. This class contains the actual log message.
@@ -99,10 +100,11 @@ private void OnLog(LogLevel level, IntPtr userData, IntPtr format, IntPtr args)
 }
 ```
 
-**Note**: Since `LogEntryParser` uses the C runtime, it requires the Visual C++ Redistributable package on Windows,
-unlike the rest of SharpHook. If you don't want your app to be dependent on this package, then you can use the
-`EmptyLogSource` class instead of `LogSource` in release builds of your app. `EmptyLogSource` implements `ILogSource`,
-but never raises the `MessageLogged` event and doesn't subscribe to libuiohook logs.
+> [!NOTE]
+> Since `LogEntryParser` uses the C runtime, it requires the Visual C++ Redistributable package on Windows, unlike the
+> rest of SharpHook. If you don't want your app to be dependent on this package, then you can use the `EmptyLogSource`
+> class instead of `LogSource` in release builds of your app. `EmptyLogSource` implements `ILogSource`, but never raises
+> the `MessageLogged` event and doesn't subscribe to libuiohook logs.
 
 ## Advanced Usage
 
