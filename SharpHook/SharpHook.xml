@@ -1308,9 +1308,9 @@
         </member>
         <member name="F:SharpHook.Native.KeyboardEventData.RawCode">
             <summary>
-            The raw key code.
+            The OS-specific key code.
             </summary>
-            <value>The raw key code.</value>
+            <value>The OS-specific key code.</value>
         </member>
         <member name="F:SharpHook.Native.KeyboardEventData.RawKeyChar">
             <summary>

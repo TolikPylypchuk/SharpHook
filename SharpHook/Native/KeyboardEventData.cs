@@ -28,9 +28,9 @@ public struct KeyboardEventData : IEquatable<KeyboardEventData>
     public KeyCode KeyCode;
 
     /// <summary>
-    /// The raw key code.
+    /// The OS-specific key code.
     /// </summary>
-    /// <value>The raw key code.</value>
+    /// <value>The OS-specific key code.</value>
     public ushort RawCode;
 
     /// <summary>

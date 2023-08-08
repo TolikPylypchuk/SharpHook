@@ -93,7 +93,7 @@ will consume it. Currently only one setting is supported - suppressing the event
 libuiohook will not propagate the event further and it will effectively be blocked. The `Reserved` field should be set
 synchronously i.e. on the same thread which handles the event. Supressing events works only on Windows and macOS.
 
-> [!TIP]
+> [!NOTE]
 > An application manifest is required on Windows to enable DPI awareness for your app. If it's not enabled then mouse
 > coordinates will be wrong on high-DPI screens. You can look at the sample app in the SharpHook repository to see the
 > manifest example.

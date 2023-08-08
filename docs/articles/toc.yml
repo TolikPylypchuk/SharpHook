@@ -11,6 +11,8 @@ items:
     href: simulation.md
   - name: Logging
     href: logging.md
+  - name: Testing
+    href: testing.md
   - name: Migration Guide
     href: migration.md
   - name: Key Code Mappings

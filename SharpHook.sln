@@ -34,6 +34,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Articles", "Articles", "{60
 		docs\articles\native.md = docs\articles\native.md
 		docs\articles\reactive.md = docs\articles\reactive.md
 		docs\articles\simulation.md = docs\articles\simulation.md
+		docs\articles\testing.md = docs\articles\testing.md
 		docs\articles\toc.yml = docs\articles\toc.yml
 	EndProjectSection
 EndProject
@@ -145,7 +146,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6089074E-B30F-43BD-83BD-AFFD60344F7D} = {97C59CA2-12AA-4290-8A9F-5AC10C4E2F49}
-		{97C59CA2-12AA-4290-8A9F-5AC10C4E2F49} = {F4D4F489-E4F0-43DE-BF41-ED27C2537E3D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B2B720FB-7FA5-44F3-B727-8604B528B3C3}
