@@ -7030,21 +7030,6 @@ references:
   commentId: Overload:SharpHook.Testing.TestProvider.PostEvent
   fullName: SharpHook.Testing.TestProvider.PostEvent
   nameWithType: TestProvider.PostEvent
-- uid: SharpHook.Testing.TestProvider.PostEventAndWaitForHandler(SharpHook.Native.UioHookEvent@,System.Threading.CancellationToken)
-  name: PostEventAndWaitForHandler(ref UioHookEvent, CancellationToken)
-  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEventAndWaitForHandler_SharpHook_Native_UioHookEvent__System_Threading_CancellationToken_
-  commentId: M:SharpHook.Testing.TestProvider.PostEventAndWaitForHandler(SharpHook.Native.UioHookEvent@,System.Threading.CancellationToken)
-  name.vb: PostEventAndWaitForHandler(UioHookEvent, CancellationToken)
-  fullName: SharpHook.Testing.TestProvider.PostEventAndWaitForHandler(ref SharpHook.Native.UioHookEvent, System.Threading.CancellationToken)
-  fullName.vb: SharpHook.Testing.TestProvider.PostEventAndWaitForHandler(SharpHook.Native.UioHookEvent, System.Threading.CancellationToken)
-  nameWithType: TestProvider.PostEventAndWaitForHandler(ref UioHookEvent, CancellationToken)
-  nameWithType.vb: TestProvider.PostEventAndWaitForHandler(UioHookEvent, CancellationToken)
-- uid: SharpHook.Testing.TestProvider.PostEventAndWaitForHandler*
-  name: PostEventAndWaitForHandler
-  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEventAndWaitForHandler_
-  commentId: Overload:SharpHook.Testing.TestProvider.PostEventAndWaitForHandler
-  fullName: SharpHook.Testing.TestProvider.PostEventAndWaitForHandler
-  nameWithType: TestProvider.PostEventAndWaitForHandler
 - uid: SharpHook.Testing.TestProvider.PostEventResult
   name: PostEventResult
   href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEventResult
@@ -7132,18 +7117,18 @@ references:
   commentId: Overload:SharpHook.Testing.TestProvider.Run
   fullName: SharpHook.Testing.TestProvider.Run
   nameWithType: TestProvider.Run
-- uid: SharpHook.Testing.TestProvider.RunAndWaitForStart(System.Threading.CancellationToken)
-  name: RunAndWaitForStart(CancellationToken)
-  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunAndWaitForStart_System_Threading_CancellationToken_
-  commentId: M:SharpHook.Testing.TestProvider.RunAndWaitForStart(System.Threading.CancellationToken)
-  fullName: SharpHook.Testing.TestProvider.RunAndWaitForStart(System.Threading.CancellationToken)
-  nameWithType: TestProvider.RunAndWaitForStart(CancellationToken)
-- uid: SharpHook.Testing.TestProvider.RunAndWaitForStart*
-  name: RunAndWaitForStart
-  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunAndWaitForStart_
-  commentId: Overload:SharpHook.Testing.TestProvider.RunAndWaitForStart
-  fullName: SharpHook.Testing.TestProvider.RunAndWaitForStart
-  nameWithType: TestProvider.RunAndWaitForStart
+- uid: SharpHook.Testing.TestProvider.RunAsync
+  name: RunAsync()
+  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunAsync
+  commentId: M:SharpHook.Testing.TestProvider.RunAsync
+  fullName: SharpHook.Testing.TestProvider.RunAsync()
+  nameWithType: TestProvider.RunAsync()
+- uid: SharpHook.Testing.TestProvider.RunAsync*
+  name: RunAsync
+  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunAsync_
+  commentId: Overload:SharpHook.Testing.TestProvider.RunAsync
+  fullName: SharpHook.Testing.TestProvider.RunAsync
+  nameWithType: TestProvider.RunAsync
 - uid: SharpHook.Testing.TestProvider.RunResult
   name: RunResult
   href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunResult
@@ -7207,9 +7192,3 @@ references:
   commentId: Overload:SharpHook.Testing.TestProvider.StopResult
   fullName: SharpHook.Testing.TestProvider.StopResult
   nameWithType: TestProvider.StopResult
-- uid: SharpHook.Testing.TestProvider.TestEventHandled
-  name: TestEventHandled
-  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_TestEventHandled
-  commentId: E:SharpHook.Testing.TestProvider.TestEventHandled
-  fullName: SharpHook.Testing.TestProvider.TestEventHandled
-  nameWithType: TestProvider.TestEventHandled

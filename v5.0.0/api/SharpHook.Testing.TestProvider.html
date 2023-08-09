@@ -83,7 +83,7 @@
 
   <h1 id="SharpHook_Testing_TestProvider" data-uid="SharpHook.Testing.TestProvider" class="text-break">
     Class TestProvider
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/80dfe1323d62d1299876a311161c43710c47a603/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -96,7 +96,7 @@
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class TestProvider : IGlobalHookProvider, ILoggingProvider, IEventSimulationProvider, IScreenInfoProvider, IMouseInfoProvider</code></pre>
+    <pre><code class="lang-csharp hljs">public class TestProvider : IGlobalHookProvider, ILoggingProvider, IEventSimulationProvider, IScreenInfoProvider, IMouseInfoProvider</code></pre>
   </div>
 
 
@@ -129,6 +129,9 @@
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
     <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
     </div>
     <div>
@@ -158,7 +161,7 @@
 
   <h3 id="SharpHook_Testing_TestProvider__ctor" data-uid="SharpHook.Testing.TestProvider.#ctor">
   TestProvider()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/80dfe1323d62d1299876a311161c43710c47a603/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -188,7 +191,7 @@
 
   <h3 id="SharpHook_Testing_TestProvider_AutoRepeatDelay" data-uid="SharpHook.Testing.TestProvider.AutoRepeatDelay">
   AutoRepeatDelay
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/80dfe1323d62d1299876a311161c43710c47a603/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the auto-repeat delay for testing.</p>
@@ -221,7 +224,7 @@
 
   <h3 id="SharpHook_Testing_TestProvider_AutoRepeatRate" data-uid="SharpHook.Testing.TestProvider.AutoRepeatRate">
   AutoRepeatRate
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/80dfe1323d62d1299876a311161c43710c47a603/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the auto-repeat rate for testing.</p>
@@ -254,7 +257,7 @@
 
   <h3 id="SharpHook_Testing_TestProvider_EventDateTime" data-uid="SharpHook.Testing.TestProvider.EventDateTime">
   EventDateTime
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/80dfe1323d62d1299876a311161c43710c47a603/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the function which will be called to set the date/time of the <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_HookEnabled">HookEnabled</a>
@@ -293,7 +296,7 @@ and <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_Event
 
   <h3 id="SharpHook_Testing_TestProvider_EventMask" data-uid="SharpHook.Testing.TestProvider.EventMask">
   EventMask
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/80dfe1323d62d1299876a311161c43710c47a603/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the function which will be called to set the mask of the <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_HookEnabled">HookEnabled</a>
@@ -332,7 +335,7 @@ and <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_Event
 
   <h3 id="SharpHook_Testing_TestProvider_IsRunning" data-uid="SharpHook.Testing.TestProvider.IsRunning">
   IsRunning
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/80dfe1323d62d1299876a311161c43710c47a603/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the value which indicates whether this provider runs the testing hook.</p>
@@ -365,7 +368,7 @@ and <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_Event
 
   <h3 id="SharpHook_Testing_TestProvider_MultiClickTime" data-uid="SharpHook.Testing.TestProvider.MultiClickTime">
   MultiClickTime
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/80dfe1323d62d1299876a311161c43710c47a603/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the multi-click time for testing.</p>
@@ -398,7 +401,7 @@ and <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_Event
 
   <h3 id="SharpHook_Testing_TestProvider_PointerAccelerationMultiplier" data-uid="SharpHook.Testing.TestProvider.PointerAccelerationMultiplier">
   PointerAccelerationMultiplier
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/80dfe1323d62d1299876a311161c43710c47a603/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the pointer acceleration multiplier for testing.</p>
@@ -431,7 +434,7 @@ and <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_Event
 
   <h3 id="SharpHook_Testing_TestProvider_PointerAccelerationThreshold" data-uid="SharpHook.Testing.TestProvider.PointerAccelerationThreshold">
   PointerAccelerationThreshold
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/80dfe1323d62d1299876a311161c43710c47a603/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the pointer acceleration threshold for testing.</p>
@@ -464,7 +467,7 @@ and <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_Event
 
   <h3 id="SharpHook_Testing_TestProvider_PointerSensitivity" data-uid="SharpHook.Testing.TestProvider.PointerSensitivity">
   PointerSensitivity
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/80dfe1323d62d1299876a311161c43710c47a603/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the pointer sensitivity for testing.</p>
@@ -497,7 +500,7 @@ and <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_Event
 
   <h3 id="SharpHook_Testing_TestProvider_PostEventResult" data-uid="SharpHook.Testing.TestProvider.PostEventResult">
   PostEventResult
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/80dfe1323d62d1299876a311161c43710c47a603/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the result of the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent__">PostEvent(ref UioHookEvent)</a> method. If anything other than
@@ -531,7 +534,7 @@ and <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_Event
 
   <h3 id="SharpHook_Testing_TestProvider_PostTextDelayX11" data-uid="SharpHook.Testing.TestProvider.PostTextDelayX11">
   PostTextDelayX11
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/80dfe1323d62d1299876a311161c43710c47a603/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the delay (in nanoseconds) between posting individual characters when posting text on Linux.</p>
@@ -564,7 +567,7 @@ and <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_Event
 
   <h3 id="SharpHook_Testing_TestProvider_PostTextResult" data-uid="SharpHook.Testing.TestProvider.PostTextResult">
   PostTextResult
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/80dfe1323d62d1299876a311161c43710c47a603/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the result of the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostText_System_String_">PostText(string)</a> method. If anything other than
@@ -598,7 +601,7 @@ and <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_Event
 
   <h3 id="SharpHook_Testing_TestProvider_PostedEvents" data-uid="SharpHook.Testing.TestProvider.PostedEvents">
   PostedEvents
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/80dfe1323d62d1299876a311161c43710c47a603/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the events that have been posted using <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent__">PostEvent(ref UioHookEvent)</a>.</p>
@@ -630,7 +633,7 @@ and <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_Event
 
   <h3 id="SharpHook_Testing_TestProvider_PostedText" data-uid="SharpHook.Testing.TestProvider.PostedText">
   PostedText
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/80dfe1323d62d1299876a311161c43710c47a603/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the text that has been posted using <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostText_System_String_">PostText(string)</a>.</p>
@@ -662,7 +665,7 @@ and <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_Event
 
   <h3 id="SharpHook_Testing_TestProvider_RunResult" data-uid="SharpHook.Testing.TestProvider.RunResult">
   RunResult
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/80dfe1323d62d1299876a311161c43710c47a603/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the result of the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_Run">Run()</a> method. If anything other than
@@ -696,7 +699,7 @@ and <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_Event
 
   <h3 id="SharpHook_Testing_TestProvider_ScreenInfo" data-uid="SharpHook.Testing.TestProvider.ScreenInfo">
   ScreenInfo
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/80dfe1323d62d1299876a311161c43710c47a603/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the information about screens for testing.</p>
@@ -735,7 +738,7 @@ and <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_Event
 
   <h3 id="SharpHook_Testing_TestProvider_StopResult" data-uid="SharpHook.Testing.TestProvider.StopResult">
   StopResult
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/80dfe1323d62d1299876a311161c43710c47a603/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the result of the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_Stop">Stop()</a> method. If anything other than
@@ -773,7 +776,7 @@ and <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_Event
 
   <h3 id="SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent__" data-uid="SharpHook.Testing.TestProvider.PostEvent(SharpHook.Native.UioHookEvent@)">
   PostEvent(ref UioHookEvent)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/80dfe1323d62d1299876a311161c43710c47a603/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Posts an input event if <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEventResult">PostEventResult</a> is set to <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a> -
@@ -805,57 +808,6 @@ this event will be dispatched if the provider is running. Otherwise, does nothin
 
 
 
-  <h4 class="section" id="SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent___remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>This method returns before the event has been handled. The <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_TestEventHandled">TestEventHandled</a> event should be used
-to inspect the value of <a class="xref" href="SharpHook.Native.UioHookEvent.html#SharpHook_Native_UioHookEvent_Reserved">Reserved</a>.</p>
-</div>
-
-
-
-
-  <a id="SharpHook_Testing_TestProvider_PostEventAndWaitForHandler_" data-uid="SharpHook.Testing.TestProvider.PostEventAndWaitForHandler*"></a>
-
-  <h3 id="SharpHook_Testing_TestProvider_PostEventAndWaitForHandler_SharpHook_Native_UioHookEvent__System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestProvider.PostEventAndWaitForHandler(SharpHook.Native.UioHookEvent@,System.Threading.CancellationToken)">
-  PostEventAndWaitForHandler(ref UioHookEvent, CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Posts an input event if <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEventResult">PostEventResult</a> is set to <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a> -
-this event will be dispatched if the provider is running. Otherwise, does nothing.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TestEventHandledEventArgs?&gt; PostEventAndWaitForHandler(ref UioHookEvent e, CancellationToken cancellationToken = default)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>e</code> <a class="xref" href="SharpHook.Native.UioHookEvent.html">UioHookEvent</a></dt>
-    <dd><p>The event to post.</p>
-</dd>
-    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
-    <dd><p>The token to monitor for cancellation requests. The default value is <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken.none">None</a>.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</dt>
-    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the event has been handled, and contains the handler result, or
-<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> if the event was not posted.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-  <h4 class="section" id="SharpHook_Testing_TestProvider_PostEventAndWaitForHandler_SharpHook_Native_UioHookEvent__System_Threading_CancellationToken__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>Do not use this method inside the global hook as it will result in a deadlock.</p>
-</div>
 
 
 
@@ -864,7 +816,7 @@ this event will be dispatched if the provider is running. Otherwise, does nothin
 
   <h3 id="SharpHook_Testing_TestProvider_PostText_System_String_" data-uid="SharpHook.Testing.TestProvider.PostText(System.String)">
   PostText(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/80dfe1323d62d1299876a311161c43710c47a603/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Simulates the input of arbitrary Unicode characters if <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostTextResult">PostTextResult</a> is set to
@@ -908,7 +860,7 @@ this event will be dispatched if the provider is running. Otherwise, does nothin
 
   <h3 id="SharpHook_Testing_TestProvider_Run" data-uid="SharpHook.Testing.TestProvider.Run">
   Run()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/80dfe1323d62d1299876a311161c43710c47a603/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Runs the testing hook if <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunResult">RunResult</a> is set to <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise,
@@ -935,46 +887,42 @@ does nothing.</p>
 
 
   <h4 class="section" id="SharpHook_Testing_TestProvider_Run_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>The testing hook is an event loop which receives events from the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent__">PostEvent(ref UioHookEvent)</a>
-method. The hook can be started and stopped multiple times, but cannot be started when it's already running.</p>
+  <div class="markdown level1 remarks"><p>
+This method simply blocks the current thread until <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_Stop">Stop()</a> is called. Actual event dispatching
+happens directly in the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent__">PostEvent(ref UioHookEvent)</a> method. As such, it's different from the real
+global hook where the thread which calls the <a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html#SharpHook_Providers_IGlobalHookProvider_Run">Run()</a> method is the thread
+which dispatches events - this is not the case with <a class="xref" href="SharpHook.Testing.TestProvider.html">TestProvider</a>.
+</p>
+<p>
+This method can be called when the provider is already running - it will also block the current thread.
+Calling the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_Stop">Stop()</a> method will unblock all blocked threads.
+</p>
 </div>
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
-    <dd><p>The hook is already running.</p>
-</dd>
-  </dl>
 
 
 
-  <a id="SharpHook_Testing_TestProvider_RunAndWaitForStart_" data-uid="SharpHook.Testing.TestProvider.RunAndWaitForStart*"></a>
+  <a id="SharpHook_Testing_TestProvider_RunAsync_" data-uid="SharpHook.Testing.TestProvider.RunAsync*"></a>
 
-  <h3 id="SharpHook_Testing_TestProvider_RunAndWaitForStart_System_Threading_CancellationToken_" data-uid="SharpHook.Testing.TestProvider.RunAndWaitForStart(System.Threading.CancellationToken)">
-  RunAndWaitForStart(CancellationToken)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SharpHook_Testing_TestProvider_RunAsync" data-uid="SharpHook.Testing.TestProvider.RunAsync">
+  RunAsync()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/80dfe1323d62d1299876a311161c43710c47a603/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Runs the testing hook on a separate thread if <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunResult">RunResult</a> is set to
-<a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise, does nothing.</p>
+  <div class="markdown level1 summary"><p>Runs the testing hook if <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunResult">RunResult</a> is set to <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise,
+does nothing.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task RunAndWaitForStart(CancellationToken cancellationToken = default)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;UioHookResult&gt; RunAsync()</code></pre>
   </div>
 
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>cancellationToken</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></dt>
-    <dd><p>The token to monitor for cancellation requests. The default value is <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken.none">None</a>.</p>
-</dd>
-  </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
-    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the hook has been started.</p>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a>&gt;</dt>
+    <dd><p>The value of <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunResult">RunResult</a>.</p>
 </dd>
   </dl>
 
@@ -984,17 +932,19 @@ method. The hook can be started and stopped multiple times, but cannot be starte
 
 
 
-  <h4 class="section" id="SharpHook_Testing_TestProvider_RunAndWaitForStart_System_Threading_CancellationToken__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>The testing hook is an event loop which receives events from the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent__">PostEvent(ref UioHookEvent)</a>
-method. The hook can be started and stopped multiple times, but cannot be started when it's already running.</p>
+  <h4 class="section" id="SharpHook_Testing_TestProvider_RunAsync_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method doesn't do anything and returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which will be finished when
+<a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_Stop">Stop()</a> is called. Actual event dispatching happens directly in the
+<a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent__">PostEvent(ref UioHookEvent)</a> method. As such, it's different from the real global hook where
+the thread which calls the <a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html#SharpHook_Providers_IGlobalHookProvider_Run">Run()</a> method is the thread which dispatches
+events - this is not the case with <a class="xref" href="SharpHook.Testing.TestProvider.html">TestProvider</a>.
+</p>
+<p>
+This method can be called when the provider is already running - the same <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> will be returned.
+</p>
 </div>
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
-    <dd><p>The hook is already running.</p>
-</dd>
-  </dl>
 
 
 
@@ -1002,7 +952,7 @@ method. The hook can be started and stopped multiple times, but cannot be starte
 
   <h3 id="SharpHook_Testing_TestProvider_SetDispatchProc_SharpHook_Native_DispatchProc_System_IntPtr_" data-uid="SharpHook.Testing.TestProvider.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)">
   SetDispatchProc(DispatchProc?, nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/80dfe1323d62d1299876a311161c43710c47a603/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Sets the hook callback function for testing.</p>
@@ -1038,7 +988,7 @@ method. The hook can be started and stopped multiple times, but cannot be starte
 
   <h3 id="SharpHook_Testing_TestProvider_Stop" data-uid="SharpHook.Testing.TestProvider.Stop">
   Stop()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/80dfe1323d62d1299876a311161c43710c47a603/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Stops the testing hook if <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_StopResult">StopResult</a> is set to <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise,
@@ -1068,47 +1018,11 @@ does nothing.</p>
 
 
 
-  <h2 class="section" id="events">Events
-</h2>
-
-
-
-  <h3 id="SharpHook_Testing_TestProvider_TestEventHandled" data-uid="SharpHook.Testing.TestProvider.TestEventHandled">
-  TestEventHandled
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>An event which is raised when an input event posted via <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent__">PostEvent(ref UioHookEvent)</a> has been
-handled. The input event's <a class="xref" href="SharpHook.Native.UioHookEvent.html#SharpHook_Native_UioHookEvent_Reserved">Reserved</a> field can be inspected using this event.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler&lt;TestEventHandledEventArgs&gt;? TestEventHandled</code></pre>
-  </div>
-
-
-
-
-
-
-  <h4 class="section">Event Type</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="SharpHook.Testing.TestEventHandledEventArgs.html">TestEventHandledEventArgs</a>&gt;</dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/76a76dab93e7de539fd26b450c255927f91e47ea/SharpHook/Testing/TestProvider.cs" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/80dfe1323d62d1299876a311161c43710c47a603/SharpHook/Testing/TestProvider.cs" class="edit-link">Edit this page</a>
         </div>
 
         
