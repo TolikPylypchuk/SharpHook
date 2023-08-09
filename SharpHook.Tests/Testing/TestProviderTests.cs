@@ -34,8 +34,8 @@ public sealed class TestProviderTests
         Assert.Equal(eventToPost, actualEvent);
         Assert.Equal(userData, actualUserData);
 
-        Assert.Equal(2, provider.PostedEvents.Count);
-        Assert.Equal(eventToPost, provider.PostedEvents[1]);
+        Assert.Single(provider.PostedEvents);
+        Assert.Equal(eventToPost, provider.PostedEvents[0]);
 
         // Clean up
 
@@ -58,8 +58,8 @@ public sealed class TestProviderTests
 
         // Assert
 
-        Assert.Equal(2, provider.PostedEvents.Count);
-        Assert.Equal(eventToPost, provider.PostedEvents[1]);
+        Assert.Single(provider.PostedEvents);
+        Assert.Equal(eventToPost, provider.PostedEvents[0]);
 
         // Clean up
 
@@ -86,9 +86,9 @@ public sealed class TestProviderTests
 
         // Assert
 
-        Assert.Equal(2, provider.PostedEvents.Count);
+        Assert.Single(provider.PostedEvents);
 
-        var actualEvent = provider.PostedEvents[1];
+        var actualEvent = provider.PostedEvents[0];
         Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
         Assert.Equal(eventToPost, actualEvent);
 
@@ -204,21 +204,25 @@ public sealed class TestProviderTests
             EventMask = t => modifierMask
         };
 
+        UioHookEvent actualEvent = default;
+
+        provider.SetDispatchProc(
+            (ref UioHookEvent e, IntPtr userData) =>
+            {
+                if (e.Type == EventType.HookEnabled)
+                {
+                    actualEvent = e;
+                }
+            },
+            IntPtr.Zero);
+
         var task = provider.RunAsync();
 
         // Assert
 
-        var hookEnabledEvents = provider.PostedEvents
-            .Where(e => e.Type == EventType.HookEnabled)
-            .ToList();
-
-        Assert.Single(hookEnabledEvents);
-
-        var hookEnabledEvent = hookEnabledEvents[0];
-
-        Assert.Equal(dateTime.ToUnixTimeMilliseconds(), (long)hookEnabledEvent.Time);
-        Assert.Equal(modifierMask, hookEnabledEvent.Mask);
-        Assert.Equal(EventReservedValueMask.None, hookEnabledEvent.Reserved);
+        Assert.Equal(dateTime.ToUnixTimeMilliseconds(), (long)actualEvent.Time);
+        Assert.Equal(modifierMask, actualEvent.Mask);
+        Assert.Equal(EventReservedValueMask.None, actualEvent.Reserved);
 
         // Clean up
 
@@ -237,6 +241,18 @@ public sealed class TestProviderTests
             EventMask = t => modifierMask
         };
 
+        UioHookEvent actualEvent = default;
+
+        provider.SetDispatchProc(
+            (ref UioHookEvent e, IntPtr userData) =>
+            {
+                if (e.Type == EventType.HookDisabled)
+                {
+                    actualEvent = e;
+                }
+            },
+            IntPtr.Zero);
+
         var task = provider.RunAsync();
 
         provider.Stop();
@@ -245,17 +261,9 @@ public sealed class TestProviderTests
 
         await task;
 
-        var hookDisabledEvents = provider.PostedEvents
-            .Where(e => e.Type == EventType.HookDisabled)
-            .ToList();
-
-        Assert.Single(hookDisabledEvents);
-
-        var hookDisabledEvent = hookDisabledEvents[0];
-
-        Assert.Equal(dateTime.Value.ToUnixTimeMilliseconds(), (long)hookDisabledEvent.Time);
-        Assert.Equal(modifierMask, hookDisabledEvent.Mask);
-        Assert.Equal(EventReservedValueMask.None, hookDisabledEvent.Reserved);
+        Assert.Equal(dateTime.Value.ToUnixTimeMilliseconds(), (long)actualEvent.Time);
+        Assert.Equal(modifierMask, actualEvent.Mask);
+        Assert.Equal(EventReservedValueMask.None, actualEvent.Reserved);
     }
 
     [Property(DisplayName = "PostEvent should post an event")]

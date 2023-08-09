@@ -10,24 +10,23 @@ unlike mocks, no setup is required to use these classes.
 ## Test Global Hook
 
 `SharpHook.Testing.TestGlobalHook` provides an implementation of `IGlobalHook` and `IEventSimulator` which can be used
-for testing. When the `Run` or `RunAsync` method is called, it starts an event queue which can be populated with events
-using the various `Simulate` methods from `IEventSimulator`.
+for testing. When the `Run` or `RunAsync` method is called, it will dispatch events using the various `Simulate` methods
+from `IEventSimulator`.
 
 Here's a very simple example of a test which utilizes `TestGlobalHook`:
 
 ```c#
 [Fact]
-public async void TestLastPressedKey()
+public void TestLastPressedKey()
 {
-    var hook = new TestGlobalHook();
+    using var hook = new TestGlobalHook();
     var keyCode = KeyCode.VcA;
     var componentUnderTest = new SomeClassWhichUsesGlobalHookEvents(hook);
 
-    // Run the test hook asynchronously and wait until IsRunning = true
-    await hook.RunAndWaitForStart();
+    // Run the test hook asynchronously and ignore the result
+    _ = hook.RunAsync();
 
-    // The default methods for simulation don't wait for event handlers, so methods which do wait are provided as well
-    await hook.SimulateKeyPressAndWaitForHandler(keyCode);
+    hook.SimulateKeyPress(keyCode);
 
     Assert.Equal(keyCode, componentUnderTest.LastPressedKey);
 }
@@ -47,15 +46,15 @@ If the low-level functionality of SharpHook should be mocked, or mocking should 
 then `SharpHook.Testing.TestProvider` can be used. It implements every interface in the `SharpHook.Providers` namespace
 and as such it can be used instead of a normal low-level functionality provider.
 
-Like `TestGlobalHook`, this class can run an event loop using its `Run` method, and post events using the `PostEvent`
-method. It also contains the `SimulatedEvents` property.
+Like `TestGlobalHook`, this class can post events using the `PostEvent` method and dispatch them if `Run` was called.
+It also contains the `PostedEvents` property.
 
 All classes in SharpHook use providers instead of directly using the `UioHook` class for low-level functionality.
 The providers are selectable, so e.g. the following global hook can be used for testing:
 
 ```c#
 var testProvider = new TestProvider();
-var hook = new SimpleGlobalHook(testProvider); // Calls to test methods in testProvider will be reflected in the hook
+var hook = new SimpleGlobalHook(testProvider); // Calls to methods in testProvider will be reflected in the hook
 ```
 
 > [!NOTE]

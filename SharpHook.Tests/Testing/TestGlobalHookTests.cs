@@ -6,7 +6,7 @@ public sealed class TestGlobalHookTests
         Arb.Register<Generators>();
 
     [Property(DisplayName = "KeyPressed events should be simulated and handled")]
-    public async void HandleKeyPressed(KeyCode keyCode, ushort rawCode, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    public void HandleKeyPressed(KeyCode keyCode, ushort rawCode, DateTimeAfterEpoch dateTime, ModifierMask mask)
     {
         // Arrange
 
@@ -27,9 +27,9 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        await hook.RunAndWaitForStart();
+        _ = hook.RunAsync();
 
-        var args = await hook.SimulateKeyPressAndWaitForHandler(keyCode);
+        hook.SimulateKeyPress(keyCode);
 
         // Assert
 
@@ -41,21 +41,17 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.NotNull(args);
-        Assert.True(args.HookCalled);
+        Assert.Single(hook.SimulatedEvents);
 
-        var actualEvent = args.Event;
+        var actualEvent = hook.SimulatedEvents[0];
         Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
 
         actualEvent.Reserved = EventReservedValueMask.None;
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
-
-        Assert.Single(hook.SimulatedEvents);
-        Assert.Equal(actualEventArgs, hook.SimulatedEvents[0]);
     }
 
     [Property(DisplayName = "KeyPressed events should be simulated and handled for null characters")]
-    public async void HandleKeyPressedNullCharacters(
+    public void HandleKeyPressedNullCharacters(
         KeyCode keyCode,
         ushort rawCode,
         DateTimeAfterEpoch dateTime,
@@ -81,9 +77,9 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        await hook.RunAndWaitForStart();
+        _ = hook.RunAsync();
 
-        var args = await hook.SimulateKeyPressAndWaitForHandler(keyCode);
+        hook.SimulateKeyPress(keyCode);
 
         // Assert
 
@@ -95,21 +91,17 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.NotNull(args);
-        Assert.True(args.HookCalled);
+        Assert.Single(hook.SimulatedEvents);
 
-        var actualEvent = args.Event;
+        var actualEvent = hook.SimulatedEvents[0];
         Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
 
         actualEvent.Reserved = EventReservedValueMask.None;
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
-
-        Assert.Single(hook.SimulatedEvents);
-        Assert.Equal(actualEventArgs, hook.SimulatedEvents[0]);
     }
 
     [Property(DisplayName = "KeyReleased events should be simulated and handled")]
-    public async void HandleKeyReleased(KeyCode keyCode, ushort rawCode, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    public void HandleKeyReleased(KeyCode keyCode, ushort rawCode, DateTimeAfterEpoch dateTime, ModifierMask mask)
     {
         // Arrange
 
@@ -130,9 +122,9 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        await hook.RunAndWaitForStart();
+        _ = hook.RunAsync();
 
-        var args = await hook.SimulateKeyReleaseAndWaitForHandler(keyCode);
+        hook.SimulateKeyRelease(keyCode);
 
         // Assert
 
@@ -144,21 +136,17 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.NotNull(args);
-        Assert.True(args.HookCalled);
+        Assert.Single(hook.SimulatedEvents);
 
-        var actualEvent = args.Event;
+        var actualEvent = hook.SimulatedEvents[0];
         Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
 
         actualEvent.Reserved = EventReservedValueMask.None;
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
-
-        Assert.Single(hook.SimulatedEvents);
-        Assert.Equal(actualEventArgs, hook.SimulatedEvents[0]);
     }
 
     [Property(DisplayName = "KeyTyped events should be simulated and handled")]
-    public async void HandleKeyTyped(
+    public void HandleKeyTyped(
         char keyChar,
         KeyCode keyCode,
         ushort rawCode,
@@ -185,9 +173,9 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        await hook.RunAndWaitForStart();
+        _ = hook.RunAsync();
 
-        var args = await hook.SimulateKeyPressAndWaitForKeyTypedHandler(keyCode, keyChar);
+        hook.SimulateKeyPress(keyCode);
 
         // Assert
 
@@ -198,21 +186,17 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.NotNull(args);
-        Assert.True(args.HookCalled);
+        Assert.Equal(2, hook.SimulatedEvents.Count);
 
-        var actualEvent = args.Event;
+        var actualEvent = hook.SimulatedEvents[1];
         Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
 
         actualEvent.Reserved = EventReservedValueMask.None;
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
-
-        Assert.Equal(2, hook.SimulatedEvents.Count);
-        Assert.Equal(actualEventArgs, hook.SimulatedEvents[1]);
     }
 
     [Property(DisplayName = "MousePressed events should be simulated and handled")]
-    public async void HandleMousePressed(
+    public void HandleMousePressed(
         short x,
         short y,
         MouseButton button,
@@ -241,9 +225,9 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        await hook.RunAndWaitForStart();
+        _ = hook.RunAsync();
 
-        var args = await hook.SimulateMousePressAndWaitForHandler(button);
+        hook.SimulateMousePress(button);
 
         // Assert
 
@@ -255,21 +239,17 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.NotNull(args);
-        Assert.True(args.HookCalled);
+        Assert.Single(hook.SimulatedEvents);
 
-        var actualEvent = args.Event;
+        var actualEvent = hook.SimulatedEvents[0];
         Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
 
         actualEvent.Reserved = EventReservedValueMask.None;
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
-
-        Assert.Single(hook.SimulatedEvents);
-        Assert.Equal(actualEventArgs, hook.SimulatedEvents[0]);
     }
 
     [Property(DisplayName = "MousePressed events with explicit coordinates should be simulated and handled")]
-    public async void HandleMousePressedExplicitCoordinates(
+    public void HandleMousePressedExplicitCoordinates(
         short x,
         short y,
         MouseButton button,
@@ -296,9 +276,9 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        await hook.RunAndWaitForStart();
+        _ = hook.RunAsync();
 
-        var args = await hook.SimulateMousePressAndWaitForHandler(x, y, button);
+        hook.SimulateMousePress(x, y, button);
 
         // Assert
 
@@ -310,21 +290,17 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.NotNull(args);
-        Assert.True(args.HookCalled);
+        Assert.Single(hook.SimulatedEvents);
 
-        var actualEvent = args.Event;
+        var actualEvent = hook.SimulatedEvents[0];
         Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
 
         actualEvent.Reserved = EventReservedValueMask.None;
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
-
-        Assert.Single(hook.SimulatedEvents);
-        Assert.Equal(actualEventArgs, hook.SimulatedEvents[0]);
     }
 
     [Property(DisplayName = "MouseReleased events should be simulated and handled")]
-    public async void HandleMouseReleased(
+    public void HandleMouseReleased(
         short x,
         short y,
         MouseButton button,
@@ -354,9 +330,9 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        await hook.RunAndWaitForStart();
+        _ = hook.RunAsync();
 
-        var args = await hook.SimulateMouseReleaseAndWaitForHandler(button);
+        hook.SimulateMouseRelease(button);
 
         // Assert
 
@@ -368,21 +344,17 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.NotNull(args);
-        Assert.True(args.HookCalled);
+        Assert.Single(hook.SimulatedEvents);
 
-        var actualEvent = args.Event;
+        var actualEvent = hook.SimulatedEvents[0];
         Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
 
         actualEvent.Reserved = EventReservedValueMask.None;
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
-
-        Assert.Single(hook.SimulatedEvents);
-        Assert.Equal(actualEventArgs, hook.SimulatedEvents[0]);
     }
 
     [Property(DisplayName = "MouseReleased events with explicit coordinates should be simulated and handled")]
-    public async void HandleMouseReleasedExplicitCoordinates(
+    public void HandleMouseReleasedExplicitCoordinates(
         short x,
         short y,
         MouseButton button,
@@ -410,9 +382,9 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        await hook.RunAndWaitForStart();
+        _ = hook.RunAsync();
 
-        var args = await hook.SimulateMouseReleaseAndWaitForHandler(x, y, button);
+        hook.SimulateMouseRelease(x, y, button);
 
         // Assert
 
@@ -424,21 +396,17 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.NotNull(args);
-        Assert.True(args.HookCalled);
+        Assert.Single(hook.SimulatedEvents);
 
-        var actualEvent = args.Event;
+        var actualEvent = hook.SimulatedEvents[0];
         Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
 
         actualEvent.Reserved = EventReservedValueMask.None;
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
-
-        Assert.Single(hook.SimulatedEvents);
-        Assert.Equal(actualEventArgs, hook.SimulatedEvents[0]);
     }
 
     [Property(DisplayName = "MouseClicked events should be simulated and handled")]
-    public async void HandleMouseClicked(
+    public void HandleMouseClicked(
         short x,
         short y,
         MouseButton button,
@@ -468,9 +436,9 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        await hook.RunAndWaitForStart();
+        _ = hook.RunAsync();
 
-        var args = await hook.SimulateMouseReleaseAndWaitForMouseClickHandler(button);
+        hook.SimulateMouseRelease(button);
 
         // Assert
 
@@ -482,21 +450,17 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.NotNull(args);
-        Assert.True(args.HookCalled);
+        Assert.Equal(2, hook.SimulatedEvents.Count);
 
-        var actualEvent = args.Event;
+        var actualEvent = hook.SimulatedEvents[1];
         Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
 
         actualEvent.Reserved = EventReservedValueMask.None;
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
-
-        Assert.Equal(2, hook.SimulatedEvents.Count);
-        Assert.Equal(actualEventArgs, hook.SimulatedEvents[1]);
     }
 
     [Property(DisplayName = "MouseClicked events with explicit coordinates should be simulated and handled")]
-    public async void HandleMouseClickedExplicitCoordinates(
+    public void HandleMouseClickedExplicitCoordinates(
         short x,
         short y,
         MouseButton button,
@@ -524,9 +488,9 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        await hook.RunAndWaitForStart();
+        _ = hook.RunAsync();
 
-        var args = await hook.SimulateMouseReleaseAndWaitForMouseClickHandler(x, y, button);
+        hook.SimulateMouseRelease(x, y, button);
 
         // Assert
 
@@ -538,21 +502,17 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.NotNull(args);
-        Assert.True(args.HookCalled);
+        Assert.Equal(2, hook.SimulatedEvents.Count);
 
-        var actualEvent = args.Event;
+        var actualEvent = hook.SimulatedEvents[1];
         Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
 
         actualEvent.Reserved = EventReservedValueMask.None;
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
-
-        Assert.Equal(2, hook.SimulatedEvents.Count);
-        Assert.Equal(actualEventArgs, hook.SimulatedEvents[1]);
     }
 
     [Property(DisplayName = "MouseMoved events should be simulated and handled")]
-    public async void HandleMouseMovement(short x, short y, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    public void HandleMouseMovement(short x, short y, DateTimeAfterEpoch dateTime, ModifierMask mask)
     {
         // Arrange
 
@@ -572,9 +532,9 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        await hook.RunAndWaitForStart();
+        _ = hook.RunAsync();
 
-        var args = await hook.SimulateMouseMovementAndWaitForHandler(x, y);
+        hook.SimulateMouseMovement(x, y);
 
         // Assert
 
@@ -586,21 +546,17 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.NotNull(args);
-        Assert.True(args.HookCalled);
+        Assert.Single(hook.SimulatedEvents);
 
-        var actualEvent = args.Event;
+        var actualEvent = hook.SimulatedEvents[0];
         Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
 
         actualEvent.Reserved = EventReservedValueMask.None;
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
-
-        Assert.Single(hook.SimulatedEvents);
-        Assert.Equal(actualEventArgs, hook.SimulatedEvents[0]);
     }
 
     [Property(DisplayName = "Relatvie MouseMoved events should be simulated and handled")]
-    public async void HandleMouseMovementRelative(
+    public void HandleMouseMovementRelative(
         short x,
         short y,
         short xOffset,
@@ -628,9 +584,9 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        await hook.RunAndWaitForStart();
+        _ = hook.RunAsync();
 
-        var args = await hook.SimulateMouseMovementRelativeAndWaitForHandler(xOffset, yOffset);
+        hook.SimulateMouseMovementRelative(xOffset, yOffset);
 
         // Assert
 
@@ -642,21 +598,17 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.NotNull(args);
-        Assert.True(args.HookCalled);
+        Assert.Single(hook.SimulatedEvents);
 
-        var actualEvent = args.Event;
+        var actualEvent = hook.SimulatedEvents[0];
         Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
 
         actualEvent.Reserved = EventReservedValueMask.None;
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
-
-        Assert.Single(hook.SimulatedEvents);
-        Assert.Equal(actualEventArgs, hook.SimulatedEvents[0]);
     }
 
     [Property(DisplayName = "MouseDragged events should be simulated and handled")]
-    public async void HandleMouseDragged(short x, short y, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    public void HandleMouseDragged(short x, short y, DateTimeAfterEpoch dateTime, ModifierMask mask)
     {
         // Arrange
 
@@ -677,9 +629,9 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        await hook.RunAndWaitForStart();
+        _ = hook.RunAsync();
 
-        var args = await hook.SimulateMouseMovementAndWaitForHandler(x, y);
+        hook.SimulateMouseMovement(x, y);
 
         // Assert
 
@@ -691,21 +643,17 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.NotNull(args);
-        Assert.True(args.HookCalled);
+        Assert.Single(hook.SimulatedEvents);
 
-        var actualEvent = args.Event;
+        var actualEvent = hook.SimulatedEvents[0];
         Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
 
         actualEvent.Reserved = EventReservedValueMask.None;
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
-
-        Assert.Single(hook.SimulatedEvents);
-        Assert.Equal(actualEventArgs, hook.SimulatedEvents[0]);
     }
 
     [Property(DisplayName = "Relatvie MouseDragged events should be simulated and handled")]
-    public async void HandleMouseDraggedRelative(
+    public void HandleMouseDraggedRelative(
         short x,
         short y,
         short xOffset,
@@ -734,9 +682,9 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        await hook.RunAndWaitForStart();
+        _ = hook.RunAsync();
 
-        var args = await hook.SimulateMouseMovementRelativeAndWaitForHandler(xOffset, yOffset);
+        hook.SimulateMouseMovementRelative(xOffset, yOffset);
 
         // Assert
 
@@ -748,21 +696,17 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.NotNull(args);
-        Assert.True(args.HookCalled);
+        Assert.Single(hook.SimulatedEvents);
 
-        var actualEvent = args.Event;
+        var actualEvent = hook.SimulatedEvents[0];
         Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
 
         actualEvent.Reserved = EventReservedValueMask.None;
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
-
-        Assert.Single(hook.SimulatedEvents);
-        Assert.Equal(actualEventArgs, hook.SimulatedEvents[0]);
     }
 
     [Property(DisplayName = "MouseWheel events should be simulated and handled")]
-    public async void HandleMouseWheel(
+    public void HandleMouseWheel(
         short rotation,
         MouseWheelScrollDirection direction,
         MouseWheelScrollType type,
@@ -787,9 +731,9 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        await hook.RunAndWaitForStart();
+        _ = hook.RunAsync();
 
-        var args = await hook.SimulateMouseWheelAndWaitForHandler(rotation, direction, type);
+        hook.SimulateMouseWheel(rotation, direction, type);
 
         // Assert
 
@@ -800,17 +744,13 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.NotNull(args);
-        Assert.True(args.HookCalled);
+        Assert.Single(hook.SimulatedEvents);
 
-        var actualEvent = args.Event;
+        var actualEvent = hook.SimulatedEvents[0];
         Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
 
         actualEvent.Reserved = EventReservedValueMask.None;
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
-
-        Assert.Single(hook.SimulatedEvents);
-        Assert.Equal(actualEventArgs, hook.SimulatedEvents[0]);
     }
 
     [Property(DisplayName = "SimulateTextEntry should add it to the simulated text collection")]
@@ -831,32 +771,6 @@ public sealed class TestGlobalHookTests
         Assert.Equal(UioHookResult.Success, actualResult);
     }
 
-    [Fact(DisplayName = "RunAsync should run the hook in a separate thread")]
-    public async void RunAsync()
-    {
-        // Arrange
-
-        var hook = new TestGlobalHook();
-
-        // Act
-
-        var result = hook.RunAsync();
-
-        while (!hook.IsRunning)
-        {
-            await Task.Yield();
-        }
-
-        // Assert
-
-        Assert.True(hook.IsRunning);
-
-        // Clean up
-
-        hook.Dispose();
-        await result;
-    }
-
     [Property(DisplayName = "Run should throw an exception if configured to do so")]
     public void RunFail(FailedUioHookResult result)
     {
@@ -874,17 +788,21 @@ public sealed class TestGlobalHookTests
         Assert.Equal(result.Value, exception.Result);
     }
 
-    [Fact(DisplayName = "Run should throw an exception if the hook is already running")]
-    public async void RunWhenRunning()
+    [Property(DisplayName = "RunAsync should throw an exception if configured to do so")]
+    public async void RunAsyncFail(FailedUioHookResult result)
     {
         // Arrange
 
-        using var hook = new TestGlobalHook();
-        await hook.RunAndWaitForStart();
+        var hook = new TestGlobalHook
+        {
+            RunResult = result.Value
+        };
 
         // Act + Assert
 
-        Assert.Throws<InvalidOperationException>(hook.Run);
+        var exception = await Assert.ThrowsAsync<HookException>(hook.RunAsync);
+
+        Assert.Equal(result.Value, exception.Result);
     }
 
     [Fact(DisplayName = "Run should throw an exception if the hook is disposed")]
@@ -900,21 +818,8 @@ public sealed class TestGlobalHookTests
         Assert.Throws<ObjectDisposedException>(hook.Run);
     }
 
-    [Fact(DisplayName = "RunAsync should throw an exception if the hook is already running")]
-    public async void RunAsyncWhenRunning()
-    {
-        // Arrange
-
-        using var hook = new TestGlobalHook();
-        await hook.RunAndWaitForStart();
-
-        // Act + Assert
-
-        Assert.Throws<InvalidOperationException>(() => { _ = hook.RunAsync(); });
-    }
-
     [Fact(DisplayName = "RunAsync should throw an exception if the hook is disposed")]
-    public void RunAsyncDisposed()
+    public async void RunAsyncDisposed()
     {
         // Arrange
 
@@ -923,20 +828,7 @@ public sealed class TestGlobalHookTests
 
         // Act + Assert
 
-        Assert.Throws<ObjectDisposedException>(() => { _ = hook.RunAsync(); });
-    }
-
-    [Fact(DisplayName = "RunAndWaitForStart should throw an exception if the hook is disposed")]
-    public void RunAndWaitForStartDisposed()
-    {
-        // Arrange
-
-        var hook = new TestGlobalHook();
-        hook.Dispose();
-
-        // Act + Assert
-
-        Assert.Throws<ObjectDisposedException>(() => { _ = hook.RunAndWaitForStart(); });
+        await Assert.ThrowsAsync<ObjectDisposedException>(hook.RunAsync);
     }
 
     [Property(DisplayName = "Dispose should throw an exception if configured to do so")]
@@ -950,6 +842,8 @@ public sealed class TestGlobalHookTests
         };
 
         // Act + Assert
+
+        _ = hook.RunAsync();
 
         var exception = Assert.Throws<HookException>(hook.Dispose);
 
@@ -970,7 +864,7 @@ public sealed class TestGlobalHookTests
     }
 
     [Property(DisplayName = "SimulateKeyPress should return an error if configured to do so")]
-    public async void SimulateKeyPressFail(FailedUioHookResult result, KeyCode keyCode, char keyChar)
+    public void SimulateKeyPressFail(FailedUioHookResult result, KeyCode keyCode)
     {
         // Arrange
 
@@ -982,19 +876,15 @@ public sealed class TestGlobalHookTests
         // Act
 
         var actualResult = hook.SimulateKeyPress(keyCode);
-        var asyncResult1 = await hook.SimulateKeyPressAndWaitForHandler(keyCode);
-        var asyncResult2 = await hook.SimulateKeyPressAndWaitForKeyTypedHandler(keyCode, keyChar);
 
         // Assert
 
         Assert.Equal(result.Value, actualResult);
         Assert.Empty(hook.SimulatedEvents);
-        Assert.Null(asyncResult1);
-        Assert.Null(asyncResult2);
     }
 
     [Property(DisplayName = "SimulateKeyRelease should return an error if configured to do so")]
-    public async void SimulateKeyReleaseFail(FailedUioHookResult result, KeyCode keyCode)
+    public void SimulateKeyReleaseFail(FailedUioHookResult result, KeyCode keyCode)
     {
         // Arrange
 
@@ -1006,17 +896,15 @@ public sealed class TestGlobalHookTests
         // Act
 
         var actualResult = hook.SimulateKeyRelease(keyCode);
-        var asyncResult = await hook.SimulateKeyReleaseAndWaitForHandler(keyCode);
 
         // Assert
 
         Assert.Equal(result.Value, actualResult);
         Assert.Empty(hook.SimulatedEvents);
-        Assert.Null(asyncResult);
     }
 
     [Property(DisplayName = "SimulateMousePress should return an error if configured to do so")]
-    public async void SimulateMousePressFail(FailedUioHookResult result, MouseButton button)
+    public void SimulateMousePressFail(FailedUioHookResult result, MouseButton button)
     {
         // Arrange
 
@@ -1028,18 +916,16 @@ public sealed class TestGlobalHookTests
         // Act
 
         var actualResult = hook.SimulateMousePress(button);
-        var asyncResult = await hook.SimulateMousePressAndWaitForHandler(button);
 
         // Assert
 
         Assert.Equal(result.Value, actualResult);
         Assert.Empty(hook.SimulatedEvents);
-        Assert.Null(asyncResult);
     }
 
     [Property(
         DisplayName = "SimulateMousePress with explicit coordinates should return an error if configured to do so")]
-    public async void SimulateMousePressExplicitCoordinatesFail(
+    public void SimulateMousePressExplicitCoordinatesFail(
         FailedUioHookResult result,
         short x,
         short y,
@@ -1055,17 +941,15 @@ public sealed class TestGlobalHookTests
         // Act
 
         var actualResult = hook.SimulateMousePress(x, y, button);
-        var asyncResult = await hook.SimulateMousePressAndWaitForHandler(x, y, button);
 
         // Assert
 
         Assert.Equal(result.Value, actualResult);
         Assert.Empty(hook.SimulatedEvents);
-        Assert.Null(asyncResult);
     }
 
     [Property(DisplayName = "SimulateMouseRelease should return an error if configured to do so")]
-    public async void SimulateMouseReleaseFail(FailedUioHookResult result, MouseButton button)
+    public void SimulateMouseReleaseFail(FailedUioHookResult result, MouseButton button)
     {
         // Arrange
 
@@ -1077,20 +961,16 @@ public sealed class TestGlobalHookTests
         // Act
 
         var actualResult = hook.SimulateMouseRelease(button);
-        var asyncResult1 = await hook.SimulateMouseReleaseAndWaitForHandler(button);
-        var asyncResult2 = await hook.SimulateMouseReleaseAndWaitForMouseClickHandler(button);
 
         // Assert
 
         Assert.Equal(result.Value, actualResult);
         Assert.Empty(hook.SimulatedEvents);
-        Assert.Null(asyncResult1);
-        Assert.Null(asyncResult2);
     }
 
     [Property(
         DisplayName = "SimulateMouseRelease with explicit coordinates should return an error if configured to do so")]
-    public async void SimulateMouseReleaseExplicitCoordinatesFail(
+    public void SimulateMouseReleaseExplicitCoordinatesFail(
         FailedUioHookResult result,
         short x,
         short y,
@@ -1106,19 +986,15 @@ public sealed class TestGlobalHookTests
         // Act
 
         var actualResult = hook.SimulateMouseRelease(x, y, button);
-        var asyncResult1 = await hook.SimulateMouseReleaseAndWaitForHandler(x, y, button);
-        var asyncResult2 = await hook.SimulateMouseReleaseAndWaitForMouseClickHandler(x, y, button);
 
         // Assert
 
         Assert.Equal(result.Value, actualResult);
         Assert.Empty(hook.SimulatedEvents);
-        Assert.Null(asyncResult1);
-        Assert.Null(asyncResult2);
     }
 
     [Property(DisplayName = "SimulateMouseMovement should return an error if configured to do so")]
-    public async void SimulateMouseMovementFail(FailedUioHookResult result, short x, short y)
+    public void SimulateMouseMovementFail(FailedUioHookResult result, short x, short y)
     {
         // Arrange
 
@@ -1130,17 +1006,15 @@ public sealed class TestGlobalHookTests
         // Act
 
         var actualResult = hook.SimulateMouseMovement(x, y);
-        var asyncResult = await hook.SimulateMouseMovementAndWaitForHandler(x, y);
 
         // Assert
 
         Assert.Equal(result.Value, actualResult);
         Assert.Empty(hook.SimulatedEvents);
-        Assert.Null(asyncResult);
     }
 
     [Property(DisplayName = "SimulateMouseMovementRelative should return an error if configured to do so")]
-    public async void SimulateMouseMovementRelativeFail(FailedUioHookResult result, short xOffset, short yOffset)
+    public void SimulateMouseMovementRelativeFail(FailedUioHookResult result, short xOffset, short yOffset)
     {
         // Arrange
 
@@ -1152,17 +1026,15 @@ public sealed class TestGlobalHookTests
         // Act
 
         var actualResult = hook.SimulateMouseMovementRelative(xOffset, yOffset);
-        var asyncResult = await hook.SimulateMouseMovementRelativeAndWaitForHandler(xOffset, yOffset);
 
         // Assert
 
         Assert.Equal(result.Value, actualResult);
         Assert.Empty(hook.SimulatedEvents);
-        Assert.Null(asyncResult);
     }
 
     [Property(DisplayName = "SimulateMouseWheel should return an error if configured to do so")]
-    public async void SimulateMouseWheelFail(
+    public void SimulateMouseWheelFail(
         FailedUioHookResult result,
         short rotation,
         MouseWheelScrollDirection direction,
@@ -1178,13 +1050,11 @@ public sealed class TestGlobalHookTests
         // Act
 
         var actualResult = hook.SimulateMouseWheel(rotation, direction, type);
-        var asyncResult = await hook.SimulateMouseWheelAndWaitForHandler(rotation, direction, type);
 
         // Assert
 
         Assert.Equal(result.Value, actualResult);
         Assert.Empty(hook.SimulatedEvents);
-        Assert.Null(asyncResult);
     }
 
     [Property(DisplayName = "SimulateTextEntry should return an error if configured to do so")]

@@ -3,7 +3,7 @@ namespace SharpHook.Testing;
 /// <summary>
 /// A provider of low-level functionality which can be used in tests.
 /// </summary>
-public class TestProvider :
+public sealed class TestProvider :
     IGlobalHookProvider,
     ILoggingProvider,
     IEventSimulationProvider,
@@ -206,11 +206,11 @@ public class TestProvider :
         var source = this.runCompletionSource;
 
         this.IsRunning = true;
-        this.PostHookEvent(EventType.HookEnabled);
+        this.DispatchHookEvent(EventType.HookEnabled);
 
         await source.Task;
 
-        this.PostHookEvent(EventType.HookDisabled);
+        this.DispatchHookEvent(EventType.HookDisabled);
         this.IsRunning = false;
 
         return result;
@@ -288,7 +288,7 @@ public class TestProvider :
         return result;
     }
 
-    private void PostHookEvent(EventType eventType)
+    private void DispatchHookEvent(EventType eventType)
     {
         var hookEvent = new UioHookEvent
         {
@@ -299,7 +299,6 @@ public class TestProvider :
         };
 
         this.dispatchProc?.Invoke(ref hookEvent, this.userData);
-        this.postedEvents.Add(hookEvent);
     }
 
     void ILoggingProvider.SetLoggerProc(LoggerProc? loggerProc, IntPtr userData)

@@ -79,10 +79,10 @@ public sealed class SimpleGlobalHookTests
         Assert.Same(hook, actualSender);
 
         Assert.NotNull(actualEventArgs);
-
-        var actualEvent = provider.PostedEvents.First(e => e.Type == EventType.HookEnabled);
-        Assert.Equal(actualEvent, actualEventArgs.RawEvent);
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
+        Assert.Equal(EventType.HookEnabled, actualEventArgs.RawEvent.Type);
+        Assert.Equal(time, actualEventArgs.RawEvent.Time);
+        Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
     }
 
     [Property(DisplayName = "HookDisabled events should be raised")]
@@ -120,10 +120,10 @@ public sealed class SimpleGlobalHookTests
         Assert.Same(hook, actualSender);
 
         Assert.NotNull(actualEventArgs);
-
-        var actualEvent = provider.PostedEvents.First(e => e.Type == EventType.HookDisabled);
-        Assert.Equal(actualEvent, actualEventArgs.RawEvent);
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
+        Assert.Equal(EventType.HookDisabled, actualEventArgs.RawEvent.Type);
+        Assert.Equal(time, actualEventArgs.RawEvent.Time);
+        Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
     }
 
     [Property(DisplayName = "KeyPressed events should be raised")]
