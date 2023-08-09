@@ -11,13 +11,13 @@ public sealed class ReactiveGlobalHookAdapterTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
+        var hook = new SimpleReactiveGlobalHook(provider);
 
         // Act + Assert
 
         Assert.False(hook.IsRunning);
 
-        this.RunHookAndWaitForStart(hook);
+        this.RunHookAndWaitForStart(hook, provider);
 
         Assert.True(hook.IsRunning);
 
@@ -32,7 +32,7 @@ public sealed class ReactiveGlobalHookAdapterTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
+        var hook = new SimpleReactiveGlobalHook(provider);
 
         // Act + Assert
 
@@ -54,7 +54,7 @@ public sealed class ReactiveGlobalHookAdapterTests
             EventMask = t => mask
         };
 
-        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
+        using var hook = new SimpleReactiveGlobalHook(provider);
 
         HookEventArgs? actualEventArgs = null;
 
@@ -90,7 +90,7 @@ public sealed class ReactiveGlobalHookAdapterTests
             EventMask = t => mask
         };
 
-        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
+        using var hook = new SimpleReactiveGlobalHook(provider);
 
         HookEventArgs? actualEventArgs = null;
 
@@ -113,12 +113,12 @@ public sealed class ReactiveGlobalHookAdapterTests
     }
 
     [Property(DisplayName = "KeyPressed events should be raised")]
-    public async void KeyPressed(KeyCode keyCode, ushort rawCode, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    public void KeyPressed(KeyCode keyCode, ushort rawCode, DateTimeAfterEpoch dateTime, ModifierMask mask)
     {
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
+        using var hook = new SimpleReactiveGlobalHook(provider);
 
         var e = new UioHookEvent
         {
@@ -133,34 +133,35 @@ public sealed class ReactiveGlobalHookAdapterTests
             }
         };
 
-        hook.KeyPressed.Subscribe(OnKeyPressed);
+        KeyboardHookEventArgs? actualArgs = null;
+
+        hook.KeyPressed.Subscribe(e => actualArgs = e);
 
         // Act
 
-        this.RunHookAndWaitForStart(hook);
+        this.RunHookAndWaitForStart(hook, provider);
 
-        await provider.PostEventAndWaitForHandler(ref e);
+        provider.PostEvent(ref e);
 
         // Assert
 
-        void OnKeyPressed(KeyboardHookEventArgs args)
-        {
-            Assert.Equal(e, args.RawEvent);
-            Assert.Equal(dateTime.Value, args.EventTime);
+        Assert.NotNull(actualArgs);
 
-            Assert.Equal(keyCode, args.Data.KeyCode);
-            Assert.Equal(rawCode, args.Data.RawCode);
-            Assert.Equal(KeyboardEventData.UndefinedChar, args.Data.KeyChar);
-        }
+        Assert.Equal(e, actualArgs.RawEvent);
+        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+
+        Assert.Equal(keyCode, actualArgs.Data.KeyCode);
+        Assert.Equal(rawCode, actualArgs.Data.RawCode);
+        Assert.Equal(KeyboardEventData.UndefinedChar, actualArgs.Data.KeyChar);
     }
 
     [Property(DisplayName = "KeyReleased events should be raised")]
-    public async void KeyReleased(KeyCode keyCode, ushort rawCode, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    public void KeyReleased(KeyCode keyCode, ushort rawCode, DateTimeAfterEpoch dateTime, ModifierMask mask)
     {
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
+        using var hook = new SimpleReactiveGlobalHook(provider);
 
         var e = new UioHookEvent
         {
@@ -175,29 +176,30 @@ public sealed class ReactiveGlobalHookAdapterTests
             }
         };
 
-        hook.KeyReleased.Subscribe(OnKeyReleased);
+        KeyboardHookEventArgs? actualArgs = null;
+
+        hook.KeyReleased.Subscribe(e => actualArgs = e);
 
         // Act
 
-        this.RunHookAndWaitForStart(hook);
+        this.RunHookAndWaitForStart(hook, provider);
 
-        await provider.PostEventAndWaitForHandler(ref e);
+        provider.PostEvent(ref e);
 
         // Assert
 
-        void OnKeyReleased(KeyboardHookEventArgs args)
-        {
-            Assert.Equal(e, args.RawEvent);
-            Assert.Equal(dateTime.Value, args.EventTime);
+        Assert.NotNull(actualArgs);
 
-            Assert.Equal(keyCode, args.Data.KeyCode);
-            Assert.Equal(rawCode, args.Data.RawCode);
-            Assert.Equal(KeyboardEventData.UndefinedChar, args.Data.KeyChar);
-        }
+        Assert.Equal(e, actualArgs.RawEvent);
+        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+
+        Assert.Equal(keyCode, actualArgs.Data.KeyCode);
+        Assert.Equal(rawCode, actualArgs.Data.RawCode);
+        Assert.Equal(KeyboardEventData.UndefinedChar, actualArgs.Data.KeyChar);
     }
 
     [Property(DisplayName = "KeyTyped events should be raised")]
-    public async void KeyTyped(
+    public void KeyTyped(
         KeyCode keyCode,
         ushort rawCode,
         char keyChar,
@@ -207,7 +209,7 @@ public sealed class ReactiveGlobalHookAdapterTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
+        using var hook = new SimpleReactiveGlobalHook(provider);
 
         var e = new UioHookEvent
         {
@@ -222,29 +224,30 @@ public sealed class ReactiveGlobalHookAdapterTests
             }
         };
 
-        hook.KeyTyped.Subscribe(OnKeyTyped);
+        KeyboardHookEventArgs? actualArgs = null;
+
+        hook.KeyTyped.Subscribe(e => actualArgs = e);
 
         // Act
 
-        this.RunHookAndWaitForStart(hook);
+        this.RunHookAndWaitForStart(hook, provider);
 
-        await provider.PostEventAndWaitForHandler(ref e);
+        provider.PostEvent(ref e);
 
         // Assert
 
-        void OnKeyTyped(KeyboardHookEventArgs args)
-        {
-            Assert.Equal(e, args.RawEvent);
-            Assert.Equal(dateTime.Value, args.EventTime);
+        Assert.NotNull(actualArgs);
 
-            Assert.Equal(keyCode, args.Data.KeyCode);
-            Assert.Equal(rawCode, args.Data.RawCode);
-            Assert.Equal(keyChar, args.Data.KeyChar);
-        }
+        Assert.Equal(e, actualArgs.RawEvent);
+        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+
+        Assert.Equal(keyCode, actualArgs.Data.KeyCode);
+        Assert.Equal(rawCode, actualArgs.Data.RawCode);
+        Assert.Equal(keyChar, actualArgs.Data.KeyChar);
     }
 
     [Property(DisplayName = "MousePressed events should be raised")]
-    public async void MousePressed(
+    public void MousePressed(
         MouseButton button,
         short x,
         short y,
@@ -255,7 +258,7 @@ public sealed class ReactiveGlobalHookAdapterTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
+        using var hook = new SimpleReactiveGlobalHook(provider);
 
         var e = new UioHookEvent
         {
@@ -271,30 +274,31 @@ public sealed class ReactiveGlobalHookAdapterTests
             }
         };
 
-        hook.MousePressed.Subscribe(OnMousePressed);
+        MouseHookEventArgs? actualArgs = null;
+
+        hook.MousePressed.Subscribe(e => actualArgs = e);
 
         // Act
 
-        this.RunHookAndWaitForStart(hook);
+        this.RunHookAndWaitForStart(hook, provider);
 
-        await provider.PostEventAndWaitForHandler(ref e);
+        provider.PostEvent(ref e);
 
         // Assert
 
-        void OnMousePressed(MouseHookEventArgs args)
-        {
-            Assert.Equal(e, args.RawEvent);
-            Assert.Equal(dateTime.Value, args.EventTime);
+        Assert.NotNull(actualArgs);
 
-            Assert.Equal(button, args.Data.Button);
-            Assert.Equal(x, args.Data.X);
-            Assert.Equal(y, args.Data.Y);
-            Assert.Equal(clicks, args.Data.Clicks);
-        }
+        Assert.Equal(e, actualArgs.RawEvent);
+        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+
+        Assert.Equal(button, actualArgs.Data.Button);
+        Assert.Equal(x, actualArgs.Data.X);
+        Assert.Equal(y, actualArgs.Data.Y);
+        Assert.Equal(clicks, actualArgs.Data.Clicks);
     }
 
     [Property(DisplayName = "MouseReleased events should be raised")]
-    public async void MouseReleased(
+    public void MouseReleased(
         MouseButton button,
         short x,
         short y,
@@ -305,7 +309,7 @@ public sealed class ReactiveGlobalHookAdapterTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
+        using var hook = new SimpleReactiveGlobalHook(provider);
 
         var e = new UioHookEvent
         {
@@ -321,30 +325,31 @@ public sealed class ReactiveGlobalHookAdapterTests
             }
         };
 
-        hook.MouseReleased.Subscribe(OnMouseReleased);
+        MouseHookEventArgs? actualArgs = null;
+
+        hook.MouseReleased.Subscribe(e => actualArgs = e);
 
         // Act
 
-        this.RunHookAndWaitForStart(hook);
+        this.RunHookAndWaitForStart(hook, provider);
 
-        await provider.PostEventAndWaitForHandler(ref e);
+        provider.PostEvent(ref e);
 
         // Assert
 
-        void OnMouseReleased(MouseHookEventArgs args)
-        {
-            Assert.Equal(e, args.RawEvent);
-            Assert.Equal(dateTime.Value, args.EventTime);
+        Assert.NotNull(actualArgs);
 
-            Assert.Equal(button, args.Data.Button);
-            Assert.Equal(x, args.Data.X);
-            Assert.Equal(y, args.Data.Y);
-            Assert.Equal(clicks, args.Data.Clicks);
-        }
+        Assert.Equal(e, actualArgs.RawEvent);
+        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+
+        Assert.Equal(button, actualArgs.Data.Button);
+        Assert.Equal(x, actualArgs.Data.X);
+        Assert.Equal(y, actualArgs.Data.Y);
+        Assert.Equal(clicks, actualArgs.Data.Clicks);
     }
 
     [Property(DisplayName = "MouseClicked events should be raised")]
-    public async void MouseClicked(
+    public void MouseClicked(
         MouseButton button,
         short x,
         short y,
@@ -355,7 +360,7 @@ public sealed class ReactiveGlobalHookAdapterTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
+        using var hook = new SimpleReactiveGlobalHook(provider);
 
         var e = new UioHookEvent
         {
@@ -371,35 +376,36 @@ public sealed class ReactiveGlobalHookAdapterTests
             }
         };
 
-        hook.MouseClicked.Subscribe(OnMouseClicked);
+        MouseHookEventArgs? actualArgs = null;
+
+        hook.MouseClicked.Subscribe(e => actualArgs = e);
 
         // Act
 
-        this.RunHookAndWaitForStart(hook);
+        this.RunHookAndWaitForStart(hook, provider);
 
-        await provider.PostEventAndWaitForHandler(ref e);
+        provider.PostEvent(ref e);
 
         // Assert
 
-        void OnMouseClicked(MouseHookEventArgs args)
-        {
-            Assert.Equal(e, args.RawEvent);
-            Assert.Equal(dateTime.Value, args.EventTime);
+        Assert.NotNull(actualArgs);
 
-            Assert.Equal(button, args.Data.Button);
-            Assert.Equal(x, args.Data.X);
-            Assert.Equal(y, args.Data.Y);
-            Assert.Equal(clicks, args.Data.Clicks);
-        }
+        Assert.Equal(e, actualArgs.RawEvent);
+        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+
+        Assert.Equal(button, actualArgs.Data.Button);
+        Assert.Equal(x, actualArgs.Data.X);
+        Assert.Equal(y, actualArgs.Data.Y);
+        Assert.Equal(clicks, actualArgs.Data.Clicks);
     }
 
     [Property(DisplayName = "MouseMoved events should be raised")]
-    public async void MouseMoved(short x, short y, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    public void MouseMoved(short x, short y, DateTimeAfterEpoch dateTime, ModifierMask mask)
     {
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
+        using var hook = new SimpleReactiveGlobalHook(provider);
 
         var e = new UioHookEvent
         {
@@ -413,33 +419,34 @@ public sealed class ReactiveGlobalHookAdapterTests
             }
         };
 
-        hook.MouseMoved.Subscribe(OnMouseMoved);
+        MouseHookEventArgs? actualArgs = null;
+
+        hook.MouseMoved.Subscribe(e => actualArgs = e);
 
         // Act
 
-        this.RunHookAndWaitForStart(hook);
+        this.RunHookAndWaitForStart(hook, provider);
 
-        await provider.PostEventAndWaitForHandler(ref e);
+        provider.PostEvent(ref e);
 
         // Assert
 
-        void OnMouseMoved(MouseHookEventArgs args)
-        {
-            Assert.Equal(e, args.RawEvent);
-            Assert.Equal(dateTime.Value, args.EventTime);
+        Assert.NotNull(actualArgs);
 
-            Assert.Equal(x, args.Data.X);
-            Assert.Equal(y, args.Data.Y);
-        }
+        Assert.Equal(e, actualArgs.RawEvent);
+        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+
+        Assert.Equal(x, actualArgs.Data.X);
+        Assert.Equal(y, actualArgs.Data.Y);
     }
 
     [Property(DisplayName = "MouseDragged events should be raised")]
-    public async void MouseDragged(short x, short y, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    public void MouseDragged(short x, short y, DateTimeAfterEpoch dateTime, ModifierMask mask)
     {
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
+        using var hook = new SimpleReactiveGlobalHook(provider);
 
         var e = new UioHookEvent
         {
@@ -453,28 +460,29 @@ public sealed class ReactiveGlobalHookAdapterTests
             }
         };
 
-        hook.MouseDragged.Subscribe(OnMouseDragged);
+        MouseHookEventArgs? actualArgs = null;
+
+        hook.MouseDragged.Subscribe(e => actualArgs = e);
 
         // Act
 
-        this.RunHookAndWaitForStart(hook);
+        this.RunHookAndWaitForStart(hook, provider);
 
-        await provider.PostEventAndWaitForHandler(ref e);
+        provider.PostEvent(ref e);
 
         // Assert
 
-        void OnMouseDragged(MouseHookEventArgs args)
-        {
-            Assert.Equal(e, args.RawEvent);
-            Assert.Equal(dateTime.Value, args.EventTime);
+        Assert.NotNull(actualArgs);
 
-            Assert.Equal(x, args.Data.X);
-            Assert.Equal(y, args.Data.Y);
-        }
+        Assert.Equal(e, actualArgs.RawEvent);
+        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+
+        Assert.Equal(x, actualArgs.Data.X);
+        Assert.Equal(y, actualArgs.Data.Y);
     }
 
     [Property(DisplayName = "MouseWheel events should be raised")]
-    public async void MouseWheel(
+    public void MouseWheel(
         short x,
         short y,
         short rotation,
@@ -487,7 +495,7 @@ public sealed class ReactiveGlobalHookAdapterTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
+        using var hook = new SimpleReactiveGlobalHook(provider);
 
         var e = new UioHookEvent
         {
@@ -505,28 +513,29 @@ public sealed class ReactiveGlobalHookAdapterTests
             }
         };
 
-        hook.MouseWheel.Subscribe(OnMouseWheel);
+        MouseWheelHookEventArgs? actualArgs = null;
+
+        hook.MouseWheel.Subscribe(e => actualArgs = e);
 
         // Act
 
-        this.RunHookAndWaitForStart(hook);
+        this.RunHookAndWaitForStart(hook, provider);
 
-        await provider.PostEventAndWaitForHandler(ref e);
+        provider.PostEvent(ref e);
 
         // Assert
 
-        void OnMouseWheel(MouseWheelHookEventArgs args)
-        {
-            Assert.Equal(e, args.RawEvent);
-            Assert.Equal(dateTime.Value, args.EventTime);
+        Assert.NotNull(actualArgs);
 
-            Assert.Equal(x, args.Data.X);
-            Assert.Equal(y, args.Data.Y);
-            Assert.Equal(rotation, args.Data.Rotation);
-            Assert.Equal(delta, args.Data.Delta);
-            Assert.Equal(direction, args.Data.Direction);
-            Assert.Equal(type, args.Data.Type);
-        }
+        Assert.Equal(e, actualArgs.RawEvent);
+        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+
+        Assert.Equal(x, actualArgs.Data.X);
+        Assert.Equal(y, actualArgs.Data.Y);
+        Assert.Equal(rotation, actualArgs.Data.Rotation);
+        Assert.Equal(delta, actualArgs.Data.Delta);
+        Assert.Equal(direction, actualArgs.Data.Direction);
+        Assert.Equal(type, actualArgs.Data.Type);
     }
 
     [Property(DisplayName = "Run should throw if the hook failed to start")]
@@ -539,7 +548,7 @@ public sealed class ReactiveGlobalHookAdapterTests
             RunResult = result.Value
         };
 
-        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
+        var hook = new SimpleReactiveGlobalHook(provider);
 
         // Act + Assert
 
@@ -557,7 +566,7 @@ public sealed class ReactiveGlobalHookAdapterTests
             RunResult = result.Value
         };
 
-        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
+        var hook = new SimpleReactiveGlobalHook(provider);
 
         // Act + Assert
 
@@ -571,9 +580,9 @@ public sealed class ReactiveGlobalHookAdapterTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
+        using var hook = new SimpleReactiveGlobalHook(provider);
 
-        this.RunHookAndWaitForStart(hook);
+        this.RunHookAndWaitForStart(hook, provider);
 
         // Act + Assert
 
@@ -586,9 +595,9 @@ public sealed class ReactiveGlobalHookAdapterTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
+        using var hook = new SimpleReactiveGlobalHook(provider);
 
-        this.RunHookAndWaitForStart(hook);
+        this.RunHookAndWaitForStart(hook, provider);
 
         // Act + Assert
 
@@ -600,7 +609,7 @@ public sealed class ReactiveGlobalHookAdapterTests
     {
         // Arrange
 
-        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook());
+        var hook = new SimpleReactiveGlobalHook();
         hook.Dispose();
 
         // Act + Assert
@@ -613,7 +622,7 @@ public sealed class ReactiveGlobalHookAdapterTests
     {
         // Arrange
 
-        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook());
+        var hook = new SimpleReactiveGlobalHook();
         hook.Dispose();
 
         // Act + Assert
@@ -631,9 +640,9 @@ public sealed class ReactiveGlobalHookAdapterTests
             StopResult = result.Value
         };
 
-        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(provider));
+        var hook = new SimpleReactiveGlobalHook(provider);
 
-        this.RunHookAndWaitForStart(hook);
+        this.RunHookAndWaitForStart(hook, provider);
 
         // Act + Assert
 
@@ -641,7 +650,7 @@ public sealed class ReactiveGlobalHookAdapterTests
         Assert.Equal(result.Value, exception.Result);
     }
 
-    [Fact(DisplayName = "ReactiveGlobalHookAdapter should throw if the hook is null")]
+    [Fact(DisplayName = "ReactiveGlobalHookAdapter should throw if the global hook is null")]
     public void ProviderNull() =>
         Assert.Throws<ArgumentNullException>(() => new ReactiveGlobalHookAdapter(null!));
 
@@ -649,11 +658,11 @@ public sealed class ReactiveGlobalHookAdapterTests
     public void SchedulerNull() =>
         Assert.Throws<ArgumentNullException>(() => new ReactiveGlobalHookAdapter(new SimpleGlobalHook(), null!));
 
-    private void RunHookAndWaitForStart(IReactiveGlobalHook hook)
+    private void RunHookAndWaitForStart(IReactiveGlobalHook hook, TestProvider provider)
     {
         hook.RunAsync();
 
-        while (!hook.IsRunning)
+        while (!provider.IsRunning)
         {
             Thread.Yield();
         }

@@ -25,22 +25,22 @@ public sealed class TestProviderTests
             },
             userData);
 
-        await provider.RunAndWaitForStart();
+        var task = provider.RunAsync();
 
-        var args = await provider.PostEventAndWaitForHandler(ref eventToPost);
+        provider.PostEvent(ref eventToPost);
 
         // Assert
 
         Assert.Equal(eventToPost, actualEvent);
         Assert.Equal(userData, actualUserData);
 
-        Assert.NotNull(args);
-        Assert.True(args.HookCalled);
-        Assert.Equal(eventToPost, args.Event);
+        Assert.Equal(2, provider.PostedEvents.Count);
+        Assert.Equal(eventToPost, provider.PostedEvents[1]);
 
         // Clean up
 
         provider.Stop();
+        await task;
     }
 
     [Property(DisplayName = "Run and PostEvent should work without SetDispatchProc")]
@@ -52,19 +52,19 @@ public sealed class TestProviderTests
 
         // Act
 
-        await provider.RunAndWaitForStart();
+        var task = provider.RunAsync();
 
-        var args = await provider.PostEventAndWaitForHandler(ref eventToPost);
+        provider.PostEvent(ref eventToPost);
 
         // Assert
 
-        Assert.NotNull(args);
-        Assert.True(args.HookCalled);
-        Assert.Equal(eventToPost, args.Event);
+        Assert.Equal(2, provider.PostedEvents.Count);
+        Assert.Equal(eventToPost, provider.PostedEvents[1]);
 
         // Clean up
 
         provider.Stop();
+        await task;
     }
 
     [Property(DisplayName = "Events should be suppressible")]
@@ -80,19 +80,22 @@ public sealed class TestProviderTests
             (ref UioHookEvent e, IntPtr data) => e.Reserved |= EventReservedValueMask.SuppressEvent,
             IntPtr.Zero);
 
-        await provider.RunAndWaitForStart();
+        var task = provider.RunAsync();
 
-        var result = await provider.PostEventAndWaitForHandler(ref eventToPost);
+        provider.PostEvent(ref eventToPost);
 
         // Assert
 
-        Assert.NotNull(result);
-        Assert.True(result.HookCalled);
-        Assert.True(result.Event.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
+        Assert.Equal(2, provider.PostedEvents.Count);
+
+        var actualEvent = provider.PostedEvents[1];
+        Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
+        Assert.Equal(eventToPost, actualEvent);
 
         // Clean up
 
         provider.Stop();
+        await task;
     }
 
     [Fact(DisplayName = "Run and Stop should change the state of the provider")]
@@ -104,7 +107,7 @@ public sealed class TestProviderTests
 
         // Act + Assert
 
-        await provider.RunAndWaitForStart();
+        var task = provider.RunAsync();
 
         Assert.True(provider.IsRunning);
 
@@ -112,40 +115,29 @@ public sealed class TestProviderTests
         Assert.False(provider.IsRunning);
 
         Assert.Equal(UioHookResult.Success, result);
+
+        // Clean up
+
+        await task;
     }
 
-    [Fact(DisplayName = "Run should throw if the provider is already running")]
+    [Fact(DisplayName = "Run should work if the provider is already running")]
     public async void RunWhenAlreadyRunning()
     {
         // Arrange
 
         var provider = new TestProvider();
-        await provider.RunAndWaitForStart();
+        var task1 = provider.RunAsync();
 
-        // Act + Assert
+        // Act
 
-        Assert.Throws<InvalidOperationException>(() => provider.Run());
-
-        // Clean up
-
-        provider.Stop();
-    }
-
-    [Fact(DisplayName = "RunAndWaitForStart should throw if the provider is already running")]
-    public async void RunAndWaitForStartWhenAlreadyRunning()
-    {
-        // Arrange
-
-        var provider = new TestProvider();
-        await provider.RunAndWaitForStart();
-
-        // Act + Assert
-
-        await Assert.ThrowsAsync<InvalidOperationException>(() => provider.RunAndWaitForStart());
+        var task2 = provider.RunAsync();
 
         // Clean up
 
         provider.Stop();
+        await task1;
+        await task2;
     }
 
     [Property(DisplayName = "Run should return an error if configured to do so")]
@@ -178,7 +170,7 @@ public sealed class TestProviderTests
             StopResult = result.Value
         };
 
-        await provider.RunAndWaitForStart();
+        var task = provider.RunAsync();
 
         // Act
 
@@ -193,6 +185,7 @@ public sealed class TestProviderTests
 
         provider.StopResult = UioHookResult.Success;
         provider.Stop();
+        await task;
     }
 
     [Fact(DisplayName = "HookEnabled should be raised when the hook is started")]
@@ -211,7 +204,7 @@ public sealed class TestProviderTests
             EventMask = t => modifierMask
         };
 
-        await provider.RunAndWaitForStart();
+        var task = provider.RunAsync();
 
         // Assert
 
@@ -230,6 +223,7 @@ public sealed class TestProviderTests
         // Clean up
 
         provider.Stop();
+        await task;
     }
 
     [Property(DisplayName = "HookDisabled should be raised when the hook is stopped")]
@@ -243,11 +237,13 @@ public sealed class TestProviderTests
             EventMask = t => modifierMask
         };
 
-        await provider.RunAndWaitForStart();
+        var task = provider.RunAsync();
 
         provider.Stop();
 
         // Assert
+
+        await task;
 
         var hookDisabledEvents = provider.PostedEvents
             .Where(e => e.Type == EventType.HookDisabled)
@@ -298,43 +294,6 @@ public sealed class TestProviderTests
 
         Assert.Empty(provider.PostedEvents);
         Assert.Equal(result.Value, actualResult);
-    }
-
-    [Property(DisplayName = "PostEvent should raise an event about posted event when not running")]
-    public async void PostEventRaisesEvent(UioHookEvent eventToPost)
-    {
-        // Arrange
-
-        var provider = new TestProvider();
-
-        // Act
-
-        var args = await provider.PostEventAndWaitForHandler(ref eventToPost);
-
-        // Assert
-
-        Assert.NotNull(args);
-        Assert.False(args.HookCalled);
-        Assert.Equal(eventToPost, args.Event);
-    }
-
-    [Property(DisplayName = "PostEventAndWaitForHandler should return null if configured to do so")]
-    public async void PostEventAndWaitForHandlerFail(UioHookEvent eventToPost, FailedUioHookResult result)
-    {
-        // Arrange
-
-        var provider = new TestProvider
-        {
-            PostEventResult = result.Value
-        };
-
-        // Act
-
-        var args = await provider.PostEventAndWaitForHandler(ref eventToPost);
-
-        // Assert
-
-        Assert.Null(args);
     }
 
     [Property(DisplayName = "PostText should post text")]

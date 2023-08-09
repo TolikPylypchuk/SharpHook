@@ -4189,7 +4189,7 @@
         </member>
         <member name="T:SharpHook.Testing.TestEventHandledEventArgs">
             <summary>
-            Event args for <see cref="E:SharpHook.Testing.TestProvider.TestEventHandled" /> and <see cref="E:SharpHook.Testing.TestGlobalHook.TestEventHandled" />.
+            Event args for <see cref="!:TestProvider.TestEventHandled" /> and <see cref="E:SharpHook.Testing.TestGlobalHook.TestEventHandled" />.
             </summary>
         </member>
         <member name="M:SharpHook.Testing.TestEventHandledEventArgs.#ctor(SharpHook.Native.UioHookEvent,System.Boolean)">
@@ -4936,27 +4936,36 @@
             </summary>
             <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.RunResult" />.</returns>
             <remarks>
-            The testing hook is an event loop which receives events from the <see cref="M:SharpHook.Testing.TestProvider.PostEvent(SharpHook.Native.UioHookEvent@)" />
-            method. The hook can be started and stopped multiple times, but cannot be started when it's already running.
+            <para>
+            This method simply blocks the current thread until <see cref="M:SharpHook.Testing.TestProvider.Stop" /> is called. Actual event dispatching
+            happens directly in the <see cref="M:SharpHook.Testing.TestProvider.PostEvent(SharpHook.Native.UioHookEvent@)" /> method. As such, it's different from the real
+            global hook where the thread which calls the <see cref="M:SharpHook.Providers.IGlobalHookProvider.Run" /> method is the thread
+            which dispatches events - this is not the case with <see cref="T:SharpHook.Testing.TestProvider" />.
+            </para>
+            <para>
+            This method can be called when the provider is already running - it will also block the current thread.
+            Calling the <see cref="M:SharpHook.Testing.TestProvider.Stop" /> method will unblock all blocked threads.
+            </para>
             </remarks>
-            <exception cref="T:System.InvalidOperationException">The hook is already running.</exception>
         </member>
-        <member name="M:SharpHook.Testing.TestProvider.RunAndWaitForStart(System.Threading.CancellationToken)">
+        <member name="M:SharpHook.Testing.TestProvider.RunAsync">
             <summary>
-            Runs the testing hook on a separate thread if <see cref="P:SharpHook.Testing.TestProvider.RunResult" /> is set to
-            <see cref="F:SharpHook.Native.UioHookResult.Success" />. Otherwise, does nothing.
+            Runs the testing hook if <see cref="P:SharpHook.Testing.TestProvider.RunResult" /> is set to <see cref="F:SharpHook.Native.UioHookResult.Success" />. Otherwise,
+            does nothing.
             </summary>
-            <param name="cancellationToken">
-            The token to monitor for cancellation requests. The default value is <see cref="P:System.Threading.CancellationToken.None" />.
-            </param>
-            <returns>
-            A <see cref="T:System.Threading.Tasks.Task" /> which finishes when the hook has been started.
-            </returns>
+            <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.RunResult" />.</returns>
             <remarks>
-            The testing hook is an event loop which receives events from the <see cref="M:SharpHook.Testing.TestProvider.PostEvent(SharpHook.Native.UioHookEvent@)" />
-            method. The hook can be started and stopped multiple times, but cannot be started when it's already running.
+            <para>
+            This method doesn't do anything and returns a <see cref="T:System.Threading.Tasks.Task" /> which will be finished when
+            <see cref="M:SharpHook.Testing.TestProvider.Stop" /> is called. Actual event dispatching happens directly in the
+            <see cref="M:SharpHook.Testing.TestProvider.PostEvent(SharpHook.Native.UioHookEvent@)" /> method. As such, it's different from the real global hook where
+            the thread which calls the <see cref="M:SharpHook.Providers.IGlobalHookProvider.Run" /> method is the thread which dispatches
+            events - this is not the case with <see cref="T:SharpHook.Testing.TestProvider" />.
+            </para>
+            <para>
+            This method can be called when the provider is already running - the same <see cref="T:System.Threading.Tasks.Task" /> will be returned.
+            </para>
             </remarks>
-            <exception cref="T:System.InvalidOperationException">The hook is already running.</exception>
         </member>
         <member name="M:SharpHook.Testing.TestProvider.Stop">
             <summary>
@@ -4972,27 +4981,6 @@
             </summary>
             <param name="e">The event to post.</param>
             <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.PostEventResult" />.</returns>
-            <remarks>
-            This method returns before the event has been handled. The <see cref="E:SharpHook.Testing.TestProvider.TestEventHandled" /> event should be used
-            to inspect the value of <see cref="F:SharpHook.Native.UioHookEvent.Reserved" />.
-            </remarks>
-        </member>
-        <member name="M:SharpHook.Testing.TestProvider.PostEventAndWaitForHandler(SharpHook.Native.UioHookEvent@,System.Threading.CancellationToken)">
-            <summary>
-            Posts an input event if <see cref="P:SharpHook.Testing.TestProvider.PostEventResult" /> is set to <see cref="F:SharpHook.Native.UioHookResult.Success" /> -
-            this event will be dispatched if the provider is running. Otherwise, does nothing.
-            </summary>
-            <param name="e">The event to post.</param>
-            <param name="cancellationToken">
-            The token to monitor for cancellation requests. The default value is <see cref="P:System.Threading.CancellationToken.None" />.
-            </param>
-            <returns>
-            A <see cref="T:System.Threading.Tasks.Task" /> which finishes when the event has been handled, and contains the handler result, or
-            <see langword="null" /> if the event was not posted.
-            </returns>
-            <remarks>
-            Do not use this method inside the global hook as it will result in a deadlock.
-            </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestProvider.PostText(System.String)">
             <summary>
@@ -5005,12 +4993,6 @@
             <paramref name="text" /> is <see langword="null" />.
             </returns>
             <remarks>This method doesn't cause any input events to be created, unlike real text entry simulation.</remarks>
-        </member>
-        <member name="E:SharpHook.Testing.TestProvider.TestEventHandled">
-            <summary>
-            An event which is raised when an input event posted via <see cref="M:SharpHook.Testing.TestProvider.PostEvent(SharpHook.Native.UioHookEvent@)" /> has been
-            handled. The input event's <see cref="F:SharpHook.Native.UioHookEvent.Reserved" /> field can be inspected using this event.
-            </summary>
         </member>
     </members>
 </doc>

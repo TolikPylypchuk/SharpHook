@@ -1,21 +1,16 @@
 namespace SharpHook.Testing;
 
-using System.Collections.Concurrent;
-
 /// <summary>
 /// A provider of low-level functionality which can be used in tests.
 /// </summary>
-public sealed class TestProvider :
+public class TestProvider :
     IGlobalHookProvider,
     ILoggingProvider,
     IEventSimulationProvider,
     IScreenInfoProvider,
     IMouseInfoProvider
 {
-    private readonly BlockingCollection<UioHookEvent> hookEvents = new();
-
-    private CancellationTokenSource? cancellationTokenSource;
-    private TaskCompletionSource<bool>? runCompletionSource;
+    private TaskCompletionSource<object?> runCompletionSource = new();
 
     private readonly List<UioHookEvent> postedEvents = new();
     private readonly List<string> postedText = new();
@@ -169,85 +164,56 @@ public sealed class TestProvider :
     /// </summary>
     /// <returns>The value of <see cref="RunResult" />.</returns>
     /// <remarks>
-    /// The testing hook is an event loop which receives events from the <see cref="PostEvent(ref UioHookEvent)" />
-    /// method. The hook can be started and stopped multiple times, but cannot be started when it's already running.
+    /// <para>
+    /// This method simply blocks the current thread until <see cref="Stop()" /> is called. Actual event dispatching
+    /// happens directly in the <see cref="PostEvent(ref UioHookEvent)" /> method. As such, it's different from the real
+    /// global hook where the thread which calls the <see cref="IGlobalHookProvider.Run()" /> method is the thread
+    /// which dispatches events - this is not the case with <see cref="TestProvider" />.
+    /// </para>
+    /// <para>
+    /// This method can be called when the provider is already running - it will also block the current thread.
+    /// Calling the <see cref="Stop()" /> method will unblock all blocked threads.
+    /// </para>
     /// </remarks>
-    /// <exception cref="InvalidOperationException">The hook is already running.</exception>
-    public UioHookResult Run()
-    {
-        if (this.IsRunning)
-        {
-            this.SetStarted(false);
-            throw new InvalidOperationException("The testing hook is already running");
-        }
+    public UioHookResult Run() =>
+        this.RunAsync().Result;
 
+    /// <summary>
+    /// Runs the testing hook if <see cref="RunResult" /> is set to <see cref="UioHookResult.Success" />. Otherwise,
+    /// does nothing.
+    /// </summary>
+    /// <returns>The value of <see cref="RunResult" />.</returns>
+    /// <remarks>
+    /// <para>
+    /// This method doesn't do anything and returns a <see cref="Task" /> which will be finished when
+    /// <see cref="Stop()" /> is called. Actual event dispatching happens directly in the
+    /// <see cref="PostEvent(ref UioHookEvent)" /> method. As such, it's different from the real global hook where
+    /// the thread which calls the <see cref="IGlobalHookProvider.Run()" /> method is the thread which dispatches
+    /// events - this is not the case with <see cref="TestProvider" />.
+    /// </para>
+    /// <para>
+    /// This method can be called when the provider is already running - the same <see cref="Task" /> will be returned.
+    /// </para>
+    /// </remarks>
+    public async Task<UioHookResult> RunAsync()
+    {
         var result = this.RunResult;
         if (result != UioHookResult.Success)
         {
-            this.SetStarted(false);
             return result;
         }
 
-        this.cancellationTokenSource = new();
+        var source = this.runCompletionSource;
+
         this.IsRunning = true;
+        this.PostHookEvent(EventType.HookEnabled);
 
-        var hookEnabled = new UioHookEvent
-        {
-            Type = EventType.HookEnabled,
-            Time = (ulong)this.EventDateTime(EventType.HookEnabled).ToUnixTimeMilliseconds(),
-            Mask = this.EventMask(EventType.HookEnabled),
-            Reserved = EventReservedValueMask.None
-        };
+        await source.Task;
 
-        this.dispatchProc?.Invoke(ref hookEnabled, this.userData);
-        this.postedEvents.Add(hookEnabled);
-
-        this.SetStarted(true);
-
-        while (this.IsRunning)
-        {
-            try
-            {
-                var currentEvent = this.hookEvents.Take(cancellationTokenSource.Token);
-                this.dispatchProc?.Invoke(ref currentEvent, this.userData);
-                this.postedEvents.Add(currentEvent);
-                this.TestEventHandled?.Invoke(this, new TestEventHandledEventArgs(currentEvent, true));
-            } catch (OperationCanceledException) { }
-        }
+        this.PostHookEvent(EventType.HookDisabled);
+        this.IsRunning = false;
 
         return result;
-    }
-
-    /// <summary>
-    /// Runs the testing hook on a separate thread if <see cref="RunResult" /> is set to
-    /// <see cref="UioHookResult.Success" />. Otherwise, does nothing.
-    /// </summary>
-    /// <param name="cancellationToken">
-    /// The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.
-    /// </param>
-    /// <returns>
-    /// A <see cref="Task" /> which finishes when the hook has been started.
-    /// </returns>
-    /// <remarks>
-    /// The testing hook is an event loop which receives events from the <see cref="PostEvent(ref UioHookEvent)" />
-    /// method. The hook can be started and stopped multiple times, but cannot be started when it's already running.
-    /// </remarks>
-    /// <exception cref="InvalidOperationException">The hook is already running.</exception>
-    public Task RunAndWaitForStart(CancellationToken cancellationToken = default)
-    {
-        if (this.IsRunning)
-        {
-            throw new InvalidOperationException("The testing hook is already running");
-        }
-
-        this.runCompletionSource = new();
-        cancellationToken.Register(this.runCompletionSource.SetCanceled);
-
-        var completionSource = this.runCompletionSource;
-
-        new Thread(() => this.Run()).Start();
-
-        return completionSource.Task;
     }
 
     /// <summary>
@@ -264,25 +230,8 @@ public sealed class TestProvider :
             return result;
         }
 
-        var hookDisabled = new UioHookEvent
-        {
-            Type = EventType.HookDisabled,
-            Time = (ulong)this.EventDateTime(EventType.HookDisabled).ToUnixTimeMilliseconds(),
-            Mask = this.EventMask(EventType.HookDisabled),
-            Reserved = EventReservedValueMask.None
-        };
-
-        this.dispatchProc?.Invoke(ref hookDisabled, this.userData);
-        this.postedEvents.Add(hookDisabled);
-
-        this.IsRunning = false;
-
-        if (this.cancellationTokenSource is not null)
-        {
-            this.cancellationTokenSource.Cancel();
-            this.cancellationTokenSource.Dispose();
-            this.cancellationTokenSource = null;
-        }
+        this.runCompletionSource.SetResult(null);
+        this.runCompletionSource = new();
 
         return result;
     }
@@ -293,10 +242,6 @@ public sealed class TestProvider :
     /// </summary>
     /// <param name="e">The event to post.</param>
     /// <returns>The value of <see cref="PostEventResult" />.</returns>
-    /// <remarks>
-    /// This method returns before the event has been handled. The <see cref="TestEventHandled" /> event should be used
-    /// to inspect the value of <see cref="UioHookEvent.Reserved" />.
-    /// </remarks>
     public UioHookResult PostEvent(ref UioHookEvent e)
     {
         var result = this.PostEventResult;
@@ -308,71 +253,12 @@ public sealed class TestProvider :
 
         if (this.IsRunning)
         {
-            this.hookEvents.Add(e);
-        } else
-        {
-            this.postedEvents.Add(e);
-            this.TestEventHandled?.Invoke(this, new TestEventHandledEventArgs(e, false));
+            this.dispatchProc?.Invoke(ref e, this.userData);
         }
+
+        this.postedEvents.Add(e);
 
         return result;
-    }
-
-    /// <summary>
-    /// Posts an input event if <see cref="PostEventResult" /> is set to <see cref="UioHookResult.Success" /> -
-    /// this event will be dispatched if the provider is running. Otherwise, does nothing.
-    /// </summary>
-    /// <param name="e">The event to post.</param>
-    /// <param name="cancellationToken">
-    /// The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.
-    /// </param>
-    /// <returns>
-    /// A <see cref="Task" /> which finishes when the event has been handled, and contains the handler result, or
-    /// <see langword="null" /> if the event was not posted.
-    /// </returns>
-    /// <remarks>
-    /// Do not use this method inside the global hook as it will result in a deadlock.
-    /// </remarks>
-    public Task<TestEventHandledEventArgs?> PostEventAndWaitForHandler(
-        ref UioHookEvent e,
-        CancellationToken cancellationToken = default)
-    {
-        var completionSource = new TaskCompletionSource<TestEventHandledEventArgs?>();
-        cancellationToken.Register(completionSource.SetCanceled);
-
-        var eventCopy = e;
-
-        void Handler(object? sender, TestEventHandledEventArgs args)
-        {
-            var localCopy = eventCopy;
-
-            if (args.Event == localCopy)
-            {
-                this.TestEventHandled -= Handler;
-                completionSource.SetResult(args);
-            } else
-            {
-                localCopy.Reserved = EventReservedValueMask.SuppressEvent;
-
-                if (args.Event == localCopy)
-                {
-                    this.TestEventHandled -= Handler;
-                    completionSource.SetResult(args);
-                }
-            }
-        }
-
-        this.TestEventHandled += Handler;
-
-        var result = this.PostEvent(ref e);
-
-        if (result != UioHookResult.Success)
-        {
-            this.TestEventHandled -= Handler;
-            return Task.FromResult<TestEventHandledEventArgs?>(null);
-        }
-
-        return completionSource.Task;
     }
 
     /// <summary>
@@ -402,20 +288,19 @@ public sealed class TestProvider :
         return result;
     }
 
-    private void SetStarted(bool started)
+    private void PostHookEvent(EventType eventType)
     {
-        if (this.runCompletionSource is not null)
+        var hookEvent = new UioHookEvent
         {
-            this.runCompletionSource.SetResult(started);
-            this.runCompletionSource = null;
-        }
-    }
+            Type = eventType,
+            Time = (ulong)this.EventDateTime(eventType).ToUnixTimeMilliseconds(),
+            Mask = this.EventMask(eventType),
+            Reserved = EventReservedValueMask.None
+        };
 
-    /// <summary>
-    /// An event which is raised when an input event posted via <see cref="PostEvent(ref UioHookEvent)" /> has been
-    /// handled. The input event's <see cref="UioHookEvent.Reserved" /> field can be inspected using this event.
-    /// </summary>
-    public event EventHandler<TestEventHandledEventArgs>? TestEventHandled;
+        this.dispatchProc?.Invoke(ref hookEvent, this.userData);
+        this.postedEvents.Add(hookEvent);
+    }
 
     void ILoggingProvider.SetLoggerProc(LoggerProc? loggerProc, IntPtr userData)
     { }

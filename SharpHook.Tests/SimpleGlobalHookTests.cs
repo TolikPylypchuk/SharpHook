@@ -1,3 +1,5 @@
+using System.Reflection;
+
 namespace SharpHook;
 
 public sealed class SimpleGlobalHookTests
@@ -17,7 +19,7 @@ public sealed class SimpleGlobalHookTests
 
         Assert.False(hook.IsRunning);
 
-        this.RunHookAndWaitForStart(hook);
+        this.RunHookAndWaitForStart(hook, provider);
 
         Assert.True(hook.IsRunning);
 
@@ -54,7 +56,7 @@ public sealed class SimpleGlobalHookTests
             EventMask = t => mask
         };
 
-        var hook = new SimpleGlobalHook(provider);
+        using var hook = new SimpleGlobalHook(provider);
 
         object? actualSender = null;
         HookEventArgs? actualEventArgs = null;
@@ -94,7 +96,7 @@ public sealed class SimpleGlobalHookTests
             EventMask = t => mask
         };
 
-        var hook = new SimpleGlobalHook(provider);
+        using var hook = new SimpleGlobalHook(provider);
 
         object? actualSender = null;
         HookEventArgs? actualEventArgs = null;
@@ -125,7 +127,7 @@ public sealed class SimpleGlobalHookTests
     }
 
     [Property(DisplayName = "KeyPressed events should be raised")]
-    public async void KeyPressed(KeyCode keyCode, ushort rawCode, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    public void KeyPressed(KeyCode keyCode, ushort rawCode, DateTimeAfterEpoch dateTime, ModifierMask mask)
     {
         // Arrange
 
@@ -145,31 +147,37 @@ public sealed class SimpleGlobalHookTests
             }
         };
 
-        hook.KeyPressed += OnKeyPressed;
+        object? actualSender = null;
+        KeyboardHookEventArgs? actualArgs = null;
+
+        hook.KeyPressed += (sender, args) =>
+        {
+            actualSender = sender;
+            actualArgs = args;
+        };
 
         // Act
 
-        this.RunHookAndWaitForStart(hook);
+        this.RunHookAndWaitForStart(hook, provider);
 
-        await provider.PostEventAndWaitForHandler(ref e);
+        provider.PostEvent(ref e);
 
         // Assert
 
-        void OnKeyPressed(object? sender, KeyboardHookEventArgs args)
-        {
-            Assert.Same(hook, sender);
+        Assert.Same(hook, actualSender);
 
-            Assert.Equal(e, args.RawEvent);
-            Assert.Equal(dateTime.Value, args.EventTime);
+        Assert.NotNull(actualArgs);
 
-            Assert.Equal(keyCode, args.Data.KeyCode);
-            Assert.Equal(rawCode, args.Data.RawCode);
-            Assert.Equal(KeyboardEventData.UndefinedChar, args.Data.KeyChar);
-        }
+        Assert.Equal(e, actualArgs.RawEvent);
+        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+
+        Assert.Equal(keyCode, actualArgs.Data.KeyCode);
+        Assert.Equal(rawCode, actualArgs.Data.RawCode);
+        Assert.Equal(KeyboardEventData.UndefinedChar, actualArgs.Data.KeyChar);
     }
 
-    [Property(DisplayName = "KeyReleased events should be raised")]
-    public async void KeyReleased(KeyCode keyCode, ushort rawCode, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    [Property(DisplayName = "KeyReleased events should be raised", MaxTest = 1)]
+    public void KeyReleased(KeyCode keyCode, ushort rawCode, DateTimeAfterEpoch dateTime, ModifierMask mask)
     {
         // Arrange
 
@@ -189,31 +197,37 @@ public sealed class SimpleGlobalHookTests
             }
         };
 
-        hook.KeyReleased += OnKeyReleased;
+        object? actualSender = null;
+        KeyboardHookEventArgs? actualArgs = null;
+
+        hook.KeyReleased += (sender, args) =>
+        {
+            actualSender = sender;
+            actualArgs = args;
+        };
 
         // Act
 
-        this.RunHookAndWaitForStart(hook);
+        this.RunHookAndWaitForStart(hook, provider);
 
-        await provider.PostEventAndWaitForHandler(ref e);
+        provider.PostEvent(ref e);
 
         // Assert
 
-        void OnKeyReleased(object? sender, KeyboardHookEventArgs args)
-        {
-            Assert.Same(hook, sender);
+        Assert.Same(hook, actualSender);
 
-            Assert.Equal(e, args.RawEvent);
-            Assert.Equal(dateTime.Value, args.EventTime);
+        Assert.NotNull(actualArgs);
 
-            Assert.Equal(keyCode, args.Data.KeyCode);
-            Assert.Equal(rawCode, args.Data.RawCode);
-            Assert.Equal(KeyboardEventData.UndefinedChar, args.Data.KeyChar);
-        }
+        Assert.Equal(e, actualArgs.RawEvent);
+        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+
+        Assert.Equal(keyCode, actualArgs.Data.KeyCode);
+        Assert.Equal(rawCode, actualArgs.Data.RawCode);
+        Assert.Equal(KeyboardEventData.UndefinedChar, actualArgs.Data.KeyChar);
     }
 
     [Property(DisplayName = "KeyTyped events should be raised")]
-    public async void KeyTyped(
+    public void KeyTyped(
         KeyCode keyCode,
         ushort rawCode,
         char keyChar,
@@ -238,31 +252,37 @@ public sealed class SimpleGlobalHookTests
             }
         };
 
-        hook.KeyTyped += OnKeyTyped;
+        object? actualSender = null;
+        KeyboardHookEventArgs? actualArgs = null;
+
+        hook.KeyTyped += (sender, args) =>
+        {
+            actualSender = sender;
+            actualArgs = args;
+        };
 
         // Act
 
-        this.RunHookAndWaitForStart(hook);
+        this.RunHookAndWaitForStart(hook, provider);
 
-        await provider.PostEventAndWaitForHandler(ref e);
+        provider.PostEvent(ref e);
 
         // Assert
 
-        void OnKeyTyped(object? sender, KeyboardHookEventArgs args)
-        {
-            Assert.Same(hook, sender);
+        Assert.Same(hook, actualSender);
 
-            Assert.Equal(e, args.RawEvent);
-            Assert.Equal(dateTime.Value, args.EventTime);
+        Assert.NotNull(actualArgs);
 
-            Assert.Equal(keyCode, args.Data.KeyCode);
-            Assert.Equal(rawCode, args.Data.RawCode);
-            Assert.Equal(keyChar, args.Data.KeyChar);
-        }
+        Assert.Equal(e, actualArgs.RawEvent);
+        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+
+        Assert.Equal(keyCode, actualArgs.Data.KeyCode);
+        Assert.Equal(rawCode, actualArgs.Data.RawCode);
+        Assert.Equal(keyChar, actualArgs.Data.KeyChar);
     }
 
     [Property(DisplayName = "MousePressed events should be raised")]
-    public async void MousePressed(
+    public void MousePressed(
         MouseButton button,
         short x,
         short y,
@@ -289,32 +309,38 @@ public sealed class SimpleGlobalHookTests
             }
         };
 
-        hook.MousePressed += OnMousePressed;
+        object? actualSender = null;
+        MouseHookEventArgs? actualArgs = null;
+
+        hook.MousePressed += (sender, args) =>
+        {
+            actualSender = sender;
+            actualArgs = args;
+        };
 
         // Act
 
-        this.RunHookAndWaitForStart(hook);
+        this.RunHookAndWaitForStart(hook, provider);
 
-        await provider.PostEventAndWaitForHandler(ref e);
+        provider.PostEvent(ref e);
 
         // Assert
 
-        void OnMousePressed(object? sender, MouseHookEventArgs args)
-        {
-            Assert.Same(hook, sender);
+        Assert.Same(hook, actualSender);
 
-            Assert.Equal(e, args.RawEvent);
-            Assert.Equal(dateTime.Value, args.EventTime);
+        Assert.NotNull(actualArgs);
 
-            Assert.Equal(button, args.Data.Button);
-            Assert.Equal(x, args.Data.X);
-            Assert.Equal(y, args.Data.Y);
-            Assert.Equal(clicks, args.Data.Clicks);
-        }
+        Assert.Equal(e, actualArgs.RawEvent);
+        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+
+        Assert.Equal(button, actualArgs.Data.Button);
+        Assert.Equal(x, actualArgs.Data.X);
+        Assert.Equal(y, actualArgs.Data.Y);
+        Assert.Equal(clicks, actualArgs.Data.Clicks);
     }
 
     [Property(DisplayName = "MouseReleased events should be raised")]
-    public async void MouseReleased(
+    public void MouseReleased(
         MouseButton button,
         short x,
         short y,
@@ -341,32 +367,38 @@ public sealed class SimpleGlobalHookTests
             }
         };
 
-        hook.MouseReleased += OnMouseReleased;
+        object? actualSender = null;
+        MouseHookEventArgs? actualArgs = null;
+
+        hook.MouseReleased += (sender, args) =>
+        {
+            actualSender = sender;
+            actualArgs = args;
+        };
 
         // Act
 
-        this.RunHookAndWaitForStart(hook);
+        this.RunHookAndWaitForStart(hook, provider);
 
-        await provider.PostEventAndWaitForHandler(ref e);
+        provider.PostEvent(ref e);
 
         // Assert
 
-        void OnMouseReleased(object? sender, MouseHookEventArgs args)
-        {
-            Assert.Same(hook, sender);
+        Assert.Same(hook, actualSender);
 
-            Assert.Equal(e, args.RawEvent);
-            Assert.Equal(dateTime.Value, args.EventTime);
+        Assert.NotNull(actualArgs);
 
-            Assert.Equal(button, args.Data.Button);
-            Assert.Equal(x, args.Data.X);
-            Assert.Equal(y, args.Data.Y);
-            Assert.Equal(clicks, args.Data.Clicks);
-        }
+        Assert.Equal(e, actualArgs.RawEvent);
+        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+
+        Assert.Equal(button, actualArgs.Data.Button);
+        Assert.Equal(x, actualArgs.Data.X);
+        Assert.Equal(y, actualArgs.Data.Y);
+        Assert.Equal(clicks, actualArgs.Data.Clicks);
     }
 
     [Property(DisplayName = "MouseClicked events should be raised")]
-    public async void MouseClicked(
+    public void MouseClicked(
         MouseButton button,
         short x,
         short y,
@@ -393,32 +425,38 @@ public sealed class SimpleGlobalHookTests
             }
         };
 
-        hook.MouseClicked += OnMouseClicked;
+        object? actualSender = null;
+        MouseHookEventArgs? actualArgs = null;
+
+        hook.MouseClicked += (sender, args) =>
+        {
+            actualSender = sender;
+            actualArgs = args;
+        };
 
         // Act
 
-        this.RunHookAndWaitForStart(hook);
+        this.RunHookAndWaitForStart(hook, provider);
 
-        await provider.PostEventAndWaitForHandler(ref e);
+         provider.PostEvent(ref e);
 
         // Assert
 
-        void OnMouseClicked(object? sender, MouseHookEventArgs args)
-        {
-            Assert.Same(hook, sender);
+        Assert.Same(hook, actualSender);
 
-            Assert.Equal(e, args.RawEvent);
-            Assert.Equal(dateTime.Value, args.EventTime);
+        Assert.NotNull(actualArgs);
 
-            Assert.Equal(button, args.Data.Button);
-            Assert.Equal(x, args.Data.X);
-            Assert.Equal(y, args.Data.Y);
-            Assert.Equal(clicks, args.Data.Clicks);
-        }
+        Assert.Equal(e, actualArgs.RawEvent);
+        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+
+        Assert.Equal(button, actualArgs.Data.Button);
+        Assert.Equal(x, actualArgs.Data.X);
+        Assert.Equal(y, actualArgs.Data.Y);
+        Assert.Equal(clicks, actualArgs.Data.Clicks);
     }
 
     [Property(DisplayName = "MouseMoved events should be raised")]
-    public async void MouseMoved(short x, short y, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    public void MouseMoved(short x, short y, DateTimeAfterEpoch dateTime, ModifierMask mask)
     {
         // Arrange
 
@@ -437,30 +475,36 @@ public sealed class SimpleGlobalHookTests
             }
         };
 
-        hook.MouseMoved += OnMouseMoved;
+        object? actualSender = null;
+        MouseHookEventArgs? actualArgs = null;
+
+        hook.MouseMoved += (sender, args) =>
+        {
+            actualSender = sender;
+            actualArgs = args;
+        };
 
         // Act
 
-        this.RunHookAndWaitForStart(hook);
+        this.RunHookAndWaitForStart(hook, provider);
 
-        await provider.PostEventAndWaitForHandler(ref e);
+        provider.PostEvent(ref e);
 
         // Assert
 
-        void OnMouseMoved(object? sender, MouseHookEventArgs args)
-        {
-            Assert.Same(hook, sender);
+        Assert.Same(hook, actualSender);
 
-            Assert.Equal(e, args.RawEvent);
-            Assert.Equal(dateTime.Value, args.EventTime);
+        Assert.NotNull(actualArgs);
 
-            Assert.Equal(x, args.Data.X);
-            Assert.Equal(y, args.Data.Y);
-        }
+        Assert.Equal(e, actualArgs.RawEvent);
+        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+
+        Assert.Equal(x, actualArgs.Data.X);
+        Assert.Equal(y, actualArgs.Data.Y);
     }
 
     [Property(DisplayName = "MouseDragged events should be raised")]
-    public async void MouseDragged(short x, short y, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    public void MouseDragged(short x, short y, DateTimeAfterEpoch dateTime, ModifierMask mask)
     {
         // Arrange
 
@@ -479,30 +523,36 @@ public sealed class SimpleGlobalHookTests
             }
         };
 
-        hook.MouseDragged += OnMouseDragged;
+        object? actualSender = null;
+        MouseHookEventArgs? actualArgs = null;
+
+        hook.MouseDragged += (sender, args) =>
+        {
+            actualSender = sender;
+            actualArgs = args;
+        };
 
         // Act
 
-        this.RunHookAndWaitForStart(hook);
+        this.RunHookAndWaitForStart(hook, provider);
 
-        await provider.PostEventAndWaitForHandler(ref e);
+        provider.PostEvent(ref e);
 
         // Assert
 
-        void OnMouseDragged(object? sender, MouseHookEventArgs args)
-        {
-            Assert.Same(hook, sender);
+        Assert.Same(hook, actualSender);
 
-            Assert.Equal(e, args.RawEvent);
-            Assert.Equal(dateTime.Value, args.EventTime);
+        Assert.NotNull(actualArgs);
 
-            Assert.Equal(x, args.Data.X);
-            Assert.Equal(y, args.Data.Y);
-        }
+        Assert.Equal(e, actualArgs.RawEvent);
+        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+
+        Assert.Equal(x, actualArgs.Data.X);
+        Assert.Equal(y, actualArgs.Data.Y);
     }
 
     [Property(DisplayName = "MouseWheel events should be raised")]
-    public async void MouseWheel(
+    public void MouseWheel(
         short x,
         short y,
         short rotation,
@@ -533,30 +583,36 @@ public sealed class SimpleGlobalHookTests
             }
         };
 
-        hook.MouseWheel += OnMouseWheel;
+        object? actualSender = null;
+        MouseWheelHookEventArgs? actualArgs = null;
+
+        hook.MouseWheel += (sender, args) =>
+        {
+            actualSender = sender;
+            actualArgs = args;
+        };
 
         // Act
 
-        this.RunHookAndWaitForStart(hook);
+        this.RunHookAndWaitForStart(hook, provider);
 
-        await provider.PostEventAndWaitForHandler(ref e);
+        provider.PostEvent(ref e);
 
         // Assert
 
-        void OnMouseWheel(object? sender, MouseWheelHookEventArgs args)
-        {
-            Assert.Same(hook, sender);
+        Assert.Same(hook, actualSender);
 
-            Assert.Equal(e, args.RawEvent);
-            Assert.Equal(dateTime.Value, args.EventTime);
+        Assert.NotNull(actualArgs);
 
-            Assert.Equal(x, args.Data.X);
-            Assert.Equal(y, args.Data.Y);
-            Assert.Equal(rotation, args.Data.Rotation);
-            Assert.Equal(delta, args.Data.Delta);
-            Assert.Equal(direction, args.Data.Direction);
-            Assert.Equal(type, args.Data.Type);
-        }
+        Assert.Equal(e, actualArgs.RawEvent);
+        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+
+        Assert.Equal(x, actualArgs.Data.X);
+        Assert.Equal(y, actualArgs.Data.Y);
+        Assert.Equal(rotation, actualArgs.Data.Rotation);
+        Assert.Equal(delta, actualArgs.Data.Delta);
+        Assert.Equal(direction, actualArgs.Data.Direction);
+        Assert.Equal(type, actualArgs.Data.Type);
     }
 
     [Property(DisplayName = "Run should throw if the hook failed to start")]
@@ -603,7 +659,7 @@ public sealed class SimpleGlobalHookTests
         var provider = new TestProvider();
         using var hook = new SimpleGlobalHook(provider);
 
-        this.RunHookAndWaitForStart(hook);
+        this.RunHookAndWaitForStart(hook, provider);
 
         // Act + Assert
 
@@ -618,7 +674,7 @@ public sealed class SimpleGlobalHookTests
         var provider = new TestProvider();
         using var hook = new SimpleGlobalHook(provider);
 
-        this.RunHookAndWaitForStart(hook);
+        this.RunHookAndWaitForStart(hook, provider);
 
         // Act + Assert
 
@@ -663,7 +719,7 @@ public sealed class SimpleGlobalHookTests
 
         var hook = new SimpleGlobalHook(provider);
 
-        this.RunHookAndWaitForStart(hook);
+        this.RunHookAndWaitForStart(hook, provider);
 
         // Act + Assert
 
@@ -675,11 +731,11 @@ public sealed class SimpleGlobalHookTests
     public void ProviderNull() =>
         Assert.Throws<ArgumentNullException>(() => new SimpleGlobalHook(null!));
 
-    private void RunHookAndWaitForStart(IGlobalHook hook)
+    private void RunHookAndWaitForStart(IGlobalHook hook, TestProvider provider)
     {
         hook.RunAsync();
 
-        while (!hook.IsRunning)
+        while (!provider.IsRunning)
         {
             Thread.Yield();
         }
