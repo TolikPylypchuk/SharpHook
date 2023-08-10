@@ -78,6 +78,25 @@
         <article data-uid="">
 <h1 id="migration-guide">Migration Guide</h1>
 
+<h2 id="version-4-to-5">Version 4 to 5</h2>
+<p>Version 5 contains multiple breaking changes, so you may need to change your code to upgrade.</p>
+<p>Almost all <code>KeyCode</code> values were changed. New codes were added and some were removed. Before upgrading, make sure that
+no numeric key code values are persisted since they will be incompatible. The actual enum values are meaningless and
+may be changed again in the future. Make sure to only use the enum constant names, e.g. when persisting key codes.</p>
+<p>Mouse wheel events were changed. <code>MouseWheelEventData</code> doesn't contain <code>Amount</code> anymore - instead only <code>Rotation</code> should
+be considered the value of the scroll. Mouse wheel simulation was changed as well and doesn't accept the amount anymore.
+Instead it accepts the scroll direction and type which makes it possible to simulate horizontal scrolling.</p>
+<p><code>KeyboardEventData.KeyChar</code> was renamed to <code>KeyboardEventData.RawKeyChar</code>. Since the key char is of type <code>ushort</code> for
+marshalling reasons but should be used as a <code>char</code>, the <code>KeyboardEventData.KeyChar</code> property was added, which simply
+casts <code>KeyboardEventData.RawKeyChar</code> to <code>char</code>.</p>
+<p><code>LogEntryParser</code> is now a singleton and doesn't have a public constructor.</p>
+<p>The constants in the <code>MouseWheelScrollDirection</code> enum were shortened: <code>VerticalDirection</code> to <code>Vertical</code> and
+<code>HorizontalDirection</code> to <code>Horizontal</code>.</p>
+<p>All methods in all structs in the <code>UioHook.Native</code> namespace are now marked as <code>readonly</code>.</p>
+<p>The minimum .NET Framework version was bumped to 4.6.2 since 4.6.1 is not supported anymore. Support for Windows on
+Arm32 was removed since it was removed in .NET 5.</p>
+<p>Support for Mac Catalyst was added which makes it possible to use SharpHook in MAUI apps on macOS.</p>
+<p>SharpHook.Reactive now depends on Rx.NET 6.0.0.</p>
 <h2 id="version-3-to-4">Version 3 to 4</h2>
 <p>Version 4 contains a couple breaking changes, so you may need to change your code to upgrade.</p>
 <p>The biggest change is that simulating mouse button pressing/releasing now requires mouse pointer coordinates. They were
