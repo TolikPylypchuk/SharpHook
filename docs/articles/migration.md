@@ -1,5 +1,35 @@
 # Migration Guide
 
+## Version 4 to 5
+
+Version 5 contains multiple breaking changes, so you may need to change your code to upgrade.
+
+Almost all `KeyCode` values were changed. New codes were added and some were removed. Before upgrading, make sure that
+no numeric key code values are persisted since they will be incompatible. The actual enum values are meaningless and
+may be changed again in the future. Make sure to only use the enum constant names, e.g. when persisting key codes.
+
+Mouse wheel events were changed. `MouseWheelEventData` doesn't contain `Amount` anymore - instead only `Rotation` should
+be considered the value of the scroll. Mouse wheel simulation was changed as well and doesn't accept the amount anymore.
+Instead it accepts the scroll direction and type which makes it possible to simulate horizontal scrolling.
+
+`KeyboardEventData.KeyChar` was renamed to `KeyboardEventData.RawKeyChar`. Since the key char is of type `ushort` for
+marshalling reasons but should be used as a `char`, the `KeyboardEventData.KeyChar` property was added, which simply
+casts `KeyboardEventData.RawKeyChar` to `char`.
+
+`LogEntryParser` is now a singleton and doesn't have a public constructor.
+
+The constants in the `MouseWheelScrollDirection` enum were shortened: `VerticalDirection` to `Vertical` and
+`HorizontalDirection` to `Horizontal`.
+
+All methods in all structs in the `UioHook.Native` namespace are now marked as `readonly`.
+
+The minimum .NET Framework version was bumped to 4.6.2 since 4.6.1 is not supported anymore. Support for Windows on
+Arm32 was removed since it was removed in .NET 5.
+
+Support for Mac Catalyst was added which makes it possible to use SharpHook in MAUI apps on macOS.
+
+SharpHook.Reactive now depends on Rx.NET 6.0.0.
+
 ## Version 3 to 4
 
 Version 4 contains a couple breaking changes, so you may need to change your code to upgrade.

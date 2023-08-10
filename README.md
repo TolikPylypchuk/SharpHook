@@ -391,6 +391,12 @@ Place the binaries into the appropriate directories in the `SharpHook` project, 
     <td>lib/osx-&lt;platform&gt;</td>
   </tr>
   <tr>
+    <th>Mac Catalyst</th>
+    <td>libuiohook.dylib</td>
+    <td>catalyst/&lt;platform&gt;/lib</td>
+    <td>lib/maccatalyst-&lt;platform&gt;</td>
+  </tr>
+  <tr>
     <th>Linux</th>
     <td>libuiohook.so</td>
     <td>linux/&lt;platform&gt;/lib</td>
