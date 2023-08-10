@@ -84,6 +84,73 @@
 to its <code>1.3</code> branch is considered stable. If you've noticed that this library hasn't gotten new commits in some time,
 rest assured that it's not abandoned! I'm not giving up on this library any time soon.</p>
 <h2 id="changelog">Changelog</h2>
+<h3 id="v500-august-10-2023"><a href="https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.0.0">v5.0.0</a> (August 10, 2023)</h3>
+<p>This is probably the largest release since v1.0.0 and it contains multiple new features and bug fixes, as well as
+breaking changes.</p>
+<h4 id="platform-support">Platform Support</h4>
+<ul>
+<li><p>Support for Mac Catalyst was added which makes it possible to use SharpHook in .NET MAUI apps on macOS.</p>
+</li>
+<li><p>The minimum .NET Framework version was bumped to 4.6.2.</p>
+</li>
+<li><p>Support for Windows on Arm32 was removed.</p>
+</li>
+</ul>
+<h4 id="breaking-changes">Breaking Changes</h4>
+<ul>
+<li><p>Almost all <code>KeyCode</code> values were changed. New codes were added and some were removed. The actual enum values are
+meaningless and may be changed again in the future.</p>
+</li>
+<li><p><code>MouseWheelEventData</code> doesn't contain <code>Amount</code> anymore.</p>
+</li>
+<li><p>Mouse wheel simulation doesn't accept the amount anymore. Instead it accepts the scroll direction and type which
+makes it possible to simulate horizontal scrolling.</p>
+</li>
+<li><p><code>KeyboardEventData.KeyChar</code> was renamed to <code>KeyboardEventData.RawKeyChar</code> and the <code>KeyboardEventData.KeyChar</code> property
+was added.</p>
+</li>
+<li><p><code>LogEntryParser</code> is now a singleton and doesn't have a public constructor.</p>
+</li>
+<li><p>The constants in the <code>MouseWheelScrollDirection</code> enum were shortened: <code>VerticalDirection</code> to <code>Vertical</code> and
+<code>HorizontalDirection</code> to <code>Horizontal</code>.</p>
+</li>
+</ul>
+<h4 id="new-features">New Features</h4>
+<ul>
+<li><p>Text entry simulation was added.</p>
+</li>
+<li><p>Low-level functionality providers were added - they can be used instead of directly using the <code>UioHook</code> class.</p>
+</li>
+<li><p>Horizontal mouse wheel simulation is now possible.</p>
+</li>
+<li><p>Classes which help with testing were added.</p>
+</li>
+<li><p>Reactive global hook can now accept a default scheduler which will be used for all observables.</p>
+</li>
+<li><p>Extension methods for <code>SharpHook.Native.ModifierMask</code> were added.</p>
+</li>
+</ul>
+<h4 id="bug-fixes">Bug Fixes</h4>
+<ul>
+<li><p>Global hooks can now be created and disposed multiple times on Windows without problems.</p>
+</li>
+<li><p>Many key code mappings to OS-specific key codes were fixed.</p>
+</li>
+<li><p><code>KeyTyped</code> events are now better at determining which characters should be produced by key presses on Windows.</p>
+</li>
+</ul>
+<h4 id="other-changes">Other Changes</h4>
+<ul>
+<li><p>libuiohook was updated to commit
+<a href="https://github.com/TolikPylypchuk/libuiohook/tree/6f42599e28099406d279146de4720110d40be047">6f42599</a>.</p>
+</li>
+<li><p>All methods in all structs in the <code>UioHook.Native</code> namespace are now marked as <code>readonly</code>.</p>
+</li>
+<li><p>SharpHook.Reactive now depends on Rx.NET 6.0.0.</p>
+</li>
+<li><p>Docs now use a new theme.</p>
+</li>
+</ul>
 <h3 id="v421-june-18-2023"><a href="https://github.com/TolikPylypchuk/SharpHook/releases/tag/v4.2.1">v4.2.1</a> (June 18, 2023)</h3>
 <ul>
 <li><p>libuiohook was updated to commit
