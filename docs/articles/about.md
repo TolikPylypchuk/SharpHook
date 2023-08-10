@@ -12,9 +12,6 @@ rest assured that it's not abandoned! I'm not giving up on this library any time
 
 ### [v5.0.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.0.0) (August 10, 2023)
 
-This is probably the largest release since v1.0.0 and it contains multiple new features and bug fixes, as well as
-breaking changes.
-
 #### Platform Support
 
 - Support for Mac Catalyst was added which makes it possible to use SharpHook in .NET MAUI apps on macOS.
@@ -31,8 +28,10 @@ meaningless and may be changed again in the future.
 - `MouseWheelEventData` doesn't contain `Amount` anymore.
 
 - Mouse wheel simulation doesn't accept the amount anymore. Instead it accepts the scroll direction and type which
-makes it possible to simulate horizontal scrolling. The meaning of the rotation value was changed - a positive value
-indicates that the wheel is rotated up or left, and a negative value indicates that the wheel is rotated down or right.
+makes it possible to simulate horizontal scrolling.
+
+- The meaning of the mouse wheel rotation value was changed - a positive value indicates that the wheel is rotated up or
+left, and a negative value indicates that the wheel is rotated down or right.
 
 - `KeyboardEventData.KeyChar` was renamed to `KeyboardEventData.RawKeyChar` and the `KeyboardEventData.KeyChar` property
 was added.
