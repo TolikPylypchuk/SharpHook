@@ -133,7 +133,7 @@ of an event. <code>ReactiveLogSourceAdapter</code> adapts an <code>ILogSource</c
 <h2 id="using-the-low-level-functionality">Using the Low-Level Functionality</h2>
 <p>The logging functionality works by using <code>UioHook.SetLoggerProc</code>. This method sets the log callback - a delegate of
 type <code>LoggerProc</code>, which will be called to log the messages of libuiohook. <code>LoggerProc</code> receives the log level, a
-pointer to the message format, and a pointer the message arguments. It also receives a pointer to user-supplied data
+pointer to the message format, and a pointer to the message arguments. It also receives a pointer to user-supplied data
 (which is set in the <code>UioHook.SetLoggerProc</code>), but you shouldn't ever use that.</p>
 <p>It is highly recommended to use <code>LogEntryParser</code> in order to create a log entry out of the pointers to the message
 format and arguments. This way you won't have to handle these pointers directly. The problem with handling them directly

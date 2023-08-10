@@ -1891,12 +1891,12 @@ references:
   commentId: F:SharpHook.Native.KeyCode.VcBackQuote
   fullName: SharpHook.Native.KeyCode.VcBackQuote
   nameWithType: KeyCode.VcBackQuote
-- uid: SharpHook.Native.KeyCode.VcBackSlash
-  name: VcBackSlash
-  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcBackSlash
-  commentId: F:SharpHook.Native.KeyCode.VcBackSlash
-  fullName: SharpHook.Native.KeyCode.VcBackSlash
-  nameWithType: KeyCode.VcBackSlash
+- uid: SharpHook.Native.KeyCode.VcBackslash
+  name: VcBackslash
+  href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcBackslash
+  commentId: F:SharpHook.Native.KeyCode.VcBackslash
+  fullName: SharpHook.Native.KeyCode.VcBackslash
+  nameWithType: KeyCode.VcBackslash
 - uid: SharpHook.Native.KeyCode.VcBackspace
   name: VcBackspace
   href: api/SharpHook.Native.KeyCode.html#SharpHook_Native_KeyCode_VcBackspace
