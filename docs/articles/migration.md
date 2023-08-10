@@ -26,7 +26,7 @@ All methods in all structs in the `UioHook.Native` namespace are now marked as `
 The minimum .NET Framework version was bumped to 4.6.2 since 4.6.1 is not supported anymore. Support for Windows on
 Arm32 was removed since it was removed in .NET 5.
 
-Support for Mac Catalyst was added which makes it possible to use SharpHook in MAUI apps on macOS.
+Support for Mac Catalyst was added which makes it possible to use SharpHook in .NET MAUI apps on macOS.
 
 SharpHook.Reactive now depends on Rx.NET 6.0.0.
 

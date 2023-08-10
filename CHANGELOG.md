@@ -1,5 +1,69 @@
 # SharpHook Changelog
 
+## [v5.0.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.0.0) (August 10, 2023)
+
+This is probably the largest release since v1.0.0 and it contains multiple new features and bug fixes, as well as
+breaking changes.
+
+### Platform Support
+
+- Support for Mac Catalyst was added which makes it possible to use SharpHook in .NET MAUI apps on macOS.
+
+- The minimum .NET Framework version was bumped to 4.6.2.
+
+- Support for Windows on Arm32 was removed.
+
+### Breaking Changes
+
+- Almost all `KeyCode` values were changed. New codes were added and some were removed. The actual enum values are
+meaningless and may be changed again in the future.
+
+- `MouseWheelEventData` doesn't contain `Amount` anymore.
+
+- Mouse wheel simulation doesn't accept the amount anymore. Instead it accepts the scroll direction and type which
+makes it possible to simulate horizontal scrolling.
+
+- `KeyboardEventData.KeyChar` was renamed to `KeyboardEventData.RawKeyChar` and the `KeyboardEventData.KeyChar` property
+was added.
+
+- `LogEntryParser` is now a singleton and doesn't have a public constructor.
+
+- The constants in the `MouseWheelScrollDirection` enum were shortened: `VerticalDirection` to `Vertical` and
+`HorizontalDirection` to `Horizontal`.
+
+### New Features
+
+- Text entry simulation was added.
+
+- Low-level functionality providers were added - they can be used instead of directly using the `UioHook` class.
+
+- Horizontal mouse wheel simulation is now possible.
+
+- Classes which help with testing were added.
+
+- Reactive global hook can now accept a default scheduler which will be used for all observables.
+
+- Extension methods for `SharpHook.Native.ModifierMask` were added.
+
+### Bug Fixes
+
+- Global hooks can now be created and disposed multiple times on Windows without problems.
+
+- Many key code mappings to OS-specific key codes were fixed.
+
+- `KeyTyped` events are now better at determining which characters should be produced by key presses on Windows.
+
+### Other Changes
+
+- libuiohook was updated to commit
+[6f42599](https://github.com/TolikPylypchuk/libuiohook/tree/6f42599e28099406d279146de4720110d40be047).
+
+- All methods in all structs in the `UioHook.Native` namespace are now marked as `readonly`.
+
+- SharpHook.Reactive now depends on Rx.NET 6.0.0.
+
+- Docs now use a new theme.
+
 ## [v4.2.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v4.2.1) (June 18, 2023)
 
 - libuiohook was updated to commit

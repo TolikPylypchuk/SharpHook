@@ -29,17 +29,6 @@ methods in `UioHook`. This should be done to decouple your code from `UioHook` a
 You have to remember that only one global hook can exist at a time since calling `SetDispatchProc` will override the
 previously set one.
 
-> [!NOTE]
-> On macOS running the global hook requires that the main run-loop is present. libuiohook takes care of it if the hook
-> is run on the main thread. It's also taken care of by UI frameworks since they need an event loop on the main thread
-> to run. But if you're using a global hook in a console app or a background service and want to run it on some thread
-> other than the main one then you should take care of it yourself. You can do that by P/Invoking the native
-> `CFRunLoopRun` function on the main thread.
-
-> [!NOTE]
-> macOS requires that the accessibility API be enabled for the application if it wants to create a global hook.
-> If the accessiblity API is not enabled, then `Run` will fail and return `UioHookResult.ErrorAxApiDisabled`.
-
 Additionally, `UioHook` contains the `PostEvent` method for simulating input events, and the `SetLoggerProc` method for
 setting the log callback.
 
