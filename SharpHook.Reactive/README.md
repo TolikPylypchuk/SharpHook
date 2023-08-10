@@ -1,8 +1,8 @@
 # SharpHook.Reactive
 
-SharpHook provides a cross-platform global keyboard and mouse hook for .NET, and the ability to simulate input events.
-It is a thin wrapper of [libuiohook](https://github.com/kwhat/libuiohook) and provides direct access to its features as
-well as higher-level types to work with it.
+SharpHook provides a cross-platform global keyboard and mouse hook, event simulation, and text entry for .NET. It is a
+wrapper of [libuiohook](https://github.com/TolikPylypchuk/libuiohook) and provides direct access to its features as well
+as higher-level types to work with it.
 
 If you're using Rx.NET, you can use the SharpHook.Reactive package to integrate SharpHook with Rx.NET.
 
@@ -54,11 +54,12 @@ Reactive global hooks are basically the same as the default global hooks and the
 
 SharpHook.Reactive provides two implementations of `IReactiveGlobalHook`:
 
-- `SimpleReactiveGlobalHook`. Since we are dealing with observables, it's up to you to decide when and where to handle
-the events through schedulers.
+- `SharpHook.Reactive.SimpleReactiveGlobalHook`. Since we're dealing with observables, it's up to you to decide when
+and where to handle the events through schedulers. A default scheduler can be specified for all observables.
 
-- `ReactiveGlobalHookAdapter` adapts an `IGlobalHook` to `IReactiveGlobalHook`. All subscriptions and changes are
-propagated to the adapted hook.
+- `SharpHook.Reactive.ReactiveGlobalHookAdapter` adapts an `IGlobalHook` to `IReactiveGlobalHook`. All
+subscriptions and changes are propagated to the adapted hook. There is no default adapter from `IReactiveGlobalHook`
+to `IGlobalHook`. A default scheduler can be specified for all observables.
 
 ### Logging
 
