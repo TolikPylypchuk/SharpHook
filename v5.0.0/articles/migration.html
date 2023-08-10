@@ -85,7 +85,9 @@ no numeric key code values are persisted since they will be incompatible. The ac
 may be changed again in the future. Make sure to only use the enum constant names, e.g. when persisting key codes.</p>
 <p>Mouse wheel events were changed. <code>MouseWheelEventData</code> doesn't contain <code>Amount</code> anymore - instead only <code>Rotation</code> should
 be considered the value of the scroll. Mouse wheel simulation was changed as well and doesn't accept the amount anymore.
-Instead it accepts the scroll direction and type which makes it possible to simulate horizontal scrolling.</p>
+Instead it accepts the scroll direction and type which makes it possible to simulate horizontal scrolling. The
+meaning of the <code>Rotation</code> value was changed - a positive value indicates that the wheel is rotated up or left, and
+a negative value indicates that the wheel is rotated down or right.</p>
 <p><code>KeyboardEventData.KeyChar</code> was renamed to <code>KeyboardEventData.RawKeyChar</code>. Since the key char is of type <code>ushort</code> for
 marshalling reasons but should be used as a <code>char</code>, the <code>KeyboardEventData.KeyChar</code> property was added, which simply
 casts <code>KeyboardEventData.RawKeyChar</code> to <code>char</code>.</p>

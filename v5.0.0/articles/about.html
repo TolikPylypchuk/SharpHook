@@ -104,7 +104,8 @@ meaningless and may be changed again in the future.</p>
 <li><p><code>MouseWheelEventData</code> doesn't contain <code>Amount</code> anymore.</p>
 </li>
 <li><p>Mouse wheel simulation doesn't accept the amount anymore. Instead it accepts the scroll direction and type which
-makes it possible to simulate horizontal scrolling.</p>
+makes it possible to simulate horizontal scrolling. The meaning of the rotation value was changed - a positive value
+indicates that the wheel is rotated up or left, and a negative value indicates that the wheel is rotated down or right.</p>
 </li>
 <li><p><code>KeyboardEventData.KeyChar</code> was renamed to <code>KeyboardEventData.RawKeyChar</code> and the <code>KeyboardEventData.KeyChar</code> property
 was added.</p>
