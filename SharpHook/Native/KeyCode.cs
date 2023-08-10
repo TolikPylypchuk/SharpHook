@@ -289,7 +289,7 @@ public enum KeyCode : ushort
 
     /// <summary>\</summary>
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
-    VcBackSlash = 0x005D,
+    VcBackslash = 0x005D,
 
     /// <summary>;</summary>
     /// <remarks>Available on: Windows, macOS, Linux</remarks>

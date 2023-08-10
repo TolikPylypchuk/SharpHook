@@ -1671,7 +1671,7 @@
             <summary>]</summary>
             <remarks>Available on: Windows, macOS, Linux</remarks>
         </member>
-        <member name="F:SharpHook.Native.KeyCode.VcBackSlash">
+        <member name="F:SharpHook.Native.KeyCode.VcBackslash">
             <summary>\</summary>
             <remarks>Available on: Windows, macOS, Linux</remarks>
         </member>

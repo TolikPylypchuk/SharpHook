@@ -515,7 +515,7 @@ Sources:
       <td><code>KEY_RIGHTBRACE</code></td>
     </tr>
     <tr>
-      <td><code>VcBackSlash</code></td>
+      <td><code>VcBackslash</code></td>
       <td><code>VK_OEM_5</code></td>
       <td><code>kVK_ANSI_Backslash</code></td>
       <td><code>AC12</code> and <code>BKSL</code></td>

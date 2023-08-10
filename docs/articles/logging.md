@@ -75,7 +75,7 @@ of an event. `ReactiveLogSourceAdapter` adapts an `ILogSource` to the `IReactive
 
 The logging functionality works by using `UioHook.SetLoggerProc`. This method sets the log callback - a delegate of
 type `LoggerProc`, which will be called to log the messages of libuiohook. `LoggerProc` receives the log level, a
-pointer to the message format, and a pointer the message arguments. It also receives a pointer to user-supplied data
+pointer to the message format, and a pointer to the message arguments. It also receives a pointer to user-supplied data
 (which is set in the `UioHook.SetLoggerProc`), but you shouldn't ever use that.
 
 It is highly recommended to use `LogEntryParser` in order to create a log entry out of the pointers to the message
