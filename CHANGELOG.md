@@ -21,7 +21,8 @@ meaningless and may be changed again in the future.
 - `MouseWheelEventData` doesn't contain `Amount` anymore.
 
 - Mouse wheel simulation doesn't accept the amount anymore. Instead it accepts the scroll direction and type which
-makes it possible to simulate horizontal scrolling.
+makes it possible to simulate horizontal scrolling. The meaning of the rotation value was changed - a positive value
+indicates that the wheel is rotated up or left, and a negative value indicates that the wheel is rotated down or right.
 
 - `KeyboardEventData.KeyChar` was renamed to `KeyboardEventData.RawKeyChar` and the `KeyboardEventData.KeyChar` property
 was added.

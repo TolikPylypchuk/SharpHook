@@ -10,7 +10,9 @@ may be changed again in the future. Make sure to only use the enum constant name
 
 Mouse wheel events were changed. `MouseWheelEventData` doesn't contain `Amount` anymore - instead only `Rotation` should
 be considered the value of the scroll. Mouse wheel simulation was changed as well and doesn't accept the amount anymore.
-Instead it accepts the scroll direction and type which makes it possible to simulate horizontal scrolling.
+Instead it accepts the scroll direction and type which makes it possible to simulate horizontal scrolling. The
+meaning of the `Rotation` value was changed - a positive value indicates that the wheel is rotated up or left, and
+a negative value indicates that the wheel is rotated down or right.
 
 `KeyboardEventData.KeyChar` was renamed to `KeyboardEventData.RawKeyChar`. Since the key char is of type `ushort` for
 marshalling reasons but should be used as a `char`, the `KeyboardEventData.KeyChar` property was added, which simply
