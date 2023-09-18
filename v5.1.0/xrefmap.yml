@@ -1474,6 +1474,24 @@ references:
   commentId: Overload:SharpHook.Logging.LogSource.Register
   fullName: SharpHook.Logging.LogSource.Register
   nameWithType: LogSource.Register
+- uid: SharpHook.Logging.LogSource.RegisterOrGet(SharpHook.Native.LogLevel)
+  name: RegisterOrGet(LogLevel)
+  href: api/SharpHook.Logging.LogSource.html#SharpHook_Logging_LogSource_RegisterOrGet_SharpHook_Native_LogLevel_
+  commentId: M:SharpHook.Logging.LogSource.RegisterOrGet(SharpHook.Native.LogLevel)
+  fullName: SharpHook.Logging.LogSource.RegisterOrGet(SharpHook.Native.LogLevel)
+  nameWithType: LogSource.RegisterOrGet(LogLevel)
+- uid: SharpHook.Logging.LogSource.RegisterOrGet(SharpHook.Providers.ILoggingProvider,SharpHook.Native.LogLevel)
+  name: RegisterOrGet(ILoggingProvider, LogLevel)
+  href: api/SharpHook.Logging.LogSource.html#SharpHook_Logging_LogSource_RegisterOrGet_SharpHook_Providers_ILoggingProvider_SharpHook_Native_LogLevel_
+  commentId: M:SharpHook.Logging.LogSource.RegisterOrGet(SharpHook.Providers.ILoggingProvider,SharpHook.Native.LogLevel)
+  fullName: SharpHook.Logging.LogSource.RegisterOrGet(SharpHook.Providers.ILoggingProvider, SharpHook.Native.LogLevel)
+  nameWithType: LogSource.RegisterOrGet(ILoggingProvider, LogLevel)
+- uid: SharpHook.Logging.LogSource.RegisterOrGet*
+  name: RegisterOrGet
+  href: api/SharpHook.Logging.LogSource.html#SharpHook_Logging_LogSource_RegisterOrGet_
+  commentId: Overload:SharpHook.Logging.LogSource.RegisterOrGet
+  fullName: SharpHook.Logging.LogSource.RegisterOrGet
+  nameWithType: LogSource.RegisterOrGet
 - uid: SharpHook.MouseHookEventArgs
   name: MouseHookEventArgs
   href: api/SharpHook.MouseHookEventArgs.html

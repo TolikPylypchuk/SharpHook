@@ -94,7 +94,7 @@
 
   <h1 id="SharpHook_Logging_LogSource" data-uid="SharpHook.Logging.LogSource" class="text-break">
     Class LogSource
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/815d8bd57ec60bc62d7c3201d87f038d9afef567/SharpHook/Logging/LogSource.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/26a0ebc027fcfa0294812fee4090c6843b8e17d2/SharpHook/Logging/LogSource.cs"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -174,7 +174,7 @@ On Windows this class requires the Visual C++ Redistributable package to be inst
 
   <h3 id="SharpHook_Logging_LogSource_IsDisposed" data-uid="SharpHook.Logging.LogSource.IsDisposed">
   IsDisposed
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/815d8bd57ec60bc62d7c3201d87f038d9afef567/SharpHook/Logging/LogSource.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/26a0ebc027fcfa0294812fee4090c6843b8e17d2/SharpHook/Logging/LogSource.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the value which indicates whether the log source is disposed.</p>
@@ -220,7 +220,7 @@ On Windows this class requires the Visual C++ Redistributable package to be inst
 
   <h3 id="SharpHook_Logging_LogSource_MinLevel" data-uid="SharpHook.Logging.LogSource.MinLevel">
   MinLevel
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/815d8bd57ec60bc62d7c3201d87f038d9afef567/SharpHook/Logging/LogSource.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/26a0ebc027fcfa0294812fee4090c6843b8e17d2/SharpHook/Logging/LogSource.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the minimum log level.</p>
@@ -267,7 +267,7 @@ On Windows this class requires the Visual C++ Redistributable package to be inst
 
   <h3 id="SharpHook_Logging_LogSource_Dispose" data-uid="SharpHook.Logging.LogSource.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/815d8bd57ec60bc62d7c3201d87f038d9afef567/SharpHook/Logging/LogSource.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/26a0ebc027fcfa0294812fee4090c6843b8e17d2/SharpHook/Logging/LogSource.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Stops the currently registered <a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a> instance from receiving libuiohook logs.</p>
@@ -304,7 +304,7 @@ On Windows this class requires the Visual C++ Redistributable package to be inst
 
   <h3 id="SharpHook_Logging_LogSource_Finalize" data-uid="SharpHook.Logging.LogSource.Finalize">
   ~LogSource()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/815d8bd57ec60bc62d7c3201d87f038d9afef567/SharpHook/Logging/LogSource.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/26a0ebc027fcfa0294812fee4090c6843b8e17d2/SharpHook/Logging/LogSource.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Unregisters the current <a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a> instance.</p>
@@ -341,7 +341,7 @@ On Windows this class requires the Visual C++ Redistributable package to be inst
 
   <h3 id="SharpHook_Logging_LogSource_Register_SharpHook_Native_LogLevel_" data-uid="SharpHook.Logging.LogSource.Register(SharpHook.Native.LogLevel)">
   Register(LogLevel)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/815d8bd57ec60bc62d7c3201d87f038d9afef567/SharpHook/Logging/LogSource.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/26a0ebc027fcfa0294812fee4090c6843b8e17d2/SharpHook/Logging/LogSource.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates and registers a source of libuiohook logs.</p>
@@ -349,7 +349,8 @@ On Windows this class requires the Visual C++ Redistributable package to be inst
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static LogSource Register(LogLevel minLevel = LogLevel.Info)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;LogSource.RegisterOrGet should be used instead&quot;)]
+public static LogSource Register(LogLevel minLevel = LogLevel.Info)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -373,8 +374,8 @@ On Windows this class requires the Visual C++ Redistributable package to be inst
 
 
   <h4 class="section" id="SharpHook_Logging_LogSource_Register_SharpHook_Native_LogLevel__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>This method must not be called when another <a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a> instance has already been registerd and
-hasn't been disposed.</p>
+  <div class="markdown level1 remarks"><p>This method is obsolete as it must not be called when another <a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a> instance has already been
+registerd and hasn't been disposed. <a class="xref" href="SharpHook.Logging.LogSource.html#SharpHook_Logging_LogSource_RegisterOrGet_SharpHook_Native_LogLevel_">RegisterOrGet(LogLevel)</a> should be used instead.</p>
 </div>
 
 
@@ -394,7 +395,7 @@ hasn't been disposed.</p>
 
   <h3 id="SharpHook_Logging_LogSource_Register_SharpHook_Providers_ILoggingProvider_SharpHook_Native_LogLevel_" data-uid="SharpHook.Logging.LogSource.Register(SharpHook.Providers.ILoggingProvider,SharpHook.Native.LogLevel)">
   Register(ILoggingProvider, LogLevel)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/815d8bd57ec60bc62d7c3201d87f038d9afef567/SharpHook/Logging/LogSource.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/26a0ebc027fcfa0294812fee4090c6843b8e17d2/SharpHook/Logging/LogSource.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates and registers a source of libuiohook logs using the specified provider.</p>
@@ -402,7 +403,8 @@ hasn't been disposed.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static LogSource Register(ILoggingProvider loggingProvider, LogLevel minLevel = LogLevel.Info)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;LogSource.RegisterOrGet should be used instead&quot;)]
+public static LogSource Register(ILoggingProvider loggingProvider, LogLevel minLevel = LogLevel.Info)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -429,8 +431,130 @@ hasn't been disposed.</p>
 
 
   <h4 class="section" id="SharpHook_Logging_LogSource_Register_SharpHook_Providers_ILoggingProvider_SharpHook_Native_LogLevel__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>This method must not be called when another <a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a> instance has already been registerd and
-hasn't been disposed.</p>
+  <div class="markdown level1 remarks"><p>This method is obsolete as it must not be called when another <a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a> instance has already been
+registerd and hasn't been disposed. <a class="xref" href="SharpHook.Logging.LogSource.html#SharpHook_Logging_LogSource_RegisterOrGet_SharpHook_Providers_ILoggingProvider_SharpHook_Native_LogLevel_">RegisterOrGet(ILoggingProvider, LogLevel)</a> should be used
+instead.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">loggingProvider</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.EmptyLogSource.html">EmptyLogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEventArgs.html">LogEventArgs</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEntry.html">LogEntry</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEntryParser.html">LogEntryParser</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="SharpHook_Logging_LogSource_RegisterOrGet_" data-uid="SharpHook.Logging.LogSource.RegisterOrGet*"></a>
+
+  <h3 id="SharpHook_Logging_LogSource_RegisterOrGet_SharpHook_Native_LogLevel_" data-uid="SharpHook.Logging.LogSource.RegisterOrGet(SharpHook.Native.LogLevel)">
+  RegisterOrGet(LogLevel)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/26a0ebc027fcfa0294812fee4090c6843b8e17d2/SharpHook/Logging/LogSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates and registers a source of libuiohook logs or returns the registered instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static LogSource RegisterOrGet(LogLevel minLevel = LogLevel.Info)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>minLevel</code> <a class="xref" href="SharpHook.Native.LogLevel.html">LogLevel</a></dt>
+    <dd><p>The minimum log level.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a></dt>
+    <dd><p>A source of libuiohook logs.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_Logging_LogSource_RegisterOrGet_SharpHook_Native_LogLevel__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method should be preferred to <a class="xref" href="SharpHook.Logging.LogSource.html#SharpHook_Logging_LogSource_Register_SharpHook_Native_LogLevel_">Register(LogLevel)</a> as it's safer - it won't invalidate an
+already registered instance.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.EmptyLogSource.html">EmptyLogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEventArgs.html">LogEventArgs</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEntry.html">LogEntry</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEntryParser.html">LogEntryParser</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="SharpHook_Logging_LogSource_RegisterOrGet_" data-uid="SharpHook.Logging.LogSource.RegisterOrGet*"></a>
+
+  <h3 id="SharpHook_Logging_LogSource_RegisterOrGet_SharpHook_Providers_ILoggingProvider_SharpHook_Native_LogLevel_" data-uid="SharpHook.Logging.LogSource.RegisterOrGet(SharpHook.Providers.ILoggingProvider,SharpHook.Native.LogLevel)">
+  RegisterOrGet(ILoggingProvider, LogLevel)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/26a0ebc027fcfa0294812fee4090c6843b8e17d2/SharpHook/Logging/LogSource.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates and registers a source of libuiohook logs or returns the registered instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static LogSource RegisterOrGet(ILoggingProvider loggingProvider, LogLevel minLevel = LogLevel.Info)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>loggingProvider</code> <a class="xref" href="SharpHook.Providers.ILoggingProvider.html">ILoggingProvider</a></dt>
+    <dd><p>The logging provider used to register the log source.</p>
+</dd>
+    <dt><code>minLevel</code> <a class="xref" href="SharpHook.Native.LogLevel.html">LogLevel</a></dt>
+    <dd><p>The minimum log level.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a></dt>
+    <dd><p>A source of libuiohook logs.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_Logging_LogSource_RegisterOrGet_SharpHook_Providers_ILoggingProvider_SharpHook_Native_LogLevel__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method should be preferred to <a class="xref" href="SharpHook.Logging.LogSource.html#SharpHook_Logging_LogSource_Register_SharpHook_Native_LogLevel_">Register(LogLevel)</a> as it's safer - it won't invalidate an
+already registered instance.
+</p>
+<p>
+A single instance of <a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a> can be registered using this method, irrespective of the logging
+provider used.
+</p>
 </div>
 
   <h4 class="section">Exceptions</h4>
@@ -459,7 +583,7 @@ hasn't been disposed.</p>
 
   <h3 id="SharpHook_Logging_LogSource_MessageLogged" data-uid="SharpHook.Logging.LogSource.MessageLogged">
   MessageLogged
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/815d8bd57ec60bc62d7c3201d87f038d9afef567/SharpHook/Logging/LogSource.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/26a0ebc027fcfa0294812fee4090c6843b8e17d2/SharpHook/Logging/LogSource.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>An event which is raised when libuiohook logs a message.</p>
@@ -509,7 +633,7 @@ hasn't been disposed.</p>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/815d8bd57ec60bc62d7c3201d87f038d9afef567/SharpHook/Logging/LogSource.cs" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/26a0ebc027fcfa0294812fee4090c6843b8e17d2/SharpHook/Logging/LogSource.cs" class="edit-link">Edit this page</a>
         </div>
 
         
