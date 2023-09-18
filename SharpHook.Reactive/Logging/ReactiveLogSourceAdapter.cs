@@ -15,16 +15,34 @@ public sealed class ReactiveLogSourceAdapter : IReactiveLogSource
     /// Initializes a new instance of the <see cref="ReactiveLogSourceAdapter" /> class.
     /// </summary>
     /// <param name="logSource">The log source to adapt.</param>
+    /// <exception cref="ArgumentNullException"><paramref name="logSource" /> is <see langword="null" />.</exception>
     public ReactiveLogSourceAdapter(ILogSource logSource)
+        : this(logSource, ImmediateScheduler.Instance)
+    { }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ReactiveLogSourceAdapter" /> class.
+    /// </summary>
+    /// <param name="logSource">The log source to adapt.</param>
+    /// <param name="defaultScheduler">The default shceduler for the observable.</param>
+    /// <exception cref="ArgumentNullException">
+    /// <paramref name="logSource" /> or <paramref name="defaultScheduler" /> is <see langword="null" />.
+    /// </exception>
+    public ReactiveLogSourceAdapter(ILogSource logSource, IScheduler defaultScheduler)
     {
-        this.logSource = logSource;
+        this.logSource = logSource ?? throw new ArgumentNullException(nameof(logSource));
+
+        if (defaultScheduler is null)
+        {
+            throw new ArgumentNullException(nameof(defaultScheduler));
+        }
 
         Observable.FromEventPattern<LogEventArgs>(
             h => this.logSource.MessageLogged += h, h => this.logSource.MessageLogged -= h)
             .Select(e => e.EventArgs.LogEntry)
             .Subscribe(this.messageLoggedSubject);
 
-        this.MessageLogged = this.messageLoggedSubject.AsObservable();
+        this.MessageLogged = this.messageLoggedSubject.ObserveOn(defaultScheduler);
     }
 
     /// <summary>

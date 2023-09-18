@@ -165,6 +165,17 @@
             Initializes a new instance of the <see cref="T:SharpHook.Reactive.Logging.ReactiveLogSourceAdapter" /> class.
             </summary>
             <param name="logSource">The log source to adapt.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="logSource" /> is <see langword="null" />.</exception>
+        </member>
+        <member name="M:SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.#ctor(SharpHook.Logging.ILogSource,System.Reactive.Concurrency.IScheduler)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpHook.Reactive.Logging.ReactiveLogSourceAdapter" /> class.
+            </summary>
+            <param name="logSource">The log source to adapt.</param>
+            <param name="defaultScheduler">The default shceduler for the observable.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="logSource" /> or <paramref name="defaultScheduler" /> is <see langword="null" />.
+            </exception>
         </member>
         <member name="M:SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.Finalize">
             <summary>
