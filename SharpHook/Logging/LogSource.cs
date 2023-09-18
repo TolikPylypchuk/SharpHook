@@ -1,5 +1,9 @@
 namespace SharpHook.Logging;
 
+#if NETFRAMEWORK
+using SharpHook.Native;
+#endif
+
 /// <summary>
 /// Represents a source of libuiohook logs.
 /// </summary>

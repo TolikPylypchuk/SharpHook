@@ -82,6 +82,14 @@ public interface IEventSimulator
     UioHookResult SimulateMousePress(MouseButton button);
 
     /// <summary>
+    /// Simulates pressing a mouse button at the current coordinates.
+    /// </summary>
+    /// <param name="button">The mouse button to press.</param>
+    /// <param name="clicks">The click count (used only on macOS).</param>
+    /// <returns>The result of the operation.</returns>
+    UioHookResult SimulateMousePress(MouseButton button, ushort clicks);
+
+    /// <summary>
     /// Simulates pressing a mouse button at the specified coordinates.
     /// </summary>
     /// <param name="x">The target X-coordinate of the mouse pointer.</param>
@@ -91,11 +99,29 @@ public interface IEventSimulator
     UioHookResult SimulateMousePress(short x, short y, MouseButton button);
 
     /// <summary>
+    /// Simulates pressing a mouse button at the specified coordinates.
+    /// </summary>
+    /// <param name="x">The target X-coordinate of the mouse pointer.</param>
+    /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
+    /// <param name="button">The mouse button to press.</param>
+    /// <param name="clicks">The click count (used only on macOS).</param>
+    /// <returns>The result of the operation.</returns>
+    UioHookResult SimulateMousePress(short x, short y, MouseButton button, ushort clicks);
+
+    /// <summary>
     /// Simulates releasing a mouse button at the current coordinates.
     /// </summary>
     /// <param name="button">The mouse button to release.</param>
     /// <returns>The result of the operation.</returns>
     UioHookResult SimulateMouseRelease(MouseButton button);
+
+    /// <summary>
+    /// Simulates releasing a mouse button at the current coordinates.
+    /// </summary>
+    /// <param name="button">The mouse button to release.</param>
+    /// <param name="clicks">The click count (used only on macOS).</param>
+    /// <returns>The result of the operation.</returns>
+    UioHookResult SimulateMouseRelease(MouseButton button, ushort clicks);
 
     /// <summary>
     /// Simulates releasing a mouse button at the specified coordinates.
@@ -105,6 +131,16 @@ public interface IEventSimulator
     /// <param name="button">The mouse button to release.</param>
     /// <returns>The result of the operation.</returns>
     UioHookResult SimulateMouseRelease(short x, short y, MouseButton button);
+
+    /// <summary>
+    /// Simulates releasing a mouse button at the specified coordinates.
+    /// </summary>
+    /// <param name="x">The target X-coordinate of the mouse pointer.</param>
+    /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
+    /// <param name="button">The mouse button to release.</param>
+    /// <param name="clicks">The click count (used only on macOS).</param>
+    /// <returns>The result of the operation.</returns>
+    UioHookResult SimulateMouseRelease(short x, short y, MouseButton button, ushort clicks);
 
     /// <summary>
     /// Simulates moving a mouse pointer.

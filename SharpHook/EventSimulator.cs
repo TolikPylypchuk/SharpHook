@@ -122,10 +122,19 @@ public class EventSimulator : IEventSimulator
     /// <param name="button">The mouse button to press.</param>
     /// <returns>The result of the operation.</returns>
     public UioHookResult SimulateMousePress(MouseButton button) =>
+        this.SimulateMousePress(button, 0);
+
+    /// <summary>
+    /// Simulates pressing a mouse button at the current coordinates.
+    /// </summary>
+    /// <param name="button">The mouse button to press.</param>
+    /// <param name="clicks">The click count (used only on macOS).</param>
+    /// <returns>The result of the operation.</returns>
+    public UioHookResult SimulateMousePress(MouseButton button, ushort clicks) =>
         this.PostEvent(new()
         {
             Type = EventType.MousePressedIgnoreCoordinates,
-            Mouse = new() { Button = button }
+            Mouse = new() { Button = button, Clicks = clicks }
         });
 
     /// <summary>
@@ -136,10 +145,21 @@ public class EventSimulator : IEventSimulator
     /// <param name="button">The mouse button to press.</param>
     /// <returns>The result of the operation.</returns>
     public UioHookResult SimulateMousePress(short x, short y, MouseButton button) =>
+        this.SimulateMousePress(x, y, button, 0);
+
+    /// <summary>
+    /// Simulates pressing a mouse button at the specified coordinates.
+    /// </summary>
+    /// <param name="x">The target X-coordinate of the mouse pointer.</param>
+    /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
+    /// <param name="button">The mouse button to press.</param>
+    /// <param name="clicks">The click count (used only on macOS).</param>
+    /// <returns>The result of the operation.</returns>
+    public UioHookResult SimulateMousePress(short x, short y, MouseButton button, ushort clicks) =>
         this.PostEvent(new()
         {
             Type = EventType.MousePressed,
-            Mouse = new() { Button = button, X = x, Y = y }
+            Mouse = new() { Button = button, X = x, Y = y, Clicks = clicks }
         });
 
     /// <summary>
@@ -148,10 +168,19 @@ public class EventSimulator : IEventSimulator
     /// <param name="button">The mouse button to release.</param>
     /// <returns>The result of the operation.</returns>
     public UioHookResult SimulateMouseRelease(MouseButton button) =>
+        this.SimulateMouseRelease(button, 0);
+
+    /// <summary>
+    /// Simulates releasing a mouse button at the current coordinates.
+    /// </summary>
+    /// <param name="button">The mouse button to release.</param>
+    /// <param name="clicks">The click count (used only on macOS).</param>
+    /// <returns>The result of the operation.</returns>
+    public UioHookResult SimulateMouseRelease(MouseButton button, ushort clicks) =>
         this.PostEvent(new()
         {
             Type = EventType.MouseReleasedIgnoreCoordinates,
-            Mouse = new() { Button = button }
+            Mouse = new() { Button = button, Clicks = clicks }
         });
 
     /// <summary>
@@ -162,10 +191,21 @@ public class EventSimulator : IEventSimulator
     /// <param name="button">The mouse button to release.</param>
     /// <returns>The result of the operation.</returns>
     public UioHookResult SimulateMouseRelease(short x, short y, MouseButton button) =>
+        this.SimulateMouseRelease(x, y, button, 0);
+
+    /// <summary>
+    /// Simulates releasing a mouse button at the specified coordinates.
+    /// </summary>
+    /// <param name="x">The target X-coordinate of the mouse pointer.</param>
+    /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
+    /// <param name="button">The mouse button to release.</param>
+    /// <param name="clicks">The click count (used only on macOS).</param>
+    /// <returns>The result of the operation.</returns>
+    public UioHookResult SimulateMouseRelease(short x, short y, MouseButton button, ushort clicks) =>
         this.PostEvent(new()
         {
             Type = EventType.MouseReleased,
-            Mouse = new() { Button = button, X = x, Y = y }
+            Mouse = new() { Button = button, X = x, Y = y, Clicks = clicks }
         });
 
     /// <summary>

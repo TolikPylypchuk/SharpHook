@@ -136,6 +136,51 @@ public sealed class EventSimulatorTests
         Assert.Equal(result.Value, actualResult);
     }
 
+    [Property(DisplayName = "EventSimulator should simulate mouse presses with explicit clicks")]
+    public void SimulateMousePressExplicitClicks(MouseButton button, ushort clicks)
+    {
+        // Arrange
+
+        var provider = new TestProvider();
+        var simulator = new EventSimulator(provider);
+
+        // Act
+
+        var result = simulator.SimulateMousePress(button, clicks);
+
+        // Assert
+
+        Assert.Equal(UioHookResult.Success, result);
+        Assert.Single(provider.PostedEvents);
+
+        var postedEvent = provider.PostedEvents[0];
+        Assert.Equal(EventType.MousePressedIgnoreCoordinates, postedEvent.Type);
+        Assert.Equal(button, postedEvent.Mouse.Button);
+        Assert.Equal(clicks, postedEvent.Mouse.Clicks);
+    }
+
+    [Property(DisplayName =
+        "EventSimulator should return an error if simulating a mouse press with explicit clicks fails")]
+    public void SimulateMousePressExplicitClicksFail(MouseButton button, ushort clicks, FailedUioHookResult result)
+    {
+        // Arrange
+
+        var provider = new TestProvider
+        {
+            PostEventResult = result.Value
+        };
+
+        var simulator = new EventSimulator(provider);
+
+        // Act
+
+        var actualResult = simulator.SimulateMousePress(button, clicks);
+
+        // Assert
+
+        Assert.Equal(result.Value, actualResult);
+    }
+
     [Property(DisplayName = "EventSimulator should simulate mouse presses with explicit coordinates")]
     public void SimulateMousePressExplicitCoordinates(short x, short y, MouseButton button)
     {
@@ -186,6 +231,58 @@ public sealed class EventSimulatorTests
         Assert.Equal(result.Value, actualResult);
     }
 
+    [Property(DisplayName = "EventSimulator should simulate mouse presses with explicit coordinates and clicks")]
+    public void SimulateMousePressExplicitCoordinatesAndClicks(short x, short y, MouseButton button, ushort clicks)
+    {
+        // Arrange
+
+        var provider = new TestProvider();
+        var simulator = new EventSimulator(provider);
+
+        // Act
+
+        var result = simulator.SimulateMousePress(x, y, button, clicks);
+
+        // Assert
+
+        Assert.Equal(UioHookResult.Success, result);
+        Assert.Single(provider.PostedEvents);
+
+        var postedEvent = provider.PostedEvents[0];
+        Assert.Equal(EventType.MousePressed, postedEvent.Type);
+        Assert.Equal(x, postedEvent.Mouse.X);
+        Assert.Equal(y, postedEvent.Mouse.Y);
+        Assert.Equal(button, postedEvent.Mouse.Button);
+        Assert.Equal(clicks, postedEvent.Mouse.Clicks);
+    }
+
+    [Property(DisplayName =
+        "EventSimulator should return an error if simulating a mouse press with explicit coordinates and clicks fails")]
+    public void SimulateMousePressExplicitCoordinatesAndClicksFail(
+        short x,
+        short y,
+        MouseButton button,
+        ushort clicks,
+        FailedUioHookResult result)
+    {
+        // Arrange
+
+        var provider = new TestProvider
+        {
+            PostEventResult = result.Value
+        };
+
+        var simulator = new EventSimulator(provider);
+
+        // Act
+
+        var actualResult = simulator.SimulateMousePress(x, y, button, clicks);
+
+        // Assert
+
+        Assert.Equal(result.Value, actualResult);
+    }
+
     [Property(DisplayName = "EventSimulator should simulate mouse releases")]
     public void SimulateMouseRelease(MouseButton button)
     {
@@ -223,6 +320,51 @@ public sealed class EventSimulatorTests
         // Act
 
         var actualResult = simulator.SimulateMouseRelease(button);
+
+        // Assert
+
+        Assert.Equal(result.Value, actualResult);
+    }
+
+    [Property(DisplayName = "EventSimulator should simulate mouse releases with explicit clicks")]
+    public void SimulateMouseReleaseExplicitClicks(MouseButton button, ushort clicks)
+    {
+        // Arrange
+
+        var provider = new TestProvider();
+        var simulator = new EventSimulator(provider);
+
+        // Act
+
+        var result = simulator.SimulateMouseRelease(button, clicks);
+
+        // Assert
+
+        Assert.Equal(UioHookResult.Success, result);
+        Assert.Single(provider.PostedEvents);
+
+        var postedEvent = provider.PostedEvents[0];
+        Assert.Equal(EventType.MouseReleasedIgnoreCoordinates, postedEvent.Type);
+        Assert.Equal(button, postedEvent.Mouse.Button);
+        Assert.Equal(clicks, postedEvent.Mouse.Clicks);
+    }
+
+    [Property(DisplayName =
+        "EventSimulator should return an error if simulating a mouse press with explicit clicks fails")]
+    public void SimulateMouseReleaseExplicitClicksFail(MouseButton button, ushort clicks, FailedUioHookResult result)
+    {
+        // Arrange
+
+        var provider = new TestProvider
+        {
+            PostEventResult = result.Value
+        };
+
+        var simulator = new EventSimulator(provider);
+
+        // Act
+
+        var actualResult = simulator.SimulateMousePress(button, clicks);
 
         // Assert
 
@@ -273,6 +415,59 @@ public sealed class EventSimulatorTests
         // Act
 
         var actualResult = simulator.SimulateMouseRelease(x, y, button);
+
+        // Assert
+
+        Assert.Equal(result.Value, actualResult);
+    }
+
+    [Property(DisplayName = "EventSimulator should simulate mouse releases with explicit coordinates and clicks")]
+    public void SimulateMouseReleaseExplicitCoordinatesAndClicks(short x, short y, MouseButton button, ushort clicks)
+    {
+        // Arrange
+
+        var provider = new TestProvider();
+        var simulator = new EventSimulator(provider);
+
+        // Act
+
+        var result = simulator.SimulateMouseRelease(x, y, button, clicks);
+
+        // Assert
+
+        Assert.Equal(UioHookResult.Success, result);
+        Assert.Single(provider.PostedEvents);
+
+        var postedEvent = provider.PostedEvents[0];
+        Assert.Equal(EventType.MouseReleased, postedEvent.Type);
+        Assert.Equal(x, postedEvent.Mouse.X);
+        Assert.Equal(y, postedEvent.Mouse.Y);
+        Assert.Equal(button, postedEvent.Mouse.Button);
+        Assert.Equal(clicks, postedEvent.Mouse.Clicks);
+    }
+
+    [Property(DisplayName =
+        "EventSimulator should return an error " +
+        "if simulating a mouse release with explicit coordinates and clicks fails")]
+    public void SimulateMouseReleaseExplicitCoordinatesAndClicksFail(
+        short x,
+        short y,
+        MouseButton button,
+        ushort clicks,
+        FailedUioHookResult result)
+    {
+        // Arrange
+
+        var provider = new TestProvider
+        {
+            PostEventResult = result.Value
+        };
+
+        var simulator = new EventSimulator(provider);
+
+        // Act
+
+        var actualResult = simulator.SimulateMouseRelease(x, y, button, clicks);
 
         // Assert
 

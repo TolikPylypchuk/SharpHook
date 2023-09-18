@@ -404,6 +404,16 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
         this.SimulateMousePress(this.currentMouseX(), this.currentMouseY(), button);
 
     /// <summary>
+    /// Simulates pressing a mouse button at the current coordinates if <see cref="SimulateMousePressResult" /> is
+    /// <see cref="UioHookResult.Success" />. Otherwise, does nothing.
+    /// </summary>
+    /// <param name="button">The mouse button to press.</param>
+    /// <param name="clicks">The click count.</param>
+    /// <returns>The value of <see cref="SimulateMousePressResult" />.</returns>
+    public UioHookResult SimulateMousePress(MouseButton button, ushort clicks) =>
+        this.SimulateMousePress(this.currentMouseX(), this.currentMouseY(), button, clicks);
+
+    /// <summary>
     /// Simulates pressing a mouse button at the specified coordinates if <see cref="SimulateMousePressResult" /> is
     /// <see cref="UioHookResult.Success" />. Otherwise, does nothing.
     /// </summary>
@@ -411,7 +421,19 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
     /// <param name="button">The mouse button to press.</param>
     /// <returns>The value of <see cref="SimulateMousePressResult" />.</returns>
-    public UioHookResult SimulateMousePress(short x, short y, MouseButton button)
+    public UioHookResult SimulateMousePress(short x, short y, MouseButton button) =>
+        this.SimulateMousePress(x, y, button, this.MouseClickCount);
+
+    /// <summary>
+    /// Simulates pressing a mouse button at the specified coordinates if <see cref="SimulateMousePressResult" /> is
+    /// <see cref="UioHookResult.Success" />. Otherwise, does nothing.
+    /// </summary>
+    /// <param name="x">The target X-coordinate of the mouse pointer.</param>
+    /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
+    /// <param name="button">The mouse button to press.</param>
+    /// <param name="clicks">The click count.</param>
+    /// <returns>The value of <see cref="SimulateMousePressResult" />.</returns>
+    public UioHookResult SimulateMousePress(short x, short y, MouseButton button, ushort clicks)
     {
         var mousePressedEvent = new UioHookEvent
         {
@@ -423,7 +445,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
                 Button = button,
                 X = x,
                 Y = y,
-                Clicks = this.MouseClickCount
+                Clicks = clicks
             }
         };
 
@@ -444,6 +466,20 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
         this.SimulateMouseRelease(this.currentMouseX(), this.currentMouseY(), button);
 
     /// <summary>
+    /// Simulates releasing a mouse button at the current coordinates if <see cref="SimulateMouseReleaseResult" /> is
+    /// <see cref="UioHookResult.Success" />. Otherwise, does nothing.
+    /// </summary>
+    /// <param name="button">The mouse button to release.</param>
+    /// <param name="clicks">The click count.</param>
+    /// <returns>The value of <see cref="SimulateMouseReleaseResult" />.</returns>
+    /// <remarks>
+    /// This method simulates a <see cref="EventType.MouseClicked" /> event as well if <see cref="RaiseMouseClicked" />
+    /// is <see langword="true" />.
+    /// </remarks>
+    public UioHookResult SimulateMouseRelease(MouseButton button, ushort clicks) =>
+        this.SimulateMouseRelease(this.currentMouseX(), this.currentMouseY(), button, clicks);
+
+    /// <summary>
     /// Simulates releasing a mouse button at the specified coordinates if <see cref="SimulateMouseReleaseResult" /> is
     /// <see cref="UioHookResult.Success" />. Otherwise, does nothing.
     /// </summary>
@@ -455,10 +491,24 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// This method simulates a <see cref="EventType.MouseClicked" /> event as well if <see cref="RaiseMouseClicked" />
     /// is <see langword="true" />.
     /// </remarks>
-    public UioHookResult SimulateMouseRelease(short x, short y, MouseButton button)
-    {
-        ushort clickCount = this.MouseClickCount;
+    public UioHookResult SimulateMouseRelease(short x, short y, MouseButton button) =>
+        this.SimulateMouseRelease(x, y, button, this.MouseClickCount);
 
+    /// <summary>
+    /// Simulates releasing a mouse button at the specified coordinates if <see cref="SimulateMouseReleaseResult" /> is
+    /// <see cref="UioHookResult.Success" />. Otherwise, does nothing.
+    /// </summary>
+    /// <param name="x">The target X-coordinate of the mouse pointer.</param>
+    /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
+    /// <param name="button">The mouse button to release.</param>
+    /// <param name="clicks">The click count.</param>
+    /// <returns>The value of <see cref="SimulateMouseReleaseResult" />.</returns>
+    /// <remarks>
+    /// This method simulates a <see cref="EventType.MouseClicked" /> event as well if <see cref="RaiseMouseClicked" />
+    /// is <see langword="true" />.
+    /// </remarks>
+    public UioHookResult SimulateMouseRelease(short x, short y, MouseButton button, ushort clicks)
+    {
         var mouseReleasedEvent = new UioHookEvent
         {
             Type = EventType.MouseReleased,
@@ -469,7 +519,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
                 Button = button,
                 X = x,
                 Y = y,
-                Clicks = clickCount
+                Clicks = clicks
             }
         };
 
@@ -487,7 +537,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
                     Button = button,
                     X = x,
                     Y = y,
-                    Clicks = clickCount
+                    Clicks = clicks
                 }
             };
 

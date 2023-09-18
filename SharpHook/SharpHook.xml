@@ -98,6 +98,14 @@
             <param name="button">The mouse button to press.</param>
             <returns>The result of the operation.</returns>
         </member>
+        <member name="M:SharpHook.EventSimulator.SimulateMousePress(SharpHook.Native.MouseButton,System.UInt16)">
+            <summary>
+            Simulates pressing a mouse button at the current coordinates.
+            </summary>
+            <param name="button">The mouse button to press.</param>
+            <param name="clicks">The click count (used only on macOS).</param>
+            <returns>The result of the operation.</returns>
+        </member>
         <member name="M:SharpHook.EventSimulator.SimulateMousePress(System.Int16,System.Int16,SharpHook.Native.MouseButton)">
             <summary>
             Simulates pressing a mouse button at the specified coordinates.
@@ -107,11 +115,29 @@
             <param name="button">The mouse button to press.</param>
             <returns>The result of the operation.</returns>
         </member>
+        <member name="M:SharpHook.EventSimulator.SimulateMousePress(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.UInt16)">
+            <summary>
+            Simulates pressing a mouse button at the specified coordinates.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to press.</param>
+            <param name="clicks">The click count (used only on macOS).</param>
+            <returns>The result of the operation.</returns>
+        </member>
         <member name="M:SharpHook.EventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton)">
             <summary>
             Simulates releasing a mouse button at the current coordinates.
             </summary>
             <param name="button">The mouse button to release.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.EventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton,System.UInt16)">
+            <summary>
+            Simulates releasing a mouse button at the current coordinates.
+            </summary>
+            <param name="button">The mouse button to release.</param>
+            <param name="clicks">The click count (used only on macOS).</param>
             <returns>The result of the operation.</returns>
         </member>
         <member name="M:SharpHook.EventSimulator.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Native.MouseButton)">
@@ -121,6 +147,16 @@
             <param name="x">The target X-coordinate of the mouse pointer.</param>
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
             <param name="button">The mouse button to release.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.EventSimulator.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.UInt16)">
+            <summary>
+            Simulates releasing a mouse button at the specified coordinates.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to release.</param>
+            <param name="clicks">The click count (used only on macOS).</param>
             <returns>The result of the operation.</returns>
         </member>
         <member name="M:SharpHook.EventSimulator.SimulateMouseMovement(System.Int16,System.Int16)">
@@ -605,6 +641,14 @@
             <param name="button">The mouse button to press.</param>
             <returns>The result of the operation.</returns>
         </member>
+        <member name="M:SharpHook.IEventSimulator.SimulateMousePress(SharpHook.Native.MouseButton,System.UInt16)">
+            <summary>
+            Simulates pressing a mouse button at the current coordinates.
+            </summary>
+            <param name="button">The mouse button to press.</param>
+            <param name="clicks">The click count (used only on macOS).</param>
+            <returns>The result of the operation.</returns>
+        </member>
         <member name="M:SharpHook.IEventSimulator.SimulateMousePress(System.Int16,System.Int16,SharpHook.Native.MouseButton)">
             <summary>
             Simulates pressing a mouse button at the specified coordinates.
@@ -614,11 +658,29 @@
             <param name="button">The mouse button to press.</param>
             <returns>The result of the operation.</returns>
         </member>
+        <member name="M:SharpHook.IEventSimulator.SimulateMousePress(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.UInt16)">
+            <summary>
+            Simulates pressing a mouse button at the specified coordinates.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to press.</param>
+            <param name="clicks">The click count (used only on macOS).</param>
+            <returns>The result of the operation.</returns>
+        </member>
         <member name="M:SharpHook.IEventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton)">
             <summary>
             Simulates releasing a mouse button at the current coordinates.
             </summary>
             <param name="button">The mouse button to release.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.IEventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton,System.UInt16)">
+            <summary>
+            Simulates releasing a mouse button at the current coordinates.
+            </summary>
+            <param name="button">The mouse button to release.</param>
+            <param name="clicks">The click count (used only on macOS).</param>
             <returns>The result of the operation.</returns>
         </member>
         <member name="M:SharpHook.IEventSimulator.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Native.MouseButton)">
@@ -628,6 +690,16 @@
             <param name="x">The target X-coordinate of the mouse pointer.</param>
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
             <param name="button">The mouse button to release.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.IEventSimulator.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.UInt16)">
+            <summary>
+            Simulates releasing a mouse button at the specified coordinates.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to release.</param>
+            <param name="clicks">The click count (used only on macOS).</param>
             <returns>The result of the operation.</returns>
         </member>
         <member name="M:SharpHook.IEventSimulator.SimulateMouseMovement(System.Int16,System.Int16)">
@@ -4453,6 +4525,15 @@
             <param name="button">The mouse button to press.</param>
             <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMousePressResult" />.</returns>
         </member>
+        <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMousePress(SharpHook.Native.MouseButton,System.UInt16)">
+            <summary>
+            Simulates pressing a mouse button at the current coordinates if <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMousePressResult" /> is
+            <see cref="F:SharpHook.Native.UioHookResult.Success" />. Otherwise, does nothing.
+            </summary>
+            <param name="button">The mouse button to press.</param>
+            <param name="clicks">The click count.</param>
+            <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMousePressResult" />.</returns>
+        </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMousePress(System.Int16,System.Int16,SharpHook.Native.MouseButton)">
             <summary>
             Simulates pressing a mouse button at the specified coordinates if <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMousePressResult" /> is
@@ -4461,6 +4542,17 @@
             <param name="x">The target X-coordinate of the mouse pointer.</param>
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
             <param name="button">The mouse button to press.</param>
+            <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMousePressResult" />.</returns>
+        </member>
+        <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMousePress(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.UInt16)">
+            <summary>
+            Simulates pressing a mouse button at the specified coordinates if <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMousePressResult" /> is
+            <see cref="F:SharpHook.Native.UioHookResult.Success" />. Otherwise, does nothing.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to press.</param>
+            <param name="clicks">The click count.</param>
             <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMousePressResult" />.</returns>
         </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(SharpHook.Native.MouseButton)">
@@ -4475,6 +4567,19 @@
             is <see langword="true" />.
             </remarks>
         </member>
+        <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(SharpHook.Native.MouseButton,System.UInt16)">
+            <summary>
+            Simulates releasing a mouse button at the current coordinates if <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseResult" /> is
+            <see cref="F:SharpHook.Native.UioHookResult.Success" />. Otherwise, does nothing.
+            </summary>
+            <param name="button">The mouse button to release.</param>
+            <param name="clicks">The click count.</param>
+            <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseResult" />.</returns>
+            <remarks>
+            This method simulates a <see cref="F:SharpHook.Native.EventType.MouseClicked" /> event as well if <see cref="P:SharpHook.Testing.TestGlobalHook.RaiseMouseClicked" />
+            is <see langword="true" />.
+            </remarks>
+        </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Native.MouseButton)">
             <summary>
             Simulates releasing a mouse button at the specified coordinates if <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseResult" /> is
@@ -4483,6 +4588,21 @@
             <param name="x">The target X-coordinate of the mouse pointer.</param>
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
             <param name="button">The mouse button to release.</param>
+            <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseResult" />.</returns>
+            <remarks>
+            This method simulates a <see cref="F:SharpHook.Native.EventType.MouseClicked" /> event as well if <see cref="P:SharpHook.Testing.TestGlobalHook.RaiseMouseClicked" />
+            is <see langword="true" />.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.UInt16)">
+            <summary>
+            Simulates releasing a mouse button at the specified coordinates if <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseResult" /> is
+            <see cref="F:SharpHook.Native.UioHookResult.Success" />. Otherwise, does nothing.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to release.</param>
+            <param name="clicks">The click count.</param>
             <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseResult" />.</returns>
             <remarks>
             This method simulates a <see cref="F:SharpHook.Native.EventType.MouseClicked" /> event as well if <see cref="P:SharpHook.Testing.TestGlobalHook.RaiseMouseClicked" />

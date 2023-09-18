@@ -248,6 +248,58 @@ public sealed class TestGlobalHookTests
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
+    [Property(DisplayName = "MousePressed events with explicit clicks should be simulated and handled")]
+    public void HandleMousePressedExplicitClicks(
+        short x,
+        short y,
+        MouseButton button,
+        ushort clicks,
+        DateTimeAfterEpoch dateTime,
+        ModifierMask mask)
+    {
+        // Arrange
+
+        MouseHookEventArgs? actualEventArgs = null;
+
+        using var hook = new TestGlobalHook
+        {
+            EventDateTime = t => dateTime.Value,
+            EventMask = t => mask,
+            CurrentMouseX = () => x,
+            CurrentMouseY = () => y
+        };
+
+        // Act
+
+        hook.MousePressed += (sender, e) =>
+        {
+            actualEventArgs = e;
+            e.SuppressEvent = true;
+        };
+
+        _ = hook.RunAsync();
+
+        hook.SimulateMousePress(button, clicks);
+
+        // Assert
+
+        Assert.NotNull(actualEventArgs);
+        Assert.Equal(hook.CurrentMouseX(), actualEventArgs.Data.X);
+        Assert.Equal(hook.CurrentMouseY(), actualEventArgs.Data.Y);
+        Assert.Equal(button, actualEventArgs.Data.Button);
+        Assert.Equal(clicks, actualEventArgs.Data.Clicks);
+        Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
+        Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
+
+        Assert.Single(hook.SimulatedEvents);
+
+        var actualEvent = hook.SimulatedEvents[0];
+        Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
+
+        actualEvent.Reserved = EventReservedValueMask.None;
+        Assert.Equal(actualEventArgs.RawEvent, actualEvent);
+    }
+
     [Property(DisplayName = "MousePressed events with explicit coordinates should be simulated and handled")]
     public void HandleMousePressedExplicitCoordinates(
         short x,
@@ -279,6 +331,56 @@ public sealed class TestGlobalHookTests
         _ = hook.RunAsync();
 
         hook.SimulateMousePress(x, y, button);
+
+        // Assert
+
+        Assert.NotNull(actualEventArgs);
+        Assert.Equal(x, actualEventArgs.Data.X);
+        Assert.Equal(y, actualEventArgs.Data.Y);
+        Assert.Equal(button, actualEventArgs.Data.Button);
+        Assert.Equal(clicks, actualEventArgs.Data.Clicks);
+        Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
+        Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
+
+        Assert.Single(hook.SimulatedEvents);
+
+        var actualEvent = hook.SimulatedEvents[0];
+        Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
+
+        actualEvent.Reserved = EventReservedValueMask.None;
+        Assert.Equal(actualEventArgs.RawEvent, actualEvent);
+    }
+
+    [Property(DisplayName = "MousePressed events with explicit coordinates and clicks should be simulated and handled")]
+    public void HandleMousePressedExplicitCoordinatesAndClicks(
+        short x,
+        short y,
+        MouseButton button,
+        ushort clicks,
+        DateTimeAfterEpoch dateTime,
+        ModifierMask mask)
+    {
+        // Arrange
+
+        MouseHookEventArgs? actualEventArgs = null;
+
+        using var hook = new TestGlobalHook
+        {
+            EventDateTime = t => dateTime.Value,
+            EventMask = t => mask
+        };
+
+        // Act
+
+        hook.MousePressed += (sender, e) =>
+        {
+            actualEventArgs = e;
+            e.SuppressEvent = true;
+        };
+
+        _ = hook.RunAsync();
+
+        hook.SimulateMousePress(x, y, button, clicks);
 
         // Assert
 
@@ -353,6 +455,59 @@ public sealed class TestGlobalHookTests
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
+    [Property(DisplayName = "MouseReleased events with explicit clicks should be simulated and handled")]
+    public void HandleMouseReleasedExplicitClicks(
+        short x,
+        short y,
+        MouseButton button,
+        ushort clicks,
+        DateTimeAfterEpoch dateTime,
+        ModifierMask mask)
+    {
+        // Arrange
+
+        MouseHookEventArgs? actualEventArgs = null;
+
+        using var hook = new TestGlobalHook
+        {
+            EventDateTime = t => dateTime.Value,
+            EventMask = t => mask,
+            CurrentMouseX = () => x,
+            CurrentMouseY = () => y,
+            RaiseMouseClicked = false
+        };
+
+        // Act
+
+        hook.MouseReleased += (sender, e) =>
+        {
+            actualEventArgs = e;
+            e.SuppressEvent = true;
+        };
+
+        _ = hook.RunAsync();
+
+        hook.SimulateMouseRelease(button, clicks);
+
+        // Assert
+
+        Assert.NotNull(actualEventArgs);
+        Assert.Equal(hook.CurrentMouseX(), actualEventArgs.Data.X);
+        Assert.Equal(hook.CurrentMouseY(), actualEventArgs.Data.Y);
+        Assert.Equal(button, actualEventArgs.Data.Button);
+        Assert.Equal(clicks, actualEventArgs.Data.Clicks);
+        Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
+        Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
+
+        Assert.Single(hook.SimulatedEvents);
+
+        var actualEvent = hook.SimulatedEvents[0];
+        Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
+
+        actualEvent.Reserved = EventReservedValueMask.None;
+        Assert.Equal(actualEventArgs.RawEvent, actualEvent);
+    }
+
     [Property(DisplayName = "MouseReleased events with explicit coordinates should be simulated and handled")]
     public void HandleMouseReleasedExplicitCoordinates(
         short x,
@@ -385,6 +540,58 @@ public sealed class TestGlobalHookTests
         _ = hook.RunAsync();
 
         hook.SimulateMouseRelease(x, y, button);
+
+        // Assert
+
+        Assert.NotNull(actualEventArgs);
+        Assert.Equal(x, actualEventArgs.Data.X);
+        Assert.Equal(y, actualEventArgs.Data.Y);
+        Assert.Equal(button, actualEventArgs.Data.Button);
+        Assert.Equal(clicks, actualEventArgs.Data.Clicks);
+        Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
+        Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
+
+        Assert.Single(hook.SimulatedEvents);
+
+        var actualEvent = hook.SimulatedEvents[0];
+        Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
+
+        actualEvent.Reserved = EventReservedValueMask.None;
+        Assert.Equal(actualEventArgs.RawEvent, actualEvent);
+    }
+
+    [Property(
+        DisplayName = "MouseReleased events with explicit coordinates and clicks should be simulated and handled")]
+    public void HandleMouseReleasedExplicitCoordinatesAndClicks(
+        short x,
+        short y,
+        MouseButton button,
+        ushort clicks,
+        DateTimeAfterEpoch dateTime,
+        ModifierMask mask)
+    {
+        // Arrange
+
+        MouseHookEventArgs? actualEventArgs = null;
+
+        using var hook = new TestGlobalHook
+        {
+            EventDateTime = t => dateTime.Value,
+            EventMask = t => mask,
+            RaiseMouseClicked = false
+        };
+
+        // Act
+
+        hook.MouseReleased += (sender, e) =>
+        {
+            actualEventArgs = e;
+            e.SuppressEvent = true;
+        };
+
+        _ = hook.RunAsync();
+
+        hook.SimulateMouseRelease(x, y, button, clicks);
 
         // Assert
 
