@@ -2,7 +2,7 @@ Directory.SetCurrentDirectory(AppContext.BaseDirectory);
 
 Console.WriteLine("---------- SharpHook Sample ----------\n");
 
-using var logSource = LogSource.Register(minLevel: LogLevel.Debug);
+using var logSource = LogSource.RegisterOrGet(minLevel: LogLevel.Debug);
 using var reactiveLogSource = new ReactiveLogSourceAdapter(logSource, TaskPoolScheduler.Default);
 
 reactiveLogSource.MessageLogged.Subscribe(OnMessageLogged);

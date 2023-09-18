@@ -19,6 +19,10 @@ namespace SharpHook.Logging;
 [ExcludeFromCodeCoverage]
 public sealed class LogSource : ILogSource
 {
+    private static readonly object syncRoot = new();
+
+    private static LogSource? registeredLogSource = null;
+
     private readonly LogEntryParser parser;
     private readonly LoggerProc loggerProc;
     private readonly ILoggingProvider loggingProvider;
@@ -53,14 +57,65 @@ public sealed class LogSource : ILogSource
     public bool IsDisposed { get; private set; } = false;
 
     /// <summary>
+    /// Creates and registers a source of libuiohook logs or returns the registered instance.
+    /// </summary>
+    /// <param name="minLevel">The minimum log level.</param>
+    /// <returns>A source of libuiohook logs.</returns>
+    /// <remarks>
+    /// This method should be preferred to <see cref="Register(LogLevel)" /> as it's safer - it won't invalidate an
+    /// already registered instance.
+    /// </remarks>
+    public static LogSource RegisterOrGet(LogLevel minLevel = LogLevel.Info) =>
+        RegisterOrGet(UioHookProvider.Instance, minLevel);
+
+    /// <summary>
+    /// Creates and registers a source of libuiohook logs or returns the registered instance.
+    /// </summary>
+    /// <param name="loggingProvider">The logging provider used to register the log source.</param>
+    /// <param name="minLevel">The minimum log level.</param>
+    /// <returns>A source of libuiohook logs.</returns>
+    /// <remarks>
+    /// <para>
+    /// This method should be preferred to <see cref="Register(LogLevel)" /> as it's safer - it won't invalidate an
+    /// already registered instance.
+    /// </para>
+    /// <para>
+    /// A single instance of <see cref="LogSource" /> can be registered using this method, irrespective of the logging
+    /// provider used.
+    /// </para>
+    /// </remarks>
+    /// <exception cref="ArgumentNullException">
+    /// <paramref name="loggingProvider" /> is <see langword="null" />.
+    /// </exception>
+    public static LogSource RegisterOrGet(ILoggingProvider loggingProvider, LogLevel minLevel = LogLevel.Info)
+    {
+        if (loggingProvider is null)
+        {
+            throw new ArgumentNullException(nameof(loggingProvider));
+        }
+
+        lock (syncRoot)
+        {
+            if (registeredLogSource is null)
+            {
+                registeredLogSource = new LogSource(loggingProvider, LogEntryParser.Instance, minLevel);
+                loggingProvider.SetLoggerProc(registeredLogSource.loggerProc, IntPtr.Zero);
+            }
+
+            return registeredLogSource;
+        }
+    }
+
+    /// <summary>
     /// Creates and registers a source of libuiohook logs.
     /// </summary>
     /// <param name="minLevel">The minimum log level.</param>
     /// <returns>A source of libuiohook logs.</returns>
     /// <remarks>
-    /// This method must not be called when another <see cref="LogSource" /> instance has already been registerd and
-    /// hasn't been disposed.
+    /// This method is obsolete as it must not be called when another <see cref="LogSource" /> instance has already been
+    /// registerd and hasn't been disposed. <see cref="RegisterOrGet(LogLevel)" /> should be used instead.
     /// </remarks>
+    [Obsolete("LogSource.RegisterOrGet should be used instead")]
     public static LogSource Register(LogLevel minLevel = LogLevel.Info) =>
         Register(UioHookProvider.Instance, minLevel);
 
@@ -71,12 +126,14 @@ public sealed class LogSource : ILogSource
     /// <param name="minLevel">The minimum log level.</param>
     /// <returns>A source of libuiohook logs.</returns>
     /// <remarks>
-    /// This method must not be called when another <see cref="LogSource" /> instance has already been registerd and
-    /// hasn't been disposed.
+    /// This method is obsolete as it must not be called when another <see cref="LogSource" /> instance has already been
+    /// registerd and hasn't been disposed. <see cref="RegisterOrGet(ILoggingProvider, LogLevel)" /> should be used
+    /// instead.
     /// </remarks>
     /// <exception cref="ArgumentNullException">
     /// <paramref name="loggingProvider" /> is <see langword="null" />.
     /// </exception>
+    [Obsolete("LogSource.RegisterOrGet should be used instead")]
     public static LogSource Register(ILoggingProvider loggingProvider, LogLevel minLevel = LogLevel.Info)
     {
         if (loggingProvider is null)
@@ -105,7 +162,15 @@ public sealed class LogSource : ILogSource
             return;
         }
 
-        this.loggingProvider.SetLoggerProc(null, IntPtr.Zero);
+        lock (syncRoot)
+        {
+            if (registeredLogSource == this)
+            {
+                registeredLogSource = null;
+            }
+
+            this.loggingProvider.SetLoggerProc(null, IntPtr.Zero);
+        }
 
         if (disposing)
         {
