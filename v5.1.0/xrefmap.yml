@@ -100,6 +100,15 @@ references:
   commentId: M:SharpHook.EventSimulator.SimulateMousePress(SharpHook.Native.MouseButton)
   fullName: SharpHook.EventSimulator.SimulateMousePress(SharpHook.Native.MouseButton)
   nameWithType: EventSimulator.SimulateMousePress(MouseButton)
+- uid: SharpHook.EventSimulator.SimulateMousePress(SharpHook.Native.MouseButton,System.UInt16)
+  name: SimulateMousePress(MouseButton, ushort)
+  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMousePress_SharpHook_Native_MouseButton_System_UInt16_
+  commentId: M:SharpHook.EventSimulator.SimulateMousePress(SharpHook.Native.MouseButton,System.UInt16)
+  name.vb: SimulateMousePress(MouseButton, UShort)
+  fullName: SharpHook.EventSimulator.SimulateMousePress(SharpHook.Native.MouseButton, ushort)
+  fullName.vb: SharpHook.EventSimulator.SimulateMousePress(SharpHook.Native.MouseButton, UShort)
+  nameWithType: EventSimulator.SimulateMousePress(MouseButton, ushort)
+  nameWithType.vb: EventSimulator.SimulateMousePress(MouseButton, UShort)
 - uid: SharpHook.EventSimulator.SimulateMousePress(System.Int16,System.Int16,SharpHook.Native.MouseButton)
   name: SimulateMousePress(short, short, MouseButton)
   href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMousePress_System_Int16_System_Int16_SharpHook_Native_MouseButton_
@@ -109,6 +118,15 @@ references:
   fullName.vb: SharpHook.EventSimulator.SimulateMousePress(Short, Short, SharpHook.Native.MouseButton)
   nameWithType: EventSimulator.SimulateMousePress(short, short, MouseButton)
   nameWithType.vb: EventSimulator.SimulateMousePress(Short, Short, MouseButton)
+- uid: SharpHook.EventSimulator.SimulateMousePress(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.UInt16)
+  name: SimulateMousePress(short, short, MouseButton, ushort)
+  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMousePress_System_Int16_System_Int16_SharpHook_Native_MouseButton_System_UInt16_
+  commentId: M:SharpHook.EventSimulator.SimulateMousePress(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.UInt16)
+  name.vb: SimulateMousePress(Short, Short, MouseButton, UShort)
+  fullName: SharpHook.EventSimulator.SimulateMousePress(short, short, SharpHook.Native.MouseButton, ushort)
+  fullName.vb: SharpHook.EventSimulator.SimulateMousePress(Short, Short, SharpHook.Native.MouseButton, UShort)
+  nameWithType: EventSimulator.SimulateMousePress(short, short, MouseButton, ushort)
+  nameWithType.vb: EventSimulator.SimulateMousePress(Short, Short, MouseButton, UShort)
 - uid: SharpHook.EventSimulator.SimulateMousePress*
   name: SimulateMousePress
   href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMousePress_
@@ -121,6 +139,15 @@ references:
   commentId: M:SharpHook.EventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton)
   fullName: SharpHook.EventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton)
   nameWithType: EventSimulator.SimulateMouseRelease(MouseButton)
+- uid: SharpHook.EventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton,System.UInt16)
+  name: SimulateMouseRelease(MouseButton, ushort)
+  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMouseRelease_SharpHook_Native_MouseButton_System_UInt16_
+  commentId: M:SharpHook.EventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton,System.UInt16)
+  name.vb: SimulateMouseRelease(MouseButton, UShort)
+  fullName: SharpHook.EventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton, ushort)
+  fullName.vb: SharpHook.EventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton, UShort)
+  nameWithType: EventSimulator.SimulateMouseRelease(MouseButton, ushort)
+  nameWithType.vb: EventSimulator.SimulateMouseRelease(MouseButton, UShort)
 - uid: SharpHook.EventSimulator.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Native.MouseButton)
   name: SimulateMouseRelease(short, short, MouseButton)
   href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMouseRelease_System_Int16_System_Int16_SharpHook_Native_MouseButton_
@@ -130,6 +157,15 @@ references:
   fullName.vb: SharpHook.EventSimulator.SimulateMouseRelease(Short, Short, SharpHook.Native.MouseButton)
   nameWithType: EventSimulator.SimulateMouseRelease(short, short, MouseButton)
   nameWithType.vb: EventSimulator.SimulateMouseRelease(Short, Short, MouseButton)
+- uid: SharpHook.EventSimulator.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.UInt16)
+  name: SimulateMouseRelease(short, short, MouseButton, ushort)
+  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMouseRelease_System_Int16_System_Int16_SharpHook_Native_MouseButton_System_UInt16_
+  commentId: M:SharpHook.EventSimulator.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.UInt16)
+  name.vb: SimulateMouseRelease(Short, Short, MouseButton, UShort)
+  fullName: SharpHook.EventSimulator.SimulateMouseRelease(short, short, SharpHook.Native.MouseButton, ushort)
+  fullName.vb: SharpHook.EventSimulator.SimulateMouseRelease(Short, Short, SharpHook.Native.MouseButton, UShort)
+  nameWithType: EventSimulator.SimulateMouseRelease(short, short, MouseButton, ushort)
+  nameWithType.vb: EventSimulator.SimulateMouseRelease(Short, Short, MouseButton, UShort)
 - uid: SharpHook.EventSimulator.SimulateMouseRelease*
   name: SimulateMouseRelease
   href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateMouseRelease_
@@ -796,6 +832,15 @@ references:
   commentId: M:SharpHook.IEventSimulator.SimulateMousePress(SharpHook.Native.MouseButton)
   fullName: SharpHook.IEventSimulator.SimulateMousePress(SharpHook.Native.MouseButton)
   nameWithType: IEventSimulator.SimulateMousePress(MouseButton)
+- uid: SharpHook.IEventSimulator.SimulateMousePress(SharpHook.Native.MouseButton,System.UInt16)
+  name: SimulateMousePress(MouseButton, ushort)
+  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMousePress_SharpHook_Native_MouseButton_System_UInt16_
+  commentId: M:SharpHook.IEventSimulator.SimulateMousePress(SharpHook.Native.MouseButton,System.UInt16)
+  name.vb: SimulateMousePress(MouseButton, UShort)
+  fullName: SharpHook.IEventSimulator.SimulateMousePress(SharpHook.Native.MouseButton, ushort)
+  fullName.vb: SharpHook.IEventSimulator.SimulateMousePress(SharpHook.Native.MouseButton, UShort)
+  nameWithType: IEventSimulator.SimulateMousePress(MouseButton, ushort)
+  nameWithType.vb: IEventSimulator.SimulateMousePress(MouseButton, UShort)
 - uid: SharpHook.IEventSimulator.SimulateMousePress(System.Int16,System.Int16,SharpHook.Native.MouseButton)
   name: SimulateMousePress(short, short, MouseButton)
   href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMousePress_System_Int16_System_Int16_SharpHook_Native_MouseButton_
@@ -805,6 +850,15 @@ references:
   fullName.vb: SharpHook.IEventSimulator.SimulateMousePress(Short, Short, SharpHook.Native.MouseButton)
   nameWithType: IEventSimulator.SimulateMousePress(short, short, MouseButton)
   nameWithType.vb: IEventSimulator.SimulateMousePress(Short, Short, MouseButton)
+- uid: SharpHook.IEventSimulator.SimulateMousePress(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.UInt16)
+  name: SimulateMousePress(short, short, MouseButton, ushort)
+  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMousePress_System_Int16_System_Int16_SharpHook_Native_MouseButton_System_UInt16_
+  commentId: M:SharpHook.IEventSimulator.SimulateMousePress(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.UInt16)
+  name.vb: SimulateMousePress(Short, Short, MouseButton, UShort)
+  fullName: SharpHook.IEventSimulator.SimulateMousePress(short, short, SharpHook.Native.MouseButton, ushort)
+  fullName.vb: SharpHook.IEventSimulator.SimulateMousePress(Short, Short, SharpHook.Native.MouseButton, UShort)
+  nameWithType: IEventSimulator.SimulateMousePress(short, short, MouseButton, ushort)
+  nameWithType.vb: IEventSimulator.SimulateMousePress(Short, Short, MouseButton, UShort)
 - uid: SharpHook.IEventSimulator.SimulateMousePress*
   name: SimulateMousePress
   href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMousePress_
@@ -817,6 +871,15 @@ references:
   commentId: M:SharpHook.IEventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton)
   fullName: SharpHook.IEventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton)
   nameWithType: IEventSimulator.SimulateMouseRelease(MouseButton)
+- uid: SharpHook.IEventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton,System.UInt16)
+  name: SimulateMouseRelease(MouseButton, ushort)
+  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMouseRelease_SharpHook_Native_MouseButton_System_UInt16_
+  commentId: M:SharpHook.IEventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton,System.UInt16)
+  name.vb: SimulateMouseRelease(MouseButton, UShort)
+  fullName: SharpHook.IEventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton, ushort)
+  fullName.vb: SharpHook.IEventSimulator.SimulateMouseRelease(SharpHook.Native.MouseButton, UShort)
+  nameWithType: IEventSimulator.SimulateMouseRelease(MouseButton, ushort)
+  nameWithType.vb: IEventSimulator.SimulateMouseRelease(MouseButton, UShort)
 - uid: SharpHook.IEventSimulator.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Native.MouseButton)
   name: SimulateMouseRelease(short, short, MouseButton)
   href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMouseRelease_System_Int16_System_Int16_SharpHook_Native_MouseButton_
@@ -826,6 +889,15 @@ references:
   fullName.vb: SharpHook.IEventSimulator.SimulateMouseRelease(Short, Short, SharpHook.Native.MouseButton)
   nameWithType: IEventSimulator.SimulateMouseRelease(short, short, MouseButton)
   nameWithType.vb: IEventSimulator.SimulateMouseRelease(Short, Short, MouseButton)
+- uid: SharpHook.IEventSimulator.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.UInt16)
+  name: SimulateMouseRelease(short, short, MouseButton, ushort)
+  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMouseRelease_System_Int16_System_Int16_SharpHook_Native_MouseButton_System_UInt16_
+  commentId: M:SharpHook.IEventSimulator.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.UInt16)
+  name.vb: SimulateMouseRelease(Short, Short, MouseButton, UShort)
+  fullName: SharpHook.IEventSimulator.SimulateMouseRelease(short, short, SharpHook.Native.MouseButton, ushort)
+  fullName.vb: SharpHook.IEventSimulator.SimulateMouseRelease(Short, Short, SharpHook.Native.MouseButton, UShort)
+  nameWithType: IEventSimulator.SimulateMouseRelease(short, short, MouseButton, ushort)
+  nameWithType.vb: IEventSimulator.SimulateMouseRelease(Short, Short, MouseButton, UShort)
 - uid: SharpHook.IEventSimulator.SimulateMouseRelease*
   name: SimulateMouseRelease
   href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateMouseRelease_
@@ -6559,6 +6631,15 @@ references:
   commentId: M:SharpHook.Testing.TestGlobalHook.SimulateMousePress(SharpHook.Native.MouseButton)
   fullName: SharpHook.Testing.TestGlobalHook.SimulateMousePress(SharpHook.Native.MouseButton)
   nameWithType: TestGlobalHook.SimulateMousePress(MouseButton)
+- uid: SharpHook.Testing.TestGlobalHook.SimulateMousePress(SharpHook.Native.MouseButton,System.UInt16)
+  name: SimulateMousePress(MouseButton, ushort)
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMousePress_SharpHook_Native_MouseButton_System_UInt16_
+  commentId: M:SharpHook.Testing.TestGlobalHook.SimulateMousePress(SharpHook.Native.MouseButton,System.UInt16)
+  name.vb: SimulateMousePress(MouseButton, UShort)
+  fullName: SharpHook.Testing.TestGlobalHook.SimulateMousePress(SharpHook.Native.MouseButton, ushort)
+  fullName.vb: SharpHook.Testing.TestGlobalHook.SimulateMousePress(SharpHook.Native.MouseButton, UShort)
+  nameWithType: TestGlobalHook.SimulateMousePress(MouseButton, ushort)
+  nameWithType.vb: TestGlobalHook.SimulateMousePress(MouseButton, UShort)
 - uid: SharpHook.Testing.TestGlobalHook.SimulateMousePress(System.Int16,System.Int16,SharpHook.Native.MouseButton)
   name: SimulateMousePress(short, short, MouseButton)
   href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMousePress_System_Int16_System_Int16_SharpHook_Native_MouseButton_
@@ -6568,6 +6649,15 @@ references:
   fullName.vb: SharpHook.Testing.TestGlobalHook.SimulateMousePress(Short, Short, SharpHook.Native.MouseButton)
   nameWithType: TestGlobalHook.SimulateMousePress(short, short, MouseButton)
   nameWithType.vb: TestGlobalHook.SimulateMousePress(Short, Short, MouseButton)
+- uid: SharpHook.Testing.TestGlobalHook.SimulateMousePress(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.UInt16)
+  name: SimulateMousePress(short, short, MouseButton, ushort)
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMousePress_System_Int16_System_Int16_SharpHook_Native_MouseButton_System_UInt16_
+  commentId: M:SharpHook.Testing.TestGlobalHook.SimulateMousePress(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.UInt16)
+  name.vb: SimulateMousePress(Short, Short, MouseButton, UShort)
+  fullName: SharpHook.Testing.TestGlobalHook.SimulateMousePress(short, short, SharpHook.Native.MouseButton, ushort)
+  fullName.vb: SharpHook.Testing.TestGlobalHook.SimulateMousePress(Short, Short, SharpHook.Native.MouseButton, UShort)
+  nameWithType: TestGlobalHook.SimulateMousePress(short, short, MouseButton, ushort)
+  nameWithType.vb: TestGlobalHook.SimulateMousePress(Short, Short, MouseButton, UShort)
 - uid: SharpHook.Testing.TestGlobalHook.SimulateMousePress*
   name: SimulateMousePress
   href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMousePress_
@@ -6592,6 +6682,15 @@ references:
   commentId: M:SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(SharpHook.Native.MouseButton)
   fullName: SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(SharpHook.Native.MouseButton)
   nameWithType: TestGlobalHook.SimulateMouseRelease(MouseButton)
+- uid: SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(SharpHook.Native.MouseButton,System.UInt16)
+  name: SimulateMouseRelease(MouseButton, ushort)
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_SharpHook_Native_MouseButton_System_UInt16_
+  commentId: M:SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(SharpHook.Native.MouseButton,System.UInt16)
+  name.vb: SimulateMouseRelease(MouseButton, UShort)
+  fullName: SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(SharpHook.Native.MouseButton, ushort)
+  fullName.vb: SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(SharpHook.Native.MouseButton, UShort)
+  nameWithType: TestGlobalHook.SimulateMouseRelease(MouseButton, ushort)
+  nameWithType.vb: TestGlobalHook.SimulateMouseRelease(MouseButton, UShort)
 - uid: SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Native.MouseButton)
   name: SimulateMouseRelease(short, short, MouseButton)
   href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_System_Int16_System_Int16_SharpHook_Native_MouseButton_
@@ -6601,6 +6700,15 @@ references:
   fullName.vb: SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(Short, Short, SharpHook.Native.MouseButton)
   nameWithType: TestGlobalHook.SimulateMouseRelease(short, short, MouseButton)
   nameWithType.vb: TestGlobalHook.SimulateMouseRelease(Short, Short, MouseButton)
+- uid: SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.UInt16)
+  name: SimulateMouseRelease(short, short, MouseButton, ushort)
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_System_Int16_System_Int16_SharpHook_Native_MouseButton_System_UInt16_
+  commentId: M:SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Native.MouseButton,System.UInt16)
+  name.vb: SimulateMouseRelease(Short, Short, MouseButton, UShort)
+  fullName: SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(short, short, SharpHook.Native.MouseButton, ushort)
+  fullName.vb: SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(Short, Short, SharpHook.Native.MouseButton, UShort)
+  nameWithType: TestGlobalHook.SimulateMouseRelease(short, short, MouseButton, ushort)
+  nameWithType.vb: TestGlobalHook.SimulateMouseRelease(Short, Short, MouseButton, UShort)
 - uid: SharpHook.Testing.TestGlobalHook.SimulateMouseRelease*
   name: SimulateMouseRelease
   href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_
