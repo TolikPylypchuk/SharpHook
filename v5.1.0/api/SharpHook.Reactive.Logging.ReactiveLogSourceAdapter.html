@@ -94,7 +94,7 @@
 
   <h1 id="SharpHook_Reactive_Logging_ReactiveLogSourceAdapter" data-uid="SharpHook.Reactive.Logging.ReactiveLogSourceAdapter" class="text-break">
     Class ReactiveLogSourceAdapter
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/ea5068d0df6770167dc0b64a3e7875a7aec04a5e/SharpHook.Reactive/Logging/ReactiveLogSourceAdapter.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/815d8bd57ec60bc62d7c3201d87f038d9afef567/SharpHook.Reactive/Logging/ReactiveLogSourceAdapter.cs"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -166,7 +166,7 @@
 
   <h3 id="SharpHook_Reactive_Logging_ReactiveLogSourceAdapter__ctor_SharpHook_Logging_ILogSource_" data-uid="SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.#ctor(SharpHook.Logging.ILogSource)">
   ReactiveLogSourceAdapter(ILogSource)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/ea5068d0df6770167dc0b64a3e7875a7aec04a5e/SharpHook.Reactive/Logging/ReactiveLogSourceAdapter.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/815d8bd57ec60bc62d7c3201d87f038d9afef567/SharpHook.Reactive/Logging/ReactiveLogSourceAdapter.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.html">ReactiveLogSourceAdapter</a> class.</p>
@@ -192,6 +192,61 @@
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">logSource</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+    <div><a class="xref" href="SharpHook.Reactive.Logging.IReactiveLogSource.html">IReactiveLogSource</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="SharpHook_Reactive_Logging_ReactiveLogSourceAdapter__ctor_" data-uid="SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.#ctor*"></a>
+
+  <h3 id="SharpHook_Reactive_Logging_ReactiveLogSourceAdapter__ctor_SharpHook_Logging_ILogSource_System_Reactive_Concurrency_IScheduler_" data-uid="SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.#ctor(SharpHook.Logging.ILogSource,System.Reactive.Concurrency.IScheduler)">
+  ReactiveLogSourceAdapter(ILogSource, IScheduler)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/815d8bd57ec60bc62d7c3201d87f038d9afef567/SharpHook.Reactive/Logging/ReactiveLogSourceAdapter.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.html">ReactiveLogSourceAdapter</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReactiveLogSourceAdapter(ILogSource logSource, IScheduler defaultScheduler)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>logSource</code> <a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></dt>
+    <dd><p>The log source to adapt.</p>
+</dd>
+    <dt><code>defaultScheduler</code> <span class="xref">IScheduler</span></dt>
+    <dd><p>The default shceduler for the observable.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">logSource</code> or <code class="paramref">defaultScheduler</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
 
   <dl class="typelist seealso">
     <dt>See Also</dt>
@@ -210,7 +265,7 @@
 
   <h3 id="SharpHook_Reactive_Logging_ReactiveLogSourceAdapter_IsDisposed" data-uid="SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.IsDisposed">
   IsDisposed
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/ea5068d0df6770167dc0b64a3e7875a7aec04a5e/SharpHook.Reactive/Logging/ReactiveLogSourceAdapter.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/815d8bd57ec60bc62d7c3201d87f038d9afef567/SharpHook.Reactive/Logging/ReactiveLogSourceAdapter.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the value which indicates whether the log source is disposed.</p>
@@ -253,7 +308,7 @@
 
   <h3 id="SharpHook_Reactive_Logging_ReactiveLogSourceAdapter_MessageLogged" data-uid="SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.MessageLogged">
   MessageLogged
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/ea5068d0df6770167dc0b64a3e7875a7aec04a5e/SharpHook.Reactive/Logging/ReactiveLogSourceAdapter.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/815d8bd57ec60bc62d7c3201d87f038d9afef567/SharpHook.Reactive/Logging/ReactiveLogSourceAdapter.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>An observable which is emitted when libuiohook logs a message.</p>
@@ -270,7 +325,7 @@
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://github.com/TolikPylypchuk/SharpHook/blob/ea5068d0df6770167dc0b64a3e7875a7aec04a5e/SharpHook/Logging/LogEntry.cs">LogEntry</a>&gt;</dt>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://github.com/TolikPylypchuk/SharpHook/blob/815d8bd57ec60bc62d7c3201d87f038d9afef567/SharpHook/Logging/LogEntry.cs">LogEntry</a>&gt;</dt>
     <dd></dd>
   </dl>
 
@@ -296,7 +351,7 @@
 
   <h3 id="SharpHook_Reactive_Logging_ReactiveLogSourceAdapter_Dispose" data-uid="SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/ea5068d0df6770167dc0b64a3e7875a7aec04a5e/SharpHook.Reactive/Logging/ReactiveLogSourceAdapter.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/815d8bd57ec60bc62d7c3201d87f038d9afef567/SharpHook.Reactive/Logging/ReactiveLogSourceAdapter.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Disposes the adapted log source and emits the completion signal for <a class="xref" href="SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.html#SharpHook_Reactive_Logging_ReactiveLogSourceAdapter_MessageLogged">MessageLogged</a>.</p>
@@ -330,7 +385,7 @@
 
   <h3 id="SharpHook_Reactive_Logging_ReactiveLogSourceAdapter_Finalize" data-uid="SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.Finalize">
   ~ReactiveLogSourceAdapter()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/ea5068d0df6770167dc0b64a3e7875a7aec04a5e/SharpHook.Reactive/Logging/ReactiveLogSourceAdapter.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/815d8bd57ec60bc62d7c3201d87f038d9afef567/SharpHook.Reactive/Logging/ReactiveLogSourceAdapter.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Completes the <a class="xref" href="SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.html#SharpHook_Reactive_Logging_ReactiveLogSourceAdapter_MessageLogged">MessageLogged</a> observable if the log source hasn't been disposed.</p>
@@ -369,7 +424,7 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/ea5068d0df6770167dc0b64a3e7875a7aec04a5e/SharpHook.Reactive/Logging/ReactiveLogSourceAdapter.cs" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/815d8bd57ec60bc62d7c3201d87f038d9afef567/SharpHook.Reactive/Logging/ReactiveLogSourceAdapter.cs" class="edit-link">Edit this page</a>
         </div>
 
         
