@@ -1,0 +1,953 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class LogEntry
+ | SharpHook </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class LogEntry
+ | SharpHook ">
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="SharpHook">
+            SharpHook
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="SharpHook.Logging.LogEntry">
+
+
+
+  <h1 id="SharpHook_Logging_LogEntry" data-uid="SharpHook.Logging.LogEntry" class="text-break">
+    Class LogEntry
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/b42ac039f3b6a96feca2ca77dab7fd08ef5e5b0f/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SharpHook.html">SharpHook</a>.<a class="xref" href="SharpHook.Logging.html">Logging</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a log entry from libuiohook.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">LogEntry</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="SharpHook.Logging.LogEntry.html">LogEntry</a>&gt;</div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="SharpHook_Logging_LogEntry_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+For simple handling the <a class="xref" href="SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_Level">Level</a> and <a class="xref" href="SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_FullText">FullText</a> properties are anough. For more advanced
+handling you can use the entries' formats and arguments.
+</p>
+<p>
+Each log entry from libuiohook has the following format:
+<pre><code class="lang-csharp">function [line]: message</code></pre>
+
+<p>
+The function and line reference the source code of libuiohook itself, and can be retrieved using the
+<a class="xref" href="SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_Function">Function</a> and <a class="xref" href="SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_SourceLine">SourceLine</a> properties. The message can be retrieved by splitting the text
+by <code>:</code> and getting the trimmed second part.
+</p>
+<p>
+You shouldn't create <a class="xref" href="SharpHook.Logging.LogEntry.html">LogEntry</a> instances yourself. Instead, use the <a class="xref" href="SharpHook.Logging.LogEntryParser.html">LogEntryParser</a>
+class to create them in the logging callback.
+</p>
+</div>
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="SharpHook_Logging_LogEntry__ctor_" data-uid="SharpHook.Logging.LogEntry.#ctor*"></a>
+
+  <h3 id="SharpHook_Logging_LogEntry__ctor_SharpHook_Native_LogLevel_System_String_System_String_System_String_System_Collections_Generic_IReadOnlyList_System_Object__System_Collections_Generic_IReadOnlyList_System_String__System_Collections_Generic_IReadOnlyList_System_String__" data-uid="SharpHook.Logging.LogEntry.#ctor(SharpHook.Native.LogLevel,System.String,System.String,System.String,System.Collections.Generic.IReadOnlyList{System.Object},System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{System.String})">
+  LogEntry(LogLevel, string, string, string, IReadOnlyList&lt;object&gt;, IReadOnlyList&lt;string&gt;, IReadOnlyList&lt;string&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/b42ac039f3b6a96feca2ca77dab7fd08ef5e5b0f/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="SharpHook.Logging.LogEntry.html">LogEntry</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LogEntry(LogLevel level, string fullText, string format, string nativeFormat, IReadOnlyList&lt;object&gt; arguments, IReadOnlyList&lt;string&gt; rawArguments, IReadOnlyList&lt;string&gt; argumentPlaceholders)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>level</code> <a class="xref" href="SharpHook.Native.LogLevel.html">LogLevel</a></dt>
+    <dd><p>The log level.</p>
+</dd>
+    <dt><code>fullText</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The full text of the log entry.</p>
+</dd>
+    <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The format of the log entry which can be used in <code>String.Format</code>.</p>
+</dd>
+    <dt><code>nativeFormat</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The native format of the log entry.</p>
+</dd>
+    <dt><code>arguments</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>The arguments of the log entry which can be used in <code>String.Format</code>.</p>
+</dd>
+    <dt><code>rawArguments</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>The arguments as they appear in the entry's full text.</p>
+</dd>
+    <dt><code>argumentPlaceholders</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>The argument placeholders from the native format.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEventArgs.html">LogEventArgs</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEntryParser.html">LogEntryParser</a></div>
+    </dd>
+  </dl>
+
+
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="SharpHook_Logging_LogEntry_Level" data-uid="SharpHook.Logging.LogEntry.Level">
+  Level
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/b42ac039f3b6a96feca2ca77dab7fd08ef5e5b0f/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the level of the current log entry.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LogLevel Level</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.Native.LogLevel.html">LogLevel</a></dt>
+    <dd><p>The level of the current log entry.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEventArgs.html">LogEventArgs</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEntryParser.html">LogEntryParser</a></div>
+    </dd>
+  </dl>
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="SharpHook_Logging_LogEntry_ArgumentPlaceholders_" data-uid="SharpHook.Logging.LogEntry.ArgumentPlaceholders*"></a>
+
+  <h3 id="SharpHook_Logging_LogEntry_ArgumentPlaceholders" data-uid="SharpHook.Logging.LogEntry.ArgumentPlaceholders">
+  ArgumentPlaceholders
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/b42ac039f3b6a96feca2ca77dab7fd08ef5e5b0f/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the argument placeholders from the native format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;string&gt; ArgumentPlaceholders { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>The argument placeholders from the native format.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEventArgs.html">LogEventArgs</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEntryParser.html">LogEntryParser</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="SharpHook_Logging_LogEntry_Arguments_" data-uid="SharpHook.Logging.LogEntry.Arguments*"></a>
+
+  <h3 id="SharpHook_Logging_LogEntry_Arguments" data-uid="SharpHook.Logging.LogEntry.Arguments">
+  Arguments
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/b42ac039f3b6a96feca2ca77dab7fd08ef5e5b0f/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the arguments of the current log entry.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;object&gt; Arguments { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
+    <dd><p>The arguments of the current log entry.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="SharpHook_Logging_LogEntry_Arguments_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The function and line are the first two arguments of the log entry.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEventArgs.html">LogEventArgs</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEntryParser.html">LogEntryParser</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="SharpHook_Logging_LogEntry_Format_" data-uid="SharpHook.Logging.LogEntry.Format*"></a>
+
+  <h3 id="SharpHook_Logging_LogEntry_Format" data-uid="SharpHook.Logging.LogEntry.Format">
+  Format
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/b42ac039f3b6a96feca2ca77dab7fd08ef5e5b0f/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the format of the current log entry.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Format { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The format of the current log entry.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEventArgs.html">LogEventArgs</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEntryParser.html">LogEntryParser</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="SharpHook_Logging_LogEntry_FullText_" data-uid="SharpHook.Logging.LogEntry.FullText*"></a>
+
+  <h3 id="SharpHook_Logging_LogEntry_FullText" data-uid="SharpHook.Logging.LogEntry.FullText">
+  FullText
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/b42ac039f3b6a96feca2ca77dab7fd08ef5e5b0f/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the full text of the current log entry.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string FullText { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The full text of the current log entry.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEventArgs.html">LogEventArgs</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEntryParser.html">LogEntryParser</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="SharpHook_Logging_LogEntry_Function_" data-uid="SharpHook.Logging.LogEntry.Function*"></a>
+
+  <h3 id="SharpHook_Logging_LogEntry_Function" data-uid="SharpHook.Logging.LogEntry.Function">
+  Function
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/b42ac039f3b6a96feca2ca77dab7fd08ef5e5b0f/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the libuiohook function which called the logger.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Function { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The function which called the logger.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="SharpHook_Logging_LogEntry_Function_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The function is the first argument of the log entry.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEventArgs.html">LogEventArgs</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEntryParser.html">LogEntryParser</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="SharpHook_Logging_LogEntry_NativeFormat_" data-uid="SharpHook.Logging.LogEntry.NativeFormat*"></a>
+
+  <h3 id="SharpHook_Logging_LogEntry_NativeFormat" data-uid="SharpHook.Logging.LogEntry.NativeFormat">
+  NativeFormat
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/b42ac039f3b6a96feca2ca77dab7fd08ef5e5b0f/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the native format of the current log entry, as defined in libuiohook.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string NativeFormat { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The native format of the current log entry.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEventArgs.html">LogEventArgs</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEntryParser.html">LogEntryParser</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="SharpHook_Logging_LogEntry_RawArguments_" data-uid="SharpHook.Logging.LogEntry.RawArguments*"></a>
+
+  <h3 id="SharpHook_Logging_LogEntry_RawArguments" data-uid="SharpHook.Logging.LogEntry.RawArguments">
+  RawArguments
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/b42ac039f3b6a96feca2ca77dab7fd08ef5e5b0f/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the arguments of the current log entry as they appear in entry's full text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;string&gt; RawArguments { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
+    <dd><p>The arguments of the current log entry as they appear in entry's full text.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="SharpHook_Logging_LogEntry_RawArguments_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The function and line are the first two arguments of the log entry.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEventArgs.html">LogEventArgs</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEntryParser.html">LogEntryParser</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="SharpHook_Logging_LogEntry_SourceLine_" data-uid="SharpHook.Logging.LogEntry.SourceLine*"></a>
+
+  <h3 id="SharpHook_Logging_LogEntry_SourceLine" data-uid="SharpHook.Logging.LogEntry.SourceLine">
+  SourceLine
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/b42ac039f3b6a96feca2ca77dab7fd08ef5e5b0f/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the source code line in libuiohook where the logger was called.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint SourceLine { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>The source code line in libuiohook where the logger was called.</p>
+</dd>
+  </dl>
+
+
+
+
+  <h4 class="section" id="SharpHook_Logging_LogEntry_SourceLine_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The source code line is the second argument of the log entry.</p>
+</div>
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEventArgs.html">LogEventArgs</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEntryParser.html">LogEntryParser</a></div>
+    </dd>
+  </dl>
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="SharpHook_Logging_LogEntry_Equals_" data-uid="SharpHook.Logging.LogEntry.Equals*"></a>
+
+  <h3 id="SharpHook_Logging_LogEntry_Equals_SharpHook_Logging_LogEntry_" data-uid="SharpHook.Logging.LogEntry.Equals(SharpHook.Logging.LogEntry)">
+  Equals(LogEntry?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/b42ac039f3b6a96feca2ca77dab7fd08ef5e5b0f/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compares this object to another object for equality.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(LogEntry? entry)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entry</code> <a class="xref" href="SharpHook.Logging.LogEntry.html">LogEntry</a></dt>
+    <dd><p>The object to compare</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the objects are equal. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEventArgs.html">LogEventArgs</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEntryParser.html">LogEntryParser</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="SharpHook_Logging_LogEntry_Equals_" data-uid="SharpHook.Logging.LogEntry.Equals*"></a>
+
+  <h3 id="SharpHook_Logging_LogEntry_Equals_System_Object_" data-uid="SharpHook.Logging.LogEntry.Equals(System.Object)">
+  Equals(object?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/b42ac039f3b6a96feca2ca77dab7fd08ef5e5b0f/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compares this object to another object for equality.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? obj)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
+    <dd><p>The object to compare</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the objects are equal. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEventArgs.html">LogEventArgs</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEntryParser.html">LogEntryParser</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="SharpHook_Logging_LogEntry_GetHashCode_" data-uid="SharpHook.Logging.LogEntry.GetHashCode*"></a>
+
+  <h3 id="SharpHook_Logging_LogEntry_GetHashCode" data-uid="SharpHook.Logging.LogEntry.GetHashCode">
+  GetHashCode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/b42ac039f3b6a96feca2ca77dab7fd08ef5e5b0f/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the hash code of this object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dd><p>The hash code of this object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEventArgs.html">LogEventArgs</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEntryParser.html">LogEntryParser</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="SharpHook_Logging_LogEntry_ToString_" data-uid="SharpHook.Logging.LogEntry.ToString*"></a>
+
+  <h3 id="SharpHook_Logging_LogEntry_ToString" data-uid="SharpHook.Logging.LogEntry.ToString">
+  ToString()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/b42ac039f3b6a96feca2ca77dab7fd08ef5e5b0f/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the string representation of the log entry i.e. its full text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+    <dd><p>The full text of the log entry.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEventArgs.html">LogEventArgs</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEntryParser.html">LogEntryParser</a></div>
+    </dd>
+  </dl>
+
+
+  <h2 class="section" id="operators">Operators
+</h2>
+
+
+  <a id="SharpHook_Logging_LogEntry_op_Equality_" data-uid="SharpHook.Logging.LogEntry.op_Equality*"></a>
+
+  <h3 id="SharpHook_Logging_LogEntry_op_Equality_SharpHook_Logging_LogEntry_SharpHook_Logging_LogEntry_" data-uid="SharpHook.Logging.LogEntry.op_Equality(SharpHook.Logging.LogEntry,SharpHook.Logging.LogEntry)">
+  operator ==(LogEntry?, LogEntry?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/b42ac039f3b6a96feca2ca77dab7fd08ef5e5b0f/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compares two objects for equality.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(LogEntry? left, LogEntry? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="SharpHook.Logging.LogEntry.html">LogEntry</a></dt>
+    <dd><p>The first object to compare</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="SharpHook.Logging.LogEntry.html">LogEntry</a></dt>
+    <dd><p>The second object to compare</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the objects are equal. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEventArgs.html">LogEventArgs</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEntryParser.html">LogEntryParser</a></div>
+    </dd>
+  </dl>
+
+
+  <a id="SharpHook_Logging_LogEntry_op_Inequality_" data-uid="SharpHook.Logging.LogEntry.op_Inequality*"></a>
+
+  <h3 id="SharpHook_Logging_LogEntry_op_Inequality_SharpHook_Logging_LogEntry_SharpHook_Logging_LogEntry_" data-uid="SharpHook.Logging.LogEntry.op_Inequality(SharpHook.Logging.LogEntry,SharpHook.Logging.LogEntry)">
+  operator !=(LogEntry?, LogEntry?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/b42ac039f3b6a96feca2ca77dab7fd08ef5e5b0f/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Compares two objects for inequality.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(LogEntry? left, LogEntry? right)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>left</code> <a class="xref" href="SharpHook.Logging.LogEntry.html">LogEntry</a></dt>
+    <dd><p>The first object to compare</p>
+</dd>
+    <dt><code>right</code> <a class="xref" href="SharpHook.Logging.LogEntry.html">LogEntry</a></dt>
+    <dd><p>The second object to compare</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the objects are not equal. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEventArgs.html">LogEventArgs</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEntryParser.html">LogEntryParser</a></div>
+    </dd>
+  </dl>
+
+
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+      <div><a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a></div>
+      <div><a class="xref" href="SharpHook.Logging.LogEventArgs.html">LogEventArgs</a></div>
+      <div><a class="xref" href="SharpHook.Logging.LogEntryParser.html">LogEntryParser</a></div>
+  </div>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/b42ac039f3b6a96feca2ca77dab7fd08ef5e5b0f/SharpHook/Logging/LogEntry.cs" class="edit-link">Edit this page</a>
+        </div>
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Created by <a href="https://tolik.io">Tolik Pylypchuk</a>. Docs made with <a href="https://dotnet.github.io/docfx">docfx</a></span>.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
