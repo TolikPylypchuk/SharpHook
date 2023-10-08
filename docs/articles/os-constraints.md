@@ -18,11 +18,11 @@ x86, x64, and Arm64 are supported. Arm32 is not supported since its support was 
 The libuiohook build used by SharpHook on Windows is statically linked to the C runtime which means that client apps
 don't need the Visual C++ Redistributable package.
 
-An exception is the logging functionality - it uses the `vsprintf` function from the C runtime. Since `LogEntryParser`
-uses the C runtime, it requires the Visual C++ Redistributable package on Windows, unlike the rest of SharpHook. If you
-don't want your app to be dependent on this package, then you can use the `EmptyLogSource` class instead of `LogSource`
-in release builds of your app. `EmptyLogSource` implements `ILogSource`, but never raises the `MessageLogged` event and
-doesn't subscribe to libuiohook logs.
+An exception is the logging functionality - `LogEntryParser` uses the `vsprintf` function from the C runtime, and as
+such, it requires the Visual C++ Redistributable package on Windows, unlike the rest of SharpHook. If you don't want
+your app to be dependent on this package, then you can use the `EmptyLogSource` class instead of `LogSource` in release
+builds of your app. `EmptyLogSource` implements `ILogSource`, but never raises the `MessageLogged` event and doesn't
+subscribe to libuiohook logs.
 
 ### DPI Awareness
 

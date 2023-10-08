@@ -60,3 +60,6 @@ the accessibility API be enabled for the application if it wants to create a glo
 - Linux distributions supported by .NET are supported by SharpHook. Linux on x86 is
 [not supported](https://github.com/dotnet/runtime/issues/7335) by .NET itself. Only X11 is supported - Wayland support
 [may be coming](https://github.com/kwhat/libuiohook/issues/100), but it's not yet here.
+
+More info on OS support can be found in
+[an article on OS-specific constraints](https://sharphook.tolik.io/v5.1.0/articles/os-constraints.html).
