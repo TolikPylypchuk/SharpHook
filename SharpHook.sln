@@ -32,6 +32,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Articles", "Articles", "{60
 		docs\articles\logging.md = docs\articles\logging.md
 		docs\articles\migration.md = docs\articles\migration.md
 		docs\articles\native.md = docs\articles\native.md
+		docs\articles\os-constraints.md = docs\articles\os-constraints.md
 		docs\articles\reactive.md = docs\articles\reactive.md
 		docs\articles\simulation.md = docs\articles\simulation.md
 		docs\articles\testing.md = docs\articles\testing.md

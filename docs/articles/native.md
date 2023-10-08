@@ -9,18 +9,6 @@ In general, you don't need to use the native methods directly. Instead, use the 
 provided by SharpHook. However, you should still read this article to know how the high-level features work under
 the hood.
 
-> [!NOTE]
-> The libuiohook build used by SharpHook on Windows is statically linked to the C runtime which means that client apps
-> don't need the Visual C++ Redistributable package. An exception is the logging functionality - this is explained
-> further in the article about [logging](logging.md).
-
-## Low-Level Functionality Providers
-
-If you want to use the low-level functionality, you don't need to use the `UioHook` class directly. Instead you can use
-interfaces in the `SharpHook.Providers` namespace. The methods in those interfaces are the same as in the `UioHook`
-class. `SharpHook.Providers.UioHookProvider` implements all of these interfaces and simply calls the corresponding
-methods in `UioHook`. This should be done to decouple your code from `UioHook` and make testing easier.
-
 ## Working with the Hook Itself
 
 `UioHook` contains the following methods for working with the global hook:
@@ -41,16 +29,8 @@ to unset the callback function.
 
 The methods described above are also defined in the `SharpHook.Providers.IGlobalHookProvider` interface.
 
-> [!NOTE]
-> On macOS running the global hook requires that the main run-loop is present. libuiohook takes care of it if the hook
-> is run on the main thread. It's also taken care of by UI frameworks since they need an event loop on the main thread
-> to run. But if you're using a global hook in a console app or a background service and want to run it on some thread
-> other than the main one then you should take care of it yourself. You can do that by P/Invoking the native
-> `CFRunLoopRun` function on the main thread.
-
-> [!NOTE]
-> macOS requires that the accessibility API be enabled for the application if it wants to create a global hook.
-> If the accessiblity API is not enabled, then `Run` will fail and return `UioHookResult.ErrorAxApiDisabled`.
+macOS has constraints on how the global hook can be used. More info can be found in the article on
+[OS-specific constraints](os-constraints.md).
 
 ## Input Events
 
@@ -92,11 +72,6 @@ Lastly, `UioHookEvent` contains the `Reserved` field. This field can be set insi
 will consume it. Currently only one setting is supported - suppressing the event propagation. If it's set then
 libuiohook will not propagate the event further and it will effectively be blocked. The `Reserved` field should be set
 synchronously i.e. on the same thread which handles the event. Supressing events works only on Windows and macOS.
-
-> [!NOTE]
-> An application manifest is required on Windows to enable DPI awareness for your app. If it's not enabled then mouse
-> coordinates will be wrong on high-DPI screens. You can look at the sample app in the SharpHook repository to see the
-> manifest example.
 
 > [!NOTE]
 > `KeyTyped` and `MouseClicked` events are not raised by the OS, but by libuiohook itself. `KeyTyped` is raised after
@@ -204,9 +179,8 @@ a negative value indicates that the wheel will be rotated down or right.
 On Windows the value 120 represents the default wheel step. As such, multiples of 120 can be used as the
 rotation value, but it's not required. The value of `MouseWheelEventData.Type` is ignored.
 
-On macOS it's recommended to use values between -10 and 10. This will result in quite a small scroll
-amount with pixel scrolling, so `MouseWheelScrollType.BlockScroll` is recommended for line scrolling
-instead of pixel scrolling.
+On macOS it's recommended to use values between -10 and 10. This will result in quite a small scroll amount with pixel
+scrolling, so `MouseWheelScrollType.BlockScroll` is recommended for line scrolling instead of pixel scrolling.
 
 On Linux there is no fixed recommendation, but multiples of 100 can be used. The value of `MouseWheelEventData.Type`
 is ignored.
@@ -217,18 +191,8 @@ Starting with version 5.0.0, SharpHook also provides text entry simulation. `Uio
 which accepts a `string`. The text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16
 (including surrogate pairs, e.g. emojis) is supported.
 
-On Windows text simulation should work correctly and consistently.
-
-On macOS applications are not required to process text simulation, but most of them should handle it correctly.
-
-X11 doesn't support text simulation directly. Instead, for each character, an unused key code is remapped to that
-character, and then key press/release is simulated. Since the receiving application must react to the remapping, and
-may not do so instantaneously, a delay is needed for accurate simulation. This means that text simulation on Linux works
-slowly and is not guaranteed to be correct. `UioHook` contains the `SetPostTextDelayX11` method which can be used to
-increase (or decrease) the delay if needed - longer delays add consistency but may be more jarring to end users.
-`UioHook` also contains the `GetPostTextDelayX11` which can be used to get the currently configured delay - the default
-is 50 milliseconds. Delays are configurable on a nanosecond level. On Windows and macOS `SetPostTextDelayX11` does
-nothing, and `GetPostTextDelayX11` always returns 0.
+Text entry simulation may not work well on Linux. More info can be found in the article on
+[OS-specific constraints](os-constraints.md).
 
 The methods described above are also defined in the `SharpHook.Providers.IEventSimulationProvider` interface.
 
@@ -281,3 +245,10 @@ need it since it's safer. If you decide to use the native version then you must 
 
 The safe version of `CreateScreenInfo` is also defined in the `SharpHook.Providers.IScreenInfoProvider` interface.
 Other methods described above are also defined in the `SharpHook.Providers.IMouseInfoProvider` interface.
+
+## Low-Level Functionality Providers
+
+If you want to use the low-level functionality, you don't need to use the `UioHook` class directly. Instead you can use
+interfaces in the `SharpHook.Providers` namespace. The methods in those interfaces are the same as in the `UioHook`
+class. `SharpHook.Providers.UioHookProvider` implements all of these interfaces and simply calls the corresponding
+methods in `UioHook`. This should be done to decouple your code from `UioHook` and make testing easier.

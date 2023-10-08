@@ -69,14 +69,5 @@ Starting with version 5.0.0, SharpHook also provides text entry simulation. `IEv
 `SimulateTextEntry` method which accepts a `string`. The text to simulate doesn't depend on the current keyboard layout.
 The full range of UTF-16 (including surrogate pairs, e.g. emojis) is supported.
 
-On Windows text simulation should work correctly and consistently.
-
-On macOS applications are not required to process text simulation, but most of them should handle it correctly.
-
-X11 doesn't support text simulation directly. Instead, for each character, an unused key code is remapped to that
-character, and then key press/release is simulated. Since the receiving application must react to the remapping, and
-may not do so instantaneously, a delay is needed for accurate simulation. This means that text simulation on Linux works
-slowly and is not guaranteed to be correct. `IEventSimulator` contains the `TextSimulationDelayOnX11` property which can
-be used to increase (or decrease) the delay if needed - longer delays add consistency but may be more jarring to end
-users. Delays are configurable on a nanosecond level. On Windows and macOS setting `TextSimulationDelayOnX11` does
-nothing, and getting it always returns 0.
+Text entry simulation may not work well on Linux. More info can be found in the article on
+[OS-specific constraints](os-constraints.md).

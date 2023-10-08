@@ -30,28 +30,22 @@ using SharpHook.Native;
 
 // ...
 
-var logSource = LogSource.Register(minLevel: LogLevel.Info);
+var logSource = LogSource.RegisterOrGet(minLevel: LogLevel.Info);
 logSource.MessageLogged += this.OnMessageLogged;
 
 private void OnMessageLogged(object? sender, LogEventArgs e) =>
     this.logger.Log(this.AdaptLogLevel(e.LogEntry.Level), e.LogEntry.FullText);
 ```
 
-You can get an instance of `LogSource` by using the static `Register` method.
-
-> [!IMPORTANT]
-> Always use one instance of `LogSource` at a time in the entire application since they all must use
-> the same static method to set the log callback for libuiohook, so there may only be one callback at a time.
+You can get an instance of `LogSource` by using the static `RegisterOrGet` method. Subsequent calls to this method will
+return the same registered instance. You can dispose of a log source to stop receiving libuiohook messages. After that
+calling `RegisterOrGet` will register a new instance.
 
 The `MessageLogged` event contains event args of type `LogEventArgs` which contains just one property of type
 `LogEntry`. This class contains the actual log message.
 
 The simplest way to use `LogEntry` is to use its `Level` and `FullText` properties. `FullText` is created using the log
 message format and arguments so you don't have to do it yourself.
-
-You can dispose of a log source to stop receiving libuiohook messages. You should keep a reference to an instance of
-`LogSource` when you use it since it will stop receiving messages when garbage collector deletes it, to avoid memory
-leaks.
 
 SharpHook.Reactive contains the `IReactiveLogSource` and its implementation - `ReactiveLogSourceAdapter`. Here's a
 usage example:
@@ -63,13 +57,14 @@ using SharpHook.Reactive.Logging;
 
 // ...
 
-var logSource = LogSource.Register(minLevel: LogLevel.Info);
+var logSource = LogSource.RegisterOrGet(minLevel: LogLevel.Info);
 var reactiveLogSource = new ReactiveLogSourceAdapter(logSource);
 reactiveLogSource.MessageLogged.Subscribe(this.OnMessageLogged);
 ```
 
 `IReactiveLogSource` is basically the same as `ILogSource`, but `MessageLogged` is an observable of `LogEntry` instead
-of an event. `ReactiveLogSourceAdapter` adapts an `ILogSource` to the `IReactiveLogSource` interface.
+of an event. `ReactiveLogSourceAdapter` adapts an `ILogSource` to the `IReactiveLogSource` interface. A default
+scheduler can be set for the `MessageLogged` observable.
 
 ## Using the Low-Level Functionality
 
@@ -99,12 +94,6 @@ private void OnLog(LogLevel level, IntPtr userData, IntPtr format, IntPtr args)
     // Handle the log entry instead of the native format and arguments
 }
 ```
-
-> [!NOTE]
-> Since `LogEntryParser` uses the C runtime, it requires the Visual C++ Redistributable package on Windows, unlike the
-> rest of SharpHook. If you don't want your app to be dependent on this package, then you can use the `EmptyLogSource`
-> class instead of `LogSource` in release builds of your app. `EmptyLogSource` implements `ILogSource`, but never raises
-> the `MessageLogged` event and doesn't subscribe to libuiohook logs.
 
 ## Advanced Usage
 

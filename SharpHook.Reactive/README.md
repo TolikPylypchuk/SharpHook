@@ -72,7 +72,7 @@ using SharpHook.Reactive.Logging;
 
 // ...
 
-var logSource = LogSource.Register();
+var logSource = LogSource.RegisterOrGet();
 var reactiveLogSource = new ReactiveLogSourceAdapter(logSource);
 reactiveLogSource.MessageLogged.Subscribe(this.OnMessageLogged);
 ```

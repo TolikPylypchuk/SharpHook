@@ -1,5 +1,16 @@
 # SharpHook Changelog
 
+## [v5.1.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.1.0) (October 8, 2023)
+
+- Mouse coordinates were fixed for event simulation on Windows with mutliple screens.
+
+- Simulating multiple mouse clicks on macOS was fixed.
+
+- An issue with some events being ignored on Windows was fixed.
+
+- libuiohook was updated to commit
+[2712b31](https://github.com/TolikPylypchuk/libuiohook/tree/2712b31d97833309d9ad5c1df0cb1f11aecaa03e).
+
 ## [v5.0.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.0.0) (August 10, 2023)
 
 ### Platform Support

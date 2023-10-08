@@ -172,7 +172,7 @@ using SharpHook.Logging;
 
 // ...
 
-var logSource = LogSource.Register(minLevel: LogLevel.Info);
+var logSource = LogSource.RegisterOrGet(minLevel: LogLevel.Info);
 logSource.MessageLogged += this.OnMessageLogged;
 
 private void OnMessageLogged(object? sender, LogEventArgs e) =>

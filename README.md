@@ -16,7 +16,7 @@ dotnet add package SharpHook.Reactive
 
 ## Upgrading
 
-A [migration guide](https://sharphook.tolik.io/v5.0.0/articles/migration.html) is available for upgrading between major
+A [migration guide](https://sharphook.tolik.io/v5.1.0/articles/migration.html) is available for upgrading between major
 versions.
 
 ## Docs
@@ -24,7 +24,7 @@ versions.
 You can find more information (including the API reference) in the docs at
 [https://sharphook.tolik.io](https://sharphook.tolik.io). Or if you need a specific version:
 
-- [v5.0.0](https://sharphook.tolik.io/v5.0.0) 
+- [v5.1.0](https://sharphook.tolik.io/v5.1.0) | [v5.0.0](https://sharphook.tolik.io/v5.0.0)
 - [v4.2.1](https://sharphook.tolik.io/v4.2.1) | [v4.2.0](https://sharphook.tolik.io/v4.2.0)
 - [v4.1.0](https://sharphook.tolik.io/v4.1.0)
 - [v4.0.1](https://sharphook.tolik.io/v4.0.1) | [v4.0.0](https://sharphook.tolik.io/v4.0.0)
@@ -74,14 +74,18 @@ the availability of SharpHook on various platforms:
 
 Platform support notes:
 
-- Windows 10/11 is supported. Support for Windows on Arm32 was removed in version 5.0.0 since it was
+- Windows 10/11 is supported. Arm32 is not supported since its support was
 [removed in .NET 5](https://github.com/dotnet/core/blob/main/release-notes/5.0/5.0-supported-os.md).
 
-- macOS 10.15+ is supported. Starting with version 5.0.0, Mac Catalyst is also supported (13.1+).
+- macOS 10.15+ is supported. Starting with version 5.0.0, Mac Catalyst is also supported (13.1+). macOS requires that
+the accessibility API be enabled for the application if it wants to create a global hook.
 
 - Linux distributions supported by .NET are supported by SharpHook. Linux on x86 is
 [not supported](https://github.com/dotnet/runtime/issues/7335) by .NET itself. Only X11 is supported - Wayland support
 [may be coming](https://github.com/kwhat/libuiohook/issues/100), but it's not yet here.
+
+More info on OS support can be found in
+[an article on OS-specific constraints](https://sharphook.tolik.io/v5.1.0/articles/os-constraints.html).
 
 ## Usage
 
@@ -94,11 +98,6 @@ In general, you don't need to use the native methods directly. Instead, use the 
 provided by SharpHook. However, you should still read this section to know how the high-level features work under
 the hood.
 
-If you want to use the low-level functionality, you don't need to use the `UioHook` class directly. Instead you can use
-interfaces in the `SharpHook.Providers` namespace. The methods in those interfaces are the same as in the `UioHook`
-class. `SharpHook.Providers.UioHookProvider` implements all of these interfaces and simply calls the corresponding
-methods in `UioHook`. This should be done to decouple your code from `UioHook` and make testing easier.
-
 `UioHook` contains the following methods for working with the global hook:
 
 - `SetDispatchProc` - sets the function which will be called when an event is raised by libuiohook.
@@ -107,17 +106,6 @@ methods in `UioHook`. This should be done to decouple your code from `UioHook` a
 
 You have to remember that only one global hook can exist at a time since calling `SetDispatchProc` will override the
 previously set one.
-
-> [!NOTE]
-> On macOS running the global hook requires that the main run-loop is present. libuiohook takes care of it if the hook
-> is run on the main thread. It's also taken care of by UI frameworks since they need an event loop on the main thread
-> to run. But if you're using a global hook in a console app or a background service and want to run it on some thread
-> other than the main one then you should take care of it yourself. You can do that by P/Invoking the native
-> `CFRunLoopRun` function on the main thread.
-
-> [!NOTE]
-> macOS requires that the accessibility API be enabled for the application if it wants to create a global hook.
-> If the accessiblity API is not enabled, then `Run` will fail and return `UioHookResult.ErrorAxApiDisabled`.
 
 Additionally, `UioHook` contains the `PostEvent` method for simulating input events, and the `SetLoggerProc` method for
 setting the log callback.
@@ -128,6 +116,11 @@ e.g. emojis) is supported.
 
 libuiohook also provides functions to get various system properties. The corresponding methods are also present in
 `UioHook`.
+
+If you want to use the low-level functionality, you don't need to use the `UioHook` class directly. Instead you can use
+interfaces in the `SharpHook.Providers` namespace. The methods in those interfaces are the same as in the `UioHook`
+class. `SharpHook.Providers.UioHookProvider` implements all of these interfaces and simply calls the corresponding
+methods in `UioHook`. This should be done to decouple your code from `UioHook` and make testing easier.
 
 ### Global Hooks
 
@@ -310,7 +303,7 @@ using SharpHook.Logging;
 
 // ...
 
-var logSource = LogSource.Register(minLevel: LogLevel.Info);
+var logSource = LogSource.RegisterOrGet(minLevel: LogLevel.Info);
 logSource.MessageLogged += this.OnMessageLogged;
 
 private void OnMessageLogged(object? sender, LogEventArgs e) =>
@@ -334,7 +327,7 @@ using SharpHook.Reactive.Logging;
 
 // ...
 
-var logSource = LogSource.Register(minLevel: LogLevel.Info);
+var logSource = LogSource.RegisterOrGet(minLevel: LogLevel.Info);
 var reactiveLogSource = new ReactiveLogSourceAdapter(logSource);
 reactiveLogSource.MessageLogged.Subscribe(this.OnMessageLogged);
 ```

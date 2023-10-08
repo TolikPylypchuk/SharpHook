@@ -1,6 +1,6 @@
 # About SharpHook
 
-SharpHook. Version 5.0.0. Created by Tolik Pylypchuk.
+SharpHook. Version 5.1.0. Created by Tolik Pylypchuk.
 
 ## Library Status
 
@@ -9,6 +9,17 @@ to its `1.3` branch is considered stable. If you've noticed that this library ha
 rest assured that it's not abandoned! I'm not giving up on this library any time soon.
 
 ## Changelog
+
+### [v5.1.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.1.0) (October 8, 2023)
+
+- Mouse coordinates were fixed for event simulation on Windows with mutliple screens.
+
+- Simulating multiple mouse clicks on macOS was fixed.
+
+- An issue with some events being ignored on Windows was fixed.
+
+- libuiohook was updated to commit
+[2712b31](https://github.com/TolikPylypchuk/libuiohook/tree/2712b31d97833309d9ad5c1df0cb1f11aecaa03e).
 
 ### [v5.0.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.0.0) (August 10, 2023)
 
