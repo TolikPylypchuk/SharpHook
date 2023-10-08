@@ -2,7 +2,7 @@
 
 ## [v5.1.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.1.0) (October 8, 2023)
 
-- Mouse coordinates were fixed for event simulation on Windows with mutliple screens.
+- Mouse coordinates were fixed for event simulation on Windows with multiple screens.
 
 - Simulating multiple mouse clicks on macOS was fixed.
 
