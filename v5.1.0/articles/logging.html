@@ -108,25 +108,19 @@ using SharpHook.Native;
 
 // ...
 
-var logSource = LogSource.Register(minLevel: LogLevel.Info);
+var logSource = LogSource.RegisterOrGet(minLevel: LogLevel.Info);
 logSource.MessageLogged += this.OnMessageLogged;
 
 private void OnMessageLogged(object? sender, LogEventArgs e) =&gt;
     this.logger.Log(this.AdaptLogLevel(e.LogEntry.Level), e.LogEntry.FullText);
 </code></pre>
-<p>You can get an instance of <code>LogSource</code> by using the static <code>Register</code> method.</p>
-<div class="IMPORTANT">
-<h5>Important</h5>
-<p>Always use one instance of <code>LogSource</code> at a time in the entire application since they all must use
-the same static method to set the log callback for libuiohook, so there may only be one callback at a time.</p>
-</div>
+<p>You can get an instance of <code>LogSource</code> by using the static <code>RegisterOrGet</code> method. Subsequent calls to this method will
+return the same registered instance. You can dispose of a log source to stop receiving libuiohook messages. After that
+calling <code>RegisterOrGet</code> will register a new instance.</p>
 <p>The <code>MessageLogged</code> event contains event args of type <code>LogEventArgs</code> which contains just one property of type
 <code>LogEntry</code>. This class contains the actual log message.</p>
 <p>The simplest way to use <code>LogEntry</code> is to use its <code>Level</code> and <code>FullText</code> properties. <code>FullText</code> is created using the log
 message format and arguments so you don't have to do it yourself.</p>
-<p>You can dispose of a log source to stop receiving libuiohook messages. You should keep a reference to an instance of
-<code>LogSource</code> when you use it since it will stop receiving messages when garbage collector deletes it, to avoid memory
-leaks.</p>
 <p>SharpHook.Reactive contains the <code>IReactiveLogSource</code> and its implementation - <code>ReactiveLogSourceAdapter</code>. Here's a
 usage example:</p>
 <pre><code>using SharpHook.Logging;
@@ -135,12 +129,13 @@ using SharpHook.Reactive.Logging;
 
 // ...
 
-var logSource = LogSource.Register(minLevel: LogLevel.Info);
+var logSource = LogSource.RegisterOrGet(minLevel: LogLevel.Info);
 var reactiveLogSource = new ReactiveLogSourceAdapter(logSource);
 reactiveLogSource.MessageLogged.Subscribe(this.OnMessageLogged);
 </code></pre>
 <p><code>IReactiveLogSource</code> is basically the same as <code>ILogSource</code>, but <code>MessageLogged</code> is an observable of <code>LogEntry</code> instead
-of an event. <code>ReactiveLogSourceAdapter</code> adapts an <code>ILogSource</code> to the <code>IReactiveLogSource</code> interface.</p>
+of an event. <code>ReactiveLogSourceAdapter</code> adapts an <code>ILogSource</code> to the <code>IReactiveLogSource</code> interface. A default
+scheduler can be set for the <code>MessageLogged</code> observable.</p>
 <h2 id="using-the-low-level-functionality">Using the Low-Level Functionality</h2>
 <p>The logging functionality works by using <code>UioHook.SetLoggerProc</code>. This method sets the log callback - a delegate of
 type <code>LoggerProc</code>, which will be called to log the messages of libuiohook. <code>LoggerProc</code> receives the log level, a
@@ -164,13 +159,6 @@ arguments. It then parses the log message and the log format and extracts the ar
     // Handle the log entry instead of the native format and arguments
 }
 </code></pre>
-<div class="NOTE">
-<h5>Note</h5>
-<p>Since <code>LogEntryParser</code> uses the C runtime, it requires the Visual C++ Redistributable package on Windows, unlike the
-rest of SharpHook. If you don't want your app to be dependent on this package, then you can use the <code>EmptyLogSource</code>
-class instead of <code>LogSource</code> in release builds of your app. <code>EmptyLogSource</code> implements <code>ILogSource</code>, but never raises
-the <code>MessageLogged</code> event and doesn't subscribe to libuiohook logs.</p>
-</div>
 <h2 id="advanced-usage">Advanced Usage</h2>
 <p>If you use structured logging then you may want to use the message format and arguments directly, instead of using the
 formatted result. <code>LogEntry</code> contains properties which can help you with that:</p>

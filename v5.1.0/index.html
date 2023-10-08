@@ -93,8 +93,8 @@
 .NET. It is a wrapper of <a href="https://github.com/TolikPylypchuk/libuiohook">libuiohook</a> and provides direct access to its
 features as well as higher-level types to work with it.</p>
 <h2 id="installation">Installation</h2>
-<pre><code>dotnet add package SharpHook --version 5.0.0
-dotnet add package SharpHook.Reactive --version 5.0.0
+<pre><code>dotnet add package SharpHook --version 5.1.0
+dotnet add package SharpHook.Reactive --version 5.1.0
 </code></pre>
 <h2 id="supported-platforms">Supported Platforms</h2>
 <p>SharpHook targets .NET 6+, .NET Framework 4.6.2+, and .NET Standard 2.0. The following table describes
@@ -136,7 +136,8 @@ the availability of SharpHook on various platforms:</p>
 <li><p>Windows 10/11 is supported. Support for Windows on Arm32 was removed in version 5.0.0 since it was
 <a href="https://github.com/dotnet/core/blob/main/release-notes/5.0/5.0-supported-os.md">removed in .NET 5</a>.</p>
 </li>
-<li><p>macOS 10.15+ is supported. Starting with version 5.0.0, Mac Catalyst is also supported (13.1+).</p>
+<li><p>macOS 10.15+ is supported. Starting with version 5.0.0, Mac Catalyst is also supported (13.1+). macOS requires that
+the accessibility API be enabled for the application if it wants to create a global hook.</p>
 </li>
 <li><p>Linux distributions supported by .NET are supported by SharpHook. Linux on x86 is
 <a href="https://github.com/dotnet/runtime/issues/7335">not supported</a> by .NET itself. Only X11 is supported - Wayland support
