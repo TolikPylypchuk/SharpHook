@@ -99,11 +99,11 @@ the problems won't be fixed.</p>
 <h3 id="visual-c-redistributable">Visual C++ Redistributable</h3>
 <p>The libuiohook build used by SharpHook on Windows is statically linked to the C runtime which means that client apps
 don't need the Visual C++ Redistributable package.</p>
-<p>An exception is the logging functionality - it uses the <code>vsprintf</code> function from the C runtime. Since <code>LogEntryParser</code>
-uses the C runtime, it requires the Visual C++ Redistributable package on Windows, unlike the rest of SharpHook. If you
-don't want your app to be dependent on this package, then you can use the <code>EmptyLogSource</code> class instead of <code>LogSource</code>
-in release builds of your app. <code>EmptyLogSource</code> implements <code>ILogSource</code>, but never raises the <code>MessageLogged</code> event and
-doesn't subscribe to libuiohook logs.</p>
+<p>An exception is the logging functionality - <code>LogEntryParser</code> uses the <code>vsprintf</code> function from the C runtime, and as
+such, it requires the Visual C++ Redistributable package on Windows, unlike the rest of SharpHook. If you don't want
+your app to be dependent on this package, then you can use the <code>EmptyLogSource</code> class instead of <code>LogSource</code> in release
+builds of your app. <code>EmptyLogSource</code> implements <code>ILogSource</code>, but never raises the <code>MessageLogged</code> event and doesn't
+subscribe to libuiohook logs.</p>
 <h3 id="dpi-awareness">DPI Awareness</h3>
 <p>An application manifest is required on Windows to enable DPI awareness for your app. If it's not enabled then mouse
 coordinates will be wrong on high-DPI screens. You can look at the sample app in the SharpHook repository to see the
