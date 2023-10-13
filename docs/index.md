@@ -7,8 +7,8 @@ features as well as higher-level types to work with it.
 ## Installation
 
 ```
-dotnet add package SharpHook --version 5.1.0
-dotnet add package SharpHook.Reactive --version 5.1.0
+dotnet add package SharpHook --version 5.1.1
+dotnet add package SharpHook.Reactive --version 5.1.1
 ```
 
 ## Supported Platforms
@@ -61,5 +61,4 @@ the accessibility API be enabled for the application if it wants to create a glo
 [not supported](https://github.com/dotnet/runtime/issues/7335) by .NET itself. Only X11 is supported - Wayland support
 [may be coming](https://github.com/kwhat/libuiohook/issues/100), but it's not yet here.
 
-More info on OS support can be found in
-[an article on OS-specific constraints](https://sharphook.tolik.io/v5.1.0/articles/os-constraints.html).
+More info on OS support can be found in [an article on OS-specific constraints](articles/os-constraints.md).

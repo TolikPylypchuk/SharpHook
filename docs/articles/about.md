@@ -1,6 +1,6 @@
 # About SharpHook
 
-SharpHook. Version 5.1.0. Created by Tolik Pylypchuk.
+SharpHook. Version 5.1.1. Created by Tolik Pylypchuk.
 
 ## Library Status
 
@@ -10,6 +10,13 @@ rest assured that it's not abandoned! I'm not giving up on this library any time
 
 ## Changelog
 
+### [v5.1.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.1.1) (October 13, 2023)
+
+- An issue with key events not being simulated on Linux without a running global hook was fixed.
+
+- libuiohook was updated to commit
+[a8b6506](https://github.com/TolikPylypchuk/libuiohook/tree/a8b65064bee6f0e409058be3e4da3811868e6da0).
+
 ### [v5.1.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.1.0) (October 8, 2023)
 
 - Mouse coordinates were fixed for event simulation on Windows with multiple screens.
@@ -17,6 +24,8 @@ rest assured that it's not abandoned! I'm not giving up on this library any time
 - Simulating multiple mouse clicks on macOS was fixed.
 
 - An issue with some events being ignored on Windows was fixed.
+
+- Reactive log source adapter can now accept a default scheduler.
 
 - libuiohook was updated to commit
 [2712b31](https://github.com/TolikPylypchuk/libuiohook/tree/2712b31d97833309d9ad5c1df0cb1f11aecaa03e).
