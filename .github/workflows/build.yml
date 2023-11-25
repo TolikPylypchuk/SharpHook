@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 env:
-  SHARPHOOK_VERSION: v5.1.1
+  SHARPHOOK_VERSION: v5.1.2
   DOTNET_VERSION: 7.0.x
 
 jobs:
