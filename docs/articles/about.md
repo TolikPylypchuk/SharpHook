@@ -1,6 +1,6 @@
 # About SharpHook
 
-SharpHook. Version 5.1.1. Created by Tolik Pylypchuk.
+SharpHook. Version 5.1.2. Created by Tolik Pylypchuk.
 
 ## Library Status
 
@@ -9,6 +9,15 @@ to its `1.3` branch is considered stable. If you've noticed that this library ha
 rest assured that it's not abandoned! I'm not giving up on this library any time soon.
 
 ## Changelog
+
+### [v5.1.2](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.1.2) (November 25, 2023)
+
+- An issue with key events changing the way some applications handle Alt keys on Windows was fixed.
+
+- .NET 8 was added as a target.
+
+- libuiohook was updated to commit
+[9027a77](https://github.com/TolikPylypchuk/libuiohook/tree/9027a77d597da721134d5652d77f293cec76f0b9).
 
 ### [v5.1.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.1.1) (October 13, 2023)
 

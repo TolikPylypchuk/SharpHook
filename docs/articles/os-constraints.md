@@ -6,8 +6,14 @@ This article describes OS-specific constrains and other things that should be no
 
 ### Supported Versions
 
-Only Windows 10 and 11 are supported. SharpHook may work correctly on older versions of Windows, but if it doesn't then
-the problems won't be fixed.
+Only Windows 10 and 11 are supported.
+
+> [!IMPORTANT]
+> If the global hook runs on versions of Windows older than Windows 10 1607, then it will destroy dead keys rendering
+> them unusable. This is because it uses the
+> [`ToUnicodeEx`](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-tounicodeex) function to
+> determine which characters are typed by key presses, and before Windows 10 1607 this function changed the keyboard
+> state.
 
 ### Supported Architectures
 

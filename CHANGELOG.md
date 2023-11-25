@@ -1,5 +1,14 @@
 # SharpHook Changelog
 
+## [v5.1.2](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.1.2) (November 25, 2023)
+
+- An issue with key events changing the way some applications handle Alt keys on Windows was fixed.
+
+- .NET 8 was added as a target.
+
+- libuiohook was updated to commit
+[9027a77](https://github.com/TolikPylypchuk/libuiohook/tree/9027a77d597da721134d5652d77f293cec76f0b9).
+
 ## [v5.1.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.1.1) (October 13, 2023)
 
 - An issue with key events not being simulated on Linux without a running global hook was fixed.

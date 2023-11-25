@@ -7,8 +7,8 @@ features as well as higher-level types to work with it.
 ## Installation
 
 ```
-dotnet add package SharpHook --version 5.1.1
-dotnet add package SharpHook.Reactive --version 5.1.1
+dotnet add package SharpHook --version 5.1.2
+dotnet add package SharpHook.Reactive --version 5.1.2
 ```
 
 ## Supported Platforms
@@ -54,7 +54,7 @@ Platform support notes:
 - Windows 10/11 is supported. Support for Windows on Arm32 was removed in version 5.0.0 since it was
 [removed in .NET 5](https://github.com/dotnet/core/blob/main/release-notes/5.0/5.0-supported-os.md).
 
-- macOS 10.15+ is supported. Starting with version 5.0.0, Mac Catalyst is also supported (13.1+). macOS requires that
+- macOS 10.15+ is supported. Starting with version 5, Mac Catalyst is also supported (13.1+). macOS requires that
 the accessibility API be enabled for the application if it wants to create a global hook.
 
 - Linux distributions supported by .NET are supported by SharpHook. Linux on x86 is
