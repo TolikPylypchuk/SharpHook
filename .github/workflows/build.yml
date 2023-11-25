@@ -177,8 +177,9 @@ jobs:
           " > /etc/apt/sources.list'
           sudo dpkg --add-architecture armhf
           sudo apt update -mqy
-          sudo apt install -qy \
+          sudo apt install -qy --allow-downgrades \
             binutils-arm-linux-gnueabihf \
+            libgcc-s1=12.3.0-1ubuntu1~22.04 \
             gcc-arm-linux-gnueabihf
           sudo apt install -qy \
             libx11-dev:armhf \
@@ -237,8 +238,9 @@ jobs:
           " > /etc/apt/sources.list'
           sudo dpkg --add-architecture arm64
           sudo apt update -mqy
-          sudo apt install -qy \
+          sudo apt install -qyf --allow-downgrades \
             binutils-aarch64-linux-gnu \
+            libgcc-s1=12.3.0-1ubuntu1~22.04 \
             gcc-aarch64-linux-gnu
           sudo apt install -qy \
             libx11-dev:arm64 \
