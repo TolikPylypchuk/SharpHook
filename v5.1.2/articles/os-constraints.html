@@ -89,8 +89,15 @@
 <p>This article describes OS-specific constrains and other things that should be noted about OS support.</p>
 <h2 id="windows">Windows</h2>
 <h3 id="supported-versions">Supported Versions</h3>
-<p>Only Windows 10 and 11 are supported. SharpHook may work correctly on older versions of Windows, but if it doesn't then
-the problems won't be fixed.</p>
+<p>Only Windows 10 and 11 are supported.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>If the global hook runs on versions of Windows older than Windows 10 1607, then it will destroy dead keys rendering
+them unusable. This is because it uses the
+<a href="https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-tounicodeex"><code>ToUnicodeEx</code></a> function to
+determine which characters are typed by key presses, and before Windows 10 1607 this function changed the keyboard
+state.</p>
+</div>
 <h3 id="supported-architectures">Supported Architectures</h3>
 <p>x86, x64, and Arm64 are supported. Arm32 is not supported since its support was dropped in .NET 5.</p>
 <h3 id="visual-c-redistributable">Visual C++ Redistributable</h3>
