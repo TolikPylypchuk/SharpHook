@@ -12,12 +12,12 @@ public sealed class TestProvider :
 {
     private TaskCompletionSource<object?> runCompletionSource = new();
 
-    private readonly List<UioHookEvent> postedEvents = new();
-    private readonly List<string> postedText = new();
+    private readonly List<UioHookEvent> postedEvents = [];
+    private readonly List<string> postedText = [];
 
     private DispatchProc? dispatchProc;
     private IntPtr userData;
-    private ScreenData[] screenInfo = Array.Empty<ScreenData>();
+    private ScreenData[] screenInfo = [];
 
     private Func<EventType, DateTimeOffset> eventDateTime = t => DateTimeOffset.UtcNow;
     private Func<EventType, ModifierMask> eventMask = t => ModifierMask.None;

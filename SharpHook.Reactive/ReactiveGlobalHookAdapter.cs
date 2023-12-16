@@ -24,7 +24,7 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
 
     private readonly Subject<MouseWheelHookEventArgs> mouseWheelSubject = new();
 
-    private readonly CompositeDisposable subscriptions = new();
+    private readonly CompositeDisposable subscriptions = [];
 
     /// <summary>
     /// Initializes a new instance of <see cref="ReactiveGlobalHookAdapter" />.

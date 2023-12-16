@@ -3,6 +3,13 @@ namespace SharpHook.Logging;
 /// <summary>
 /// Represents a log entry from libuiohook.
 /// </summary>
+/// <param name="level">The log level.</param>
+/// <param name="fullText">The full text of the log entry.</param>
+/// <param name="format">The format of the log entry which can be used in <c>String.Format</c>.</param>
+/// <param name="nativeFormat">The native format of the log entry.</param>
+/// <param name="arguments">The arguments of the log entry which can be used in <c>String.Format</c>.</param>
+/// <param name="rawArguments">The arguments as they appear in the entry's full text.</param>
+/// <param name="argumentPlaceholders">The argument placeholders from the native format.</param>
 /// <remarks>
 /// <para>
 /// For simple handling the <see cref="Level" /> and <see cref="FullText" /> properties are anough. For more advanced
@@ -29,79 +36,58 @@ namespace SharpHook.Logging;
 /// <seealso cref="LogEventArgs" />
 /// <seealso cref="LogEntryParser" />
 [ExcludeFromCodeCoverage]
-public sealed class LogEntry : IEquatable<LogEntry>
+public sealed class LogEntry(
+    LogLevel level,
+    string fullText,
+    string format,
+    string nativeFormat,
+    IReadOnlyList<object> arguments,
+    IReadOnlyList<string> rawArguments,
+    IReadOnlyList<string> argumentPlaceholders) : IEquatable<LogEntry>
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="LogEntry" /> class.
-    /// </summary>
-    /// <param name="level">The log level.</param>
-    /// <param name="fullText">The full text of the log entry.</param>
-    /// <param name="format">The format of the log entry which can be used in <c>String.Format</c>.</param>
-    /// <param name="nativeFormat">The native format of the log entry.</param>
-    /// <param name="arguments">The arguments of the log entry which can be used in <c>String.Format</c>.</param>
-    /// <param name="rawArguments">The arguments as they appear in the entry's full text.</param>
-    /// <param name="argumentPlaceholders">The argument placeholders from the native format.</param>
-    public LogEntry(
-        LogLevel level,
-        string fullText,
-        string format,
-        string nativeFormat,
-        IReadOnlyList<object> arguments,
-        IReadOnlyList<string> rawArguments,
-        IReadOnlyList<string> argumentPlaceholders)
-    {
-        this.Level = level;
-        this.FullText = fullText;
-        this.Format = format;
-        this.NativeFormat = nativeFormat;
-        this.Arguments = arguments;
-        this.RawArguments = rawArguments;
-        this.ArgumentPlaceholders = argumentPlaceholders;
-    }
-
     /// <summary>
     /// Gets the level of the current log entry.
     /// </summary>
     /// <value>The level of the current log entry.</value>
-    public LogLevel Level;
+    public LogLevel Level = level;
 
     /// <summary>
     /// Gets the full text of the current log entry.
     /// </summary>
     /// <value>The full text of the current log entry.</value>
-    public string FullText { get; }
+    public string FullText { get; } = fullText;
 
     /// <summary>
     /// Gets the format of the current log entry.
     /// </summary>
     /// <value>The format of the current log entry.</value>
-    public string Format { get; }
+    public string Format { get; } = format;
 
     /// <summary>
     /// Gets the native format of the current log entry, as defined in libuiohook.
     /// </summary>
     /// <value>The native format of the current log entry.</value>
-    public string NativeFormat { get; }
+    public string NativeFormat { get; } = nativeFormat;
 
     /// <summary>
     /// Gets the arguments of the current log entry.
     /// </summary>
     /// <value>The arguments of the current log entry.</value>
     /// <remarks>The function and line are the first two arguments of the log entry.</remarks>
-    public IReadOnlyList<object> Arguments { get; }
+    public IReadOnlyList<object> Arguments { get; } = arguments;
 
     /// <summary>
     /// Gets the arguments of the current log entry as they appear in entry's full text.
     /// </summary>
     /// <value>The arguments of the current log entry as they appear in entry's full text.</value>
     /// <remarks>The function and line are the first two arguments of the log entry.</remarks>
-    public IReadOnlyList<string> RawArguments { get; }
+    public IReadOnlyList<string> RawArguments { get; } = rawArguments;
 
     /// <summary>
     /// Gets the argument placeholders from the native format.
     /// </summary>
     /// <value>The argument placeholders from the native format.</value>
-    public IReadOnlyList<string> ArgumentPlaceholders { get; }
+    public IReadOnlyList<string> ArgumentPlaceholders { get; } = argumentPlaceholders;
 
     /// <summary>
     /// Gets the libuiohook function which called the logger.

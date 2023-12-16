@@ -29,12 +29,13 @@ public sealed class Generators
         from type in Gen.Elements(EventType.HookEnabled, EventType.HookDisabled)
         from time in Timestamp
         from mask in Arb.Generate<ModifierMask>()
+        from isSimulated in Arb.Generate<bool>()
         select new UioHookEvent()
         {
             Type = type,
             Time = time,
             Mask = mask,
-            Reserved = EventReservedValueMask.None
+            Reserved = isSimulated ? EventReservedValueMask.SimulatedEvent : EventReservedValueMask.None
         };
 
     private static Gen<UioHookEvent> KeyboardEvents =>

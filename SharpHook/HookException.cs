@@ -3,7 +3,7 @@ namespace SharpHook;
 using System.Runtime.Serialization;
 
 /// <summary>
-/// Represents an exception related to the global hook.
+/// Represents an exception related to global hooks.
 /// </summary>
 [Serializable]
 [ExcludeFromCodeCoverage]
@@ -72,7 +72,8 @@ public sealed class HookException : Exception
 #if NET8_0_OR_GREATER
     [Obsolete(
         "This API supports obsolete formatter-based serialization. " +
-        "It should not be called or extended by application code.")]
+        "It should not be called or extended by application code.",
+        DiagnosticId = "SYSLIB0051")]
 #endif
     private HookException(SerializationInfo info, StreamingContext context)
         : base(info, context) =>
@@ -87,7 +88,8 @@ public sealed class HookException : Exception
 #if NET8_0_OR_GREATER
     [Obsolete(
         "This API supports obsolete formatter-based serialization. " +
-        "It should not be called or extended by application code.")]
+        "It should not be called or extended by application code.",
+        DiagnosticId = "SYSLIB0051")]
 #endif
     public override void GetObjectData(SerializationInfo info, StreamingContext context)
     {

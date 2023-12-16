@@ -3,22 +3,16 @@ namespace SharpHook.Logging;
 /// <summary>
 /// Event args for logging events.
 /// </summary>
+/// <param name="logEntry">The entry of log event.</param>
 /// <seealso cref="ILogSource" />
 /// <seealso cref="LogSource" />
 /// <seealso cref="Logging.LogEntry" />
 [ExcludeFromCodeCoverage]
-public sealed class LogEventArgs : EventArgs
+public sealed class LogEventArgs(LogEntry logEntry) : EventArgs
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="LogEventArgs" /> class.
-    /// </summary>
-    /// <param name="logEntry">The entry of log event.</param>
-    public LogEventArgs(LogEntry logEntry) =>
-        this.LogEntry = logEntry;
-
     /// <summary>
     /// Gets the entry of the current log event.
     /// </summary>
     /// <value>The entry of the current log event.</value>
-    public LogEntry LogEntry { get; }
+    public LogEntry LogEntry { get; } = logEntry;
 }

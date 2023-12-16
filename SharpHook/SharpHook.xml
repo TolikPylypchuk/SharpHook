@@ -8,6 +8,21 @@
             <summary>
             A keyboard and mouse event simulator which posts events to a simulation provider (libuiohook by default).
             </summary>
+            <param name="simulationProvider">The simulation functionality provider.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="simulationProvider" /> is <see langword="null" />.
+            </exception>
+            <seealso cref="T:SharpHook.Providers.IEventSimulationProvider" />
+            <seealso cref="M:SharpHook.Native.UioHook.PostEvent(SharpHook.Native.UioHookEvent@)" />
+        </member>
+        <member name="M:SharpHook.EventSimulator.#ctor(SharpHook.Providers.IEventSimulationProvider)">
+            <summary>
+            A keyboard and mouse event simulator which posts events to a simulation provider (libuiohook by default).
+            </summary>
+            <param name="simulationProvider">The simulation functionality provider.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="simulationProvider" /> is <see langword="null" />.
+            </exception>
             <seealso cref="T:SharpHook.Providers.IEventSimulationProvider" />
             <seealso cref="M:SharpHook.Native.UioHook.PostEvent(SharpHook.Native.UioHookEvent@)" />
         </member>
@@ -15,15 +30,6 @@
             <summary>
             Initializes a new instance of the <see cref="T:SharpHook.EventSimulator" /> class.
             </summary>
-        </member>
-        <member name="M:SharpHook.EventSimulator.#ctor(SharpHook.Providers.IEventSimulationProvider)">
-            <summary>
-            Initializes a new instance of the <see cref="T:SharpHook.EventSimulator" /> class.
-            </summary>
-            <param name="simulationProvider">The simulation functionality provider.</param>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="simulationProvider" /> is <see langword="null" />.
-            </exception>
         </member>
         <member name="P:SharpHook.EventSimulator.TextSimulationDelayOnX11">
             <summary>
@@ -457,6 +463,7 @@
             <summary>
             A base class for event args related to the global hook.
             </summary>
+            <param name="rawEvent">The raw event data.</param>
             <seealso cref="T:SharpHook.KeyboardHookEventArgs" />
             <seealso cref="T:SharpHook.MouseHookEventArgs" />
             <seealso cref="T:SharpHook.Native.MouseWheelEventData" />
@@ -464,9 +471,13 @@
         </member>
         <member name="M:SharpHook.HookEventArgs.#ctor(SharpHook.Native.UioHookEvent)">
             <summary>
-            Initializes a new instance of the <see cref="T:SharpHook.HookEventArgs" /> class.
+            A base class for event args related to the global hook.
             </summary>
             <param name="rawEvent">The raw event data.</param>
+            <seealso cref="T:SharpHook.KeyboardHookEventArgs" />
+            <seealso cref="T:SharpHook.MouseHookEventArgs" />
+            <seealso cref="T:SharpHook.Native.MouseWheelEventData" />
+            <seealso cref="T:SharpHook.Native.UioHookEvent" />
         </member>
         <member name="P:SharpHook.HookEventArgs.RawEvent">
             <summary>
@@ -479,6 +490,12 @@
             Gets the date and time of the event (in UTC), derived from the event's UNIX timestamp.
             </summary>
             <value>The date and time of the event.</value>
+        </member>
+        <member name="P:SharpHook.HookEventArgs.IsEventSimulated">
+            <summary>
+            Gets the value which indicates whether the event has been simulated.
+            </summary>
+            <value><see langword="true" /> is the event has been simulated. Otherwise, <see langword="false" />.</value>
         </member>
         <member name="P:SharpHook.HookEventArgs.SuppressEvent">
             <summary>
@@ -498,7 +515,7 @@
         </member>
         <member name="T:SharpHook.HookException">
             <summary>
-            Represents an exception related to the global hook.
+            Represents an exception related to global hooks.
             </summary>
         </member>
         <member name="M:SharpHook.HookException.#ctor">
@@ -850,6 +867,7 @@
             <summary>
             Event args for keyboard-related hook events.
             </summary>
+            <param name="rawEvent">The raw event data.</param>
             <seealso cref="T:SharpHook.HookEventArgs" />
             <seealso cref="T:SharpHook.MouseHookEventArgs" />
             <seealso cref="T:SharpHook.MouseWheelHookEventArgs" />
@@ -857,9 +875,13 @@
         </member>
         <member name="M:SharpHook.KeyboardHookEventArgs.#ctor(SharpHook.Native.UioHookEvent)">
             <summary>
-            Initializes a new instance of the <see cref="T:SharpHook.KeyboardHookEventArgs" /> class.
+            Event args for keyboard-related hook events.
             </summary>
             <param name="rawEvent">The raw event data.</param>
+            <seealso cref="T:SharpHook.HookEventArgs" />
+            <seealso cref="T:SharpHook.MouseHookEventArgs" />
+            <seealso cref="T:SharpHook.MouseWheelHookEventArgs" />
+            <seealso cref="T:SharpHook.Native.KeyboardEventData" />
         </member>
         <member name="P:SharpHook.KeyboardHookEventArgs.Data">
             <summary>
@@ -926,6 +948,13 @@
             <summary>
             Represents a log entry from libuiohook.
             </summary>
+            <param name="level">The log level.</param>
+            <param name="fullText">The full text of the log entry.</param>
+            <param name="format">The format of the log entry which can be used in <c>String.Format</c>.</param>
+            <param name="nativeFormat">The native format of the log entry.</param>
+            <param name="arguments">The arguments of the log entry which can be used in <c>String.Format</c>.</param>
+            <param name="rawArguments">The arguments as they appear in the entry's full text.</param>
+            <param name="argumentPlaceholders">The argument placeholders from the native format.</param>
             <remarks>
             <para>
             For simple handling the <see cref="F:SharpHook.Logging.LogEntry.Level" /> and <see cref="P:SharpHook.Logging.LogEntry.FullText" /> properties are anough. For more advanced
@@ -954,7 +983,7 @@
         </member>
         <member name="M:SharpHook.Logging.LogEntry.#ctor(SharpHook.Native.LogLevel,System.String,System.String,System.String,System.Collections.Generic.IReadOnlyList{System.Object},System.Collections.Generic.IReadOnlyList{System.String},System.Collections.Generic.IReadOnlyList{System.String})">
             <summary>
-            Initializes a new instance of the <see cref="T:SharpHook.Logging.LogEntry" /> class.
+            Represents a log entry from libuiohook.
             </summary>
             <param name="level">The log level.</param>
             <param name="fullText">The full text of the log entry.</param>
@@ -963,6 +992,31 @@
             <param name="arguments">The arguments of the log entry which can be used in <c>String.Format</c>.</param>
             <param name="rawArguments">The arguments as they appear in the entry's full text.</param>
             <param name="argumentPlaceholders">The argument placeholders from the native format.</param>
+            <remarks>
+            <para>
+            For simple handling the <see cref="F:SharpHook.Logging.LogEntry.Level" /> and <see cref="P:SharpHook.Logging.LogEntry.FullText" /> properties are anough. For more advanced
+            handling you can use the entries' formats and arguments.
+            </para>
+            <para>
+            Each log entry from libuiohook has the following format:
+            <code>
+            function [line]: message
+            </code>
+            </para>
+            <para>
+            The function and line reference the source code of libuiohook itself, and can be retrieved using the
+            <see cref="P:SharpHook.Logging.LogEntry.Function" /> and <see cref="P:SharpHook.Logging.LogEntry.SourceLine" /> properties. The message can be retrieved by splitting the text
+            by <c>:</c> and getting the trimmed second part.
+            </para>
+            <para>
+            You shouldn't create <see cref="T:SharpHook.Logging.LogEntry" /> instances yourself. Instead, use the <see cref="T:SharpHook.Logging.LogEntryParser" />
+            class to create them in the logging callback.
+            </para>
+            </remarks>
+            <seealso cref="T:SharpHook.Logging.ILogSource" />
+            <seealso cref="T:SharpHook.Logging.LogSource" />
+            <seealso cref="T:SharpHook.Logging.LogEventArgs" />
+            <seealso cref="T:SharpHook.Logging.LogEntryParser" />
         </member>
         <member name="F:SharpHook.Logging.LogEntry.Level">
             <summary>
@@ -1100,15 +1154,19 @@
             <summary>
             Event args for logging events.
             </summary>
+            <param name="logEntry">The entry of log event.</param>
             <seealso cref="T:SharpHook.Logging.ILogSource" />
             <seealso cref="T:SharpHook.Logging.LogSource" />
             <seealso cref="T:SharpHook.Logging.LogEntry" />
         </member>
         <member name="M:SharpHook.Logging.LogEventArgs.#ctor(SharpHook.Logging.LogEntry)">
             <summary>
-            Initializes a new instance of the <see cref="T:SharpHook.Logging.LogEventArgs" /> class.
+            Event args for logging events.
             </summary>
             <param name="logEntry">The entry of log event.</param>
+            <seealso cref="T:SharpHook.Logging.ILogSource" />
+            <seealso cref="T:SharpHook.Logging.LogSource" />
+            <seealso cref="T:SharpHook.Logging.LogEntry" />
         </member>
         <member name="P:SharpHook.Logging.LogEventArgs.LogEntry">
             <summary>
@@ -1227,6 +1285,7 @@
             <summary>
             Event args for mouse-related hook events.
             </summary>
+            <param name="rawEvent">The raw event data.</param>
             <seealso cref="T:SharpHook.HookEventArgs" />
             <seealso cref="T:SharpHook.KeyboardHookEventArgs" />
             <seealso cref="T:SharpHook.MouseWheelHookEventArgs" />
@@ -1234,9 +1293,13 @@
         </member>
         <member name="M:SharpHook.MouseHookEventArgs.#ctor(SharpHook.Native.UioHookEvent)">
             <summary>
-            Initializes a new instance of the <see cref="T:SharpHook.MouseHookEventArgs" /> class.
+            Event args for mouse-related hook events.
             </summary>
             <param name="rawEvent">The raw event data.</param>
+            <seealso cref="T:SharpHook.HookEventArgs" />
+            <seealso cref="T:SharpHook.KeyboardHookEventArgs" />
+            <seealso cref="T:SharpHook.MouseWheelHookEventArgs" />
+            <seealso cref="T:SharpHook.Native.MouseEventData" />
         </member>
         <member name="P:SharpHook.MouseHookEventArgs.Data">
             <summary>
@@ -1248,6 +1311,7 @@
             <summary>
             Event args for mouse wheel-related hook events.
             </summary>
+            <param name="rawEvent">The raw event data.</param>
             <seealso cref="T:SharpHook.HookEventArgs" />
             <seealso cref="T:SharpHook.KeyboardHookEventArgs" />
             <seealso cref="T:SharpHook.MouseHookEventArgs" />
@@ -1255,9 +1319,13 @@
         </member>
         <member name="M:SharpHook.MouseWheelHookEventArgs.#ctor(SharpHook.Native.UioHookEvent)">
             <summary>
-            Initializes a new instance of the <see cref="T:SharpHook.MouseWheelHookEventArgs" /> class.
+            Event args for mouse wheel-related hook events.
             </summary>
             <param name="rawEvent">The raw event data.</param>
+            <seealso cref="T:SharpHook.HookEventArgs" />
+            <seealso cref="T:SharpHook.KeyboardHookEventArgs" />
+            <seealso cref="T:SharpHook.MouseHookEventArgs" />
+            <seealso cref="T:SharpHook.Native.MouseWheelEventData" />
         </member>
         <member name="P:SharpHook.MouseWheelHookEventArgs.Data">
             <summary>
@@ -1290,6 +1358,11 @@
             If this flag is set in the event handler then the event will be suppressed from further propagation.
             </summary>
             <remarks>Suppressing events works only on Windows and macOS.</remarks>
+        </member>
+        <member name="F:SharpHook.Native.EventReservedValueMask.SimulatedEvent">
+            <summary>
+            If this flag is set then the event has been simulated.
+            </summary>
         </member>
         <member name="T:SharpHook.Native.EventType">
             <summary>
@@ -4244,6 +4317,22 @@
             <summary>
             Represents options for <see cref="T:SharpHook.TaskPoolGlobalHook" />.
             </summary>
+            <param name="parallelismLevel">The parallelism level of the event handlers.</param>
+            <param name="runAsyncOnBackgroundThread">
+            <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
+            Otherwise, <see langword="false" />.
+            </param>
+            <seealso cref="T:SharpHook.TaskPoolGlobalHook" />
+        </member>
+        <member name="M:SharpHook.TaskPoolGlobalHookOptions.#ctor(System.Int32,System.Boolean)">
+            <summary>
+            Represents options for <see cref="T:SharpHook.TaskPoolGlobalHook" />.
+            </summary>
+            <param name="parallelismLevel">The parallelism level of the event handlers.</param>
+            <param name="runAsyncOnBackgroundThread">
+            <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
+            Otherwise, <see langword="false" />.
+            </param>
             <seealso cref="T:SharpHook.TaskPoolGlobalHook" />
         </member>
         <member name="F:SharpHook.TaskPoolGlobalHookOptions.Sequential">
@@ -4262,16 +4351,6 @@
             <summary>
             Initializes a new instance of <see cref="T:SharpHook.TaskPoolGlobalHookOptions" />.
             </summary>
-            <param name="runAsyncOnBackgroundThread">
-            <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
-            Otherwise, <see langword="false" />.
-            </param>
-        </member>
-        <member name="M:SharpHook.TaskPoolGlobalHookOptions.#ctor(System.Int32,System.Boolean)">
-            <summary>
-            Initializes a new instance of <see cref="T:SharpHook.TaskPoolGlobalHookOptions" />.
-            </summary>
-            <param name="parallelismLevel">The parallelism level of the event handlers.</param>
             <param name="runAsyncOnBackgroundThread">
             <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
             Otherwise, <see langword="false" />.

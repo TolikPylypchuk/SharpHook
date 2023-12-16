@@ -7,8 +7,8 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
 {
     private TaskCompletionSource<object?> runCompletionSource = new();
 
-    private readonly List<UioHookEvent> simulatedEvents = new();
-    private readonly List<string> simulatedText = new();
+    private readonly List<UioHookEvent> simulatedEvents = [];
+    private readonly List<string> simulatedText = [];
 
     private Func<EventType, DateTimeOffset> eventDateTime = t => DateTimeOffset.UtcNow;
     private Func<EventType, ModifierMask> eventMask = t => ModifierMask.None;

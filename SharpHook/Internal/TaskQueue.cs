@@ -1,14 +1,11 @@
 namespace SharpHook.Internal;
 
 [ExcludeFromCodeCoverage]
-internal sealed class TaskQueue : IDisposable
+internal sealed class TaskQueue(int parallelismLevel) : IDisposable
 {
-    private readonly SemaphoreSlim semaphore;
+    private readonly SemaphoreSlim semaphore = new(parallelismLevel);
 
     private bool disposed = false;
-
-    public TaskQueue(int parallelismLevel) =>
-        this.semaphore = new(parallelismLevel);
 
     public async void Enqueue(Func<Task> taskGenerator)
     {

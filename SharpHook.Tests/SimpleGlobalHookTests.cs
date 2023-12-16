@@ -1,5 +1,3 @@
-using System.Reflection;
-
 namespace SharpHook;
 
 public sealed class SimpleGlobalHookTests

@@ -15,5 +15,10 @@ public enum EventReservedValueMask : ushort
     /// If this flag is set in the event handler then the event will be suppressed from further propagation.
     /// </summary>
     /// <remarks>Suppressing events works only on Windows and macOS.</remarks>
-    SuppressEvent = 1
+    SuppressEvent = 1,
+
+    /// <summary>
+    /// If this flag is set then the event has been simulated.
+    /// </summary>
+    SimulatedEvent = 2
 }

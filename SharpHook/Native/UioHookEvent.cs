@@ -115,12 +115,12 @@ public struct UioHookEvent : IEquatable<UioHookEvent>
             this.Reserved == e.Reserved &&
             this.Type switch
             {
-                EventType.KeyTyped => this.Keyboard == e.Keyboard,
-                EventType.KeyPressed => this.Keyboard == e.Keyboard,
+                EventType.KeyTyped or
+                EventType.KeyPressed or
                 EventType.KeyReleased => this.Keyboard == e.Keyboard,
-                EventType.MouseClicked => this.Mouse == e.Mouse,
-                EventType.MousePressed => this.Mouse == e.Mouse,
-                EventType.MouseReleased => this.Mouse == e.Mouse,
+                EventType.MouseClicked or
+                EventType.MousePressed or
+                EventType.MouseReleased or
                 EventType.MouseMoved => this.Mouse == e.Mouse,
                 EventType.MouseWheel => this.Wheel == e.Wheel,
                 _ => true
