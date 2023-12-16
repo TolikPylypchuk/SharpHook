@@ -15,11 +15,6 @@ In general, you don't need to use the native methods directly. Instead, use the 
 provided by SharpHook. However, you should still read this section to know how the high-level features work under
 the hood.
 
-If you want to use the low-level functionality, you don't need to use the `UioHook` class directly. Instead you can use
-interfaces in the `SharpHook.Providers` namespace. The methods in those interfaces are the same as in the `UioHook`
-class. `SharpHook.Providers.UioHookProvider` implements all of these interfaces and simply calls the corresponding
-methods in `UioHook`. This should be done to decouple your code from `UioHook` and make testing easier.
-
 `UioHook` contains the following methods for working with the global hook:
 
 - `SetDispatchProc` - sets the function which will be called when an event is raised by libuiohook.
@@ -38,6 +33,11 @@ e.g. emojis) is supported.
 
 libuiohook also provides functions to get various system properties. The corresponding methods are also present in
 `UioHook`.
+
+If you want to use the low-level functionality, you don't need to use the `UioHook` class directly. Instead you can use
+interfaces in the `SharpHook.Providers` namespace. The methods in those interfaces are the same as in the `UioHook`
+class. `SharpHook.Providers.UioHookProvider` implements all of these interfaces and simply calls the corresponding
+methods in `UioHook`. This should be done to decouple your code from `UioHook` and make testing easier.
 
 ### Global Hooks
 

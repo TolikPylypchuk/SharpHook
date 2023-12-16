@@ -13,6 +13,10 @@ Sources:
 - X11: `/usr/share/X11/xkb/keycodes/evdev` as defined in Kubuntu 22.04
 - Evdev: `input-event-codes.h` from the Linux source code.
 
+> [!NOTE]
+> Key codes marked with <sup>O</sup> are obsolete since these keys don't exist on modern keyboards. These key codes will
+> most probably be removed in the next major version.
+
 <table>
   <thead>
     <tr>
@@ -27,7 +31,7 @@ Sources:
     <tr>
       <td><code>VcUndefined</code></td>
       <td><em>Undefined</em></td>
-      <td><code>0xFF</code></td>
+      <td><em>Undefined</em></td>
       <td><em>Undefined</em></td>
       <td><em>Undefined</em></td>
     </tr>
@@ -215,70 +219,70 @@ Sources:
     </tr>
     <tr>
       <td><code>Vc0</code></td>
-      <td><code>0x30</code></td>
+      <td><code>0x30</code>, <code>'0'</code></td>
       <td><code>kVK_ANSI_0</code></td>
       <td><code>AE10</code></td>
       <td><code>KEY_0</code></td>
     </tr>
     <tr>
       <td><code>Vc1</code></td>
-      <td><code>0x31</code></td>
+      <td><code>0x31</code>, <code>'1'</code></td>
       <td><code>kVK_ANSI_1</code></td>
       <td><code>AE01</code></td>
       <td><code>KEY_1</code></td>
     </tr>
     <tr>
       <td><code>Vc2</code></td>
-      <td><code>0x32</code></td>
+      <td><code>0x32</code>, <code>'2'</code></td>
       <td><code>kVK_ANSI_2</code></td>
       <td><code>AE02</code></td>
       <td><code>KEY_2</code></td>
     </tr>
     <tr>
       <td><code>Vc3</code></td>
-      <td><code>0x33</code></td>
+      <td><code>0x33</code>, <code>'3'</code></td>
       <td><code>kVK_ANSI_3</code></td>
       <td><code>AE03</code></td>
       <td><code>KEY_3</code></td>
     </tr>
     <tr>
       <td><code>Vc4</code></td>
-      <td><code>0x34</code></td>
+      <td><code>0x34</code>, <code>'4'</code></td>
       <td><code>kVK_ANSI_4</code></td>
       <td><code>AE04</code></td>
       <td><code>KEY_4</code></td>
     </tr>
     <tr>
       <td><code>Vc5</code></td>
-      <td><code>0x35</code></td>
+      <td><code>0x35</code>, <code>'5'</code></td>
       <td><code>kVK_ANSI_5</code></td>
       <td><code>AE05</code></td>
       <td><code>KEY_5</code></td>
     </tr>
     <tr>
       <td><code>Vc6</code></td>
-      <td><code>0x36</code></td>
+      <td><code>0x36</code>, <code>'6'</code></td>
       <td><code>kVK_ANSI_6</code></td>
       <td><code>AE06</code></td>
       <td><code>KEY_6</code></td>
     </tr>
     <tr>
       <td><code>Vc7</code></td>
-      <td><code>0x37</code></td>
+      <td><code>0x37</code>, <code>'7'</code></td>
       <td><code>kVK_ANSI_7</code></td>
       <td><code>AE07</code></td>
       <td><code>KEY_7</code></td>
     </tr>
     <tr>
       <td><code>Vc8</code></td>
-      <td><code>0x38</code></td>
+      <td><code>0x38</code>, <code>'8'</code></td>
       <td><code>kVK_ANSI_8</code></td>
       <td><code>AE08</code></td>
       <td><code>KEY_8</code></td>
     </tr>
     <tr>
       <td><code>Vc9</code></td>
-      <td><code>0x39</code></td>
+      <td><code>0x39</code>, <code>'9'</code></td>
       <td><code>kVK_ANSI_9</code></td>
       <td><code>AE09</code></td>
       <td><code>KEY_9</code></td>
@@ -320,182 +324,182 @@ Sources:
     </tr>
     <tr>
       <td><code>VcA</code></td>
-      <td><code>0x41</code></td>
+      <td><code>0x41</code>, <code>'A'</code></td>
       <td><code>kVK_ANSI_A</code></td>
       <td><code>AC01</code></td>
       <td><code>KEY_A</code></td>
     </tr>
     <tr>
       <td><code>VcB</code></td>
-      <td><code>0x42</code></td>
+      <td><code>0x42</code>, <code>'B'</code></td>
       <td><code>kVK_ANSI_B</code></td>
       <td><code>AB05</code></td>
       <td><code>KEY_B</code></td>
     </tr>
     <tr>
       <td><code>VcC</code></td>
-      <td><code>0x43</code></td>
+      <td><code>0x43</code>, <code>'C'</code></td>
       <td><code>kVK_ANSI_C</code></td>
       <td><code>AB03</code></td>
       <td><code>KEY_C</code></td>
     </tr>
     <tr>
       <td><code>VcD</code></td>
-      <td><code>0x44</code></td>
+      <td><code>0x44</code>, <code>'D'</code></td>
       <td><code>kVK_ANSI_D</code></td>
       <td><code>AC03</code></td>
       <td><code>KEY_D</code></td>
     </tr>
     <tr>
       <td><code>VcE</code></td>
-      <td><code>0x45</code></td>
+      <td><code>0x45</code>, <code>'E'</code></td>
       <td><code>kVK_ANSI_E</code></td>
       <td><code>AD03</code></td>
       <td><code>KEY_E</code></td>
     </tr>
     <tr>
       <td><code>VcF</code></td>
-      <td><code>0x46</code></td>
+      <td><code>0x46</code>, <code>'F'</code></td>
       <td><code>kVK_ANSI_F</code></td>
       <td><code>AC04</code></td>
       <td><code>KEY_F</code></td>
     </tr>
     <tr>
       <td><code>VcG</code></td>
-      <td><code>0x47</code></td>
+      <td><code>0x47</code>, <code>'G'</code></td>
       <td><code>kVK_ANSI_G</code></td>
       <td><code>AC05</code></td>
       <td><code>KEY_G</code></td>
     </tr>
     <tr>
       <td><code>VcH</code></td>
-      <td><code>0x48</code></td>
+      <td><code>0x48</code>, <code>'H'</code></td>
       <td><code>kVK_ANSI_H</code></td>
       <td><code>AC06</code></td>
       <td><code>KEY_H</code></td>
     </tr>
     <tr>
       <td><code>VcI</code></td>
-      <td><code>0x49</code></td>
+      <td><code>0x49</code>, <code>'I'</code></td>
       <td><code>kVK_ANSI_I</code></td>
       <td><code>AD08</code></td>
       <td><code>KEY_I</code></td>
     </tr>
     <tr>
       <td><code>VcJ</code></td>
-      <td><code>0x4A</code></td>
+      <td><code>0x4A</code>, <code>'J'</code></td>
       <td><code>kVK_ANSI_J</code></td>
       <td><code>AC07</code></td>
       <td><code>KEY_J</code></td>
     </tr>
     <tr>
       <td><code>VcK</code></td>
-      <td><code>0x4B</code></td>
+      <td><code>0x4B</code>, <code>'K'</code></td>
       <td><code>kVK_ANSI_K</code></td>
       <td><code>AC08</code></td>
       <td><code>KEY_K</code></td>
     </tr>
     <tr>
       <td><code>VcL</code></td>
-      <td><code>0x4C</code></td>
+      <td><code>0x4C</code>, <code>'L'</code></td>
       <td><code>kVK_ANSI_L</code></td>
       <td><code>AC09</code></td>
       <td><code>KEY_L</code></td>
     </tr>
     <tr>
       <td><code>VcM</code></td>
-      <td><code>0x4D</code></td>
+      <td><code>0x4D</code>, <code>'M'</code></td>
       <td><code>kVK_ANSI_M</code></td>
       <td><code>AB07</code></td>
       <td><code>KEY_M</code></td>
     </tr>
     <tr>
       <td><code>VcN</code></td>
-      <td><code>0x4E</code></td>
+      <td><code>0x4E</code>, <code>'N'</code></td>
       <td><code>kVK_ANSI_N</code></td>
       <td><code>AB06</code></td>
       <td><code>KEY_N</code></td>
     </tr>
     <tr>
       <td><code>VcO</code></td>
-      <td><code>0x4F</code></td>
+      <td><code>0x4F</code>, <code>'O'</code></td>
       <td><code>kVK_ANSI_O</code></td>
       <td><code>AD09</code></td>
       <td><code>KEY_O</code></td>
     </tr>
     <tr>
       <td><code>VcP</code></td>
-      <td><code>0x50</code></td>
+      <td><code>0x50</code>, <code>'P'</code></td>
       <td><code>kVK_ANSI_P</code></td>
       <td><code>AD10</code></td>
       <td><code>KEY_P</code></td>
     </tr>
     <tr>
       <td><code>VcQ</code></td>
-      <td><code>0x51</code></td>
+      <td><code>0x51</code>, <code>'Q'</code></td>
       <td><code>kVK_ANSI_Q</code></td>
       <td><code>AD01</code></td>
       <td><code>KEY_Q</code></td>
     </tr>
     <tr>
       <td><code>VcR</code></td>
-      <td><code>0x52</code></td>
+      <td><code>0x52</code>, <code>'R'</code></td>
       <td><code>kVK_ANSI_R</code></td>
       <td><code>AD04</code></td>
       <td><code>KEY_R</code></td>
     </tr>
     <tr>
       <td><code>VcS</code></td>
-      <td><code>0x53</code></td>
+      <td><code>0x53</code>, <code>'S'</code></td>
       <td><code>kVK_ANSI_S</code></td>
       <td><code>AC02</code></td>
       <td><code>KEY_S</code></td>
     </tr>
     <tr>
       <td><code>VcT</code></td>
-      <td><code>0x54</code></td>
+      <td><code>0x54</code>, <code>'T'</code></td>
       <td><code>kVK_ANSI_T</code></td>
       <td><code>AD05</code></td>
       <td><code>KEY_T</code></td>
     </tr>
     <tr>
       <td><code>VcU</code></td>
-      <td><code>0x55</code></td>
+      <td><code>0x55</code>, <code>'U'</code></td>
       <td><code>kVK_ANSI_U</code></td>
       <td><code>AD07</code></td>
       <td><code>KEY_U</code></td>
     </tr>
     <tr>
       <td><code>VcV</code></td>
-      <td><code>0x56</code></td>
+      <td><code>0x56</code>, <code>'V'</code></td>
       <td><code>kVK_ANSI_V</code></td>
       <td><code>AB04</code></td>
       <td><code>KEY_V</code></td>
     </tr>
     <tr>
       <td><code>VcW</code></td>
-      <td><code>0x57</code></td>
+      <td><code>0x57</code>, <code>'W'</code></td>
       <td><code>kVK_ANSI_W</code></td>
       <td><code>AD02</code></td>
       <td><code>KEY_W</code></td>
     </tr>
     <tr>
       <td><code>VcX</code></td>
-      <td><code>0x58</code></td>
+      <td><code>0x58</code>, <code>'X'</code></td>
       <td><code>kVK_ANSI_X</code></td>
       <td><code>AB02</code></td>
       <td><code>KEY_X</code></td>
     </tr>
     <tr>
       <td><code>VcY</code></td>
-      <td><code>0x59</code></td>
+      <td><code>0x59</code>, <code>'Y'</code></td>
       <td><code>kVK_ANSI_Y</code></td>
       <td><code>AD06</code></td>
       <td><code>KEY_Y</code></td>
     </tr>
     <tr>
       <td><code>VcZ</code></td>
-      <td><code>0x5A</code></td>
+      <td><code>0x5A</code>, <code>'Z'</code></td>
       <td><code>kVK_ANSI_Z</code></td>
       <td><code>AB01</code></td>
       <td><code>KEY_Z</code></td>
@@ -592,21 +596,21 @@ Sources:
       <td><code>KEY_SYSRQ</code></td>
     </tr>
     <tr>
-      <td><code>VcPrint</code></td>
+      <td><code>VcPrint</code> <sup>O</sup></td>
       <td><code>VK_PRINT</code></td>
       <td>-</td>
       <td><code>I218</code></td>
       <td><code>KEY_PRINT</code></td>
     </tr>
     <tr>
-      <td><code>VcSelect</code></td>
+      <td><code>VcSelect</code> <sup>O</sup></td>
       <td><code>VK_SELECT</code></td>
       <td>-</td>
       <td>-</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code>VcExecute</code></td>
+      <td><code>VcExecute</code> <sup>O</sup></td>
       <td><code>VK_EXECUTE</code></td>
       <td>-</td>
       <td>-</td>
@@ -781,7 +785,7 @@ Sources:
       <td><code>KEY_KPCOMMA</code></td>
     </tr>
     <tr>
-      <td><code>VcNumPadPlusMinus</code></td>
+      <td><code>VcNumPadPlusMinus</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I126</code></td>
@@ -858,14 +862,14 @@ Sources:
       <td><code>KEY_KP9</code></td>
     </tr>
     <tr>
-      <td><code>VcNumPadOpenParenthesis</code></td>
+      <td><code>VcNumPadOpenParenthesis</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I187</code></td>
       <td><code>KEY_KPLEFTPAREN</code></td>
     </tr>
     <tr>
-      <td><code>VcNumPadCloseParenthesis</code></td>
+      <td><code>VcNumPadCloseParenthesis</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I188</code></td>
@@ -963,14 +967,14 @@ Sources:
       <td><code>KEY_SLEEP</code></td>
     </tr>
     <tr>
-      <td><code>VcWake</code></td>
+      <td><code>VcWake</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I151</code></td>
       <td><code>KEY_WAKEUP</code></td>
     </tr>
     <tr>
-      <td><code>VcMedia</code></td>
+      <td><code>VcMedia</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I234</code></td>
@@ -1019,28 +1023,28 @@ Sources:
       <td><code>KEY_EJECTCD</code></td>
     </tr>
     <tr>
-      <td><code>VcMediaClose</code></td>
+      <td><code>VcMediaClose</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I168</code></td>
       <td><code>KEY_CLOSECD</code></td>
     </tr>
     <tr>
-      <td><code>VcMediaEjectClose</code></td>
+      <td><code>VcMediaEjectClose</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I170</code></td>
       <td><code>KEY_EJECTCLOSECD</code></td>
     </tr>
     <tr>
-      <td><code>VcMediaRecord</code></td>
+      <td><code>VcMediaRecord</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I175</code></td>
       <td><code>KEY_RECORD</code></td>
     </tr>
     <tr>
-      <td><code>VcMediaRewind</code></td>
+      <td><code>VcMediaRewind</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I176</code></td>
@@ -1068,56 +1072,56 @@ Sources:
       <td><code>KEY_VOLUMEUP</code></td>
     </tr>
     <tr>
-      <td><code>VcAttn</code></td>
+      <td><code>VcAttn</code> <sup>O</sup></td>
       <td><code>VK_ATTN</code></td>
       <td>-</td>
       <td>-</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code>VcCrSel</code></td>
+      <td><code>VcCrSel</code> <sup>O</sup></td>
       <td><code>VK_CRSEL</code></td>
       <td>-</td>
       <td>-</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code>VcExSel</code></td>
+      <td><code>VcExSel</code> <sup>O</sup></td>
       <td><code>VK_EXSEL</code></td>
       <td>-</td>
       <td>-</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code>VcEraseEof</code></td>
+      <td><code>VcEraseEof</code> <sup>O</sup></td>
       <td><code>VK_EREOF</code></td>
       <td>-</td>
       <td>-</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code>VcPlay</code></td>
+      <td><code>VcPlay</code> <sup>O</sup></td>
       <td><code>VK_PLAY</code></td>
       <td>-</td>
       <td><code>I215</code></td>
       <td><code>KEY_PLAY</code></td>
     </tr>
     <tr>
-      <td><code>VcZoom</code></td>
+      <td><code>VcZoom</code> <sup>O</sup></td>
       <td><code>VK_ZOOM</code></td>
       <td>-</td>
       <td>-</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code>VcNoName</code></td>
+      <td><code>VcNoName</code> <sup>O</sup></td>
       <td><code>VK_NONAME</code></td>
       <td>-</td>
       <td>-</td>
       <td>-</td>
     </tr>
     <tr>
-      <td><code>VcPa1</code></td>
+      <td><code>VcPa1</code> <sup>O</sup></td>
       <td><code>VK_PA1</code></td>
       <td>-</td>
       <td>-</td>
@@ -1362,518 +1366,518 @@ Sources:
       <td><code>KEY_KPJPCOMMA</code></td>
     </tr>
     <tr>
-      <td><code>VcStop</code></td>
+      <td><code>VcStop</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>STOP</code> and <code>I136</code></td>
       <td><code>KEY_STOP</code></td>
     </tr>
     <tr>
-      <td><code>VcProps</code></td>
+      <td><code>VcProps</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>PROP</code> and <code>I138</code></td>
       <td><code>KEY_PROPS</code></td>
     </tr>
     <tr>
-      <td><code>VcFront</code></td>
+      <td><code>VcFront</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>FRNT</code> and <code>I140</code></td>
       <td><code>KEY_FRONT</code></td>
     </tr>
     <tr>
-      <td><code>VcOpen</code></td>
+      <td><code>VcOpen</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>OPEN</code> and <code>I142</code></td>
       <td><code>KEY_OPEN</code></td>
     </tr>
     <tr>
-      <td><code>VcFind</code></td>
+      <td><code>VcFind</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>FIND</code> and <code>I144</code></td>
       <td><code>KEY_FIND</code></td>
     </tr>
     <tr>
-      <td><code>VcAgain</code></td>
+      <td><code>VcAgain</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>AGAI</code> and <code>I137</code></td>
       <td><code>KEY_AGAIN</code></td>
     </tr>
     <tr>
-      <td><code>VcUndo</code></td>
+      <td><code>VcUndo</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>UNDO</code> and <code>I139</code></td>
       <td><code>KEY_UNDO</code></td>
     </tr>
     <tr>
-      <td><code>VcRedo</code></td>
+      <td><code>VcRedo</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I190</code></td>
       <td><code>KEY_REDO</code></td>
     </tr>
     <tr>
-      <td><code>VcCopy</code></td>
+      <td><code>VcCopy</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>COPY</code> and <code>I141</code></td>
       <td><code>KEY_COPY</code></td>
     </tr>
     <tr>
-      <td><code>VcPaste</code></td>
+      <td><code>VcPaste</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>PAST</code> and <code>I143</code></td>
       <td><code>KEY_PASTE</code></td>
     </tr>
     <tr>
-      <td><code>VcCut</code></td>
+      <td><code>VcCut</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>CUT</code> and <code>I145</code></td>
       <td><code>KEY_CUT</code></td>
     </tr>
     <tr>
-      <td><code>VcLineFeed</code></td>
+      <td><code>VcLineFeed</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>LNFD</code></td>
       <td><code>KEY_LINEFEED</code></td>
     </tr>
     <tr>
-      <td><code>VcMacro</code></td>
+      <td><code>VcMacro</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I120</code></td>
       <td><code>KEY_MACRO</code></td>
     </tr>
     <tr>
-      <td><code>VcScale</code></td>
+      <td><code>VcScale</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I128</code></td>
       <td><code>KEY_SCALE</code></td>
     </tr>
     <tr>
-      <td><code>VcSetup</code></td>
+      <td><code>VcSetup</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I149</code></td>
       <td><code>KEY_SETUP</code></td>
     </tr>
     <tr>
-      <td><code>VcFile</code></td>
+      <td><code>VcFile</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I152</code></td>
       <td><code>KEY_FILE</code></td>
     </tr>
     <tr>
-      <td><code>VcSendFile</code></td>
+      <td><code>VcSendFile</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I153</code></td>
       <td><code>KEY_SENDFILE</code></td>
     </tr>
     <tr>
-      <td><code>VcDeleteFile</code></td>
+      <td><code>VcDeleteFile</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I154</code></td>
       <td><code>KEY_DELETEFILE</code></td>
     </tr>
     <tr>
-      <td><code>VcMsDos</code></td>
+      <td><code>VcMsDos</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I159</code></td>
       <td><code>KEY_MSDOS</code></td>
     </tr>
     <tr>
-      <td><code>VcLock</code></td>
+      <td><code>VcLock</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I160</code></td>
       <td><code>KEY_COFFEE</code></td>
     </tr>
     <tr>
-      <td><code>VcRotateDisplay</code></td>
+      <td><code>VcRotateDisplay</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I161</code></td>
       <td><code>KEY_ROTATE_DISPLAY</code></td>
     </tr>
     <tr>
-      <td><code>VcCycleWindows</code></td>
+      <td><code>VcCycleWindows</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I162</code></td>
       <td><code>KEY_CYCLEWINDOWS</code></td>
     </tr>
     <tr>
-      <td><code>VcComputer</code></td>
+      <td><code>VcComputer</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I165</code></td>
       <td><code>KEY_COMPUTER</code></td>
     </tr>
     <tr>
-      <td><code>VcPhone</code></td>
+      <td><code>VcPhone</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I177</code></td>
       <td><code>KEY_PHONE</code></td>
     </tr>
     <tr>
-      <td><code>VcIso</code></td>
+      <td><code>VcIso</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I178</code></td>
       <td><code>KEY_ISO</code></td>
     </tr>
     <tr>
-      <td><code>VcConfig</code></td>
+      <td><code>VcConfig</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I179</code></td>
       <td><code>KEY_CONFIG</code></td>
     </tr>
     <tr>
-      <td><code>VcExit</code></td>
+      <td><code>VcExit</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I182</code></td>
       <td><code>KEY_EXIT</code></td>
     </tr>
     <tr>
-      <td><code>VcMove</code></td>
+      <td><code>VcMove</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I183</code></td>
       <td><code>KEY_MOVE</code></td>
     </tr>
     <tr>
-      <td><code>VcEdit</code></td>
+      <td><code>VcEdit</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I184</code></td>
       <td><code>KEY_EDIT</code></td>
     </tr>
     <tr>
-      <td><code>VcScrollUp</code></td>
+      <td><code>VcScrollUp</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I185</code></td>
       <td><code>KEY_SCROLLUP</code></td>
     </tr>
     <tr>
-      <td><code>VcScrollDown</code></td>
+      <td><code>VcScrollDown</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I186</code></td>
       <td><code>KEY_SCROLLDOWN</code></td>
     </tr>
     <tr>
-      <td><code>VcNew</code></td>
+      <td><code>VcNew</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I189</code></td>
       <td><code>KEY_NEW</code></td>
     </tr>
     <tr>
-      <td><code>VcPlayCd</code></td>
+      <td><code>VcPlayCd</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I208</code></td>
       <td><code>KEY_PLAYCD</code></td>
     </tr>
     <tr>
-      <td><code>VcPauseCd</code></td>
+      <td><code>VcPauseCd</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I209</code></td>
       <td><code>KEY_PAUSECD</code></td>
     </tr>
     <tr>
-      <td><code>VcDashboard</code></td>
+      <td><code>VcDashboard</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I212</code></td>
       <td><code>KEY_DASHBOARD</code></td>
     </tr>
     <tr>
-      <td><code>VcSuspend</code></td>
+      <td><code>VcSuspend</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I213</code></td>
       <td><code>KEY_SUSPEND</code></td>
     </tr>
     <tr>
-      <td><code>VcClose</code></td>
+      <td><code>VcClose</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I214</code></td>
       <td><code>KEY_CLOSE</code></td>
     </tr>
     <tr>
-      <td><code>VcFastForward</code></td>
+      <td><code>VcFastForward</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I216</code></td>
       <td><code>KEY_FASTFORWARD</code></td>
     </tr>
     <tr>
-      <td><code>VcBassBoost</code></td>
+      <td><code>VcBassBoost</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I217</code></td>
       <td><code>KEY_BASSBOOST</code></td>
     </tr>
     <tr>
-      <td><code>VcHp</code></td>
+      <td><code>VcHp</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I219</code></td>
       <td><code>KEY_HP</code></td>
     </tr>
     <tr>
-      <td><code>VcCamera</code></td>
+      <td><code>VcCamera</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I220</code></td>
       <td><code>KEY_CAMERA</code></td>
     </tr>
     <tr>
-      <td><code>VcSound</code></td>
+      <td><code>VcSound</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I221</code></td>
       <td><code>KEY_SOUND</code></td>
     </tr>
     <tr>
-      <td><code>VcQuestion</code></td>
+      <td><code>VcQuestion</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I222</code></td>
       <td><code>KEY_QUESTION</code></td>
     </tr>
     <tr>
-      <td><code>VcEmail</code></td>
+      <td><code>VcEmail</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I223</code></td>
       <td><code>KEY_EMAIL</code></td>
     </tr>
     <tr>
-      <td><code>VcChat</code></td>
+      <td><code>VcChat</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I224</code></td>
       <td><code>KEY_CHAT</code></td>
     </tr>
     <tr>
-      <td><code>VcConnect</code></td>
+      <td><code>VcConnect</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I226</code></td>
       <td><code>KEY_CONNECT</code></td>
     </tr>
     <tr>
-      <td><code>VcFinance</code></td>
+      <td><code>VcFinance</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I227</code></td>
       <td><code>KEY_FINANCE</code></td>
     </tr>
     <tr>
-      <td><code>VcSport</code></td>
+      <td><code>VcSport</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I228</code></td>
       <td><code>KEY_SPORT</code></td>
     </tr>
     <tr>
-      <td><code>VcShop</code></td>
+      <td><code>VcShop</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I229</code></td>
       <td><code>KEY_SHOP</code></td>
     </tr>
     <tr>
-      <td><code>VcAltErase</code></td>
+      <td><code>VcAltErase</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I230</code></td>
       <td><code>KEY_ALTERASE</code></td>
     </tr>
     <tr>
-      <td><code>VcBrightnessDown</code></td>
+      <td><code>VcBrightnessDown</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I232</code></td>
       <td><code>KEY_BRIGHTNESSDOWN</code></td>
     </tr>
     <tr>
-      <td><code>VcBrightnessUp</code></td>
+      <td><code>VcBrightnessUp</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I233</code></td>
       <td><code>KEY_BRIGHTNESSUP</code></td>
     </tr>
     <tr>
-      <td><code>VcBrightnesCycle</code></td>
+      <td><code>VcBrightnesCycle</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I251</code></td>
       <td><code>KEY_BRIGHTNESS_CYCLE</code></td>
     </tr>
     <tr>
-      <td><code>VcBrightnessAuto</code></td>
+      <td><code>VcBrightnessAuto</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I252</code></td>
       <td><code>KEY_BRIGHTNESS_AUTO</code></td>
     </tr>
     <tr>
-      <td><code>VcSwitchVideoMode</code></td>
+      <td><code>VcSwitchVideoMode</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I235</code></td>
       <td><code>KEY_SWITCHVIDEOMODE</code></td>
     </tr>
     <tr>
-      <td><code>VcKeyboardLightToggle</code></td>
+      <td><code>VcKeyboardLightToggle</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I236</code></td>
       <td><code>KEY_KBDILLUMTOGGLE</code></td>
     </tr>
     <tr>
-      <td><code>VcKeyboardLightDown</code></td>
+      <td><code>VcKeyboardLightDown</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I237</code></td>
       <td><code>KEY_KBDILLUMDOWN</code></td>
     </tr>
     <tr>
-      <td><code>VcKeyboardLightUp</code></td>
+      <td><code>VcKeyboardLightUp</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I238</code></td>
       <td><code>KEY_KBDILLUMUP</code></td>
     </tr>
     <tr>
-      <td><code>VcSend</code></td>
+      <td><code>VcSend</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I239</code></td>
       <td><code>KEY_SEND</code></td>
     </tr>
     <tr>
-      <td><code>VcReply</code></td>
+      <td><code>VcReply</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I240</code></td>
       <td><code>KEY_REPLY</code></td>
     </tr>
     <tr>
-      <td><code>VcForwardMail</code></td>
+      <td><code>VcForwardMail</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I241</code></td>
       <td><code>KEY_FORWARDMAIL</code></td>
     </tr>
     <tr>
-      <td><code>VcSave</code></td>
+      <td><code>VcSave</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I242</code></td>
       <td><code>KEY_SAVE</code></td>
     </tr>
     <tr>
-      <td><code>VcDocuments</code></td>
+      <td><code>VcDocuments</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I243</code></td>
       <td><code>KEY_DOCUMENTS</code></td>
     </tr>
     <tr>
-      <td><code>VcBattery</code></td>
+      <td><code>VcBattery</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I244</code></td>
       <td><code>KEY_BATTERY</code></td>
     </tr>
     <tr>
-      <td><code>VcBluetooth</code></td>
+      <td><code>VcBluetooth</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I245</code></td>
       <td><code>KEY_BLUETOOTH</code></td>
     </tr>
     <tr>
-      <td><code>VcWlan</code></td>
+      <td><code>VcWlan</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I246</code></td>
       <td><code>KEY_WLAN</code></td>
     </tr>
     <tr>
-      <td><code>VcUwb</code></td>
+      <td><code>VcUwb</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I247</code></td>
       <td><code>KEY_UWB</code></td>
     </tr>
     <tr>
-      <td><code>VcX11Unknown</code></td>
+      <td><code>VcX11Unknown</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I248</code></td>
       <td><code>KEY_UNKNOWN</code></td>
     </tr>
     <tr>
-      <td><code>VcVideoNext</code></td>
+      <td><code>VcVideoNext</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I249</code></td>
       <td><code>KEY_VIDEO_NEXT</code></td>
     </tr>
     <tr>
-      <td><code>VcVideoPrevious</code></td>
+      <td><code>VcVideoPrevious</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I250</code></td>
       <td><code>KEY_VIDEO_PREV</code></td>
     </tr>
     <tr>
-      <td><code>VcVideoPrevious</code></td>
+      <td><code>VcVideoPrevious</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I250</code></td>
       <td><code>KEY_VIDEO_PREV</code></td>
     </tr>
     <tr>
-      <td><code>VcDisplayOff</code></td>
+      <td><code>VcDisplayOff</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I253</code></td>
       <td><code>KEY_DISPLAY_OFF</code></td>
     </tr>
     <tr>
-      <td><code>VcWwan</code></td>
+      <td><code>VcWwan</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I254</code></td>
       <td><code>KEY_WWAN</code></td>
     </tr>
     <tr>
-      <td><code>VcRfKill</code></td>
+      <td><code>VcRfKill</code> <sup>O</sup></td>
       <td>-</td>
       <td>-</td>
       <td><code>I255</code></td>

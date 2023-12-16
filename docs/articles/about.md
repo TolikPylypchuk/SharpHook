@@ -1,6 +1,6 @@
 # About SharpHook
 
-SharpHook. Version 5.1.2. Created by Tolik Pylypchuk.
+SharpHook. Version 5.2.0. Created by Tolik Pylypchuk.
 
 ## Library Status
 
@@ -9,6 +9,15 @@ to its `1.3` branch is considered stable. If you've noticed that this library ha
 rest assured that it's not abandoned! I'm not giving up on this library any time soon.
 
 ## Changelog
+
+### [v5.2.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.2.0) (December 16, 2023)
+
+- Simulated events can now be distinguished from real events using the `HookEventArgs.IsEventSimulated` property.
+
+- Key codes which aren't present on modern keyboards have been deprecated.
+
+- libuiohook was updated to commit
+[d710f0f](https://github.com/TolikPylypchuk/libuiohook/tree/d710f0f57194604f98a67514b8c86f442a7bbc3d).
 
 ### [v5.1.2](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.1.2) (November 25, 2023)
 

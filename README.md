@@ -16,7 +16,7 @@ dotnet add package SharpHook.Reactive
 
 ## Upgrading
 
-A [migration guide](https://sharphook.tolik.io/v5.1.2/articles/migration.html) is available for upgrading between major
+A [migration guide](https://sharphook.tolik.io/v5.2.0/articles/migration.html) is available for upgrading between major
 versions.
 
 ## Docs
@@ -24,6 +24,7 @@ versions.
 You can find more information (including the API reference) in the docs at
 [https://sharphook.tolik.io](https://sharphook.tolik.io). Or if you need a specific version:
 
+- [v5.2.0](https://sharphook.tolik.io/v5.2.0)
 - [v5.1.2](https://sharphook.tolik.io/v5.1.2) | [v5.1.1](https://sharphook.tolik.io/v5.1.1) | [v5.1.0](https://sharphook.tolik.io/v5.1.0)
 - [v5.0.0](https://sharphook.tolik.io/v5.0.0)
 - [v4.2.1](https://sharphook.tolik.io/v4.2.1) | [v4.2.0](https://sharphook.tolik.io/v4.2.0)
@@ -86,7 +87,7 @@ the accessibility API be enabled for the application if it wants to create a glo
 [may be coming](https://github.com/kwhat/libuiohook/issues/100), but it's not yet here.
 
 More info on OS support can be found in
-[an article on OS-specific constraints](https://sharphook.tolik.io/v5.1.2/articles/os-constraints.html).
+[an article on OS-specific constraints](https://sharphook.tolik.io/v5.2.0/articles/os-constraints.html).
 
 ## Usage
 
@@ -290,7 +291,7 @@ SharpHook provides the `IEventSimulator` interface, and the default implementati
 
 ### Text Entry Simulation
 
-Starting with version 5.0.0, SharpHook also provides text entry simulation. `IEventSimulator` contains the
+Starting with version 5, SharpHook also provides text entry simulation. `IEventSimulator` contains the
 `SimulateTextEntry` method which accepts a `string`. The text to simulate doesn't depend on the current keyboard layout.
 The full range of UTF-16 (including surrogate pairs, e.g. emojis) is supported.
 

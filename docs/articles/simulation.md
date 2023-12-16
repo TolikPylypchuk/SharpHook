@@ -5,6 +5,9 @@ well. It provides the `IEventSimulator` interface, and the default implementatio
 `UioHook.PostEvent` to simulate the events by default (though it's configurable). The methods in this interface return
 a `UioHookResult` to specify whether the event was simulated successfully, or not.
 
+Simulated events can be distinguished from real ones in a global hook handler with the `HookEventArgs.IsEventSimulated`
+property.
+
 ## Event Simulation
 
 Input event simulation is quite straightforward. Here's a quick example:

@@ -68,10 +68,15 @@ has more information:
 `UioHookEvent` also contains the `Time` and `Mask` fields. `Time` is the event's UNIX timestamp. `Mask` contains the
 state of keyboard modifiers and the mouse state at the time of the event.
 
-Lastly, `UioHookEvent` contains the `Reserved` field. This field can be set inside the event handler and libuiohook
-will consume it. Currently only one setting is supported - suppressing the event propagation. If it's set then
-libuiohook will not propagate the event further and it will effectively be blocked. The `Reserved` field should be set
-synchronously i.e. on the same thread which handles the event. Supressing events works only on Windows and macOS.
+Lastly, `UioHookEvent` contains the `Reserved` field which is contains various bit flags. Currently two flags are
+supported:
+
+- Suppressing event propagation (bit 0). If it's set in the event handler then libuiohook will not propagate the event
+further and it will effectively be blocked. This bit should be set synchronously i.e. on the same thread which handles
+the event. Supressing events works only on Windows and macOS.
+
+- Distinguishing real events from simulated events (bit 1). If this bit is set, then the event is simulated. Otherwise,
+the event is real.
 
 > [!NOTE]
 > `KeyTyped` and `MouseClicked` events are not raised by the OS, but by libuiohook itself. `KeyTyped` is raised after
