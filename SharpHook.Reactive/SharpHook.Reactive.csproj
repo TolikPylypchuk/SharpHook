@@ -1,32 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net462;netstandard2.0;net6.0;net7.0;net8.0</TargetFrameworks>
-    <Platforms>x86;x64;ARM32;ARM64;AnyCPU</Platforms>
-    <LangVersion>latest</LangVersion>
-    <Nullable>enable</Nullable>
-    <IsTrimmable>true</IsTrimmable>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <Version>5.2.0</Version>
-    <Authors>Tolik Pylypchuk</Authors>
-    <Company>Tolik Pylypchuk</Company>
-    <Product>SharpHook</Product>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Copyright>(c) 2021 Anatoliy Pylypchuk</Copyright>
-    <Description>SharpHook provides a cross-platform global keyboard and mouse hook, event simulation, and text entry simulation for .NET.</Description>
-    <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/TolikPylypchuk/SharpHook</RepositoryUrl>
-    <PackageProjectUrl>https://sharphook.tolik.io</PackageProjectUrl>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageTags>input keyboard mouse hook global-hook libuiohook rx reactive</PackageTags>
-    <PackageIcon>icon.png</PackageIcon>
-    <PackageIconUrl />
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <PackageTags>$(PackageTags) rx reactive</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup>
