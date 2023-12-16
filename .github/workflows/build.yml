@@ -23,6 +23,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
+
       - name: Compile
         env:
           CC: clang
@@ -31,17 +32,21 @@ jobs:
         shell: bash
         run: |
           cd libuiohook
+
           cmake -B ${{github.workspace}}/build \
             -G "Unix Makefiles" \
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/darwin/arm64 \
             -D CMAKE_VERBOSE_MAKEFILE=true \
             -D BUILD_SHARED_LIBS=ON \
             -D USE_EPOCH_TIME=ON
+
           cmake --build ${{github.workspace}}/build \
             --parallel 2 \
             --config RelWithDebInfo \
             --clean-first
+
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
+
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
@@ -56,6 +61,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
+
       - name: Compile
         env:
           CC: clang
@@ -64,17 +70,21 @@ jobs:
         shell: bash
         run: |
           cd libuiohook
+
           cmake -B ${{github.workspace}}/build \
             -G "Unix Makefiles" \
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/darwin/x86_64 \
             -D CMAKE_VERBOSE_MAKEFILE=true \
             -D BUILD_SHARED_LIBS=ON \
             -D USE_EPOCH_TIME=ON
+
           cmake --build ${{github.workspace}}/build \
             --parallel 2 \
             --config RelWithDebInfo \
             --clean-first
+
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
+
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
@@ -89,6 +99,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
+
       - name: Compile
         env:
           CC: clang
@@ -96,7 +107,9 @@ jobs:
         shell: bash
         run: |
           sudo xcode-select -s '/Applications/Xcode_14.3.app/Contents/Developer'
+
           cd libuiohook
+
           cmake -B ${{github.workspace}}/build \
             -G "Unix Makefiles" \
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/catalyst/arm64 \
@@ -107,11 +120,14 @@ jobs:
             -D USE_APPLICATION_SERVICES=OFF \
             -D USE_APPKIT=OFF \
             -D USE_EPOCH_TIME=ON
+
           cmake --build ${{github.workspace}}/build \
             --parallel 2 \
             --config RelWithDebInfo \
             --clean-first
+
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
+
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
@@ -126,6 +142,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
+
       - name: Compile
         env:
           CC: clang
@@ -133,7 +150,9 @@ jobs:
         shell: bash
         run: |
           sudo xcode-select -s '/Applications/Xcode_14.3.app/Contents/Developer'
+
           cd libuiohook
+
           cmake -B ${{github.workspace}}/build \
             -G "Unix Makefiles" \
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/catalyst/x86_64 \
@@ -144,11 +163,14 @@ jobs:
             -D USE_APPLICATION_SERVICES=OFF \
             -D USE_APPKIT=OFF \
             -D USE_EPOCH_TIME=ON
+
           cmake --build ${{github.workspace}}/build \
             --parallel 2 \
             --config RelWithDebInfo \
             --clean-first
+
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
+
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
@@ -163,6 +185,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
+
       - name: Setup
         shell: bash
         run: |
@@ -171,16 +194,23 @@ jobs:
           deb [arch=amd64,i386] http://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME} main universe
           deb [arch=amd64,i386] http://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME}-updates main universe
           deb [arch=amd64,i386] http://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME}-backports main universe
+          # This only seems to be required on GitHub images
+          deb [arch=amd64,i386] https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu ${DISTRIB_CODENAME} main
+          
           deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME} main universe
           deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME}-updates main universe
           deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME}-backports main universe
+          # This only seems to be required on GitHub images
+          deb [arch=arm64,armhf] https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu ${DISTRIB_CODENAME} main
           " > /etc/apt/sources.list'
+
           sudo dpkg --add-architecture armhf
-          sudo apt update -mqy
-          sudo apt install -qy --allow-downgrades \
+          sudo apt update -m
+
+          sudo apt install -qy \
             binutils-arm-linux-gnueabihf \
-            libgcc-s1=12.3.0-1ubuntu1~22.04 \
             gcc-arm-linux-gnueabihf
+
           sudo apt install -qy \
             libx11-dev:armhf \
             libxtst-dev:armhf \
@@ -190,6 +220,7 @@ jobs:
             libxkbcommon-dev:armhf \
             libxkbcommon-x11-dev:armhf \
             libxkbfile-dev:armhf
+
       - name: Compile
         env:
           CC: arm-linux-gnueabihf-gcc
@@ -199,17 +230,21 @@ jobs:
         shell: bash
         run: |
           cd libuiohook
+
           cmake -B ${{github.workspace}}/build \
             -G "Unix Makefiles" \
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/linux/arm \
             -D CMAKE_VERBOSE_MAKEFILE=true \
             -D BUILD_SHARED_LIBS=ON \
             -D USE_EPOCH_TIME=ON
+
           cmake --build ${{github.workspace}}/build \
             --parallel 2 \
             --config RelWithDebInfo \
             --clean-first
+
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
+
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
@@ -224,24 +259,32 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
+
       - name: Setup
         shell: bash
         run: |
-          sudo rm -Rf /etc/apt/sources.list.d
+          sudo rm -Rf /etc/apt/sources.list.d/*
           sudo bash -c 'source /etc/lsb-release && echo "
           deb [arch=amd64,i386] http://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME} main universe
           deb [arch=amd64,i386] http://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME}-updates main universe
           deb [arch=amd64,i386] http://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME}-backports main universe
+          # This only seems to be required on GitHub images
+          deb [arch=amd64,i386] https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu ${DISTRIB_CODENAME} main
+
           deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME} main universe
           deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME}-updates main universe
           deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME}-backports main universe
+          # This only seems to be required on GitHub images
+          deb [arch=arm64,armhf] https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu ${DISTRIB_CODENAME} main
           " > /etc/apt/sources.list'
+
           sudo dpkg --add-architecture arm64
-          sudo apt update -mqy
-          sudo apt install -qyf --allow-downgrades \
+          sudo apt update -m
+
+          sudo apt install -qy \
             binutils-aarch64-linux-gnu \
-            libgcc-s1=12.3.0-1ubuntu1~22.04 \
             gcc-aarch64-linux-gnu
+
           sudo apt install -qy \
             libx11-dev:arm64 \
             libxtst-dev:arm64 \
@@ -251,6 +294,7 @@ jobs:
             libxkbcommon-dev:arm64 \
             libxkbcommon-x11-dev:arm64 \
             libxkbfile-dev:arm64
+
       - name: Compile
         env:
           CC: aarch64-linux-gnu-gcc
@@ -260,17 +304,21 @@ jobs:
         shell: bash
         run: |
           cd libuiohook
+
           cmake -B ${{github.workspace}}/build \
             -G "Unix Makefiles" \
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/linux/arm64 \
             -D CMAKE_VERBOSE_MAKEFILE=true \
             -D BUILD_SHARED_LIBS=ON \
             -D USE_EPOCH_TIME=ON
+
           cmake --build ${{github.workspace}}/build \
             --parallel 2 \
             --config RelWithDebInfo \
             --clean-first
+
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
+
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
@@ -285,6 +333,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
+
       - name: Setup
         shell: bash
         run: |
@@ -298,6 +347,7 @@ jobs:
             libxkbcommon-dev:amd64 \
             libxkbcommon-x11-dev:amd64 \
             libxkbfile-dev:amd64
+
       - name: Compile
         env:
           CC: x86_64-linux-gnu-gcc
@@ -307,17 +357,21 @@ jobs:
         shell: bash
         run: |
           cd libuiohook
+
           cmake -B ${{github.workspace}}/build \
             -G "Unix Makefiles" \
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/linux/x86_64 \
             -D CMAKE_VERBOSE_MAKEFILE=true \
             -D BUILD_SHARED_LIBS=ON \
             -D USE_EPOCH_TIME=ON
+
           cmake --build ${{github.workspace}}/build \
             --parallel 2 \
             --config RelWithDebInfo \
             --clean-first
+
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
+
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
@@ -331,14 +385,17 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
+
       - name: Setup
         uses: ilammy/msvc-dev-cmd@v1
         with:
           arch: amd64_arm64
+
       - name: Compile
         shell: pwsh
         run: |
           cd libuiohook
+
           cmake -B ${{github.workspace}}\build `
             -G "Visual Studio 17 2022" -A ARM64 `
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\arm64 `
@@ -347,11 +404,14 @@ jobs:
             -D CMAKE_POLICY_DEFAULT_CMP0091=NEW `
             -D CMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded `
             -D USE_EPOCH_TIME=ON
+
           cmake --build ${{github.workspace}}\build `
             --parallel 2 `
             --config RelWithDebInfo `
             --clean-first
+
           cmake --install ${{github.workspace}}\build --config RelWithDebInfo
+
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
@@ -365,14 +425,17 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
+
       - name: Setup
         uses: ilammy/msvc-dev-cmd@v1
         with:
           arch: amd64_x86
+
       - name: Compile
         shell: pwsh
         run: |
           cd libuiohook
+
           cmake -B ${{github.workspace}}\build `
             -G "Visual Studio 17 2022" -A Win32 `
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\x86 `
@@ -381,11 +444,14 @@ jobs:
             -D CMAKE_POLICY_DEFAULT_CMP0091=NEW `
             -D CMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded `
             -D USE_EPOCH_TIME=ON
+
           cmake --build ${{github.workspace}}\build `
             --parallel 2 `
             --config RelWithDebInfo `
             --clean-first
+
           cmake --install ${{github.workspace}}\build --config RelWithDebInfo
+
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
@@ -399,14 +465,17 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
+
       - name: Setup
         uses: ilammy/msvc-dev-cmd@v1
         with:
           arch: amd64
+
       - name: Compile
         shell: pwsh
         run: |
           cd libuiohook
+
           cmake -B ${{github.workspace}}\build `
             -G "Visual Studio 17 2022" -A x64 `
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\x86_64 `
@@ -415,10 +484,12 @@ jobs:
             -D CMAKE_POLICY_DEFAULT_CMP0091=NEW `
             -D CMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded `
             -D USE_EPOCH_TIME=ON
+
           cmake --build ${{github.workspace}}\build `
             --parallel 2 `
             --config RelWithDebInfo `
             --clean-first
+
           cmake --install ${{github.workspace}}\build --config RelWithDebInfo
 
       - name: Upload
@@ -445,18 +516,22 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
+
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
+
       - name: Setup docfx
         shell: pwsh
         run: dotnet tool update --global docfx
+
       - name: Fetch libuiohook
         uses: actions/download-artifact@v3
         with:
           name: libuiohook-build
           path: libuiohook-build
+
       - name: Move libuiohook
         shell: pwsh
         run: |
@@ -470,37 +545,46 @@ jobs:
           mv libuiohook-build\windows\arm64\bin\uiohook.dll SharpHook\lib\win-arm64\
           mv libuiohook-build\windows\x86\bin\uiohook.dll SharpHook\lib\win-x86\
           mv libuiohook-build\windows\x86_64\bin\uiohook.dll SharpHook\lib\win-x64\
+
       - name: Build SharpHook
         shell: pwsh
         run: |
           cd SharpHook
           dotnet build --nologo -c Release /p:ContinuousIntegrationBuild=true
+
           cd ..\SharpHook.Reactive
           dotnet build --nologo -c Release /p:ContinuousIntegrationBuild=true
+
           cd ..\SharpHook.Tests
           dotnet build --nologo -c Release /p:ContinuousIntegrationBuild=true
+
       - name: Test SharpHook
         shell: pwsh
         run: |
           cd SharpHook.Tests
           dotnet test --no-build --nologo -c Release
+
       - name: Pack SharpHook
         shell: pwsh
         run: |
           cd SharpHook
           dotnet pack --no-build --nologo -c Release -o ${{github.workspace}}\build\
+
           cd ..\SharpHook.Reactive
           dotnet pack --no-build --nologo -c Release -o ${{github.workspace}}\build\
+
       - name: Upload SharpHook
         uses: actions/upload-artifact@v3
         with:
           name: sharphook-build
           path: ${{github.workspace}}\build\*
+
       - name: Build Docs
         shell: pwsh
         working-directory: docs
         run: docfx docfx.json
         continue-on-error: false
+
       - name: Publish Docs
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -521,15 +605,18 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
+
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
+
       - name: Fetch Packages
         uses: actions/download-artifact@v3
         with:
           name: sharphook-build
           path: sharphook-build
+
       - name: Publish Packages
         shell: pwsh
         run: |
