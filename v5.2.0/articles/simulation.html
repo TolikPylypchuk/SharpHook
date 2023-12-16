@@ -90,6 +90,8 @@
 well. It provides the <code>IEventSimulator</code> interface, and the default implementation, <code>EventSimulator</code>, which calls
 <code>UioHook.PostEvent</code> to simulate the events by default (though it's configurable). The methods in this interface return
 a <code>UioHookResult</code> to specify whether the event was simulated successfully, or not.</p>
+<p>Simulated events can be distinguished from real ones in a global hook handler with the <code>HookEventArgs.IsEventSimulated</code>
+property.</p>
 <h2 id="event-simulation">Event Simulation</h2>
 <p>Input event simulation is quite straightforward. Here's a quick example:</p>
 <pre><code class="lang-C#">using SharpHook;
