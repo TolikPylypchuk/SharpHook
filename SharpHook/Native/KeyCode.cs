@@ -336,14 +336,17 @@ public enum KeyCode : ushort
 
     /// <summary>Print</summary>
     /// <remarks>Available on: Windows, Linux</remarks>
+    [Obsolete("Not to be confused with VcPrintScreen, this key doesn't exist on most modern keyboards")]
     VcPrint = 0x009C,
 
     /// <summary>Select</summary>
     /// <remarks>Available on: Windows</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcSelect = 0x009D,
 
     /// <summary>Execute</summary>
     /// <remarks>Available on: Windows</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcExecute = 0x009E,
 
     /// <summary>Scroll Lock</summary>
@@ -446,6 +449,7 @@ public enum KeyCode : ushort
 
     /// <summary>Num-Pad ±</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcNumPadPlusMinus = 0x007E,
 
     /// <summary>Num-Pad 0</summary>
@@ -490,10 +494,12 @@ public enum KeyCode : ushort
 
     /// <summary>Num-Pad (</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcNumPadOpenParenthesis = 0xEE01,
 
     /// <summary>Num-Pad )</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcNumPadCloseParenthesis = 0xEE02,
 
     /// <summary>Left Shift</summary>
@@ -560,10 +566,12 @@ public enum KeyCode : ushort
 
     /// <summary>Wake</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcWake = 0xE063,
 
     /// <summary>Media</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcMedia = 0xE023,
 
     /// <summary>Play/Pause Media</summary>
@@ -592,18 +600,22 @@ public enum KeyCode : ushort
 
     /// <summary>Close Media</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcMediaClose = 0xE02D,
 
     /// <summary>Eject/Close Media</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcMediaEjectClose = 0xE02F,
 
     /// <summary>Record Media</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcMediaRecord = 0xE031,
 
     /// <summary>Rewind Media</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcMediaRewind = 0xE033,
 
     /// <summary>Volume Mute</summary>
@@ -620,34 +632,42 @@ public enum KeyCode : ushort
 
     /// <summary>Attn</summary>
     /// <remarks>Available on: Windows</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcAttn = 0xE090,
 
     /// <summary>CrSel</summary>
     /// <remarks>Available on: Windows</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcCrSel = 0xE091,
 
     /// <summary>ExSel</summary>
     /// <remarks>Available on: Windows</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcExSel = 0xE092,
 
     /// <summary>Erase EOF</summary>
     /// <remarks>Available on: Windows</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcEraseEof = 0xE093,
 
     /// <summary>Play</summary>
     /// <remarks>Available on: Windows, Linux</remarks>
+    [Obsolete("Not to be confused with VcMediaPlay, this key doesn't exist on most modern keyboards")]
     VcPlay = 0xE094,
 
     /// <summary>Zoom</summary>
     /// <remarks>Available on: Windows</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcZoom = 0xE095,
 
     /// <summary>Reserved for future use</summary>
     /// <remarks>Available on: Windows</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcNoName = 0xE096,
 
     /// <summary>PA1</summary>
     /// <remarks>Available on: Windows</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcPa1 = 0xE097,
 
     /// <summary>Launch app 1</summary>
@@ -788,293 +808,366 @@ public enum KeyCode : ushort
 
     /// <summary>Stop</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("Not to be confused with VcMediaStop, this key doesn't exist on most modern keyboards")]
     VcStop = 0xFF78,
 
     /// <summary>Props</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcProps = 0xFF76,
 
     /// <summary>Front</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcFront = 0xFF77,
 
     /// <summary>Open</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcOpen = 0xFF74,
 
     /// <summary>Find</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcFind = 0xFF70,
 
     /// <summary>Again</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcAgain = 0xFF79,
 
     /// <summary>Undo</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcUndo = 0xFF7A,
 
     /// <summary>Redo</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcRedo = 0xFF7F,
 
     /// <summary>Copy</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcCopy = 0xFF7C,
 
     /// <summary>Paste</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcPaste = 0xFF7D,
 
     /// <summary>Cut</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcCut = 0xFF7B,
 
     /// <summary>Line Feed</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcLineFeed = 0xC001,
 
     /// <summary>Macro</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcMacro = 0xC002,
 
     /// <summary>Scale</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcScale = 0xC003,
 
     /// <summary>Setup</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcSetup = 0xC004,
 
     /// <summary>File</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcFile = 0xC005,
 
     /// <summary>Send File</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcSendFile = 0xC006,
 
     /// <summary>Delete File</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcDeleteFile = 0xC007,
 
     /// <summary>MS DOS</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcMsDos = 0xC008,
 
     /// <summary>Lock</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcLock = 0xC009,
 
     /// <summary>Rotate Display</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcRotateDisplay = 0xC00A,
 
     /// <summary>Cycle Windows</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcCycleWindows = 0xC00B,
 
     /// <summary>Computer</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcComputer = 0xC00C,
 
     /// <summary>Phone</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcPhone = 0xC00D,
 
     /// <summary>ISO</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcIso = 0xC00E,
 
     /// <summary>Config</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcConfig = 0xC00F,
 
     /// <summary>Exit</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcExit = 0xC010,
 
     /// <summary>Move</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcMove = 0xC011,
 
     /// <summary>Edit</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcEdit = 0xC012,
 
     /// <summary>Scroll Up</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcScrollUp = 0xC013,
 
     /// <summary>Scroll Down</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcScrollDown = 0xC014,
 
     /// <summary>New</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcNew = 0xC015,
 
     /// <summary>Play CD</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcPlayCd = 0xC016,
 
     /// <summary>Pause CD</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcPauseCd = 0xC017,
 
     /// <summary>Dashboard</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcDashboard = 0xC018,
 
     /// <summary>Suspend</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcSuspend = 0xC019,
 
     /// <summary>Close</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcClose = 0xC01A,
 
     /// <summary>Fast-Forward</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcFastForward = 0xC01C,
 
     /// <summary>Bass Boost</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcBassBoost = 0xC01D,
 
     /// <summary>HP</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcHp = 0xC01E,
 
     /// <summary>Camera</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcCamera = 0xC01F,
 
     /// <summary>Sound</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcSound = 0xC020,
 
     /// <summary>Question</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcQuestion = 0xC021,
 
     /// <summary>Email</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcEmail = 0xC022,
 
     /// <summary>Chat</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcChat = 0xC023,
 
     /// <summary>Connect</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcConnect = 0xC024,
 
     /// <summary>Finance</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcFinance = 0xC025,
 
     /// <summary>Sport</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcSport = 0xC026,
 
     /// <summary>Shop</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcShop = 0xC027,
 
     /// <summary>Alt Erase</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcAltErase = 0xC028,
 
     /// <summary>Brightness Down</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcBrightnessDown = 0xC029,
 
     /// <summary>Brightness Up</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcBrightnessUp = 0xC02A,
 
     /// <summary>Brightness Cycle</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcBrightnesCycle = 0xC02B,
 
     /// <summary>Brightness Auto</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcBrightnessAuto = 0xC02C,
 
     /// <summary>Switch Video Mode</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcSwitchVideoMode = 0xC02D,
 
     /// <summary>Keyboard Light Toggle</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcKeyboardLightToggle = 0xC02E,
 
     /// <summary>Keyboard Light Down</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcKeyboardLightDown = 0xC02F,
 
     /// <summary>Keyboard Light Up</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcKeyboardLightUp = 0xC030,
 
     /// <summary>Send</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcSend = 0xC031,
 
     /// <summary>Reply</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcReply = 0xC032,
 
     /// <summary>Forward Mail</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcForwardMail = 0xC033,
 
     /// <summary>Save</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcSave = 0xC034,
 
     /// <summary>Documents</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcDocuments = 0xC035,
 
     /// <summary>Battery</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcBattery = 0xC036,
 
     /// <summary>Bluetooth</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcBluetooth = 0xC037,
 
     /// <summary>WLAN</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcWlan = 0xC038,
 
     /// <summary>UWB</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcUwb = 0xC039,
 
     /// <summary>Unknown key (X11)</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcX11Unknown = 0xC03A,
 
     /// <summary>Next Video</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcVideoNext = 0xC03B,
 
     /// <summary>Previous Video</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcVideoPrevious = 0xC03C,
 
     /// <summary>Display Off</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcDisplayOff = 0xC03D,
 
     /// <summary>WWAN</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcWwan = 0xC03E,
 
     /// <summary>RfKill</summary>
     /// <remarks>Available on: Linux</remarks>
+    [Obsolete("This key doesn't exist on most modern keyboards")]
     VcRfKill = 0xC03F
 }
