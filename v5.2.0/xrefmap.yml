@@ -640,6 +640,18 @@ references:
   commentId: Overload:SharpHook.HookEventArgs.FromEvent
   fullName: SharpHook.HookEventArgs.FromEvent
   nameWithType: HookEventArgs.FromEvent
+- uid: SharpHook.HookEventArgs.IsEventSimulated
+  name: IsEventSimulated
+  href: api/SharpHook.HookEventArgs.html#SharpHook_HookEventArgs_IsEventSimulated
+  commentId: P:SharpHook.HookEventArgs.IsEventSimulated
+  fullName: SharpHook.HookEventArgs.IsEventSimulated
+  nameWithType: HookEventArgs.IsEventSimulated
+- uid: SharpHook.HookEventArgs.IsEventSimulated*
+  name: IsEventSimulated
+  href: api/SharpHook.HookEventArgs.html#SharpHook_HookEventArgs_IsEventSimulated_
+  commentId: Overload:SharpHook.HookEventArgs.IsEventSimulated
+  fullName: SharpHook.HookEventArgs.IsEventSimulated
+  nameWithType: HookEventArgs.IsEventSimulated
 - uid: SharpHook.HookEventArgs.RawEvent
   name: RawEvent
   href: api/SharpHook.HookEventArgs.html#SharpHook_HookEventArgs_RawEvent
@@ -1723,6 +1735,12 @@ references:
   commentId: F:SharpHook.Native.EventReservedValueMask.None
   fullName: SharpHook.Native.EventReservedValueMask.None
   nameWithType: EventReservedValueMask.None
+- uid: SharpHook.Native.EventReservedValueMask.SimulatedEvent
+  name: SimulatedEvent
+  href: api/SharpHook.Native.EventReservedValueMask.html#SharpHook_Native_EventReservedValueMask_SimulatedEvent
+  commentId: F:SharpHook.Native.EventReservedValueMask.SimulatedEvent
+  fullName: SharpHook.Native.EventReservedValueMask.SimulatedEvent
+  nameWithType: EventReservedValueMask.SimulatedEvent
 - uid: SharpHook.Native.EventReservedValueMask.SuppressEvent
   name: SuppressEvent
   href: api/SharpHook.Native.EventReservedValueMask.html#SharpHook_Native_EventReservedValueMask_SuppressEvent
