@@ -6,7 +6,7 @@
     <Platforms>x86;x64;ARM32;ARM64;AnyCPU</Platforms>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
-    <IsTrimmable>true</IsTrimmable>
+    <IsAotCompatible>true</IsAotCompatible>
   </PropertyGroup>
 
   <PropertyGroup>
