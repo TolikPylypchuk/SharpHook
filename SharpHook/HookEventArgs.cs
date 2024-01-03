@@ -27,7 +27,7 @@ public class HookEventArgs(UioHookEvent rawEvent) : EventArgs
     /// </summary>
     /// <value><see langword="true" /> is the event has been simulated. Otherwise, <see langword="false" />.</value>
     public bool IsEventSimulated =>
-        (this.RawEvent.Reserved & EventReservedValueMask.SimulatedEvent) != EventReservedValueMask.None;
+        this.RawEvent.Reserved.HasFlag(EventReservedValueMask.SimulatedEvent);
 
     /// <summary>
     /// Gets or sets whether to suppress the event from further propagation after running the event handler. Events must

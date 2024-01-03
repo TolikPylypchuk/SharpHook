@@ -17,9 +17,7 @@ public sealed class HookEventArgsTests
         Assert.Equal(args.RawEvent, uioHookEvent);
         Assert.Equal((ulong)args.EventTime.ToUnixTimeMilliseconds(), uioHookEvent.Time);
         Assert.False(args.SuppressEvent);
-        Assert.Equal(
-            (uioHookEvent.Reserved & EventReservedValueMask.SimulatedEvent) != EventReservedValueMask.None,
-            args.IsEventSimulated);
+        Assert.Equal(uioHookEvent.Reserved.HasFlag(EventReservedValueMask.SimulatedEvent), args.IsEventSimulated);
 
         if (uioHookEvent.Type is EventType.HookEnabled or EventType.HookDisabled)
         {
