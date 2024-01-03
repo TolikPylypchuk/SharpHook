@@ -1,5 +1,16 @@
 # SharpHook Changelog
 
+## [v5.2.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.2.1) (January 3, 2024)
+
+- `HookEventArgs.IsEventSimulated` has been fixed - previously it always returned `true`.
+
+- `kCGEventTapDisabledByTimeout` doesn't break the global hook on macOS anymore.
+
+- The packages are now marked as AOT-compatible.
+
+- libuiohook was updated to commit
+[7dbdc09](https://github.com/TolikPylypchuk/libuiohook/commit/7dbdc09cd9d5a8ef5be5bb005e853b70ce28d67f).
+
 ## [v5.2.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.2.0) (December 16, 2023)
 
 - Simulated events can now be distinguished from real events using the `HookEventArgs.IsEventSimulated` property.

@@ -192,7 +192,7 @@ is ignored.
 
 ## Simulating Text Entry
 
-Starting with version 5.0.0, SharpHook also provides text entry simulation. `UioHook` contains the `PostText` method
+Starting with version 5, SharpHook also provides text entry simulation. `UioHook` contains the `PostText` method
 which accepts a `string`. The text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16
 (including surrogate pairs, e.g. emojis) is supported.
 

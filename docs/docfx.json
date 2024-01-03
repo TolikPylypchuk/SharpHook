@@ -4,15 +4,15 @@
       "src": [
         {
           "files": [
-            "SharpHook/bin/Release/net7.0/SharpHook.dll",
-            "SharpHook.Reactive/bin/Release/net7.0/SharpHook.Reactive.dll"
+            "SharpHook/bin/Release/net8.0/SharpHook.dll",
+            "SharpHook.Reactive/bin/Release/net8.0/SharpHook.Reactive.dll"
           ],
           "src": "../"
         }
       ],
       "dest": "api",
       "properties": {
-        "TargetFramework": "net7.0"
+        "TargetFramework": "net8.0"
       },
       "disableGitFeatures": false,
       "disableDefaultFilter": false
@@ -76,7 +76,7 @@
       "template"
     ],
     "sitemap": {
-      "baseUrl": "https://sharphook.tolik.io/v5.0.0/"
+      "baseUrl": "https://sharphook.tolik.io/v5.2.1/"
     },
     "postProcessors": [ "ExtractSearchIndex" ],
     "markdownEngineName": "markdig",
