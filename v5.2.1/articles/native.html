@@ -254,7 +254,7 @@ scrolling, so <code>MouseWheelScrollType.BlockScroll</code> is recommended for l
 <p>On Linux there is no fixed recommendation, but multiples of 100 can be used. The value of <code>MouseWheelEventData.Type</code>
 is ignored.</p>
 <h2 id="simulating-text-entry">Simulating Text Entry</h2>
-<p>Starting with version 5.0.0, SharpHook also provides text entry simulation. <code>UioHook</code> contains the <code>PostText</code> method
+<p>Starting with version 5, SharpHook also provides text entry simulation. <code>UioHook</code> contains the <code>PostText</code> method
 which accepts a <code>string</code>. The text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16
 (including surrogate pairs, e.g. emojis) is supported.</p>
 <p>Text entry simulation may not work well on Linux. More info can be found in the article on
