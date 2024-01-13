@@ -1,5 +1,11 @@
 # SharpHook Changelog
 
+## [v5.2.2](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.2.2) (January 13, 2024)
+
+- The package targets are now executed only for .NET Framework since they aren't needed for .NET/.NET Core.
+
+- libuiohook resolution for Linux Arm64 was fixed in package targets.
+
 ## [v5.2.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.2.1) (January 3, 2024)
 
 - `HookEventArgs.IsEventSimulated` has been fixed - previously it always returned `true`.
