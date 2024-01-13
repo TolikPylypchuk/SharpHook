@@ -70,7 +70,9 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows')) And '$(Platform)' == 'x86'">
+  <!-- The following properties are for the sample project -->
+
+  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows')) And ('$(Platform)' == 'x86' Or ('$(Platform)' == 'AnyCPU' And '$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)' == 'X86'))">
     <ContentWithTargetPath Include="lib\win-x86\uiohook.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>uiohook.dll</TargetPath>
@@ -78,7 +80,7 @@
     </ContentWithTargetPath>
   </ItemGroup>
 
-  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows')) And '$(Platform)' == 'x64'">
+  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows')) And ('$(Platform)' == 'x64' Or ('$(Platform)' == 'AnyCPU' And '$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)' == 'X64'))">
     <ContentWithTargetPath Include="lib\win-x64\uiohook.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>uiohook.dll</TargetPath>
@@ -86,7 +88,7 @@
     </ContentWithTargetPath>
   </ItemGroup>
 
-  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows')) And '$(Platform)' == 'ARM64'">
+  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Windows')) And ('$(Platform)' == 'ARM64' Or ('$(Platform)' == 'AnyCPU' And '$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)' == 'Arm64'))">
     <ContentWithTargetPath Include="lib\win-arm64\uiohook.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>uiohook.dll</TargetPath>
@@ -94,7 +96,7 @@
     </ContentWithTargetPath>
   </ItemGroup>
 
-  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('OSX')) And '$(Platform)' == 'x64'">
+  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('OSX')) And ('$(Platform)' == 'x64' Or ('$(Platform)' == 'AnyCPU' And '$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)' == 'X64'))">
     <ContentWithTargetPath Include="lib\osx-x64\libuiohook.dylib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>libuiohook.dylib</TargetPath>
@@ -102,7 +104,7 @@
     </ContentWithTargetPath>
   </ItemGroup>
 
-  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('OSX')) And '$(Platform)' == 'ARM64'">
+  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('OSX')) And ('$(Platform)' == 'ARM64' Or ('$(Platform)' == 'AnyCPU' And '$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)' == 'Arm64'))">
     <ContentWithTargetPath Include="lib\osx-arm64\libuiohook.dylib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>libuiohook.dylib</TargetPath>
@@ -110,7 +112,7 @@
     </ContentWithTargetPath>
   </ItemGroup>
 
-  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Linux')) And '$(Platform)' == 'x64'">
+  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Linux')) And ('$(Platform)' == 'x64' Or ('$(Platform)' == 'AnyCPU' And '$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)' == 'X64'))">
     <ContentWithTargetPath Include="lib\linux-x64\libuiohook.so">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>libuiohook.so</TargetPath>
@@ -118,7 +120,7 @@
     </ContentWithTargetPath>
   </ItemGroup>
 
-  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Linux')) And '$(Platform)' == 'ARM32'">
+  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Linux')) And ('$(Platform)' == 'ARM32' Or ('$(Platform)' == 'AnyCPU' And '$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)' == 'Arm'))">
     <ContentWithTargetPath Include="lib\linux-arm\libuiohook.so">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>libuiohook.so</TargetPath>
@@ -126,7 +128,7 @@
     </ContentWithTargetPath>
   </ItemGroup>
 
-  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Linux')) And '$(Platform)' == 'ARM64'">
+  <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Linux')) And ('$(Platform)' == 'ARM64' Or ('$(Platform)' == 'AnyCPU' And '$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)' == 'Arm64'))">
     <ContentWithTargetPath Include="lib\linux-arm64\libuiohook.so">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>libuiohook.so</TargetPath>

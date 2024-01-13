@@ -402,9 +402,6 @@ Place the binaries into the appropriate directories in the `SharpHook` project, 
 With libuiohook in place you can build SharpHook using your usual methods, e.g. with Visual Studio or the `dotnet` CLI.
 You need .NET 8 to build SharpHook.
 
-The `SharpHook` project defines multiple platforms. If you want to run `SharpHook.Sample`, make sure you don't use
-`AnyCPU` since the libuiohook version for it is not defined.
-
 ## Library Status
 
 I will maintain the library to keep up with the releases of libuiohook which uses a rolling release model - every commit
