@@ -74,7 +74,7 @@
     </ItemGroup>
 
     <ItemGroup Condition="$([MSBuild]::IsOSPlatform('Linux')) And '$(Platform)' == 'ARM64'">
-        <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\linux-arm64\libuiohook.so">
+        <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\linux-arm64\native\libuiohook.so">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
             <TargetPath>libuiohook.so</TargetPath>
             <Pack>False</Pack>
