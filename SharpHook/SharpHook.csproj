@@ -84,19 +84,23 @@
     <SharpHookOS>Linux</SharpHookOS>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Platform)' == 'x86' Or ('$(Platform)' == 'AnyCPU' And '$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)' == 'X86')">
+  <PropertyGroup>
+    <SharpHookArch>$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)</SharpHookArch>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Platform)' == 'x86' Or ('$(Platform)' == 'AnyCPU' And '$(SharpHookArch)' == 'X86')">
     <SharpHookPlatform>x86</SharpHookPlatform>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Platform)' == 'x64' Or ('$(Platform)' == 'AnyCPU' And '$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)' == 'X64')">
+  <PropertyGroup Condition="'$(Platform)' == 'x64' Or ('$(Platform)' == 'AnyCPU' And '$(SharpHookArch)' == 'X64')">
     <SharpHookPlatform>x64</SharpHookPlatform>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Platform)' == 'ARM32' Or ('$(Platform)' == 'AnyCPU' And '$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)' == 'Arm')">
+  <PropertyGroup Condition="'$(Platform)' == 'ARM32' Or ('$(Platform)' == 'AnyCPU' And '$(SharpHookArch)' == 'Arm')">
     <SharpHookPlatform>ARM32</SharpHookPlatform>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Platform)' == 'ARM64' Or ('$(Platform)' == 'AnyCPU' And '$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)' == 'Arm64')">
+  <PropertyGroup Condition="'$(Platform)' == 'ARM64' Or ('$(Platform)' == 'AnyCPU' And '$(SharpHookArch)' == 'Arm64')">
     <SharpHookPlatform>ARM64</SharpHookPlatform>
   </PropertyGroup>
 
