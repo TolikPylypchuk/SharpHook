@@ -26,9 +26,10 @@ public static partial class UioHook
     /// <seealso cref="DispatchProc" />
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_set_dispatch_proc")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void SetDispatchProc(DispatchProc? dispatchProc, IntPtr userData);
 #else
-    [DllImport(LibUioHook, EntryPoint = "hook_set_dispatch_proc")]
+    [DllImport(LibUioHook, EntryPoint = "hook_set_dispatch_proc", CallingConvention = CallingConvention.Cdecl)]
     public static extern void SetDispatchProc(DispatchProc? dispatchProc, IntPtr userData);
 #endif
 
@@ -38,9 +39,10 @@ public static partial class UioHook
     /// <returns>The result of the operation.</returns>
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_run")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial UioHookResult Run();
 #else
-    [DllImport(LibUioHook, EntryPoint = "hook_run")]
+    [DllImport(LibUioHook, EntryPoint = "hook_run", CallingConvention = CallingConvention.Cdecl)]
     public static extern UioHookResult Run();
 #endif
 
@@ -50,9 +52,10 @@ public static partial class UioHook
     /// <returns>The result of the operation.</returns>
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_stop")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial UioHookResult Stop();
 #else
-    [DllImport(LibUioHook, EntryPoint = "hook_stop")]
+    [DllImport(LibUioHook, EntryPoint = "hook_stop", CallingConvention = CallingConvention.Cdecl)]
     public static extern UioHookResult Stop();
 #endif
 
@@ -68,9 +71,10 @@ public static partial class UioHook
     /// <seealso cref="LoggerProc" />
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_set_logger_proc")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void SetLoggerProc(LoggerProc? loggerProc, IntPtr userData);
 #else
-    [DllImport(LibUioHook, EntryPoint = "hook_set_logger_proc")]
+    [DllImport(LibUioHook, EntryPoint = "hook_set_logger_proc", CallingConvention = CallingConvention.Cdecl)]
     public static extern void SetLoggerProc(LoggerProc? loggerProc, IntPtr userData);
 #endif
 
@@ -153,9 +157,10 @@ public static partial class UioHook
     /// <seealso cref="EventSimulator" />
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_post_event")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial UioHookResult PostEvent(ref UioHookEvent e);
 #else
-    [DllImport(LibUioHook, EntryPoint = "hook_post_event")]
+    [DllImport(LibUioHook, EntryPoint = "hook_post_event", CallingConvention = CallingConvention.Cdecl)]
     public static extern UioHookResult PostEvent(ref UioHookEvent e);
 #endif
 
@@ -188,9 +193,10 @@ public static partial class UioHook
     /// <seealso cref="EventSimulator" />
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_post_text")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial UioHookResult PostText([MarshalAs(UnmanagedType.LPWStr)] string text);
 #else
-    [DllImport(LibUioHook, EntryPoint = "hook_post_text")]
+    [DllImport(LibUioHook, EntryPoint = "hook_post_text", CallingConvention = CallingConvention.Cdecl)]
     public static extern UioHookResult PostText([MarshalAs(UnmanagedType.LPWStr)] string text);
 #endif
 
@@ -215,9 +221,10 @@ public static partial class UioHook
     /// <seealso cref="EventSimulator" />
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_get_post_text_delay_x11")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial ulong GetPostTextDelayX11();
 #else
-    [DllImport(LibUioHook, EntryPoint = "hook_get_post_text_delay_x11")]
+    [DllImport(LibUioHook, EntryPoint = "hook_get_post_text_delay_x11", CallingConvention = CallingConvention.Cdecl)]
     public static extern ulong GetPostTextDelayX11();
 #endif
 
@@ -244,9 +251,10 @@ public static partial class UioHook
     /// <seealso cref="EventSimulator" />
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_set_post_text_delay_x11")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void SetPostTextDelayX11(ulong delayNanoseconds);
 #else
-    [DllImport(LibUioHook, EntryPoint = "hook_set_post_text_delay_x11")]
+    [DllImport(LibUioHook, EntryPoint = "hook_set_post_text_delay_x11", CallingConvention = CallingConvention.Cdecl)]
     public static extern void SetPostTextDelayX11(ulong delayNanoseconds);
 #endif
 
@@ -264,9 +272,10 @@ public static partial class UioHook
     /// <seealso cref="CreateScreenInfo()" />
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_create_screen_info")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial IntPtr CreateScreenInfo(out byte count);
 #else
-    [DllImport(LibUioHook, EntryPoint = "hook_create_screen_info")]
+    [DllImport(LibUioHook, EntryPoint = "hook_create_screen_info", CallingConvention = CallingConvention.Cdecl)]
     public static extern IntPtr CreateScreenInfo(out byte count);
 #endif
 
@@ -301,9 +310,10 @@ public static partial class UioHook
     /// <returns>The auto-repeat rate.</returns>
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_get_auto_repeat_rate")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial int GetAutoRepeatRate();
 #else
-    [DllImport(LibUioHook, EntryPoint = "hook_get_auto_repeat_rate")]
+    [DllImport(LibUioHook, EntryPoint = "hook_get_auto_repeat_rate", CallingConvention = CallingConvention.Cdecl)]
     public static extern int GetAutoRepeatRate();
 #endif
 
@@ -313,9 +323,10 @@ public static partial class UioHook
     /// <returns>The auto-repeat delay.</returns>
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_get_auto_repeat_delay")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial int GetAutoRepeatDelay();
 #else
-    [DllImport(LibUioHook, EntryPoint = "hook_get_auto_repeat_delay")]
+    [DllImport(LibUioHook, EntryPoint = "hook_get_auto_repeat_delay", CallingConvention = CallingConvention.Cdecl)]
     public static extern int GetAutoRepeatDelay();
 #endif
 
@@ -325,9 +336,13 @@ public static partial class UioHook
     /// <returns>The pointer acceleration multiplier.</returns>
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_get_pointer_acceleration_multiplier")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial int GetPointerAccelerationMultiplier();
 #else
-    [DllImport(LibUioHook, EntryPoint = "hook_get_pointer_acceleration_multiplier")]
+    [DllImport(
+        LibUioHook,
+        EntryPoint = "hook_get_pointer_acceleration_multiplier",
+        CallingConvention = CallingConvention.Cdecl)]
     public static extern int GetPointerAccelerationMultiplier();
 #endif
 
@@ -337,9 +352,13 @@ public static partial class UioHook
     /// <returns>The pointer acceleration threshold.</returns>
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_get_pointer_acceleration_threshold")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial int GetPointerAccelerationThreshold();
 #else
-    [DllImport(LibUioHook, EntryPoint = "hook_get_pointer_acceleration_threshold")]
+    [DllImport(
+        LibUioHook,
+        EntryPoint = "hook_get_pointer_acceleration_threshold",
+        CallingConvention = CallingConvention.Cdecl)]
     public static extern int GetPointerAccelerationThreshold();
 #endif
 
@@ -349,9 +368,10 @@ public static partial class UioHook
     /// <returns>The pointer sensitivity.</returns>
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_get_pointer_sensitivity")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial int GetPointerSensitivity();
 #else
-    [DllImport(LibUioHook, EntryPoint = "hook_get_pointer_sensitivity")]
+    [DllImport(LibUioHook, EntryPoint = "hook_get_pointer_sensitivity", CallingConvention = CallingConvention.Cdecl)]
     public static extern int GetPointerSensitivity();
 #endif
 
@@ -361,9 +381,10 @@ public static partial class UioHook
     /// <returns>The multi-click time.</returns>
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_get_multi_click_time")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial int GetMultiClickTime();
 #else
-    [DllImport(LibUioHook, EntryPoint = "hook_get_multi_click_time")]
+    [DllImport(LibUioHook, EntryPoint = "hook_get_multi_click_time", CallingConvention = CallingConvention.Cdecl)]
     public static extern int GetMultiClickTime();
 #endif
 }
