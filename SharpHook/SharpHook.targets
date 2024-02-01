@@ -3,7 +3,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <SharpHookFrameworkDescription>
-      $([System.Runtime.InteropServices.RuntimeInformation]:: FrameworkDescription.ToString())
+      $([System.Runtime.InteropServices.RuntimeInformation]::FrameworkDescription.ToString())
     </SharpHookFrameworkDescription>
     <SharpHookIsNetFramework>$(SharpHookFrameworkDescription.Contains('Framework'))</SharpHookIsNetFramework>
   </PropertyGroup>
