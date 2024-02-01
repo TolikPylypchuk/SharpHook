@@ -1,5 +1,9 @@
 # SharpHook Changelog
 
+## [v5.2.3](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.2.3) (February 2, 2024)
+
+- Windows x86 support was fixed for .NET Framework.
+
 ## [v5.2.2](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.2.2) (January 13, 2024)
 
 - The package targets are now executed only for .NET Framework since they aren't needed for .NET/.NET Core.
