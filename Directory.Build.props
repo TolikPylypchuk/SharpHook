@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Version>5.2.3</Version>
+    <Version>5.3.0</Version>
     <Authors>Tolik Pylypchuk</Authors>
     <Company>Tolik Pylypchuk</Company>
     <Product>SharpHook</Product>
