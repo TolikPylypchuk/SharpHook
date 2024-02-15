@@ -48,9 +48,9 @@ jobs:
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
 
       - name: Upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: libuiohook-build
+          name: libuiohook-macos-arm64
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-macos-x64:
@@ -86,9 +86,9 @@ jobs:
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
 
       - name: Upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: libuiohook-build
+          name: libuiohook-macos-x64
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-mac-catalyst-arm64:
@@ -129,9 +129,9 @@ jobs:
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
 
       - name: Upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: libuiohook-build
+          name: libuiohook-mac-catalyst-arm64
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-mac-catalyst-x64:
@@ -172,9 +172,9 @@ jobs:
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
 
       - name: Upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: libuiohook-build
+          name: libuiohook-mac-catalyst-x64
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-linux-arm:
@@ -246,9 +246,9 @@ jobs:
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
 
       - name: Upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: libuiohook-build
+          name: libuiohook-linux-arm
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-linux-arm64:
@@ -320,9 +320,9 @@ jobs:
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
 
       - name: Upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: libuiohook-build
+          name: libuiohook-linux-arm64
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-linux-x64:
@@ -373,9 +373,9 @@ jobs:
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
 
       - name: Upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: libuiohook-build
+          name: libuiohook-linux-x64
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-windows-arm64:
@@ -413,9 +413,9 @@ jobs:
           cmake --install ${{github.workspace}}\build --config RelWithDebInfo
 
       - name: Upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: libuiohook-build
+          name: libuiohook-windows-arm64
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-windows-x86:
@@ -453,9 +453,9 @@ jobs:
           cmake --install ${{github.workspace}}\build --config RelWithDebInfo
 
       - name: Upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: libuiohook-build
+          name: libuiohook-windows-x86
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-windows-x64:
@@ -493,13 +493,14 @@ jobs:
           cmake --install ${{github.workspace}}\build --config RelWithDebInfo
 
       - name: Upload
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: libuiohook-build
+          name: libuiohook-windows-x64
           path: ${{github.workspace}}/dist/**/*
 
-  sharphook:
+  merge-libuiohook-artifacts:
     runs-on: windows-latest
+
     needs:
       - libuiohook-macos-arm64
       - libuiohook-macos-x64
@@ -513,12 +514,24 @@ jobs:
       - libuiohook-windows-x64
 
     steps:
+      - uses: actions/upload-artifact/merge@v4
+        with:
+          name: libuiohook-build
+          pattern: libuiohook-*
+          delete-merged: true
+
+  sharphook:
+    runs-on: windows-latest
+    needs:
+      - merge-libuiohook-artifacts
+
+    steps:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
@@ -527,7 +540,7 @@ jobs:
         run: dotnet tool update --global docfx
 
       - name: Fetch libuiohook
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: libuiohook-build
           path: libuiohook-build
@@ -574,7 +587,7 @@ jobs:
           dotnet pack --no-build --nologo -c Release -o ${{github.workspace}}\build\
 
       - name: Upload SharpHook
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: sharphook-build
           path: ${{github.workspace}}\build\*
@@ -607,12 +620,12 @@ jobs:
           submodules: recursive
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
       - name: Fetch Packages
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: sharphook-build
           path: sharphook-build
