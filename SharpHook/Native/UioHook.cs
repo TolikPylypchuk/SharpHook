@@ -36,6 +36,10 @@ public static partial class UioHook
     /// <summary>
     /// Runs the global hook and blocks the thread until it's stopped.
     /// </summary>
+    /// <remarks>
+    /// Calling this method when another global hook is running should never be done as it will corrupt the global state
+    /// of libuiohook.
+    /// </remarks>
     /// <returns>The result of the operation.</returns>
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_run")]
@@ -44,6 +48,62 @@ public static partial class UioHook
 #else
     [DllImport(LibUioHook, EntryPoint = "hook_run", CallingConvention = CallingConvention.Cdecl)]
     public static extern UioHookResult Run();
+#endif
+
+    /// <summary>
+    /// Runs the global hook only for keyboard events and blocks the thread until it's stopped.
+    /// </summary>
+    /// <returns>The result of the operation.</returns>
+    /// <remarks>
+    /// <para>
+    /// This method makes a difference only on Windows where there are two different global hooks - a keyboard hook and
+    /// a mouse hook. On macOS and Linux there is one hook for all events, and this method simply filters mouse events
+    /// out at the libuiohook level on these OSes.
+    /// </para>
+    /// <para>
+    /// When a keyboard-only hook is running, the <see cref="UioHookEvent.Mask" /> field will not contain any mouse
+    /// button state.
+    /// </para>
+    /// <para>
+    /// Calling this method when another global hook is running should never be done as it will corrupt the global state
+    /// of libuiohook.
+    /// </para>
+    /// </remarks>
+#if NET7_0_OR_GREATER
+    [LibraryImport(LibUioHook, EntryPoint = "hook_run_keyboard")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial UioHookResult RunKeyboard();
+#else
+    [DllImport(LibUioHook, EntryPoint = "hook_run_keyboard", CallingConvention = CallingConvention.Cdecl)]
+    public static extern UioHookResult RunKeyboard();
+#endif
+
+    /// <summary>
+    /// Runs the global hook only for mouse events and blocks the thread until it's stopped.
+    /// </summary>
+    /// <returns>The result of the operation.</returns>
+    /// <remarks>
+    /// <para>
+    /// This method makes a difference only on Windows where there are two different global hooks - a keyboard hook and
+    /// a mouse hook. On macOS and Linux there is one hook for all events, and this method simply filters keyboard
+    /// events out at the libuiohook level on these OSes.
+    /// </para>
+    /// <para>
+    /// When a mouse-only hook is running, the <see cref="UioHookEvent.Mask" /> field will not contain any keyboard
+    /// modifier state.
+    /// </para>
+    /// <para>
+    /// Calling this method when another global hook is running should never be done as it will corrupt the global state
+    /// of libuiohook.
+    /// </para>
+    /// </remarks>
+#if NET7_0_OR_GREATER
+    [LibraryImport(LibUioHook, EntryPoint = "hook_run_mouse")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial UioHookResult RunMouse();
+#else
+    [DllImport(LibUioHook, EntryPoint = "hook_run_mouse", CallingConvention = CallingConvention.Cdecl)]
+    public static extern UioHookResult RunMouse();
 #endif
 
     /// <summary>

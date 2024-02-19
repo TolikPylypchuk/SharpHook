@@ -9,6 +9,7 @@ namespace SharpHook;
 /// Otherwise, <see langword="false" />.
 /// </param>
 /// <seealso cref="TaskPoolGlobalHook" />
+[Obsolete("Use a TaskPoolGlobalHook constructor which accepts all possible parameters instead")]
 public sealed class TaskPoolGlobalHookOptions(int parallelismLevel, bool runAsyncOnBackgroundThread)
 {
     /// <summary>

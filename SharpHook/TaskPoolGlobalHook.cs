@@ -22,6 +22,8 @@ namespace SharpHook;
 /// <seealso cref="TaskPoolGlobalHookOptions" />
 public sealed class TaskPoolGlobalHook : GlobalHookBase
 {
+    private const int DefaultParallelismLevel = 1;
+
     private readonly TaskQueue taskQueue;
 
     /// <summary>
@@ -33,7 +35,7 @@ public sealed class TaskPoolGlobalHook : GlobalHookBase
     /// </remarks>
     [ExcludeFromCodeCoverage]
     public TaskPoolGlobalHook()
-        : this(TaskPoolGlobalHookOptions.Sequential)
+        : this(DefaultParallelismLevel)
     { }
 
     /// <summary>
@@ -44,7 +46,7 @@ public sealed class TaskPoolGlobalHook : GlobalHookBase
     /// <paramref name="globalHookProvider"/> is <see langword="null" />.
     /// </exception>
     public TaskPoolGlobalHook(IGlobalHookProvider globalHookProvider)
-        : this(globalHookProvider, TaskPoolGlobalHookOptions.Sequential)
+        : this(DefaultParallelismLevel, GlobalHookType.All, globalHookProvider)
     { }
 
     /// <summary>
@@ -55,6 +57,7 @@ public sealed class TaskPoolGlobalHook : GlobalHookBase
     /// <paramref name="options"/> is <see langword="null" />.
     /// </exception>
     [ExcludeFromCodeCoverage]
+    [Obsolete("Use a constructor which accepts all possible parameters with a named parameter instead")]
     public TaskPoolGlobalHook(TaskPoolGlobalHookOptions options)
         : base(options?.RunAsyncOnBackgroundThread ?? false)
     {
@@ -74,6 +77,7 @@ public sealed class TaskPoolGlobalHook : GlobalHookBase
     /// <exception cref="ArgumentNullException">
     /// <paramref name="globalHookProvider"/> or <paramref name="options" /> is <see langword="null" />.
     /// </exception>
+    [Obsolete("Use a constructor which accepts all possible parameters with named parameters instead")]
     public TaskPoolGlobalHook(IGlobalHookProvider globalHookProvider, TaskPoolGlobalHookOptions options)
         : base(globalHookProvider, options?.RunAsyncOnBackgroundThread ?? false)
     {
@@ -84,6 +88,26 @@ public sealed class TaskPoolGlobalHook : GlobalHookBase
 
         this.taskQueue = new(options.ParallelismLevel);
     }
+
+    /// <summary>
+    /// Initializes a new instance of <see cref="TaskPoolGlobalHook" />.
+    /// </summary>
+    /// <param name="parallelismLevel">The parallelism level of event handlers.</param>
+    /// <param name="globalHookType">The global hook type.</param>
+    /// <param name="globalHookProvider">
+    /// The underlying global hook provider, or <see langword="null" /> to use the default one.
+    /// </param>
+    /// <param name="runAsyncOnBackgroundThread">
+    /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
+    /// Otherwise, <see langword="false" />.
+    /// </param>
+    public TaskPoolGlobalHook(
+        int parallelismLevel = DefaultParallelismLevel,
+        GlobalHookType globalHookType = GlobalHookType.All,
+        IGlobalHookProvider? globalHookProvider = null,
+        bool runAsyncOnBackgroundThread = false)
+        : base(globalHookType, globalHookProvider, runAsyncOnBackgroundThread) =>
+        this.taskQueue = new(parallelismLevel);
 
     /// <summary>
     /// Handles the hook event.

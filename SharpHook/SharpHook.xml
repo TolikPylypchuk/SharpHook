@@ -226,10 +226,9 @@
             <summary>
             Initializes a new instance of <see cref="T:SharpHook.GlobalHookBase" />.
             </summary>
-            <param name="globalHookProvider">The underlying global hook provider.</param>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="globalHookProvider"/> is <see langword="null" />.
-            </exception>
+            <param name="globalHookProvider">
+            The underlying global hook provider, or <see langword="null" /> to use the default one.
+            </param>
         </member>
         <member name="M:SharpHook.GlobalHookBase.#ctor(System.Boolean)">
             <summary>
@@ -244,14 +243,26 @@
             <summary>
             Initializes a new instance of <see cref="T:SharpHook.GlobalHookBase" />.
             </summary>
-            <param name="globalHookProvider">The underlying global hook provider.</param>
+            <param name="globalHookProvider">
+            The underlying global hook provider, or <see langword="null" /> to use the default one.
+            </param>
             <param name="runAsyncOnBackgroundThread">
             <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
             Otherwise, <see langword="false" />.
             </param>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="globalHookProvider"/> is <see langword="null" />.
-            </exception>
+        </member>
+        <member name="M:SharpHook.GlobalHookBase.#ctor(SharpHook.GlobalHookType,SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.GlobalHookBase" />.
+            </summary>
+            <param name="globalHookType">The global hook type.</param>
+            <param name="globalHookProvider">
+            The underlying global hook provider, or <see langword="null" /> to use the default one.
+            </param>
+            <param name="runAsyncOnBackgroundThread">
+            <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
+            Otherwise, <see langword="false" />.
+            </param>
         </member>
         <member name="M:SharpHook.GlobalHookBase.Finalize">
             <summary>
@@ -458,6 +469,20 @@
             <summary>
             An event which is raised when the mouse wheel is turned.
             </summary>
+        </member>
+        <member name="T:SharpHook.GlobalHookType">
+            <summary>
+            Represents a global hook type - keyboard hook, mouse hook, or both.
+            </summary>
+        </member>
+        <member name="F:SharpHook.GlobalHookType.All">
+            <summary>A global hook for both keyboard and mouse events.</summary>
+        </member>
+        <member name="F:SharpHook.GlobalHookType.Keyboard">
+            <summary>A global hook for keyboard events only.</summary>
+        </member>
+        <member name="F:SharpHook.GlobalHookType.Mouse">
+            <summary>A global hook for mouse events only.</summary>
         </member>
         <member name="T:SharpHook.HookEventArgs">
             <summary>
@@ -3227,7 +3252,53 @@
             <summary>
             Runs the global hook and blocks the thread until it's stopped.
             </summary>
+            <remarks>
+            Calling this method when another global hook is running should never be done as it will corrupt the global state
+            of libuiohook.
+            </remarks>
             <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Native.UioHook.RunKeyboard">
+            <summary>
+            Runs the global hook only for keyboard events and blocks the thread until it's stopped.
+            </summary>
+            <returns>The result of the operation.</returns>
+            <remarks>
+            <para>
+            This method makes a difference only on Windows where there are two different global hooks - a keyboard hook and
+            a mouse hook. On macOS and Linux there is one hook for all events, and this method simply filters mouse events
+            out at the libuiohook level on these OSes.
+            </para>
+            <para>
+            When a keyboard-only hook is running, the <see cref="F:SharpHook.Native.UioHookEvent.Mask" /> field will not contain any mouse
+            button state.
+            </para>
+            <para>
+            Calling this method when another global hook is running should never be done as it will corrupt the global state
+            of libuiohook.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Native.UioHook.RunMouse">
+            <summary>
+            Runs the global hook only for mouse events and blocks the thread until it's stopped.
+            </summary>
+            <returns>The result of the operation.</returns>
+            <remarks>
+            <para>
+            This method makes a difference only on Windows where there are two different global hooks - a keyboard hook and
+            a mouse hook. On macOS and Linux there is one hook for all events, and this method simply filters keyboard
+            events out at the libuiohook level on these OSes.
+            </para>
+            <para>
+            When a mouse-only hook is running, the <see cref="F:SharpHook.Native.UioHookEvent.Mask" /> field will not contain any keyboard
+            modifier state.
+            </para>
+            <para>
+            Calling this method when another global hook is running should never be done as it will corrupt the global state
+            of libuiohook.
+            </para>
+            </remarks>
         </member>
         <member name="M:SharpHook.Native.UioHook.Stop">
             <summary>
@@ -3865,6 +3936,28 @@
             </summary>
             <returns>The result of the operation.</returns>
         </member>
+        <member name="M:SharpHook.Providers.IGlobalHookProvider.RunKeyboard">
+            <summary>
+            Runs the global hook only for keyboard events and blocks the thread until it's stopped.
+            </summary>
+            <returns>The result of the operation.</returns>
+            <remarks>
+            This method makes a difference only on Windows where there are two different global hooks - a keyboard hook and
+            a mouse hook. On macOS and Linux there is one hook for all events, and this method simply filters mouse events
+            out at the libuiohook level on these OSes.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Providers.IGlobalHookProvider.RunMouse">
+            <summary>
+            Runs the global hook only for mouse events and blocks the thread until it's stopped.
+            </summary>
+            <returns>The result of the operation.</returns>
+            <remarks>
+            This method makes a difference only on Windows where there are two different global hooks - a keyboard hook and
+            a mouse hook. On macOS and Linux there is one hook for all events, and this method simply filters keyboard
+            events out at the libuiohook level on these OSes.
+            </remarks>
+        </member>
         <member name="M:SharpHook.Providers.IGlobalHookProvider.Stop">
             <summary>
             Stops the global hook.
@@ -3971,6 +4064,28 @@
             Runs the global hook and blocks the thread until it's stopped.
             </summary>
             <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Providers.UioHookProvider.RunKeyboard">
+            <summary>
+            Runs the global hook only for keyboard events and blocks the thread until it's stopped.
+            </summary>
+            <returns>The result of the operation.</returns>
+            <remarks>
+            This method makes a difference only on Windows where there are two different global hooks - a keyboard hook and
+            a mouse hook. On macOS and Linux there is one hook for all events, and this method simply filters mouse events
+            out at the libuiohook level on these OSes.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Providers.UioHookProvider.RunMouse">
+            <summary>
+            Runs the global hook only for mouse events and blocks the thread until it's stopped.
+            </summary>
+            <returns>The result of the operation.</returns>
+            <remarks>
+            This method makes a difference only on Windows where there are two different global hooks - a keyboard hook and
+            a mouse hook. On macOS and Linux there is one hook for all events, and this method simply filters keyboard
+            events out at the libuiohook level on these OSes.
+            </remarks>
         </member>
         <member name="M:SharpHook.Providers.UioHookProvider.Stop">
             <summary>
@@ -4228,6 +4343,19 @@
             <paramref name="globalHookProvider"/> is <see langword="null" />.
             </exception>
         </member>
+        <member name="M:SharpHook.SimpleGlobalHook.#ctor(SharpHook.GlobalHookType,SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.SimpleGlobalHook" />.
+            </summary>
+            <param name="globalHookType">The global hook type.</param>
+            <param name="globalHookProvider">
+            The underlying global hook provider, or <see langword="null" /> to use the default one.
+            </param>
+            <param name="runAsyncOnBackgroundThread">
+            <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
+            Otherwise, <see langword="false" />.
+            </param>
+        </member>
         <member name="M:SharpHook.SimpleGlobalHook.HandleHookEvent(SharpHook.Native.UioHookEvent@)">
             <summary>
             Handles the hook event.
@@ -4292,6 +4420,20 @@
             <exception cref="T:System.ArgumentNullException">
             <paramref name="globalHookProvider"/> or <paramref name="options" /> is <see langword="null" />.
             </exception>
+        </member>
+        <member name="M:SharpHook.TaskPoolGlobalHook.#ctor(System.Int32,SharpHook.GlobalHookType,SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.TaskPoolGlobalHook" />.
+            </summary>
+            <param name="parallelismLevel">The parallelism level of event handlers.</param>
+            <param name="globalHookType">The global hook type.</param>
+            <param name="globalHookProvider">
+            The underlying global hook provider, or <see langword="null" /> to use the default one.
+            </param>
+            <param name="runAsyncOnBackgroundThread">
+            <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
+            Otherwise, <see langword="false" />.
+            </param>
         </member>
         <member name="M:SharpHook.TaskPoolGlobalHook.HandleHookEvent(SharpHook.Native.UioHookEvent@)">
             <summary>
@@ -4798,6 +4940,12 @@
             </summary>
             <value><see langword="true" /> if the testing hook is running. Otherwise, <see langword="false" />.</value>
         </member>
+        <member name="P:SharpHook.Testing.TestProvider.GlobalHookType">
+            <summary>
+            Gets the global hook type of this provider. The provider is set when the <see cref="M:SharpHook.Testing.TestProvider.Run" />,
+            <see cref="M:SharpHook.Testing.TestProvider.RunKeyboard" />, or <see cref="M:SharpHook.Testing.TestProvider.RunMouse" /> method is called.
+            </summary>
+        </member>
         <member name="P:SharpHook.Testing.TestProvider.EventDateTime">
             <summary>
             Gets or sets the function which will be called to set the date/time of the <see cref="F:SharpHook.Native.EventType.HookEnabled" />
@@ -4919,6 +5067,46 @@
             </para>
             </remarks>
         </member>
+        <member name="M:SharpHook.Testing.TestProvider.RunKeyboard">
+            <summary>
+            Runs the testing hook if <see cref="P:SharpHook.Testing.TestProvider.RunResult" /> is set to <see cref="F:SharpHook.Native.UioHookResult.Success" />. Otherwise,
+            does nothing. The hook will react only to keyboard events.
+            </summary>
+            <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.RunResult" />.</returns>
+            <remarks>
+            <para>
+            This method simply blocks the current thread until <see cref="M:SharpHook.Testing.TestProvider.Stop" /> is called. Actual event dispatching
+            happens directly in the <see cref="M:SharpHook.Testing.TestProvider.PostEvent(SharpHook.Native.UioHookEvent@)" /> method. As such, it's different from the real
+            global hook where the thread which calls the <see cref="M:SharpHook.Providers.IGlobalHookProvider.Run" /> method is the thread
+            which dispatches events - this is not the case with <see cref="T:SharpHook.Testing.TestProvider" />.
+            </para>
+            <para>
+            This method can be called when the provider is already running - it will also block the current thread.
+            Calling the <see cref="M:SharpHook.Testing.TestProvider.Stop" /> method will unblock all blocked threads. This is not recommended though as it
+            does not mirror the behaviour of the real hook, and will throw an exception in a future release.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Testing.TestProvider.RunMouse">
+            <summary>
+            Runs the testing hook if <see cref="P:SharpHook.Testing.TestProvider.RunResult" /> is set to <see cref="F:SharpHook.Native.UioHookResult.Success" />. Otherwise,
+            does nothing. The hook will react only to mouse events.
+            </summary>
+            <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.RunResult" />.</returns>
+            <remarks>
+            <para>
+            This method simply blocks the current thread until <see cref="M:SharpHook.Testing.TestProvider.Stop" /> is called. Actual event dispatching
+            happens directly in the <see cref="M:SharpHook.Testing.TestProvider.PostEvent(SharpHook.Native.UioHookEvent@)" /> method. As such, it's different from the real
+            global hook where the thread which calls the <see cref="M:SharpHook.Providers.IGlobalHookProvider.Run" /> method is the thread
+            which dispatches events - this is not the case with <see cref="T:SharpHook.Testing.TestProvider" />.
+            </para>
+            <para>
+            This method can be called when the provider is already running - it will also block the current thread.
+            Calling the <see cref="M:SharpHook.Testing.TestProvider.Stop" /> method will unblock all blocked threads. This is not recommended though as it
+            does not mirror the behaviour of the real hook, and will throw an exception in a future release.
+            </para>
+            </remarks>
+        </member>
         <member name="M:SharpHook.Testing.TestProvider.RunAsync">
             <summary>
             Runs the testing hook if <see cref="P:SharpHook.Testing.TestProvider.RunResult" /> is set to <see cref="F:SharpHook.Native.UioHookResult.Success" />. Otherwise,
@@ -4935,6 +5123,50 @@
             </para>
             <para>
             This method can be called when the provider is already running - the same <see cref="T:System.Threading.Tasks.Task" /> will be returned.
+            This is not recommended though as it does not mirror the behaviour of the real hook, and will throw an exception
+            in a future version.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Testing.TestProvider.RunKeyboardAsync">
+            <summary>
+            Runs the testing hook if <see cref="P:SharpHook.Testing.TestProvider.RunResult" /> is set to <see cref="F:SharpHook.Native.UioHookResult.Success" />. Otherwise,
+            does nothing. The hook will react only to keyboard events.
+            </summary>
+            <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.RunResult" />.</returns>
+            <remarks>
+            <para>
+            This method doesn't do anything and returns a <see cref="T:System.Threading.Tasks.Task" /> which will be finished when
+            <see cref="M:SharpHook.Testing.TestProvider.Stop" /> is called. Actual event dispatching happens directly in the
+            <see cref="M:SharpHook.Testing.TestProvider.PostEvent(SharpHook.Native.UioHookEvent@)" /> method. As such, it's different from the real global hook where
+            the thread which calls the <see cref="M:SharpHook.Providers.IGlobalHookProvider.Run" /> method is the thread which dispatches
+            events - this is not the case with <see cref="T:SharpHook.Testing.TestProvider" />.
+            </para>
+            <para>
+            This method can be called when the provider is already running - the same <see cref="T:System.Threading.Tasks.Task" /> will be returned.
+            This is not recommended though as it does not mirror the behaviour of the real hook, and will throw an exception
+            in a future version.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Testing.TestProvider.RunMouseAsync">
+            <summary>
+            Runs the testing hook if <see cref="P:SharpHook.Testing.TestProvider.RunResult" /> is set to <see cref="F:SharpHook.Native.UioHookResult.Success" />. Otherwise,
+            does nothing. The hook will react only to mouse events.
+            </summary>
+            <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.RunResult" />.</returns>
+            <remarks>
+            <para>
+            This method doesn't do anything and returns a <see cref="T:System.Threading.Tasks.Task" /> which will be finished when
+            <see cref="M:SharpHook.Testing.TestProvider.Stop" /> is called. Actual event dispatching happens directly in the
+            <see cref="M:SharpHook.Testing.TestProvider.PostEvent(SharpHook.Native.UioHookEvent@)" /> method. As such, it's different from the real global hook where
+            the thread which calls the <see cref="M:SharpHook.Providers.IGlobalHookProvider.Run" /> method is the thread which dispatches
+            events - this is not the case with <see cref="T:SharpHook.Testing.TestProvider" />.
+            </para>
+            <para>
+            This method can be called when the provider is already running - the same <see cref="T:System.Threading.Tasks.Task" /> will be returned.
+            This is not recommended though as it does not mirror the behaviour of the real hook, and will throw an exception
+            in a future version.
             </para>
             </remarks>
         </member>

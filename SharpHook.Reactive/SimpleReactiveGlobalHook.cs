@@ -26,11 +26,13 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
 
     private readonly IGlobalHookProvider globalHookProvider;
     private readonly DispatchProc dispatchProc;
+    private readonly GlobalHookType globalHookType;
     private readonly bool runAsyncOnBackgroundThread;
 
     /// <summary>
     /// Initializes a new instance of <see cref="SimpleReactiveGlobalHook" />.
     /// </summary>
+    [ExcludeFromCodeCoverage]
     public SimpleReactiveGlobalHook()
         : this(false)
     { }
@@ -39,10 +41,8 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     /// Initializes a new instance of <see cref="SimpleReactiveGlobalHook" />.
     /// </summary>
     /// <param name="defaultScheduler">The default scheduler for observables.</param>
-    /// <exception cref="ArgumentNullException">
-    /// <paramref name="defaultScheduler" /> is <see langword="null" />.
-    /// </exception>
-    public SimpleReactiveGlobalHook(IScheduler defaultScheduler)
+    [ExcludeFromCodeCoverage]
+    public SimpleReactiveGlobalHook(IScheduler? defaultScheduler)
         : this(defaultScheduler, false)
     { }
 
@@ -50,10 +50,8 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     /// Initializes a new instance of <see cref="SimpleReactiveGlobalHook" />.
     /// </summary>
     /// <param name="globalHookProvider">The underlying global hook provider.</param>
-    /// <exception cref="ArgumentNullException">
-    /// <paramref name="globalHookProvider"/> is <see langword="null" />.
-    /// </exception>
-    public SimpleReactiveGlobalHook(IGlobalHookProvider globalHookProvider)
+    [ExcludeFromCodeCoverage]
+    public SimpleReactiveGlobalHook(IGlobalHookProvider? globalHookProvider)
         : this(globalHookProvider, false)
     { }
 
@@ -64,6 +62,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
     /// Otherwise, <see langword="false" />.
     /// </param>
+    [ExcludeFromCodeCoverage]
     public SimpleReactiveGlobalHook(bool runAsyncOnBackgroundThread)
         : this(UioHookProvider.Instance, runAsyncOnBackgroundThread)
     { }
@@ -72,11 +71,11 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     /// Initializes a new instance of <see cref="SimpleReactiveGlobalHook" />.
     /// </summary>
     /// <param name="defaultScheduler">The default scheduler for observables.</param>
-    /// <param name="globalHookProvider">The underlying global hook provider.</param>
-    /// <exception cref="ArgumentNullException">
-    /// <paramref name="defaultScheduler" /> or <paramref name="globalHookProvider"/> is <see langword="null" />.
-    /// </exception>
-    public SimpleReactiveGlobalHook(IScheduler defaultScheduler, IGlobalHookProvider globalHookProvider)
+    /// <param name="globalHookProvider">
+    /// The underlying global hook provider, or <see langword="null" /> to use the default one.
+    /// </param>
+    [ExcludeFromCodeCoverage]
+    public SimpleReactiveGlobalHook(IScheduler? defaultScheduler, IGlobalHookProvider? globalHookProvider)
         : this(defaultScheduler, globalHookProvider, false)
     { }
 
@@ -88,58 +87,72 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
     /// Otherwise, <see langword="false" />.
     /// </param>
-    /// <exception cref="ArgumentNullException">
-    /// <paramref name="defaultScheduler" /> is <see langword="null" />.
-    /// </exception>
-    public SimpleReactiveGlobalHook(IScheduler defaultScheduler, bool runAsyncOnBackgroundThread)
+    [ExcludeFromCodeCoverage]
+    public SimpleReactiveGlobalHook(IScheduler? defaultScheduler, bool runAsyncOnBackgroundThread)
         : this(defaultScheduler, UioHookProvider.Instance, runAsyncOnBackgroundThread)
     { }
 
     /// <summary>
     /// Initializes a new instance of <see cref="SimpleReactiveGlobalHook" />.
     /// </summary>
-    /// <param name="globalHookProvider">The underlying global hook provider.</param>
+    /// <param name="globalHookProvider">
+    /// The underlying global hook provider, or <see langword="null" /> to use the default one.
+    /// </param>
     /// <param name="runAsyncOnBackgroundThread">
     /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
     /// Otherwise, <see langword="false" />.
     /// </param>
-    /// <exception cref="ArgumentNullException">
-    /// <paramref name="globalHookProvider"/> is <see langword="null" />.
-    /// </exception>
-    public SimpleReactiveGlobalHook(IGlobalHookProvider globalHookProvider, bool runAsyncOnBackgroundThread)
-        : this(ImmediateScheduler.Instance, globalHookProvider, runAsyncOnBackgroundThread)
+    [ExcludeFromCodeCoverage]
+    public SimpleReactiveGlobalHook(IGlobalHookProvider? globalHookProvider, bool runAsyncOnBackgroundThread)
+        : this(null, globalHookProvider, runAsyncOnBackgroundThread)
     { }
+
 
     /// <summary>
     /// Initializes a new instance of <see cref="SimpleReactiveGlobalHook" />.
     /// </summary>
     /// <param name="defaultScheduler">The default scheduler for observables.</param>
-    /// <param name="globalHookProvider">The underlying global hook provider.</param>
+    /// <param name="globalHookProvider">
+    /// The underlying global hook provider, or <see langword="null" /> to use the default one.
+    /// </param>
     /// <param name="runAsyncOnBackgroundThread">
     /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
     /// Otherwise, <see langword="false" />.
     /// </param>
-    /// <exception cref="ArgumentNullException">
-    /// <paramref name="defaultScheduler" /> or <paramref name="globalHookProvider"/> is <see langword="null" />.
-    /// </exception>
+    [ExcludeFromCodeCoverage]
     public SimpleReactiveGlobalHook(
-        IScheduler defaultScheduler,
-        IGlobalHookProvider globalHookProvider,
+        IScheduler? defaultScheduler,
+        IGlobalHookProvider? globalHookProvider,
         bool runAsyncOnBackgroundThread)
+        : this(GlobalHookType.All, defaultScheduler, globalHookProvider, runAsyncOnBackgroundThread)
+    { }
+
+    /// <summary>
+    /// Initializes a new instance of <see cref="SimpleReactiveGlobalHook" />.
+    /// </summary>
+    /// <param name="globalHookType">The global hook type.</param>
+    /// <param name="defaultScheduler">
+    /// The default scheduler for observables, or <see langword="null" /> to use the default one.
+    /// </param>
+    /// <param name="globalHookProvider">
+    /// The underlying global hook provider, or <see langword="null" /> to use the default one.
+    /// </param>
+    /// <param name="runAsyncOnBackgroundThread">
+    /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
+    /// Otherwise, <see langword="false" />.
+    /// </param>
+    public SimpleReactiveGlobalHook(
+        GlobalHookType globalHookType = GlobalHookType.All,
+        IScheduler? defaultScheduler = null,
+        IGlobalHookProvider? globalHookProvider = null,
+        bool runAsyncOnBackgroundThread = false)
     {
-        if (globalHookProvider is null)
-        {
-            throw new ArgumentNullException(nameof(globalHookProvider));
-        }
-
-        if (defaultScheduler is null)
-        {
-            throw new ArgumentNullException(nameof(defaultScheduler));
-        }
-
-        this.globalHookProvider = globalHookProvider;
+        this.globalHookType = globalHookType;
+        this.globalHookProvider = globalHookProvider ?? UioHookProvider.Instance;
         this.dispatchProc = this.DispatchEvent;
         this.runAsyncOnBackgroundThread = runAsyncOnBackgroundThread;
+
+        defaultScheduler ??= ImmediateScheduler.Instance;
 
         this.HookEnabled = this.hookEnabledSubject.Take(1).ObserveOn(defaultScheduler);
         this.HookDisabled = this.hookDisabledSubject.Take(1).ObserveOn(defaultScheduler);
@@ -269,7 +282,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
             this.globalHookProvider.SetDispatchProc(this.dispatchProc, IntPtr.Zero);
 
             this.IsRunning = true;
-            result = this.globalHookProvider.Run();
+            result = this.RunGlobalHook();
             this.IsRunning = false;
         } catch (Exception e)
         {
@@ -309,7 +322,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
                 this.globalHookProvider.SetDispatchProc(this.dispatchProc, IntPtr.Zero);
 
                 this.IsRunning = true;
-                var result = this.globalHookProvider.Run();
+                var result = this.RunGlobalHook();
                 this.IsRunning = false;
 
                 if (result == UioHookResult.Success)
@@ -348,6 +361,14 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
         this.Dispose(true);
         GC.SuppressFinalize(this);
     }
+
+    private UioHookResult RunGlobalHook() =>
+        this.globalHookType switch
+        {
+            GlobalHookType.Keyboard => this.globalHookProvider.RunKeyboard(),
+            GlobalHookType.Mouse => this.globalHookProvider.RunMouse(),
+            _ => this.globalHookProvider.Run()
+        };
 
     private void DispatchEvent(ref UioHookEvent e, IntPtr userData)
     {

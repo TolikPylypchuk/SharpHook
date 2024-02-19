@@ -67,6 +67,82 @@ public sealed class TestProviderTests
         await task;
     }
 
+    [Property(DisplayName = "RunKeyboard should not dispatch mouse events")]
+    public async void RunKeyboard(MouseEvent eventToPost, IntPtr userData)
+    {
+        // Arrange
+
+        UioHookEvent? actualEvent = null;
+        IntPtr? actualUserData = null;
+
+        var provider = new TestProvider();
+
+        // Act
+
+        provider.SetDispatchProc(
+            (ref UioHookEvent e, IntPtr data) =>
+            {
+                actualEvent = e;
+                actualUserData = data;
+            },
+            userData);
+
+        var task = provider.RunKeyboardAsync();
+
+        var e = eventToPost.Value;
+        provider.PostEvent(ref e);
+
+        // Assert
+
+        Assert.Null(actualEvent);
+        Assert.Null(actualUserData);
+
+        Assert.Empty(provider.PostedEvents);
+
+        // Clean up
+
+        provider.Stop();
+        await task;
+    }
+
+    [Property(DisplayName = "RunMouse should not dispatch mouse events")]
+    public async void RunMouse(KeyboardEvent eventToPost, IntPtr userData)
+    {
+        // Arrange
+
+        UioHookEvent? actualEvent = null;
+        IntPtr? actualUserData = null;
+
+        var provider = new TestProvider();
+
+        // Act
+
+        provider.SetDispatchProc(
+            (ref UioHookEvent e, IntPtr data) =>
+            {
+                actualEvent = e;
+                actualUserData = data;
+            },
+            userData);
+
+        var task = provider.RunMouseAsync();
+
+        var e = eventToPost.Value;
+        provider.PostEvent(ref e);
+
+        // Assert
+
+        Assert.Null(actualEvent);
+        Assert.Null(actualUserData);
+
+        Assert.Empty(provider.PostedEvents);
+
+        // Clean up
+
+        provider.Stop();
+        await task;
+    }
+
     [Property(DisplayName = "Events should be suppressible")]
     public async void SuppressEvent(UioHookEvent eventToPost)
     {
@@ -153,6 +229,46 @@ public sealed class TestProviderTests
         // Act
 
         var actualResult = provider.Run();
+
+        // Assert
+
+        Assert.False(provider.IsRunning);
+        Assert.Equal(result.Value, actualResult);
+    }
+
+    [Property(DisplayName = "RunKeyboard should return an error if configured to do so")]
+    public void RunKeyboardFail(FailedUioHookResult result)
+    {
+        // Arrange
+
+        var provider = new TestProvider
+        {
+            RunResult = result.Value
+        };
+
+        // Act
+
+        var actualResult = provider.RunKeyboard();
+
+        // Assert
+
+        Assert.False(provider.IsRunning);
+        Assert.Equal(result.Value, actualResult);
+    }
+
+    [Property(DisplayName = "RunMouse should return an error if configured to do so")]
+    public void RunMouseFail(FailedUioHookResult result)
+    {
+        // Arrange
+
+        var provider = new TestProvider
+        {
+            RunResult = result.Value
+        };
+
+        // Act
+
+        var actualResult = provider.RunMouse();
 
         // Assert
 

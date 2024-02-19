@@ -8,6 +8,16 @@ public sealed class Generators
     public static Arbitrary<UioHookEvent> UioHookEvents =>
         Gen.OneOf(HookEvents, KeyboardEvents, MouseEvents, WheelEvents).ToArbitrary();
 
+    public static Arbitrary<KeyboardEvent> KeyboardUioHookEvents =>
+        (from e in KeyboardEvents
+         select new KeyboardEvent(e))
+        .ToArbitrary();
+
+    public static Arbitrary<MouseEvent> MouseUioHookEvents =>
+        (from e in MouseEvents
+         select new MouseEvent(e))
+        .ToArbitrary();
+
     public static Arbitrary<DateTimeAfterEpoch> DateTimesAfterEpoch =>
         (from time in Arb.Generate<DateTimeOffset>()
          where time > DateTimeOffset.UnixEpoch

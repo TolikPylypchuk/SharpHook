@@ -14,6 +14,7 @@ public abstract class GlobalHookBase : IGlobalHook
 
     private readonly IGlobalHookProvider globalHookProvider;
     private readonly DispatchProc dispatchProc;
+    private readonly GlobalHookType globalHookType;
     private readonly bool runAsyncOnBackgroundThread;
 
     /// <summary>
@@ -27,11 +28,10 @@ public abstract class GlobalHookBase : IGlobalHook
     /// <summary>
     /// Initializes a new instance of <see cref="GlobalHookBase" />.
     /// </summary>
-    /// <param name="globalHookProvider">The underlying global hook provider.</param>
-    /// <exception cref="ArgumentNullException">
-    /// <paramref name="globalHookProvider"/> is <see langword="null" />.
-    /// </exception>
-    protected GlobalHookBase(IGlobalHookProvider globalHookProvider)
+    /// <param name="globalHookProvider">
+    /// The underlying global hook provider, or <see langword="null" /> to use the default one.
+    /// </param>
+    protected GlobalHookBase(IGlobalHookProvider? globalHookProvider)
         : this(globalHookProvider, false)
     { }
 
@@ -50,23 +50,36 @@ public abstract class GlobalHookBase : IGlobalHook
     /// <summary>
     /// Initializes a new instance of <see cref="GlobalHookBase" />.
     /// </summary>
-    /// <param name="globalHookProvider">The underlying global hook provider.</param>
+    /// <param name="globalHookProvider">
+    /// The underlying global hook provider, or <see langword="null" /> to use the default one.
+    /// </param>
     /// <param name="runAsyncOnBackgroundThread">
     /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
     /// Otherwise, <see langword="false" />.
     /// </param>
-    /// <exception cref="ArgumentNullException">
-    /// <paramref name="globalHookProvider"/> is <see langword="null" />.
-    /// </exception>
-    protected GlobalHookBase(IGlobalHookProvider globalHookProvider, bool runAsyncOnBackgroundThread)
-    {
-        if (globalHookProvider is null)
-        {
-            throw new ArgumentNullException(nameof(globalHookProvider));
-        }
+    protected GlobalHookBase(IGlobalHookProvider? globalHookProvider, bool runAsyncOnBackgroundThread)
+        : this(GlobalHookType.All, globalHookProvider, runAsyncOnBackgroundThread)
+    { }
 
-        this.globalHookProvider = globalHookProvider;
+    /// <summary>
+    /// Initializes a new instance of <see cref="GlobalHookBase" />.
+    /// </summary>
+    /// <param name="globalHookType">The global hook type.</param>
+    /// <param name="globalHookProvider">
+    /// The underlying global hook provider, or <see langword="null" /> to use the default one.
+    /// </param>
+    /// <param name="runAsyncOnBackgroundThread">
+    /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
+    /// Otherwise, <see langword="false" />.
+    /// </param>
+    protected GlobalHookBase(
+        GlobalHookType globalHookType = GlobalHookType.All,
+        IGlobalHookProvider? globalHookProvider = null,
+        bool runAsyncOnBackgroundThread = false)
+    {
+        this.globalHookProvider = globalHookProvider ?? UioHookProvider.Instance;
         this.dispatchProc = this.HandleHookEventIfNeeded;
+        this.globalHookType = globalHookType;
         this.runAsyncOnBackgroundThread = runAsyncOnBackgroundThread;
     }
 
@@ -109,7 +122,7 @@ public abstract class GlobalHookBase : IGlobalHook
             this.globalHookProvider.SetDispatchProc(this.dispatchProc, IntPtr.Zero);
 
             this.IsRunning = true;
-            result = this.globalHookProvider.Run();
+            result = this.RunGlobalHook();
             this.IsRunning = false;
         } catch (Exception e)
         {
@@ -146,7 +159,7 @@ public abstract class GlobalHookBase : IGlobalHook
                 this.globalHookProvider.SetDispatchProc(this.dispatchProc, IntPtr.Zero);
 
                 this.IsRunning = true;
-                var result = this.globalHookProvider.Run();
+                var result = this.RunGlobalHook();
                 this.IsRunning = false;
 
                 if (result == UioHookResult.Success)
@@ -382,6 +395,14 @@ public abstract class GlobalHookBase : IGlobalHook
                 this.GetType().Name, $"Cannot call {method} - the object is disposed");
         }
     }
+
+    private UioHookResult RunGlobalHook() =>
+        this.globalHookType switch
+        {
+            GlobalHookType.Keyboard => this.globalHookProvider.RunKeyboard(),
+            GlobalHookType.Mouse => this.globalHookProvider.RunMouse(),
+            _ => this.globalHookProvider.Run()
+        };
 
     private void HandleHookEventIfNeeded(ref UioHookEvent e, IntPtr userData)
     {

@@ -5,13 +5,13 @@ public sealed class SimpleGlobalHookTests
     public SimpleGlobalHookTests() =>
         Arb.Register<Generators>();
 
-    [Fact(DisplayName = "IsRunning should be true only if the hook is running")]
-    public void IsRunning()
+    [Property(DisplayName = "IsRunning should be true only if the hook is running")]
+    public void IsRunning(GlobalHookType globalHookType)
     {
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new SimpleGlobalHook(provider);
+        var hook = new SimpleGlobalHook(globalHookType, provider);
 
         // Act + Assert
 
@@ -26,13 +26,13 @@ public sealed class SimpleGlobalHookTests
         Assert.False(hook.IsRunning);
     }
 
-    [Fact(DisplayName = "IsDisposed should be true only if the hook is disposed")]
-    public void IsDisposed()
+    [Property(DisplayName = "IsDisposed should be true only if the hook is disposed")]
+    public void IsDisposed(GlobalHookType globalHookType)
     {
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new SimpleGlobalHook(provider);
+        var hook = new SimpleGlobalHook(globalHookType, provider);
 
         // Act + Assert
 
@@ -44,7 +44,7 @@ public sealed class SimpleGlobalHookTests
     }
 
     [Property(DisplayName = "HookEnabled events should be raised")]
-    public void HookEnabled(DateTimeAfterEpoch dateTime, ModifierMask mask)
+    public void HookEnabled(GlobalHookType globalHookType, DateTimeAfterEpoch dateTime, ModifierMask mask)
     {
         // Arrange
 
@@ -54,7 +54,7 @@ public sealed class SimpleGlobalHookTests
             EventMask = t => mask
         };
 
-        using var hook = new SimpleGlobalHook(provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider);
 
         object? actualSender = null;
         HookEventArgs? actualEventArgs = null;
@@ -84,7 +84,7 @@ public sealed class SimpleGlobalHookTests
     }
 
     [Property(DisplayName = "HookDisabled events should be raised")]
-    public void HookDisabled(DateTimeAfterEpoch dateTime, ModifierMask mask)
+    public void HookDisabled(GlobalHookType globalHookType, DateTimeAfterEpoch dateTime, ModifierMask mask)
     {
         // Arrange
 
@@ -94,7 +94,7 @@ public sealed class SimpleGlobalHookTests
             EventMask = t => mask
         };
 
-        using var hook = new SimpleGlobalHook(provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider);
 
         object? actualSender = null;
         HookEventArgs? actualEventArgs = null;
@@ -124,13 +124,18 @@ public sealed class SimpleGlobalHookTests
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
     }
 
-    [Property(DisplayName = "KeyPressed events should be raised")]
-    public void KeyPressed(KeyCode keyCode, ushort rawCode, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    [Property(DisplayName = "KeyPressed events should be raised only if the global hook type includes keyboard")]
+    public void KeyPressed(
+        GlobalHookType globalHookType,
+        KeyCode keyCode,
+        ushort rawCode,
+        DateTimeAfterEpoch dateTime,
+        ModifierMask mask)
     {
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider);
 
         var e = new UioHookEvent
         {
@@ -162,25 +167,37 @@ public sealed class SimpleGlobalHookTests
 
         // Assert
 
-        Assert.Same(hook, actualSender);
+        if (globalHookType != GlobalHookType.Mouse)
+        {
+            Assert.Same(hook, actualSender);
 
-        Assert.NotNull(actualArgs);
+            Assert.NotNull(actualArgs);
 
-        Assert.Equal(e, actualArgs.RawEvent);
-        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+            Assert.Equal(e, actualArgs.RawEvent);
+            Assert.Equal(dateTime.Value, actualArgs.EventTime);
 
-        Assert.Equal(keyCode, actualArgs.Data.KeyCode);
-        Assert.Equal(rawCode, actualArgs.Data.RawCode);
-        Assert.Equal(KeyboardEventData.UndefinedChar, actualArgs.Data.KeyChar);
+            Assert.Equal(keyCode, actualArgs.Data.KeyCode);
+            Assert.Equal(rawCode, actualArgs.Data.RawCode);
+            Assert.Equal(KeyboardEventData.UndefinedChar, actualArgs.Data.KeyChar);
+        } else
+        {
+            Assert.Null(actualSender);
+            Assert.Null(actualArgs);
+        }
     }
 
-    [Property(DisplayName = "KeyReleased events should be raised", MaxTest = 1)]
-    public void KeyReleased(KeyCode keyCode, ushort rawCode, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    [Property(DisplayName = "KeyReleased events should be raised only if the global hook type includes keyboard")]
+    public void KeyReleased(
+        GlobalHookType globalHookType,
+        KeyCode keyCode,
+        ushort rawCode,
+        DateTimeAfterEpoch dateTime,
+        ModifierMask mask)
     {
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider);
 
         var e = new UioHookEvent
         {
@@ -212,20 +229,28 @@ public sealed class SimpleGlobalHookTests
 
         // Assert
 
-        Assert.Same(hook, actualSender);
+        if (globalHookType != GlobalHookType.Mouse)
+        {
+            Assert.Same(hook, actualSender);
 
-        Assert.NotNull(actualArgs);
+            Assert.NotNull(actualArgs);
 
-        Assert.Equal(e, actualArgs.RawEvent);
-        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+            Assert.Equal(e, actualArgs.RawEvent);
+            Assert.Equal(dateTime.Value, actualArgs.EventTime);
 
-        Assert.Equal(keyCode, actualArgs.Data.KeyCode);
-        Assert.Equal(rawCode, actualArgs.Data.RawCode);
-        Assert.Equal(KeyboardEventData.UndefinedChar, actualArgs.Data.KeyChar);
+            Assert.Equal(keyCode, actualArgs.Data.KeyCode);
+            Assert.Equal(rawCode, actualArgs.Data.RawCode);
+            Assert.Equal(KeyboardEventData.UndefinedChar, actualArgs.Data.KeyChar);
+        } else
+        {
+            Assert.Null(actualSender);
+            Assert.Null(actualArgs);
+        }
     }
 
-    [Property(DisplayName = "KeyTyped events should be raised")]
+    [Property(DisplayName = "KeyTyped events should be raised only if the global hook type includes keyboard")]
     public void KeyTyped(
+        GlobalHookType globalHookType,
         KeyCode keyCode,
         ushort rawCode,
         char keyChar,
@@ -235,7 +260,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider);
 
         var e = new UioHookEvent
         {
@@ -267,20 +292,28 @@ public sealed class SimpleGlobalHookTests
 
         // Assert
 
-        Assert.Same(hook, actualSender);
+        if (globalHookType != GlobalHookType.Mouse)
+        {
+            Assert.Same(hook, actualSender);
 
-        Assert.NotNull(actualArgs);
+            Assert.NotNull(actualArgs);
 
-        Assert.Equal(e, actualArgs.RawEvent);
-        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+            Assert.Equal(e, actualArgs.RawEvent);
+            Assert.Equal(dateTime.Value, actualArgs.EventTime);
 
-        Assert.Equal(keyCode, actualArgs.Data.KeyCode);
-        Assert.Equal(rawCode, actualArgs.Data.RawCode);
-        Assert.Equal(keyChar, actualArgs.Data.KeyChar);
+            Assert.Equal(keyCode, actualArgs.Data.KeyCode);
+            Assert.Equal(rawCode, actualArgs.Data.RawCode);
+            Assert.Equal(keyChar, actualArgs.Data.KeyChar);
+        } else
+        {
+            Assert.Null(actualSender);
+            Assert.Null(actualArgs);
+        }
     }
 
-    [Property(DisplayName = "MousePressed events should be raised")]
+    [Property(DisplayName = "MousePressed events should be raised only if the global hook type includes mouse")]
     public void MousePressed(
+        GlobalHookType globalHookType,
         MouseButton button,
         short x,
         short y,
@@ -291,7 +324,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider);
 
         var e = new UioHookEvent
         {
@@ -324,21 +357,29 @@ public sealed class SimpleGlobalHookTests
 
         // Assert
 
-        Assert.Same(hook, actualSender);
+        if (globalHookType != GlobalHookType.Keyboard)
+        {
+            Assert.Same(hook, actualSender);
 
-        Assert.NotNull(actualArgs);
+            Assert.NotNull(actualArgs);
 
-        Assert.Equal(e, actualArgs.RawEvent);
-        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+            Assert.Equal(e, actualArgs.RawEvent);
+            Assert.Equal(dateTime.Value, actualArgs.EventTime);
 
-        Assert.Equal(button, actualArgs.Data.Button);
-        Assert.Equal(x, actualArgs.Data.X);
-        Assert.Equal(y, actualArgs.Data.Y);
-        Assert.Equal(clicks, actualArgs.Data.Clicks);
+            Assert.Equal(button, actualArgs.Data.Button);
+            Assert.Equal(x, actualArgs.Data.X);
+            Assert.Equal(y, actualArgs.Data.Y);
+            Assert.Equal(clicks, actualArgs.Data.Clicks);
+        } else
+        {
+            Assert.Null(actualSender);
+            Assert.Null(actualArgs);
+        }
     }
 
-    [Property(DisplayName = "MouseReleased events should be raised")]
+    [Property(DisplayName = "MouseReleased events should be raised only if the global hook type includes mouse")]
     public void MouseReleased(
+        GlobalHookType globalHookType,
         MouseButton button,
         short x,
         short y,
@@ -349,7 +390,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider);
 
         var e = new UioHookEvent
         {
@@ -382,21 +423,29 @@ public sealed class SimpleGlobalHookTests
 
         // Assert
 
-        Assert.Same(hook, actualSender);
+        if (globalHookType != GlobalHookType.Keyboard)
+        {
+            Assert.Same(hook, actualSender);
 
-        Assert.NotNull(actualArgs);
+            Assert.NotNull(actualArgs);
 
-        Assert.Equal(e, actualArgs.RawEvent);
-        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+            Assert.Equal(e, actualArgs.RawEvent);
+            Assert.Equal(dateTime.Value, actualArgs.EventTime);
 
-        Assert.Equal(button, actualArgs.Data.Button);
-        Assert.Equal(x, actualArgs.Data.X);
-        Assert.Equal(y, actualArgs.Data.Y);
-        Assert.Equal(clicks, actualArgs.Data.Clicks);
+            Assert.Equal(button, actualArgs.Data.Button);
+            Assert.Equal(x, actualArgs.Data.X);
+            Assert.Equal(y, actualArgs.Data.Y);
+            Assert.Equal(clicks, actualArgs.Data.Clicks);
+        } else
+        {
+            Assert.Null(actualSender);
+            Assert.Null(actualArgs);
+        }
     }
 
-    [Property(DisplayName = "MouseClicked events should be raised")]
+    [Property(DisplayName = "MouseClicked events should be raised only if the global hook type includes mouse")]
     public void MouseClicked(
+        GlobalHookType globalHookType,
         MouseButton button,
         short x,
         short y,
@@ -407,7 +456,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider);
 
         var e = new UioHookEvent
         {
@@ -440,26 +489,38 @@ public sealed class SimpleGlobalHookTests
 
         // Assert
 
-        Assert.Same(hook, actualSender);
+        if (globalHookType != GlobalHookType.Keyboard)
+        {
+            Assert.Same(hook, actualSender);
 
-        Assert.NotNull(actualArgs);
+            Assert.NotNull(actualArgs);
 
-        Assert.Equal(e, actualArgs.RawEvent);
-        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+            Assert.Equal(e, actualArgs.RawEvent);
+            Assert.Equal(dateTime.Value, actualArgs.EventTime);
 
-        Assert.Equal(button, actualArgs.Data.Button);
-        Assert.Equal(x, actualArgs.Data.X);
-        Assert.Equal(y, actualArgs.Data.Y);
-        Assert.Equal(clicks, actualArgs.Data.Clicks);
+            Assert.Equal(button, actualArgs.Data.Button);
+            Assert.Equal(x, actualArgs.Data.X);
+            Assert.Equal(y, actualArgs.Data.Y);
+            Assert.Equal(clicks, actualArgs.Data.Clicks);
+        } else
+        {
+            Assert.Null(actualSender);
+            Assert.Null(actualArgs);
+        }
     }
 
-    [Property(DisplayName = "MouseMoved events should be raised")]
-    public void MouseMoved(short x, short y, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    [Property(DisplayName = "MouseMoved events should be raised only if the global hook type includes mouse")]
+    public void MouseMoved(
+        GlobalHookType globalHookType,
+        short x,
+        short y,
+        DateTimeAfterEpoch dateTime,
+        ModifierMask mask)
     {
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider);
 
         var e = new UioHookEvent
         {
@@ -490,24 +551,36 @@ public sealed class SimpleGlobalHookTests
 
         // Assert
 
-        Assert.Same(hook, actualSender);
+        if (globalHookType != GlobalHookType.Keyboard)
+        {
+            Assert.Same(hook, actualSender);
 
-        Assert.NotNull(actualArgs);
+            Assert.NotNull(actualArgs);
 
-        Assert.Equal(e, actualArgs.RawEvent);
-        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+            Assert.Equal(e, actualArgs.RawEvent);
+            Assert.Equal(dateTime.Value, actualArgs.EventTime);
 
-        Assert.Equal(x, actualArgs.Data.X);
-        Assert.Equal(y, actualArgs.Data.Y);
+            Assert.Equal(x, actualArgs.Data.X);
+            Assert.Equal(y, actualArgs.Data.Y);
+        } else
+        {
+            Assert.Null(actualSender);
+            Assert.Null(actualArgs);
+        }
     }
 
-    [Property(DisplayName = "MouseDragged events should be raised")]
-    public void MouseDragged(short x, short y, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    [Property(DisplayName = "MouseDragged events should be raised only if the global hook type includes mouse")]
+    public void MouseDragged(
+        GlobalHookType globalHookType,
+        short x,
+        short y,
+        DateTimeAfterEpoch dateTime,
+        ModifierMask mask)
     {
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider);
 
         var e = new UioHookEvent
         {
@@ -538,19 +611,27 @@ public sealed class SimpleGlobalHookTests
 
         // Assert
 
-        Assert.Same(hook, actualSender);
+        if (globalHookType != GlobalHookType.Keyboard)
+        {
+            Assert.Same(hook, actualSender);
 
-        Assert.NotNull(actualArgs);
+            Assert.NotNull(actualArgs);
 
-        Assert.Equal(e, actualArgs.RawEvent);
-        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+            Assert.Equal(e, actualArgs.RawEvent);
+            Assert.Equal(dateTime.Value, actualArgs.EventTime);
 
-        Assert.Equal(x, actualArgs.Data.X);
-        Assert.Equal(y, actualArgs.Data.Y);
+            Assert.Equal(x, actualArgs.Data.X);
+            Assert.Equal(y, actualArgs.Data.Y);
+        } else
+        {
+            Assert.Null(actualSender);
+            Assert.Null(actualArgs);
+        }
     }
 
-    [Property(DisplayName = "MouseWheel events should be raised")]
+    [Property(DisplayName = "MouseWheel events should be raised only if the global hook type includes mouse")]
     public void MouseWheel(
+        GlobalHookType globalHookType,
         short x,
         short y,
         short rotation,
@@ -563,7 +644,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider);
 
         var e = new UioHookEvent
         {
@@ -598,23 +679,30 @@ public sealed class SimpleGlobalHookTests
 
         // Assert
 
-        Assert.Same(hook, actualSender);
+        if (globalHookType != GlobalHookType.Keyboard)
+        {
+            Assert.Same(hook, actualSender);
 
-        Assert.NotNull(actualArgs);
+            Assert.NotNull(actualArgs);
 
-        Assert.Equal(e, actualArgs.RawEvent);
-        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+            Assert.Equal(e, actualArgs.RawEvent);
+            Assert.Equal(dateTime.Value, actualArgs.EventTime);
 
-        Assert.Equal(x, actualArgs.Data.X);
-        Assert.Equal(y, actualArgs.Data.Y);
-        Assert.Equal(rotation, actualArgs.Data.Rotation);
-        Assert.Equal(delta, actualArgs.Data.Delta);
-        Assert.Equal(direction, actualArgs.Data.Direction);
-        Assert.Equal(type, actualArgs.Data.Type);
+            Assert.Equal(x, actualArgs.Data.X);
+            Assert.Equal(y, actualArgs.Data.Y);
+            Assert.Equal(rotation, actualArgs.Data.Rotation);
+            Assert.Equal(delta, actualArgs.Data.Delta);
+            Assert.Equal(direction, actualArgs.Data.Direction);
+            Assert.Equal(type, actualArgs.Data.Type);
+        } else
+        {
+            Assert.Null(actualSender);
+            Assert.Null(actualArgs);
+        }
     }
 
     [Property(DisplayName = "Run should throw if the hook failed to start")]
-    public void RunFail(FailedUioHookResult result)
+    public void RunFail(GlobalHookType globalHookType, FailedUioHookResult result)
     {
         // Arrange
 
@@ -623,7 +711,7 @@ public sealed class SimpleGlobalHookTests
             RunResult = result.Value
         };
 
-        var hook = new SimpleGlobalHook(provider);
+        var hook = new SimpleGlobalHook(globalHookType, provider);
 
         // Act + Assert
 
@@ -632,7 +720,7 @@ public sealed class SimpleGlobalHookTests
     }
 
     [Property(DisplayName = "RunAsync should throw if the hook failed to start")]
-    public async void RunAsyncFail(FailedUioHookResult result)
+    public async void RunAsyncFail(GlobalHookType globalHookType, FailedUioHookResult result)
     {
         // Arrange
 
@@ -641,7 +729,7 @@ public sealed class SimpleGlobalHookTests
             RunResult = result.Value
         };
 
-        var hook = new SimpleGlobalHook(provider);
+        var hook = new SimpleGlobalHook(globalHookType, provider);
 
         // Act + Assert
 
@@ -649,13 +737,13 @@ public sealed class SimpleGlobalHookTests
         Assert.Equal(result.Value, exception.Result);
     }
 
-    [Fact(DisplayName = "Run should throw if the hook is already running")]
-    public void RunRunning()
+    [Property(DisplayName = "Run should throw if the hook is already running")]
+    public void RunRunning(GlobalHookType globalHookType)
     {
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider);
 
         this.RunHookAndWaitForStart(hook, provider);
 
@@ -664,13 +752,13 @@ public sealed class SimpleGlobalHookTests
         Assert.Throws<InvalidOperationException>(hook.Run);
     }
 
-    [Fact(DisplayName = "RunAsync should throw if the hook is already running")]
-    public async void RunAsyncRunning()
+    [Property(DisplayName = "RunAsync should throw if the hook is already running")]
+    public async void RunAsyncRunning(GlobalHookType globalHookType)
     {
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider);
 
         this.RunHookAndWaitForStart(hook, provider);
 
@@ -679,12 +767,12 @@ public sealed class SimpleGlobalHookTests
         await Assert.ThrowsAsync<InvalidOperationException>(hook.RunAsync);
     }
 
-    [Fact(DisplayName = "Run should throw if the hook is disposed")]
-    public void RunDisposed()
+    [Property(DisplayName = "Run should throw if the hook is disposed")]
+    public void RunDisposed(GlobalHookType globalHookType)
     {
         // Arrange
 
-        var hook = new SimpleGlobalHook();
+        var hook = new SimpleGlobalHook(globalHookType);
         hook.Dispose();
 
         // Act + Assert
@@ -692,12 +780,12 @@ public sealed class SimpleGlobalHookTests
         Assert.Throws<ObjectDisposedException>(hook.Run);
     }
 
-    [Fact(DisplayName = "RunAsync should throw if the hook is disposed")]
-    public async void RunAsyncDisposed()
+    [Property(DisplayName = "RunAsync should throw if the hook is disposed")]
+    public async void RunAsyncDisposed(GlobalHookType globalHookType)
     {
         // Arrange
 
-        var hook = new SimpleGlobalHook();
+        var hook = new SimpleGlobalHook(globalHookType);
         hook.Dispose();
 
         // Act + Assert
@@ -706,7 +794,7 @@ public sealed class SimpleGlobalHookTests
     }
 
     [Property(DisplayName = "Dispose should throw if the hook failed to stop")]
-    public void DisposeFail(FailedUioHookResult result)
+    public void DisposeFail(GlobalHookType globalHookType, FailedUioHookResult result)
     {
         // Arrange
 
@@ -715,7 +803,7 @@ public sealed class SimpleGlobalHookTests
             StopResult = result.Value
         };
 
-        var hook = new SimpleGlobalHook(provider);
+        var hook = new SimpleGlobalHook(globalHookType, provider);
 
         this.RunHookAndWaitForStart(hook, provider);
 
@@ -725,11 +813,14 @@ public sealed class SimpleGlobalHookTests
         Assert.Equal(result.Value, exception.Result);
     }
 
-    [Fact(DisplayName = "SimpleGlobalHook should throw if the provider is null")]
-    public void ProviderNull() =>
-        Assert.Throws<ArgumentNullException>(() => new SimpleGlobalHook(null!));
+    [Property(DisplayName = "SimpleGlobalHook should not throw if the provider is null")]
+    public void ProviderNull(GlobalHookType globalHookType)
+    {
+        var exception = Record.Exception(() => new SimpleGlobalHook(globalHookType, null));
+        Assert.Null(exception);
+    }
 
-    private void RunHookAndWaitForStart(IGlobalHook hook, TestProvider provider)
+    private void RunHookAndWaitForStart(SimpleGlobalHook hook, TestProvider provider)
     {
         hook.RunAsync();
 
@@ -739,7 +830,7 @@ public sealed class SimpleGlobalHookTests
         }
     }
 
-    private void DisposeHookAndWaitForStop(IGlobalHook hook)
+    private void DisposeHookAndWaitForStop(SimpleGlobalHook hook)
     {
         hook.Dispose();
 

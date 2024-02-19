@@ -25,6 +25,28 @@ public interface IGlobalHookProvider
     UioHookResult Run();
 
     /// <summary>
+    /// Runs the global hook only for keyboard events and blocks the thread until it's stopped.
+    /// </summary>
+    /// <returns>The result of the operation.</returns>
+    /// <remarks>
+    /// This method makes a difference only on Windows where there are two different global hooks - a keyboard hook and
+    /// a mouse hook. On macOS and Linux there is one hook for all events, and this method simply filters mouse events
+    /// out at the libuiohook level on these OSes.
+    /// </remarks>
+    UioHookResult RunKeyboard();
+
+    /// <summary>
+    /// Runs the global hook only for mouse events and blocks the thread until it's stopped.
+    /// </summary>
+    /// <returns>The result of the operation.</returns>
+    /// <remarks>
+    /// This method makes a difference only on Windows where there are two different global hooks - a keyboard hook and
+    /// a mouse hook. On macOS and Linux there is one hook for all events, and this method simply filters keyboard
+    /// events out at the libuiohook level on these OSes.
+    /// </remarks>
+    UioHookResult RunMouse();
+
+    /// <summary>
     /// Stops the global hook.
     /// </summary>
     /// <returns>The result of the operation.</returns>

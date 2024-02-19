@@ -17,6 +17,7 @@ public sealed class SimpleGlobalHook : GlobalHookBase
     /// <summary>
     /// Initializes a new instance of <see cref="SimpleGlobalHook" />.
     /// </summary>
+    [ExcludeFromCodeCoverage]
     public SimpleGlobalHook()
     { }
 
@@ -27,7 +28,8 @@ public sealed class SimpleGlobalHook : GlobalHookBase
     /// <exception cref="ArgumentNullException">
     /// <paramref name="globalHookProvider"/> is <see langword="null" />.
     /// </exception>
-    public SimpleGlobalHook(IGlobalHookProvider globalHookProvider)
+    [ExcludeFromCodeCoverage]
+    public SimpleGlobalHook(IGlobalHookProvider? globalHookProvider)
         : base(globalHookProvider)
     { }
 
@@ -38,6 +40,7 @@ public sealed class SimpleGlobalHook : GlobalHookBase
     /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
     /// Otherwise, <see langword="false" />.
     /// </param>
+    [ExcludeFromCodeCoverage]
     public SimpleGlobalHook(bool runAsyncOnBackgroundThread)
         : base(runAsyncOnBackgroundThread)
     { }
@@ -53,8 +56,27 @@ public sealed class SimpleGlobalHook : GlobalHookBase
     /// <exception cref="ArgumentNullException">
     /// <paramref name="globalHookProvider"/> is <see langword="null" />.
     /// </exception>
+    [ExcludeFromCodeCoverage]
     public SimpleGlobalHook(IGlobalHookProvider globalHookProvider, bool runAsyncOnBackgroundThread)
         : base(globalHookProvider, runAsyncOnBackgroundThread)
+    { }
+
+    /// <summary>
+    /// Initializes a new instance of <see cref="SimpleGlobalHook" />.
+    /// </summary>
+    /// <param name="globalHookType">The global hook type.</param>
+    /// <param name="globalHookProvider">
+    /// The underlying global hook provider, or <see langword="null" /> to use the default one.
+    /// </param>
+    /// <param name="runAsyncOnBackgroundThread">
+    /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
+    /// Otherwise, <see langword="false" />.
+    /// </param>
+    public SimpleGlobalHook(
+        GlobalHookType globalHookType = GlobalHookType.All,
+        IGlobalHookProvider? globalHookProvider = null,
+        bool runAsyncOnBackgroundThread = false)
+        : base(globalHookType, globalHookProvider, runAsyncOnBackgroundThread)
     { }
 
     /// <summary>

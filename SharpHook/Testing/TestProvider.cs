@@ -41,6 +41,12 @@ public sealed class TestProvider :
     public bool IsRunning { get; private set; }
 
     /// <summary>
+    /// Gets the global hook type of this provider. The provider is set when the <see cref="Run" />,
+    /// <see cref="RunKeyboard" />, or <see cref="RunMouse" /> method is called.
+    /// </summary>
+    public GlobalHookType GlobalHookType { get; private set; }
+
+    /// <summary>
     /// Gets or sets the function which will be called to set the date/time of the <see cref="EventType.HookEnabled" />
     /// and <see cref="EventType.HookDisabled" /> events.
     /// </summary>
@@ -180,6 +186,48 @@ public sealed class TestProvider :
 
     /// <summary>
     /// Runs the testing hook if <see cref="RunResult" /> is set to <see cref="UioHookResult.Success" />. Otherwise,
+    /// does nothing. The hook will react only to keyboard events.
+    /// </summary>
+    /// <returns>The value of <see cref="RunResult" />.</returns>
+    /// <remarks>
+    /// <para>
+    /// This method simply blocks the current thread until <see cref="Stop()" /> is called. Actual event dispatching
+    /// happens directly in the <see cref="PostEvent(ref UioHookEvent)" /> method. As such, it's different from the real
+    /// global hook where the thread which calls the <see cref="IGlobalHookProvider.Run()" /> method is the thread
+    /// which dispatches events - this is not the case with <see cref="TestProvider" />.
+    /// </para>
+    /// <para>
+    /// This method can be called when the provider is already running - it will also block the current thread.
+    /// Calling the <see cref="Stop()" /> method will unblock all blocked threads. This is not recommended though as it
+    /// does not mirror the behaviour of the real hook, and will throw an exception in a future release.
+    /// </para>
+    /// </remarks>
+    public UioHookResult RunKeyboard() =>
+        this.RunKeyboardAsync().Result;
+
+    /// <summary>
+    /// Runs the testing hook if <see cref="RunResult" /> is set to <see cref="UioHookResult.Success" />. Otherwise,
+    /// does nothing. The hook will react only to mouse events.
+    /// </summary>
+    /// <returns>The value of <see cref="RunResult" />.</returns>
+    /// <remarks>
+    /// <para>
+    /// This method simply blocks the current thread until <see cref="Stop()" /> is called. Actual event dispatching
+    /// happens directly in the <see cref="PostEvent(ref UioHookEvent)" /> method. As such, it's different from the real
+    /// global hook where the thread which calls the <see cref="IGlobalHookProvider.Run()" /> method is the thread
+    /// which dispatches events - this is not the case with <see cref="TestProvider" />.
+    /// </para>
+    /// <para>
+    /// This method can be called when the provider is already running - it will also block the current thread.
+    /// Calling the <see cref="Stop()" /> method will unblock all blocked threads. This is not recommended though as it
+    /// does not mirror the behaviour of the real hook, and will throw an exception in a future release.
+    /// </para>
+    /// </remarks>
+    public UioHookResult RunMouse() =>
+        this.RunMouseAsync().Result;
+
+    /// <summary>
+    /// Runs the testing hook if <see cref="RunResult" /> is set to <see cref="UioHookResult.Success" />. Otherwise,
     /// does nothing.
     /// </summary>
     /// <returns>The value of <see cref="RunResult" />.</returns>
@@ -193,28 +241,56 @@ public sealed class TestProvider :
     /// </para>
     /// <para>
     /// This method can be called when the provider is already running - the same <see cref="Task" /> will be returned.
+    /// This is not recommended though as it does not mirror the behaviour of the real hook, and will throw an exception
+    /// in a future version.
     /// </para>
     /// </remarks>
-    public async Task<UioHookResult> RunAsync()
-    {
-        var result = this.RunResult;
-        if (result != UioHookResult.Success)
-        {
-            return result;
-        }
+    public Task<UioHookResult> RunAsync() =>
+        this.RunAsync(GlobalHookType.All);
 
-        var source = this.runCompletionSource;
+    /// <summary>
+    /// Runs the testing hook if <see cref="RunResult" /> is set to <see cref="UioHookResult.Success" />. Otherwise,
+    /// does nothing. The hook will react only to keyboard events.
+    /// </summary>
+    /// <returns>The value of <see cref="RunResult" />.</returns>
+    /// <remarks>
+    /// <para>
+    /// This method doesn't do anything and returns a <see cref="Task" /> which will be finished when
+    /// <see cref="Stop()" /> is called. Actual event dispatching happens directly in the
+    /// <see cref="PostEvent(ref UioHookEvent)" /> method. As such, it's different from the real global hook where
+    /// the thread which calls the <see cref="IGlobalHookProvider.Run()" /> method is the thread which dispatches
+    /// events - this is not the case with <see cref="TestProvider" />.
+    /// </para>
+    /// <para>
+    /// This method can be called when the provider is already running - the same <see cref="Task" /> will be returned.
+    /// This is not recommended though as it does not mirror the behaviour of the real hook, and will throw an exception
+    /// in a future version.
+    /// </para>
+    /// </remarks>
+    public Task<UioHookResult> RunKeyboardAsync() =>
+        this.RunAsync(GlobalHookType.Keyboard);
 
-        this.IsRunning = true;
-        this.DispatchHookEvent(EventType.HookEnabled);
-
-        await source.Task;
-
-        this.DispatchHookEvent(EventType.HookDisabled);
-        this.IsRunning = false;
-
-        return result;
-    }
+    /// <summary>
+    /// Runs the testing hook if <see cref="RunResult" /> is set to <see cref="UioHookResult.Success" />. Otherwise,
+    /// does nothing. The hook will react only to mouse events.
+    /// </summary>
+    /// <returns>The value of <see cref="RunResult" />.</returns>
+    /// <remarks>
+    /// <para>
+    /// This method doesn't do anything and returns a <see cref="Task" /> which will be finished when
+    /// <see cref="Stop()" /> is called. Actual event dispatching happens directly in the
+    /// <see cref="PostEvent(ref UioHookEvent)" /> method. As such, it's different from the real global hook where
+    /// the thread which calls the <see cref="IGlobalHookProvider.Run()" /> method is the thread which dispatches
+    /// events - this is not the case with <see cref="TestProvider" />.
+    /// </para>
+    /// <para>
+    /// This method can be called when the provider is already running - the same <see cref="Task" /> will be returned.
+    /// This is not recommended though as it does not mirror the behaviour of the real hook, and will throw an exception
+    /// in a future version.
+    /// </para>
+    /// </remarks>
+    public Task<UioHookResult> RunMouseAsync() =>
+        this.RunAsync(GlobalHookType.Mouse);
 
     /// <summary>
     /// Stops the testing hook if <see cref="StopResult" /> is set to <see cref="UioHookResult.Success" />. Otherwise,
@@ -251,7 +327,7 @@ public sealed class TestProvider :
             return result;
         }
 
-        if (this.IsRunning)
+        if (this.IsRunning && this.ShouldDispatchEvent(e.Type))
         {
             this.dispatchProc?.Invoke(ref e, this.userData);
         }
@@ -287,6 +363,38 @@ public sealed class TestProvider :
 
         return result;
     }
+
+    private async Task<UioHookResult> RunAsync(GlobalHookType globalHookType)
+    {
+        var result = this.RunResult;
+        if (result != UioHookResult.Success)
+        {
+            return result;
+        }
+
+        this.GlobalHookType = globalHookType;
+
+        var source = this.runCompletionSource;
+
+        this.IsRunning = true;
+        this.DispatchHookEvent(EventType.HookEnabled);
+
+        await source.Task;
+
+        this.DispatchHookEvent(EventType.HookDisabled);
+        this.IsRunning = false;
+
+        return result;
+    }
+
+    private bool ShouldDispatchEvent(EventType eventType) =>
+        eventType switch
+        {
+            EventType.HookEnabled or EventType.HookDisabled => true,
+            EventType.KeyPressed or EventType.KeyReleased or EventType.KeyTyped =>
+                this.GlobalHookType != GlobalHookType.Mouse,
+            _ => this.GlobalHookType != GlobalHookType.Keyboard
+        };
 
     private void DispatchHookEvent(EventType eventType)
     {

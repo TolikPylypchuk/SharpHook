@@ -4,7 +4,8 @@ namespace SharpHook.Native;
 
 public sealed class ModifierMaskExtensionsTests
 {
-    private static readonly ImmutableList<ModifierMask> BasicModifiers = ImmutableList.Create(
+    private static readonly ImmutableList<ModifierMask> BasicModifiers =
+    [
         ModifierMask.LeftShift,
         ModifierMask.LeftCtrl,
         ModifierMask.LeftMeta,
@@ -20,7 +21,8 @@ public sealed class ModifierMaskExtensionsTests
         ModifierMask.Button5,
         ModifierMask.NumLock,
         ModifierMask.CapsLock,
-        ModifierMask.ScrollLock);
+        ModifierMask.ScrollLock,
+    ];
 
     [Property(DisplayName = "HasShift should return true only for Shift")]
     public void HasShift(ModifierMask mask) =>

@@ -5,13 +5,13 @@ public sealed class ReactiveGlobalHookAdapterTests
     public ReactiveGlobalHookAdapterTests() =>
         Arb.Register<Generators>();
 
-    [Fact(DisplayName = "IsRunning should be true only if the hook is running")]
-    public void IsRunning()
+    [Property(DisplayName = "IsRunning should be true only if the hook is running")]
+    public void IsRunning(GlobalHookType globalHookType)
     {
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new SimpleReactiveGlobalHook(provider);
+        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider));
 
         // Act + Assert
 
@@ -26,13 +26,13 @@ public sealed class ReactiveGlobalHookAdapterTests
         Assert.False(hook.IsRunning);
     }
 
-    [Fact(DisplayName = "IsDisposed should be true only if the hook is disposed")]
-    public void IsDisposed()
+    [Property(DisplayName = "IsDisposed should be true only if the hook is disposed")]
+    public void IsDisposed(GlobalHookType globalHookType)
     {
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new SimpleReactiveGlobalHook(provider);
+        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider));
 
         // Act + Assert
 
@@ -44,7 +44,7 @@ public sealed class ReactiveGlobalHookAdapterTests
     }
 
     [Property(DisplayName = "HookEnabled events should be raised")]
-    public void HookEnabled(DateTimeAfterEpoch dateTime, ModifierMask mask)
+    public void HookEnabled(GlobalHookType globalHookType, DateTimeAfterEpoch dateTime, ModifierMask mask)
     {
         // Arrange
 
@@ -54,7 +54,7 @@ public sealed class ReactiveGlobalHookAdapterTests
             EventMask = t => mask
         };
 
-        using var hook = new SimpleReactiveGlobalHook(provider);
+        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider));
 
         HookEventArgs? actualEventArgs = null;
 
@@ -80,7 +80,7 @@ public sealed class ReactiveGlobalHookAdapterTests
     }
 
     [Property(DisplayName = "HookDisabled events should be raised")]
-    public void HookDisabled(DateTimeAfterEpoch dateTime, ModifierMask mask)
+    public void HookDisabled(GlobalHookType globalHookType, DateTimeAfterEpoch dateTime, ModifierMask mask)
     {
         // Arrange
 
@@ -90,7 +90,7 @@ public sealed class ReactiveGlobalHookAdapterTests
             EventMask = t => mask
         };
 
-        using var hook = new SimpleReactiveGlobalHook(provider);
+        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider));
 
         HookEventArgs? actualEventArgs = null;
 
@@ -112,13 +112,18 @@ public sealed class ReactiveGlobalHookAdapterTests
         Assert.Equal(time, actualEventArgs.RawEvent.Time);
     }
 
-    [Property(DisplayName = "KeyPressed events should be raised")]
-    public void KeyPressed(KeyCode keyCode, ushort rawCode, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    [Property(DisplayName = "KeyPressed events should be raised only if the global hook type includes keyboard")]
+    public void KeyPressed(
+        GlobalHookType globalHookType,
+        KeyCode keyCode,
+        ushort rawCode,
+        DateTimeAfterEpoch dateTime,
+        ModifierMask mask)
     {
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleReactiveGlobalHook(provider);
+        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider));
 
         var e = new UioHookEvent
         {
@@ -145,23 +150,34 @@ public sealed class ReactiveGlobalHookAdapterTests
 
         // Assert
 
-        Assert.NotNull(actualArgs);
+        if (globalHookType != GlobalHookType.Mouse)
+        {
+            Assert.NotNull(actualArgs);
 
-        Assert.Equal(e, actualArgs.RawEvent);
-        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+            Assert.Equal(e, actualArgs.RawEvent);
+            Assert.Equal(dateTime.Value, actualArgs.EventTime);
 
-        Assert.Equal(keyCode, actualArgs.Data.KeyCode);
-        Assert.Equal(rawCode, actualArgs.Data.RawCode);
-        Assert.Equal(KeyboardEventData.UndefinedChar, actualArgs.Data.KeyChar);
+            Assert.Equal(keyCode, actualArgs.Data.KeyCode);
+            Assert.Equal(rawCode, actualArgs.Data.RawCode);
+            Assert.Equal(KeyboardEventData.UndefinedChar, actualArgs.Data.KeyChar);
+        } else
+        {
+            Assert.Null(actualArgs);
+        }
     }
 
-    [Property(DisplayName = "KeyReleased events should be raised")]
-    public void KeyReleased(KeyCode keyCode, ushort rawCode, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    [Property(DisplayName = "KeyReleased events should be raised only if the global hook type includes keyboard")]
+    public void KeyReleased(
+        GlobalHookType globalHookType,
+        KeyCode keyCode,
+        ushort rawCode,
+        DateTimeAfterEpoch dateTime,
+        ModifierMask mask)
     {
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleReactiveGlobalHook(provider);
+        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider));
 
         var e = new UioHookEvent
         {
@@ -188,18 +204,25 @@ public sealed class ReactiveGlobalHookAdapterTests
 
         // Assert
 
-        Assert.NotNull(actualArgs);
+        if (globalHookType != GlobalHookType.Mouse)
+        {
+            Assert.NotNull(actualArgs);
 
-        Assert.Equal(e, actualArgs.RawEvent);
-        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+            Assert.Equal(e, actualArgs.RawEvent);
+            Assert.Equal(dateTime.Value, actualArgs.EventTime);
 
-        Assert.Equal(keyCode, actualArgs.Data.KeyCode);
-        Assert.Equal(rawCode, actualArgs.Data.RawCode);
-        Assert.Equal(KeyboardEventData.UndefinedChar, actualArgs.Data.KeyChar);
+            Assert.Equal(keyCode, actualArgs.Data.KeyCode);
+            Assert.Equal(rawCode, actualArgs.Data.RawCode);
+            Assert.Equal(KeyboardEventData.UndefinedChar, actualArgs.Data.KeyChar);
+        } else
+        {
+            Assert.Null(actualArgs);
+        }
     }
 
-    [Property(DisplayName = "KeyTyped events should be raised")]
+    [Property(DisplayName = "KeyTyped events should be raised only if the global hook type includes keyboard")]
     public void KeyTyped(
+        GlobalHookType globalHookType,
         KeyCode keyCode,
         ushort rawCode,
         char keyChar,
@@ -209,7 +232,7 @@ public sealed class ReactiveGlobalHookAdapterTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleReactiveGlobalHook(provider);
+        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider));
 
         var e = new UioHookEvent
         {
@@ -236,18 +259,25 @@ public sealed class ReactiveGlobalHookAdapterTests
 
         // Assert
 
-        Assert.NotNull(actualArgs);
+        if (globalHookType != GlobalHookType.Mouse)
+        {
+            Assert.NotNull(actualArgs);
 
-        Assert.Equal(e, actualArgs.RawEvent);
-        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+            Assert.Equal(e, actualArgs.RawEvent);
+            Assert.Equal(dateTime.Value, actualArgs.EventTime);
 
-        Assert.Equal(keyCode, actualArgs.Data.KeyCode);
-        Assert.Equal(rawCode, actualArgs.Data.RawCode);
-        Assert.Equal(keyChar, actualArgs.Data.KeyChar);
+            Assert.Equal(keyCode, actualArgs.Data.KeyCode);
+            Assert.Equal(rawCode, actualArgs.Data.RawCode);
+            Assert.Equal(keyChar, actualArgs.Data.KeyChar);
+        } else
+        {
+            Assert.Null(actualArgs);
+        }
     }
 
-    [Property(DisplayName = "MousePressed events should be raised")]
+    [Property(DisplayName = "MousePressed events should be raised only if the global hook type includes mouse")]
     public void MousePressed(
+        GlobalHookType globalHookType,
         MouseButton button,
         short x,
         short y,
@@ -258,7 +288,7 @@ public sealed class ReactiveGlobalHookAdapterTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleReactiveGlobalHook(provider);
+        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider));
 
         var e = new UioHookEvent
         {
@@ -286,19 +316,26 @@ public sealed class ReactiveGlobalHookAdapterTests
 
         // Assert
 
-        Assert.NotNull(actualArgs);
+        if (globalHookType != GlobalHookType.Keyboard)
+        {
+            Assert.NotNull(actualArgs);
 
-        Assert.Equal(e, actualArgs.RawEvent);
-        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+            Assert.Equal(e, actualArgs.RawEvent);
+            Assert.Equal(dateTime.Value, actualArgs.EventTime);
 
-        Assert.Equal(button, actualArgs.Data.Button);
-        Assert.Equal(x, actualArgs.Data.X);
-        Assert.Equal(y, actualArgs.Data.Y);
-        Assert.Equal(clicks, actualArgs.Data.Clicks);
+            Assert.Equal(button, actualArgs.Data.Button);
+            Assert.Equal(x, actualArgs.Data.X);
+            Assert.Equal(y, actualArgs.Data.Y);
+            Assert.Equal(clicks, actualArgs.Data.Clicks);
+        } else
+        {
+            Assert.Null(actualArgs);
+        }
     }
 
-    [Property(DisplayName = "MouseReleased events should be raised")]
+    [Property(DisplayName = "MouseReleased events should be raised only if the global hook type includes mouse")]
     public void MouseReleased(
+        GlobalHookType globalHookType,
         MouseButton button,
         short x,
         short y,
@@ -309,7 +346,7 @@ public sealed class ReactiveGlobalHookAdapterTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleReactiveGlobalHook(provider);
+        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider));
 
         var e = new UioHookEvent
         {
@@ -337,19 +374,26 @@ public sealed class ReactiveGlobalHookAdapterTests
 
         // Assert
 
-        Assert.NotNull(actualArgs);
+        if (globalHookType != GlobalHookType.Keyboard)
+        {
+            Assert.NotNull(actualArgs);
 
-        Assert.Equal(e, actualArgs.RawEvent);
-        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+            Assert.Equal(e, actualArgs.RawEvent);
+            Assert.Equal(dateTime.Value, actualArgs.EventTime);
 
-        Assert.Equal(button, actualArgs.Data.Button);
-        Assert.Equal(x, actualArgs.Data.X);
-        Assert.Equal(y, actualArgs.Data.Y);
-        Assert.Equal(clicks, actualArgs.Data.Clicks);
+            Assert.Equal(button, actualArgs.Data.Button);
+            Assert.Equal(x, actualArgs.Data.X);
+            Assert.Equal(y, actualArgs.Data.Y);
+            Assert.Equal(clicks, actualArgs.Data.Clicks);
+        } else
+        {
+            Assert.Null(actualArgs);
+        }
     }
 
-    [Property(DisplayName = "MouseClicked events should be raised")]
+    [Property(DisplayName = "MouseClicked events should be raised only if the global hook type includes mouse")]
     public void MouseClicked(
+        GlobalHookType globalHookType,
         MouseButton button,
         short x,
         short y,
@@ -360,7 +404,7 @@ public sealed class ReactiveGlobalHookAdapterTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleReactiveGlobalHook(provider);
+        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider));
 
         var e = new UioHookEvent
         {
@@ -388,24 +432,35 @@ public sealed class ReactiveGlobalHookAdapterTests
 
         // Assert
 
-        Assert.NotNull(actualArgs);
+        if (globalHookType != GlobalHookType.Keyboard)
+        {
+            Assert.NotNull(actualArgs);
 
-        Assert.Equal(e, actualArgs.RawEvent);
-        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+            Assert.Equal(e, actualArgs.RawEvent);
+            Assert.Equal(dateTime.Value, actualArgs.EventTime);
 
-        Assert.Equal(button, actualArgs.Data.Button);
-        Assert.Equal(x, actualArgs.Data.X);
-        Assert.Equal(y, actualArgs.Data.Y);
-        Assert.Equal(clicks, actualArgs.Data.Clicks);
+            Assert.Equal(button, actualArgs.Data.Button);
+            Assert.Equal(x, actualArgs.Data.X);
+            Assert.Equal(y, actualArgs.Data.Y);
+            Assert.Equal(clicks, actualArgs.Data.Clicks);
+        } else
+        {
+            Assert.Null(actualArgs);
+        }
     }
 
-    [Property(DisplayName = "MouseMoved events should be raised")]
-    public void MouseMoved(short x, short y, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    [Property(DisplayName = "MouseMoved events should be raised only if the global hook type includes mouse")]
+    public void MouseMoved(
+        GlobalHookType globalHookType,
+        short x,
+        short y,
+        DateTimeAfterEpoch dateTime,
+        ModifierMask mask)
     {
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleReactiveGlobalHook(provider);
+        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider));
 
         var e = new UioHookEvent
         {
@@ -431,22 +486,33 @@ public sealed class ReactiveGlobalHookAdapterTests
 
         // Assert
 
-        Assert.NotNull(actualArgs);
+        if (globalHookType != GlobalHookType.Keyboard)
+        {
+            Assert.NotNull(actualArgs);
 
-        Assert.Equal(e, actualArgs.RawEvent);
-        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+            Assert.Equal(e, actualArgs.RawEvent);
+            Assert.Equal(dateTime.Value, actualArgs.EventTime);
 
-        Assert.Equal(x, actualArgs.Data.X);
-        Assert.Equal(y, actualArgs.Data.Y);
+            Assert.Equal(x, actualArgs.Data.X);
+            Assert.Equal(y, actualArgs.Data.Y);
+        } else
+        {
+            Assert.Null(actualArgs);
+        }
     }
 
-    [Property(DisplayName = "MouseDragged events should be raised")]
-    public void MouseDragged(short x, short y, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    [Property(DisplayName = "MouseDragged events should be raised only if the global hook type includes mouse")]
+    public void MouseDragged(
+        GlobalHookType globalHookType,
+        short x,
+        short y,
+        DateTimeAfterEpoch dateTime,
+        ModifierMask mask)
     {
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleReactiveGlobalHook(provider);
+        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider));
 
         var e = new UioHookEvent
         {
@@ -472,17 +538,24 @@ public sealed class ReactiveGlobalHookAdapterTests
 
         // Assert
 
-        Assert.NotNull(actualArgs);
+        if (globalHookType != GlobalHookType.Keyboard)
+        {
+            Assert.NotNull(actualArgs);
 
-        Assert.Equal(e, actualArgs.RawEvent);
-        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+            Assert.Equal(e, actualArgs.RawEvent);
+            Assert.Equal(dateTime.Value, actualArgs.EventTime);
 
-        Assert.Equal(x, actualArgs.Data.X);
-        Assert.Equal(y, actualArgs.Data.Y);
+            Assert.Equal(x, actualArgs.Data.X);
+            Assert.Equal(y, actualArgs.Data.Y);
+        } else
+        {
+            Assert.Null(actualArgs);
+        }
     }
 
-    [Property(DisplayName = "MouseWheel events should be raised")]
+    [Property(DisplayName = "MouseWheel events should be raised only if the global hook type includes mouse")]
     public void MouseWheel(
+        GlobalHookType globalHookType,
         short x,
         short y,
         short rotation,
@@ -495,7 +568,7 @@ public sealed class ReactiveGlobalHookAdapterTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleReactiveGlobalHook(provider);
+        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider));
 
         var e = new UioHookEvent
         {
@@ -525,21 +598,27 @@ public sealed class ReactiveGlobalHookAdapterTests
 
         // Assert
 
-        Assert.NotNull(actualArgs);
+        if (globalHookType != GlobalHookType.Keyboard)
+        {
+            Assert.NotNull(actualArgs);
 
-        Assert.Equal(e, actualArgs.RawEvent);
-        Assert.Equal(dateTime.Value, actualArgs.EventTime);
+            Assert.Equal(e, actualArgs.RawEvent);
+            Assert.Equal(dateTime.Value, actualArgs.EventTime);
 
-        Assert.Equal(x, actualArgs.Data.X);
-        Assert.Equal(y, actualArgs.Data.Y);
-        Assert.Equal(rotation, actualArgs.Data.Rotation);
-        Assert.Equal(delta, actualArgs.Data.Delta);
-        Assert.Equal(direction, actualArgs.Data.Direction);
-        Assert.Equal(type, actualArgs.Data.Type);
+            Assert.Equal(x, actualArgs.Data.X);
+            Assert.Equal(y, actualArgs.Data.Y);
+            Assert.Equal(rotation, actualArgs.Data.Rotation);
+            Assert.Equal(delta, actualArgs.Data.Delta);
+            Assert.Equal(direction, actualArgs.Data.Direction);
+            Assert.Equal(type, actualArgs.Data.Type);
+        } else
+        {
+            Assert.Null(actualArgs);
+        }
     }
 
     [Property(DisplayName = "Run should throw if the hook failed to start")]
-    public void RunFail(FailedUioHookResult result)
+    public void RunFail(GlobalHookType globalHookType, FailedUioHookResult result)
     {
         // Arrange
 
@@ -548,7 +627,7 @@ public sealed class ReactiveGlobalHookAdapterTests
             RunResult = result.Value
         };
 
-        var hook = new SimpleReactiveGlobalHook(provider);
+        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider));
 
         // Act + Assert
 
@@ -557,7 +636,7 @@ public sealed class ReactiveGlobalHookAdapterTests
     }
 
     [Property(DisplayName = "RunAsync should throw if the hook failed to start")]
-    public async void RunAsyncFail(FailedUioHookResult result)
+    public async void RunAsyncFail(GlobalHookType globalHookType, FailedUioHookResult result)
     {
         // Arrange
 
@@ -566,7 +645,7 @@ public sealed class ReactiveGlobalHookAdapterTests
             RunResult = result.Value
         };
 
-        var hook = new SimpleReactiveGlobalHook(provider);
+        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider));
 
         // Act + Assert
 
@@ -574,13 +653,13 @@ public sealed class ReactiveGlobalHookAdapterTests
         Assert.Equal(result.Value, exception.Result);
     }
 
-    [Fact(DisplayName = "Run should throw if the hook is already running")]
-    public void RunRunning()
+    [Property(DisplayName = "Run should throw if the hook is already running")]
+    public void RunRunning(GlobalHookType globalHookType)
     {
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleReactiveGlobalHook(provider);
+        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider));
 
         this.RunHookAndWaitForStart(hook, provider);
 
@@ -589,13 +668,13 @@ public sealed class ReactiveGlobalHookAdapterTests
         Assert.Throws<InvalidOperationException>(hook.Run);
     }
 
-    [Fact(DisplayName = "RunAsync should throw if the hook is already running")]
-    public async void RunAsyncRunning()
+    [Property(DisplayName = "RunAsync should throw if the hook is already running")]
+    public async void RunAsyncRunning(GlobalHookType globalHookType)
     {
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleReactiveGlobalHook(provider);
+        using var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider));
 
         this.RunHookAndWaitForStart(hook, provider);
 
@@ -604,12 +683,12 @@ public sealed class ReactiveGlobalHookAdapterTests
         await Assert.ThrowsAsync<InvalidOperationException>(async () => await hook.RunAsync());
     }
 
-    [Fact(DisplayName = "Run should throw if the hook is disposed")]
-    public void RunDisposed()
+    [Property(DisplayName = "Run should throw if the hook is disposed")]
+    public void RunDisposed(GlobalHookType globalHookType)
     {
         // Arrange
 
-        var hook = new SimpleReactiveGlobalHook();
+        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(globalHookType));
         hook.Dispose();
 
         // Act + Assert
@@ -617,12 +696,12 @@ public sealed class ReactiveGlobalHookAdapterTests
         Assert.Throws<ObjectDisposedException>(hook.Run);
     }
 
-    [Fact(DisplayName = "RunAsync should throw if the hook is disposed")]
-    public async void RunAsyncDisposed()
+    [Property(DisplayName = "RunAsync should throw if the hook is disposed")]
+    public async void RunAsyncDisposed(GlobalHookType globalHookType)
     {
         // Arrange
 
-        var hook = new SimpleReactiveGlobalHook();
+        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(globalHookType));
         hook.Dispose();
 
         // Act + Assert
@@ -631,7 +710,7 @@ public sealed class ReactiveGlobalHookAdapterTests
     }
 
     [Property(DisplayName = "Dispose should throw if the hook failed to stop")]
-    public void DisposeFail(FailedUioHookResult result)
+    public void DisposeFail(GlobalHookType globalHookType, FailedUioHookResult result)
     {
         // Arrange
 
@@ -640,7 +719,7 @@ public sealed class ReactiveGlobalHookAdapterTests
             StopResult = result.Value
         };
 
-        var hook = new SimpleReactiveGlobalHook(provider);
+        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider));
 
         this.RunHookAndWaitForStart(hook, provider);
 
@@ -650,15 +729,19 @@ public sealed class ReactiveGlobalHookAdapterTests
         Assert.Equal(result.Value, exception.Result);
     }
 
-    [Fact(DisplayName = "ReactiveGlobalHookAdapter should throw if the global hook is null")]
-    public void ProviderNull() =>
+    [Fact(DisplayName = "ReactiveGlobalHookAdapter should throw if the adapted hook is null")]
+    public void AdaptedHookNull() =>
         Assert.Throws<ArgumentNullException>(() => new ReactiveGlobalHookAdapter(null!));
 
-    [Fact(DisplayName = "ReactiveGlobalHookAdapter should throw if the scheduler is null")]
-    public void SchedulerNull() =>
-        Assert.Throws<ArgumentNullException>(() => new ReactiveGlobalHookAdapter(new SimpleGlobalHook(), null!));
+    [Property(DisplayName = "SimpleReactiveGlobalHook should not throw if the scheduler is null")]
+    public void SchedulerNull(GlobalHookType globalHookType)
+    {
+        var exception = Record.Exception(() => new ReactiveGlobalHookAdapter(
+            new SimpleGlobalHook(globalHookType), null));
+        Assert.Null(exception);
+    }
 
-    private void RunHookAndWaitForStart(IReactiveGlobalHook hook, TestProvider provider)
+    private void RunHookAndWaitForStart(ReactiveGlobalHookAdapter hook, TestProvider provider)
     {
         hook.RunAsync();
 
@@ -668,7 +751,7 @@ public sealed class ReactiveGlobalHookAdapterTests
         }
     }
 
-    private void DisposeHookAndWaitForStop(IReactiveGlobalHook hook)
+    private void DisposeHookAndWaitForStop(ReactiveGlobalHookAdapter hook)
     {
         hook.Dispose();
 

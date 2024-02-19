@@ -219,9 +219,6 @@
             </summary>
             <param name="hook">The hook to adapt.</param>
             <param name="defaultScheduler">The default scheduler for observables.</param>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="hook" /> or <paramref name="defaultScheduler" /> is <see langword="null" />.
-            </exception>
         </member>
         <member name="P:SharpHook.Reactive.ReactiveGlobalHookAdapter.IsRunning">
             <summary>
@@ -358,18 +355,12 @@
             Initializes a new instance of <see cref="T:SharpHook.Reactive.SimpleReactiveGlobalHook" />.
             </summary>
             <param name="defaultScheduler">The default scheduler for observables.</param>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="defaultScheduler" /> is <see langword="null" />.
-            </exception>
         </member>
         <member name="M:SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider)">
             <summary>
             Initializes a new instance of <see cref="T:SharpHook.Reactive.SimpleReactiveGlobalHook" />.
             </summary>
             <param name="globalHookProvider">The underlying global hook provider.</param>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="globalHookProvider"/> is <see langword="null" />.
-            </exception>
         </member>
         <member name="M:SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(System.Boolean)">
             <summary>
@@ -385,10 +376,9 @@
             Initializes a new instance of <see cref="T:SharpHook.Reactive.SimpleReactiveGlobalHook" />.
             </summary>
             <param name="defaultScheduler">The default scheduler for observables.</param>
-            <param name="globalHookProvider">The underlying global hook provider.</param>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="defaultScheduler" /> or <paramref name="globalHookProvider"/> is <see langword="null" />.
-            </exception>
+            <param name="globalHookProvider">
+            The underlying global hook provider, or <see langword="null" /> to use the default one.
+            </param>
         </member>
         <member name="M:SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(System.Reactive.Concurrency.IScheduler,System.Boolean)">
             <summary>
@@ -399,36 +389,47 @@
             <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
             Otherwise, <see langword="false" />.
             </param>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="defaultScheduler" /> is <see langword="null" />.
-            </exception>
         </member>
         <member name="M:SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
             <summary>
             Initializes a new instance of <see cref="T:SharpHook.Reactive.SimpleReactiveGlobalHook" />.
             </summary>
-            <param name="globalHookProvider">The underlying global hook provider.</param>
+            <param name="globalHookProvider">
+            The underlying global hook provider, or <see langword="null" /> to use the default one.
+            </param>
             <param name="runAsyncOnBackgroundThread">
             <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
             Otherwise, <see langword="false" />.
             </param>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="globalHookProvider"/> is <see langword="null" />.
-            </exception>
         </member>
         <member name="M:SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(System.Reactive.Concurrency.IScheduler,SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
             <summary>
             Initializes a new instance of <see cref="T:SharpHook.Reactive.SimpleReactiveGlobalHook" />.
             </summary>
             <param name="defaultScheduler">The default scheduler for observables.</param>
-            <param name="globalHookProvider">The underlying global hook provider.</param>
+            <param name="globalHookProvider">
+            The underlying global hook provider, or <see langword="null" /> to use the default one.
+            </param>
             <param name="runAsyncOnBackgroundThread">
             <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
             Otherwise, <see langword="false" />.
             </param>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="defaultScheduler" /> or <paramref name="globalHookProvider"/> is <see langword="null" />.
-            </exception>
+        </member>
+        <member name="M:SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(SharpHook.GlobalHookType,System.Reactive.Concurrency.IScheduler,SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.Reactive.SimpleReactiveGlobalHook" />.
+            </summary>
+            <param name="globalHookType">The global hook type.</param>
+            <param name="defaultScheduler">
+            The default scheduler for observables, or <see langword="null" /> to use the default one.
+            </param>
+            <param name="globalHookProvider">
+            The underlying global hook provider, or <see langword="null" /> to use the default one.
+            </param>
+            <param name="runAsyncOnBackgroundThread">
+            <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
+            Otherwise, <see langword="false" />.
+            </param>
         </member>
         <member name="M:SharpHook.Reactive.SimpleReactiveGlobalHook.Finalize">
             <summary>

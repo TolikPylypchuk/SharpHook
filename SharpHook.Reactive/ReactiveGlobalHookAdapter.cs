@@ -32,7 +32,7 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
     /// <param name="hook">The hook to adapt.</param>
     /// <exception cref="ArgumentNullException"><paramref name="hook" /> is <see langword="null" />.</exception>
     public ReactiveGlobalHookAdapter(IGlobalHook hook)
-        : this(hook, ImmediateScheduler.Instance)
+        : this(hook, null)
     { }
 
     /// <summary>
@@ -40,17 +40,11 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
     /// </summary>
     /// <param name="hook">The hook to adapt.</param>
     /// <param name="defaultScheduler">The default scheduler for observables.</param>
-    /// <exception cref="ArgumentNullException">
-    /// <paramref name="hook" /> or <paramref name="defaultScheduler" /> is <see langword="null" />.
-    /// </exception>
-    public ReactiveGlobalHookAdapter(IGlobalHook hook, IScheduler defaultScheduler)
+    public ReactiveGlobalHookAdapter(IGlobalHook hook, IScheduler? defaultScheduler)
     {
         this.hook = hook ?? throw new ArgumentNullException(nameof(hook));
 
-        if (defaultScheduler is null)
-        {
-            throw new ArgumentNullException(nameof(defaultScheduler));
-        }
+        defaultScheduler ??= ImmediateScheduler.Instance;
 
         this.subscriptions.Add(
             Observable.FromEventPattern<HookEventArgs>(
