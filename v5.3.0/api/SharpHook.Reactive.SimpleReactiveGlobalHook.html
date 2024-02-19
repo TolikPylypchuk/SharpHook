@@ -186,8 +186,8 @@ Class SimpleReactiveGlobalHook  <a class="header-action link-secondary" title="V
 
   <a id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor*"></a>
 
-  <h3 id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_SharpHook_Providers_IGlobalHookProvider_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider)">
-  SimpleReactiveGlobalHook(IGlobalHookProvider)
+  <h3 id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_SharpHook_GlobalHookType_System_Reactive_Concurrency_IScheduler_SharpHook_Providers_IGlobalHookProvider_System_Boolean_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(SharpHook.GlobalHookType,System.Reactive.Concurrency.IScheduler,SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
+  SimpleReactiveGlobalHook(GlobalHookType, IScheduler?, IGlobalHookProvider?, bool)
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/SimpleReactiveGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -196,52 +196,19 @@ Class SimpleReactiveGlobalHook  <a class="header-action link-secondary" title="V
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SimpleReactiveGlobalHook(IGlobalHookProvider globalHookProvider)</code></pre>
+    <pre><code class="lang-csharp hljs">public SimpleReactiveGlobalHook(GlobalHookType globalHookType = GlobalHookType.All, IScheduler? defaultScheduler = null, IGlobalHookProvider? globalHookProvider = null, bool runAsyncOnBackgroundThread = false)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>globalHookProvider</code> <a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html">IGlobalHookProvider</a></dt>
-    <dd><p>The underlying global hook provider.</p>
+    <dt><code>globalHookType</code> <a class="xref" href="SharpHook.GlobalHookType.html">GlobalHookType</a></dt>
+    <dd><p>The global hook type.</p>
 </dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
-    <dd><p><code class="paramref">globalHookProvider</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+    <dt><code>defaultScheduler</code> <span class="xref">IScheduler</span></dt>
+    <dd><p>The default scheduler for observables, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to use the default one.</p>
 </dd>
-  </dl>
-
-
-
-  <a id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor*"></a>
-
-  <h3 id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_SharpHook_Providers_IGlobalHookProvider_System_Boolean_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
-  SimpleReactiveGlobalHook(IGlobalHookProvider, bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/SimpleReactiveGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.Reactive.SimpleReactiveGlobalHook.html">SimpleReactiveGlobalHook</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SimpleReactiveGlobalHook(IGlobalHookProvider globalHookProvider, bool runAsyncOnBackgroundThread)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
     <dt><code>globalHookProvider</code> <a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html">IGlobalHookProvider</a></dt>
-    <dd><p>The underlying global hook provider.</p>
+    <dd><p>The underlying global hook provider, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to use the default one.</p>
 </dd>
     <dt><code>runAsyncOnBackgroundThread</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <a class="xref" href="SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_RunAsync">RunAsync()</a> should run the hook on a background thread.
@@ -257,12 +224,76 @@ Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference
 
 
 
-  <h4 class="section">Exceptions</h4>
+
+
+
+  <a id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor*"></a>
+
+  <h3 id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_SharpHook_Providers_IGlobalHookProvider_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider)">
+  SimpleReactiveGlobalHook(IGlobalHookProvider?)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/SimpleReactiveGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.Reactive.SimpleReactiveGlobalHook.html">SimpleReactiveGlobalHook</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SimpleReactiveGlobalHook(IGlobalHookProvider? globalHookProvider)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
-    <dd><p><code class="paramref">globalHookProvider</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+    <dt><code>globalHookProvider</code> <a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html">IGlobalHookProvider</a></dt>
+    <dd><p>The underlying global hook provider.</p>
 </dd>
   </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor*"></a>
+
+  <h3 id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_SharpHook_Providers_IGlobalHookProvider_System_Boolean_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
+  SimpleReactiveGlobalHook(IGlobalHookProvider?, bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/SimpleReactiveGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.Reactive.SimpleReactiveGlobalHook.html">SimpleReactiveGlobalHook</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SimpleReactiveGlobalHook(IGlobalHookProvider? globalHookProvider, bool runAsyncOnBackgroundThread)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>globalHookProvider</code> <a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html">IGlobalHookProvider</a></dt>
+    <dd><p>The underlying global hook provider, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to use the default one.</p>
+</dd>
+    <dt><code>runAsyncOnBackgroundThread</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <a class="xref" href="SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_RunAsync">RunAsync()</a> should run the hook on a background thread.
+Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -303,7 +334,7 @@ Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference
   <a id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor*"></a>
 
   <h3 id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_System_Reactive_Concurrency_IScheduler_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(System.Reactive.Concurrency.IScheduler)">
-  SimpleReactiveGlobalHook(IScheduler)
+  SimpleReactiveGlobalHook(IScheduler?)
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/SimpleReactiveGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -312,7 +343,7 @@ Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SimpleReactiveGlobalHook(IScheduler defaultScheduler)</code></pre>
+    <pre><code class="lang-csharp hljs">public SimpleReactiveGlobalHook(IScheduler? defaultScheduler)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -330,19 +361,13 @@ Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference
 
 
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
-    <dd><p><code class="paramref">defaultScheduler</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
-</dd>
-  </dl>
 
 
 
   <a id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor*"></a>
 
   <h3 id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_System_Reactive_Concurrency_IScheduler_SharpHook_Providers_IGlobalHookProvider_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(System.Reactive.Concurrency.IScheduler,SharpHook.Providers.IGlobalHookProvider)">
-  SimpleReactiveGlobalHook(IScheduler, IGlobalHookProvider)
+  SimpleReactiveGlobalHook(IScheduler?, IGlobalHookProvider?)
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/SimpleReactiveGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -351,7 +376,7 @@ Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SimpleReactiveGlobalHook(IScheduler defaultScheduler, IGlobalHookProvider globalHookProvider)</code></pre>
+    <pre><code class="lang-csharp hljs">public SimpleReactiveGlobalHook(IScheduler? defaultScheduler, IGlobalHookProvider? globalHookProvider)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -360,7 +385,7 @@ Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference
     <dd><p>The default scheduler for observables.</p>
 </dd>
     <dt><code>globalHookProvider</code> <a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html">IGlobalHookProvider</a></dt>
-    <dd><p>The underlying global hook provider.</p>
+    <dd><p>The underlying global hook provider, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to use the default one.</p>
 </dd>
   </dl>
 
@@ -372,19 +397,13 @@ Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference
 
 
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
-    <dd><p><code class="paramref">defaultScheduler</code> or <code class="paramref">globalHookProvider</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
-</dd>
-  </dl>
 
 
 
   <a id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor*"></a>
 
   <h3 id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_System_Reactive_Concurrency_IScheduler_SharpHook_Providers_IGlobalHookProvider_System_Boolean_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(System.Reactive.Concurrency.IScheduler,SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
-  SimpleReactiveGlobalHook(IScheduler, IGlobalHookProvider, bool)
+  SimpleReactiveGlobalHook(IScheduler?, IGlobalHookProvider?, bool)
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/SimpleReactiveGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -393,7 +412,7 @@ Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SimpleReactiveGlobalHook(IScheduler defaultScheduler, IGlobalHookProvider globalHookProvider, bool runAsyncOnBackgroundThread)</code></pre>
+    <pre><code class="lang-csharp hljs">public SimpleReactiveGlobalHook(IScheduler? defaultScheduler, IGlobalHookProvider? globalHookProvider, bool runAsyncOnBackgroundThread)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -402,7 +421,7 @@ Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference
     <dd><p>The default scheduler for observables.</p>
 </dd>
     <dt><code>globalHookProvider</code> <a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html">IGlobalHookProvider</a></dt>
-    <dd><p>The underlying global hook provider.</p>
+    <dd><p>The underlying global hook provider, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to use the default one.</p>
 </dd>
     <dt><code>runAsyncOnBackgroundThread</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
     <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <a class="xref" href="SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_RunAsync">RunAsync()</a> should run the hook on a background thread.
@@ -418,19 +437,13 @@ Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference
 
 
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
-    <dd><p><code class="paramref">defaultScheduler</code> or <code class="paramref">globalHookProvider</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
-</dd>
-  </dl>
 
 
 
   <a id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor*"></a>
 
   <h3 id="SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_System_Reactive_Concurrency_IScheduler_System_Boolean_" data-uid="SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(System.Reactive.Concurrency.IScheduler,System.Boolean)">
-  SimpleReactiveGlobalHook(IScheduler, bool)
+  SimpleReactiveGlobalHook(IScheduler?, bool)
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/SimpleReactiveGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -439,7 +452,7 @@ Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SimpleReactiveGlobalHook(IScheduler defaultScheduler, bool runAsyncOnBackgroundThread)</code></pre>
+    <pre><code class="lang-csharp hljs">public SimpleReactiveGlobalHook(IScheduler? defaultScheduler, bool runAsyncOnBackgroundThread)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -461,12 +474,6 @@ Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference
 
 
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
-    <dd><p><code class="paramref">defaultScheduler</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
-</dd>
-  </dl>
 
 
 

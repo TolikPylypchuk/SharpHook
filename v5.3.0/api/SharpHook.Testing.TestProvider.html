@@ -334,6 +334,39 @@ and <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_Event
 
 
 
+  <a id="SharpHook_Testing_TestProvider_GlobalHookType_" data-uid="SharpHook.Testing.TestProvider.GlobalHookType*"></a>
+
+  <h3 id="SharpHook_Testing_TestProvider_GlobalHookType" data-uid="SharpHook.Testing.TestProvider.GlobalHookType">
+  GlobalHookType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the global hook type of this provider. The provider is set when the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_Run">Run()</a>,
+<a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunKeyboard">RunKeyboard()</a>, or <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunMouse">RunMouse()</a> method is called.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GlobalHookType GlobalHookType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.GlobalHookType.html">GlobalHookType</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="SharpHook_Testing_TestProvider_IsRunning_" data-uid="SharpHook.Testing.TestProvider.IsRunning*"></a>
 
   <h3 id="SharpHook_Testing_TestProvider_IsRunning" data-uid="SharpHook.Testing.TestProvider.IsRunning">
@@ -945,6 +978,198 @@ events - this is not the case with <a class="xref" href="SharpHook.Testing.TestP
 </p>
 <p>
 This method can be called when the provider is already running - the same <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> will be returned.
+This is not recommended though as it does not mirror the behaviour of the real hook, and will throw an exception
+in a future version.
+</p>
+</div>
+
+
+
+
+  <a id="SharpHook_Testing_TestProvider_RunKeyboard_" data-uid="SharpHook.Testing.TestProvider.RunKeyboard*"></a>
+
+  <h3 id="SharpHook_Testing_TestProvider_RunKeyboard" data-uid="SharpHook.Testing.TestProvider.RunKeyboard">
+  RunKeyboard()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Runs the testing hook if <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunResult">RunResult</a> is set to <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise,
+does nothing. The hook will react only to keyboard events.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UioHookResult RunKeyboard()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></dt>
+    <dd><p>The value of <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunResult">RunResult</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_Testing_TestProvider_RunKeyboard_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method simply blocks the current thread until <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_Stop">Stop()</a> is called. Actual event dispatching
+happens directly in the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent__">PostEvent(ref UioHookEvent)</a> method. As such, it's different from the real
+global hook where the thread which calls the <a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html#SharpHook_Providers_IGlobalHookProvider_Run">Run()</a> method is the thread
+which dispatches events - this is not the case with <a class="xref" href="SharpHook.Testing.TestProvider.html">TestProvider</a>.
+</p>
+<p>
+This method can be called when the provider is already running - it will also block the current thread.
+Calling the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_Stop">Stop()</a> method will unblock all blocked threads. This is not recommended though as it
+does not mirror the behaviour of the real hook, and will throw an exception in a future release.
+</p>
+</div>
+
+
+
+
+  <a id="SharpHook_Testing_TestProvider_RunKeyboardAsync_" data-uid="SharpHook.Testing.TestProvider.RunKeyboardAsync*"></a>
+
+  <h3 id="SharpHook_Testing_TestProvider_RunKeyboardAsync" data-uid="SharpHook.Testing.TestProvider.RunKeyboardAsync">
+  RunKeyboardAsync()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Runs the testing hook if <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunResult">RunResult</a> is set to <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise,
+does nothing. The hook will react only to keyboard events.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;UioHookResult&gt; RunKeyboardAsync()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a>&gt;</dt>
+    <dd><p>The value of <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunResult">RunResult</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_Testing_TestProvider_RunKeyboardAsync_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method doesn't do anything and returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which will be finished when
+<a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_Stop">Stop()</a> is called. Actual event dispatching happens directly in the
+<a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent__">PostEvent(ref UioHookEvent)</a> method. As such, it's different from the real global hook where
+the thread which calls the <a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html#SharpHook_Providers_IGlobalHookProvider_Run">Run()</a> method is the thread which dispatches
+events - this is not the case with <a class="xref" href="SharpHook.Testing.TestProvider.html">TestProvider</a>.
+</p>
+<p>
+This method can be called when the provider is already running - the same <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> will be returned.
+This is not recommended though as it does not mirror the behaviour of the real hook, and will throw an exception
+in a future version.
+</p>
+</div>
+
+
+
+
+  <a id="SharpHook_Testing_TestProvider_RunMouse_" data-uid="SharpHook.Testing.TestProvider.RunMouse*"></a>
+
+  <h3 id="SharpHook_Testing_TestProvider_RunMouse" data-uid="SharpHook.Testing.TestProvider.RunMouse">
+  RunMouse()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Runs the testing hook if <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunResult">RunResult</a> is set to <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise,
+does nothing. The hook will react only to mouse events.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UioHookResult RunMouse()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></dt>
+    <dd><p>The value of <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunResult">RunResult</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_Testing_TestProvider_RunMouse_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method simply blocks the current thread until <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_Stop">Stop()</a> is called. Actual event dispatching
+happens directly in the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent__">PostEvent(ref UioHookEvent)</a> method. As such, it's different from the real
+global hook where the thread which calls the <a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html#SharpHook_Providers_IGlobalHookProvider_Run">Run()</a> method is the thread
+which dispatches events - this is not the case with <a class="xref" href="SharpHook.Testing.TestProvider.html">TestProvider</a>.
+</p>
+<p>
+This method can be called when the provider is already running - it will also block the current thread.
+Calling the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_Stop">Stop()</a> method will unblock all blocked threads. This is not recommended though as it
+does not mirror the behaviour of the real hook, and will throw an exception in a future release.
+</p>
+</div>
+
+
+
+
+  <a id="SharpHook_Testing_TestProvider_RunMouseAsync_" data-uid="SharpHook.Testing.TestProvider.RunMouseAsync*"></a>
+
+  <h3 id="SharpHook_Testing_TestProvider_RunMouseAsync" data-uid="SharpHook.Testing.TestProvider.RunMouseAsync">
+  RunMouseAsync()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Runs the testing hook if <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunResult">RunResult</a> is set to <a class="xref" href="SharpHook.Native.UioHookResult.html#SharpHook_Native_UioHookResult_Success">Success</a>. Otherwise,
+does nothing. The hook will react only to mouse events.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;UioHookResult&gt; RunMouseAsync()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a>&gt;</dt>
+    <dd><p>The value of <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunResult">RunResult</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_Testing_TestProvider_RunMouseAsync_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method doesn't do anything and returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which will be finished when
+<a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_Stop">Stop()</a> is called. Actual event dispatching happens directly in the
+<a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Native_UioHookEvent__">PostEvent(ref UioHookEvent)</a> method. As such, it's different from the real global hook where
+the thread which calls the <a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html#SharpHook_Providers_IGlobalHookProvider_Run">Run()</a> method is the thread which dispatches
+events - this is not the case with <a class="xref" href="SharpHook.Testing.TestProvider.html">TestProvider</a>.
+</p>
+<p>
+This method can be called when the provider is already running - the same <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> will be returned.
+This is not recommended though as it does not mirror the behaviour of the real hook, and will throw an exception
+in a future version.
 </p>
 </div>
 
