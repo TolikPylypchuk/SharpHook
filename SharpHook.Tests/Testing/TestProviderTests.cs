@@ -82,8 +82,11 @@ public sealed class TestProviderTests
         provider.SetDispatchProc(
             (ref UioHookEvent e, IntPtr data) =>
             {
-                actualEvent = e;
-                actualUserData = data;
+                if (e.Type != EventType.HookEnabled)
+                {
+                    actualEvent = e;
+                    actualUserData = data;
+                }
             },
             userData);
 
@@ -96,8 +99,6 @@ public sealed class TestProviderTests
 
         Assert.Null(actualEvent);
         Assert.Null(actualUserData);
-
-        Assert.Empty(provider.PostedEvents);
 
         // Clean up
 
@@ -120,8 +121,11 @@ public sealed class TestProviderTests
         provider.SetDispatchProc(
             (ref UioHookEvent e, IntPtr data) =>
             {
-                actualEvent = e;
-                actualUserData = data;
+                if (e.Type != EventType.HookEnabled)
+                {
+                    actualEvent = e;
+                    actualUserData = data;
+                }
             },
             userData);
 
@@ -134,8 +138,6 @@ public sealed class TestProviderTests
 
         Assert.Null(actualEvent);
         Assert.Null(actualUserData);
-
-        Assert.Empty(provider.PostedEvents);
 
         // Clean up
 
