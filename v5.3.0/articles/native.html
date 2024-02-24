@@ -105,7 +105,8 @@ called.</li>
 <li><code>Stop</code> - destroys the global hook.</li>
 </ul>
 <p>You have to remember that only one global hook can exist at a time since calling <code>SetDispatchProc</code> will override the
-previously set one.</p>
+previously set one. Also, running a global hook when another global hook is already running will corrupt the internal
+global state of libuiohook.</p>
 <p><code>SetDispatchProc</code> accepts a delegate of type <code>SharpHook.Native.DispatchProc</code>. This delegate in turn accepts a
 <code>SharpHook.Native.UioHookEvent</code> by reference, and returns nothing.  You can pass <code>null</code> to <code>SetDispatchProc</code> in order
 to unset the callback function.</p>
@@ -261,9 +262,9 @@ scrolling, so <code>MouseWheelScrollType.BlockScroll</code> is recommended for l
 <p>On Linux there is no fixed recommendation, but multiples of 100 can be used. The value of <code>MouseWheelEventData.Type</code>
 is ignored.</p>
 <h2 id="simulating-text-entry">Simulating Text Entry</h2>
-<p>Starting with version 5, SharpHook also provides text entry simulation. <code>UioHook</code> contains the <code>PostText</code> method
-which accepts a <code>string</code>. The text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16
-(including surrogate pairs, e.g. emojis) is supported.</p>
+<p>SharpHook also provides text entry simulation. <code>UioHook</code> contains the <code>PostText</code> method which accepts a <code>string</code>. The
+text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16 (including surrogate pairs,
+e.g. emojis) is supported.</p>
 <p>Text entry simulation may not work well on Linux. More info can be found in the article on
 <a href="os-constraints.html">OS-specific constraints</a>.</p>
 <p>The methods described above are also defined in the <code>SharpHook.Providers.IEventSimulationProvider</code> interface.</p>
