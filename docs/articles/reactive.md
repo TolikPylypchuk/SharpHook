@@ -58,8 +58,9 @@ available.
 The `HookEnabled` and `HookDisabled` observables will emit a single event and then immediately complete afterwards.
 
 > [!IMPORTANT]
-> Always use one instance of `IReactiveGlobalHook` at a time in the entire application since they all must use
-> the same static method to set the hook callback for libuiohook, so there may only be one callback at a time.
+> Always use one instance of `IReactiveGlobalHook` at a time in the entire application since they all must use the same
+> static method to set the hook callback for libuiohook, so there may only be one callback at a time. Running a global
+> hook when another global hook is already running will corrupt the internal global state of libuiohook.
 
 ## The Default Implementations
 

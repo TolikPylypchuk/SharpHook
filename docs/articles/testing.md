@@ -32,8 +32,8 @@ public void TestLastPressedKey()
 }
 ```
 
-If this class is used as an `IEventSimulator` in tested code, then the `SimulatedEvents` property can be checked to see
-which events were simulated using the test instance.
+If this class is used as an `IEventSimulator` in the tested code, then the `SimulatedEvents` property can be checked to
+see which events were simulated using the test instance.
 
 Members of `TestGlobalHook` are quite straightforward; the API reference should be viewed for more info.
 
@@ -54,7 +54,9 @@ The providers are selectable, so e.g. the following global hook can be used for 
 
 ```c#
 var testProvider = new TestProvider();
-var hook = new SimpleGlobalHook(testProvider); // Calls to methods in testProvider will be reflected in the hook
+
+// Calls to methods in testProvider will be reflected in the hook
+var hook = new SimpleGlobalHook(globalHookProvider: testProvider);
 ```
 
 > [!NOTE]

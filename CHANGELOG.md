@@ -1,5 +1,16 @@
 # SharpHook Changelog
 
+## [v5.3.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.3.0) (February 24, 2024)
+
+- It's now possible to run keyboard-only or mouse-only global hooks.
+
+- Simulating key press/release events was fixed for some keys (such as media keys) on Windows.
+
+- Global hooks and the event simulator now don't throw an exception on null parameters and instead use default values.
+
+- libuiohook was updated to commit
+[963415f](https://github.com/TolikPylypchuk/libuiohook/commit/963415f8e9ba486bd1ff68d2f8adf903ce5b3b27).
+
 ## [v5.2.3](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.2.3) (February 2, 2024)
 
 - Windows x86 support was fixed for .NET Framework.

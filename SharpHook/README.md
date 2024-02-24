@@ -18,7 +18,11 @@ the hood.
 `UioHook` contains the following methods for working with the global hook:
 
 - `SetDispatchProc` - sets the function which will be called when an event is raised by libuiohook.
-- `Run` - creates a global hook and runs it on the current thread, blocking it until `Stop` is called.
+- `Run` - creates a keyboard and mouse global hook and runs it on the current thread, blocking it until `Stop` is
+called.
+- `RunKeyboard` - creates a keyboard-only global hook and runs it on the current thread, blocking it until `Stop` is
+called.
+- `RunMouse` - creates a mouse-only global hook and runs it on the current thread, blocking it until `Stop` is called.
 - `Stop` - destroys the global hook.
 
 You have to remember that only one global hook can exist at a time since calling `SetDispatchProc` will override the
@@ -27,9 +31,8 @@ previously set one.
 Additionally, `UioHook` contains the `PostEvent` method for simulating input events, and the `SetLoggerProc` method for
 setting the log callback.
 
-Starting with version 5.0.0, SharpHook also provides text entry simulation and `UioHook` contains the `PostText` method.
-The text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16 (including surrogate pairs,
-e.g. emojis) is supported.
+SharpHook also provides text entry simulation and `UioHook` contains the `PostText` method. The text to simulate doesn't
+depend on the current keyboard layout. The full range of UTF-16 (including surrogate pairs, e.g. emojis) is supported.
 
 libuiohook also provides functions to get various system properties. The corresponding methods are also present in
 `UioHook`.
@@ -80,12 +83,18 @@ the interface is that once a hook has been destroyed, it cannot be started again
 Calling `Dispose` when the hook is not running is safe - it just won't do anything (other than marking the instance as
 disposed).
 
-Hook events are of type `HookEvent` or a derived type which contains more info. It's possible to suppress event
+Hook events are of type `HookEventArgs` or a derived type which contains more info. It's possible to suppress event
 propagation by setting the `SuppressEvent` property to `true` inside the event handler. This must be done synchronously
-and is only supported on Windows and macOS.
+and is only supported on Windows and macOS. You can check the event time and whether the event is real or simulated with
+the `EventTime` and `IsEventSimulated` properties respectively.
 
-**Important**: Always use one instance of `IGlobalHook` at a time in the entire application since they all must use
-the same static method to set the hook callback for libuiohook, so there may only be one callback at a time.
+**Important**: Always use one instance of `IGlobalHook` at a time in the entire application since they all must use the
+same static method to set the hook callback for libuiohook, so there may only be one callback at a time. Running a
+global hook when another global hook is already running will corrupt the internal global state of libuiohook.
+
+You can create a keyboard-only or a mouse-only hook by passing a `GlobalHookType` to the hook's constructor. This makes
+a difference only on Windows where there are two different global hooks - a keyboard hook and a mouse hook. On macOS and
+Linux there is one hook for all events, and this simply enables filtering keyboard or mouse events out on these OSes.
 
 SharpHook provides two implementations of `IGlobalHook`:
 
@@ -149,8 +158,8 @@ simulator.SimulateMouseMovementRelative(50, 100);
 // Scroll the mouse wheel
 simulator.SimulateMouseWheel(
     rotation: -120,
-    direction: MouseWheelScrollDirection.Vertical, // MouseWheelScrollDirection.Vertical by default
-    type: MouseWheelScrollType.UnitScroll); // MouseWheelScrollType.UnitScroll by default
+    direction: MouseWheelScrollDirection.Vertical, // Vertical by default
+    type: MouseWheelScrollType.UnitScroll); // UnitScroll by default
 ```
 
 SharpHook provides the `IEventSimulator` interface, and the default implementation, `EventSimulator`, which calls
@@ -158,9 +167,9 @@ SharpHook provides the `IEventSimulator` interface, and the default implementati
 
 ### Text Entry Simulation
 
-Starting with version 5.0.0, SharpHook also provides text entry simulation. `IEventSimulator` contains the
-`SimulateTextEntry` method which accepts a `string`. The text to simulate doesn't depend on the current keyboard layout.
-The full range of UTF-16 (including surrogate pairs, e.g. emojis) is supported.
+SharpHook also provides text entry simulation. `IEventSimulator` contains the `SimulateTextEntry` method which accepts
+a `string`. The text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16 (including
+surrogate pairs, e.g. emojis) is supported.
 
 ### Logging
 
@@ -180,9 +189,7 @@ private void OnMessageLogged(object? sender, LogEventArgs e) =>
 ```
 
 As with global hooks, you should use only one `LogSource` object at a time. `ILogSource` extends `IDisposable` - you
-can dispose of a log source to stop receiving libuiohook messages. You should keep a reference to an instance of
-`LogSource` when you use it since it will stop receiving messages when garbage collector deletes it, to avoid memory
-leaks.
+can dispose of a log source to stop receiving libuiohook messages.
 
 An `EmptyLogSource` class is also available - this class doesn't listen to the libuiohook logs and can be used instead
 of `LogSource` in release builds.
@@ -196,8 +203,8 @@ unlike mocks, no setup is required to use these classes.
 for testing. When the `Run` or `RunAsync` method is called, it will dispatch events using the various `Simulate` methods
 from `IEventSimulator`.
 
-If this class is used as an `IEventSimulator` in tested code, then the `SimulatedEvents` property can be checked to see
-which events were simulated using the test instance.
+If this class is used as an `IEventSimulator` in the tested code, then the `SimulatedEvents` property can be checked to
+see which events were simulated using the test instance.
 
 If an `IReactiveGlobalHook` is needed for testing, then `ReactiveGlobalHookAdapter` can be used to adapt an instance of
 `TestGlobalHook`.

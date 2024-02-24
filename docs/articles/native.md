@@ -14,11 +14,16 @@ the hood.
 `UioHook` contains the following methods for working with the global hook:
 
 - `SetDispatchProc` - sets the function which will be called when an event is raised by libuiohook.
-- `Run` - creates a global hook and runs it on the current thread, blocking it until `Stop` is called.
+- `Run` - creates a keyboard and mouse global hook and runs it on the current thread, blocking it until `Stop` is
+called.
+- `RunKeyboard` - creates a keyboard-only global hook and runs it on the current thread, blocking it until `Stop` is
+called.
+- `RunMouse` - creates a mouse-only global hook and runs it on the current thread, blocking it until `Stop` is called.
 - `Stop` - destroys the global hook.
 
 You have to remember that only one global hook can exist at a time since calling `SetDispatchProc` will override the
-previously set one.
+previously set one. Also, running a global hook when another global hook is already running will corrupt the internal
+global state of libuiohook.
 
 `SetDispatchProc` accepts a delegate of type `SharpHook.Native.DispatchProc`. This delegate in turn accepts a
 `SharpHook.Native.UioHookEvent` by reference, and returns nothing.  You can pass `null` to `SetDispatchProc` in order
@@ -65,8 +70,11 @@ has more information:
 
 `EventType` defines three more types, but they are used only when simulating events.
 
-`UioHookEvent` also contains the `Time` and `Mask` fields. `Time` is the event's UNIX timestamp. `Mask` contains the
-state of keyboard modifiers and the mouse state at the time of the event.
+`UioHookEvent` also contains the `Time` field which is the event's UNIX timestamp.
+
+`UioHookEvent` also contains the `Mask` field which contains the state of keyboard modifiers and the mouse state at the
+time of the event. Note that when running a keyboard-only global hook, `Mask` will not contain any mouse state;
+conversely, when running a mouse-only global hook, `Mask` will not contain the state of keyboard modifiers.
 
 Lastly, `UioHookEvent` contains the `Reserved` field which is contains various bit flags. Currently two flags are
 supported:
@@ -192,9 +200,9 @@ is ignored.
 
 ## Simulating Text Entry
 
-Starting with version 5, SharpHook also provides text entry simulation. `UioHook` contains the `PostText` method
-which accepts a `string`. The text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16
-(including surrogate pairs, e.g. emojis) is supported.
+SharpHook also provides text entry simulation. `UioHook` contains the `PostText` method which accepts a `string`. The
+text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16 (including surrogate pairs,
+e.g. emojis) is supported.
 
 Text entry simulation may not work well on Linux. More info can be found in the article on
 [OS-specific constraints](os-constraints.md).

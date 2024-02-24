@@ -2,10 +2,11 @@
 
 ## A Note on SemVer
 
-SharpHook follows SemVer with one exception: the `IEventSimulator` interface. This interface is not meant to be
-implemented directly in client code - it's just an abstraction over the `EventSimulator` class. As such, when new
-features are added to event simulation, this interface needs to be changed. Technically, this is a breaking change and
-would require bumping the major version. Instead, changes to this interface are usually treated as minor version
+SharpHook follows SemVer with two exceptions: the `IEventSimulator` interface and the interfaces in the
+`SharpHook.Providers` namespace. These interfaces are not meant to be implemented directly in client code - they are
+just abstractions over the corresponding classes. As such, when new features are added to event simulation or
+low-level functionality providers, these interfaces need to be changed. Technically, this is a breaking change and
+would require bumping the major version. Instead, changes to these interfaces are usually treated as minor version
 updates since they are not expected to break client code.
 
 ## Version 4 to 5

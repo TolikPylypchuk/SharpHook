@@ -58,13 +58,19 @@ disposed). You can check whether the hook is disposed using the `IsDisposed` pro
 The `HookEnabled` event is raised once when the `Run` or `RunAsync` method is called. The `HookDisabled` event is raised
 once when the `Dispose` method is called.
 
-Hook events are of type `HookEvent` or a derived type which contains more info. It's possible to suppress event
+Hook events are of type `HookEventArgs` or a derived type which contains more info. It's possible to suppress event
 propagation by setting the `SuppressEvent` property to `true` inside the event handler. This must be done synchronously
-and is only supported on Windows and macOS.
+and is only supported on Windows and macOS. You can check the event time and whether the event is real or simulated with
+the `EventTime` and `IsEventSimulated` properties respectively.
 
 > [!IMPORTANT]
-> Always use one instance of `IGlobalHook` at a time in the entire application since they all must use
-> the same static method to set the hook callback for libuiohook, so there may only be one callback at a time.
+> Always use one instance of `IGlobalHook` at a time in the entire application since they all must use the same static
+> method to set the hook callback for libuiohook, so there may only be one callback at a time. Running a global hook
+> when another global hook is already running will corrupt the internal global state of libuiohook.
+
+You can create a keyboard-only or a mouse-only hook by passing a `GlobalHookType` to the hook's constructor. This makes
+a difference only on Windows where there are two different global hooks - a keyboard hook and a mouse hook. On macOS and
+Linux there is one hook for all events, and this simply enables filtering keyboard or mouse events out on these OSes.
 
 ## The Default Implementations
 
