@@ -3,6 +3,12 @@ namespace SharpHook.Native;
 /// <summary>
 /// Contains native methods of libuiohook.
 /// </summary>
+/// <seealso cref="IEventSimulationProvider" />
+/// <seealso cref="IGlobalHookProvider" />
+/// <seealso cref="ILoggingProvider" />
+/// <seealso cref="IMouseInfoProvider" />
+/// <seealso cref="IScreenInfoProvider" />
+/// <seealso cref="UioHookProvider" />
 #if NET5_0_OR_GREATER
 [SuppressMessage(
     "Interoperability",
@@ -41,6 +47,10 @@ public static partial class UioHook
     /// of libuiohook.
     /// </remarks>
     /// <returns>The result of the operation.</returns>
+    /// <remarks>
+    /// This method must not be called when a global hook is already running since it will corrupt the global state of
+    /// libuiohook.
+    /// </remarks>
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_run")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -57,16 +67,16 @@ public static partial class UioHook
     /// <remarks>
     /// <para>
     /// This method makes a difference only on Windows where there are two different global hooks - a keyboard hook and
-    /// a mouse hook. On macOS and Linux there is one hook for all events, and this method simply filters mouse events
-    /// out at the libuiohook level on these OSes.
+    /// a mouse hook. On macOS and Linux there is one hook for all events, and this method simply enables filtering
+    /// mouse events out on these OSes.
     /// </para>
     /// <para>
     /// When a keyboard-only hook is running, the <see cref="UioHookEvent.Mask" /> field will not contain any mouse
     /// button state.
     /// </para>
     /// <para>
-    /// Calling this method when another global hook is running should never be done as it will corrupt the global state
-    /// of libuiohook.
+    /// This method must not be called when a global hook is already running since it will corrupt the global state of
+    /// libuiohook.
     /// </para>
     /// </remarks>
 #if NET7_0_OR_GREATER
@@ -85,16 +95,16 @@ public static partial class UioHook
     /// <remarks>
     /// <para>
     /// This method makes a difference only on Windows where there are two different global hooks - a keyboard hook and
-    /// a mouse hook. On macOS and Linux there is one hook for all events, and this method simply filters keyboard
-    /// events out at the libuiohook level on these OSes.
+    /// a mouse hook. On macOS and Linux there is one hook for all events, and this method simply enables filtering
+    /// keyboard events out on these OSes.
     /// </para>
     /// <para>
     /// When a mouse-only hook is running, the <see cref="UioHookEvent.Mask" /> field will not contain any keyboard
     /// modifier state.
     /// </para>
     /// <para>
-    /// Calling this method when another global hook is running should never be done as it will corrupt the global state
-    /// of libuiohook.
+    /// This method must not be called when a global hook is already running since it will corrupt the global state of
+    /// libuiohook.
     /// </para>
     /// </remarks>
 #if NET7_0_OR_GREATER

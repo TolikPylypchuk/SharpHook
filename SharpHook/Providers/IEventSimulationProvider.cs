@@ -3,7 +3,6 @@ namespace SharpHook.Providers;
 /// <summary>
 /// Represents a provider of low-level event simulation functionality.
 /// </summary>
-/// <seealso cref="UioHookProvider" />
 public interface IEventSimulationProvider
 {
     /// <summary>

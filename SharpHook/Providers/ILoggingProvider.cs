@@ -3,7 +3,6 @@ namespace SharpHook.Providers;
 /// <summary>
 /// Represents a provider of low-level logging functionality.
 /// </summary>
-/// <seealso cref="UioHookProvider" />
 public interface ILoggingProvider
 {
     /// <summary>
@@ -15,6 +14,5 @@ public interface ILoggingProvider
     /// <param name="userData">
     /// Custom data to pass to the callback. Should not be used, and <see cref="IntPtr.Zero" /> should always be passed.
     /// </param>
-    /// <seealso cref="LoggerProc" />
     void SetLoggerProc(LoggerProc? loggerProc, IntPtr userData);
 }

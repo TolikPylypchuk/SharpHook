@@ -706,7 +706,10 @@ public sealed class EventSimulatorTests
         }
     }
 
-    [Fact(DisplayName = "EventSimulator should throw if the provider is null")]
-    public void NullProviderError() =>
-        Assert.Throws<ArgumentNullException>(() => { new EventSimulator(null!); });
+    [Fact(DisplayName = "EventSimulator should not throw if the provider is null")]
+    public void NullProviderError()
+    {
+        var exception = Record.Exception(() => new EventSimulator(null));
+        Assert.Null(exception);
+    }
 }

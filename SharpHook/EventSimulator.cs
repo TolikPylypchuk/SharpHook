@@ -3,23 +3,21 @@ namespace SharpHook;
 /// <summary>
 /// A keyboard and mouse event simulator which posts events to a simulation provider (libuiohook by default).
 /// </summary>
-/// <param name="simulationProvider">The simulation functionality provider.</param>
-/// <exception cref="ArgumentNullException">
-/// <paramref name="simulationProvider" /> is <see langword="null" />.
-/// </exception>
+/// <param name="simulationProvider">
+/// The simulation functionality provider (or <see cref="UioHookProvider.Instance" /> if <see langword="null" />).
+/// </param>
 /// <seealso cref="IEventSimulationProvider" />
 /// <seealso cref="UioHook.PostEvent(ref UioHookEvent)" />
-public class EventSimulator(IEventSimulationProvider simulationProvider) : IEventSimulator
+public class EventSimulator(IEventSimulationProvider? simulationProvider) : IEventSimulator
 {
-    private readonly IEventSimulationProvider simulationProvider =
-        simulationProvider ?? throw new ArgumentNullException(nameof(simulationProvider));
+    private readonly IEventSimulationProvider simulationProvider = simulationProvider ?? UioHookProvider.Instance;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="EventSimulator" /> class.
     /// </summary>
     [ExcludeFromCodeCoverage]
     public EventSimulator()
-        : this(UioHookProvider.Instance)
+        : this(null)
     { }
 
     /// <summary>
