@@ -23,13 +23,13 @@ references:
   nameWithType: EventSimulator.EventSimulator()
   nameWithType.vb: EventSimulator.New()
 - uid: SharpHook.EventSimulator.#ctor(SharpHook.Providers.IEventSimulationProvider)
-  name: EventSimulator(IEventSimulationProvider)
+  name: EventSimulator(IEventSimulationProvider?)
   href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator__ctor_SharpHook_Providers_IEventSimulationProvider_
   commentId: M:SharpHook.EventSimulator.#ctor(SharpHook.Providers.IEventSimulationProvider)
   name.vb: New(IEventSimulationProvider)
-  fullName: SharpHook.EventSimulator.EventSimulator(SharpHook.Providers.IEventSimulationProvider)
+  fullName: SharpHook.EventSimulator.EventSimulator(SharpHook.Providers.IEventSimulationProvider?)
   fullName.vb: SharpHook.EventSimulator.New(SharpHook.Providers.IEventSimulationProvider)
-  nameWithType: EventSimulator.EventSimulator(IEventSimulationProvider)
+  nameWithType: EventSimulator.EventSimulator(IEventSimulationProvider?)
   nameWithType.vb: EventSimulator.New(IEventSimulationProvider)
 - uid: SharpHook.EventSimulator.#ctor*
   name: EventSimulator

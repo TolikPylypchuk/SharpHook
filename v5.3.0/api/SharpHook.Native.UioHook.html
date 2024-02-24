@@ -697,16 +697,16 @@ of libuiohook.</p>
   <h4 class="section" id="SharpHook_Native_UioHook_RunKeyboard_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 This method makes a difference only on Windows where there are two different global hooks - a keyboard hook and
-a mouse hook. On macOS and Linux there is one hook for all events, and this method simply filters mouse events
-out at the libuiohook level on these OSes.
+a mouse hook. On macOS and Linux there is one hook for all events, and this method simply enables filtering
+mouse events out on these OSes.
 </p>
 <p>
 When a keyboard-only hook is running, the <a class="xref" href="SharpHook.Native.UioHookEvent.html#SharpHook_Native_UioHookEvent_Mask">Mask</a> field will not contain any mouse
 button state.
 </p>
 <p>
-Calling this method when another global hook is running should never be done as it will corrupt the global state
-of libuiohook.
+This method must not be called when a global hook is already running since it will corrupt the global state of
+libuiohook.
 </p>
 </div>
 
@@ -745,16 +745,16 @@ of libuiohook.
   <h4 class="section" id="SharpHook_Native_UioHook_RunMouse_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 This method makes a difference only on Windows where there are two different global hooks - a keyboard hook and
-a mouse hook. On macOS and Linux there is one hook for all events, and this method simply filters keyboard
-events out at the libuiohook level on these OSes.
+a mouse hook. On macOS and Linux there is one hook for all events, and this method simply enables filtering
+keyboard events out on these OSes.
 </p>
 <p>
 When a mouse-only hook is running, the <a class="xref" href="SharpHook.Native.UioHookEvent.html#SharpHook_Native_UioHookEvent_Mask">Mask</a> field will not contain any keyboard
 modifier state.
 </p>
 <p>
-Calling this method when another global hook is running should never be done as it will corrupt the global state
-of libuiohook.
+This method must not be called when a global hook is already running since it will corrupt the global state of
+libuiohook.
 </p>
 </div>
 
@@ -931,6 +931,15 @@ On Windows and macOS this method does nothing.
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="SharpHook.Providers.IEventSimulationProvider.html">IEventSimulationProvider</a></div>
+      <div><a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html">IGlobalHookProvider</a></div>
+      <div><a class="xref" href="SharpHook.Providers.ILoggingProvider.html">ILoggingProvider</a></div>
+      <div><a class="xref" href="SharpHook.Providers.IMouseInfoProvider.html">IMouseInfoProvider</a></div>
+      <div><a class="xref" href="SharpHook.Providers.IScreenInfoProvider.html">IScreenInfoProvider</a></div>
+      <div><a class="xref" href="SharpHook.Providers.UioHookProvider.html">UioHookProvider</a></div>
+  </div>
 
 </article>
 
