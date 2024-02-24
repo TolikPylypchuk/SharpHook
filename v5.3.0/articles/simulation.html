@@ -131,8 +131,8 @@ simulator.SimulateMouseMovementRelative(50, 100);
 // Scroll the mouse wheel
 simulator.SimulateMouseWheel(
     rotation: -120,
-    direction: MouseWheelScrollDirection.Vertical, // MouseWheelScrollDirection.Vertical by default
-    type: MouseWheelScrollType.UnitScroll); // MouseWheelScrollType.UnitScroll by default
+    direction: MouseWheelScrollDirection.Vertical, // Vertical by default
+    type: MouseWheelScrollType.UnitScroll); // UnitScroll by default
 </code></pre>
 <p>Mouse wheel simulation is a little more complex than other events.</p>
 <p>A positive <code>rotation</code> value indicates that the wheel will be rotated up or left, and a negative value indicates that
@@ -143,9 +143,9 @@ but it's not required. The value of <code>type</code> is ignored.</p>
 scrolling, so <code>MouseWheelScrollType.BlockScroll</code> is recommended for line scrolling instead of pixel scrolling.</p>
 <p>On Linux there is no fixed recommendation, but multiples of 100 can be used. The value of <code>type</code> is ignored.</p>
 <h2 id="text-entry-simulation">Text Entry Simulation</h2>
-<p>Starting with version 5.0.0, SharpHook also provides text entry simulation. <code>IEventSimulator</code> contains the
-<code>SimulateTextEntry</code> method which accepts a <code>string</code>. The text to simulate doesn't depend on the current keyboard layout.
-The full range of UTF-16 (including surrogate pairs, e.g. emojis) is supported.</p>
+<p>SharpHook also provides text entry simulation. <code>IEventSimulator</code> contains the <code>SimulateTextEntry</code> method which accepts
+a <code>string</code>. The text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16 (including
+surrogate pairs, e.g. emojis) is supported.</p>
 <p>Text entry simulation may not work well on Linux. More info can be found in the article on
 <a href="os-constraints.html">OS-specific constraints</a>.</p>
 

@@ -134,14 +134,19 @@ Calling <code>Dispose</code> when the hook is not running is safe - it just won'
 disposed). You can check whether the hook is disposed using the <code>IsDisposed</code> property.</p>
 <p>The <code>HookEnabled</code> event is raised once when the <code>Run</code> or <code>RunAsync</code> method is called. The <code>HookDisabled</code> event is raised
 once when the <code>Dispose</code> method is called.</p>
-<p>Hook events are of type <code>HookEvent</code> or a derived type which contains more info. It's possible to suppress event
+<p>Hook events are of type <code>HookEventArgs</code> or a derived type which contains more info. It's possible to suppress event
 propagation by setting the <code>SuppressEvent</code> property to <code>true</code> inside the event handler. This must be done synchronously
-and is only supported on Windows and macOS.</p>
+and is only supported on Windows and macOS. You can check the event time and whether the event is real or simulated with
+the <code>EventTime</code> and <code>IsEventSimulated</code> properties respectively.</p>
 <div class="IMPORTANT">
 <h5>Important</h5>
-<p>Always use one instance of <code>IGlobalHook</code> at a time in the entire application since they all must use
-the same static method to set the hook callback for libuiohook, so there may only be one callback at a time.</p>
+<p>Always use one instance of <code>IGlobalHook</code> at a time in the entire application since they all must use the same static
+method to set the hook callback for libuiohook, so there may only be one callback at a time. Running a global hook
+when another global hook is already running will corrupt the internal global state of libuiohook.</p>
 </div>
+<p>You can create a keyboard-only or a mouse-only hook by passing a <code>GlobalHookType</code> to the hook's constructor. This makes
+a difference only on Windows where there are two different global hooks - a keyboard hook and a mouse hook. On macOS and
+Linux there is one hook for all events, and this simply enables filtering keyboard or mouse events out on these OSes.</p>
 <h2 id="the-default-implementations">The Default Implementations</h2>
 <p>SharpHook provides two implementations of <code>IGlobalHook</code>:</p>
 <ul>

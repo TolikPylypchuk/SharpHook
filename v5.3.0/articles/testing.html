@@ -114,8 +114,8 @@ public void TestLastPressedKey()
     Assert.Equal(keyCode, componentUnderTest.LastPressedKey);
 }
 </code></pre>
-<p>If this class is used as an <code>IEventSimulator</code> in tested code, then the <code>SimulatedEvents</code> property can be checked to see
-which events were simulated using the test instance.</p>
+<p>If this class is used as an <code>IEventSimulator</code> in the tested code, then the <code>SimulatedEvents</code> property can be checked to
+see which events were simulated using the test instance.</p>
 <p>Members of <code>TestGlobalHook</code> are quite straightforward; the API reference should be viewed for more info.</p>
 <p>If an <code>IReactiveGlobalHook</code> is needed for testing, then <code>ReactiveGlobalHookAdapter</code> can be used to adapt an instance of
 <code>TestGlobalHook</code>.</p>
@@ -128,7 +128,9 @@ It also contains the <code>PostedEvents</code> property.</p>
 <p>All classes in SharpHook use providers instead of directly using the <code>UioHook</code> class for low-level functionality.
 The providers are selectable, so e.g. the following global hook can be used for testing:</p>
 <pre><code class="lang-c#">var testProvider = new TestProvider();
-var hook = new SimpleGlobalHook(testProvider); // Calls to methods in testProvider will be reflected in the hook
+
+// Calls to methods in testProvider will be reflected in the hook
+var hook = new SimpleGlobalHook(globalHookProvider: testProvider);
 </code></pre>
 <div class="NOTE">
 <h5>Note</h5>
