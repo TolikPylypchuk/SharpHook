@@ -1,5 +1,9 @@
 # SharpHook Changelog
 
+## [v5.3.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.3.1) (March 3, 2024)
+
+- Disposing an already disposed test global hook is now safe and won't throw an exception.
+
 ## [v5.3.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.3.0) (February 24, 2024)
 
 - It's now possible to run keyboard-only or mouse-only global hooks.

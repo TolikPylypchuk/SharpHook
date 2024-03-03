@@ -1,6 +1,6 @@
 # About SharpHook
 
-SharpHook. Version 5.3.0. Created by Tolik Pylypchuk.
+SharpHook. Version 5.3.1. Created by Tolik Pylypchuk.
 
 ## Library Status
 
@@ -9,6 +9,10 @@ to its `1.3` branch is considered stable. If you've noticed that this library ha
 rest assured that it's not abandoned! I'm not giving up on this library any time soon.
 
 ## Changelog
+
+### [v5.3.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.3.1) (March 3, 2024)
+
+- Disposing an already disposed test global hook is now safe and won't throw an exception.
 
 ### [v5.3.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.3.0) (February 24, 2024)
 
