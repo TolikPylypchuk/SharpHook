@@ -268,11 +268,15 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <see cref="DisposeResult" /> was set to something other than <see cref="UioHookResult.Success" />.
     /// </exception>
     /// <remarks>
-    /// After calling this method, the hook cannot be started again.
+    /// After calling this method, the hook cannot be started again. This method does nothing if the hook has already
+    /// been disposed.
     /// </remarks>
     public void Dispose()
     {
-        this.ThrowIfDisposed();
+        if (this.IsDisposed)
+        {
+            return;
+        }
 
         if (this.IsRunning)
         {

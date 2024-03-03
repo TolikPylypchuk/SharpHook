@@ -1057,7 +1057,7 @@ public sealed class TestGlobalHookTests
         Assert.Equal(result.Value, exception.Result);
     }
 
-    [Fact(DisplayName = "Dispose should throw an exception if the hook is disposed")]
+    [Fact(DisplayName = "Dispose should not throw an exception if the hook is disposed")]
     public void DisposeDisposed()
     {
         // Arrange
@@ -1065,9 +1065,13 @@ public sealed class TestGlobalHookTests
         var hook = new TestGlobalHook();
         hook.Dispose();
 
-        // Act + Assert
+        // Act
 
-        Assert.Throws<ObjectDisposedException>(hook.Dispose);
+        var exception = Record.Exception(hook.Dispose);
+
+        // Assert
+
+        Assert.Null(exception);
     }
 
     [Property(DisplayName = "SimulateKeyPress should return an error if configured to do so")]

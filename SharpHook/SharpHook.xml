@@ -4696,7 +4696,8 @@
             <see cref="P:SharpHook.Testing.TestGlobalHook.DisposeResult" /> was set to something other than <see cref="F:SharpHook.Native.UioHookResult.Success" />.
             </exception>
             <remarks>
-            After calling this method, the hook cannot be started again.
+            After calling this method, the hook cannot be started again. This method does nothing if the hook has already
+            been disposed.
             </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.SimulateKeyPress(SharpHook.Native.KeyCode)">
