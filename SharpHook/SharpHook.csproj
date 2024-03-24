@@ -104,67 +104,59 @@
     <SharpHookPlatform>ARM64</SharpHookPlatform>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(SharpHookOS)' == 'Windows' And '$(SharpHookPlatform)' == 'x86'">
-    <ContentWithTargetPath Include="lib\win-x86\uiohook.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>uiohook.dll</TargetPath>
-      <Pack>False</Pack>
-    </ContentWithTargetPath>
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(SharpHookOS)' == 'Windows' And '$(SharpHookPlatform)' == 'x64'">
-    <ContentWithTargetPath Include="lib\win-x64\uiohook.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>uiohook.dll</TargetPath>
-      <Pack>False</Pack>
-    </ContentWithTargetPath>
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(SharpHookOS)' == 'Windows' And '$(SharpHookPlatform)' == 'ARM64'">
-    <ContentWithTargetPath Include="lib\win-arm64\uiohook.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>uiohook.dll</TargetPath>
-      <Pack>False</Pack>
-    </ContentWithTargetPath>
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(SharpHookOS)' == 'macOS' And '$(SharpHookPlatform)' == 'x64'">
-    <ContentWithTargetPath Include="lib\osx-x64\libuiohook.dylib">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>libuiohook.dylib</TargetPath>
-      <Pack>False</Pack>
-    </ContentWithTargetPath>
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(SharpHookOS)' == 'macOS' And '$(SharpHookPlatform)' == 'ARM64'">
-    <ContentWithTargetPath Include="lib\osx-arm64\libuiohook.dylib">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>libuiohook.dylib</TargetPath>
-      <Pack>False</Pack>
-    </ContentWithTargetPath>
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(SharpHookOS)' == 'Linux' And '$(SharpHookPlatform)' == 'x64'">
-    <ContentWithTargetPath Include="lib\linux-x64\libuiohook.so">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>libuiohook.so</TargetPath>
-      <Pack>False</Pack>
-    </ContentWithTargetPath>
-  </ItemGroup>
-
   <ItemGroup Condition="'$(SharpHookOS)' == 'Linux' And '$(SharpHookPlatform)' == 'ARM32'">
-    <ContentWithTargetPath Include="lib\linux-arm\libuiohook.so">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>libuiohook.so</TargetPath>
+    <Content Include="lib\linux-arm\libuiohook.so" CopyToOutputDirectory="PreserveNewest">
+      <Link>libuiohook.so</Link>
       <Pack>False</Pack>
-    </ContentWithTargetPath>
+    </Content>
   </ItemGroup>
 
   <ItemGroup Condition="'$(SharpHookOS)' == 'Linux' And '$(SharpHookPlatform)' == 'ARM64'">
-    <ContentWithTargetPath Include="lib\linux-arm64\libuiohook.so">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <TargetPath>libuiohook.so</TargetPath>
+    <Content Include="lib\linux-arm64\libuiohook.so" CopyToOutputDirectory="PreserveNewest">
+      <Link>libuiohook.so</Link>
       <Pack>False</Pack>
-    </ContentWithTargetPath>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(SharpHookOS)' == 'Linux' And '$(SharpHookPlatform)' == 'x64'">
+    <Content Include="lib\linux-x64\libuiohook.so" CopyToOutputDirectory="PreserveNewest">
+      <Link>libuiohook.so</Link>
+      <Pack>False</Pack>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(SharpHookOS)' == 'macOS' And '$(SharpHookPlatform)' == 'ARM64'">
+    <Content Include="lib\osx-arm64\libuiohook.dylib" CopyToOutputDirectory="PreserveNewest">
+      <Link>libuiohook.dylib</Link>
+      <Pack>False</Pack>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(SharpHookOS)' == 'macOS' And '$(SharpHookPlatform)' == 'x64'">
+    <Content Include="lib\osx-x64\libuiohook.dylib" CopyToOutputDirectory="PreserveNewest">
+      <Link>libuiohook.dylib</Link>
+      <Pack>False</Pack>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(SharpHookOS)' == 'Windows' And '$(SharpHookPlatform)' == 'ARM64'">
+    <Content Include="lib\win-arm64\uiohook.dll" CopyToOutputDirectory="PreserveNewest">
+      <Link>uiohook.dll</Link>
+      <Pack>False</Pack>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(SharpHookOS)' == 'Windows' And '$(SharpHookPlatform)' == 'x86'">
+    <Content Include="lib\win-x86\uiohook.dll" CopyToOutputDirectory="PreserveNewest">
+      <Link>uiohook.dll</Link>
+      <Pack>False</Pack>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(SharpHookOS)' == 'Windows' And '$(SharpHookPlatform)' == 'x64'">
+    <Content Include="lib\win-x64\uiohook.dll" CopyToOutputDirectory="PreserveNewest">
+      <Link>uiohook.dll</Link>
+      <Pack>False</Pack>
+    </Content>
   </ItemGroup>
 </Project>
