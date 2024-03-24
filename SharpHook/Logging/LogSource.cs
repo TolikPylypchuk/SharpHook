@@ -1,8 +1,9 @@
-namespace SharpHook.Logging;
-
 #if NETFRAMEWORK
-using SharpHook.Native;
+// For some reason the XML comments don't see LogLevel when compiled for .NET Framework
+using LogLevel = SharpHook.Native.LogLevel;
 #endif
+
+namespace SharpHook.Logging;
 
 /// <summary>
 /// Represents a source of libuiohook logs.
@@ -80,8 +81,8 @@ public sealed class LogSource : ILogSource
     /// <returns>A source of libuiohook logs.</returns>
     /// <remarks>
     /// <para>
-    /// This method should be preferred to <see cref="Register(LogLevel)" /> as it's safer - it won't invalidate an
-    /// already registered instance.
+    /// This method should be preferred to <see cref="Register(ILoggingProvider, LogLevel)" /> as it's safer - it won't
+    /// invalidate an already registered instance.
     /// </para>
     /// <para>
     /// A single instance of <see cref="LogSource" /> can be registered using this method, irrespective of the logging

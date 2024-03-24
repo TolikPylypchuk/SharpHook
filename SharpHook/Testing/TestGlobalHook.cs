@@ -13,7 +13,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     private Func<EventType, DateTimeOffset> eventDateTime = t => DateTimeOffset.UtcNow;
     private Func<EventType, ModifierMask> eventMask = t => ModifierMask.None;
 
-    private Func<KeyCode, IEnumerable<char>> keyCodeToChars = c => Enumerable.Empty<char>();
+    private Func<KeyCode, IEnumerable<char>> keyCodeToChars = c => [];
     private Func<KeyCode, ushort> keyCodeToRawCode = c => 1;
 
     private Func<short> currentMouseX = () => 0;
@@ -325,7 +325,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
 
         if (result == UioHookResult.Success)
         {
-            foreach (var ch in this.keyCodeToChars(keyCode) ?? Enumerable.Empty<char>())
+            foreach (var ch in this.keyCodeToChars(keyCode) ?? [])
             {
                 var keyTypedEvent = new UioHookEvent
                 {

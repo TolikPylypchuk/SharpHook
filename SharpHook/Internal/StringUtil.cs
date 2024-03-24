@@ -1,6 +1,6 @@
-namespace SharpHook.Internal;
-
 using System.Text;
+
+namespace SharpHook.Internal;
 
 [ExcludeFromCodeCoverage]
 internal static class StringUtil

@@ -1255,8 +1255,8 @@
             <returns>A source of libuiohook logs.</returns>
             <remarks>
             <para>
-            This method should be preferred to <see cref="M:SharpHook.Logging.LogSource.Register(SharpHook.Native.LogLevel)" /> as it's safer - it won't invalidate an
-            already registered instance.
+            This method should be preferred to <see cref="M:SharpHook.Logging.LogSource.Register(SharpHook.Providers.ILoggingProvider,SharpHook.Native.LogLevel)" /> as it's safer - it won't
+            invalidate an already registered instance.
             </para>
             <para>
             A single instance of <see cref="T:SharpHook.Logging.LogSource" /> can be registered using this method, irrespective of the logging

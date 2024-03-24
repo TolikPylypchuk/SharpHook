@@ -1,7 +1,7 @@
-namespace SharpHook.Logging;
-
 using System.Globalization;
 using System.Text.RegularExpressions;
+
+namespace SharpHook.Logging;
 
 /// <summary>
 /// Creates log entries from native log formats and arguments.
