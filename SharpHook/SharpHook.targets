@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <SharpHookFrameworkDescription>
-      $([System.Runtime.InteropServices.RuntimeInformation]::FrameworkDescription.ToString())
-    </SharpHookFrameworkDescription>
-    <SharpHookIsNetFramework>$(SharpHookFrameworkDescription.Contains('Framework'))</SharpHookIsNetFramework>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="$(SharpHookIsNetFramework) And $([MSBuild]::IsOSPlatform('Windows'))">
+  <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
     <SharpHookOS>Windows</SharpHookOS>
   </PropertyGroup>
 
-  <PropertyGroup Condition="$(SharpHookIsNetFramework) And $([MSBuild]::IsOSPlatform('OSX'))">
+  <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('OSX'))">
     <SharpHookOS>macOS</SharpHookOS>
   </PropertyGroup>
 
-  <PropertyGroup Condition="$(SharpHookIsNetFramework) And $([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">
+  <PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">
     <SharpHookOS>Mac Catalyst</SharpHookOS>
   </PropertyGroup>
 
-  <PropertyGroup Condition="$(SharpHookIsNetFramework) And $([MSBuild]::IsOSPlatform('Linux'))">
+  <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Linux'))">
     <SharpHookOS>Linux</SharpHookOS>
   </PropertyGroup>
 
@@ -45,7 +38,7 @@
   </PropertyGroup>
 
   <ItemGroup Condition="'$(SharpHookOS)' == 'Windows' And '$(SharpHookPlatform)' == 'x86'">
-    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\win-x86\native\uiohook.dll">
+    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\..\runtimes\win-x86\native\uiohook.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>uiohook.dll</TargetPath>
       <Pack>False</Pack>
@@ -53,7 +46,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(SharpHookOS)' == 'Windows' And '$(SharpHookPlatform)' == 'x64'">
-    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\win-x64\native\uiohook.dll">
+    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\..\runtimes\win-x64\native\uiohook.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>uiohook.dll</TargetPath>
       <Pack>False</Pack>
@@ -61,7 +54,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(SharpHookOS)' == 'Windows' And '$(SharpHookPlatform)' == 'ARM64'">
-    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\win-arm64\native\uiohook.dll">
+    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\..\runtimes\win-arm64\native\uiohook.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>uiohook.dll</TargetPath>
       <Pack>False</Pack>
@@ -69,7 +62,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(SharpHookOS)' == 'macOS' And '$(SharpHookPlatform)' == 'x64'">
-    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\osx-x64\native\libuiohook.dylib">
+    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\..\runtimes\osx-x64\native\libuiohook.dylib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>libuiohook.dylib</TargetPath>
       <Pack>False</Pack>
@@ -77,7 +70,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(SharpHookOS)' == 'macOS' And '$(SharpHookPlatform)' == 'ARM64'">
-    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\osx-arm64\native\libuiohook.dylib">
+    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\..\runtimes\osx-arm64\native\libuiohook.dylib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>libuiohook.dylib</TargetPath>
       <Pack>False</Pack>
@@ -85,7 +78,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(SharpHookOS)' == 'Mac Catalyst' And '$(SharpHookPlatform)' == 'x64'">
-    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\maccatalyst-x64\native\libuiohook.dylib">
+    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\..\runtimes\maccatalyst-x64\native\libuiohook.dylib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>libuiohook.dylib</TargetPath>
       <Pack>False</Pack>
@@ -93,7 +86,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(SharpHookOS)' == 'Mac Catalyst' And '$(SharpHookPlatform)' == 'ARM64'">
-    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\maccatalyst-arm64\native\libuiohook.dylib">
+    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\..\runtimes\maccatalyst-arm64\native\libuiohook.dylib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>libuiohook.dylib</TargetPath>
       <Pack>False</Pack>
@@ -101,7 +94,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(SharpHookOS)' == 'Linux' And '$(SharpHookPlatform)' == 'x64'">
-    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\linux-x64\native\libuiohook.so">
+    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\..\runtimes\linux-x64\native\libuiohook.so">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>libuiohook.so</TargetPath>
       <Pack>False</Pack>
@@ -109,7 +102,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(SharpHookOS)' == 'Linux' And '$(SharpHookPlatform)' == 'ARM32'">
-    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\linux-arm\native\libuiohook.so">
+    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\..\runtimes\linux-arm\native\libuiohook.so">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>libuiohook.so</TargetPath>
       <Pack>False</Pack>
@@ -117,7 +110,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(SharpHookOS)' == 'Linux' And '$(SharpHookPlatform)' == 'ARM64'">
-    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\runtimes\linux-arm64\native\libuiohook.so">
+    <ContentWithTargetPath Include="$(MSBuildThisFileDirectory)..\..\runtimes\linux-arm64\native\libuiohook.so">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>libuiohook.so</TargetPath>
       <Pack>False</Pack>
