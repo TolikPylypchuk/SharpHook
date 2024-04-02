@@ -1,5 +1,14 @@
 # SharpHook Changelog
 
+## [v5.3.2](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.3.2) (April 2, 2024)
+
+- Publishing applications which reference SharpHook with Visual Studio should now work correctly.
+
+- Mouse movement simulation is now more precise on Windows.
+
+- libuiohook was updated to commit
+[5024193](https://github.com/TolikPylypchuk/libuiohook/commit/5024193088ae91d2fe6ea68c70f5e6969c7d6595).
+
 ## [v5.3.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.3.1) (March 3, 2024)
 
 - Disposing an already disposed test global hook is now safe and won't throw an exception.
