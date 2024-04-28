@@ -92,7 +92,7 @@ jobs:
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-mac-catalyst-arm64:
-    runs-on: macos-13
+    runs-on: macos-latest
 
     steps:
       - name: Checkout
@@ -106,8 +106,6 @@ jobs:
           CFLAGS: '-O2 -g -target arm64-apple-ios13.1-macabi -miphoneos-version-min=13.1 -fembed-bitcode'
         shell: bash
         run: |
-          sudo xcode-select -s '/Applications/Xcode_14.3.app/Contents/Developer'
-
           cd libuiohook
 
           cmake -B ${{github.workspace}}/build \
@@ -135,7 +133,7 @@ jobs:
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-mac-catalyst-x64:
-    runs-on: macos-13
+    runs-on: macos-latest
 
     steps:
       - name: Checkout
@@ -149,8 +147,6 @@ jobs:
           CFLAGS: '-O2 -g -target x86_64-apple-ios13.1-macabi -miphoneos-version-min=13.1 -fembed-bitcode'
         shell: bash
         run: |
-          sudo xcode-select -s '/Applications/Xcode_14.3.app/Contents/Developer'
-
           cd libuiohook
 
           cmake -B ${{github.workspace}}/build \
