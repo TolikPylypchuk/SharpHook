@@ -5,7 +5,7 @@
 - Simulating mouse movement on multiple screens was fixed on Windows.
 
 - libuiohook was updated to commit
-[902a30b](https://github.com/TolikPylypchuk/libuiohook/commit/902a30bddacf4f955c5caf13c5f4ea83df8ae5ef).
+[902a30b](https://github.com/TolikPylypchuk/libuiohook/tree/902a30bddacf4f955c5caf13c5f4ea83df8ae5ef).
 
 ## [v5.3.2](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.3.2) (April 2, 2024)
 
@@ -14,7 +14,7 @@
 - Mouse movement simulation is now more precise on Windows.
 
 - libuiohook was updated to commit
-[5024193](https://github.com/TolikPylypchuk/libuiohook/commit/5024193088ae91d2fe6ea68c70f5e6969c7d6595).
+[5024193](https://github.com/TolikPylypchuk/libuiohook/tree/5024193088ae91d2fe6ea68c70f5e6969c7d6595).
 
 ## [v5.3.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.3.1) (March 3, 2024)
 
@@ -29,7 +29,7 @@
 - Global hooks and the event simulator now don't throw an exception on null parameters and instead use default values.
 
 - libuiohook was updated to commit
-[963415f](https://github.com/TolikPylypchuk/libuiohook/commit/963415f8e9ba486bd1ff68d2f8adf903ce5b3b27).
+[963415f](https://github.com/TolikPylypchuk/libuiohook/tree/963415f8e9ba486bd1ff68d2f8adf903ce5b3b27).
 
 ## [v5.2.3](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.2.3) (February 2, 2024)
 
@@ -50,7 +50,7 @@
 - The packages are now marked as AOT-compatible.
 
 - libuiohook was updated to commit
-[7dbdc09](https://github.com/TolikPylypchuk/libuiohook/commit/7dbdc09cd9d5a8ef5be5bb005e853b70ce28d67f).
+[7dbdc09](https://github.com/TolikPylypchuk/libuiohook/tree/7dbdc09cd9d5a8ef5be5bb005e853b70ce28d67f).
 
 ## [v5.2.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.2.0) (December 16, 2023)
 
