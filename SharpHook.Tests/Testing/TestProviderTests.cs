@@ -177,7 +177,7 @@ public sealed class TestProviderTests
     }
 
     [Fact(DisplayName = "Run and Stop should change the state of the provider")]
-    public async void RunAndStop()
+    public async Task RunAndStop()
     {
         // Arrange
 
@@ -200,7 +200,7 @@ public sealed class TestProviderTests
     }
 
     [Fact(DisplayName = "Run should work if the provider is already running")]
-    public async void RunWhenAlreadyRunning()
+    public async Task RunWhenAlreadyRunning()
     {
         // Arrange
 
@@ -307,7 +307,7 @@ public sealed class TestProviderTests
     }
 
     [Fact(DisplayName = "HookEnabled should be raised when the hook is started")]
-    public async void HookEnabled()
+    public async Task HookEnabled()
     {
         // Arrange
 

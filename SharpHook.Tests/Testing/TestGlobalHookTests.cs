@@ -161,7 +161,7 @@ public sealed class TestGlobalHookTests
         {
             EventDateTime = t => dateTime.Value,
             EventMask = t => mask,
-            KeyCodeToChars = c => new[] { keyChar },
+            KeyCodeToChars = c => [keyChar],
             KeyCodeToRawCode = c => rawCode
         };
 
@@ -1026,7 +1026,7 @@ public sealed class TestGlobalHookTests
     }
 
     [Fact(DisplayName = "RunAsync should throw an exception if the hook is disposed")]
-    public async void RunAsyncDisposed()
+    public async Task RunAsyncDisposed()
     {
         // Arrange
 
