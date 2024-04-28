@@ -7,8 +7,8 @@ features as well as higher-level types to work with it.
 ## Installation
 
 ```
-dotnet add package SharpHook --version 5.3.2
-dotnet add package SharpHook.Reactive --version 5.3.2
+dotnet add package SharpHook --version 5.3.3
+dotnet add package SharpHook.Reactive --version 5.3.3
 ```
 
 ## Supported Platforms
