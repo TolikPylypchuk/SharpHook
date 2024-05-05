@@ -76,7 +76,7 @@
       "template"
     ],
     "sitemap": {
-      "baseUrl": "https://sharphook.tolik.io/v5.3.3/"
+      "baseUrl": "https://sharphook.tolik.io/v5.3.4/"
     },
     "postProcessors": [ "ExtractSearchIndex" ],
     "markdownEngineName": "markdig",
