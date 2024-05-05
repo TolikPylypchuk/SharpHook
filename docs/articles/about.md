@@ -1,6 +1,6 @@
 # About SharpHook
 
-SharpHook. Version 5.3.3. Created by Tolik Pylypchuk.
+SharpHook. Version 5.3.4. Created by Tolik Pylypchuk.
 
 ## Library Status
 
@@ -9,6 +9,13 @@ to its `1.3` branch is considered stable. If you've noticed that this library ha
 rest assured that it's not abandoned! I'm not giving up on this library any time soon.
 
 ## Changelog
+
+### [v5.3.4](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.3.4) (May 5, 2024)
+
+- Simulating some keys was fixed on Windows.
+
+- libuiohook was updated to commit
+[5128c04](https://github.com/TolikPylypchuk/libuiohook/tree/5128c04655591526c3610dd5fe0fad29d2237bcd).
 
 ### [v5.3.3](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.3.3) (April 28, 2024)
 

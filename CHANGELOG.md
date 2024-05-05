@@ -1,5 +1,12 @@
 # SharpHook Changelog
 
+## [v5.3.4](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.3.4) (May 5, 2024)
+
+- Simulating some keys was fixed on Windows.
+
+- libuiohook was updated to commit
+[5128c04](https://github.com/TolikPylypchuk/libuiohook/tree/5128c04655591526c3610dd5fe0fad29d2237bcd).
+
 ## [v5.3.3](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.3.3) (April 28, 2024)
 
 - Simulating mouse movement on multiple screens was fixed on Windows.
