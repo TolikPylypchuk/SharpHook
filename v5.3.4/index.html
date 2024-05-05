@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Introduction | SharpHook </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Introduction | SharpHook ">
+      
+      
+      <link rel="icon" href="favicon.ico">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="toc.html">
+      <meta name="docfx:tocrel" content="articles/toc.html">
+      
+      <meta name="docfx:rel" content="">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TolikPylypchuk/SharpHook/blob/main/docs/index.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="logo.png" alt="SharpHook">
+            SharpHook
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="introduction">Introduction</h1>
+
+<p>SharpHook provides a cross-platform global keyboard and mouse hook, event simulation, and text entry simulation for
+.NET. It is a wrapper of <a href="https://github.com/TolikPylypchuk/libuiohook">libuiohook</a> and provides direct access to its
+features as well as higher-level types to work with it.</p>
+<h2 id="installation">Installation</h2>
+<pre><code>dotnet add package SharpHook --version 5.3.3
+dotnet add package SharpHook.Reactive --version 5.3.3
+</code></pre>
+<h2 id="supported-platforms">Supported Platforms</h2>
+<p>SharpHook targets .NET 6+, .NET Framework 4.6.2+, and .NET Standard 2.0. The following table describes
+the availability of SharpHook on various platforms:</p>
+<table>
+  <tr>
+    <th></th>
+    <th>Windows</th>
+    <th>macOS</th>
+    <th>Linux</th>
+  </tr>
+  <tr>
+    <th>x86</th>
+    <td>Yes</td>
+    <td>N/A</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <th>x64</th>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <th>Arm32</th>
+    <td>No</td>
+    <td>N/A</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <th>Arm64</th>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+</table>
+<p>Platform support notes:</p>
+<ul>
+<li><p>Windows 10/11 is supported. Support for Windows on Arm32 was removed in version 5.0.0 since it was
+<a href="https://github.com/dotnet/core/blob/main/release-notes/5.0/5.0-supported-os.md">removed in .NET 5</a>.</p>
+</li>
+<li><p>macOS 10.15+ is supported. Mac Catalyst is also supported (13.1+). macOS requires that the accessibility API be
+enabled for the application if it wants to create a global hook.</p>
+</li>
+<li><p>Linux distributions supported by .NET are supported by SharpHook. Linux on x86 is
+<a href="https://github.com/dotnet/runtime/issues/7335">not supported</a> by .NET itself. Only X11 is supported - Wayland support
+<a href="https://github.com/kwhat/libuiohook/issues/100">may be coming</a>, but it's not yet here.</p>
+</li>
+</ul>
+<p>More info on OS support can be found in <a href="articles/os-constraints.html">an article on OS-specific constraints</a>.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/main/docs/index.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Created by <a href="https://tolik.io">Tolik Pylypchuk</a>. Docs made with <a href="https://dotnet.github.io/docfx">docfx</a></span>.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
