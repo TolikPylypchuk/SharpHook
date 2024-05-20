@@ -1,6 +1,6 @@
 # About SharpHook
 
-SharpHook. Version 5.3.4. Created by Tolik Pylypchuk.
+SharpHook. Version 5.3.5. Created by Tolik Pylypchuk.
 
 ## Library Status
 
@@ -9,6 +9,15 @@ to its `1.3` branch is considered stable. If you've noticed that this library ha
 rest assured that it's not abandoned! I'm not giving up on this library any time soon.
 
 ## Changelog
+
+### [v5.3.5](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.3.5) (May 20, 2024)
+
+- Simulating mouse events when the screen configuration changes was fixed on Windows.
+
+- Simulating text with repeating characters was fixed on Windows.
+
+- libuiohook was updated to commit
+[c7500ce](https://github.com/TolikPylypchuk/libuiohook/tree/c7500ce3b96756cddfd486e819ae576d6b05f1f5).
 
 ### [v5.3.4](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.3.4) (May 5, 2024)
 

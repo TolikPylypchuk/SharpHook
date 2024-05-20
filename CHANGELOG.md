@@ -1,5 +1,14 @@
 # SharpHook Changelog
 
+## [v5.3.5](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.3.5) (May 20, 2024)
+
+- Simulating mouse events when the screen configuration changes was fixed on Windows.
+
+- Simulating text with repeating characters was fixed on Windows.
+
+- libuiohook was updated to commit
+[c7500ce](https://github.com/TolikPylypchuk/libuiohook/tree/c7500ce3b96756cddfd486e819ae576d6b05f1f5).
+
 ## [v5.3.4](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.3.4) (May 5, 2024)
 
 - Simulating some keys was fixed on Windows.
