@@ -37,6 +37,7 @@ jobs:
             -G "Unix Makefiles" \
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/darwin/arm64 \
             -D CMAKE_VERBOSE_MAKEFILE=true \
+            -D CMAKE_OSX_ARCHITECTURES='arm64' \
             -D BUILD_SHARED_LIBS=ON \
             -D USE_EPOCH_TIME=ON
 
@@ -75,6 +76,7 @@ jobs:
             -G "Unix Makefiles" \
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/darwin/x86_64 \
             -D CMAKE_VERBOSE_MAKEFILE=true \
+            -D CMAKE_OSX_ARCHITECTURES='x86_64' \
             -D BUILD_SHARED_LIBS=ON \
             -D USE_EPOCH_TIME=ON
 
