@@ -1,5 +1,9 @@
 # SharpHook Changelog
 
+## [v5.3.6](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.3.6) (May 22, 2024)
+
+- SharpHook now provides the correct version of libuiohook for macOS x64.
+
 ## [v5.3.5](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.3.5) (May 20, 2024)
 
 - Simulating mouse events when the screen configuration changes was fixed on Windows.
