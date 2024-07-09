@@ -1,5 +1,11 @@
 # SharpHook Changelog
 
+## [v5.3.7](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.3.7) (July 9, 2024)
+
+- libuiohook was updated to commit
+[1c96539](https://github.com/TolikPylypchuk/libuiohook/tree/1c965395be9b8ac65d5f6a8d6967fa65cc709125)
+which fixes a CPU usage issue on Linux.
+
 ## [v5.3.6](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.3.6) (May 22, 2024)
 
 - SharpHook now provides the correct version of libuiohook for macOS x64.
