@@ -1,6 +1,6 @@
 # About SharpHook
 
-SharpHook. Version 5.3.7. Created by Tolik Pylypchuk.
+SharpHook. Version 5.3.8. Created by Tolik Pylypchuk.
 
 ## Library Status
 
@@ -9,6 +9,12 @@ to its `1.3` branch is considered stable. If you've noticed that this library ha
 rest assured that it's not abandoned! I'm not giving up on this library any time soon.
 
 ## Changelog
+
+### [v5.3.8](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.3.8) (September 27, 2024)
+
+- libuiohook was updated to commit
+[ce96f42](https://github.com/TolikPylypchuk/libuiohook/tree/ce96f4239e5ff7337e11f94ca5601089f82f306f)
+which fixes mouse button release events for mouse buttons 2 and 3 on Linux.
 
 ### [v5.3.7](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.3.7) (July 9, 2024)
 
