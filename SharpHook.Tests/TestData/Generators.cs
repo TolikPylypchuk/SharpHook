@@ -3,7 +3,7 @@ namespace SharpHook.TestData;
 public sealed class Generators
 {
     public static Arbitrary<IntPtr> IntPtrs =>
-        Arb.Generate<int>().Select(v => (IntPtr)v).ToArbitrary();
+        ArbMap.Default.GeneratorFor<int>().Select(v => (IntPtr)v).ToArbitrary();
 
     public static Arbitrary<UioHookEvent> UioHookEvents =>
         Gen.OneOf(HookEvents, KeyboardEvents, MouseEvents, WheelEvents).ToArbitrary();
@@ -19,27 +19,33 @@ public sealed class Generators
         .ToArbitrary();
 
     public static Arbitrary<DateTimeAfterEpoch> DateTimesAfterEpoch =>
-        (from time in Arb.Generate<DateTimeOffset>()
+        (from time in ArbMap.Default.GeneratorFor<DateTimeOffset>()
          where time > DateTimeOffset.UnixEpoch
          select new DateTimeAfterEpoch(time))
         .ToArbitrary();
 
+    public static Arbitrary<UioHookResult> UioHookResults =>
+        Gen.Elements(Enum.GetValues<UioHookResult>()).ToArbitrary();
+
     public static Arbitrary<FailedUioHookResult> FailedUioHookResults =>
-        (from result in Arb.Generate<UioHookResult>()
+        (from result in ArbMap.Default.GeneratorFor<UioHookResult>()
          where result != UioHookResult.Success
          select new FailedUioHookResult(result))
         .ToArbitrary();
 
     private static Gen<ulong> Timestamp =>
-        from time in Arb.Generate<DateTimeOffset>()
+        from time in ArbMap.Default.GeneratorFor<DateTimeOffset>()
         where time > DateTimeOffset.UnixEpoch
         select (ulong)time.ToUnixTimeMilliseconds();
+
+    public static Arbitrary<ModifierMask> ModifierMasks =>
+        Gen.Elements(Enum.GetValues<ModifierMask>()).ToArbitrary();
 
     private static Gen<UioHookEvent> HookEvents =>
         from type in Gen.Elements(EventType.HookEnabled, EventType.HookDisabled)
         from time in Timestamp
-        from mask in Arb.Generate<ModifierMask>()
-        from isSimulated in Arb.Generate<bool>()
+        from mask in ArbMap.Default.GeneratorFor<ModifierMask>()
+        from isSimulated in ArbMap.Default.GeneratorFor<bool>()
         select new UioHookEvent()
         {
             Type = type,
@@ -51,10 +57,10 @@ public sealed class Generators
     private static Gen<UioHookEvent> KeyboardEvents =>
         from type in Gen.Elements(EventType.KeyPressed, EventType.KeyReleased, EventType.KeyTyped)
         from time in Timestamp
-        from mask in Arb.Generate<ModifierMask>()
-        from keyCode in Arb.Generate<KeyCode>()
-        from rawCode in Arb.Generate<ushort>()
-        from keyChar in Arb.Default.UnicodeChar().Generator
+        from mask in ArbMap.Default.GeneratorFor<ModifierMask>()
+        from keyCode in ArbMap.Default.GeneratorFor<KeyCode>()
+        from rawCode in ArbMap.Default.GeneratorFor<ushort>()
+        from keyChar in ArbMap.Default.GeneratorFor<UnicodeChar>()
         where keyCode != KeyCode.VcUndefined
         select new UioHookEvent()
         {
@@ -78,10 +84,10 @@ public sealed class Generators
             EventType.MouseMoved,
             EventType.MouseDragged)
         from time in Timestamp
-        from mask in Arb.Generate<ModifierMask>()
-        from x in Arb.Generate<short>()
-        from y in Arb.Generate<short>()
-        from button in Arb.Generate<MouseButton>()
+        from mask in ArbMap.Default.GeneratorFor<ModifierMask>()
+        from x in ArbMap.Default.GeneratorFor<short>()
+        from y in ArbMap.Default.GeneratorFor<short>()
+        from button in ArbMap.Default.GeneratorFor<MouseButton>()
         from clicks in Gen.Choose(1, 5)
         select new UioHookEvent()
         {
@@ -102,13 +108,13 @@ public sealed class Generators
 
     private static Gen<UioHookEvent> WheelEvents =>
         from time in Timestamp
-        from mask in Arb.Generate<ModifierMask>()
-        from x in Arb.Generate<short>()
-        from y in Arb.Generate<short>()
-        from scrollType in Arb.Generate<MouseWheelScrollType>()
-        from rotation in Arb.Generate<short>()
-        from delta in Arb.Generate<ushort>()
-        from direction in Arb.Generate<MouseWheelScrollDirection>()
+        from mask in ArbMap.Default.GeneratorFor<ModifierMask>()
+        from x in ArbMap.Default.GeneratorFor<short>()
+        from y in ArbMap.Default.GeneratorFor<short>()
+        from scrollType in ArbMap.Default.GeneratorFor<MouseWheelScrollType>()
+        from rotation in ArbMap.Default.GeneratorFor<short>()
+        from delta in ArbMap.Default.GeneratorFor<ushort>()
+        from direction in ArbMap.Default.GeneratorFor<MouseWheelScrollDirection>()
         select new UioHookEvent()
         {
             Type = EventType.MouseWheel,

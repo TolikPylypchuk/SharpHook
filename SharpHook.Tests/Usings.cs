@@ -2,6 +2,7 @@ global using System.Reactive.Concurrency;
 global using System.Reactive.Linq;
 
 global using FsCheck;
+global using FsCheck.Fluent;
 global using FsCheck.Xunit;
 
 global using SharpHook.Native;

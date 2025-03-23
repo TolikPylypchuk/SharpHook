@@ -2,10 +2,7 @@ namespace SharpHook.Testing;
 
 public sealed class TestGlobalHookTests
 {
-    public TestGlobalHookTests() =>
-        Arb.Register<Generators>();
-
-    [Property(DisplayName = "KeyPressed events should be simulated and handled")]
+    [Property(DisplayName = "KeyPressed events should be simulated and handled", Arbitrary = [typeof(Generators)])]
     public void HandleKeyPressed(KeyCode keyCode, ushort rawCode, DateTimeAfterEpoch dateTime, ModifierMask mask)
     {
         // Arrange
@@ -50,7 +47,9 @@ public sealed class TestGlobalHookTests
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
-    [Property(DisplayName = "KeyPressed events should be simulated and handled for null characters")]
+    [Property(
+        DisplayName = "KeyPressed events should be simulated and handled for null characters",
+        Arbitrary = [typeof(Generators)])]
     public void HandleKeyPressedNullCharacters(
         KeyCode keyCode,
         ushort rawCode,
@@ -100,7 +99,7 @@ public sealed class TestGlobalHookTests
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
-    [Property(DisplayName = "KeyReleased events should be simulated and handled")]
+    [Property(DisplayName = "KeyReleased events should be simulated and handled", Arbitrary = [typeof(Generators)])]
     public void HandleKeyReleased(KeyCode keyCode, ushort rawCode, DateTimeAfterEpoch dateTime, ModifierMask mask)
     {
         // Arrange
@@ -145,7 +144,7 @@ public sealed class TestGlobalHookTests
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
-    [Property(DisplayName = "KeyTyped events should be simulated and handled")]
+    [Property(DisplayName = "KeyTyped events should be simulated and handled", Arbitrary = [typeof(Generators)])]
     public void HandleKeyTyped(
         char keyChar,
         KeyCode keyCode,
@@ -195,7 +194,7 @@ public sealed class TestGlobalHookTests
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
-    [Property(DisplayName = "MousePressed events should be simulated and handled")]
+    [Property(DisplayName = "MousePressed events should be simulated and handled", Arbitrary = [typeof(Generators)])]
     public void HandleMousePressed(
         short x,
         short y,
@@ -248,7 +247,9 @@ public sealed class TestGlobalHookTests
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
-    [Property(DisplayName = "MousePressed events with explicit clicks should be simulated and handled")]
+    [Property(
+        DisplayName = "MousePressed events with explicit clicks should be simulated and handled",
+        Arbitrary = [typeof(Generators)])]
     public void HandleMousePressedExplicitClicks(
         short x,
         short y,
@@ -300,7 +301,9 @@ public sealed class TestGlobalHookTests
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
-    [Property(DisplayName = "MousePressed events with explicit coordinates should be simulated and handled")]
+    [Property(
+        DisplayName = "MousePressed events with explicit coordinates should be simulated and handled",
+        Arbitrary = [typeof(Generators)])]
     public void HandleMousePressedExplicitCoordinates(
         short x,
         short y,
@@ -351,7 +354,9 @@ public sealed class TestGlobalHookTests
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
-    [Property(DisplayName = "MousePressed events with explicit coordinates and clicks should be simulated and handled")]
+    [Property(
+        DisplayName = "MousePressed events with explicit coordinates and clicks should be simulated and handled",
+        Arbitrary = [typeof(Generators)])]
     public void HandleMousePressedExplicitCoordinatesAndClicks(
         short x,
         short y,
@@ -401,7 +406,7 @@ public sealed class TestGlobalHookTests
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
-    [Property(DisplayName = "MouseReleased events should be simulated and handled")]
+    [Property(DisplayName = "MouseReleased events should be simulated and handled", Arbitrary = [typeof(Generators)])]
     public void HandleMouseReleased(
         short x,
         short y,
@@ -455,7 +460,9 @@ public sealed class TestGlobalHookTests
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
-    [Property(DisplayName = "MouseReleased events with explicit clicks should be simulated and handled")]
+    [Property(
+        DisplayName = "MouseReleased events with explicit clicks should be simulated and handled",
+        Arbitrary = [typeof(Generators)])]
     public void HandleMouseReleasedExplicitClicks(
         short x,
         short y,
@@ -508,7 +515,9 @@ public sealed class TestGlobalHookTests
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
-    [Property(DisplayName = "MouseReleased events with explicit coordinates should be simulated and handled")]
+    [Property(
+        DisplayName = "MouseReleased events with explicit coordinates should be simulated and handled",
+        Arbitrary = [typeof(Generators)])]
     public void HandleMouseReleasedExplicitCoordinates(
         short x,
         short y,
@@ -561,7 +570,8 @@ public sealed class TestGlobalHookTests
     }
 
     [Property(
-        DisplayName = "MouseReleased events with explicit coordinates and clicks should be simulated and handled")]
+        DisplayName = "MouseReleased events with explicit coordinates and clicks should be simulated and handled",
+        Arbitrary = [typeof(Generators)])]
     public void HandleMouseReleasedExplicitCoordinatesAndClicks(
         short x,
         short y,
@@ -612,7 +622,7 @@ public sealed class TestGlobalHookTests
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
-    [Property(DisplayName = "MouseClicked events should be simulated and handled")]
+    [Property(DisplayName = "MouseClicked events should be simulated and handled", Arbitrary = [typeof(Generators)])]
     public void HandleMouseClicked(
         short x,
         short y,
@@ -666,7 +676,9 @@ public sealed class TestGlobalHookTests
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
-    [Property(DisplayName = "MouseClicked events with explicit coordinates should be simulated and handled")]
+    [Property(
+        DisplayName = "MouseClicked events with explicit coordinates should be simulated and handled",
+        Arbitrary = [typeof(Generators)])]
     public void HandleMouseClickedExplicitCoordinates(
         short x,
         short y,
@@ -718,7 +730,7 @@ public sealed class TestGlobalHookTests
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
-    [Property(DisplayName = "MouseMoved events should be simulated and handled")]
+    [Property(DisplayName = "MouseMoved events should be simulated and handled", Arbitrary = [typeof(Generators)])]
     public void HandleMouseMovement(short x, short y, DateTimeAfterEpoch dateTime, ModifierMask mask)
     {
         // Arrange
@@ -762,7 +774,9 @@ public sealed class TestGlobalHookTests
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
-    [Property(DisplayName = "Relatvie MouseMoved events should be simulated and handled")]
+    [Property(
+        DisplayName = "Relatvie MouseMoved events should be simulated and handled",
+        Arbitrary = [typeof(Generators)])]
     public void HandleMouseMovementRelative(
         short x,
         short y,
@@ -814,7 +828,7 @@ public sealed class TestGlobalHookTests
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
-    [Property(DisplayName = "MouseDragged events should be simulated and handled")]
+    [Property(DisplayName = "MouseDragged events should be simulated and handled", Arbitrary = [typeof(Generators)])]
     public void HandleMouseDragged(short x, short y, DateTimeAfterEpoch dateTime, ModifierMask mask)
     {
         // Arrange
@@ -859,7 +873,9 @@ public sealed class TestGlobalHookTests
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
-    [Property(DisplayName = "Relatvie MouseDragged events should be simulated and handled")]
+    [Property(
+        DisplayName = "Relatvie MouseDragged events should be simulated and handled",
+        Arbitrary = [typeof(Generators)])]
     public void HandleMouseDraggedRelative(
         short x,
         short y,
@@ -912,7 +928,7 @@ public sealed class TestGlobalHookTests
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
-    [Property(DisplayName = "MouseWheel events should be simulated and handled")]
+    [Property(DisplayName = "MouseWheel events should be simulated and handled", Arbitrary = [typeof(Generators)])]
     public void HandleMouseWheel(
         short rotation,
         MouseWheelScrollDirection direction,
@@ -960,7 +976,9 @@ public sealed class TestGlobalHookTests
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
-    [Property(DisplayName = "SimulateTextEntry should add it to the simulated text collection")]
+    [Property(
+        DisplayName = "SimulateTextEntry should add it to the simulated text collection",
+        Arbitrary = [typeof(Generators)])]
     public void SimulateTextEntry(NonNull<string> text)
     {
         // Arrange
@@ -978,7 +996,7 @@ public sealed class TestGlobalHookTests
         Assert.Equal(UioHookResult.Success, actualResult);
     }
 
-    [Property(DisplayName = "Run should throw an exception if configured to do so")]
+    [Property(DisplayName = "Run should throw an exception if configured to do so", Arbitrary = [typeof(Generators)])]
     public void RunFail(FailedUioHookResult result)
     {
         // Arrange
@@ -995,7 +1013,9 @@ public sealed class TestGlobalHookTests
         Assert.Equal(result.Value, exception.Result);
     }
 
-    [Property(DisplayName = "RunAsync should throw an exception if configured to do so")]
+    [Property(
+        DisplayName = "RunAsync should throw an exception if configured to do so",
+        Arbitrary = [typeof(Generators)])]
     public async void RunAsyncFail(FailedUioHookResult result)
     {
         // Arrange
@@ -1038,7 +1058,9 @@ public sealed class TestGlobalHookTests
         await Assert.ThrowsAsync<ObjectDisposedException>(hook.RunAsync);
     }
 
-    [Property(DisplayName = "Dispose should throw an exception if configured to do so")]
+    [Property(
+        DisplayName = "Dispose should throw an exception if configured to do so",
+        Arbitrary = [typeof(Generators)])]
     public void DisposeFail(FailedUioHookResult result)
     {
         // Arrange
@@ -1074,7 +1096,9 @@ public sealed class TestGlobalHookTests
         Assert.Null(exception);
     }
 
-    [Property(DisplayName = "SimulateKeyPress should return an error if configured to do so")]
+    [Property(
+        DisplayName = "SimulateKeyPress should return an error if configured to do so",
+        Arbitrary = [typeof(Generators)])]
     public void SimulateKeyPressFail(FailedUioHookResult result, KeyCode keyCode)
     {
         // Arrange
@@ -1094,7 +1118,9 @@ public sealed class TestGlobalHookTests
         Assert.Empty(hook.SimulatedEvents);
     }
 
-    [Property(DisplayName = "SimulateKeyRelease should return an error if configured to do so")]
+    [Property(
+        DisplayName = "SimulateKeyRelease should return an error if configured to do so",
+        Arbitrary = [typeof(Generators)])]
     public void SimulateKeyReleaseFail(FailedUioHookResult result, KeyCode keyCode)
     {
         // Arrange
@@ -1114,7 +1140,9 @@ public sealed class TestGlobalHookTests
         Assert.Empty(hook.SimulatedEvents);
     }
 
-    [Property(DisplayName = "SimulateMousePress should return an error if configured to do so")]
+    [Property(
+        DisplayName = "SimulateMousePress should return an error if configured to do so",
+        Arbitrary = [typeof(Generators)])]
     public void SimulateMousePressFail(FailedUioHookResult result, MouseButton button)
     {
         // Arrange
@@ -1135,7 +1163,8 @@ public sealed class TestGlobalHookTests
     }
 
     [Property(
-        DisplayName = "SimulateMousePress with explicit coordinates should return an error if configured to do so")]
+        DisplayName = "SimulateMousePress with explicit coordinates should return an error if configured to do so",
+        Arbitrary = [typeof(Generators)])]
     public void SimulateMousePressExplicitCoordinatesFail(
         FailedUioHookResult result,
         short x,
@@ -1159,7 +1188,9 @@ public sealed class TestGlobalHookTests
         Assert.Empty(hook.SimulatedEvents);
     }
 
-    [Property(DisplayName = "SimulateMouseRelease should return an error if configured to do so")]
+    [Property(
+        DisplayName = "SimulateMouseRelease should return an error if configured to do so",
+        Arbitrary = [typeof(Generators)])]
     public void SimulateMouseReleaseFail(FailedUioHookResult result, MouseButton button)
     {
         // Arrange
@@ -1180,7 +1211,8 @@ public sealed class TestGlobalHookTests
     }
 
     [Property(
-        DisplayName = "SimulateMouseRelease with explicit coordinates should return an error if configured to do so")]
+        DisplayName = "SimulateMouseRelease with explicit coordinates should return an error if configured to do so",
+        Arbitrary = [typeof(Generators)])]
     public void SimulateMouseReleaseExplicitCoordinatesFail(
         FailedUioHookResult result,
         short x,
@@ -1204,7 +1236,9 @@ public sealed class TestGlobalHookTests
         Assert.Empty(hook.SimulatedEvents);
     }
 
-    [Property(DisplayName = "SimulateMouseMovement should return an error if configured to do so")]
+    [Property(
+        DisplayName = "SimulateMouseMovement should return an error if configured to do so",
+        Arbitrary = [typeof(Generators)])]
     public void SimulateMouseMovementFail(FailedUioHookResult result, short x, short y)
     {
         // Arrange
@@ -1224,7 +1258,9 @@ public sealed class TestGlobalHookTests
         Assert.Empty(hook.SimulatedEvents);
     }
 
-    [Property(DisplayName = "SimulateMouseMovementRelative should return an error if configured to do so")]
+    [Property(
+        DisplayName = "SimulateMouseMovementRelative should return an error if configured to do so",
+        Arbitrary = [typeof(Generators)])]
     public void SimulateMouseMovementRelativeFail(FailedUioHookResult result, short xOffset, short yOffset)
     {
         // Arrange
@@ -1244,7 +1280,9 @@ public sealed class TestGlobalHookTests
         Assert.Empty(hook.SimulatedEvents);
     }
 
-    [Property(DisplayName = "SimulateMouseWheel should return an error if configured to do so")]
+    [Property(
+        DisplayName = "SimulateMouseWheel should return an error if configured to do so",
+        Arbitrary = [typeof(Generators)])]
     public void SimulateMouseWheelFail(
         FailedUioHookResult result,
         short rotation,
@@ -1268,7 +1306,9 @@ public sealed class TestGlobalHookTests
         Assert.Empty(hook.SimulatedEvents);
     }
 
-    [Property(DisplayName = "SimulateTextEntry should return an error if configured to do so")]
+    [Property(
+        DisplayName = "SimulateTextEntry should return an error if configured to do so",
+        Arbitrary = [typeof(Generators)])]
     public void SimulateTextEntryFail(NonNull<string> text, FailedUioHookResult result)
     {
         // Arrange
@@ -1372,7 +1412,9 @@ public sealed class TestGlobalHookTests
         Assert.Throws<ArgumentNullException>(() => hook.CurrentMouseY = null!);
     }
 
-    [Property(DisplayName = "Text simulation delay should be settable through the property")]
+    [Property(
+        DisplayName = "Text simulation delay should be settable through the property",
+        Arbitrary = [typeof(Generators)])]
     public void TextSimulationDelayOnX11(TimeSpan delay)
     {
         // Arrange
