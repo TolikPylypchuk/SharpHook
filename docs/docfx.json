@@ -4,15 +4,15 @@
       "src": [
         {
           "files": [
-            "SharpHook/bin/Release/net8.0/SharpHook.dll",
-            "SharpHook.Reactive/bin/Release/net8.0/SharpHook.Reactive.dll"
+            "SharpHook/bin/Release/net9.0/SharpHook.dll",
+            "SharpHook.Reactive/bin/Release/net9.0/SharpHook.Reactive.dll"
           ],
           "src": "../"
         }
       ],
       "dest": "api",
       "properties": {
-        "TargetFramework": "net8.0"
+        "TargetFramework": "net9.0"
       },
       "disableGitFeatures": false,
       "disableDefaultFilter": false
