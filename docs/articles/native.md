@@ -51,17 +51,18 @@ Following are the general-purpose events:
 
 Following are the keyboard events, and `UioHookEvent` will contain more infomration in its `Keyboard` field:
 
-- `KeyPressed` - raised when a key is pressed.
-- `KeyReleased` - raised when a key is released.
-- `KeyTyped` - raised when a character is typed using the keyboard.
+- `KeyPressed` - raised when a key is pressed (its state changed from up to down).
+- `KeyReleased` - raised when a key is released (its state changed from down to up).
+- `KeyTyped` - raised when a key press may have caused a character to be typed regardless of whether a character was
+actually typed.
 
 Following are the mouse events, and `UioHookEvent` will contain more infomration in its `Mouse` field:
 
-- `MouseClicked` - raised when a mouse button is clicked.
-- `MousePressed` - raised when a mouse button is pressed.
-- `MouseReleased` - raised when a mouse button is released.
+- `MouseClicked` - raised when a mouse button is clicked (pressed and released without dragging).
+- `MousePressed` - raised when a mouse button is pressed (its state changed from up to down).
+- `MouseReleased` - raised when a mouse button is released (its state changed from down to up).
 - `MouseMoved` - raised when the mouse cursor is moved.
-- `MouseDragged` - raised when the mouse cursor is dragged.
+- `MouseDragged` - raised when the mouse cursor is dragged (moved while a button is down).
 
 And the last one is also a mouse event, but `UioHookEvent` will contain more information in its `Wheel` field since it
 has more information:
@@ -88,7 +89,7 @@ the event is real.
 
 > [!NOTE]
 > `KeyTyped` and `MouseClicked` events are not raised by the OS, but by libuiohook itself. `KeyTyped` is raised after
-> `KeyPressed` if the key press has caused characters to be typed. Since a single key press can cause multiple
+> `KeyPressed` if the key press may have caused characters to be typed. Since a single key press can cause multiple
 > characters to be typed, a single `KeyPressed` event can raise multiple `KeyTyped` events. `MouseClicked` is raised
 > after `MouseReleased` if the cursor was not dragged. Since these events are raised by libuiohook, and not the OS,
 > suppressing them has no effect.

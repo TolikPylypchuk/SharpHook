@@ -18,13 +18,15 @@ public enum EventType
     HookDisabled,
 
     /// <summary>
-    /// Raised when a character is typed. Ignored when posted.
+    /// Raised when a key press may have caused a character to be typed regardless of whether a character was actually
+    /// typed. Ignored when posted.
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Events of this type are raised after events of type <see cref="KeyPressed" /> if the pressed key causes
-    /// characters to be typed. Since a single key press can cause multiple characters to be typed, a single event of
-    /// type <see cref="KeyPressed" /> can cause multiple events of type <see cref="KeyTyped" />.
+    /// Events of this type are raised after events of type <see cref="KeyPressed" /> if the pressed key may have caused
+    /// characters to be typed regardless of whether they were actually typed. Since a single key press can cause
+    /// multiple characters to be typed, a single event of type <see cref="KeyPressed" /> can cause multiple events of
+    /// type <see cref="KeyTyped" />.
     /// </para>
     /// <para>
     /// Since events of this type are not raised by the OS, suppressing them has no effect.
@@ -33,12 +35,12 @@ public enum EventType
     KeyTyped,
 
     /// <summary>
-    /// Raised when a key is pressed or posted to press a key.
+    /// Raised when a key is pressed (its state changed from up to down) or posted to press a key.
     /// </summary>
     KeyPressed,
 
     /// <summary>
-    /// Raised when a key is released or posted to release a key.
+    /// Raised when a key is released (its state changed from down to up) or posted to release a key.
     /// </summary>
     KeyReleased,
 
@@ -56,12 +58,12 @@ public enum EventType
     MouseClicked,
 
     /// <summary>
-    /// Raised when a mouse button is pressed or posted to press a mouse button.
+    /// Raised when a mouse button is pressed (its state changed from up to down) or posted to press a mouse button.
     /// </summary>
     MousePressed,
 
     /// <summary>
-    /// Raised when a mouse button is released or posted to release a mouse button.
+    /// Raised when a mouse button is released (its state changed from down to up) or posted to release a mouse button.
     /// </summary>
     MouseReleased,
 

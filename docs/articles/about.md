@@ -1,6 +1,6 @@
 # About SharpHook
 
-SharpHook. Version 5.3.8. Created by Tolik Pylypchuk.
+SharpHook. Version 5.3.9. Created by Tolik Pylypchuk.
 
 ## Library Status
 
@@ -9,6 +9,16 @@ to its `1.3` branch is considered stable. If you've noticed that this library ha
 rest assured that it's not abandoned! I'm not giving up on this library any time soon.
 
 ## Changelog
+
+### [v5.3.9](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.3.9) (March 29, 2025)
+
+- The state of the modifiers is now queried on every event instead of tracking them internally which removes
+inconsistencies when some events are skipped.
+
+- .NET 9 was added as a target.
+
+- libuiohook was updated to commit
+[961ed5a](https://github.com/TolikPylypchuk/libuiohook/tree/961ed5aca62229d6fe38fd33f731dac75b3d6639).
 
 ### [v5.3.8](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.3.8) (September 27, 2024)
 
