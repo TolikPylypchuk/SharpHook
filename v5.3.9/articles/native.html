@@ -126,17 +126,18 @@ to unset the callback function.</p>
 </ul>
 <p>Following are the keyboard events, and <code>UioHookEvent</code> will contain more infomration in its <code>Keyboard</code> field:</p>
 <ul>
-<li><code>KeyPressed</code> - raised when a key is pressed.</li>
-<li><code>KeyReleased</code> - raised when a key is released.</li>
-<li><code>KeyTyped</code> - raised when a character is typed using the keyboard.</li>
+<li><code>KeyPressed</code> - raised when a key is pressed (its state changed from up to down).</li>
+<li><code>KeyReleased</code> - raised when a key is released (its state changed from down to up).</li>
+<li><code>KeyTyped</code> - raised when a key press may have caused a character to be typed regardless of whether a character was
+actually typed.</li>
 </ul>
 <p>Following are the mouse events, and <code>UioHookEvent</code> will contain more infomration in its <code>Mouse</code> field:</p>
 <ul>
-<li><code>MouseClicked</code> - raised when a mouse button is clicked.</li>
-<li><code>MousePressed</code> - raised when a mouse button is pressed.</li>
-<li><code>MouseReleased</code> - raised when a mouse button is released.</li>
+<li><code>MouseClicked</code> - raised when a mouse button is clicked (pressed and released without dragging).</li>
+<li><code>MousePressed</code> - raised when a mouse button is pressed (its state changed from up to down).</li>
+<li><code>MouseReleased</code> - raised when a mouse button is released (its state changed from down to up).</li>
 <li><code>MouseMoved</code> - raised when the mouse cursor is moved.</li>
-<li><code>MouseDragged</code> - raised when the mouse cursor is dragged.</li>
+<li><code>MouseDragged</code> - raised when the mouse cursor is dragged (moved while a button is down).</li>
 </ul>
 <p>And the last one is also a mouse event, but <code>UioHookEvent</code> will contain more information in its <code>Wheel</code> field since it
 has more information:</p>
@@ -162,7 +163,7 @@ the event is real.</p>
 <div class="NOTE">
 <h5>Note</h5>
 <p><code>KeyTyped</code> and <code>MouseClicked</code> events are not raised by the OS, but by libuiohook itself. <code>KeyTyped</code> is raised after
-<code>KeyPressed</code> if the key press has caused characters to be typed. Since a single key press can cause multiple
+<code>KeyPressed</code> if the key press may have caused characters to be typed. Since a single key press can cause multiple
 characters to be typed, a single <code>KeyPressed</code> event can raise multiple <code>KeyTyped</code> events. <code>MouseClicked</code> is raised
 after <code>MouseReleased</code> if the cursor was not dragged. Since these events are raised by libuiohook, and not the OS,
 suppressing them has no effect.</p>

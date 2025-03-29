@@ -127,18 +127,20 @@ Enum EventType  <a class="header-action link-secondary" title="View source" href
 </dd>
     <dt id="SharpHook_Native_EventType_KeyPressed"><code>KeyPressed = 4</code></dt>
   
-  <dd><p>Raised when a key is pressed or posted to press a key.</p>
+  <dd><p>Raised when a key is pressed (its state changed from up to down) or posted to press a key.</p>
 </dd>
     <dt id="SharpHook_Native_EventType_KeyReleased"><code>KeyReleased = 5</code></dt>
   
-  <dd><p>Raised when a key is released or posted to release a key.</p>
+  <dd><p>Raised when a key is released (its state changed from down to up) or posted to release a key.</p>
 </dd>
     <dt id="SharpHook_Native_EventType_KeyTyped"><code>KeyTyped = 3</code></dt>
-  <dd><p>Raised when a character is typed. Ignored when posted.</p>
+  <dd><p>Raised when a key press may have caused a character to be typed regardless of whether a character was actually
+typed. Ignored when posted.</p>
 <p>
-Events of this type are raised after events of type <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_KeyPressed">KeyPressed</a> if the pressed key causes
-characters to be typed. Since a single key press can cause multiple characters to be typed, a single event of
-type <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_KeyPressed">KeyPressed</a> can cause multiple events of type <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_KeyTyped">KeyTyped</a>.
+Events of this type are raised after events of type <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_KeyPressed">KeyPressed</a> if the pressed key may have caused
+characters to be typed regardless of whether they were actually typed. Since a single key press can cause
+multiple characters to be typed, a single event of type <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_KeyPressed">KeyPressed</a> can cause multiple events of
+type <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_KeyTyped">KeyTyped</a>.
 </p>
 <p>
 Since events of this type are not raised by the OS, suppressing them has no effect.
@@ -169,7 +171,7 @@ Since events of this type are not raised by the OS, suppressing them has no effe
 </dd>
     <dt id="SharpHook_Native_EventType_MousePressed"><code>MousePressed = 7</code></dt>
   
-  <dd><p>Raised when a mouse button is pressed or posted to press a mouse button.</p>
+  <dd><p>Raised when a mouse button is pressed (its state changed from up to down) or posted to press a mouse button.</p>
 </dd>
     <dt id="SharpHook_Native_EventType_MousePressedIgnoreCoordinates"><code>MousePressedIgnoreCoordinates = 12</code></dt>
   
@@ -177,7 +179,7 @@ Since events of this type are not raised by the OS, suppressing them has no effe
 </dd>
     <dt id="SharpHook_Native_EventType_MouseReleased"><code>MouseReleased = 8</code></dt>
   
-  <dd><p>Raised when a mouse button is released or posted to release a mouse button.</p>
+  <dd><p>Raised when a mouse button is released (its state changed from down to up) or posted to release a mouse button.</p>
 </dd>
     <dt id="SharpHook_Native_EventType_MouseReleasedIgnoreCoordinates"><code>MouseReleasedIgnoreCoordinates = 13</code></dt>
   
