@@ -267,17 +267,31 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Native.EventReservedValueMask.yml",
+      "source_relative_path": "api/SharpHook.Native.EventMask.yml",
       "output": {
         ".html": {
-          "relative_path": "api/SharpHook.Native.EventReservedValueMask.html"
+          "relative_path": "api/SharpHook.Native.EventMask.html"
         }
       },
       "version": "",
       "Uid": null,
       "IsMRef": true,
-      "Title": "SharpHook.Native.EventReservedValueMask",
-      "Summary": "<p sourcefile=\"api/SharpHook.Native.EventReservedValueMask.yml\" sourcestartlinenumber=\"1\">Represents possible values of the <xref href=\"SharpHook.Native.UioHookEvent.Reserved\" data-throw-if-not-resolved=\"false\"></xref> field.</p>\n"
+      "Title": "SharpHook.Native.EventMask",
+      "Summary": "<p sourcefile=\"api/SharpHook.Native.EventMask.yml\" sourcestartlinenumber=\"1\">Represents the mask of a <xref href=\"SharpHook.Native.UioHookEvent\" data-throw-if-not-resolved=\"false\"></xref> and contains modifiers and other information.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Native.EventMaskExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Native.EventMaskExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Native.EventMaskExtensions",
+      "Summary": "<p sourcefile=\"api/SharpHook.Native.EventMaskExtensions.yml\" sourcestartlinenumber=\"1\">Contains extension methods for <xref href=\"SharpHook.Native.EventMask\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -348,34 +362,6 @@
       "IsMRef": true,
       "Title": "SharpHook.Native.LoggerProc",
       "Summary": "<p sourcefile=\"api/SharpHook.Native.LoggerProc.yml\" sourcestartlinenumber=\"1\">Represents a function which is called when a logging event occurs.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Native.ModifierMask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.Native.ModifierMask.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.Native.ModifierMask",
-      "Summary": "<p sourcefile=\"api/SharpHook.Native.ModifierMask.yml\" sourcestartlinenumber=\"1\">Represents a virtual modifier mask.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Native.ModifierMaskExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.Native.ModifierMaskExtensions.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.Native.ModifierMaskExtensions",
-      "Summary": "<p sourcefile=\"api/SharpHook.Native.ModifierMaskExtensions.yml\" sourcestartlinenumber=\"1\">Contains extension methods for <xref href=\"SharpHook.Native.ModifierMask\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
     },
     {
       "type": "ManagedReference",
