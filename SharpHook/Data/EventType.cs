@@ -1,4 +1,4 @@
-namespace SharpHook.Native;
+namespace SharpHook.Data;
 
 /// <summary>
 /// Represents the type of an input event which can be raised from a global hook or posted as a fake event.

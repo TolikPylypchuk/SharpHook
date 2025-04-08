@@ -1,4 +1,4 @@
-namespace SharpHook.Native;
+namespace SharpHook.Data;
 
 /// <summary>
 /// Represents a mouse wheel scroll type.

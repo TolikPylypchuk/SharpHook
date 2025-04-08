@@ -1,6 +1,6 @@
 using System.Collections.Immutable;
 
-namespace SharpHook.Native;
+namespace SharpHook.Data;
 
 public sealed class EventMaskExtensionsTests
 {

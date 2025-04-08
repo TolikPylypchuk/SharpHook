@@ -7,6 +7,7 @@ global using System.Runtime.InteropServices;
 global using System.Threading;
 global using System.Threading.Tasks;
 
+global using SharpHook.Data;
 global using SharpHook.Internal;
 global using SharpHook.Native;
 global using SharpHook.Providers;

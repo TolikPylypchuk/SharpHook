@@ -1,4 +1,4 @@
-namespace SharpHook.Native;
+namespace SharpHook.Data;
 
 /// <summary>
 /// Represents an event which can be raised by libuiohook.

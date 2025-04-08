@@ -1,4 +1,4 @@
-namespace SharpHook.Native;
+namespace SharpHook.Data;
 
 /// <summary>
 /// Represents the data of a mouse wheel-related event.

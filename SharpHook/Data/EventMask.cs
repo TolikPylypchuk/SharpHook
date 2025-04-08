@@ -1,4 +1,4 @@
-namespace SharpHook.Native;
+namespace SharpHook.Data;
 
 /// <summary>
 /// Represents the mask of a <see cref="UioHookEvent" /> and contains modifiers and other information.

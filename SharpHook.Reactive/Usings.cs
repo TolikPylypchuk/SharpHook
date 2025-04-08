@@ -10,6 +10,7 @@ global using System.Runtime.CompilerServices;
 global using System.Threading;
 global using System.Threading.Tasks;
 
+global using SharpHook.Data;
 global using SharpHook.Logging;
 global using SharpHook.Native;
 global using SharpHook.Providers;

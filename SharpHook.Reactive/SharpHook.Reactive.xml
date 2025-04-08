@@ -415,7 +415,7 @@
             Otherwise, <see langword="false" />.
             </param>
         </member>
-        <member name="M:SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(SharpHook.GlobalHookType,System.Reactive.Concurrency.IScheduler,SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
+        <member name="M:SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(SharpHook.Data.GlobalHookType,System.Reactive.Concurrency.IScheduler,SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
             <summary>
             Initializes a new instance of <see cref="T:SharpHook.Reactive.SimpleReactiveGlobalHook" />.
             </summary>

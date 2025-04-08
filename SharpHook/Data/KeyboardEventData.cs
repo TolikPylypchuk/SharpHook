@@ -1,10 +1,10 @@
-namespace SharpHook.Native;
+namespace SharpHook.Data;
 
 /// <summary>
 /// Represents the data of a keyboard-related event.
 /// </summary>
 /// <seealso cref="KeyboardHookEventArgs" />
-/// <seealso cref="SharpHook.Native.KeyCode" />
+/// <seealso cref="Data.KeyCode" />
 [ExcludeFromCodeCoverage]
 [StructLayout(LayoutKind.Sequential)]
 public struct KeyboardEventData : IEquatable<KeyboardEventData>

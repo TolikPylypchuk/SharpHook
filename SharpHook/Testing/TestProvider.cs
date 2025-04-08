@@ -20,7 +20,7 @@ public sealed class TestProvider :
     private ScreenData[] screenInfo = [];
 
     private Func<EventType, DateTimeOffset> eventDateTime = t => DateTimeOffset.UtcNow;
-    private Func<EventType, EventMask> eventMask = t => Native.EventMask.None;
+    private Func<EventType, EventMask> eventMask = t => Data.EventMask.None;
 
     /// <summary>
     /// Gets the events that have been posted using <see cref="PostEvent(ref UioHookEvent)" />.

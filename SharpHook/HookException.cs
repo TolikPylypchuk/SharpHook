@@ -3,7 +3,6 @@ namespace SharpHook;
 /// <summary>
 /// Represents an exception related to global hooks.
 /// </summary>
-[Serializable]
 [ExcludeFromCodeCoverage]
 public sealed class HookException : Exception
 {

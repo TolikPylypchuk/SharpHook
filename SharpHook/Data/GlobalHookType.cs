@@ -1,4 +1,4 @@
-namespace SharpHook;
+namespace SharpHook.Data;
 
 /// <summary>
 /// Represents a global hook type - keyboard hook, mouse hook, or both.
