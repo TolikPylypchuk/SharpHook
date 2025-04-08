@@ -20,7 +20,7 @@ public sealed class TestProvider :
     private ScreenData[] screenInfo = [];
 
     private Func<EventType, DateTimeOffset> eventDateTime = t => DateTimeOffset.UtcNow;
-    private Func<EventType, ModifierMask> eventMask = t => ModifierMask.None;
+    private Func<EventType, EventMask> eventMask = t => Native.EventMask.None;
 
     /// <summary>
     /// Gets the events that have been posted using <see cref="PostEvent(ref UioHookEvent)" />.
@@ -62,7 +62,7 @@ public sealed class TestProvider :
     /// and <see cref="EventType.HookDisabled" /> events.
     /// </summary>
     /// <exception cref="ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
-    public Func<EventType, ModifierMask> EventMask
+    public Func<EventType, EventMask> EventMask
     {
         get => this.eventMask;
         set => this.eventMask = value ?? throw new ArgumentNullException(nameof(value));
@@ -402,8 +402,7 @@ public sealed class TestProvider :
         {
             Type = eventType,
             Time = (ulong)this.EventDateTime(eventType).ToUnixTimeMilliseconds(),
-            Mask = this.EventMask(eventType),
-            Reserved = EventReservedValueMask.None
+            Mask = this.EventMask(eventType)
         };
 
         this.dispatchProc?.Invoke(ref hookEvent, this.userData);

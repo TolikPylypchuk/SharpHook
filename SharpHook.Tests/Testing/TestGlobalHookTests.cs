@@ -3,7 +3,7 @@ namespace SharpHook.Testing;
 public sealed class TestGlobalHookTests
 {
     [Property(DisplayName = "KeyPressed events should be simulated and handled", Arbitrary = [typeof(Generators)])]
-    public void HandleKeyPressed(KeyCode keyCode, ushort rawCode, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    public void HandleKeyPressed(KeyCode keyCode, ushort rawCode, DateTimeAfterEpoch dateTime, EventMask mask)
     {
         // Arrange
 
@@ -41,9 +41,13 @@ public sealed class TestGlobalHookTests
         Assert.Single(hook.SimulatedEvents);
 
         var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
+        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
 
-        actualEvent.Reserved = EventReservedValueMask.None;
+        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
+        {
+            actualEvent.Mask &= ~EventMask.SuppressEvent;
+        }
+
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
@@ -54,7 +58,7 @@ public sealed class TestGlobalHookTests
         KeyCode keyCode,
         ushort rawCode,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -93,14 +97,18 @@ public sealed class TestGlobalHookTests
         Assert.Single(hook.SimulatedEvents);
 
         var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
+        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
 
-        actualEvent.Reserved = EventReservedValueMask.None;
+        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
+        {
+            actualEvent.Mask &= ~EventMask.SuppressEvent;
+        }
+
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
     [Property(DisplayName = "KeyReleased events should be simulated and handled", Arbitrary = [typeof(Generators)])]
-    public void HandleKeyReleased(KeyCode keyCode, ushort rawCode, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    public void HandleKeyReleased(KeyCode keyCode, ushort rawCode, DateTimeAfterEpoch dateTime, EventMask mask)
     {
         // Arrange
 
@@ -138,9 +146,13 @@ public sealed class TestGlobalHookTests
         Assert.Single(hook.SimulatedEvents);
 
         var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
+        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
 
-        actualEvent.Reserved = EventReservedValueMask.None;
+        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
+        {
+            actualEvent.Mask &= ~EventMask.SuppressEvent;
+        }
+
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
@@ -150,7 +162,7 @@ public sealed class TestGlobalHookTests
         KeyCode keyCode,
         ushort rawCode,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -188,9 +200,13 @@ public sealed class TestGlobalHookTests
         Assert.Equal(2, hook.SimulatedEvents.Count);
 
         var actualEvent = hook.SimulatedEvents[1];
-        Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
+        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
 
-        actualEvent.Reserved = EventReservedValueMask.None;
+        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
+        {
+            actualEvent.Mask &= ~EventMask.SuppressEvent;
+        }
+
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
@@ -201,7 +217,7 @@ public sealed class TestGlobalHookTests
         MouseButton button,
         ushort clicks,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -241,9 +257,13 @@ public sealed class TestGlobalHookTests
         Assert.Single(hook.SimulatedEvents);
 
         var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
+        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
 
-        actualEvent.Reserved = EventReservedValueMask.None;
+        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
+        {
+            actualEvent.Mask &= ~EventMask.SuppressEvent;
+        }
+
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
@@ -256,7 +276,7 @@ public sealed class TestGlobalHookTests
         MouseButton button,
         ushort clicks,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -295,9 +315,13 @@ public sealed class TestGlobalHookTests
         Assert.Single(hook.SimulatedEvents);
 
         var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
+        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
 
-        actualEvent.Reserved = EventReservedValueMask.None;
+        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
+        {
+            actualEvent.Mask &= ~EventMask.SuppressEvent;
+        }
+
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
@@ -310,7 +334,7 @@ public sealed class TestGlobalHookTests
         MouseButton button,
         ushort clicks,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -348,9 +372,13 @@ public sealed class TestGlobalHookTests
         Assert.Single(hook.SimulatedEvents);
 
         var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
+        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
 
-        actualEvent.Reserved = EventReservedValueMask.None;
+        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
+        {
+            actualEvent.Mask &= ~EventMask.SuppressEvent;
+        }
+
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
@@ -363,7 +391,7 @@ public sealed class TestGlobalHookTests
         MouseButton button,
         ushort clicks,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -400,9 +428,13 @@ public sealed class TestGlobalHookTests
         Assert.Single(hook.SimulatedEvents);
 
         var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
+        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
 
-        actualEvent.Reserved = EventReservedValueMask.None;
+        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
+        {
+            actualEvent.Mask &= ~EventMask.SuppressEvent;
+        }
+
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
@@ -413,7 +445,7 @@ public sealed class TestGlobalHookTests
         MouseButton button,
         ushort clicks,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -454,9 +486,13 @@ public sealed class TestGlobalHookTests
         Assert.Single(hook.SimulatedEvents);
 
         var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
+        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
 
-        actualEvent.Reserved = EventReservedValueMask.None;
+        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
+        {
+            actualEvent.Mask &= ~EventMask.SuppressEvent;
+        }
+
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
@@ -469,7 +505,7 @@ public sealed class TestGlobalHookTests
         MouseButton button,
         ushort clicks,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -509,9 +545,13 @@ public sealed class TestGlobalHookTests
         Assert.Single(hook.SimulatedEvents);
 
         var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
+        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
 
-        actualEvent.Reserved = EventReservedValueMask.None;
+        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
+        {
+            actualEvent.Mask &= ~EventMask.SuppressEvent;
+        }
+
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
@@ -524,7 +564,7 @@ public sealed class TestGlobalHookTests
         MouseButton button,
         ushort clicks,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -563,9 +603,13 @@ public sealed class TestGlobalHookTests
         Assert.Single(hook.SimulatedEvents);
 
         var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
+        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
 
-        actualEvent.Reserved = EventReservedValueMask.None;
+        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
+        {
+            actualEvent.Mask &= ~EventMask.SuppressEvent;
+        }
+
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
@@ -578,7 +622,7 @@ public sealed class TestGlobalHookTests
         MouseButton button,
         ushort clicks,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -616,9 +660,13 @@ public sealed class TestGlobalHookTests
         Assert.Single(hook.SimulatedEvents);
 
         var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
+        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
 
-        actualEvent.Reserved = EventReservedValueMask.None;
+        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
+        {
+            actualEvent.Mask &= ~EventMask.SuppressEvent;
+        }
+
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
@@ -629,7 +677,7 @@ public sealed class TestGlobalHookTests
         MouseButton button,
         ushort clicks,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -670,9 +718,13 @@ public sealed class TestGlobalHookTests
         Assert.Equal(2, hook.SimulatedEvents.Count);
 
         var actualEvent = hook.SimulatedEvents[1];
-        Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
+        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
 
-        actualEvent.Reserved = EventReservedValueMask.None;
+        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
+        {
+            actualEvent.Mask &= ~EventMask.SuppressEvent;
+        }
+
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
@@ -685,7 +737,7 @@ public sealed class TestGlobalHookTests
         MouseButton button,
         ushort clicks,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -724,14 +776,18 @@ public sealed class TestGlobalHookTests
         Assert.Equal(2, hook.SimulatedEvents.Count);
 
         var actualEvent = hook.SimulatedEvents[1];
-        Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
+        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
 
-        actualEvent.Reserved = EventReservedValueMask.None;
+        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
+        {
+            actualEvent.Mask &= ~EventMask.SuppressEvent;
+        }
+
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
     [Property(DisplayName = "MouseMoved events should be simulated and handled", Arbitrary = [typeof(Generators)])]
-    public void HandleMouseMovement(short x, short y, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    public void HandleMouseMovement(short x, short y, DateTimeAfterEpoch dateTime, EventMask mask)
     {
         // Arrange
 
@@ -768,9 +824,13 @@ public sealed class TestGlobalHookTests
         Assert.Single(hook.SimulatedEvents);
 
         var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
+        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
 
-        actualEvent.Reserved = EventReservedValueMask.None;
+        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
+        {
+            actualEvent.Mask &= ~EventMask.SuppressEvent;
+        }
+
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
@@ -783,7 +843,7 @@ public sealed class TestGlobalHookTests
         short xOffset,
         short yOffset,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -822,14 +882,18 @@ public sealed class TestGlobalHookTests
         Assert.Single(hook.SimulatedEvents);
 
         var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
+        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
 
-        actualEvent.Reserved = EventReservedValueMask.None;
+        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
+        {
+            actualEvent.Mask &= ~EventMask.SuppressEvent;
+        }
+
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
     [Property(DisplayName = "MouseDragged events should be simulated and handled", Arbitrary = [typeof(Generators)])]
-    public void HandleMouseDragged(short x, short y, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    public void HandleMouseDragged(short x, short y, DateTimeAfterEpoch dateTime, EventMask mask)
     {
         // Arrange
 
@@ -867,9 +931,13 @@ public sealed class TestGlobalHookTests
         Assert.Single(hook.SimulatedEvents);
 
         var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
+        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
 
-        actualEvent.Reserved = EventReservedValueMask.None;
+        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
+        {
+            actualEvent.Mask &= ~EventMask.SuppressEvent;
+        }
+
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
@@ -882,7 +950,7 @@ public sealed class TestGlobalHookTests
         short xOffset,
         short yOffset,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -922,9 +990,13 @@ public sealed class TestGlobalHookTests
         Assert.Single(hook.SimulatedEvents);
 
         var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
+        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
 
-        actualEvent.Reserved = EventReservedValueMask.None;
+        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
+        {
+            actualEvent.Mask &= ~EventMask.SuppressEvent;
+        }
+
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 
@@ -934,7 +1006,7 @@ public sealed class TestGlobalHookTests
         MouseWheelScrollDirection direction,
         MouseWheelScrollType type,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -970,9 +1042,13 @@ public sealed class TestGlobalHookTests
         Assert.Single(hook.SimulatedEvents);
 
         var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
+        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
 
-        actualEvent.Reserved = EventReservedValueMask.None;
+        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
+        {
+            actualEvent.Mask &= ~EventMask.SuppressEvent;
+        }
+
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
     }
 

@@ -129,7 +129,7 @@ public abstract class GlobalHookBase : IGlobalHook
             this.IsRunning = false;
             throw new HookException(UioHookResult.Failure, e);
         }
-        
+
         if (result != UioHookResult.Success)
         {
             throw new HookException(result, this.FormatFailureMessage(Starting, result));
@@ -274,7 +274,7 @@ public abstract class GlobalHookBase : IGlobalHook
 
         if (args != null && args.SuppressEvent)
         {
-            e.Reserved |= EventReservedValueMask.SuppressEvent;
+            e.Mask |= EventMask.SuppressEvent;
         }
     }
 

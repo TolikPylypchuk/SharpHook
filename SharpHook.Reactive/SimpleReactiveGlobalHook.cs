@@ -431,7 +431,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
 
         if (args != null && args.SuppressEvent)
         {
-            e.Reserved |= EventReservedValueMask.SuppressEvent;
+            e.Mask |= EventMask.SuppressEvent;
         }
     }
 

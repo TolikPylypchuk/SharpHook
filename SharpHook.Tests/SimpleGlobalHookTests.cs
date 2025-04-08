@@ -41,7 +41,7 @@ public sealed class SimpleGlobalHookTests
     }
 
     [Property(DisplayName = "HookEnabled events should be raised", Arbitrary = [typeof(Generators)])]
-    public void HookEnabled(GlobalHookType globalHookType, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    public void HookEnabled(GlobalHookType globalHookType, DateTimeAfterEpoch dateTime, EventMask mask)
     {
         // Arrange
 
@@ -81,7 +81,7 @@ public sealed class SimpleGlobalHookTests
     }
 
     [Property(DisplayName = "HookDisabled events should be raised", Arbitrary = [typeof(Generators)])]
-    public void HookDisabled(GlobalHookType globalHookType, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    public void HookDisabled(GlobalHookType globalHookType, DateTimeAfterEpoch dateTime, EventMask mask)
     {
         // Arrange
 
@@ -129,7 +129,7 @@ public sealed class SimpleGlobalHookTests
         KeyCode keyCode,
         ushort rawCode,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -193,7 +193,7 @@ public sealed class SimpleGlobalHookTests
         KeyCode keyCode,
         ushort rawCode,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -258,7 +258,7 @@ public sealed class SimpleGlobalHookTests
         ushort rawCode,
         char keyChar,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -324,7 +324,7 @@ public sealed class SimpleGlobalHookTests
         short y,
         ushort clicks,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -392,7 +392,7 @@ public sealed class SimpleGlobalHookTests
         short y,
         ushort clicks,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -460,7 +460,7 @@ public sealed class SimpleGlobalHookTests
         short y,
         ushort clicks,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -526,7 +526,7 @@ public sealed class SimpleGlobalHookTests
         short x,
         short y,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -588,7 +588,7 @@ public sealed class SimpleGlobalHookTests
         short x,
         short y,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -654,7 +654,7 @@ public sealed class SimpleGlobalHookTests
         MouseWheelScrollDirection direction,
         MouseWheelScrollType type,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 

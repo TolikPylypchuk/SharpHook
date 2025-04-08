@@ -38,26 +38,25 @@ public sealed class Generators
         where time > DateTimeOffset.UnixEpoch
         select (ulong)time.ToUnixTimeMilliseconds();
 
-    public static Arbitrary<ModifierMask> ModifierMasks =>
-        Gen.Elements(Enum.GetValues<ModifierMask>()).ToArbitrary();
+    public static Arbitrary<EventMask> EventMasks =>
+        Gen.Elements(Enum.GetValues<EventMask>()).ToArbitrary();
 
     private static Gen<UioHookEvent> HookEvents =>
         from type in Gen.Elements(EventType.HookEnabled, EventType.HookDisabled)
         from time in Timestamp
-        from mask in ArbMap.Default.GeneratorFor<ModifierMask>()
+        from mask in ArbMap.Default.GeneratorFor<EventMask>()
         from isSimulated in ArbMap.Default.GeneratorFor<bool>()
         select new UioHookEvent()
         {
             Type = type,
             Time = time,
-            Mask = mask,
-            Reserved = isSimulated ? EventReservedValueMask.SimulatedEvent : EventReservedValueMask.None
+            Mask = isSimulated ? mask | EventMask.SimulatedEvent : mask & ~EventMask.SimulatedEvent
         };
 
     private static Gen<UioHookEvent> KeyboardEvents =>
         from type in Gen.Elements(EventType.KeyPressed, EventType.KeyReleased, EventType.KeyTyped)
         from time in Timestamp
-        from mask in ArbMap.Default.GeneratorFor<ModifierMask>()
+        from mask in ArbMap.Default.GeneratorFor<EventMask>()
         from keyCode in ArbMap.Default.GeneratorFor<KeyCode>()
         from rawCode in ArbMap.Default.GeneratorFor<ushort>()
         from keyChar in ArbMap.Default.GeneratorFor<UnicodeChar>()
@@ -67,7 +66,6 @@ public sealed class Generators
             Type = type,
             Time = time,
             Mask = mask,
-            Reserved = EventReservedValueMask.None,
             Keyboard = new KeyboardEventData
             {
                 KeyCode = keyCode,
@@ -84,7 +82,7 @@ public sealed class Generators
             EventType.MouseMoved,
             EventType.MouseDragged)
         from time in Timestamp
-        from mask in ArbMap.Default.GeneratorFor<ModifierMask>()
+        from mask in ArbMap.Default.GeneratorFor<EventMask>()
         from x in ArbMap.Default.GeneratorFor<short>()
         from y in ArbMap.Default.GeneratorFor<short>()
         from button in ArbMap.Default.GeneratorFor<MouseButton>()
@@ -94,7 +92,6 @@ public sealed class Generators
             Type = type,
             Time = time,
             Mask = mask,
-            Reserved = EventReservedValueMask.None,
             Mouse = new MouseEventData
             {
                 X = x,
@@ -108,7 +105,7 @@ public sealed class Generators
 
     private static Gen<UioHookEvent> WheelEvents =>
         from time in Timestamp
-        from mask in ArbMap.Default.GeneratorFor<ModifierMask>()
+        from mask in ArbMap.Default.GeneratorFor<EventMask>()
         from x in ArbMap.Default.GeneratorFor<short>()
         from y in ArbMap.Default.GeneratorFor<short>()
         from scrollType in ArbMap.Default.GeneratorFor<MouseWheelScrollType>()
@@ -120,7 +117,6 @@ public sealed class Generators
             Type = EventType.MouseWheel,
             Time = time,
             Mask = mask,
-            Reserved = EventReservedValueMask.None,
             Wheel = new MouseWheelEventData
             {
                 X = x,

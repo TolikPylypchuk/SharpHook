@@ -1322,26 +1322,200 @@
             </param>
             <seealso cref="M:SharpHook.Native.UioHook.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)" />
         </member>
-        <member name="T:SharpHook.Native.EventReservedValueMask">
+        <member name="T:SharpHook.Native.EventMask">
             <summary>
-            Represents possible values of the <see cref="F:SharpHook.Native.UioHookEvent.Reserved" /> field.
+            Represents the mask of a <see cref="T:SharpHook.Native.UioHookEvent" /> and contains modifiers and other information.
+            </summary>
+            <seealso cref="T:SharpHook.Native.UioHookEvent" />
+        </member>
+        <member name="F:SharpHook.Native.EventMask.None">
+            <summary>No mask.</summary>
+        </member>
+        <member name="F:SharpHook.Native.EventMask.LeftShift">
+            <summary>Left Shift is pressed.</summary>
+        </member>
+        <member name="F:SharpHook.Native.EventMask.LeftCtrl">
+            <summary>Left Control is pressed.</summary>
+        </member>
+        <member name="F:SharpHook.Native.EventMask.LeftMeta">
+            <summary>
+            Left Win (on Windows), Command (on macOS), or Super/Meta (on Linux) is pressed.
             </summary>
         </member>
-        <member name="F:SharpHook.Native.EventReservedValueMask.None">
+        <member name="F:SharpHook.Native.EventMask.LeftAlt">
             <summary>
-            No value.
+            Left Alt (on Windows and Linux) or Option (on macOS) is pressed.
             </summary>
         </member>
-        <member name="F:SharpHook.Native.EventReservedValueMask.SuppressEvent">
+        <member name="F:SharpHook.Native.EventMask.RightShift">
+            <summary>Right Shift is pressed.</summary>
+        </member>
+        <member name="F:SharpHook.Native.EventMask.RightCtrl">
+            <summary>Right Control is pressed.</summary>
+        </member>
+        <member name="F:SharpHook.Native.EventMask.RightMeta">
+            <summary>
+            Right Win (on Windows), Command (on macOS), or Super/Meta (on Linux) is pressed.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventMask.RightAlt">
+            <summary>
+            Right Alt (on Windows and Linux) or Option (on macOS) is pressed.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventMask.Shift">
+            <summary>Left or right Shift is pressed.</summary>
+        </member>
+        <member name="F:SharpHook.Native.EventMask.Ctrl">
+            <summary>Left or right Control is pressed.</summary>
+        </member>
+        <member name="F:SharpHook.Native.EventMask.Meta">
+            <summary>
+            Left or right Win (on Windows), Command (on macOS), or Super/Meta (on Linux) is pressed.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventMask.Alt">
+            <summary>
+            Left or right Alt (on Windows and Linux) or Option (on macOS) is pressed.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventMask.Button1">
+            <summary>
+            Mouse button 1 (usually the left mouse button) is pressed.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventMask.Button2">
+            <summary>
+            Mouse button 2 (usually the right mouse button) is pressed.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Native.EventMask.Button3">
+            <summary>Mouse button 3 is pressed.</summary>
+        </member>
+        <member name="F:SharpHook.Native.EventMask.Button4">
+            <summary>Mouse button 4 is pressed.</summary>
+        </member>
+        <member name="F:SharpHook.Native.EventMask.Button5">
+            <summary>Mouse button 5 is pressed.</summary>
+        </member>
+        <member name="F:SharpHook.Native.EventMask.NumLock">
+            <summary>Num Lock is locked.</summary>
+        </member>
+        <member name="F:SharpHook.Native.EventMask.CapsLock">
+            <summary>Caps Lock is locked.</summary>
+        </member>
+        <member name="F:SharpHook.Native.EventMask.ScrollLock">
+            <summary>Scroll Lock is locked.</summary>
+        </member>
+        <member name="F:SharpHook.Native.EventMask.SimulatedEvent">
+            <summary>The event is simulated.</summary>
+        </member>
+        <member name="F:SharpHook.Native.EventMask.SuppressEvent">
             <summary>
             If this flag is set in the event handler then the event will be suppressed from further propagation.
             </summary>
             <remarks>Suppressing events works only on Windows and macOS.</remarks>
         </member>
-        <member name="F:SharpHook.Native.EventReservedValueMask.SimulatedEvent">
+        <member name="T:SharpHook.Native.EventMaskExtensions">
             <summary>
-            If this flag is set then the event has been simulated.
+            Contains extension methods for <see cref="T:SharpHook.Native.EventMask" />.
             </summary>
+        </member>
+        <member name="M:SharpHook.Native.EventMaskExtensions.HasShift(SharpHook.Native.EventMask)">
+            <summary>
+            Returns <see langword="true" /> if the event mask contains either <see cref="F:SharpHook.Native.EventMask.LeftShift" /> or
+            <see cref="F:SharpHook.Native.EventMask.RightShift"/>. Otherwise, returns <see langword="false" />.
+            </summary>
+            <param name="mask">The event mask to check.</param>
+            <returns>
+            <see langword="true" /> if the event mask contains either <see cref="F:SharpHook.Native.EventMask.LeftShift" /> or
+            <see cref="F:SharpHook.Native.EventMask.RightShift"/>. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Native.EventMaskExtensions.HasCtrl(SharpHook.Native.EventMask)">
+            <summary>
+            Returns <see langword="true" /> if the event mask contains either <see cref="F:SharpHook.Native.EventMask.LeftCtrl" /> or
+            <see cref="F:SharpHook.Native.EventMask.RightCtrl"/>. Otherwise, returns <see langword="false" />.
+            </summary>
+            <param name="mask">The event mask to check.</param>
+            <returns>
+            <see langword="true" /> if the event mask contains either <see cref="F:SharpHook.Native.EventMask.LeftCtrl" /> or
+            <see cref="F:SharpHook.Native.EventMask.RightCtrl"/>. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Native.EventMaskExtensions.HasAlt(SharpHook.Native.EventMask)">
+            <summary>
+            Returns <see langword="true" /> if the event mask contains either <see cref="F:SharpHook.Native.EventMask.LeftAlt" /> or
+            <see cref="F:SharpHook.Native.EventMask.RightAlt"/>. Otherwise, returns <see langword="false" />.
+            </summary>
+            <param name="mask">The event mask to check.</param>
+            <returns>
+            <see langword="true" /> if the event mask contains either <see cref="F:SharpHook.Native.EventMask.LeftAlt" /> or
+            <see cref="F:SharpHook.Native.EventMask.RightAlt"/>. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Native.EventMaskExtensions.HasMeta(SharpHook.Native.EventMask)">
+            <summary>
+            Returns <see langword="true" /> if the event mask contains either <see cref="F:SharpHook.Native.EventMask.LeftMeta" /> or
+            <see cref="F:SharpHook.Native.EventMask.RightMeta"/>. Otherwise, returns <see langword="false" />.
+            </summary>
+            <param name="mask">The event mask to check.</param>
+            <returns>
+            <see langword="true" /> if the event mask contains either <see cref="F:SharpHook.Native.EventMask.LeftMeta" /> or
+            <see cref="F:SharpHook.Native.EventMask.RightMeta"/>. Otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Native.EventMaskExtensions.HasAny(SharpHook.Native.EventMask,SharpHook.Native.EventMask)">
+            <summary>
+            Returns <see langword="true" /> if the event mask contains any of the specified flags.
+            Otherwise, returns <see langword="false" />.
+            </summary>
+            <param name="mask">The event mask to check.</param>
+            <param name="flagsToCheck">The mask flags to check against.</param>
+            <returns>
+            <see langword="true" /> if the event mask contains any of the specified flags.
+            Otherwise, <see langword="false" />.
+            </returns>
+            <remarks>
+            This method returns <see langword="false" /> if <paramref name="flagsToCheck" /> equals
+            <see cref="F:SharpHook.Native.EventMask.None" />.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Native.EventMaskExtensions.HasAll(SharpHook.Native.EventMask,SharpHook.Native.EventMask)">
+            <summary>
+            Returns <see langword="true" /> if the event mask contains all of the specified flags.
+            Otherwise, returns <see langword="false" />.
+            </summary>
+            <param name="mask">The event mask to check.</param>
+            <param name="flagsToCheck">The mask flags to check against.</param>
+            <returns>
+            <see langword="true" /> if the event mask contains all of the specified flags.
+            Otherwise, <see langword="false" />.
+            </returns>
+            <remarks>
+            This method returns <see langword="true" /> if <paramref name="flagsToCheck" /> equals
+            <see cref="F:SharpHook.Native.EventMask.None" />.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Native.EventMaskExtensions.Split(SharpHook.Native.EventMask)">
+            <summary>
+            Splits an event mask into an array of individual flags.
+            </summary>
+            <param name="mask">The event mask to split.</param>
+            <returns>
+            An array of individual flags contained in <paramref name="mask" />,
+            or an empty array if <paramref name="mask" /> is <see cref="F:SharpHook.Native.EventMask.None" />.
+            </returns>
+        </member>
+        <member name="M:SharpHook.Native.EventMaskExtensions.Merge(SharpHook.Native.EventMask[])">
+            <summary>
+            Merges an array of event mask flags into a single event mask.
+            </summary>
+            <param name="flags">The event mask flags to merge.</param>
+            <returns>An event mask which contains the specified mask flags.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="flags" /> is <see langword="null" />.
+            </exception>
         </member>
         <member name="T:SharpHook.Native.EventType">
             <summary>
@@ -2286,192 +2460,6 @@
             Error
             </summary>
         </member>
-        <member name="T:SharpHook.Native.ModifierMask">
-            <summary>
-            Represents a virtual modifier mask.
-            </summary>
-            <seealso cref="T:SharpHook.Native.UioHookEvent" />
-        </member>
-        <member name="F:SharpHook.Native.ModifierMask.None">
-            <summary>No modifier</summary>
-        </member>
-        <member name="F:SharpHook.Native.ModifierMask.LeftShift">
-            <summary>Left Shift</summary>
-        </member>
-        <member name="F:SharpHook.Native.ModifierMask.LeftCtrl">
-            <summary>Left Control</summary>
-        </member>
-        <member name="F:SharpHook.Native.ModifierMask.LeftMeta">
-            <summary>
-            Left Win (on Windows), Command (on macOS), or Super/Meta (on Linux)
-            </summary>
-        </member>
-        <member name="F:SharpHook.Native.ModifierMask.LeftAlt">
-            <summary>
-            Left Alt (on Windows and Linux) or Option (on macOS)
-            </summary>
-        </member>
-        <member name="F:SharpHook.Native.ModifierMask.RightShift">
-            <summary>Right Shift</summary>
-        </member>
-        <member name="F:SharpHook.Native.ModifierMask.RightCtrl">
-            <summary>Right Control</summary>
-        </member>
-        <member name="F:SharpHook.Native.ModifierMask.RightMeta">
-            <summary>
-            Right Win (on Windows), Command (on macOS), or Super/Meta (on Linux)
-            </summary>
-        </member>
-        <member name="F:SharpHook.Native.ModifierMask.RightAlt">
-            <summary>
-            Right Alt (on Windows and Linux) or Option (on macOS)
-            </summary>
-        </member>
-        <member name="F:SharpHook.Native.ModifierMask.Shift">
-            <summary>Left or right Shift</summary>
-        </member>
-        <member name="F:SharpHook.Native.ModifierMask.Ctrl">
-            <summary>Left or right Control</summary>
-        </member>
-        <member name="F:SharpHook.Native.ModifierMask.Meta">
-            <summary>
-            Left or right Win (on Windows), Command (on macOS), or Super/Meta (on Linux)
-            </summary>
-        </member>
-        <member name="F:SharpHook.Native.ModifierMask.Alt">
-            <summary>
-            Left or right Alt (on Windows and Linux) or Option (on macOS)
-            </summary>
-        </member>
-        <member name="F:SharpHook.Native.ModifierMask.Button1">
-            <summary>
-            Mouse button 1 (usually the left mouse button)
-            </summary>
-        </member>
-        <member name="F:SharpHook.Native.ModifierMask.Button2">
-            <summary>
-            Mouse button 2 (usually the right mouse button)
-            </summary>
-        </member>
-        <member name="F:SharpHook.Native.ModifierMask.Button3">
-            <summary>Mouse button 3</summary>
-        </member>
-        <member name="F:SharpHook.Native.ModifierMask.Button4">
-            <summary>Mouse button 4</summary>
-        </member>
-        <member name="F:SharpHook.Native.ModifierMask.Button5">
-            <summary>Mouse button 5</summary>
-        </member>
-        <member name="F:SharpHook.Native.ModifierMask.NumLock">
-            <summary>Num Lock</summary>
-        </member>
-        <member name="F:SharpHook.Native.ModifierMask.CapsLock">
-            <summary>Caps Lock</summary>
-        </member>
-        <member name="F:SharpHook.Native.ModifierMask.ScrollLock">
-            <summary>Scroll Lock</summary>
-        </member>
-        <member name="T:SharpHook.Native.ModifierMaskExtensions">
-            <summary>
-            Contains extension methods for <see cref="T:SharpHook.Native.ModifierMask" />.
-            </summary>
-        </member>
-        <member name="M:SharpHook.Native.ModifierMaskExtensions.HasShift(SharpHook.Native.ModifierMask)">
-            <summary>
-            Returns <see langword="true" /> if the modifier mask contains either <see cref="F:SharpHook.Native.ModifierMask.LeftShift" /> or
-            <see cref="F:SharpHook.Native.ModifierMask.RightShift"/>. Otherwise, returns <see langword="false" />.
-            </summary>
-            <param name="mask">The modifier mask to check.</param>
-            <returns>
-            <see langword="true" /> if the modifier mask contains either <see cref="F:SharpHook.Native.ModifierMask.LeftShift" /> or
-            <see cref="F:SharpHook.Native.ModifierMask.RightShift"/>. Otherwise, <see langword="false" />.
-            </returns>
-        </member>
-        <member name="M:SharpHook.Native.ModifierMaskExtensions.HasCtrl(SharpHook.Native.ModifierMask)">
-            <summary>
-            Returns <see langword="true" /> if the modifier mask contains either <see cref="F:SharpHook.Native.ModifierMask.LeftCtrl" /> or
-            <see cref="F:SharpHook.Native.ModifierMask.RightCtrl"/>. Otherwise, returns <see langword="false" />.
-            </summary>
-            <param name="mask">The modifier mask to check.</param>
-            <returns>
-            <see langword="true" /> if the modifier mask contains either <see cref="F:SharpHook.Native.ModifierMask.LeftCtrl" /> or
-            <see cref="F:SharpHook.Native.ModifierMask.RightCtrl"/>. Otherwise, <see langword="false" />.
-            </returns>
-        </member>
-        <member name="M:SharpHook.Native.ModifierMaskExtensions.HasAlt(SharpHook.Native.ModifierMask)">
-            <summary>
-            Returns <see langword="true" /> if the modifier mask contains either <see cref="F:SharpHook.Native.ModifierMask.LeftAlt" /> or
-            <see cref="F:SharpHook.Native.ModifierMask.RightAlt"/>. Otherwise, returns <see langword="false" />.
-            </summary>
-            <param name="mask">The modifier mask to check.</param>
-            <returns>
-            <see langword="true" /> if the modifier mask contains either <see cref="F:SharpHook.Native.ModifierMask.LeftAlt" /> or
-            <see cref="F:SharpHook.Native.ModifierMask.RightAlt"/>. Otherwise, <see langword="false" />.
-            </returns>
-        </member>
-        <member name="M:SharpHook.Native.ModifierMaskExtensions.HasMeta(SharpHook.Native.ModifierMask)">
-            <summary>
-            Returns <see langword="true" /> if the modifier mask contains either <see cref="F:SharpHook.Native.ModifierMask.LeftMeta" /> or
-            <see cref="F:SharpHook.Native.ModifierMask.RightMeta"/>. Otherwise, returns <see langword="false" />.
-            </summary>
-            <param name="mask">The modifier mask to check.</param>
-            <returns>
-            <see langword="true" /> if the modifier mask contains either <see cref="F:SharpHook.Native.ModifierMask.LeftMeta" /> or
-            <see cref="F:SharpHook.Native.ModifierMask.RightMeta"/>. Otherwise, <see langword="false" />.
-            </returns>
-        </member>
-        <member name="M:SharpHook.Native.ModifierMaskExtensions.HasAny(SharpHook.Native.ModifierMask,SharpHook.Native.ModifierMask)">
-            <summary>
-            Returns <see langword="true" /> if the modifier mask contains any of the specified modifiers.
-            Otherwise, returns <see langword="false" />.
-            </summary>
-            <param name="mask">The modifier mask to check.</param>
-            <param name="modifiers">The modifiers to check against.</param>
-            <returns>
-            <see langword="true" /> if the modifier mask contains any of the specified modifiers.
-            Otherwise, <see langword="false" />.
-            </returns>
-            <remarks>
-            This method returns <see langword="false" /> if <paramref name="modifiers" /> equals
-            <see cref="F:SharpHook.Native.ModifierMask.None" />.
-            </remarks>
-        </member>
-        <member name="M:SharpHook.Native.ModifierMaskExtensions.HasAll(SharpHook.Native.ModifierMask,SharpHook.Native.ModifierMask)">
-            <summary>
-            Returns <see langword="true" /> if the modifier mask contains all of the specified modifiers.
-            Otherwise, returns <see langword="false" />.
-            </summary>
-            <param name="mask">The modifier mask to check.</param>
-            <param name="modifiers">The modifiers to check against.</param>
-            <returns>
-            <see langword="true" /> if the modifier mask contains all of the specified modifiers.
-            Otherwise, <see langword="false" />.
-            </returns>
-            <remarks>
-            This method returns <see langword="true" /> if <paramref name="modifiers" /> equals
-            <see cref="F:SharpHook.Native.ModifierMask.None" />.
-            </remarks>
-        </member>
-        <member name="M:SharpHook.Native.ModifierMaskExtensions.Split(SharpHook.Native.ModifierMask)">
-            <summary>
-            Splits a modifier mask into an array of individual modifiers.
-            </summary>
-            <param name="mask">The modifier mask to split.</param>
-            <returns>
-            An array of individual modifiers contained in <paramref name="mask" />,
-            or an empty array if <paramref name="mask" /> is <see cref="F:SharpHook.Native.ModifierMask.None" />.
-            </returns>
-        </member>
-        <member name="M:SharpHook.Native.ModifierMaskExtensions.Merge(SharpHook.Native.ModifierMask[])">
-            <summary>
-            Merges an array of modifiers into a single modifier mask.
-            </summary>
-            <param name="modifiers">The modifiers to merge.</param>
-            <returns>A modifier mask which contains the specified modifiers.</returns>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="modifiers" /> is <see langword="null" />.
-            </exception>
-        </member>
         <member name="T:SharpHook.Native.MouseButton">
             <summary>
             Represents a mouse button.
@@ -3158,7 +3146,7 @@
             </para>
             </remarks>
             <seealso cref="T:SharpHook.Native.EventType" />
-            <seealso cref="T:SharpHook.Native.ModifierMask" />
+            <seealso cref="T:SharpHook.Native.EventMask" />
             <seealso cref="T:SharpHook.Native.KeyboardEventData" />
             <seealso cref="T:SharpHook.Native.MouseEventData" />
             <seealso cref="T:SharpHook.Native.MouseWheelEventData" />
@@ -3180,13 +3168,6 @@
             The mask of the event.
             </summary>
             <value>The mask of the event.</value>
-        </member>
-        <member name="F:SharpHook.Native.UioHookEvent.Reserved">
-            <summary>
-            The reserved value which can be set in event handlers.
-            </summary>
-            <value>The reserved value which can be set in event handlers.</value>
-            <remarks>The value for this field should be set on the same thread which handles the event.</remarks>
         </member>
         <member name="F:SharpHook.Native.UioHookEvent.Keyboard">
             <summary>

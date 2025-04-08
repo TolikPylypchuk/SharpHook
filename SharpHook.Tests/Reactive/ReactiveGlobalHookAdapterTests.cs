@@ -41,7 +41,7 @@ public sealed class ReactiveGlobalHookAdapterTests
     }
 
     [Property(DisplayName = "HookEnabled events should be raised", Arbitrary = [typeof(Generators)])]
-    public void HookEnabled(GlobalHookType globalHookType, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    public void HookEnabled(GlobalHookType globalHookType, DateTimeAfterEpoch dateTime, EventMask mask)
     {
         // Arrange
 
@@ -77,7 +77,7 @@ public sealed class ReactiveGlobalHookAdapterTests
     }
 
     [Property(DisplayName = "HookDisabled events should be raised", Arbitrary = [typeof(Generators)])]
-    public void HookDisabled(GlobalHookType globalHookType, DateTimeAfterEpoch dateTime, ModifierMask mask)
+    public void HookDisabled(GlobalHookType globalHookType, DateTimeAfterEpoch dateTime, EventMask mask)
     {
         // Arrange
 
@@ -117,7 +117,7 @@ public sealed class ReactiveGlobalHookAdapterTests
         KeyCode keyCode,
         ushort rawCode,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -173,7 +173,7 @@ public sealed class ReactiveGlobalHookAdapterTests
         KeyCode keyCode,
         ushort rawCode,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -230,7 +230,7 @@ public sealed class ReactiveGlobalHookAdapterTests
         ushort rawCode,
         char keyChar,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -288,7 +288,7 @@ public sealed class ReactiveGlobalHookAdapterTests
         short y,
         ushort clicks,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -348,7 +348,7 @@ public sealed class ReactiveGlobalHookAdapterTests
         short y,
         ushort clicks,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -408,7 +408,7 @@ public sealed class ReactiveGlobalHookAdapterTests
         short y,
         ushort clicks,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -466,7 +466,7 @@ public sealed class ReactiveGlobalHookAdapterTests
         short x,
         short y,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -520,7 +520,7 @@ public sealed class ReactiveGlobalHookAdapterTests
         short x,
         short y,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 
@@ -578,7 +578,7 @@ public sealed class ReactiveGlobalHookAdapterTests
         MouseWheelScrollDirection direction,
         MouseWheelScrollType type,
         DateTimeAfterEpoch dateTime,
-        ModifierMask mask)
+        EventMask mask)
     {
         // Arrange
 

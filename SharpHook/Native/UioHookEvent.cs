@@ -33,7 +33,7 @@ namespace SharpHook.Native;
 /// </para>
 /// </remarks>
 /// <seealso cref="EventType" />
-/// <seealso cref="ModifierMask" />
+/// <seealso cref="EventMask" />
 /// <seealso cref="KeyboardEventData" />
 /// <seealso cref="MouseEventData" />
 /// <seealso cref="MouseWheelEventData" />
@@ -60,15 +60,7 @@ public struct UioHookEvent : IEquatable<UioHookEvent>
     /// </summary>
     /// <value>The mask of the event.</value>
     [FieldOffset(16)]
-    public ModifierMask Mask;
-
-    /// <summary>
-    /// The reserved value which can be set in event handlers.
-    /// </summary>
-    /// <value>The reserved value which can be set in event handlers.</value>
-    /// <remarks>The value for this field should be set on the same thread which handles the event.</remarks>
-    [FieldOffset(18)]
-    public EventReservedValueMask Reserved;
+    public EventMask Mask;
 
     /// <summary>
     /// The event data if this event is keyboard-related.
@@ -112,7 +104,6 @@ public struct UioHookEvent : IEquatable<UioHookEvent>
         this.Type == e.Type &&
             this.Time == e.Time &&
             this.Mask == e.Mask &&
-            this.Reserved == e.Reserved &&
             this.Type switch
             {
                 EventType.KeyTyped or
@@ -133,23 +124,15 @@ public struct UioHookEvent : IEquatable<UioHookEvent>
     public readonly override int GetHashCode() =>
         this.Type switch
         {
-            EventType.KeyTyped => HashCodeUtil.GetHashCode(
-                this.Type, this.Time, this.Mask, this.Reserved, this.Keyboard),
-            EventType.KeyPressed => HashCodeUtil.GetHashCode(
-                this.Type, this.Time, this.Mask, this.Reserved, this.Keyboard),
-            EventType.KeyReleased => HashCodeUtil.GetHashCode(
-                this.Type, this.Time, this.Mask, this.Reserved, this.Keyboard),
-            EventType.MouseClicked => HashCodeUtil.GetHashCode(
-                this.Type, this.Time, this.Mask, this.Reserved, this.Mouse),
-            EventType.MousePressed => HashCodeUtil.GetHashCode(
-                this.Type, this.Time, this.Mask, this.Reserved, this.Mouse),
-            EventType.MouseReleased => HashCodeUtil.GetHashCode(
-                this.Type, this.Time, this.Mask, this.Reserved, this.Mouse),
-            EventType.MouseMoved => HashCodeUtil.GetHashCode(
-                this.Type, this.Time, this.Mask, this.Reserved, this.Mouse),
-            EventType.MouseWheel => HashCodeUtil.GetHashCode(
-                this.Type, this.Time, this.Mask, this.Reserved, this.Wheel),
-            _ => 1
+            EventType.KeyTyped => HashCodeUtil.GetHashCode(this.Type, this.Time, this.Mask, this.Keyboard),
+            EventType.KeyPressed => HashCodeUtil.GetHashCode(this.Type, this.Time, this.Mask, this.Keyboard),
+            EventType.KeyReleased => HashCodeUtil.GetHashCode(this.Type, this.Time, this.Mask, this.Keyboard),
+            EventType.MouseClicked => HashCodeUtil.GetHashCode(this.Type, this.Time, this.Mask, this.Mouse),
+            EventType.MousePressed => HashCodeUtil.GetHashCode(this.Type, this.Time, this.Mask, this.Mouse),
+            EventType.MouseReleased => HashCodeUtil.GetHashCode(this.Type, this.Time, this.Mask, this.Mouse),
+            EventType.MouseMoved => HashCodeUtil.GetHashCode(this.Type, this.Time, this.Mask, this.Mouse),
+            EventType.MouseWheel => HashCodeUtil.GetHashCode(this.Type, this.Time, this.Mask, this.Wheel),
+            _ => HashCodeUtil.GetHashCode(this.Type, this.Time, this.Mask)
         };
 
     /// <summary>
@@ -158,7 +141,7 @@ public struct UioHookEvent : IEquatable<UioHookEvent>
     /// <returns>The string representation of this object.</returns>
     public readonly override string ToString() =>
         $"{nameof(UioHookEvent)}: {nameof(this.Type)} = {this.Type}; {nameof(this.Time)} = {this.Time}; " +
-        $"{nameof(this.Mask)} = {this.Mask}; {nameof(this.Reserved)} = {this.Reserved}" +
+        $"{nameof(this.Mask)} = {this.Mask}" +
         this.Type switch
         {
             EventType.KeyTyped => $"; {nameof(this.Keyboard)} = {this.Keyboard}",

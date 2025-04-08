@@ -153,9 +153,7 @@ public sealed class TestProviderTests
 
         // Act
 
-        provider.SetDispatchProc(
-            (ref UioHookEvent e, IntPtr data) => e.Reserved |= EventReservedValueMask.SuppressEvent,
-            IntPtr.Zero);
+        provider.SetDispatchProc((ref UioHookEvent e, IntPtr data) => e.Mask |= EventMask.SuppressEvent, IntPtr.Zero);
 
         var task = provider.RunAsync();
 
@@ -166,7 +164,7 @@ public sealed class TestProviderTests
         Assert.Single(provider.PostedEvents);
 
         var actualEvent = provider.PostedEvents[0];
-        Assert.True(actualEvent.Reserved.HasFlag(EventReservedValueMask.SuppressEvent));
+        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
         Assert.Equal(eventToPost, actualEvent);
 
         // Clean up
@@ -315,7 +313,7 @@ public sealed class TestProviderTests
         // Arrange
 
         var dateTime = DateTimeOffset.UtcNow;
-        var modifierMask = ModifierMask.LeftCtrl | ModifierMask.LeftShift;
+        var modifierMask = EventMask.LeftCtrl | EventMask.LeftShift;
 
         // Act
 
@@ -343,7 +341,6 @@ public sealed class TestProviderTests
 
         Assert.Equal(dateTime.ToUnixTimeMilliseconds(), (long)actualEvent.Time);
         Assert.Equal(modifierMask, actualEvent.Mask);
-        Assert.Equal(EventReservedValueMask.None, actualEvent.Reserved);
 
         // Clean up
 
@@ -352,7 +349,7 @@ public sealed class TestProviderTests
     }
 
     [Property(DisplayName = "HookDisabled should be raised when the hook is stopped", Arbitrary = [typeof(Generators)])]
-    public async void HookDisabled(DateTimeAfterEpoch dateTime, ModifierMask modifierMask)
+    public async void HookDisabled(DateTimeAfterEpoch dateTime, EventMask modifierMask)
     {
         // Act
 
@@ -384,7 +381,6 @@ public sealed class TestProviderTests
 
         Assert.Equal(dateTime.Value.ToUnixTimeMilliseconds(), (long)actualEvent.Time);
         Assert.Equal(modifierMask, actualEvent.Mask);
-        Assert.Equal(EventReservedValueMask.None, actualEvent.Reserved);
     }
 
     [Property(DisplayName = "PostEvent should post an event", Arbitrary = [typeof(Generators)])]

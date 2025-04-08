@@ -11,7 +11,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     private readonly List<string> simulatedText = [];
 
     private Func<EventType, DateTimeOffset> eventDateTime = t => DateTimeOffset.UtcNow;
-    private Func<EventType, ModifierMask> eventMask = t => ModifierMask.None;
+    private Func<EventType, EventMask> eventMask = t => Native.EventMask.None;
 
     private Func<KeyCode, IEnumerable<char>> keyCodeToChars = c => [];
     private Func<KeyCode, ushort> keyCodeToRawCode = c => 1;
@@ -58,7 +58,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// Gets or sets the function which will be called to set the mask of events.
     /// </summary>
     /// <exception cref="ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
-    public Func<EventType, ModifierMask> EventMask
+    public Func<EventType, EventMask> EventMask
     {
         get => this.eventMask;
         set => this.eventMask = value ?? throw new ArgumentNullException(nameof(value));
@@ -557,8 +557,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
         {
             Type = eventType,
             Time = (ulong)this.EventDateTime(eventType).ToUnixTimeMilliseconds(),
-            Mask = this.EventMask(eventType),
-            Reserved = EventReservedValueMask.None
+            Mask = this.EventMask(eventType)
         };
 
         this.DispatchEvent(ref hookEvent, addToSimulatedEvents: false);
@@ -696,7 +695,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
         {
             if (args.SuppressEvent)
             {
-                e.Reserved |= EventReservedValueMask.SuppressEvent;
+                e.Mask |= Native.EventMask.SuppressEvent;
             }
 
             if (addToSimulatedEvents)
