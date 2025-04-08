@@ -1241,10 +1241,6 @@
             </summary>
             <param name="minLevel">The minimum log level.</param>
             <returns>A source of libuiohook logs.</returns>
-            <remarks>
-            This method should be preferred to <see cref="M:SharpHook.Logging.LogSource.Register(SharpHook.Native.LogLevel)" /> as it's safer - it won't invalidate an
-            already registered instance.
-            </remarks>
         </member>
         <member name="M:SharpHook.Logging.LogSource.RegisterOrGet(SharpHook.Providers.ILoggingProvider,SharpHook.Native.LogLevel)">
             <summary>
@@ -1254,41 +1250,8 @@
             <param name="minLevel">The minimum log level.</param>
             <returns>A source of libuiohook logs.</returns>
             <remarks>
-            <para>
-            This method should be preferred to <see cref="M:SharpHook.Logging.LogSource.Register(SharpHook.Providers.ILoggingProvider,SharpHook.Native.LogLevel)" /> as it's safer - it won't
-            invalidate an already registered instance.
-            </para>
-            <para>
             A single instance of <see cref="T:SharpHook.Logging.LogSource" /> can be registered using this method, irrespective of the logging
             provider used.
-            </para>
-            </remarks>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="loggingProvider" /> is <see langword="null" />.
-            </exception>
-        </member>
-        <member name="M:SharpHook.Logging.LogSource.Register(SharpHook.Native.LogLevel)">
-            <summary>
-            Creates and registers a source of libuiohook logs.
-            </summary>
-            <param name="minLevel">The minimum log level.</param>
-            <returns>A source of libuiohook logs.</returns>
-            <remarks>
-            This method is obsolete as it must not be called when another <see cref="T:SharpHook.Logging.LogSource" /> instance has already been
-            registerd and hasn't been disposed. <see cref="M:SharpHook.Logging.LogSource.RegisterOrGet(SharpHook.Native.LogLevel)" /> should be used instead.
-            </remarks>
-        </member>
-        <member name="M:SharpHook.Logging.LogSource.Register(SharpHook.Providers.ILoggingProvider,SharpHook.Native.LogLevel)">
-            <summary>
-            Creates and registers a source of libuiohook logs using the specified provider.
-            </summary>
-            <param name="loggingProvider">The logging provider used to register the log source.</param>
-            <param name="minLevel">The minimum log level.</param>
-            <returns>A source of libuiohook logs.</returns>
-            <remarks>
-            This method is obsolete as it must not be called when another <see cref="T:SharpHook.Logging.LogSource" /> instance has already been
-            registerd and hasn't been disposed. <see cref="M:SharpHook.Logging.LogSource.RegisterOrGet(SharpHook.Providers.ILoggingProvider,SharpHook.Native.LogLevel)" /> should be used
-            instead.
             </remarks>
             <exception cref="T:System.ArgumentNullException">
             <paramref name="loggingProvider" /> is <see langword="null" />.
