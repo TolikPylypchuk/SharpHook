@@ -1573,24 +1573,6 @@ references:
   commentId: Overload:SharpHook.Logging.LogSource.MinLevel
   fullName: SharpHook.Logging.LogSource.MinLevel
   nameWithType: LogSource.MinLevel
-- uid: SharpHook.Logging.LogSource.Register(SharpHook.Native.LogLevel)
-  name: Register(LogLevel)
-  href: api/SharpHook.Logging.LogSource.html#SharpHook_Logging_LogSource_Register_SharpHook_Native_LogLevel_
-  commentId: M:SharpHook.Logging.LogSource.Register(SharpHook.Native.LogLevel)
-  fullName: SharpHook.Logging.LogSource.Register(SharpHook.Native.LogLevel)
-  nameWithType: LogSource.Register(LogLevel)
-- uid: SharpHook.Logging.LogSource.Register(SharpHook.Providers.ILoggingProvider,SharpHook.Native.LogLevel)
-  name: Register(ILoggingProvider, LogLevel)
-  href: api/SharpHook.Logging.LogSource.html#SharpHook_Logging_LogSource_Register_SharpHook_Providers_ILoggingProvider_SharpHook_Native_LogLevel_
-  commentId: M:SharpHook.Logging.LogSource.Register(SharpHook.Providers.ILoggingProvider,SharpHook.Native.LogLevel)
-  fullName: SharpHook.Logging.LogSource.Register(SharpHook.Providers.ILoggingProvider, SharpHook.Native.LogLevel)
-  nameWithType: LogSource.Register(ILoggingProvider, LogLevel)
-- uid: SharpHook.Logging.LogSource.Register*
-  name: Register
-  href: api/SharpHook.Logging.LogSource.html#SharpHook_Logging_LogSource_Register_
-  commentId: Overload:SharpHook.Logging.LogSource.Register
-  fullName: SharpHook.Logging.LogSource.Register
-  nameWithType: LogSource.Register
 - uid: SharpHook.Logging.LogSource.RegisterOrGet(SharpHook.Native.LogLevel)
   name: RegisterOrGet(LogLevel)
   href: api/SharpHook.Logging.LogSource.html#SharpHook_Logging_LogSource_RegisterOrGet_SharpHook_Native_LogLevel_
