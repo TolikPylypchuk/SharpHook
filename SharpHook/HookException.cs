@@ -1,5 +1,3 @@
-using System.Runtime.Serialization;
-
 namespace SharpHook;
 
 /// <summary>
@@ -68,34 +66,6 @@ public sealed class HookException : Exception
     public HookException(UioHookResult result, string message, Exception innerException)
         : base(message, innerException) =>
         this.Result = result;
-
-#if NET8_0_OR_GREATER
-    [Obsolete(
-        "This API supports obsolete formatter-based serialization. " +
-        "It should not be called or extended by application code.",
-        DiagnosticId = "SYSLIB0051")]
-#endif
-    private HookException(SerializationInfo info, StreamingContext context)
-        : base(info, context) =>
-        this.Result = (UioHookResult)
-            (info.GetValue(nameof(this.Result), typeof(UioHookResult)) ?? UioHookResult.Failure);
-
-    /// <summary>
-    /// Sets the <see cref="SerializationInfo" /> with information about this exception.
-    /// </summary>
-    /// <param name="info">The serialization info to set.</param>
-    /// <param name="context">The streaming context.</param>
-#if NET8_0_OR_GREATER
-    [Obsolete(
-        "This API supports obsolete formatter-based serialization. " +
-        "It should not be called or extended by application code.",
-        DiagnosticId = "SYSLIB0051")]
-#endif
-    public override void GetObjectData(SerializationInfo info, StreamingContext context)
-    {
-        base.GetObjectData(info, context);
-        info.AddValue(nameof(Result), this.Result);
-    }
 
     /// <summary>
     /// Gets the result of an opetaion which caused this exception.
