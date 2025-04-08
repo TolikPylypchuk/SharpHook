@@ -242,10 +242,6 @@ on other threads.
 
 
 
-  <h4 class="section" id="SharpHook_TaskPoolGlobalHook__ctor_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>Calling this constructor is the same as passing <a class="xref" href="SharpHook.TaskPoolGlobalHookOptions.html#SharpHook_TaskPoolGlobalHookOptions_Sequential">Sequential</a> to the
-other constructor.</p>
-</div>
 
 
 
@@ -284,89 +280,6 @@ other constructor.</p>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
     <dd><p><code class="paramref">globalHookProvider</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
-</dd>
-  </dl>
-
-
-
-  <a id="SharpHook_TaskPoolGlobalHook__ctor_" data-uid="SharpHook.TaskPoolGlobalHook.#ctor*"></a>
-
-  <h3 id="SharpHook_TaskPoolGlobalHook__ctor_SharpHook_Providers_IGlobalHookProvider_SharpHook_TaskPoolGlobalHookOptions_" data-uid="SharpHook.TaskPoolGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider,SharpHook.TaskPoolGlobalHookOptions)">
-  TaskPoolGlobalHook(IGlobalHookProvider, TaskPoolGlobalHookOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/TaskPoolGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.TaskPoolGlobalHook.html">TaskPoolGlobalHook</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use a constructor which accepts all possible parameters with named parameters instead&quot;)]
-public TaskPoolGlobalHook(IGlobalHookProvider globalHookProvider, TaskPoolGlobalHookOptions options)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>globalHookProvider</code> <a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html">IGlobalHookProvider</a></dt>
-    <dd><p>The underlying global hook provider.</p>
-</dd>
-    <dt><code>options</code> <a class="xref" href="SharpHook.TaskPoolGlobalHookOptions.html">TaskPoolGlobalHookOptions</a></dt>
-    <dd><p>The options of the hook which include its parallelism level.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
-    <dd><p><code class="paramref">globalHookProvider</code> or <code class="paramref">options</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
-</dd>
-  </dl>
-
-
-
-  <a id="SharpHook_TaskPoolGlobalHook__ctor_" data-uid="SharpHook.TaskPoolGlobalHook.#ctor*"></a>
-
-  <h3 id="SharpHook_TaskPoolGlobalHook__ctor_SharpHook_TaskPoolGlobalHookOptions_" data-uid="SharpHook.TaskPoolGlobalHook.#ctor(SharpHook.TaskPoolGlobalHookOptions)">
-  TaskPoolGlobalHook(TaskPoolGlobalHookOptions)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/TaskPoolGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.TaskPoolGlobalHook.html">TaskPoolGlobalHook</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Use a constructor which accepts all possible parameters with a named parameter instead&quot;)]
-public TaskPoolGlobalHook(TaskPoolGlobalHookOptions options)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>options</code> <a class="xref" href="SharpHook.TaskPoolGlobalHookOptions.html">TaskPoolGlobalHookOptions</a></dt>
-    <dd><p>The options of the hook which include its parallelism level.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
-    <dd><p><code class="paramref">options</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
 </dd>
   </dl>
 
@@ -501,7 +414,6 @@ of <a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a>.</p>
       <div><a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a></div>
       <div><a class="xref" href="SharpHook.GlobalHookBase.html">GlobalHookBase</a></div>
       <div><a class="xref" href="SharpHook.SimpleGlobalHook.html">SimpleGlobalHook</a></div>
-      <div><a class="xref" href="SharpHook.TaskPoolGlobalHookOptions.html">TaskPoolGlobalHookOptions</a></div>
   </div>
 
 </article>

@@ -6229,24 +6229,6 @@ references:
   fullName.vb: SharpHook.TaskPoolGlobalHook.New(SharpHook.Providers.IGlobalHookProvider)
   nameWithType: TaskPoolGlobalHook.TaskPoolGlobalHook(IGlobalHookProvider)
   nameWithType.vb: TaskPoolGlobalHook.New(IGlobalHookProvider)
-- uid: SharpHook.TaskPoolGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider,SharpHook.TaskPoolGlobalHookOptions)
-  name: TaskPoolGlobalHook(IGlobalHookProvider, TaskPoolGlobalHookOptions)
-  href: api/SharpHook.TaskPoolGlobalHook.html#SharpHook_TaskPoolGlobalHook__ctor_SharpHook_Providers_IGlobalHookProvider_SharpHook_TaskPoolGlobalHookOptions_
-  commentId: M:SharpHook.TaskPoolGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider,SharpHook.TaskPoolGlobalHookOptions)
-  name.vb: New(IGlobalHookProvider, TaskPoolGlobalHookOptions)
-  fullName: SharpHook.TaskPoolGlobalHook.TaskPoolGlobalHook(SharpHook.Providers.IGlobalHookProvider, SharpHook.TaskPoolGlobalHookOptions)
-  fullName.vb: SharpHook.TaskPoolGlobalHook.New(SharpHook.Providers.IGlobalHookProvider, SharpHook.TaskPoolGlobalHookOptions)
-  nameWithType: TaskPoolGlobalHook.TaskPoolGlobalHook(IGlobalHookProvider, TaskPoolGlobalHookOptions)
-  nameWithType.vb: TaskPoolGlobalHook.New(IGlobalHookProvider, TaskPoolGlobalHookOptions)
-- uid: SharpHook.TaskPoolGlobalHook.#ctor(SharpHook.TaskPoolGlobalHookOptions)
-  name: TaskPoolGlobalHook(TaskPoolGlobalHookOptions)
-  href: api/SharpHook.TaskPoolGlobalHook.html#SharpHook_TaskPoolGlobalHook__ctor_SharpHook_TaskPoolGlobalHookOptions_
-  commentId: M:SharpHook.TaskPoolGlobalHook.#ctor(SharpHook.TaskPoolGlobalHookOptions)
-  name.vb: New(TaskPoolGlobalHookOptions)
-  fullName: SharpHook.TaskPoolGlobalHook.TaskPoolGlobalHook(SharpHook.TaskPoolGlobalHookOptions)
-  fullName.vb: SharpHook.TaskPoolGlobalHook.New(SharpHook.TaskPoolGlobalHookOptions)
-  nameWithType: TaskPoolGlobalHook.TaskPoolGlobalHook(TaskPoolGlobalHookOptions)
-  nameWithType.vb: TaskPoolGlobalHook.New(TaskPoolGlobalHookOptions)
 - uid: SharpHook.TaskPoolGlobalHook.#ctor(System.Int32,SharpHook.GlobalHookType,SharpHook.Providers.IGlobalHookProvider,System.Boolean)
   name: TaskPoolGlobalHook(int, GlobalHookType, IGlobalHookProvider?, bool)
   href: api/SharpHook.TaskPoolGlobalHook.html#SharpHook_TaskPoolGlobalHook__ctor_System_Int32_SharpHook_GlobalHookType_SharpHook_Providers_IGlobalHookProvider_System_Boolean_
@@ -6295,78 +6277,6 @@ references:
   commentId: Overload:SharpHook.TaskPoolGlobalHook.HandleHookEvent
   fullName: SharpHook.TaskPoolGlobalHook.HandleHookEvent
   nameWithType: TaskPoolGlobalHook.HandleHookEvent
-- uid: SharpHook.TaskPoolGlobalHookOptions
-  name: TaskPoolGlobalHookOptions
-  href: api/SharpHook.TaskPoolGlobalHookOptions.html
-  commentId: T:SharpHook.TaskPoolGlobalHookOptions
-  fullName: SharpHook.TaskPoolGlobalHookOptions
-  nameWithType: TaskPoolGlobalHookOptions
-- uid: SharpHook.TaskPoolGlobalHookOptions.#ctor(System.Boolean)
-  name: TaskPoolGlobalHookOptions(bool)
-  href: api/SharpHook.TaskPoolGlobalHookOptions.html#SharpHook_TaskPoolGlobalHookOptions__ctor_System_Boolean_
-  commentId: M:SharpHook.TaskPoolGlobalHookOptions.#ctor(System.Boolean)
-  name.vb: New(Boolean)
-  fullName: SharpHook.TaskPoolGlobalHookOptions.TaskPoolGlobalHookOptions(bool)
-  fullName.vb: SharpHook.TaskPoolGlobalHookOptions.New(Boolean)
-  nameWithType: TaskPoolGlobalHookOptions.TaskPoolGlobalHookOptions(bool)
-  nameWithType.vb: TaskPoolGlobalHookOptions.New(Boolean)
-- uid: SharpHook.TaskPoolGlobalHookOptions.#ctor(System.Int32)
-  name: TaskPoolGlobalHookOptions(int)
-  href: api/SharpHook.TaskPoolGlobalHookOptions.html#SharpHook_TaskPoolGlobalHookOptions__ctor_System_Int32_
-  commentId: M:SharpHook.TaskPoolGlobalHookOptions.#ctor(System.Int32)
-  name.vb: New(Integer)
-  fullName: SharpHook.TaskPoolGlobalHookOptions.TaskPoolGlobalHookOptions(int)
-  fullName.vb: SharpHook.TaskPoolGlobalHookOptions.New(Integer)
-  nameWithType: TaskPoolGlobalHookOptions.TaskPoolGlobalHookOptions(int)
-  nameWithType.vb: TaskPoolGlobalHookOptions.New(Integer)
-- uid: SharpHook.TaskPoolGlobalHookOptions.#ctor(System.Int32,System.Boolean)
-  name: TaskPoolGlobalHookOptions(int, bool)
-  href: api/SharpHook.TaskPoolGlobalHookOptions.html#SharpHook_TaskPoolGlobalHookOptions__ctor_System_Int32_System_Boolean_
-  commentId: M:SharpHook.TaskPoolGlobalHookOptions.#ctor(System.Int32,System.Boolean)
-  name.vb: New(Integer, Boolean)
-  fullName: SharpHook.TaskPoolGlobalHookOptions.TaskPoolGlobalHookOptions(int, bool)
-  fullName.vb: SharpHook.TaskPoolGlobalHookOptions.New(Integer, Boolean)
-  nameWithType: TaskPoolGlobalHookOptions.TaskPoolGlobalHookOptions(int, bool)
-  nameWithType.vb: TaskPoolGlobalHookOptions.New(Integer, Boolean)
-- uid: SharpHook.TaskPoolGlobalHookOptions.#ctor*
-  name: TaskPoolGlobalHookOptions
-  href: api/SharpHook.TaskPoolGlobalHookOptions.html#SharpHook_TaskPoolGlobalHookOptions__ctor_
-  commentId: Overload:SharpHook.TaskPoolGlobalHookOptions.#ctor
-  name.vb: New
-  fullName: SharpHook.TaskPoolGlobalHookOptions.TaskPoolGlobalHookOptions
-  fullName.vb: SharpHook.TaskPoolGlobalHookOptions.New
-  nameWithType: TaskPoolGlobalHookOptions.TaskPoolGlobalHookOptions
-  nameWithType.vb: TaskPoolGlobalHookOptions.New
-- uid: SharpHook.TaskPoolGlobalHookOptions.ParallelismLevel
-  name: ParallelismLevel
-  href: api/SharpHook.TaskPoolGlobalHookOptions.html#SharpHook_TaskPoolGlobalHookOptions_ParallelismLevel
-  commentId: P:SharpHook.TaskPoolGlobalHookOptions.ParallelismLevel
-  fullName: SharpHook.TaskPoolGlobalHookOptions.ParallelismLevel
-  nameWithType: TaskPoolGlobalHookOptions.ParallelismLevel
-- uid: SharpHook.TaskPoolGlobalHookOptions.ParallelismLevel*
-  name: ParallelismLevel
-  href: api/SharpHook.TaskPoolGlobalHookOptions.html#SharpHook_TaskPoolGlobalHookOptions_ParallelismLevel_
-  commentId: Overload:SharpHook.TaskPoolGlobalHookOptions.ParallelismLevel
-  fullName: SharpHook.TaskPoolGlobalHookOptions.ParallelismLevel
-  nameWithType: TaskPoolGlobalHookOptions.ParallelismLevel
-- uid: SharpHook.TaskPoolGlobalHookOptions.RunAsyncOnBackgroundThread
-  name: RunAsyncOnBackgroundThread
-  href: api/SharpHook.TaskPoolGlobalHookOptions.html#SharpHook_TaskPoolGlobalHookOptions_RunAsyncOnBackgroundThread
-  commentId: P:SharpHook.TaskPoolGlobalHookOptions.RunAsyncOnBackgroundThread
-  fullName: SharpHook.TaskPoolGlobalHookOptions.RunAsyncOnBackgroundThread
-  nameWithType: TaskPoolGlobalHookOptions.RunAsyncOnBackgroundThread
-- uid: SharpHook.TaskPoolGlobalHookOptions.RunAsyncOnBackgroundThread*
-  name: RunAsyncOnBackgroundThread
-  href: api/SharpHook.TaskPoolGlobalHookOptions.html#SharpHook_TaskPoolGlobalHookOptions_RunAsyncOnBackgroundThread_
-  commentId: Overload:SharpHook.TaskPoolGlobalHookOptions.RunAsyncOnBackgroundThread
-  fullName: SharpHook.TaskPoolGlobalHookOptions.RunAsyncOnBackgroundThread
-  nameWithType: TaskPoolGlobalHookOptions.RunAsyncOnBackgroundThread
-- uid: SharpHook.TaskPoolGlobalHookOptions.Sequential
-  name: Sequential
-  href: api/SharpHook.TaskPoolGlobalHookOptions.html#SharpHook_TaskPoolGlobalHookOptions_Sequential
-  commentId: F:SharpHook.TaskPoolGlobalHookOptions.Sequential
-  fullName: SharpHook.TaskPoolGlobalHookOptions.Sequential
-  nameWithType: TaskPoolGlobalHookOptions.Sequential
 - uid: SharpHook.Testing
   name: SharpHook.Testing
   href: api/SharpHook.Testing.html

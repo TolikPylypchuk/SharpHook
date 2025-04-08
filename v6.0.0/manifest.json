@@ -743,20 +743,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.TaskPoolGlobalHookOptions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.TaskPoolGlobalHookOptions.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.TaskPoolGlobalHookOptions",
-      "Summary": "<p sourcefile=\"api/SharpHook.TaskPoolGlobalHookOptions.yml\" sourcestartlinenumber=\"1\">Represents options for <xref href=\"SharpHook.TaskPoolGlobalHook\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/SharpHook.Testing.TestGlobalHook.yml",
       "output": {
         ".html": {
