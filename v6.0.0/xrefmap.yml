@@ -787,18 +787,6 @@ references:
   fullName.vb: SharpHook.HookException.New
   nameWithType: HookException.HookException
   nameWithType.vb: HookException.New
-- uid: SharpHook.HookException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-  name: GetObjectData(SerializationInfo, StreamingContext)
-  href: api/SharpHook.HookException.html#SharpHook_HookException_GetObjectData_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_
-  commentId: M:SharpHook.HookException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-  fullName: SharpHook.HookException.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
-  nameWithType: HookException.GetObjectData(SerializationInfo, StreamingContext)
-- uid: SharpHook.HookException.GetObjectData*
-  name: GetObjectData
-  href: api/SharpHook.HookException.html#SharpHook_HookException_GetObjectData_
-  commentId: Overload:SharpHook.HookException.GetObjectData
-  fullName: SharpHook.HookException.GetObjectData
-  nameWithType: HookException.GetObjectData
 - uid: SharpHook.HookException.Result
   name: Result
   href: api/SharpHook.HookException.html#SharpHook_HookException_Result
