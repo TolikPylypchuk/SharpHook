@@ -11,9 +11,13 @@ namespace SharpHook.Native;
 /// <seealso cref="UioHookProvider" />
 #if NET5_0_OR_GREATER
 [SuppressMessage(
+    "CodeQuality",
+    "IDE0079:Remove unnecessary suppression",
+    Justification = "Suppressing CA1401 is necessary")]
+[SuppressMessage(
     "Interoperability",
     "CA1401:P/Invokes should not be visible",
-    Justification = "These methods are the whole point of the project")]
+    Justification = "These methods are the whole point of the library")]
 #endif
 [ExcludeFromCodeCoverage]
 public static partial class UioHook
