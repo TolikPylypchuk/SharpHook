@@ -1877,18 +1877,6 @@
             <summary>Print Screen</summary>
             <remarks>Available on: Windows, Linux</remarks>
         </member>
-        <member name="F:SharpHook.Native.KeyCode.VcPrint">
-            <summary>Print</summary>
-            <remarks>Available on: Windows, Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcSelect">
-            <summary>Select</summary>
-            <remarks>Available on: Windows</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcExecute">
-            <summary>Execute</summary>
-            <remarks>Available on: Windows</remarks>
-        </member>
         <member name="F:SharpHook.Native.KeyCode.VcScrollLock">
             <summary>Scroll Lock</summary>
             <remarks>Available on: Windows, Linux</remarks>
@@ -1987,10 +1975,6 @@
             <summary>Num-Pad Separator</summary>
             <remarks>Available on: Windows, Linux</remarks>
         </member>
-        <member name="F:SharpHook.Native.KeyCode.VcNumPadPlusMinus">
-            <summary>Num-Pad ±</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
         <member name="F:SharpHook.Native.KeyCode.VcNumPad0">
             <summary>Num-Pad 0</summary>
             <remarks>Available on: Windows, macOS, Linux</remarks>
@@ -2030,14 +2014,6 @@
         <member name="F:SharpHook.Native.KeyCode.VcNumPad9">
             <summary>Num-Pad 9</summary>
             <remarks>Available on: Windows, macOS, Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcNumPadOpenParenthesis">
-            <summary>Num-Pad (</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcNumPadCloseParenthesis">
-            <summary>Num-Pad )</summary>
-            <remarks>Available on: Linux</remarks>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcLeftShift">
             <summary>Left Shift</summary>
@@ -2101,14 +2077,6 @@
             <summary>Sleep</summary>
             <remarks>Available on: Windows, Linux</remarks>
         </member>
-        <member name="F:SharpHook.Native.KeyCode.VcWake">
-            <summary>Wake</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcMedia">
-            <summary>Media</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
         <member name="F:SharpHook.Native.KeyCode.VcMediaPlay">
             <summary>Play/Pause Media</summary>
             <remarks>Available on: Windows, macOS, Linux</remarks>
@@ -2133,22 +2101,6 @@
             <summary>Eject Media</summary>
             <remarks>Available on: macOS, Linux</remarks>
         </member>
-        <member name="F:SharpHook.Native.KeyCode.VcMediaClose">
-            <summary>Close Media</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcMediaEjectClose">
-            <summary>Eject/Close Media</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcMediaRecord">
-            <summary>Record Media</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcMediaRewind">
-            <summary>Rewind Media</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
         <member name="F:SharpHook.Native.KeyCode.VcVolumeMute">
             <summary>Volume Mute</summary>
             <remarks>Available on: Windows, macOS, Linux</remarks>
@@ -2160,38 +2112,6 @@
         <member name="F:SharpHook.Native.KeyCode.VcVolumeUp">
             <summary>Volume Up</summary>
             <remarks>Available on: Windows, macOS, Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcAttn">
-            <summary>Attn</summary>
-            <remarks>Available on: Windows</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcCrSel">
-            <summary>CrSel</summary>
-            <remarks>Available on: Windows</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcExSel">
-            <summary>ExSel</summary>
-            <remarks>Available on: Windows</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcEraseEof">
-            <summary>Erase EOF</summary>
-            <remarks>Available on: Windows</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcPlay">
-            <summary>Play</summary>
-            <remarks>Available on: Windows, Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcZoom">
-            <summary>Zoom</summary>
-            <remarks>Available on: Windows</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcNoName">
-            <summary>Reserved for future use</summary>
-            <remarks>Available on: Windows</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcPa1">
-            <summary>PA1</summary>
-            <remarks>Available on: Windows</remarks>
         </member>
         <member name="F:SharpHook.Native.KeyCode.VcApp1">
             <summary>Launch app 1</summary>
@@ -2328,298 +2248,6 @@
         <member name="F:SharpHook.Native.KeyCode.VcJpComma">
             <summary>JP Comma</summary>
             <remarks>Available on: macOS, Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcStop">
-            <summary>Stop</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcProps">
-            <summary>Props</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcFront">
-            <summary>Front</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcOpen">
-            <summary>Open</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcFind">
-            <summary>Find</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcAgain">
-            <summary>Again</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcUndo">
-            <summary>Undo</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcRedo">
-            <summary>Redo</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcCopy">
-            <summary>Copy</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcPaste">
-            <summary>Paste</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcCut">
-            <summary>Cut</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcLineFeed">
-            <summary>Line Feed</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcMacro">
-            <summary>Macro</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcScale">
-            <summary>Scale</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcSetup">
-            <summary>Setup</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcFile">
-            <summary>File</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcSendFile">
-            <summary>Send File</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcDeleteFile">
-            <summary>Delete File</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcMsDos">
-            <summary>MS DOS</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcLock">
-            <summary>Lock</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcRotateDisplay">
-            <summary>Rotate Display</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcCycleWindows">
-            <summary>Cycle Windows</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcComputer">
-            <summary>Computer</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcPhone">
-            <summary>Phone</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcIso">
-            <summary>ISO</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcConfig">
-            <summary>Config</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcExit">
-            <summary>Exit</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcMove">
-            <summary>Move</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcEdit">
-            <summary>Edit</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcScrollUp">
-            <summary>Scroll Up</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcScrollDown">
-            <summary>Scroll Down</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcNew">
-            <summary>New</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcPlayCd">
-            <summary>Play CD</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcPauseCd">
-            <summary>Pause CD</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcDashboard">
-            <summary>Dashboard</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcSuspend">
-            <summary>Suspend</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcClose">
-            <summary>Close</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcFastForward">
-            <summary>Fast-Forward</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcBassBoost">
-            <summary>Bass Boost</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcHp">
-            <summary>HP</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcCamera">
-            <summary>Camera</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcSound">
-            <summary>Sound</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcQuestion">
-            <summary>Question</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcEmail">
-            <summary>Email</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcChat">
-            <summary>Chat</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcConnect">
-            <summary>Connect</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcFinance">
-            <summary>Finance</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcSport">
-            <summary>Sport</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcShop">
-            <summary>Shop</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcAltErase">
-            <summary>Alt Erase</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcBrightnessDown">
-            <summary>Brightness Down</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcBrightnessUp">
-            <summary>Brightness Up</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcBrightnesCycle">
-            <summary>Brightness Cycle</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcBrightnessAuto">
-            <summary>Brightness Auto</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcSwitchVideoMode">
-            <summary>Switch Video Mode</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcKeyboardLightToggle">
-            <summary>Keyboard Light Toggle</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcKeyboardLightDown">
-            <summary>Keyboard Light Down</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcKeyboardLightUp">
-            <summary>Keyboard Light Up</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcSend">
-            <summary>Send</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcReply">
-            <summary>Reply</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcForwardMail">
-            <summary>Forward Mail</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcSave">
-            <summary>Save</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcDocuments">
-            <summary>Documents</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcBattery">
-            <summary>Battery</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcBluetooth">
-            <summary>Bluetooth</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcWlan">
-            <summary>WLAN</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcUwb">
-            <summary>UWB</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcX11Unknown">
-            <summary>Unknown key (X11)</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcVideoNext">
-            <summary>Next Video</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcVideoPrevious">
-            <summary>Previous Video</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcDisplayOff">
-            <summary>Display Off</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcWwan">
-            <summary>WWAN</summary>
-            <remarks>Available on: Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Native.KeyCode.VcRfKill">
-            <summary>RfKill</summary>
-            <remarks>Available on: Linux</remarks>
         </member>
         <member name="T:SharpHook.Native.LoggerProc">
             <summary>
