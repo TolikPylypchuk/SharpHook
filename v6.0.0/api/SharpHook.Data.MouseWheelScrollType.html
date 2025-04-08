@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-      <title>Enum UioHookResult | SharpHook </title>
+      <title>Enum MouseWheelScrollType | SharpHook </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Enum UioHookResult | SharpHook ">
+      <meta name="title" content="Enum MouseWheelScrollType | SharpHook ">
       
-      <meta name="description" content="Represents a result of an operation of libuiohook.">
+      <meta name="description" content="Represents a mouse wheel scroll type.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -84,26 +84,26 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="SharpHook.Native.UioHookResult">
+        <article data-uid="SharpHook.Data.MouseWheelScrollType">
 
 
 
 
-  <h1 id="SharpHook_Native_UioHookResult" data-uid="SharpHook.Native.UioHookResult" class="text-break">
-Enum UioHookResult  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Native/UioHookResult.cs"><i class="bi bi-code-slash"></i></a>
+  <h1 id="SharpHook_Data_MouseWheelScrollType" data-uid="SharpHook.Data.MouseWheelScrollType" class="text-break">
+Enum MouseWheelScrollType  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/MouseWheelScrollType.cs"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="SharpHook.html">SharpHook</a>.<a class="xref" href="SharpHook.Native.html">Native</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SharpHook.html">SharpHook</a>.<a class="xref" href="SharpHook.Data.html">Data</a></dd></dl>
   <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Represents a result of an operation of libuiohook.</p>
+  <div class="markdown summary"><p>Represents a mouse wheel scroll type.</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public enum UioHookResult</code></pre>
+    <pre><code class="lang-csharp hljs">public enum MouseWheelScrollType : byte</code></pre>
   </div>
 
 
@@ -117,77 +117,13 @@ Enum UioHookResult  <a class="header-action link-secondary" title="View source" 
   <h2 id="fields">Fields
 </h2>
   <dl class="parameters">
-    <dt id="SharpHook_Native_UioHookResult_ErrorAxApiDisabled"><code>ErrorAxApiDisabled = 64</code></dt>
+    <dt id="SharpHook_Data_MouseWheelScrollType_BlockScroll"><code>BlockScroll = 2</code></dt>
   
-  <dd><p>Accessibility API is disabled for the process (macOS)</p>
+  <dd><p>The page scroll type on Windows, and the line scroll type on macOS. Not available on Linux.</p>
 </dd>
-    <dt id="SharpHook_Native_UioHookResult_ErrorCreateEventPort"><code>ErrorCreateEventPort = 65</code></dt>
+    <dt id="SharpHook_Data_MouseWheelScrollType_UnitScroll"><code>UnitScroll = 1</code></dt>
   
-  <dd><p>Failed to create an event port (macOS)</p>
-</dd>
-    <dt id="SharpHook_Native_UioHookResult_ErrorCreateInvisibleWindow"><code>ErrorCreateInvisibleWindow = 50</code></dt>
-  
-  <dd><p>Couldn't create an invisible window which will listen to screen changes (Windows)</p>
-</dd>
-    <dt id="SharpHook_Native_UioHookResult_ErrorCreateObserver"><code>ErrorCreateObserver = 68</code></dt>
-  
-  <dd><p>CFRunLoopObserverCreate failed (macOS)</p>
-</dd>
-    <dt id="SharpHook_Native_UioHookResult_ErrorCreateRunLoopSource"><code>ErrorCreateRunLoopSource = 66</code></dt>
-  
-  <dd><p>CFRunLoopSourceCreate or CFMachPortCreateRunLoopSource failed (macOS)</p>
-</dd>
-    <dt id="SharpHook_Native_UioHookResult_ErrorGetModuleHandle"><code>ErrorGetModuleHandle = 49</code></dt>
-  
-  <dd><p>Couldn't get a module handle for SetWindowsHookEx (Windows)</p>
-</dd>
-    <dt id="SharpHook_Native_UioHookResult_ErrorGetRunLoop"><code>ErrorGetRunLoop = 67</code></dt>
-  
-  <dd><p>CFRunLoopGetCurrent failed (macOS)</p>
-</dd>
-    <dt id="SharpHook_Native_UioHookResult_ErrorOutOfMemory"><code>ErrorOutOfMemory = 2</code></dt>
-  
-  <dd><p>Out of memory</p>
-</dd>
-    <dt id="SharpHook_Native_UioHookResult_ErrorPostTextNull"><code>ErrorPostTextNull = 3</code></dt>
-  
-  <dd><p>A <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> string was passed to <a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_PostText_System_String_">PostText(string)</a>.</p>
-</dd>
-    <dt id="SharpHook_Native_UioHookResult_ErrorSetWindowsHookEx"><code>ErrorSetWindowsHookEx = 48</code></dt>
-  
-  <dd><p>SetWindowsHookEx failed (Windows)</p>
-</dd>
-    <dt id="SharpHook_Native_UioHookResult_ErrorXOpenDisplay"><code>ErrorXOpenDisplay = 32</code></dt>
-  
-  <dd><p>XOpenDisplay failed (X11)</p>
-</dd>
-    <dt id="SharpHook_Native_UioHookResult_ErrorXRecordAllocRange"><code>ErrorXRecordAllocRange = 34</code></dt>
-  
-  <dd><p>XRecordAllocRange failed (X11)</p>
-</dd>
-    <dt id="SharpHook_Native_UioHookResult_ErrorXRecordCreateContext"><code>ErrorXRecordCreateContext = 35</code></dt>
-  
-  <dd><p>XRecordCreateContext failed (X11)</p>
-</dd>
-    <dt id="SharpHook_Native_UioHookResult_ErrorXRecordEnableContext"><code>ErrorXRecordEnableContext = 36</code></dt>
-  
-  <dd><p>XRecordEnableContext failed (X11)</p>
-</dd>
-    <dt id="SharpHook_Native_UioHookResult_ErrorXRecordGetContext"><code>ErrorXRecordGetContext = 37</code></dt>
-  
-  <dd><p>XRecordGetContext failed (X11)</p>
-</dd>
-    <dt id="SharpHook_Native_UioHookResult_ErrorXRecordNotFound"><code>ErrorXRecordNotFound = 33</code></dt>
-  
-  <dd><p>XRecord not found (X11)</p>
-</dd>
-    <dt id="SharpHook_Native_UioHookResult_Failure"><code>Failure = 1</code></dt>
-  
-  <dd><p>Failure</p>
-</dd>
-    <dt id="SharpHook_Native_UioHookResult_Success"><code>Success = 0</code></dt>
-  
-  <dd><p>Success</p>
+  <dd><p>The default scroll type on Windows and Linux, and the pixel scroll type on macOS.</p>
 </dd>
   </dl>
 
@@ -195,12 +131,12 @@ Enum UioHookResult  <a class="header-action link-secondary" title="View source" 
 
   <h2 id="seealso">See Also</h2>
   <div class="seealso">
-      <div><a class="xref" href="SharpHook.Native.UioHook.html">UioHook</a></div>
+      <div><a class="xref" href="SharpHook.Data.MouseWheelEventData.html">MouseWheelEventData</a></div>
   </div>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Native/UioHookResult.cs" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/MouseWheelScrollType.cs" class="edit-link">Edit this page</a>
         </div>
 
 

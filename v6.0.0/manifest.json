@@ -15,6 +15,230 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Data.EventMask.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Data.EventMask.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Data.EventMask",
+      "Summary": "<p sourcefile=\"api/SharpHook.Data.EventMask.yml\" sourcestartlinenumber=\"1\">Represents the mask of a <xref href=\"SharpHook.Data.UioHookEvent\" data-throw-if-not-resolved=\"false\"></xref> and contains modifiers and other information.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Data.EventMaskExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Data.EventMaskExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Data.EventMaskExtensions",
+      "Summary": "<p sourcefile=\"api/SharpHook.Data.EventMaskExtensions.yml\" sourcestartlinenumber=\"1\">Contains extension methods for <xref href=\"SharpHook.Data.EventMask\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Data.EventType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Data.EventType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Data.EventType",
+      "Summary": "<p sourcefile=\"api/SharpHook.Data.EventType.yml\" sourcestartlinenumber=\"1\">Represents the type of an input event which can be raised from a global hook or posted as a fake event.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Data.GlobalHookType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Data.GlobalHookType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Data.GlobalHookType",
+      "Summary": "<p sourcefile=\"api/SharpHook.Data.GlobalHookType.yml\" sourcestartlinenumber=\"1\">Represents a global hook type - keyboard hook, mouse hook, or both.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Data.KeyCode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Data.KeyCode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Data.KeyCode",
+      "Summary": "<p sourcefile=\"api/SharpHook.Data.KeyCode.yml\" sourcestartlinenumber=\"1\">Represents a virtual key code.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Data.KeyboardEventData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Data.KeyboardEventData.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Data.KeyboardEventData",
+      "Summary": "<p sourcefile=\"api/SharpHook.Data.KeyboardEventData.yml\" sourcestartlinenumber=\"1\">Represents the data of a keyboard-related event.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Data.LogLevel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Data.LogLevel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Data.LogLevel",
+      "Summary": "<p sourcefile=\"api/SharpHook.Data.LogLevel.yml\" sourcestartlinenumber=\"1\">Represents a log level.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Data.MouseButton.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Data.MouseButton.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Data.MouseButton",
+      "Summary": "<p sourcefile=\"api/SharpHook.Data.MouseButton.yml\" sourcestartlinenumber=\"1\">Represents a mouse button.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Data.MouseEventData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Data.MouseEventData.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Data.MouseEventData",
+      "Summary": "<p sourcefile=\"api/SharpHook.Data.MouseEventData.yml\" sourcestartlinenumber=\"1\">Represents the data of a mouse-related event.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Data.MouseWheelEventData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Data.MouseWheelEventData.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Data.MouseWheelEventData",
+      "Summary": "<p sourcefile=\"api/SharpHook.Data.MouseWheelEventData.yml\" sourcestartlinenumber=\"1\">Represents the data of a mouse wheel-related event.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Data.MouseWheelScrollDirection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Data.MouseWheelScrollDirection.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Data.MouseWheelScrollDirection",
+      "Summary": "<p sourcefile=\"api/SharpHook.Data.MouseWheelScrollDirection.yml\" sourcestartlinenumber=\"1\">Represents a mouse wheel scroll direction.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Data.MouseWheelScrollType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Data.MouseWheelScrollType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Data.MouseWheelScrollType",
+      "Summary": "<p sourcefile=\"api/SharpHook.Data.MouseWheelScrollType.yml\" sourcestartlinenumber=\"1\">Represents a mouse wheel scroll type.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Data.ScreenData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Data.ScreenData.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Data.ScreenData",
+      "Summary": "<p sourcefile=\"api/SharpHook.Data.ScreenData.yml\" sourcestartlinenumber=\"1\">Represents screen-related data.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Data.UioHookEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Data.UioHookEvent.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Data.UioHookEvent",
+      "Summary": "<p sourcefile=\"api/SharpHook.Data.UioHookEvent.yml\" sourcestartlinenumber=\"1\">Represents an event which can be raised by libuiohook.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Data.UioHookResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Data.UioHookResult.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Data.UioHookResult",
+      "Summary": "<p sourcefile=\"api/SharpHook.Data.UioHookResult.yml\" sourcestartlinenumber=\"1\">Represents a result of an operation of libuiohook.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Data.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Data",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SharpHook.EventSimulator.yml",
       "output": {
         ".html": {
@@ -40,20 +264,6 @@
       "IsMRef": true,
       "Title": "SharpHook.GlobalHookBase",
       "Summary": "<p sourcefile=\"api/SharpHook.GlobalHookBase.yml\" sourcestartlinenumber=\"1\">Represents an abstract implementation of <xref href=\"SharpHook.IGlobalHook\" data-throw-if-not-resolved=\"false\"></xref> which defines everything needed except for\na strategy for dispatching events and uses a global hook provider (libuiohook by default).</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.GlobalHookType.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.GlobalHookType.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.GlobalHookType",
-      "Summary": "<p sourcefile=\"api/SharpHook.GlobalHookType.yml\" sourcestartlinenumber=\"1\">Represents a global hook type - keyboard hook, mouse hook, or both.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -267,90 +477,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Native.EventMask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.Native.EventMask.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.Native.EventMask",
-      "Summary": "<p sourcefile=\"api/SharpHook.Native.EventMask.yml\" sourcestartlinenumber=\"1\">Represents the mask of a <xref href=\"SharpHook.Native.UioHookEvent\" data-throw-if-not-resolved=\"false\"></xref> and contains modifiers and other information.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Native.EventMaskExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.Native.EventMaskExtensions.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.Native.EventMaskExtensions",
-      "Summary": "<p sourcefile=\"api/SharpHook.Native.EventMaskExtensions.yml\" sourcestartlinenumber=\"1\">Contains extension methods for <xref href=\"SharpHook.Native.EventMask\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Native.EventType.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.Native.EventType.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.Native.EventType",
-      "Summary": "<p sourcefile=\"api/SharpHook.Native.EventType.yml\" sourcestartlinenumber=\"1\">Represents the type of an input event which can be raised from a global hook or posted as a fake event.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Native.KeyCode.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.Native.KeyCode.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.Native.KeyCode",
-      "Summary": "<p sourcefile=\"api/SharpHook.Native.KeyCode.yml\" sourcestartlinenumber=\"1\">Represents a virtual key code.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Native.KeyboardEventData.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.Native.KeyboardEventData.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.Native.KeyboardEventData",
-      "Summary": "<p sourcefile=\"api/SharpHook.Native.KeyboardEventData.yml\" sourcestartlinenumber=\"1\">Represents the data of a keyboard-related event.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Native.LogLevel.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.Native.LogLevel.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.Native.LogLevel",
-      "Summary": "<p sourcefile=\"api/SharpHook.Native.LogLevel.yml\" sourcestartlinenumber=\"1\">Represents a log level.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/SharpHook.Native.LoggerProc.yml",
       "output": {
         ".html": {
@@ -365,90 +491,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Native.MouseButton.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.Native.MouseButton.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.Native.MouseButton",
-      "Summary": "<p sourcefile=\"api/SharpHook.Native.MouseButton.yml\" sourcestartlinenumber=\"1\">Represents a mouse button.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Native.MouseEventData.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.Native.MouseEventData.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.Native.MouseEventData",
-      "Summary": "<p sourcefile=\"api/SharpHook.Native.MouseEventData.yml\" sourcestartlinenumber=\"1\">Represents the data of a mouse-related event.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Native.MouseWheelEventData.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.Native.MouseWheelEventData.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.Native.MouseWheelEventData",
-      "Summary": "<p sourcefile=\"api/SharpHook.Native.MouseWheelEventData.yml\" sourcestartlinenumber=\"1\">Represents the data of a mouse wheel-related event.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Native.MouseWheelScrollDirection.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.Native.MouseWheelScrollDirection.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.Native.MouseWheelScrollDirection",
-      "Summary": "<p sourcefile=\"api/SharpHook.Native.MouseWheelScrollDirection.yml\" sourcestartlinenumber=\"1\">Represents a mouse wheel scroll direction.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Native.MouseWheelScrollType.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.Native.MouseWheelScrollType.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.Native.MouseWheelScrollType",
-      "Summary": "<p sourcefile=\"api/SharpHook.Native.MouseWheelScrollType.yml\" sourcestartlinenumber=\"1\">Represents a mouse wheel scroll type.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Native.ScreenData.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.Native.ScreenData.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.Native.ScreenData",
-      "Summary": "<p sourcefile=\"api/SharpHook.Native.ScreenData.yml\" sourcestartlinenumber=\"1\">Represents screen-related data.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/SharpHook.Native.UioHook.yml",
       "output": {
         ".html": {
@@ -460,34 +502,6 @@
       "IsMRef": true,
       "Title": "SharpHook.Native.UioHook",
       "Summary": "<p sourcefile=\"api/SharpHook.Native.UioHook.yml\" sourcestartlinenumber=\"1\">Contains native methods of libuiohook.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Native.UioHookEvent.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.Native.UioHookEvent.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.Native.UioHookEvent",
-      "Summary": "<p sourcefile=\"api/SharpHook.Native.UioHookEvent.yml\" sourcestartlinenumber=\"1\">Represents an event which can be raised by libuiohook.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Native.UioHookResult.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.Native.UioHookResult.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.Native.UioHookResult",
-      "Summary": "<p sourcefile=\"api/SharpHook.Native.UioHookResult.yml\" sourcestartlinenumber=\"1\">Represents a result of an operation of libuiohook.</p>\n"
     },
     {
       "type": "ManagedReference",

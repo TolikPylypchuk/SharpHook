@@ -214,7 +214,7 @@ Class UioHookProvider  <a class="header-action link-secondary" title="View sourc
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="SharpHook.Native.ScreenData.html">ScreenData</a>[]</dt>
+    <dt><a class="xref" href="SharpHook.Data.ScreenData.html">ScreenData</a>[]</dt>
     <dd><p>The information about screens.</p>
 </dd>
   </dl>
@@ -476,7 +476,7 @@ On Windows and macOS this method always returns <code>0</code>.
 
   <a id="SharpHook_Providers_UioHookProvider_PostEvent_" data-uid="SharpHook.Providers.UioHookProvider.PostEvent*"></a>
 
-  <h3 id="SharpHook_Providers_UioHookProvider_PostEvent_SharpHook_Native_UioHookEvent__" data-uid="SharpHook.Providers.UioHookProvider.PostEvent(SharpHook.Native.UioHookEvent@)">
+  <h3 id="SharpHook_Providers_UioHookProvider_PostEvent_SharpHook_Data_UioHookEvent__" data-uid="SharpHook.Providers.UioHookProvider.PostEvent(SharpHook.Data.UioHookEvent@)">
   PostEvent(ref UioHookEvent)
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Providers/UioHookProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
@@ -491,14 +491,14 @@ On Windows and macOS this method always returns <code>0</code>.
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>e</code> <a class="xref" href="SharpHook.Native.UioHookEvent.html">UioHookEvent</a></dt>
+    <dt><code>e</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></dt>
     <dd><p>The event to post.</p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></dt>
+    <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
     <dd><p>The result of the operation.</p>
 </dd>
   </dl>
@@ -509,23 +509,23 @@ On Windows and macOS this method always returns <code>0</code>.
 
 
 
-  <h4 class="section" id="SharpHook_Providers_UioHookProvider_PostEvent_SharpHook_Native_UioHookEvent___remarks">Remarks</h4>
+  <h4 class="section" id="SharpHook_Providers_UioHookProvider_PostEvent_SharpHook_Data_UioHookEvent___remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-The instance of the event doesn't need all fields to have value. Only <a class="xref" href="SharpHook.Native.UioHookEvent.html#SharpHook_Native_UioHookEvent_Type">Type</a>,
-<a class="xref" href="SharpHook.Native.UioHookEvent.html#SharpHook_Native_UioHookEvent_Keyboard">Keyboard</a>/<a class="xref" href="SharpHook.Native.UioHookEvent.html#SharpHook_Native_UioHookEvent_Mouse">Mouse</a>/<a class="xref" href="SharpHook.Native.UioHookEvent.html#SharpHook_Native_UioHookEvent_Wheel">Wheel</a> should
+The instance of the event doesn't need all fields to have value. Only <a class="xref" href="SharpHook.Data.UioHookEvent.html#SharpHook_Data_UioHookEvent_Type">Type</a>,
+<a class="xref" href="SharpHook.Data.UioHookEvent.html#SharpHook_Data_UioHookEvent_Keyboard">Keyboard</a>/<a class="xref" href="SharpHook.Data.UioHookEvent.html#SharpHook_Data_UioHookEvent_Mouse">Mouse</a>/<a class="xref" href="SharpHook.Data.UioHookEvent.html#SharpHook_Data_UioHookEvent_Wheel">Wheel</a> should
 be present.
 </p>
 <p>
 The following table describes the specifics of simulating each event type.
-<table><thead><tr><th class="term">Event type</th><th class="term">Description</th></tr></thead><tbody><tr><td class="term"><a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_HookEnabled">HookEnabled</a></td><td class="term">Events of this type are ignored.</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_HookDisabled">HookDisabled</a></td><td class="term">Events of this type are ignored.</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_KeyPressed">KeyPressed</a></td><td class="term">Only <a class="xref" href="SharpHook.Native.KeyboardEventData.html#SharpHook_Native_KeyboardEventData_KeyCode">KeyCode</a> is considered.</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_KeyReleased">KeyReleased</a></td><td class="term">Only <a class="xref" href="SharpHook.Native.KeyboardEventData.html#SharpHook_Native_KeyboardEventData_KeyCode">KeyCode</a> is considered.</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_KeyTyped">KeyTyped</a></td><td class="term">Events of this type are ignored.</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MousePressed">MousePressed</a></td><td class="term">
-Only <a class="xref" href="SharpHook.Native.MouseWheelEventData.html#SharpHook_Native_MouseWheelEventData_X">X</a>, <a class="xref" href="SharpHook.Native.MouseWheelEventData.html#SharpHook_Native_MouseWheelEventData_Y">Y</a>,
-and <a class="xref" href="SharpHook.Native.MouseEventData.html#SharpHook_Native_MouseEventData_Button">Button</a> are considered.
-</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseReleased">MouseReleased</a></td><td class="term">
-Only <a class="xref" href="SharpHook.Native.MouseWheelEventData.html#SharpHook_Native_MouseWheelEventData_X">X</a>, <a class="xref" href="SharpHook.Native.MouseWheelEventData.html#SharpHook_Native_MouseWheelEventData_Y">Y</a>,
-and <a class="xref" href="SharpHook.Native.MouseEventData.html#SharpHook_Native_MouseEventData_Button">Button</a> are considered.
-</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseClicked">MouseClicked</a></td><td class="term">Events of this type are ignored.</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseMoved">MouseMoved</a></td><td class="term">Only <a class="xref" href="SharpHook.Native.MouseEventData.html#SharpHook_Native_MouseEventData_X">X</a> and <a class="xref" href="SharpHook.Native.MouseEventData.html#SharpHook_Native_MouseEventData_Y">Y</a> are considered.</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseDragged">MouseDragged</a></td><td class="term">Not recommended to use; same as <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseMoved">MouseMoved</a>.</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseWheel">MouseWheel</a></td><td class="term">
-Only <a class="xref" href="SharpHook.Native.MouseWheelEventData.html#SharpHook_Native_MouseWheelEventData_Rotation">Rotation</a>, <a class="xref" href="SharpHook.Native.MouseWheelEventData.html#SharpHook_Native_MouseWheelEventData_Direction">Direction</a>, and
-<a class="xref" href="SharpHook.Native.MouseWheelEventData.html#SharpHook_Native_MouseWheelEventData_Type">Type</a> are considered.
+<table><thead><tr><th class="term">Event type</th><th class="term">Description</th></tr></thead><tbody><tr><td class="term"><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_HookEnabled">HookEnabled</a></td><td class="term">Events of this type are ignored.</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_HookDisabled">HookDisabled</a></td><td class="term">Events of this type are ignored.</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyPressed">KeyPressed</a></td><td class="term">Only <a class="xref" href="SharpHook.Data.KeyboardEventData.html#SharpHook_Data_KeyboardEventData_KeyCode">KeyCode</a> is considered.</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyReleased">KeyReleased</a></td><td class="term">Only <a class="xref" href="SharpHook.Data.KeyboardEventData.html#SharpHook_Data_KeyboardEventData_KeyCode">KeyCode</a> is considered.</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a></td><td class="term">Events of this type are ignored.</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MousePressed">MousePressed</a></td><td class="term">
+Only <a class="xref" href="SharpHook.Data.MouseWheelEventData.html#SharpHook_Data_MouseWheelEventData_X">X</a>, <a class="xref" href="SharpHook.Data.MouseWheelEventData.html#SharpHook_Data_MouseWheelEventData_Y">Y</a>,
+and <a class="xref" href="SharpHook.Data.MouseEventData.html#SharpHook_Data_MouseEventData_Button">Button</a> are considered.
+</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseReleased">MouseReleased</a></td><td class="term">
+Only <a class="xref" href="SharpHook.Data.MouseWheelEventData.html#SharpHook_Data_MouseWheelEventData_X">X</a>, <a class="xref" href="SharpHook.Data.MouseWheelEventData.html#SharpHook_Data_MouseWheelEventData_Y">Y</a>,
+and <a class="xref" href="SharpHook.Data.MouseEventData.html#SharpHook_Data_MouseEventData_Button">Button</a> are considered.
+</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseClicked">MouseClicked</a></td><td class="term">Events of this type are ignored.</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseMoved">MouseMoved</a></td><td class="term">Only <a class="xref" href="SharpHook.Data.MouseEventData.html#SharpHook_Data_MouseEventData_X">X</a> and <a class="xref" href="SharpHook.Data.MouseEventData.html#SharpHook_Data_MouseEventData_Y">Y</a> are considered.</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseDragged">MouseDragged</a></td><td class="term">Not recommended to use; same as <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseMoved">MouseMoved</a>.</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseWheel">MouseWheel</a></td><td class="term">
+Only <a class="xref" href="SharpHook.Data.MouseWheelEventData.html#SharpHook_Data_MouseWheelEventData_Rotation">Rotation</a>, <a class="xref" href="SharpHook.Data.MouseWheelEventData.html#SharpHook_Data_MouseWheelEventData_Direction">Direction</a>, and
+<a class="xref" href="SharpHook.Data.MouseWheelEventData.html#SharpHook_Data_MouseWheelEventData_Type">Type</a> are considered.
 </td></tr></tbody></table>
 
 </div>
@@ -557,7 +557,7 @@ Only <a class="xref" href="SharpHook.Native.MouseWheelEventData.html#SharpHook_N
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></dt>
+    <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
     <dd><p>The result of the operation.</p>
 </dd>
   </dl>
@@ -611,7 +611,7 @@ end users. <a class="xref" href="SharpHook.Providers.UioHookProvider.html#SharpH
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></dt>
+    <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
     <dd><p>The result of the operation.</p>
 </dd>
   </dl>
@@ -644,7 +644,7 @@ end users. <a class="xref" href="SharpHook.Providers.UioHookProvider.html#SharpH
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></dt>
+    <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
     <dd><p>The result of the operation.</p>
 </dd>
   </dl>
@@ -682,7 +682,7 @@ out at the libuiohook level on these OSes.</p>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></dt>
+    <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
     <dd><p>The result of the operation.</p>
 </dd>
   </dl>
@@ -851,7 +851,7 @@ On Windows and macOS this method does nothing.
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="SharpHook.Native.UioHookResult.html">UioHookResult</a></dt>
+    <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
     <dd><p>The result of the operation.</p>
 </dd>
   </dl>

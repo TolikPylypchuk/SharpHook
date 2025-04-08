@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-      <title>Enum MouseWheelScrollType | SharpHook </title>
+      <title>Namespace SharpHook.Data | SharpHook </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Enum MouseWheelScrollType | SharpHook ">
+      <meta name="title" content="Namespace SharpHook.Data | SharpHook ">
       
-      <meta name="description" content="Represents a mouse wheel scroll type.">
+      
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -84,59 +84,102 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="SharpHook.Native.MouseWheelScrollType">
+        <article data-uid="SharpHook.Data">
 
+  <h1 id="SharpHook_Data" data-uid="SharpHook.Data" class="text-break">Namespace SharpHook.Data</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
 
-
-
-  <h1 id="SharpHook_Native_MouseWheelScrollType" data-uid="SharpHook.Native.MouseWheelScrollType" class="text-break">
-Enum MouseWheelScrollType  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Native/MouseWheelScrollType.cs"><i class="bi bi-code-slash"></i></a>
-  </h1>
-
-  <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="SharpHook.html">SharpHook</a>.<a class="xref" href="SharpHook.Native.html">Native</a></dd></dl>
-  <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
-  </div>
-
-  <div class="markdown summary"><p>Represents a mouse wheel scroll type.</p>
-</div>
-  <div class="markdown conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public enum MouseWheelScrollType : byte</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-  <h2 id="fields">Fields
-</h2>
-  <dl class="parameters">
-    <dt id="SharpHook_Native_MouseWheelScrollType_BlockScroll"><code>BlockScroll = 2</code></dt>
-  
-  <dd><p>The page scroll type on Windows, and the line scroll type on macOS. Not available on Linux.</p>
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SharpHook.Data.EventMaskExtensions.html">EventMaskExtensions</a></dt>
+      <dd><p>Contains extension methods for <a class="xref" href="SharpHook.Data.EventMask.html">EventMask</a>.</p>
 </dd>
-    <dt id="SharpHook_Native_MouseWheelScrollType_UnitScroll"><code>UnitScroll = 1</code></dt>
-  
-  <dd><p>The default scroll type on Windows and Linux, and the pixel scroll type on macOS.</p>
+    </dl>
+    <h3 id="structs">
+Structs
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SharpHook.Data.KeyboardEventData.html">KeyboardEventData</a></dt>
+      <dd><p>Represents the data of a keyboard-related event.</p>
 </dd>
-  </dl>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SharpHook.Data.MouseEventData.html">MouseEventData</a></dt>
+      <dd><p>Represents the data of a mouse-related event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SharpHook.Data.MouseWheelEventData.html">MouseWheelEventData</a></dt>
+      <dd><p>Represents the data of a mouse wheel-related event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SharpHook.Data.ScreenData.html">ScreenData</a></dt>
+      <dd><p>Represents screen-related data.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></dt>
+      <dd><p>Represents an event which can be raised by libuiohook.</p>
+</dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SharpHook.Data.EventMask.html">EventMask</a></dt>
+      <dd><p>Represents the mask of a <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a> and contains modifiers and other information.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SharpHook.Data.EventType.html">EventType</a></dt>
+      <dd><p>Represents the type of an input event which can be raised from a global hook or posted as a fake event.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SharpHook.Data.GlobalHookType.html">GlobalHookType</a></dt>
+      <dd><p>Represents a global hook type - keyboard hook, mouse hook, or both.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SharpHook.Data.KeyCode.html">KeyCode</a></dt>
+      <dd><p>Represents a virtual key code.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SharpHook.Data.LogLevel.html">LogLevel</a></dt>
+      <dd><p>Represents a log level.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SharpHook.Data.MouseButton.html">MouseButton</a></dt>
+      <dd><p>Represents a mouse button.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SharpHook.Data.MouseWheelScrollDirection.html">MouseWheelScrollDirection</a></dt>
+      <dd><p>Represents a mouse wheel scroll direction.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SharpHook.Data.MouseWheelScrollType.html">MouseWheelScrollType</a></dt>
+      <dd><p>Represents a mouse wheel scroll type.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
+      <dd><p>Represents a result of an operation of libuiohook.</p>
+</dd>
+    </dl>
 
 
-
-  <h2 id="seealso">See Also</h2>
-  <div class="seealso">
-      <div><a class="xref" href="SharpHook.Native.MouseWheelEventData.html">MouseWheelEventData</a></div>
-  </div>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Native/MouseWheelScrollType.cs" class="edit-link">Edit this page</a>
         </div>
 
 

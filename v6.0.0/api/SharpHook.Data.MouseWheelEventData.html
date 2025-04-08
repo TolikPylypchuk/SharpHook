@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-      <title>Struct ScreenData | SharpHook </title>
+      <title>Struct MouseWheelEventData | SharpHook </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Struct ScreenData | SharpHook ">
+      <meta name="title" content="Struct MouseWheelEventData | SharpHook ">
       
-      <meta name="description" content="Represents screen-related data.">
+      <meta name="description" content="Represents the data of a mouse wheel-related event.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -84,25 +84,25 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="SharpHook.Native.ScreenData">
+        <article data-uid="SharpHook.Data.MouseWheelEventData">
 
 
 
-  <h1 id="SharpHook_Native_ScreenData" data-uid="SharpHook.Native.ScreenData" class="text-break">
-Struct ScreenData  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Native/ScreenData.cs"><i class="bi bi-code-slash"></i></a>
+  <h1 id="SharpHook_Data_MouseWheelEventData" data-uid="SharpHook.Data.MouseWheelEventData" class="text-break">
+Struct MouseWheelEventData  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/MouseWheelEventData.cs"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="SharpHook.html">SharpHook</a>.<a class="xref" href="SharpHook.Native.html">Native</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SharpHook.html">SharpHook</a>.<a class="xref" href="SharpHook.Data.html">Data</a></dd></dl>
   <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Represents screen-related data.</p>
+  <div class="markdown summary"><p>Represents the data of a mouse wheel-related event.</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct ScreenData : IEquatable&lt;ScreenData&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public struct MouseWheelEventData : IEquatable&lt;MouseWheelEventData&gt;</code></pre>
   </div>
 
 
@@ -112,7 +112,7 @@ Struct ScreenData  <a class="header-action link-secondary" title="View source" h
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
-      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="SharpHook.Native.ScreenData.html">ScreenData</a>&gt;</div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<a class="xref" href="SharpHook.Data.MouseWheelEventData.html">MouseWheelEventData</a>&gt;</div>
     </dd>
   </dl>
 
@@ -141,17 +141,17 @@ Struct ScreenData  <a class="header-action link-secondary" title="View source" h
 
 
 
-  <h3 id="SharpHook_Native_ScreenData_Height" data-uid="SharpHook.Native.ScreenData.Height">
-  Height
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Native/ScreenData.cs"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SharpHook_Data_MouseWheelEventData_Delta" data-uid="SharpHook.Data.MouseWheelEventData.Delta">
+  Delta
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/MouseWheelEventData.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The height of the screen.</p>
+  <div class="markdown level1 summary"><p>The wheel delta.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ushort Height</code></pre>
+    <pre><code class="lang-csharp hljs">public ushort Delta</code></pre>
   </div>
 
 
@@ -160,7 +160,7 @@ Struct ScreenData  <a class="header-action link-secondary" title="View source" h
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
-    <dd><p>The height of the screen.</p>
+    <dd><p>The wheel delta.</p>
 </dd>
   </dl>
 
@@ -168,22 +168,33 @@ Struct ScreenData  <a class="header-action link-secondary" title="View source" h
 
 
 
+  <h4 class="section" id="SharpHook_Data_MouseWheelEventData_Delta_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+On Windows this value is equal to the <code>WHEEL_DELTA</code> constant (<code>120</code>).
+</p>
+<p>
+On macOS this value is the number of pixels per line.
+</p>
+<p>
+On Linux this value is always equal to <code>100</code>.
+</p>
+</div>
 
 
 
 
 
-  <h3 id="SharpHook_Native_ScreenData_Number" data-uid="SharpHook.Native.ScreenData.Number">
-  Number
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Native/ScreenData.cs"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SharpHook_Data_MouseWheelEventData_Direction" data-uid="SharpHook.Data.MouseWheelEventData.Direction">
+  Direction
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/MouseWheelEventData.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The ordinal number of the screen.</p>
+  <div class="markdown level1 summary"><p>The wheel scroll direction.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public byte Number</code></pre>
+    <pre><code class="lang-csharp hljs">public MouseWheelScrollDirection Direction</code></pre>
   </div>
 
 
@@ -191,8 +202,8 @@ Struct ScreenData  <a class="header-action link-secondary" title="View source" h
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
-    <dd><p>The ordinal number of the screen.</p>
+    <dt><a class="xref" href="SharpHook.Data.MouseWheelScrollDirection.html">MouseWheelScrollDirection</a></dt>
+    <dd><p>The wheel scroll direction.</p>
 </dd>
   </dl>
 
@@ -205,17 +216,17 @@ Struct ScreenData  <a class="header-action link-secondary" title="View source" h
 
 
 
-  <h3 id="SharpHook_Native_ScreenData_Width" data-uid="SharpHook.Native.ScreenData.Width">
-  Width
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Native/ScreenData.cs"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SharpHook_Data_MouseWheelEventData_Rotation" data-uid="SharpHook.Data.MouseWheelEventData.Rotation">
+  Rotation
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/MouseWheelEventData.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The width of the screen.</p>
+  <div class="markdown level1 summary"><p>The wheel rotation.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ushort Width</code></pre>
+    <pre><code class="lang-csharp hljs">public short Rotation</code></pre>
   </div>
 
 
@@ -223,8 +234,44 @@ Struct ScreenData  <a class="header-action link-secondary" title="View source" h
 
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
-    <dd><p>The width of the screen.</p>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
+    <dd><p>The wheel rotation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+  <h4 class="section" id="SharpHook_Data_MouseWheelEventData_Rotation_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A positive value indicates that the wheel was rotated up or left, and a negative value indicates that the wheel
+was rotated down or right.</p>
+</div>
+
+
+
+
+
+  <h3 id="SharpHook_Data_MouseWheelEventData_Type" data-uid="SharpHook.Data.MouseWheelEventData.Type">
+  Type
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/MouseWheelEventData.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>The wheel scroll type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public MouseWheelScrollType Type</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.Data.MouseWheelScrollType.html">MouseWheelScrollType</a></dt>
+    <dd><p>The wheel scroll type.</p>
 </dd>
   </dl>
 
@@ -237,12 +284,12 @@ Struct ScreenData  <a class="header-action link-secondary" title="View source" h
 
 
 
-  <h3 id="SharpHook_Native_ScreenData_X" data-uid="SharpHook.Native.ScreenData.X">
+  <h3 id="SharpHook_Data_MouseWheelEventData_X" data-uid="SharpHook.Data.MouseWheelEventData.X">
   X
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Native/ScreenData.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/MouseWheelEventData.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The X-coordinate of the screen.</p>
+  <div class="markdown level1 summary"><p>The X-coordinate of the mouse cursor.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -256,7 +303,7 @@ Struct ScreenData  <a class="header-action link-secondary" title="View source" h
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The X-coordinate of the screen.</p>
+    <dd><p>The X-coordinate of the mouse cursor.</p>
 </dd>
   </dl>
 
@@ -269,12 +316,12 @@ Struct ScreenData  <a class="header-action link-secondary" title="View source" h
 
 
 
-  <h3 id="SharpHook_Native_ScreenData_Y" data-uid="SharpHook.Native.ScreenData.Y">
+  <h3 id="SharpHook_Data_MouseWheelEventData_Y" data-uid="SharpHook.Data.MouseWheelEventData.Y">
   Y
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Native/ScreenData.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/MouseWheelEventData.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>The Y-coordinate of the screen.</p>
+  <div class="markdown level1 summary"><p>The Y-coordinate of the mouse cursor.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -288,7 +335,7 @@ Struct ScreenData  <a class="header-action link-secondary" title="View source" h
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The Y-coordinate of the screen.</p>
+    <dd><p>The Y-coordinate of the mouse cursor.</p>
 </dd>
   </dl>
 
@@ -304,11 +351,11 @@ Struct ScreenData  <a class="header-action link-secondary" title="View source" h
 </h2>
 
 
-  <a id="SharpHook_Native_ScreenData_Equals_" data-uid="SharpHook.Native.ScreenData.Equals*"></a>
+  <a id="SharpHook_Data_MouseWheelEventData_Equals_" data-uid="SharpHook.Data.MouseWheelEventData.Equals*"></a>
 
-  <h3 id="SharpHook_Native_ScreenData_Equals_SharpHook_Native_ScreenData_" data-uid="SharpHook.Native.ScreenData.Equals(SharpHook.Native.ScreenData)">
-  Equals(ScreenData)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Native/ScreenData.cs"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SharpHook_Data_MouseWheelEventData_Equals_SharpHook_Data_MouseWheelEventData_" data-uid="SharpHook.Data.MouseWheelEventData.Equals(SharpHook.Data.MouseWheelEventData)">
+  Equals(MouseWheelEventData)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/MouseWheelEventData.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compares this object to another object for equality.</p>
@@ -316,12 +363,12 @@ Struct ScreenData  <a class="header-action link-secondary" title="View source" h
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public readonly bool Equals(ScreenData data)</code></pre>
+    <pre><code class="lang-csharp hljs">public readonly bool Equals(MouseWheelEventData data)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>data</code> <a class="xref" href="SharpHook.Native.ScreenData.html">ScreenData</a></dt>
+    <dt><code>data</code> <a class="xref" href="SharpHook.Data.MouseWheelEventData.html">MouseWheelEventData</a></dt>
     <dd><p>The object to compare</p>
 </dd>
   </dl>
@@ -343,11 +390,11 @@ Struct ScreenData  <a class="header-action link-secondary" title="View source" h
 
 
 
-  <a id="SharpHook_Native_ScreenData_Equals_" data-uid="SharpHook.Native.ScreenData.Equals*"></a>
+  <a id="SharpHook_Data_MouseWheelEventData_Equals_" data-uid="SharpHook.Data.MouseWheelEventData.Equals*"></a>
 
-  <h3 id="SharpHook_Native_ScreenData_Equals_System_Object_" data-uid="SharpHook.Native.ScreenData.Equals(System.Object)">
+  <h3 id="SharpHook_Data_MouseWheelEventData_Equals_System_Object_" data-uid="SharpHook.Data.MouseWheelEventData.Equals(System.Object)">
   Equals(object?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Native/ScreenData.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/MouseWheelEventData.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compares this object to another object for equality.</p>
@@ -382,11 +429,11 @@ Struct ScreenData  <a class="header-action link-secondary" title="View source" h
 
 
 
-  <a id="SharpHook_Native_ScreenData_GetHashCode_" data-uid="SharpHook.Native.ScreenData.GetHashCode*"></a>
+  <a id="SharpHook_Data_MouseWheelEventData_GetHashCode_" data-uid="SharpHook.Data.MouseWheelEventData.GetHashCode*"></a>
 
-  <h3 id="SharpHook_Native_ScreenData_GetHashCode" data-uid="SharpHook.Native.ScreenData.GetHashCode">
+  <h3 id="SharpHook_Data_MouseWheelEventData_GetHashCode" data-uid="SharpHook.Data.MouseWheelEventData.GetHashCode">
   GetHashCode()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Native/ScreenData.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/MouseWheelEventData.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the hash code of this object.</p>
@@ -415,11 +462,11 @@ Struct ScreenData  <a class="header-action link-secondary" title="View source" h
 
 
 
-  <a id="SharpHook_Native_ScreenData_ToString_" data-uid="SharpHook.Native.ScreenData.ToString*"></a>
+  <a id="SharpHook_Data_MouseWheelEventData_ToString_" data-uid="SharpHook.Data.MouseWheelEventData.ToString*"></a>
 
-  <h3 id="SharpHook_Native_ScreenData_ToString" data-uid="SharpHook.Native.ScreenData.ToString">
+  <h3 id="SharpHook_Data_MouseWheelEventData_ToString" data-uid="SharpHook.Data.MouseWheelEventData.ToString">
   ToString()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Native/ScreenData.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/MouseWheelEventData.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Returns the string representation of this object.</p>
@@ -452,11 +499,11 @@ Struct ScreenData  <a class="header-action link-secondary" title="View source" h
 </h2>
 
 
-  <a id="SharpHook_Native_ScreenData_op_Equality_" data-uid="SharpHook.Native.ScreenData.op_Equality*"></a>
+  <a id="SharpHook_Data_MouseWheelEventData_op_Equality_" data-uid="SharpHook.Data.MouseWheelEventData.op_Equality*"></a>
 
-  <h3 id="SharpHook_Native_ScreenData_op_Equality_SharpHook_Native_ScreenData_SharpHook_Native_ScreenData_" data-uid="SharpHook.Native.ScreenData.op_Equality(SharpHook.Native.ScreenData,SharpHook.Native.ScreenData)">
-  operator ==(ScreenData, ScreenData)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Native/ScreenData.cs"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SharpHook_Data_MouseWheelEventData_op_Equality_SharpHook_Data_MouseWheelEventData_SharpHook_Data_MouseWheelEventData_" data-uid="SharpHook.Data.MouseWheelEventData.op_Equality(SharpHook.Data.MouseWheelEventData,SharpHook.Data.MouseWheelEventData)">
+  operator ==(MouseWheelEventData, MouseWheelEventData)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/MouseWheelEventData.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compares two objects for equality.</p>
@@ -464,15 +511,15 @@ Struct ScreenData  <a class="header-action link-secondary" title="View source" h
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool operator ==(ScreenData left, ScreenData right)</code></pre>
+    <pre><code class="lang-csharp hljs">public static bool operator ==(MouseWheelEventData left, MouseWheelEventData right)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>left</code> <a class="xref" href="SharpHook.Native.ScreenData.html">ScreenData</a></dt>
+    <dt><code>left</code> <a class="xref" href="SharpHook.Data.MouseWheelEventData.html">MouseWheelEventData</a></dt>
     <dd><p>The first object to compare</p>
 </dd>
-    <dt><code>right</code> <a class="xref" href="SharpHook.Native.ScreenData.html">ScreenData</a></dt>
+    <dt><code>right</code> <a class="xref" href="SharpHook.Data.MouseWheelEventData.html">MouseWheelEventData</a></dt>
     <dd><p>The second object to compare</p>
 </dd>
   </dl>
@@ -494,11 +541,11 @@ Struct ScreenData  <a class="header-action link-secondary" title="View source" h
 
 
 
-  <a id="SharpHook_Native_ScreenData_op_Inequality_" data-uid="SharpHook.Native.ScreenData.op_Inequality*"></a>
+  <a id="SharpHook_Data_MouseWheelEventData_op_Inequality_" data-uid="SharpHook.Data.MouseWheelEventData.op_Inequality*"></a>
 
-  <h3 id="SharpHook_Native_ScreenData_op_Inequality_SharpHook_Native_ScreenData_SharpHook_Native_ScreenData_" data-uid="SharpHook.Native.ScreenData.op_Inequality(SharpHook.Native.ScreenData,SharpHook.Native.ScreenData)">
-  operator !=(ScreenData, ScreenData)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Native/ScreenData.cs"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SharpHook_Data_MouseWheelEventData_op_Inequality_SharpHook_Data_MouseWheelEventData_SharpHook_Data_MouseWheelEventData_" data-uid="SharpHook.Data.MouseWheelEventData.op_Inequality(SharpHook.Data.MouseWheelEventData,SharpHook.Data.MouseWheelEventData)">
+  operator !=(MouseWheelEventData, MouseWheelEventData)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/MouseWheelEventData.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Compares two objects for inequality.</p>
@@ -506,15 +553,15 @@ Struct ScreenData  <a class="header-action link-secondary" title="View source" h
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool operator !=(ScreenData left, ScreenData right)</code></pre>
+    <pre><code class="lang-csharp hljs">public static bool operator !=(MouseWheelEventData left, MouseWheelEventData right)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>left</code> <a class="xref" href="SharpHook.Native.ScreenData.html">ScreenData</a></dt>
+    <dt><code>left</code> <a class="xref" href="SharpHook.Data.MouseWheelEventData.html">MouseWheelEventData</a></dt>
     <dd><p>The first object to compare</p>
 </dd>
-    <dt><code>right</code> <a class="xref" href="SharpHook.Native.ScreenData.html">ScreenData</a></dt>
+    <dt><code>right</code> <a class="xref" href="SharpHook.Data.MouseWheelEventData.html">MouseWheelEventData</a></dt>
     <dd><p>The second object to compare</p>
 </dd>
   </dl>
@@ -536,11 +583,17 @@ Struct ScreenData  <a class="header-action link-secondary" title="View source" h
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="SharpHook.MouseWheelHookEventArgs.html">MouseWheelHookEventArgs</a></div>
+      <div><a class="xref" href="SharpHook.Data.MouseWheelScrollType.html">MouseWheelScrollType</a></div>
+      <div><a class="xref" href="SharpHook.Data.MouseWheelScrollDirection.html">MouseWheelScrollDirection</a></div>
+  </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Native/ScreenData.cs" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/MouseWheelEventData.cs" class="edit-link">Edit this page</a>
         </div>
 
 

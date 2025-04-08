@@ -84,17 +84,17 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="SharpHook.Native.EventType">
+        <article data-uid="SharpHook.Data.EventType">
 
 
 
 
-  <h1 id="SharpHook_Native_EventType" data-uid="SharpHook.Native.EventType" class="text-break">
-Enum EventType  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Native/EventType.cs"><i class="bi bi-code-slash"></i></a>
+  <h1 id="SharpHook_Data_EventType" data-uid="SharpHook.Data.EventType" class="text-break">
+Enum EventType  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/EventType.cs"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="SharpHook.html">SharpHook</a>.<a class="xref" href="SharpHook.Native.html">Native</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SharpHook.html">SharpHook</a>.<a class="xref" href="SharpHook.Data.html">Data</a></dd></dl>
   <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
   </div>
 
@@ -117,75 +117,75 @@ Enum EventType  <a class="header-action link-secondary" title="View source" href
   <h2 id="fields">Fields
 </h2>
   <dl class="parameters">
-    <dt id="SharpHook_Native_EventType_HookDisabled"><code>HookDisabled = 2</code></dt>
+    <dt id="SharpHook_Data_EventType_HookDisabled"><code>HookDisabled = 2</code></dt>
   
   <dd><p>Raised when the global hook is stopped. Ignored when posted.</p>
 </dd>
-    <dt id="SharpHook_Native_EventType_HookEnabled"><code>HookEnabled = 1</code></dt>
+    <dt id="SharpHook_Data_EventType_HookEnabled"><code>HookEnabled = 1</code></dt>
   
   <dd><p>Raised when the global hook is started. Ignored when posted.</p>
 </dd>
-    <dt id="SharpHook_Native_EventType_KeyPressed"><code>KeyPressed = 4</code></dt>
+    <dt id="SharpHook_Data_EventType_KeyPressed"><code>KeyPressed = 4</code></dt>
   
   <dd><p>Raised when a key is pressed (its state changed from up to down) or posted to press a key.</p>
 </dd>
-    <dt id="SharpHook_Native_EventType_KeyReleased"><code>KeyReleased = 5</code></dt>
+    <dt id="SharpHook_Data_EventType_KeyReleased"><code>KeyReleased = 5</code></dt>
   
   <dd><p>Raised when a key is released (its state changed from down to up) or posted to release a key.</p>
 </dd>
-    <dt id="SharpHook_Native_EventType_KeyTyped"><code>KeyTyped = 3</code></dt>
+    <dt id="SharpHook_Data_EventType_KeyTyped"><code>KeyTyped = 3</code></dt>
   <dd><p>Raised when a key press may have caused a character to be typed regardless of whether a character was actually
 typed. Ignored when posted.</p>
 <p>
-Events of this type are raised after events of type <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_KeyPressed">KeyPressed</a> if the pressed key may have caused
+Events of this type are raised after events of type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyPressed">KeyPressed</a> if the pressed key may have caused
 characters to be typed regardless of whether they were actually typed. Since a single key press can cause
-multiple characters to be typed, a single event of type <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_KeyPressed">KeyPressed</a> can cause multiple events of
-type <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_KeyTyped">KeyTyped</a>.
+multiple characters to be typed, a single event of type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyPressed">KeyPressed</a> can cause multiple events of
+type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a>.
 </p>
 <p>
 Since events of this type are not raised by the OS, suppressing them has no effect.
 </p>
 </dd>
   
-    <dt id="SharpHook_Native_EventType_MouseClicked"><code>MouseClicked = 6</code></dt>
+    <dt id="SharpHook_Data_EventType_MouseClicked"><code>MouseClicked = 6</code></dt>
   <dd><p>Raised when a mouse button is clicked. Ignored when posted.</p>
 <p>
-Events of this type are raised after events of type <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseReleased">MouseReleased</a> if the mouse was not dragged.
+Events of this type are raised after events of type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseReleased">MouseReleased</a> if the mouse was not dragged.
 </p>
 <p>
 Since events of this type are not raised by the OS, suppressing them has no effect.
 </p>
 </dd>
   
-    <dt id="SharpHook_Native_EventType_MouseDragged"><code>MouseDragged = 10</code></dt>
+    <dt id="SharpHook_Data_EventType_MouseDragged"><code>MouseDragged = 10</code></dt>
   
-  <dd><p>Raised when the mouse is dragged. Not recommended to post as it will be the same as <a class="xref" href="SharpHook.Native.EventType.html#SharpHook_Native_EventType_MouseMoved">MouseMoved</a>.</p>
+  <dd><p>Raised when the mouse is dragged. Not recommended to post as it will be the same as <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseMoved">MouseMoved</a>.</p>
 </dd>
-    <dt id="SharpHook_Native_EventType_MouseMoved"><code>MouseMoved = 9</code></dt>
+    <dt id="SharpHook_Data_EventType_MouseMoved"><code>MouseMoved = 9</code></dt>
   
   <dd><p>Raised when the mouse is moved or posted to move the mouse.</p>
 </dd>
-    <dt id="SharpHook_Native_EventType_MouseMovedRelativeToCursor"><code>MouseMovedRelativeToCursor = 14</code></dt>
+    <dt id="SharpHook_Data_EventType_MouseMovedRelativeToCursor"><code>MouseMovedRelativeToCursor = 14</code></dt>
   
   <dd><p>Posted to move the mouse relative to the current cursor position. Never raised.</p>
 </dd>
-    <dt id="SharpHook_Native_EventType_MousePressed"><code>MousePressed = 7</code></dt>
+    <dt id="SharpHook_Data_EventType_MousePressed"><code>MousePressed = 7</code></dt>
   
   <dd><p>Raised when a mouse button is pressed (its state changed from up to down) or posted to press a mouse button.</p>
 </dd>
-    <dt id="SharpHook_Native_EventType_MousePressedIgnoreCoordinates"><code>MousePressedIgnoreCoordinates = 12</code></dt>
+    <dt id="SharpHook_Data_EventType_MousePressedIgnoreCoordinates"><code>MousePressedIgnoreCoordinates = 12</code></dt>
   
   <dd><p>Posted to press a mouse button at the current coordinates. Never raised.</p>
 </dd>
-    <dt id="SharpHook_Native_EventType_MouseReleased"><code>MouseReleased = 8</code></dt>
+    <dt id="SharpHook_Data_EventType_MouseReleased"><code>MouseReleased = 8</code></dt>
   
   <dd><p>Raised when a mouse button is released (its state changed from down to up) or posted to release a mouse button.</p>
 </dd>
-    <dt id="SharpHook_Native_EventType_MouseReleasedIgnoreCoordinates"><code>MouseReleasedIgnoreCoordinates = 13</code></dt>
+    <dt id="SharpHook_Data_EventType_MouseReleasedIgnoreCoordinates"><code>MouseReleasedIgnoreCoordinates = 13</code></dt>
   
   <dd><p>Posted to release a mouse button at the current coordinates. Never raised.</p>
 </dd>
-    <dt id="SharpHook_Native_EventType_MouseWheel"><code>MouseWheel = 11</code></dt>
+    <dt id="SharpHook_Data_EventType_MouseWheel"><code>MouseWheel = 11</code></dt>
   
   <dd><p>Raised when the mouse wheel is scrolled or posted to scroll the mouse wheel.</p>
 </dd>
@@ -195,13 +195,13 @@ Since events of this type are not raised by the OS, suppressing them has no effe
 
   <h2 id="seealso">See Also</h2>
   <div class="seealso">
-      <div><a class="xref" href="SharpHook.Native.UioHookEvent.html">UioHookEvent</a></div>
-      <div><a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_PostEvent_SharpHook_Native_UioHookEvent__">PostEvent</a>(ref <a class="xref" href="SharpHook.Native.UioHookEvent.html">UioHookEvent</a>)</div>
+      <div><a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></div>
+      <div><a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_PostEvent_SharpHook_Data_UioHookEvent__">PostEvent</a>(ref <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a>)</div>
   </div>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Native/EventType.cs" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/EventType.cs" class="edit-link">Edit this page</a>
         </div>
 
 
