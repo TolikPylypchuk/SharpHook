@@ -2,9 +2,7 @@ namespace SharpHook;
 
 public sealed class HookEventArgsTests
 {
-    [Property(
-        DisplayName = "FromEvent should create a correct instance of HookEventArgs",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "FromEvent should create a correct instance of HookEventArgs")]
     public void FromEvent(UioHookEvent uioHookEvent)
     {
         // Act

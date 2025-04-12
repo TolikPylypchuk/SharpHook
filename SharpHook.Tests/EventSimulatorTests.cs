@@ -4,7 +4,7 @@ public sealed class EventSimulatorTests
 {
     private const int NanosecondsPerTick = 100;
 
-    [Property(DisplayName = "EventSimulator should simulate key presses", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "EventSimulator should simulate key presses")]
     public void SimulateKeyPress(KeyCode keyCode)
     {
         // Arrange
@@ -26,9 +26,7 @@ public sealed class EventSimulatorTests
         Assert.Equal(keyCode, postedEvent.Keyboard.KeyCode);
     }
 
-    [Property(
-        DisplayName = "EventSimulator should return an error if simulating a key press fails",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "EventSimulator should return an error if simulating a key press fails")]
     public void SimulateKeyPressFail(KeyCode keyCode, FailedUioHookResult result)
     {
         // Arrange
@@ -49,7 +47,7 @@ public sealed class EventSimulatorTests
         Assert.Equal(result.Value, actualResult);
     }
 
-    [Property(DisplayName = "EventSimulator should simulate key releases", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "EventSimulator should simulate key releases")]
     public void SimulateKeyRelease(KeyCode keyCode)
     {
         // Arrange
@@ -71,9 +69,7 @@ public sealed class EventSimulatorTests
         Assert.Equal(keyCode, postedEvent.Keyboard.KeyCode);
     }
 
-    [Property(
-        DisplayName = "EventSimulator should return an error if simulating a key release fails",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "EventSimulator should return an error if simulating a key release fails")]
     public void SimulateKeyReleaseFail(KeyCode keyCode, FailedUioHookResult result)
     {
         // Arrange
@@ -94,7 +90,7 @@ public sealed class EventSimulatorTests
         Assert.Equal(result.Value, actualResult);
     }
 
-    [Property(DisplayName = "EventSimulator should simulate mouse presses", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "EventSimulator should simulate mouse presses")]
     public void SimulateMousePress(MouseButton button)
     {
         // Arrange
@@ -116,9 +112,7 @@ public sealed class EventSimulatorTests
         Assert.Equal(button, postedEvent.Mouse.Button);
     }
 
-    [Property(
-        DisplayName = "EventSimulator should return an error if simulating a mouse press fails",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "EventSimulator should return an error if simulating a mouse press fails")]
     public void SimulateMousePressFail(MouseButton button, FailedUioHookResult result)
     {
         // Arrange
@@ -139,9 +133,7 @@ public sealed class EventSimulatorTests
         Assert.Equal(result.Value, actualResult);
     }
 
-    [Property(
-        DisplayName = "EventSimulator should simulate mouse presses with explicit clicks",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "EventSimulator should simulate mouse presses with explicit clicks")]
     public void SimulateMousePressExplicitClicks(MouseButton button, ushort clicks)
     {
         // Arrange
@@ -165,8 +157,7 @@ public sealed class EventSimulatorTests
     }
 
     [Property(DisplayName =
-        "EventSimulator should return an error if simulating a mouse press with explicit clicks fails",
-        Arbitrary = [typeof(Generators)])]
+        "EventSimulator should return an error if simulating a mouse press with explicit clicks fails")]
     public void SimulateMousePressExplicitClicksFail(MouseButton button, ushort clicks, FailedUioHookResult result)
     {
         // Arrange
@@ -187,9 +178,7 @@ public sealed class EventSimulatorTests
         Assert.Equal(result.Value, actualResult);
     }
 
-    [Property(
-        DisplayName = "EventSimulator should simulate mouse presses with explicit coordinates",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "EventSimulator should simulate mouse presses with explicit coordinates")]
     public void SimulateMousePressExplicitCoordinates(short x, short y, MouseButton button)
     {
         // Arrange
@@ -214,8 +203,7 @@ public sealed class EventSimulatorTests
     }
 
     [Property(DisplayName =
-        "EventSimulator should return an error if simulating a mouse press with explicit coordinates fails",
-        Arbitrary = [typeof(Generators)])]
+        "EventSimulator should return an error if simulating a mouse press with explicit coordinates fails")]
     public void SimulateMousePressExplicitCoordinatesFail(
         short x,
         short y,
@@ -240,9 +228,7 @@ public sealed class EventSimulatorTests
         Assert.Equal(result.Value, actualResult);
     }
 
-    [Property(
-        DisplayName = "EventSimulator should simulate mouse presses with explicit coordinates and clicks",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "EventSimulator should simulate mouse presses with explicit coordinates and clicks")]
     public void SimulateMousePressExplicitCoordinatesAndClicks(short x, short y, MouseButton button, ushort clicks)
     {
         // Arrange
@@ -267,10 +253,8 @@ public sealed class EventSimulatorTests
         Assert.Equal(clicks, postedEvent.Mouse.Clicks);
     }
 
-    [Property(
-        DisplayName = "EventSimulator should return an error if simulating " +
-            "a mouse press with explicit coordinates and clicks fails",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName =
+        "EventSimulator should return an error if simulating a mouse press with explicit coordinates and clicks fails")]
     public void SimulateMousePressExplicitCoordinatesAndClicksFail(
         short x,
         short y,
@@ -296,7 +280,7 @@ public sealed class EventSimulatorTests
         Assert.Equal(result.Value, actualResult);
     }
 
-    [Property(DisplayName = "EventSimulator should simulate mouse releases", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "EventSimulator should simulate mouse releases")]
     public void SimulateMouseRelease(MouseButton button)
     {
         // Arrange
@@ -318,9 +302,7 @@ public sealed class EventSimulatorTests
         Assert.Equal(button, postedEvent.Mouse.Button);
     }
 
-    [Property(
-        DisplayName = "EventSimulator should return an error if simulating a mouse release fails",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "EventSimulator should return an error if simulating a mouse release fails")]
     public void SimulateMouseReleaseFail(MouseButton button, FailedUioHookResult result)
     {
         // Arrange
@@ -341,9 +323,7 @@ public sealed class EventSimulatorTests
         Assert.Equal(result.Value, actualResult);
     }
 
-    [Property(
-        DisplayName = "EventSimulator should simulate mouse releases with explicit clicks",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "EventSimulator should simulate mouse releases with explicit clicks")]
     public void SimulateMouseReleaseExplicitClicks(MouseButton button, ushort clicks)
     {
         // Arrange
@@ -366,9 +346,8 @@ public sealed class EventSimulatorTests
         Assert.Equal(clicks, postedEvent.Mouse.Clicks);
     }
 
-    [Property(
-        DisplayName = "EventSimulator should return an error if simulating a mouse press with explicit clicks fails",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName =
+        "EventSimulator should return an error if simulating a mouse press with explicit clicks fails")]
     public void SimulateMouseReleaseExplicitClicksFail(MouseButton button, ushort clicks, FailedUioHookResult result)
     {
         // Arrange
@@ -389,9 +368,7 @@ public sealed class EventSimulatorTests
         Assert.Equal(result.Value, actualResult);
     }
 
-    [Property(
-        DisplayName = "EventSimulator should simulate mouse releases with explicit coordinates",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "EventSimulator should simulate mouse releases with explicit coordinates")]
     public void SimulateMouseReleaseExplicitCoordinates(short x, short y, MouseButton button)
     {
         // Arrange
@@ -415,10 +392,8 @@ public sealed class EventSimulatorTests
         Assert.Equal(button, postedEvent.Mouse.Button);
     }
 
-    [Property(
-        DisplayName = "EventSimulator should return an error if simulating " +
-        "a mouse release with explicit coordinates fails",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName =
+        "EventSimulator should return an error if simulating a mouse release with explicit coordinates fails")]
     public void SimulateMouseReleaseExplicitCoordinatesFail(
         short x,
         short y,
@@ -443,9 +418,7 @@ public sealed class EventSimulatorTests
         Assert.Equal(result.Value, actualResult);
     }
 
-    [Property(
-        DisplayName = "EventSimulator should simulate mouse releases with explicit coordinates and clicks",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "EventSimulator should simulate mouse releases with explicit coordinates and clicks")]
     public void SimulateMouseReleaseExplicitCoordinatesAndClicks(short x, short y, MouseButton button, ushort clicks)
     {
         // Arrange
@@ -470,10 +443,9 @@ public sealed class EventSimulatorTests
         Assert.Equal(clicks, postedEvent.Mouse.Clicks);
     }
 
-    [Property(
-        DisplayName = "EventSimulator should return an error if simulating " +
-            "a mouse release with explicit coordinates and clicks fails",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName =
+        "EventSimulator should return an error if simulating " +
+        "a mouse release with explicit coordinates and clicks fails")]
     public void SimulateMouseReleaseExplicitCoordinatesAndClicksFail(
         short x,
         short y,
@@ -499,7 +471,7 @@ public sealed class EventSimulatorTests
         Assert.Equal(result.Value, actualResult);
     }
 
-    [Property(DisplayName = "EventSimulator should simulate mouse movement", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "EventSimulator should simulate mouse movement")]
     public void SimulateMouseMovement(short x, short y)
     {
         // Arrange
@@ -522,9 +494,7 @@ public sealed class EventSimulatorTests
         Assert.Equal(y, postedEvent.Mouse.Y);
     }
 
-    [Property(
-        DisplayName = "EventSimulator should return an error if simulating mouse movement fails",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "EventSimulator should return an error if simulating mouse movement fails")]
     public void SimulateMouseMovementFail(short x, short y, FailedUioHookResult result)
     {
         // Arrange
@@ -545,7 +515,7 @@ public sealed class EventSimulatorTests
         Assert.Equal(result.Value, actualResult);
     }
 
-    [Property(DisplayName = "EventSimulator should simulate relative mouse movement", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "EventSimulator should simulate relative mouse movement")]
     public void SimulateMouseMovementRelative(short x, short y)
     {
         // Arrange
@@ -568,9 +538,7 @@ public sealed class EventSimulatorTests
         Assert.Equal(y, postedEvent.Mouse.Y);
     }
 
-    [Property(
-        DisplayName = "EventSimulator should return an error if simulating relative mouse movement fails",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "EventSimulator should return an error if simulating relative mouse movement fails")]
     public void SimulateMouseMovementRelativeFail(short x, short y, FailedUioHookResult result)
     {
         // Arrange
@@ -591,7 +559,7 @@ public sealed class EventSimulatorTests
         Assert.Equal(result.Value, actualResult);
     }
 
-    [Property(DisplayName = "EventSimulator should simulate mouse wheel", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "EventSimulator should simulate mouse wheel")]
     public void SimulateMouseWheel(
         short rotation,
         MouseWheelScrollDirection direction,
@@ -618,9 +586,7 @@ public sealed class EventSimulatorTests
         Assert.Equal(type, postedEvent.Wheel.Type);
     }
 
-    [Property(
-        DisplayName = "EventSimulator should return an error if simulating mouse wheel fails",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "EventSimulator should return an error if simulating mouse wheel fails")]
     public void SimulateMouseWheelFail(
         short rotation,
         MouseWheelScrollDirection direction,
@@ -645,7 +611,7 @@ public sealed class EventSimulatorTests
         Assert.Equal(result.Value, actualResult);
     }
 
-    [Property(DisplayName = "EventSimulator should simulate text entry", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "EventSimulator should simulate text entry")]
     public void SimulateTextEntry(NonNull<string> text)
     {
         // Arrange
@@ -664,9 +630,7 @@ public sealed class EventSimulatorTests
         Assert.Equal(text.Get, provider.PostedText[0]);
     }
 
-    [Property(
-        DisplayName = "EventSimulator should return an error if simulating text entry fails",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "EventSimulator should return an error if simulating text entry fails")]
     public void SimulateTextEntryFail(NonNull<string> text, FailedUioHookResult result)
     {
         // Arrange
@@ -700,9 +664,7 @@ public sealed class EventSimulatorTests
         Assert.Throws<ArgumentNullException>(() => simulator.SimulateTextEntry(null!));
     }
 
-    [Property(
-        DisplayName = "EventSimulator should return a correct text simulation delay on X11",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "EventSimulator should return a correct text simulation delay on X11")]
     public void GetTextSimulationDelayOnX11(ulong delay)
     {
         // Arrange
@@ -721,9 +683,7 @@ public sealed class EventSimulatorTests
             (ulong)(simulator.TextSimulationDelayOnX11.Ticks * NanosecondsPerTick));
     }
 
-    [Property(
-        DisplayName = "EventSimulator should set a correct text simulation delay on X11 or throw an exception",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "EventSimulator should set a correct text simulation delay on X11 or throw an exception")]
     public void SetTextSimulationDelayOnX11(TimeSpan timeSpan)
     {
         // Arrange

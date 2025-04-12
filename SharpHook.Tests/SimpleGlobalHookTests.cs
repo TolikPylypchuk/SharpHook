@@ -2,7 +2,7 @@ namespace SharpHook;
 
 public sealed class SimpleGlobalHookTests
 {
-    [Property(DisplayName = "IsRunning should be true only if the hook is running", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "IsRunning should be true only if the hook is running")]
     public void IsRunning(GlobalHookType globalHookType)
     {
         // Arrange
@@ -23,7 +23,7 @@ public sealed class SimpleGlobalHookTests
         Assert.False(hook.IsRunning);
     }
 
-    [Property(DisplayName = "IsDisposed should be true only if the hook is disposed", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "IsDisposed should be true only if the hook is disposed")]
     public void IsDisposed(GlobalHookType globalHookType)
     {
         // Arrange
@@ -40,7 +40,7 @@ public sealed class SimpleGlobalHookTests
         Assert.True(hook.IsDisposed);
     }
 
-    [Property(DisplayName = "HookEnabled events should be raised", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "HookEnabled events should be raised")]
     public void HookEnabled(GlobalHookType globalHookType, DateTimeAfterEpoch dateTime, EventMask mask)
     {
         // Arrange
@@ -80,7 +80,7 @@ public sealed class SimpleGlobalHookTests
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
     }
 
-    [Property(DisplayName = "HookDisabled events should be raised", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "HookDisabled events should be raised")]
     public void HookDisabled(GlobalHookType globalHookType, DateTimeAfterEpoch dateTime, EventMask mask)
     {
         // Arrange
@@ -121,9 +121,7 @@ public sealed class SimpleGlobalHookTests
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
     }
 
-    [Property(
-        DisplayName = "KeyPressed events should be raised only if the global hook type includes keyboard",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "KeyPressed events should be raised only if the global hook type includes keyboard")]
     public void KeyPressed(
         GlobalHookType globalHookType,
         KeyCode keyCode,
@@ -185,9 +183,7 @@ public sealed class SimpleGlobalHookTests
         }
     }
 
-    [Property(
-        DisplayName = "KeyReleased events should be raised only if the global hook type includes keyboard",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "KeyReleased events should be raised only if the global hook type includes keyboard")]
     public void KeyReleased(
         GlobalHookType globalHookType,
         KeyCode keyCode,
@@ -249,9 +245,7 @@ public sealed class SimpleGlobalHookTests
         }
     }
 
-    [Property(
-        DisplayName = "KeyTyped events should be raised only if the global hook type includes keyboard",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "KeyTyped events should be raised only if the global hook type includes keyboard")]
     public void KeyTyped(
         GlobalHookType globalHookType,
         KeyCode keyCode,
@@ -314,9 +308,7 @@ public sealed class SimpleGlobalHookTests
         }
     }
 
-    [Property(
-        DisplayName = "MousePressed events should be raised only if the global hook type includes mouse",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "MousePressed events should be raised only if the global hook type includes mouse")]
     public void MousePressed(
         GlobalHookType globalHookType,
         MouseButton button,
@@ -382,9 +374,7 @@ public sealed class SimpleGlobalHookTests
         }
     }
 
-    [Property(
-        DisplayName = "MouseReleased events should be raised only if the global hook type includes mouse",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "MouseReleased events should be raised only if the global hook type includes mouse")]
     public void MouseReleased(
         GlobalHookType globalHookType,
         MouseButton button,
@@ -450,9 +440,7 @@ public sealed class SimpleGlobalHookTests
         }
     }
 
-    [Property(
-        DisplayName = "MouseClicked events should be raised only if the global hook type includes mouse",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "MouseClicked events should be raised only if the global hook type includes mouse")]
     public void MouseClicked(
         GlobalHookType globalHookType,
         MouseButton button,
@@ -518,9 +506,7 @@ public sealed class SimpleGlobalHookTests
         }
     }
 
-    [Property(
-        DisplayName = "MouseMoved events should be raised only if the global hook type includes mouse",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "MouseMoved events should be raised only if the global hook type includes mouse")]
     public void MouseMoved(
         GlobalHookType globalHookType,
         short x,
@@ -580,9 +566,7 @@ public sealed class SimpleGlobalHookTests
         }
     }
 
-    [Property(
-        DisplayName = "MouseDragged events should be raised only if the global hook type includes mouse",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "MouseDragged events should be raised only if the global hook type includes mouse")]
     public void MouseDragged(
         GlobalHookType globalHookType,
         short x,
@@ -642,9 +626,7 @@ public sealed class SimpleGlobalHookTests
         }
     }
 
-    [Property(
-        DisplayName = "MouseWheel events should be raised only if the global hook type includes mouse",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "MouseWheel events should be raised only if the global hook type includes mouse")]
     public void MouseWheel(
         GlobalHookType globalHookType,
         short x,
@@ -716,7 +698,7 @@ public sealed class SimpleGlobalHookTests
         }
     }
 
-    [Property(DisplayName = "Run should throw if the hook failed to start", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "Run should throw if the hook failed to start")]
     public void RunFail(GlobalHookType globalHookType, FailedUioHookResult result)
     {
         // Arrange
@@ -734,7 +716,7 @@ public sealed class SimpleGlobalHookTests
         Assert.Equal(result.Value, exception.Result);
     }
 
-    [Property(DisplayName = "RunAsync should throw if the hook failed to start", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "RunAsync should throw if the hook failed to start")]
     public async void RunAsyncFail(GlobalHookType globalHookType, FailedUioHookResult result)
     {
         // Arrange
@@ -752,7 +734,7 @@ public sealed class SimpleGlobalHookTests
         Assert.Equal(result.Value, exception.Result);
     }
 
-    [Property(DisplayName = "Run should throw if the hook is already running", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "Run should throw if the hook is already running")]
     public void RunRunning(GlobalHookType globalHookType)
     {
         // Arrange
@@ -767,7 +749,7 @@ public sealed class SimpleGlobalHookTests
         Assert.Throws<InvalidOperationException>(hook.Run);
     }
 
-    [Property(DisplayName = "RunAsync should throw if the hook is already running", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "RunAsync should throw if the hook is already running")]
     public async void RunAsyncRunning(GlobalHookType globalHookType)
     {
         // Arrange
@@ -782,7 +764,7 @@ public sealed class SimpleGlobalHookTests
         await Assert.ThrowsAsync<InvalidOperationException>(hook.RunAsync);
     }
 
-    [Property(DisplayName = "Run should throw if the hook is disposed", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "Run should throw if the hook is disposed")]
     public void RunDisposed(GlobalHookType globalHookType)
     {
         // Arrange
@@ -795,7 +777,7 @@ public sealed class SimpleGlobalHookTests
         Assert.Throws<ObjectDisposedException>(hook.Run);
     }
 
-    [Property(DisplayName = "RunAsync should throw if the hook is disposed", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "RunAsync should throw if the hook is disposed")]
     public async void RunAsyncDisposed(GlobalHookType globalHookType)
     {
         // Arrange
@@ -808,7 +790,7 @@ public sealed class SimpleGlobalHookTests
         await Assert.ThrowsAsync<ObjectDisposedException>(hook.RunAsync);
     }
 
-    [Property(DisplayName = "Dispose should throw if the hook failed to stop", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "Dispose should throw if the hook failed to stop")]
     public void DisposeFail(GlobalHookType globalHookType, FailedUioHookResult result)
     {
         // Arrange
@@ -828,9 +810,7 @@ public sealed class SimpleGlobalHookTests
         Assert.Equal(result.Value, exception.Result);
     }
 
-    [Property(
-        DisplayName = "SimpleGlobalHook should not throw if the provider is null",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "SimpleGlobalHook should not throw if the provider is null")]
     public void ProviderNull(GlobalHookType globalHookType)
     {
         var exception = Record.Exception(() => new SimpleGlobalHook(globalHookType, null));

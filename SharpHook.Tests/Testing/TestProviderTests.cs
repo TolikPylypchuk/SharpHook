@@ -2,9 +2,7 @@ namespace SharpHook.Testing;
 
 public sealed class TestProviderTests
 {
-    [Property(
-        DisplayName = "SetDispatchProc, Run, and PostEvent should work together",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "SetDispatchProc, Run, and PostEvent should work together")]
     public async void SetDispatchProc(UioHookEvent eventToPost, IntPtr userData)
     {
         // Arrange
@@ -42,7 +40,7 @@ public sealed class TestProviderTests
         await task;
     }
 
-    [Property(DisplayName = "Run and PostEvent should work without SetDispatchProc", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "Run and PostEvent should work without SetDispatchProc")]
     public async void RunPostEvent(UioHookEvent eventToPost)
     {
         // Arrange
@@ -66,7 +64,7 @@ public sealed class TestProviderTests
         await task;
     }
 
-    [Property(DisplayName = "RunKeyboard should not dispatch mouse events", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "RunKeyboard should not dispatch mouse events")]
     public async void RunKeyboard(MouseEvent eventToPost, IntPtr userData)
     {
         // Arrange
@@ -105,7 +103,7 @@ public sealed class TestProviderTests
         await task;
     }
 
-    [Property(DisplayName = "RunMouse should not dispatch mouse events", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "RunMouse should not dispatch mouse events")]
     public async void RunMouse(KeyboardEvent eventToPost, IntPtr userData)
     {
         // Arrange
@@ -144,7 +142,7 @@ public sealed class TestProviderTests
         await task;
     }
 
-    [Property(DisplayName = "Events should be suppressible", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "Events should be suppressible")]
     public async void SuppressEvent(UioHookEvent eventToPost)
     {
         // Arrange
@@ -215,7 +213,7 @@ public sealed class TestProviderTests
         await task2;
     }
 
-    [Property(DisplayName = "Run should return an error if configured to do so", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "Run should return an error if configured to do so")]
     public void RunFail(FailedUioHookResult result)
     {
         // Arrange
@@ -235,9 +233,7 @@ public sealed class TestProviderTests
         Assert.Equal(result.Value, actualResult);
     }
 
-    [Property(
-        DisplayName = "RunKeyboard should return an error if configured to do so",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "RunKeyboard should return an error if configured to do so")]
     public void RunKeyboardFail(FailedUioHookResult result)
     {
         // Arrange
@@ -257,9 +253,7 @@ public sealed class TestProviderTests
         Assert.Equal(result.Value, actualResult);
     }
 
-    [Property(
-        DisplayName = "RunMouse should return an error if configured to do so",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "RunMouse should return an error if configured to do so")]
     public void RunMouseFail(FailedUioHookResult result)
     {
         // Arrange
@@ -279,7 +273,7 @@ public sealed class TestProviderTests
         Assert.Equal(result.Value, actualResult);
     }
 
-    [Property(DisplayName = "Stop should return an error if configured to do so", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "Stop should return an error if configured to do so")]
     public async void StopFail(FailedUioHookResult result)
     {
         // Arrange
@@ -348,7 +342,7 @@ public sealed class TestProviderTests
         await task;
     }
 
-    [Property(DisplayName = "HookDisabled should be raised when the hook is stopped", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "HookDisabled should be raised when the hook is stopped")]
     public async void HookDisabled(DateTimeAfterEpoch dateTime, EventMask modifierMask)
     {
         // Act
@@ -383,7 +377,7 @@ public sealed class TestProviderTests
         Assert.Equal(modifierMask, actualEvent.Mask);
     }
 
-    [Property(DisplayName = "PostEvent should post an event", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "PostEvent should post an event")]
     public void PostEvent(UioHookEvent eventToPost)
     {
         // Arrange
@@ -401,9 +395,7 @@ public sealed class TestProviderTests
         Assert.Equal(eventToPost, provider.PostedEvents[0]);
     }
 
-    [Property(
-        DisplayName = "PostEvent should return an error if configured to do so",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "PostEvent should return an error if configured to do so")]
     public void PostEventFail(UioHookEvent eventToPost, FailedUioHookResult result)
     {
         // Arrange
@@ -423,7 +415,7 @@ public sealed class TestProviderTests
         Assert.Equal(result.Value, actualResult);
     }
 
-    [Property(DisplayName = "PostText should post text", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "PostText should post text")]
     public void PostText(NonNull<string> text)
     {
         // Arrange
@@ -441,7 +433,7 @@ public sealed class TestProviderTests
         Assert.Equal(text.Get, provider.PostedText[0]);
     }
 
-    [Property(DisplayName = "PostText should return an error if configured to do so", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "PostText should return an error if configured to do so")]
     public void PostTextFail(NonNull<string> text, FailedUioHookResult result)
     {
         // Arrange
@@ -506,9 +498,7 @@ public sealed class TestProviderTests
         Assert.Throws<ArgumentNullException>(() => provider.EventMask = null!);
     }
 
-    [Property(
-        DisplayName = "Post text delay should be settable through the property",
-        Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "Post text delay should be settable through the property")]
     public void PostTextDelayX11(ulong postTextDelay)
     {
         // Act
@@ -524,7 +514,7 @@ public sealed class TestProviderTests
         Assert.Equal(postTextDelay, ((IEventSimulationProvider)provider).GetPostTextDelayX11());
     }
 
-    [Property(DisplayName = "Post text delay should be settable through the method", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "Post text delay should be settable through the method")]
     public void SetPostTextDelayX11(ulong postTextDelay)
     {
         // Act
@@ -538,7 +528,7 @@ public sealed class TestProviderTests
         Assert.Equal(postTextDelay, ((IEventSimulationProvider)provider).GetPostTextDelayX11());
     }
 
-    [Property(DisplayName = "Screen info should be settable", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "Screen info should be settable")]
     public void ScreenInfo(byte number, short x, short y, ushort width, ushort height)
     {
         // Arrange
@@ -568,7 +558,7 @@ public sealed class TestProviderTests
     public void ScreenInfoNull() =>
         Assert.Throws<ArgumentNullException>(() => new TestProvider { ScreenInfo = null! });
 
-    [Property(DisplayName = "Auto-repeat rate should be settable", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "Auto-repeat rate should be settable")]
     public void AutoRepeatRate(int autoRepeatRate)
     {
         // Act
@@ -584,7 +574,7 @@ public sealed class TestProviderTests
         Assert.Equal(autoRepeatRate, ((IMouseInfoProvider)provider).GetAutoRepeatRate());
     }
 
-    [Property(DisplayName = "Auto-repeat delay should be settable", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "Auto-repeat delay should be settable")]
     public void AutoRepeatDelay(int autoRepeatDelay)
     {
         // Act
@@ -600,7 +590,7 @@ public sealed class TestProviderTests
         Assert.Equal(autoRepeatDelay, ((IMouseInfoProvider)provider).GetAutoRepeatDelay());
     }
 
-    [Property(DisplayName = "Pointer acceleration multiplier should be settable", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "Pointer acceleration multiplier should be settable")]
     public void PointerAccelerationMultiplier(int multiplier)
     {
         // Act
@@ -616,7 +606,7 @@ public sealed class TestProviderTests
         Assert.Equal(multiplier, ((IMouseInfoProvider)provider).GetPointerAccelerationMultiplier());
     }
 
-    [Property(DisplayName = "Pointer acceleration threshold should be settable", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "Pointer acceleration threshold should be settable")]
     public void PointerAccelerationThreshold(int threshold)
     {
         // Act
@@ -632,7 +622,7 @@ public sealed class TestProviderTests
         Assert.Equal(threshold, ((IMouseInfoProvider)provider).GetPointerAccelerationThreshold());
     }
 
-    [Property(DisplayName = "Pointer sensitivity should be settable", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "Pointer sensitivity should be settable")]
     public void PointerSensitivity(int sensitivity)
     {
         // Act
@@ -648,7 +638,7 @@ public sealed class TestProviderTests
         Assert.Equal(sensitivity, ((IMouseInfoProvider)provider).GetPointerSensitivity());
     }
 
-    [Property(DisplayName = "Multi-click time should be settable", Arbitrary = [typeof(Generators)])]
+    [Property(DisplayName = "Multi-click time should be settable")]
     public void MultiClickTime(int multiClickTime)
     {
         // Act
