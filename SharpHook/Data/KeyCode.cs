@@ -320,7 +320,7 @@ public enum KeyCode : ushort
     VcSpace = 0x0020,
 
     /// <summary>
-    /// The &lt;&gt; keys on the US standard keyboard, or the \| key on the non-US 102-key keyboard,
+    /// The &lt;&gt; key on the US standard keyboard, or the \| key on the non-US 102-key keyboard,
     /// or the Section key (§) on the macOS ISO keyboard
     /// </summary>
     /// <remarks>Available on: Windows, macOS, Linux</remarks>
