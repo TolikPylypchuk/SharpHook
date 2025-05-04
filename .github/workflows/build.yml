@@ -191,13 +191,13 @@ jobs:
         run: |
           sudo rm -Rf /etc/apt/sources.list.d
           sudo bash -c 'source /etc/lsb-release && echo "
-          deb [arch=amd64,i386] http://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME} main universe
-          deb [arch=amd64,i386] http://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME}-updates main universe
-          deb [arch=amd64,i386] http://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME}-backports main universe
+          deb [arch=amd64,i386] https://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME} main universe
+          deb [arch=amd64,i386] https://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME}-updates main universe
+          deb [arch=amd64,i386] https://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME}-backports main universe
 
-          deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME} main universe
-          deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME}-updates main universe
-          deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME}-backports main universe
+          deb [arch=arm64,armhf] https://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME} main universe
+          deb [arch=arm64,armhf] https://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME}-updates main universe
+          deb [arch=arm64,armhf] https://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME}-backports main universe
           " > /etc/apt/sources.list'
 
           sudo dpkg --add-architecture armhf
@@ -261,13 +261,13 @@ jobs:
         run: |
           sudo rm -Rf /etc/apt/sources.list.d/*
           sudo bash -c 'source /etc/lsb-release && echo "
-          deb [arch=amd64,i386] http://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME} main universe
-          deb [arch=amd64,i386] http://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME}-updates main universe
-          deb [arch=amd64,i386] http://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME}-backports main universe
+          deb [arch=amd64,i386] https://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME} main universe
+          deb [arch=amd64,i386] https://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME}-updates main universe
+          deb [arch=amd64,i386] https://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME}-backports main universe
 
-          deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME} main universe
-          deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME}-updates main universe
-          deb [arch=arm64,armhf] http://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME}-backports main universe
+          deb [arch=arm64,armhf] https://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME} main universe
+          deb [arch=arm64,armhf] https://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME}-updates main universe
+          deb [arch=arm64,armhf] https://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME}-backports main universe
           " > /etc/apt/sources.list'
 
           sudo dpkg --add-architecture arm64
