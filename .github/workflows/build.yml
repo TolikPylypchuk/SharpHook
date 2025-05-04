@@ -118,7 +118,7 @@ jobs:
             -D CMAKE_OSX_ARCHITECTURES='arm64' \
             -D BUILD_SHARED_LIBS=ON \
             -D USE_APPLICATION_SERVICES=OFF \
-            -D USE_IOKIT=OFF \
+            -D USE_IOKIT=ON \
             -D USE_APPKIT=OFF \
             -D USE_EPOCH_TIME=ON
 
@@ -160,7 +160,7 @@ jobs:
             -D CMAKE_OSX_ARCHITECTURES='x86_64' \
             -D BUILD_SHARED_LIBS=ON \
             -D USE_APPLICATION_SERVICES=OFF \
-            -D USE_IOKIT=OFF \
+            -D USE_IOKIT=ON \
             -D USE_APPKIT=OFF \
             -D USE_EPOCH_TIME=ON
 
