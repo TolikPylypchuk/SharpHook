@@ -12,7 +12,8 @@ public interface IGlobalHookProvider
     /// The function to call when an event is raised, or <see langword="null" /> to unset the function.
     /// </param>
     /// <param name="userData">
-    /// Custom data to pass to the callback. Should not be used, and <see cref="IntPtr.Zero" /> should always be passed.
+    /// Custom data to pass to the callback. Should not be used to pass pointers to objects,
+    /// and <see cref="IntPtr.Zero" /> should usually be passed.
     /// </param>
     void SetDispatchProc(DispatchProc? dispatchProc, IntPtr userData);
 

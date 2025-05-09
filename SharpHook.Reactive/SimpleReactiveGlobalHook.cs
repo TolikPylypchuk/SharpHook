@@ -1,3 +1,7 @@
+#if MACCATALYST
+using ObjCRuntime;
+#endif
+
 namespace SharpHook.Reactive;
 
 /// <summary>
@@ -8,6 +12,11 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
 {
     private const string Starting = "starting";
     private const string Stopping = "stopping";
+
+    private static readonly DispatchProc dispatchProc = HandleHookEvent;
+    private static readonly Dictionary<int, SimpleReactiveGlobalHook> runningGlobalHooks = [];
+
+    private static int currentHookIndex = 0;
 
     private readonly Subject<HookEventArgs> hookEnabledSubject = new();
     private readonly Subject<HookEventArgs> hookDisabledSubject = new();
@@ -25,9 +34,9 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     private readonly Subject<MouseWheelHookEventArgs> mouseWheelSubject = new();
 
     private readonly IGlobalHookProvider globalHookProvider;
-    private readonly DispatchProc dispatchProc;
     private readonly GlobalHookType globalHookType;
     private readonly bool runAsyncOnBackgroundThread;
+    private readonly int hookIndex;
 
     /// <summary>
     /// Initializes a new instance of <see cref="SimpleReactiveGlobalHook" />.
@@ -149,8 +158,8 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     {
         this.globalHookType = globalHookType;
         this.globalHookProvider = globalHookProvider ?? UioHookProvider.Instance;
-        this.dispatchProc = this.DispatchEvent;
         this.runAsyncOnBackgroundThread = runAsyncOnBackgroundThread;
+        this.hookIndex = Interlocked.Increment(ref currentHookIndex);
 
         defaultScheduler ??= ImmediateScheduler.Instance;
 
@@ -279,7 +288,8 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
 
         try
         {
-            this.globalHookProvider.SetDispatchProc(this.dispatchProc, IntPtr.Zero);
+            runningGlobalHooks[this.hookIndex] = this;
+            this.globalHookProvider.SetDispatchProc(dispatchProc, (IntPtr)this.hookIndex);
 
             this.IsRunning = true;
             result = this.RunGlobalHook();
@@ -288,6 +298,9 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
         {
             this.IsRunning = false;
             throw new HookException(UioHookResult.Failure, e);
+        } finally
+        {
+            runningGlobalHooks.Remove(this.hookIndex);
         }
 
         if (result != UioHookResult.Success)
@@ -319,7 +332,8 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
         {
             try
             {
-                this.globalHookProvider.SetDispatchProc(this.dispatchProc, IntPtr.Zero);
+                runningGlobalHooks[this.hookIndex] = this;
+                this.globalHookProvider.SetDispatchProc(dispatchProc, (IntPtr)this.hookIndex);
 
                 this.IsRunning = true;
                 var result = this.RunGlobalHook();
@@ -337,6 +351,9 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
             {
                 this.IsRunning = false;
                 hookStopped.OnError(new HookException(UioHookResult.Failure, e));
+            } finally
+            {
+                runningGlobalHooks.Remove(this.hookIndex);
             }
         })
         {
@@ -362,6 +379,17 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
         GC.SuppressFinalize(this);
     }
 
+#if MACCATALYST
+    [MonoPInvokeCallback(typeof(DispatchProc))]
+#endif
+    private static void HandleHookEvent(ref UioHookEvent e, IntPtr hookIndex)
+    {
+        if (runningGlobalHooks.TryGetValue(hookIndex.ToInt32(), out var hook))
+        {
+            hook.DispatchEvent(ref e);
+        }
+    }
+
     private UioHookResult RunGlobalHook() =>
         this.globalHookType switch
         {
@@ -370,7 +398,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
             _ => this.globalHookProvider.Run()
         };
 
-    private void DispatchEvent(ref UioHookEvent e, IntPtr userData)
+    private void DispatchEvent(ref UioHookEvent e)
     {
         HookEventArgs? args = null;
 
@@ -429,7 +457,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
                 break;
         };
 
-        if (args != null && args.SuppressEvent)
+        if (args is not null && args.SuppressEvent)
         {
             e.Mask |= EventMask.SuppressEvent;
         }

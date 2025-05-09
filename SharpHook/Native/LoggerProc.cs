@@ -5,7 +5,7 @@ namespace SharpHook.Native;
 /// </summary>
 /// <param name="level">The log level.</param>
 /// <param name="userData">
-/// The data that was passed to <see cref="UioHook.SetLoggerProc(LoggerProc?, IntPtr)" />. Should not be used.
+/// The data that was passed to <see cref="UioHook.SetLoggerProc(LoggerProc?, IntPtr)" />. Usually should not be used.
 /// </param>
 /// <param name="format">The format of the log message.</param>
 /// <param name="args">The arguments of the log message.</param>

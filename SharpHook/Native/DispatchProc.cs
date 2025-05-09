@@ -5,7 +5,8 @@ namespace SharpHook.Native;
 /// </summary>
 /// <param name="e">The event that has occured.</param>
 /// <param name="userData">
-/// The data that was passed to <see cref="UioHook.SetDispatchProc(DispatchProc?, IntPtr)" />. Should not be used.
+/// The data that was passed to <see cref="UioHook.SetDispatchProc(DispatchProc?, IntPtr)" />.
+/// Usually should not be used.
 /// </param>
 /// <seealso cref="UioHook.SetDispatchProc(DispatchProc?, IntPtr)" />
 [UnmanagedFunctionPointer(CallingConvention.Cdecl)]

@@ -1,3 +1,7 @@
+#if MACCATALYST
+using ObjCRuntime;
+#endif
+
 namespace SharpHook;
 
 /// <summary>
@@ -12,10 +16,15 @@ public abstract class GlobalHookBase : IGlobalHook
     private const string Starting = "starting";
     private const string Stopping = "stopping";
 
+    private static readonly DispatchProc dispatchProc = HandleHookEventIfNeeded;
+    private static readonly Dictionary<int, GlobalHookBase> runningGlobalHooks = [];
+
+    private static int currentHookIndex = 0;
+
     private readonly IGlobalHookProvider globalHookProvider;
-    private readonly DispatchProc dispatchProc;
     private readonly GlobalHookType globalHookType;
     private readonly bool runAsyncOnBackgroundThread;
+    private readonly int hookIndex;
 
     /// <summary>
     /// Initializes a new instance of <see cref="GlobalHookBase" />.
@@ -78,9 +87,9 @@ public abstract class GlobalHookBase : IGlobalHook
         bool runAsyncOnBackgroundThread = false)
     {
         this.globalHookProvider = globalHookProvider ?? UioHookProvider.Instance;
-        this.dispatchProc = this.HandleHookEventIfNeeded;
         this.globalHookType = globalHookType;
         this.runAsyncOnBackgroundThread = runAsyncOnBackgroundThread;
+        this.hookIndex = Interlocked.Increment(ref currentHookIndex);
     }
 
     /// <summary>
@@ -119,7 +128,8 @@ public abstract class GlobalHookBase : IGlobalHook
 
         try
         {
-            this.globalHookProvider.SetDispatchProc(this.dispatchProc, IntPtr.Zero);
+            runningGlobalHooks[this.hookIndex] = this;
+            this.globalHookProvider.SetDispatchProc(dispatchProc, (IntPtr)this.hookIndex);
 
             this.IsRunning = true;
             result = this.RunGlobalHook();
@@ -128,6 +138,9 @@ public abstract class GlobalHookBase : IGlobalHook
         {
             this.IsRunning = false;
             throw new HookException(UioHookResult.Failure, e);
+        } finally
+        {
+            runningGlobalHooks.Remove(this.hookIndex);
         }
 
         if (result != UioHookResult.Success)
@@ -156,7 +169,8 @@ public abstract class GlobalHookBase : IGlobalHook
         {
             try
             {
-                this.globalHookProvider.SetDispatchProc(this.dispatchProc, IntPtr.Zero);
+                runningGlobalHooks[this.hookIndex] = this;
+                this.globalHookProvider.SetDispatchProc(dispatchProc, (IntPtr)this.hookIndex);
 
                 this.IsRunning = true;
                 var result = this.RunGlobalHook();
@@ -173,6 +187,9 @@ public abstract class GlobalHookBase : IGlobalHook
             {
                 this.IsRunning = false;
                 source.SetException(new HookException(UioHookResult.Failure, e));
+            } finally
+            {
+                runningGlobalHooks.Remove(this.hookIndex);
             }
         })
         {
@@ -272,7 +289,7 @@ public abstract class GlobalHookBase : IGlobalHook
                 break;
         };
 
-        if (args != null && args.SuppressEvent)
+        if (args is not null && args.SuppressEvent)
         {
             e.Mask |= EventMask.SuppressEvent;
         }
@@ -356,7 +373,7 @@ public abstract class GlobalHookBase : IGlobalHook
         this.MouseWheel?.Invoke(this, args);
 
     /// <summary>
-    /// Destoys the global hook.
+    /// Destroys the global hook.
     /// </summary>
     /// <param name="disposing">
     /// <see langword="true" /> if the method is called from the <see cref="Dispose()" /> method.
@@ -396,6 +413,18 @@ public abstract class GlobalHookBase : IGlobalHook
         }
     }
 
+#if MACCATALYST
+    [MonoPInvokeCallback(typeof(DispatchProc))]
+#endif
+    private static void HandleHookEventIfNeeded(ref UioHookEvent e, IntPtr hookIndex)
+    {
+        if (runningGlobalHooks.TryGetValue(hookIndex.ToInt32(), out var hook) &&
+            hook.ShouldDispatchEvent(ref e))
+        {
+            hook.HandleHookEvent(ref e);
+        }
+    }
+
     private UioHookResult RunGlobalHook() =>
         this.globalHookType switch
         {
@@ -403,14 +432,6 @@ public abstract class GlobalHookBase : IGlobalHook
             GlobalHookType.Mouse => this.globalHookProvider.RunMouse(),
             _ => this.globalHookProvider.Run()
         };
-
-    private void HandleHookEventIfNeeded(ref UioHookEvent e, IntPtr userData)
-    {
-        if (this.ShouldDispatchEvent(ref e))
-        {
-            this.HandleHookEvent(ref e);
-        }
-    }
 
     private bool ShouldDispatchEvent(ref UioHookEvent e) =>
         e.Type switch

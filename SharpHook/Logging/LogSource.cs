@@ -1,3 +1,7 @@
+#if MACCATALYST
+using ObjCRuntime;
+#endif
+
 namespace SharpHook.Logging;
 
 /// <summary>
@@ -8,7 +12,7 @@ namespace SharpHook.Logging;
 /// Only a single <see cref="LogSource" /> instance must be used at a time.
 /// </para>
 /// <para>
-/// On Windows this class requires the Visual C++ Redistributable package to be installed as it uses the C runtime.
+/// On Windows, this class requires the Visual C++ Redistributable package to be installed as it uses the C runtime.
 /// </para>
 /// </remarks>
 /// <seealso cref="ILogSource" />
@@ -25,15 +29,15 @@ public sealed class LogSource : ILogSource
     private static readonly object syncRoot = new();
 #endif
 
+    private static readonly LoggerProc loggerProc = OnLog;
+
     private static LogSource? registeredLogSource = null;
 
     private readonly LogEntryParser parser;
-    private readonly LoggerProc loggerProc;
     private readonly ILoggingProvider loggingProvider;
 
     private LogSource(ILoggingProvider loggingProvider, LogEntryParser parser, LogLevel minLevel)
     {
-        this.loggerProc = this.OnLog;
         this.loggingProvider = loggingProvider;
         this.parser = parser;
         this.MinLevel = minLevel;
@@ -93,7 +97,7 @@ public sealed class LogSource : ILogSource
             if (registeredLogSource is null)
             {
                 registeredLogSource = new LogSource(loggingProvider, LogEntryParser.Instance, minLevel);
-                loggingProvider.SetLoggerProc(registeredLogSource.loggerProc, IntPtr.Zero);
+                loggingProvider.SetLoggerProc(loggerProc, IntPtr.Zero);
             }
 
             return registeredLogSource;
@@ -128,17 +132,20 @@ public sealed class LogSource : ILogSource
         }
     }
 
-    private void OnLog(LogLevel level, IntPtr userData, IntPtr format, IntPtr args)
+#if MACCATALYST
+    [MonoPInvokeCallback(typeof(LoggerProc))]
+#endif
+    private static void OnLog(LogLevel level, IntPtr userData, IntPtr format, IntPtr args)
     {
-        if (level < this.MinLevel)
+        if (registeredLogSource is null || level < registeredLogSource.MinLevel)
         {
             return;
         }
 
         try
         {
-            var logEntry = this.parser.ParseNativeLogEntry(level, format, args);
-            this.MessageLogged?.Invoke(this, new LogEventArgs(logEntry));
+            var logEntry = registeredLogSource.parser.ParseNativeLogEntry(level, format, args);
+            registeredLogSource.MessageLogged?.Invoke(registeredLogSource, new LogEventArgs(logEntry));
         } catch { }
     }
 

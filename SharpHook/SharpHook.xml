@@ -2098,7 +2098,7 @@
         </member>
         <member name="M:SharpHook.GlobalHookBase.Dispose(System.Boolean)">
             <summary>
-            Destoys the global hook.
+            Destroys the global hook.
             </summary>
             <param name="disposing">
             <see langword="true" /> if the method is called from the <see cref="M:SharpHook.GlobalHookBase.Dispose" /> method.
@@ -2889,7 +2889,7 @@
             Only a single <see cref="T:SharpHook.Logging.LogSource" /> instance must be used at a time.
             </para>
             <para>
-            On Windows this class requires the Visual C++ Redistributable package to be installed as it uses the C runtime.
+            On Windows, this class requires the Visual C++ Redistributable package to be installed as it uses the C runtime.
             </para>
             </remarks>
             <seealso cref="T:SharpHook.Logging.ILogSource" />
@@ -3008,7 +3008,8 @@
             </summary>
             <param name="e">The event that has occured.</param>
             <param name="userData">
-            The data that was passed to <see cref="M:SharpHook.Native.UioHook.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)" />. Should not be used.
+            The data that was passed to <see cref="M:SharpHook.Native.UioHook.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)" />.
+            Usually should not be used.
             </param>
             <seealso cref="M:SharpHook.Native.UioHook.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)" />
         </member>
@@ -3018,7 +3019,7 @@
             </summary>
             <param name="level">The log level.</param>
             <param name="userData">
-            The data that was passed to <see cref="M:SharpHook.Native.UioHook.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)" />. Should not be used.
+            The data that was passed to <see cref="M:SharpHook.Native.UioHook.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)" />. Usually should not be used.
             </param>
             <param name="format">The format of the log message.</param>
             <param name="args">The arguments of the log message.</param>
@@ -3043,7 +3044,8 @@
             The function to call when an event is raised, or <see langword="null" /> to unset the function.
             </param>
             <param name="userData">
-            Custom data to pass to the callback. Should not be used, and <see cref="F:System.IntPtr.Zero" /> should always be passed.
+            Custom data to pass to the callback. Should not be used to pass pointers to objects,
+            and <see cref="F:System.IntPtr.Zero" /> should usually be passed.
             </param>
             <seealso cref="T:SharpHook.Native.DispatchProc" />
         </member>
@@ -3117,7 +3119,8 @@
             The function to call for logging, or <see langword="null" /> to unset the function.
             </param>
             <param name="userData">
-            Custom data to pass to the callback. Should not be used, and <see cref="F:System.IntPtr.Zero" /> should always be passed.
+            Custom data to pass to the callback. Should not be used to pass pointers to objects,
+            and <see cref="F:System.IntPtr.Zero" /> should usually be passed.
             </param>
             <seealso cref="T:SharpHook.Native.LoggerProc" />
         </member>
@@ -3499,7 +3502,8 @@
             The function to call when an event is raised, or <see langword="null" /> to unset the function.
             </param>
             <param name="userData">
-            Custom data to pass to the callback. Should not be used, and <see cref="F:System.IntPtr.Zero" /> should always be passed.
+            Custom data to pass to the callback. Should not be used to pass pointers to objects,
+            and <see cref="F:System.IntPtr.Zero" /> should usually be passed.
             </param>
         </member>
         <member name="M:SharpHook.Providers.IGlobalHookProvider.Run">
@@ -3539,7 +3543,8 @@
             The function to call for logging, or <see langword="null" /> to unset the function.
             </param>
             <param name="userData">
-            Custom data to pass to the callback. Should not be used, and <see cref="F:System.IntPtr.Zero" /> should always be passed.
+            Custom data to pass to the callback. Should not be used to pass pointers to objects,
+            and <see cref="F:System.IntPtr.Zero" /> should usually be passed.
             </param>
         </member>
         <member name="T:SharpHook.Providers.IMouseInfoProvider">
