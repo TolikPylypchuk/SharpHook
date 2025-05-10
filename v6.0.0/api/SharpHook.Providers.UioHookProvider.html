@@ -102,7 +102,7 @@ Class UioHookProvider  <a class="header-action link-secondary" title="View sourc
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class UioHookProvider : IGlobalHookProvider, ILoggingProvider, IEventSimulationProvider, IAccessibilityProvider, IScreenInfoProvider, IMouseInfoProvider</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class UioHookProvider : ILoggingProvider, IGlobalHookProvider, IEventSimulationProvider, IAccessibilityProvider, IScreenInfoProvider, IMouseInfoProvider</code></pre>
   </div>
 
 
@@ -119,8 +119,8 @@ Class UioHookProvider  <a class="header-action link-secondary" title="View sourc
   <dl class="typelist implements">
     <dt>Implements</dt>
     <dd>
-      <div><a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html">IGlobalHookProvider</a></div>
       <div><a class="xref" href="SharpHook.Providers.ILoggingProvider.html">ILoggingProvider</a></div>
+      <div><a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html">IGlobalHookProvider</a></div>
       <div><a class="xref" href="SharpHook.Providers.IEventSimulationProvider.html">IEventSimulationProvider</a></div>
       <div><a class="xref" href="SharpHook.Providers.IAccessibilityProvider.html">IAccessibilityProvider</a></div>
       <div><a class="xref" href="SharpHook.Providers.IScreenInfoProvider.html">IScreenInfoProvider</a></div>
@@ -806,7 +806,8 @@ events out at the libuiohook level on these OSes.</p>
     <dd><p>The function to call when an event is raised, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to unset the function.</p>
 </dd>
     <dt><code>userData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd><p>Custom data to pass to the callback. Should not be used, and <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr.zero">Zero</a> should always be passed.</p>
+    <dd><p>Custom data to pass to the callback. Should not be used to pass pointers to objects,
+and <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr.zero">Zero</a> should usually be passed.</p>
 </dd>
   </dl>
 
@@ -848,7 +849,8 @@ events out at the libuiohook level on these OSes.</p>
     <dd><p>The function to call for logging, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to unset the function.</p>
 </dd>
     <dt><code>userData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd><p>Custom data to pass to the callback. Should not be used, and <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr.zero">Zero</a> should always be passed.</p>
+    <dd><p>Custom data to pass to the callback. Should not be used to pass pointers to objects,
+and <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr.zero">Zero</a> should usually be passed.</p>
 </dd>
   </dl>
 
