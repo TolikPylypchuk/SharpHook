@@ -1919,40 +1919,6 @@
             <seealso cref="T:SharpHook.SimpleGlobalHook" />
             <seealso cref="T:SharpHook.TaskPoolGlobalHook" />
         </member>
-        <member name="M:SharpHook.GlobalHookBase.#ctor">
-            <summary>
-            Initializes a new instance of <see cref="T:SharpHook.GlobalHookBase" />.
-            </summary>
-        </member>
-        <member name="M:SharpHook.GlobalHookBase.#ctor(SharpHook.Providers.IGlobalHookProvider)">
-            <summary>
-            Initializes a new instance of <see cref="T:SharpHook.GlobalHookBase" />.
-            </summary>
-            <param name="globalHookProvider">
-            The underlying global hook provider, or <see langword="null" /> to use the default one.
-            </param>
-        </member>
-        <member name="M:SharpHook.GlobalHookBase.#ctor(System.Boolean)">
-            <summary>
-            Initializes a new instance of <see cref="T:SharpHook.GlobalHookBase" />.
-            </summary>
-            <param name="runAsyncOnBackgroundThread">
-            <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
-            Otherwise, <see langword="false" />.
-            </param>
-        </member>
-        <member name="M:SharpHook.GlobalHookBase.#ctor(SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
-            <summary>
-            Initializes a new instance of <see cref="T:SharpHook.GlobalHookBase" />.
-            </summary>
-            <param name="globalHookProvider">
-            The underlying global hook provider, or <see langword="null" /> to use the default one.
-            </param>
-            <param name="runAsyncOnBackgroundThread">
-            <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
-            Otherwise, <see langword="false" />.
-            </param>
-        </member>
         <member name="M:SharpHook.GlobalHookBase.#ctor(SharpHook.Data.GlobalHookType,SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
             <summary>
             Initializes a new instance of <see cref="T:SharpHook.GlobalHookBase" />.
@@ -3915,48 +3881,12 @@
             </summary>
             <remarks>
             The event handlers should generally be fast and simple so that the thread can process all raised events. If you
-            need to do a lot of processing in the event handlers then consider using another implementation, e.g.
+            need to do a lot of processing in the event handlers then consider using another implementation, e.g.,
             <see cref="T:SharpHook.TaskPoolGlobalHook" />.
             </remarks>
             <seealso cref="T:SharpHook.IGlobalHook" />
             <seealso cref="T:SharpHook.GlobalHookBase" />
             <seealso cref="T:SharpHook.TaskPoolGlobalHook" />
-        </member>
-        <member name="M:SharpHook.SimpleGlobalHook.#ctor">
-            <summary>
-            Initializes a new instance of <see cref="T:SharpHook.SimpleGlobalHook" />.
-            </summary>
-        </member>
-        <member name="M:SharpHook.SimpleGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider)">
-            <summary>
-            Initializes a new instance of <see cref="T:SharpHook.SimpleGlobalHook" />.
-            </summary>
-            <param name="globalHookProvider">The underlying global hook provider.</param>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="globalHookProvider"/> is <see langword="null" />.
-            </exception>
-        </member>
-        <member name="M:SharpHook.SimpleGlobalHook.#ctor(System.Boolean)">
-            <summary>
-            Initializes a new instance of <see cref="T:SharpHook.SimpleGlobalHook" />.
-            </summary>
-            <param name="runAsyncOnBackgroundThread">
-            <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
-            Otherwise, <see langword="false" />.
-            </param>
-        </member>
-        <member name="M:SharpHook.SimpleGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
-            <summary>
-            Initializes a new instance of <see cref="T:SharpHook.SimpleGlobalHook" />.
-            </summary>
-            <param name="globalHookProvider">The underlying global hook provider.</param>
-            <param name="runAsyncOnBackgroundThread">
-            <see langword="true" /> if <see cref="M:SharpHook.IGlobalHook.RunAsync" /> should run the hook on a background thread.
-            Otherwise, <see langword="false" />.
-            </param>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="globalHookProvider"/> is <see langword="null" />.
-            </exception>
         </member>
         <member name="M:SharpHook.SimpleGlobalHook.#ctor(SharpHook.Data.GlobalHookType,SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
             <summary>
@@ -3997,20 +3927,6 @@
             <seealso cref="T:SharpHook.IGlobalHook" />
             <seealso cref="T:SharpHook.GlobalHookBase" />
             <seealso cref="T:SharpHook.SimpleGlobalHook" />
-        </member>
-        <member name="M:SharpHook.TaskPoolGlobalHook.#ctor">
-            <summary>
-            Initializes a new instance of <see cref="T:SharpHook.TaskPoolGlobalHook" />.
-            </summary>
-        </member>
-        <member name="M:SharpHook.TaskPoolGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider)">
-            <summary>
-            Initializes a new instance of <see cref="T:SharpHook.TaskPoolGlobalHook" />.
-            </summary>
-            <param name="globalHookProvider">The underlying global hook provider.</param>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="globalHookProvider"/> is <see langword="null" />.
-            </exception>
         </member>
         <member name="M:SharpHook.TaskPoolGlobalHook.#ctor(System.Int32,SharpHook.Data.GlobalHookType,SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
             <summary>

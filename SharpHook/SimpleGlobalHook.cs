@@ -6,7 +6,7 @@ namespace SharpHook;
 /// </summary>
 /// <remarks>
 /// The event handlers should generally be fast and simple so that the thread can process all raised events. If you
-/// need to do a lot of processing in the event handlers then consider using another implementation, e.g.
+/// need to do a lot of processing in the event handlers then consider using another implementation, e.g.,
 /// <see cref="TaskPoolGlobalHook" />.
 /// </remarks>
 /// <seealso cref="IGlobalHook" />
@@ -14,53 +14,6 @@ namespace SharpHook;
 /// <seealso cref="TaskPoolGlobalHook" />
 public sealed class SimpleGlobalHook : GlobalHookBase
 {
-    /// <summary>
-    /// Initializes a new instance of <see cref="SimpleGlobalHook" />.
-    /// </summary>
-    [ExcludeFromCodeCoverage]
-    public SimpleGlobalHook()
-    { }
-
-    /// <summary>
-    /// Initializes a new instance of <see cref="SimpleGlobalHook" />.
-    /// </summary>
-    /// <param name="globalHookProvider">The underlying global hook provider.</param>
-    /// <exception cref="ArgumentNullException">
-    /// <paramref name="globalHookProvider"/> is <see langword="null" />.
-    /// </exception>
-    [ExcludeFromCodeCoverage]
-    public SimpleGlobalHook(IGlobalHookProvider? globalHookProvider)
-        : base(globalHookProvider)
-    { }
-
-    /// <summary>
-    /// Initializes a new instance of <see cref="SimpleGlobalHook" />.
-    /// </summary>
-    /// <param name="runAsyncOnBackgroundThread">
-    /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
-    /// Otherwise, <see langword="false" />.
-    /// </param>
-    [ExcludeFromCodeCoverage]
-    public SimpleGlobalHook(bool runAsyncOnBackgroundThread)
-        : base(runAsyncOnBackgroundThread)
-    { }
-
-    /// <summary>
-    /// Initializes a new instance of <see cref="SimpleGlobalHook" />.
-    /// </summary>
-    /// <param name="globalHookProvider">The underlying global hook provider.</param>
-    /// <param name="runAsyncOnBackgroundThread">
-    /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
-    /// Otherwise, <see langword="false" />.
-    /// </param>
-    /// <exception cref="ArgumentNullException">
-    /// <paramref name="globalHookProvider"/> is <see langword="null" />.
-    /// </exception>
-    [ExcludeFromCodeCoverage]
-    public SimpleGlobalHook(IGlobalHookProvider globalHookProvider, bool runAsyncOnBackgroundThread)
-        : base(globalHookProvider, runAsyncOnBackgroundThread)
-    { }
-
     /// <summary>
     /// Initializes a new instance of <see cref="SimpleGlobalHook" />.
     /// </summary>
@@ -72,6 +25,8 @@ public sealed class SimpleGlobalHook : GlobalHookBase
     /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
     /// Otherwise, <see langword="false" />.
     /// </param>
+    [SuppressMessage(
+        "Style", "IDE0290:Use primary constructor", Justification = "Primary constructors don't support XML comments")]
     public SimpleGlobalHook(
         GlobalHookType globalHookType = GlobalHookType.All,
         IGlobalHookProvider? globalHookProvider = null,

@@ -30,7 +30,7 @@ logSource.MinLevel = LogLevel.Info;
 
 Console.WriteLine("---------- Press q to quit ----------\n");
 
-var hook = new SimpleReactiveGlobalHook(TaskPoolScheduler.Default);
+var hook = new SimpleReactiveGlobalHook(defaultScheduler: TaskPoolScheduler.Default);
 
 hook.HookEnabled.Subscribe(OnHookEvent);
 hook.HookDisabled.Subscribe(OnHookEvent);

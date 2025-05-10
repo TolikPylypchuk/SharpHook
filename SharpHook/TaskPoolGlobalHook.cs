@@ -28,25 +28,6 @@ public sealed class TaskPoolGlobalHook : GlobalHookBase
     /// <summary>
     /// Initializes a new instance of <see cref="TaskPoolGlobalHook" />.
     /// </summary>
-    [ExcludeFromCodeCoverage]
-    public TaskPoolGlobalHook()
-        : this(DefaultParallelismLevel)
-    { }
-
-    /// <summary>
-    /// Initializes a new instance of <see cref="TaskPoolGlobalHook" />.
-    /// </summary>
-    /// <param name="globalHookProvider">The underlying global hook provider.</param>
-    /// <exception cref="ArgumentNullException">
-    /// <paramref name="globalHookProvider"/> is <see langword="null" />.
-    /// </exception>
-    public TaskPoolGlobalHook(IGlobalHookProvider globalHookProvider)
-        : this(DefaultParallelismLevel, GlobalHookType.All, globalHookProvider)
-    { }
-
-    /// <summary>
-    /// Initializes a new instance of <see cref="TaskPoolGlobalHook" />.
-    /// </summary>
     /// <param name="parallelismLevel">The parallelism level of event handlers.</param>
     /// <param name="globalHookType">The global hook type.</param>
     /// <param name="globalHookProvider">
@@ -56,6 +37,8 @@ public sealed class TaskPoolGlobalHook : GlobalHookBase
     /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
     /// Otherwise, <see langword="false" />.
     /// </param>
+    [SuppressMessage(
+        "Style", "IDE0290:Use primary constructor", Justification = "Primary constructors don't support XML comments")]
     public TaskPoolGlobalHook(
         int parallelismLevel = DefaultParallelismLevel,
         GlobalHookType globalHookType = GlobalHookType.All,

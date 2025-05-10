@@ -15,9 +15,6 @@ namespace SharpHook;
 /// <seealso cref="TaskPoolGlobalHook" />
 public abstract class GlobalHookBase : IGlobalHook
 {
-    private const string Starting = "starting";
-    private const string Stopping = "stopping";
-
     private static readonly DispatchProc dispatchProc = HandleHookEventIfNeeded;
     private static readonly ConcurrentDictionary<int, GlobalHookBase> runningGlobalHooks = [];
 
@@ -31,50 +28,6 @@ public abstract class GlobalHookBase : IGlobalHook
     /// <summary>
     /// Initializes a new instance of <see cref="GlobalHookBase" />.
     /// </summary>
-    [ExcludeFromCodeCoverage]
-    protected GlobalHookBase()
-        : this(false)
-    { }
-
-    /// <summary>
-    /// Initializes a new instance of <see cref="GlobalHookBase" />.
-    /// </summary>
-    /// <param name="globalHookProvider">
-    /// The underlying global hook provider, or <see langword="null" /> to use the default one.
-    /// </param>
-    protected GlobalHookBase(IGlobalHookProvider? globalHookProvider)
-        : this(globalHookProvider, false)
-    { }
-
-    /// <summary>
-    /// Initializes a new instance of <see cref="GlobalHookBase" />.
-    /// </summary>
-    /// <param name="runAsyncOnBackgroundThread">
-    /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
-    /// Otherwise, <see langword="false" />.
-    /// </param>
-    [ExcludeFromCodeCoverage]
-    protected GlobalHookBase(bool runAsyncOnBackgroundThread)
-        : this(UioHookProvider.Instance, runAsyncOnBackgroundThread)
-    { }
-
-    /// <summary>
-    /// Initializes a new instance of <see cref="GlobalHookBase" />.
-    /// </summary>
-    /// <param name="globalHookProvider">
-    /// The underlying global hook provider, or <see langword="null" /> to use the default one.
-    /// </param>
-    /// <param name="runAsyncOnBackgroundThread">
-    /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
-    /// Otherwise, <see langword="false" />.
-    /// </param>
-    protected GlobalHookBase(IGlobalHookProvider? globalHookProvider, bool runAsyncOnBackgroundThread)
-        : this(GlobalHookType.All, globalHookProvider, runAsyncOnBackgroundThread)
-    { }
-
-    /// <summary>
-    /// Initializes a new instance of <see cref="GlobalHookBase" />.
-    /// </summary>
     /// <param name="globalHookType">The global hook type.</param>
     /// <param name="globalHookProvider">
     /// The underlying global hook provider, or <see langword="null" /> to use the default one.
@@ -83,6 +36,8 @@ public abstract class GlobalHookBase : IGlobalHook
     /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
     /// Otherwise, <see langword="false" />.
     /// </param>
+    [SuppressMessage(
+        "Style", "IDE0290:Use primary constructor", Justification = "Primary constructors don't support XML comments")]
     protected GlobalHookBase(
         GlobalHookType globalHookType = GlobalHookType.All,
         IGlobalHookProvider? globalHookProvider = null,
@@ -147,7 +102,7 @@ public abstract class GlobalHookBase : IGlobalHook
 
         if (result != UioHookResult.Success)
         {
-            throw new HookException(result, this.FormatFailureMessage(Starting, result));
+            throw new HookException(result, this.FormatStartFailureMessage(result));
         }
     }
 
@@ -183,7 +138,7 @@ public abstract class GlobalHookBase : IGlobalHook
                     source.SetResult(null);
                 } else
                 {
-                    source.SetException(new HookException(result, this.FormatFailureMessage(Starting, result)));
+                    source.SetException(new HookException(result, this.FormatStartFailureMessage(result)));
                 }
             } catch (Exception e)
             {
@@ -397,7 +352,7 @@ public abstract class GlobalHookBase : IGlobalHook
 
             if (disposing && result != UioHookResult.Success)
             {
-                throw new HookException(result, this.FormatFailureMessage(Stopping, result));
+                throw new HookException(result, this.FormatStopFailureMessage(result));
             }
         }
     }
@@ -459,6 +414,12 @@ public abstract class GlobalHookBase : IGlobalHook
             throw new InvalidOperationException("The global hook is already running");
         }
     }
+
+    private string FormatStartFailureMessage(UioHookResult result) =>
+        FormatFailureMessage("starting", result);
+
+    private string FormatStopFailureMessage(UioHookResult result) =>
+        FormatFailureMessage("stopping", result);
 
     private string FormatFailureMessage(string action, UioHookResult result) =>
         $"Failed {action} the global hook: {result} ({(int)result:x})";
