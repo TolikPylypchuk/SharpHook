@@ -2446,15 +2446,6 @@ references:
   commentId: T:SharpHook.GlobalHookBase
   fullName: SharpHook.GlobalHookBase
   nameWithType: GlobalHookBase
-- uid: SharpHook.GlobalHookBase.#ctor
-  name: GlobalHookBase()
-  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase__ctor
-  commentId: M:SharpHook.GlobalHookBase.#ctor
-  name.vb: New()
-  fullName: SharpHook.GlobalHookBase.GlobalHookBase()
-  fullName.vb: SharpHook.GlobalHookBase.New()
-  nameWithType: GlobalHookBase.GlobalHookBase()
-  nameWithType.vb: GlobalHookBase.New()
 - uid: SharpHook.GlobalHookBase.#ctor(SharpHook.Data.GlobalHookType,SharpHook.Providers.IGlobalHookProvider,System.Boolean)
   name: GlobalHookBase(GlobalHookType, IGlobalHookProvider?, bool)
   href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase__ctor_SharpHook_Data_GlobalHookType_SharpHook_Providers_IGlobalHookProvider_System_Boolean_
@@ -2464,33 +2455,6 @@ references:
   fullName.vb: SharpHook.GlobalHookBase.New(SharpHook.Data.GlobalHookType, SharpHook.Providers.IGlobalHookProvider, Boolean)
   nameWithType: GlobalHookBase.GlobalHookBase(GlobalHookType, IGlobalHookProvider?, bool)
   nameWithType.vb: GlobalHookBase.New(GlobalHookType, IGlobalHookProvider, Boolean)
-- uid: SharpHook.GlobalHookBase.#ctor(SharpHook.Providers.IGlobalHookProvider)
-  name: GlobalHookBase(IGlobalHookProvider?)
-  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase__ctor_SharpHook_Providers_IGlobalHookProvider_
-  commentId: M:SharpHook.GlobalHookBase.#ctor(SharpHook.Providers.IGlobalHookProvider)
-  name.vb: New(IGlobalHookProvider)
-  fullName: SharpHook.GlobalHookBase.GlobalHookBase(SharpHook.Providers.IGlobalHookProvider?)
-  fullName.vb: SharpHook.GlobalHookBase.New(SharpHook.Providers.IGlobalHookProvider)
-  nameWithType: GlobalHookBase.GlobalHookBase(IGlobalHookProvider?)
-  nameWithType.vb: GlobalHookBase.New(IGlobalHookProvider)
-- uid: SharpHook.GlobalHookBase.#ctor(SharpHook.Providers.IGlobalHookProvider,System.Boolean)
-  name: GlobalHookBase(IGlobalHookProvider?, bool)
-  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase__ctor_SharpHook_Providers_IGlobalHookProvider_System_Boolean_
-  commentId: M:SharpHook.GlobalHookBase.#ctor(SharpHook.Providers.IGlobalHookProvider,System.Boolean)
-  name.vb: New(IGlobalHookProvider, Boolean)
-  fullName: SharpHook.GlobalHookBase.GlobalHookBase(SharpHook.Providers.IGlobalHookProvider?, bool)
-  fullName.vb: SharpHook.GlobalHookBase.New(SharpHook.Providers.IGlobalHookProvider, Boolean)
-  nameWithType: GlobalHookBase.GlobalHookBase(IGlobalHookProvider?, bool)
-  nameWithType.vb: GlobalHookBase.New(IGlobalHookProvider, Boolean)
-- uid: SharpHook.GlobalHookBase.#ctor(System.Boolean)
-  name: GlobalHookBase(bool)
-  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase__ctor_System_Boolean_
-  commentId: M:SharpHook.GlobalHookBase.#ctor(System.Boolean)
-  name.vb: New(Boolean)
-  fullName: SharpHook.GlobalHookBase.GlobalHookBase(bool)
-  fullName.vb: SharpHook.GlobalHookBase.New(Boolean)
-  nameWithType: GlobalHookBase.GlobalHookBase(bool)
-  nameWithType.vb: GlobalHookBase.New(Boolean)
 - uid: SharpHook.GlobalHookBase.#ctor*
   name: GlobalHookBase
   href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase__ctor_
@@ -5335,15 +5299,6 @@ references:
   commentId: T:SharpHook.Reactive.SimpleReactiveGlobalHook
   fullName: SharpHook.Reactive.SimpleReactiveGlobalHook
   nameWithType: SimpleReactiveGlobalHook
-- uid: SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor
-  name: SimpleReactiveGlobalHook()
-  href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook__ctor
-  commentId: M:SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor
-  name.vb: New()
-  fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.SimpleReactiveGlobalHook()
-  fullName.vb: SharpHook.Reactive.SimpleReactiveGlobalHook.New()
-  nameWithType: SimpleReactiveGlobalHook.SimpleReactiveGlobalHook()
-  nameWithType.vb: SimpleReactiveGlobalHook.New()
 - uid: SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(SharpHook.Data.GlobalHookType,System.Reactive.Concurrency.IScheduler,SharpHook.Providers.IGlobalHookProvider,System.Boolean)
   name: SimpleReactiveGlobalHook(GlobalHookType, IScheduler?, IGlobalHookProvider?, bool)
   href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_SharpHook_Data_GlobalHookType_System_Reactive_Concurrency_IScheduler_SharpHook_Providers_IGlobalHookProvider_System_Boolean_
@@ -5353,69 +5308,6 @@ references:
   fullName.vb: SharpHook.Reactive.SimpleReactiveGlobalHook.New(SharpHook.Data.GlobalHookType, System.Reactive.Concurrency.IScheduler, SharpHook.Providers.IGlobalHookProvider, Boolean)
   nameWithType: SimpleReactiveGlobalHook.SimpleReactiveGlobalHook(GlobalHookType, IScheduler?, IGlobalHookProvider?, bool)
   nameWithType.vb: SimpleReactiveGlobalHook.New(GlobalHookType, IScheduler, IGlobalHookProvider, Boolean)
-- uid: SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider)
-  name: SimpleReactiveGlobalHook(IGlobalHookProvider?)
-  href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_SharpHook_Providers_IGlobalHookProvider_
-  commentId: M:SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider)
-  name.vb: New(IGlobalHookProvider)
-  fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.SimpleReactiveGlobalHook(SharpHook.Providers.IGlobalHookProvider?)
-  fullName.vb: SharpHook.Reactive.SimpleReactiveGlobalHook.New(SharpHook.Providers.IGlobalHookProvider)
-  nameWithType: SimpleReactiveGlobalHook.SimpleReactiveGlobalHook(IGlobalHookProvider?)
-  nameWithType.vb: SimpleReactiveGlobalHook.New(IGlobalHookProvider)
-- uid: SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider,System.Boolean)
-  name: SimpleReactiveGlobalHook(IGlobalHookProvider?, bool)
-  href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_SharpHook_Providers_IGlobalHookProvider_System_Boolean_
-  commentId: M:SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider,System.Boolean)
-  name.vb: New(IGlobalHookProvider, Boolean)
-  fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.SimpleReactiveGlobalHook(SharpHook.Providers.IGlobalHookProvider?, bool)
-  fullName.vb: SharpHook.Reactive.SimpleReactiveGlobalHook.New(SharpHook.Providers.IGlobalHookProvider, Boolean)
-  nameWithType: SimpleReactiveGlobalHook.SimpleReactiveGlobalHook(IGlobalHookProvider?, bool)
-  nameWithType.vb: SimpleReactiveGlobalHook.New(IGlobalHookProvider, Boolean)
-- uid: SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(System.Boolean)
-  name: SimpleReactiveGlobalHook(bool)
-  href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_System_Boolean_
-  commentId: M:SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(System.Boolean)
-  name.vb: New(Boolean)
-  fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.SimpleReactiveGlobalHook(bool)
-  fullName.vb: SharpHook.Reactive.SimpleReactiveGlobalHook.New(Boolean)
-  nameWithType: SimpleReactiveGlobalHook.SimpleReactiveGlobalHook(bool)
-  nameWithType.vb: SimpleReactiveGlobalHook.New(Boolean)
-- uid: SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(System.Reactive.Concurrency.IScheduler)
-  name: SimpleReactiveGlobalHook(IScheduler?)
-  href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_System_Reactive_Concurrency_IScheduler_
-  commentId: M:SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(System.Reactive.Concurrency.IScheduler)
-  name.vb: New(IScheduler)
-  fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.SimpleReactiveGlobalHook(System.Reactive.Concurrency.IScheduler?)
-  fullName.vb: SharpHook.Reactive.SimpleReactiveGlobalHook.New(System.Reactive.Concurrency.IScheduler)
-  nameWithType: SimpleReactiveGlobalHook.SimpleReactiveGlobalHook(IScheduler?)
-  nameWithType.vb: SimpleReactiveGlobalHook.New(IScheduler)
-- uid: SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(System.Reactive.Concurrency.IScheduler,SharpHook.Providers.IGlobalHookProvider)
-  name: SimpleReactiveGlobalHook(IScheduler?, IGlobalHookProvider?)
-  href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_System_Reactive_Concurrency_IScheduler_SharpHook_Providers_IGlobalHookProvider_
-  commentId: M:SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(System.Reactive.Concurrency.IScheduler,SharpHook.Providers.IGlobalHookProvider)
-  name.vb: New(IScheduler, IGlobalHookProvider)
-  fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.SimpleReactiveGlobalHook(System.Reactive.Concurrency.IScheduler?, SharpHook.Providers.IGlobalHookProvider?)
-  fullName.vb: SharpHook.Reactive.SimpleReactiveGlobalHook.New(System.Reactive.Concurrency.IScheduler, SharpHook.Providers.IGlobalHookProvider)
-  nameWithType: SimpleReactiveGlobalHook.SimpleReactiveGlobalHook(IScheduler?, IGlobalHookProvider?)
-  nameWithType.vb: SimpleReactiveGlobalHook.New(IScheduler, IGlobalHookProvider)
-- uid: SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(System.Reactive.Concurrency.IScheduler,SharpHook.Providers.IGlobalHookProvider,System.Boolean)
-  name: SimpleReactiveGlobalHook(IScheduler?, IGlobalHookProvider?, bool)
-  href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_System_Reactive_Concurrency_IScheduler_SharpHook_Providers_IGlobalHookProvider_System_Boolean_
-  commentId: M:SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(System.Reactive.Concurrency.IScheduler,SharpHook.Providers.IGlobalHookProvider,System.Boolean)
-  name.vb: New(IScheduler, IGlobalHookProvider, Boolean)
-  fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.SimpleReactiveGlobalHook(System.Reactive.Concurrency.IScheduler?, SharpHook.Providers.IGlobalHookProvider?, bool)
-  fullName.vb: SharpHook.Reactive.SimpleReactiveGlobalHook.New(System.Reactive.Concurrency.IScheduler, SharpHook.Providers.IGlobalHookProvider, Boolean)
-  nameWithType: SimpleReactiveGlobalHook.SimpleReactiveGlobalHook(IScheduler?, IGlobalHookProvider?, bool)
-  nameWithType.vb: SimpleReactiveGlobalHook.New(IScheduler, IGlobalHookProvider, Boolean)
-- uid: SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(System.Reactive.Concurrency.IScheduler,System.Boolean)
-  name: SimpleReactiveGlobalHook(IScheduler?, bool)
-  href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_System_Reactive_Concurrency_IScheduler_System_Boolean_
-  commentId: M:SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor(System.Reactive.Concurrency.IScheduler,System.Boolean)
-  name.vb: New(IScheduler, Boolean)
-  fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.SimpleReactiveGlobalHook(System.Reactive.Concurrency.IScheduler?, bool)
-  fullName.vb: SharpHook.Reactive.SimpleReactiveGlobalHook.New(System.Reactive.Concurrency.IScheduler, Boolean)
-  nameWithType: SimpleReactiveGlobalHook.SimpleReactiveGlobalHook(IScheduler?, bool)
-  nameWithType.vb: SimpleReactiveGlobalHook.New(IScheduler, Boolean)
 - uid: SharpHook.Reactive.SimpleReactiveGlobalHook.#ctor*
   name: SimpleReactiveGlobalHook
   href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook__ctor_
@@ -5638,15 +5530,6 @@ references:
   commentId: T:SharpHook.SimpleGlobalHook
   fullName: SharpHook.SimpleGlobalHook
   nameWithType: SimpleGlobalHook
-- uid: SharpHook.SimpleGlobalHook.#ctor
-  name: SimpleGlobalHook()
-  href: api/SharpHook.SimpleGlobalHook.html#SharpHook_SimpleGlobalHook__ctor
-  commentId: M:SharpHook.SimpleGlobalHook.#ctor
-  name.vb: New()
-  fullName: SharpHook.SimpleGlobalHook.SimpleGlobalHook()
-  fullName.vb: SharpHook.SimpleGlobalHook.New()
-  nameWithType: SimpleGlobalHook.SimpleGlobalHook()
-  nameWithType.vb: SimpleGlobalHook.New()
 - uid: SharpHook.SimpleGlobalHook.#ctor(SharpHook.Data.GlobalHookType,SharpHook.Providers.IGlobalHookProvider,System.Boolean)
   name: SimpleGlobalHook(GlobalHookType, IGlobalHookProvider?, bool)
   href: api/SharpHook.SimpleGlobalHook.html#SharpHook_SimpleGlobalHook__ctor_SharpHook_Data_GlobalHookType_SharpHook_Providers_IGlobalHookProvider_System_Boolean_
@@ -5656,33 +5539,6 @@ references:
   fullName.vb: SharpHook.SimpleGlobalHook.New(SharpHook.Data.GlobalHookType, SharpHook.Providers.IGlobalHookProvider, Boolean)
   nameWithType: SimpleGlobalHook.SimpleGlobalHook(GlobalHookType, IGlobalHookProvider?, bool)
   nameWithType.vb: SimpleGlobalHook.New(GlobalHookType, IGlobalHookProvider, Boolean)
-- uid: SharpHook.SimpleGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider)
-  name: SimpleGlobalHook(IGlobalHookProvider?)
-  href: api/SharpHook.SimpleGlobalHook.html#SharpHook_SimpleGlobalHook__ctor_SharpHook_Providers_IGlobalHookProvider_
-  commentId: M:SharpHook.SimpleGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider)
-  name.vb: New(IGlobalHookProvider)
-  fullName: SharpHook.SimpleGlobalHook.SimpleGlobalHook(SharpHook.Providers.IGlobalHookProvider?)
-  fullName.vb: SharpHook.SimpleGlobalHook.New(SharpHook.Providers.IGlobalHookProvider)
-  nameWithType: SimpleGlobalHook.SimpleGlobalHook(IGlobalHookProvider?)
-  nameWithType.vb: SimpleGlobalHook.New(IGlobalHookProvider)
-- uid: SharpHook.SimpleGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider,System.Boolean)
-  name: SimpleGlobalHook(IGlobalHookProvider, bool)
-  href: api/SharpHook.SimpleGlobalHook.html#SharpHook_SimpleGlobalHook__ctor_SharpHook_Providers_IGlobalHookProvider_System_Boolean_
-  commentId: M:SharpHook.SimpleGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider,System.Boolean)
-  name.vb: New(IGlobalHookProvider, Boolean)
-  fullName: SharpHook.SimpleGlobalHook.SimpleGlobalHook(SharpHook.Providers.IGlobalHookProvider, bool)
-  fullName.vb: SharpHook.SimpleGlobalHook.New(SharpHook.Providers.IGlobalHookProvider, Boolean)
-  nameWithType: SimpleGlobalHook.SimpleGlobalHook(IGlobalHookProvider, bool)
-  nameWithType.vb: SimpleGlobalHook.New(IGlobalHookProvider, Boolean)
-- uid: SharpHook.SimpleGlobalHook.#ctor(System.Boolean)
-  name: SimpleGlobalHook(bool)
-  href: api/SharpHook.SimpleGlobalHook.html#SharpHook_SimpleGlobalHook__ctor_System_Boolean_
-  commentId: M:SharpHook.SimpleGlobalHook.#ctor(System.Boolean)
-  name.vb: New(Boolean)
-  fullName: SharpHook.SimpleGlobalHook.SimpleGlobalHook(bool)
-  fullName.vb: SharpHook.SimpleGlobalHook.New(Boolean)
-  nameWithType: SimpleGlobalHook.SimpleGlobalHook(bool)
-  nameWithType.vb: SimpleGlobalHook.New(Boolean)
 - uid: SharpHook.SimpleGlobalHook.#ctor*
   name: SimpleGlobalHook
   href: api/SharpHook.SimpleGlobalHook.html#SharpHook_SimpleGlobalHook__ctor_
@@ -5713,24 +5569,6 @@ references:
   commentId: T:SharpHook.TaskPoolGlobalHook
   fullName: SharpHook.TaskPoolGlobalHook
   nameWithType: TaskPoolGlobalHook
-- uid: SharpHook.TaskPoolGlobalHook.#ctor
-  name: TaskPoolGlobalHook()
-  href: api/SharpHook.TaskPoolGlobalHook.html#SharpHook_TaskPoolGlobalHook__ctor
-  commentId: M:SharpHook.TaskPoolGlobalHook.#ctor
-  name.vb: New()
-  fullName: SharpHook.TaskPoolGlobalHook.TaskPoolGlobalHook()
-  fullName.vb: SharpHook.TaskPoolGlobalHook.New()
-  nameWithType: TaskPoolGlobalHook.TaskPoolGlobalHook()
-  nameWithType.vb: TaskPoolGlobalHook.New()
-- uid: SharpHook.TaskPoolGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider)
-  name: TaskPoolGlobalHook(IGlobalHookProvider)
-  href: api/SharpHook.TaskPoolGlobalHook.html#SharpHook_TaskPoolGlobalHook__ctor_SharpHook_Providers_IGlobalHookProvider_
-  commentId: M:SharpHook.TaskPoolGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider)
-  name.vb: New(IGlobalHookProvider)
-  fullName: SharpHook.TaskPoolGlobalHook.TaskPoolGlobalHook(SharpHook.Providers.IGlobalHookProvider)
-  fullName.vb: SharpHook.TaskPoolGlobalHook.New(SharpHook.Providers.IGlobalHookProvider)
-  nameWithType: TaskPoolGlobalHook.TaskPoolGlobalHook(IGlobalHookProvider)
-  nameWithType.vb: TaskPoolGlobalHook.New(IGlobalHookProvider)
 - uid: SharpHook.TaskPoolGlobalHook.#ctor(System.Int32,SharpHook.Data.GlobalHookType,SharpHook.Providers.IGlobalHookProvider,System.Boolean)
   name: TaskPoolGlobalHook(int, GlobalHookType, IGlobalHookProvider?, bool)
   href: api/SharpHook.TaskPoolGlobalHook.html#SharpHook_TaskPoolGlobalHook__ctor_System_Int32_SharpHook_Data_GlobalHookType_SharpHook_Providers_IGlobalHookProvider_System_Boolean_
