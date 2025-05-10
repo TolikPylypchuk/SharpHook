@@ -39,6 +39,7 @@ jobs:
             -D CMAKE_VERBOSE_MAKEFILE=true \
             -D CMAKE_OSX_ARCHITECTURES='arm64' \
             -D BUILD_SHARED_LIBS=ON \
+            -D USE_APPKIT=OFF \
             -D USE_EPOCH_TIME=ON
 
           cmake --build ${{github.workspace}}/build \
@@ -78,6 +79,7 @@ jobs:
             -D CMAKE_VERBOSE_MAKEFILE=true \
             -D CMAKE_OSX_ARCHITECTURES='x86_64' \
             -D BUILD_SHARED_LIBS=ON \
+            -D USE_APPKIT=OFF \
             -D USE_EPOCH_TIME=ON
 
           cmake --build ${{github.workspace}}/build \
