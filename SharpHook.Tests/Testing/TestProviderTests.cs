@@ -498,8 +498,8 @@ public sealed class TestProviderTests
         Assert.Throws<ArgumentNullException>(() => provider.EventMask = null!);
     }
 
-    [Property(DisplayName = "Post text delay should be settable through the property")]
-    public void PostTextDelayX11(ulong postTextDelay)
+    [Property(DisplayName = "Post text delay should be gettable through the property")]
+    public void GetPostTextDelayX11(ulong postTextDelay)
     {
         // Act
 
@@ -511,21 +511,73 @@ public sealed class TestProviderTests
         // Assert
 
         Assert.Equal(postTextDelay, provider.PostTextDelayX11);
-        Assert.Equal(postTextDelay, ((IEventSimulationProvider)provider).GetPostTextDelayX11());
+        Assert.Equal(postTextDelay, ((IEventSimulationProvider)provider).PostTextDelayX11);
     }
 
-    [Property(DisplayName = "Post text delay should be settable through the method")]
+    [Property(DisplayName = "Post text delay should be settable through the property")]
     public void SetPostTextDelayX11(ulong postTextDelay)
     {
-        // Act
+        // Arrange
 
         var provider = new TestProvider();
-        ((IEventSimulationProvider)provider).SetPostTextDelayX11(postTextDelay);
+
+        // Act
+
+        ((IEventSimulationProvider)provider).PostTextDelayX11 = postTextDelay;
 
         // Assert
 
         Assert.Equal(postTextDelay, provider.PostTextDelayX11);
-        Assert.Equal(postTextDelay, ((IEventSimulationProvider)provider).GetPostTextDelayX11());
+        Assert.Equal(postTextDelay, ((IEventSimulationProvider)provider).PostTextDelayX11);
+    }
+
+    [Property(DisplayName = "Checking if Accessibility API is disabled should depend on operation results")]
+    public void IsAxApiEnabled(bool runDisabled, bool postEventDisabled, bool postTextDisabled, bool prompt)
+    {
+        // Arrange
+
+        var provider = new TestProvider
+        {
+            RunResult = runDisabled ? UioHookResult.ErrorAxApiDisabled : UioHookResult.Success,
+            PostEventResult = postEventDisabled ? UioHookResult.ErrorAxApiDisabled : UioHookResult.Success,
+            PostTextResult = postTextDisabled ? UioHookResult.ErrorAxApiDisabled : UioHookResult.Success
+        };
+
+        // Act
+
+        bool isAxApiEnabled = provider.IsAxApiEnabled(prompt);
+
+        // Assert
+
+        Assert.Equal(runDisabled || postEventDisabled || postTextDisabled, isAxApiEnabled);
+    }
+
+    [Fact(DisplayName = "Prompt user if Accessibility API is disabled should be true by default")]
+    public void GetPromptUserIfAxApiDisabled()
+    {
+        // Arrange
+
+        var provider = new TestProvider();
+
+        // Act + Assert
+
+        Assert.True(((IAccessibilityProvider)provider).PromptUserIfAxApiDisabled);
+    }
+
+    [Property(DisplayName = "Prompt user if Accessibility API is disabled should be settable through the property")]
+    public void SetPromptUserIfAxApiDisabled(bool prompt)
+    {
+        // Arrange
+
+        var provider = new TestProvider();
+
+        // Act
+
+        ((IAccessibilityProvider)provider).PromptUserIfAxApiDisabled = prompt;
+
+        // Assert
+
+        Assert.Equal(prompt, ((IAccessibilityProvider)provider).PromptUserIfAxApiDisabled);
     }
 
     [Property(DisplayName = "Screen info should be settable")]

@@ -7,6 +7,7 @@ public sealed class TestProvider :
     IGlobalHookProvider,
     ILoggingProvider,
     IEventSimulationProvider,
+    IAccessibilityProvider,
     IScreenInfoProvider,
     IMouseInfoProvider
 {
@@ -364,6 +365,26 @@ public sealed class TestProvider :
         return result;
     }
 
+    /// <summary>
+    /// Checks whether access to macOS Accessibility API is enabled for the process.
+    /// </summary>
+    /// <param name="promptUserIfDisabled">Not used.</param>
+    /// <returns>
+    /// <see langword="false" /> if at least one of <see cref="RunResult "/>, <see cref="PostEventResult" />, or
+    /// <see cref="PostTextResult" /> is configured to return <see cref="UioHookResult.ErrorAxApiDisabled" />.
+    /// Otherwise, <see langword="true" />.
+    /// </returns>
+    /// <remarks>
+    /// In general, if the test provider should simulate the macOS Accessibility API being disabled, then all three
+    /// properties - <see cref="RunResult "/>, <see cref="PostEventResult" />, and<see cref="PostTextResult" /> - should
+    /// be configured to return <see cref="UioHookResult.ErrorAxApiDisabled" />, for consistency with real
+    /// Accessibility API checks.
+    /// </remarks>
+    public bool IsAxApiEnabled(bool promptUserIfDisabled) =>
+        this.RunResult == UioHookResult.ErrorAxApiDisabled ||
+        this.PostEventResult == UioHookResult.ErrorAxApiDisabled ||
+        this.PostTextResult == UioHookResult.ErrorAxApiDisabled;
+
     private async Task<UioHookResult> RunAsync(GlobalHookType globalHookType)
     {
         var result = this.RunResult;
@@ -408,14 +429,10 @@ public sealed class TestProvider :
         this.dispatchProc?.Invoke(ref hookEvent, this.userData);
     }
 
+    bool IAccessibilityProvider.PromptUserIfAxApiDisabled { get; set; } = true;
+
     void ILoggingProvider.SetLoggerProc(LoggerProc? loggerProc, IntPtr userData)
     { }
-
-    ulong IEventSimulationProvider.GetPostTextDelayX11() =>
-        this.PostTextDelayX11;
-
-    void IEventSimulationProvider.SetPostTextDelayX11(ulong delayNanoseconds) =>
-        this.PostTextDelayX11 = delayNanoseconds;
 
     ScreenData[] IScreenInfoProvider.CreateScreenInfo() =>
         this.ScreenInfo;

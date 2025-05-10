@@ -91,30 +91,29 @@ public interface IEventSimulationProvider
     /// <remarks>
     /// <para>
     /// The text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16 (including
-    /// surrogate pairs, e.g. emojis) is supported.
+    /// surrogate pairs, e.g., emojis) is supported.
     /// </para>
     /// <para>
-    /// On Windows text simulation should work correctly and consistently.
+    /// On Windows, text simulation should work correctly and consistently.
     /// </para>
     /// <para>
-    /// On macOS applications are not required to process text simulation, but most of them should handle it correctly.
+    /// On macOS, applications are not required to process text simulation, but most of them should handle it correctly.
     /// </para>
     /// <para>
     /// X11 doesn't support text simulation directly. Instead, for each character, an unused key code is remapped to
     /// that character, and then key press/release is simulated. Since the receiving application must react to the
     /// remapping, and may not do so instantaneously, a delay is needed for accurate simulation. This means that text
-    /// entry on Linux works slowly and is not guaranteed to be correct. <see cref="SetPostTextDelayX11" /> can be used
-    /// to increase (or decrease) the delay if needed - longer delays add consistency but may be more jarring to end
-    /// users. <see cref="GetPostTextDelayX11" /> can be used to get the currently configured delay - the default is
-    /// 50 milliseconds.
+    /// entry on Linux works slowly and is not guaranteed to be correct. <see cref="PostTextDelayX11" /> can be used
+    /// to get or set the delay if needed - longer delays add consistency but may be more jarring to end
+    /// users - the default is 50 milliseconds.
     /// </para>
     /// </remarks>
     UioHookResult PostText(string text);
 
     /// <summary>
-    /// Gets the delay (in nanoseconds) between posting individual characters when posting text on Linux.
+    /// Gets or sets the delay (in nanoseconds) between posting individual characters when posting text on Linux.
     /// </summary>
-    /// <returns>The delay (in nanoseconds) between posting individual characters when posting text on Linux.</returns>
+    /// <value>The delay (in nanoseconds) between posting individual characters when posting text on Linux.</value>
     /// <remarks>
     /// <para>
     /// X11 doesn't support posting arbitrary Unicode characters directly. Instead, for each character,
@@ -126,30 +125,8 @@ public interface IEventSimulationProvider
     /// The default delay is 50 milliseconds.
     /// </para>
     /// <para>
-    /// On Windows and macOS this method always returns <c>0</c>.
+    /// On Windows and macOS, this property does nothing and always returns <c>0</c>.
     /// </para>
     /// </remarks>
-    ulong GetPostTextDelayX11();
-
-    /// <summary>
-    /// Sets the delay (in nanoseconds) between posting individual characters when posting text on Linux.
-    /// </summary>
-    /// <param name="delayNanoseconds">
-    /// The delay (in nanoseconds) between posting individual characters when posting text on Linux.
-    /// </param>
-    /// <remarks>
-    /// <para>
-    /// X11 doesn't support posting arbitrary Unicode characters directly. Instead, for each character,
-    /// an unused key code is remapped to that character, and then key press/release is simulated. Since the receiving
-    /// application must react to the remapping, and may not do so instantaneously, a delay is needed for accurate
-    /// simulation.
-    /// </para>
-    /// <para>
-    /// The default delay is 50 milliseconds.
-    /// </para>
-    /// <para>
-    /// On Windows and macOS this method does nothing.
-    /// </para>
-    /// </remarks>
-    void SetPostTextDelayX11(ulong delayNanoseconds);
+    ulong PostTextDelayX11 { get; set; }
 }

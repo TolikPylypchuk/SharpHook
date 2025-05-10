@@ -43,7 +43,7 @@ public class EventSimulator(IEventSimulationProvider? simulationProvider) : IEve
     /// </exception>
     public TimeSpan TextSimulationDelayOnX11
     {
-        get => TimeSpan.FromTicks((long)this.simulationProvider.GetPostTextDelayX11() / 100);
+        get => TimeSpan.FromTicks((long)this.simulationProvider.PostTextDelayX11 / 100);
         set
         {
             if (value.Ticks < 0)
@@ -51,7 +51,7 @@ public class EventSimulator(IEventSimulationProvider? simulationProvider) : IEve
                 throw new ArgumentOutOfRangeException(nameof(value));
             }
 
-            this.simulationProvider.SetPostTextDelayX11((ulong)(value.Ticks * 100));
+            this.simulationProvider.PostTextDelayX11 = (ulong)(value.Ticks * 100);
         }
     }
 

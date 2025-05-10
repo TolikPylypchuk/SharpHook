@@ -3,6 +3,7 @@ namespace SharpHook.Native;
 /// <summary>
 /// Contains native methods of libuiohook.
 /// </summary>
+/// <seealso cref="IAccessibilityProvider" />
 /// <seealso cref="IEventSimulationProvider" />
 /// <seealso cref="IGlobalHookProvider" />
 /// <seealso cref="ILoggingProvider" />
@@ -47,10 +48,6 @@ public static partial class UioHook
     /// <summary>
     /// Runs the global hook and blocks the thread until it's stopped.
     /// </summary>
-    /// <remarks>
-    /// Calling this method when another global hook is running should never be done as it will corrupt the global state
-    /// of libuiohook.
-    /// </remarks>
     /// <returns>The result of the operation.</returns>
     /// <remarks>
     /// This method must not be called when a global hook is already running since it will corrupt the global state of
@@ -248,13 +245,13 @@ public static partial class UioHook
     /// <remarks>
     /// <para>
     /// The text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16 (including
-    /// surrogate pairs, e.g. emojis) is supported.
+    /// surrogate pairs, e.g., emojis) is supported.
     /// </para>
     /// <para>
-    /// On Windows text simulation should work correctly and consistently.
+    /// On Windows, text simulation should work correctly and consistently.
     /// </para>
     /// <para>
-    /// On macOS applications are not required to process text simulation, but most of them should handle it correctly.
+    /// On macOS, applications are not required to process text simulation, but most of them should handle it correctly.
     /// </para>
     /// <para>
     /// X11 doesn't support text simulation directly. Instead, for each character, an unused key code is remapped to
@@ -291,7 +288,7 @@ public static partial class UioHook
     /// The default delay is 50 milliseconds.
     /// </para>
     /// <para>
-    /// On Windows and macOS this method always returns 0.
+    /// On Windows and macOS, this method always returns <c>0</c>.
     /// </para>
     /// </remarks>
     /// <seealso cref="EventSimulator" />
@@ -321,7 +318,7 @@ public static partial class UioHook
     /// The default delay is 50 milliseconds.
     /// </para>
     /// <para>
-    /// On Windows and macOS this method does nothing.
+    /// On Windows and macOS, this method does nothing.
     /// </para>
     /// </remarks>
     /// <seealso cref="EventSimulator" />
@@ -332,6 +329,77 @@ public static partial class UioHook
 #else
     [DllImport(LibUioHook, EntryPoint = "hook_set_post_text_delay_x11", CallingConvention = CallingConvention.Cdecl)]
     public static extern void SetPostTextDelayX11(ulong delayNanoseconds);
+#endif
+
+    /// <summary>
+    /// Checks whether access to macOS Accessibility API is enabled for the process, optionally prompting the user
+    /// if it is disabled.
+    /// </summary>
+    /// <param name="promptUserIfDisabled">Prompt the user if access to macOS Accessibility API is disabled.</param>
+    /// <returns>
+    /// <see langword="true" /> if access to macOS Accessibility API is enabled for the process which means that
+    /// global hooks and event simulation can be used. Otherwise, <see langword="false" />.
+    /// </returns>
+    /// <remarks>
+    /// On Windows and Linux, this method does nothing and always returns <see langword="true" />.
+    /// </remarks>
+#if NET7_0_OR_GREATER
+    [LibraryImport(LibUioHook, EntryPoint = "hook_is_ax_api_enabled")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    [return: MarshalAs(UnmanagedType.I1)]
+    public static partial bool IsAxApiEnabled([MarshalAs(UnmanagedType.I1)] bool promptUserIfDisabled);
+#else
+    [DllImport(LibUioHook, EntryPoint = "hook_is_ax_api_enabled", CallingConvention = CallingConvention.Cdecl)]
+    [return: MarshalAs(UnmanagedType.I1)]
+    public static extern bool IsAxApiEnabled([MarshalAs(UnmanagedType.I1)] bool promptUserIfDisabled);
+#endif
+
+    /// <summary>
+    /// Gets the value which indicates whether global hooks or event simulation should prompt the user when they try
+    /// to request access to macOS Accessibility API, and it is disabled. The default value is <see langword="true" />.
+    /// </summary>
+    /// <returns>
+    /// <see langword="true" /> if global hooks and event simulation will prompt the user for access to macOS
+    /// Accessibility API when it is disabled. Otherwise, <see langword="false" />.
+    /// </returns>
+    /// <remarks>
+    /// On Windows and Linux, this method does nothing and always returns <see langword="false" />.
+    /// </remarks>
+#if NET7_0_OR_GREATER
+    [LibraryImport(LibUioHook, EntryPoint = "hook_get_prompt_user_if_ax_api_disabled")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    [return: MarshalAs(UnmanagedType.I1)]
+    public static partial bool GetPromptUserIfAxApiDisabled();
+#else
+    [DllImport(
+        LibUioHook,
+        EntryPoint = "hook_get_prompt_user_if_ax_api_disabled",
+        CallingConvention = CallingConvention.Cdecl)]
+    [return: MarshalAs(UnmanagedType.I1)]
+    public static extern bool GetPromptUserIfAxApiDisabled();
+#endif
+
+    /// <summary>
+    /// Sets the value which indicates whether global hooks or event simulation should prompt the user when they try
+    /// to request access to macOS Accessibility API, and it is disabled. The default value is <see langword="true" />.
+    /// </summary>
+    /// <param name="promptUserIfDisabled">
+    /// <see langword="true" /> if global hooks and event simulation should prompt the user for access to macOS
+    /// Accessibility API when it is disabled. Otherwise, <see langword="false" />.
+    /// </param>
+    /// <remarks>
+    /// On Windows and Linux, this method does nothing.
+    /// </remarks>
+#if NET7_0_OR_GREATER
+    [LibraryImport(LibUioHook, EntryPoint = "hook_set_prompt_user_if_ax_api_disabled")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void SetPromptUserIfAxApiDisabled([MarshalAs(UnmanagedType.I1)] bool promptUserIfDisabled);
+#else
+    [DllImport(
+        LibUioHook,
+        EntryPoint = "hook_set_prompt_user_if_ax_api_disabled",
+        CallingConvention = CallingConvention.Cdecl)]
+    public static extern void SetPromptUserIfAxApiDisabled([MarshalAs(UnmanagedType.I1)] bool promptUserIfDisabled);
 #endif
 
     /// <summary>

@@ -9,6 +9,7 @@ public sealed class UioHookProvider :
     IGlobalHookProvider,
     ILoggingProvider,
     IEventSimulationProvider,
+    IAccessibilityProvider,
     IScreenInfoProvider,
     IMouseInfoProvider
 {
@@ -181,19 +182,18 @@ public sealed class UioHookProvider :
     /// X11 doesn't support text simulation directly. Instead, for each character, an unused key code is remapped to
     /// that character, and then key press/release is simulated. Since the receiving application must react to the
     /// remapping, and may not do so instantaneously, a delay is needed for accurate simulation. This means that text
-    /// simulation on Linux works slowly and is not guaranteed to be correct. <see cref="SetPostTextDelayX11" /> can be
-    /// used to increase (or decrease) the delay if needed - longer delays add consistency but may be more jarring to
-    /// end users. <see cref="GetPostTextDelayX11" /> can be used to get the currently configured delay - the default is
-    /// 50 milliseconds.
+    /// entry on Linux works slowly and is not guaranteed to be correct. <see cref="PostTextDelayX11" /> can be used
+    /// to get or set the delay if needed - longer delays add consistency but may be more jarring to end
+    /// users - the default is 50 milliseconds.
     /// </para>
     /// </remarks>
     public UioHookResult PostText(string text) =>
         UioHook.PostText(text);
 
     /// <summary>
-    /// Gets the delay (in nanoseconds) between posting individual characters when posting text on Linux.
+    /// Gets or sets the delay (in nanoseconds) between posting individual characters when posting text on Linux.
     /// </summary>
-    /// <returns>The delay (in nanoseconds) between posting individual characters when posting text on Linux.</returns>
+    /// <value>The delay (in nanoseconds) between posting individual characters when posting text on Linux.</value>
     /// <remarks>
     /// <para>
     /// X11 doesn't support posting arbitrary Unicode characters directly. Instead, for each character,
@@ -205,34 +205,47 @@ public sealed class UioHookProvider :
     /// The default delay is 50 milliseconds.
     /// </para>
     /// <para>
-    /// On Windows and macOS this method always returns <c>0</c>.
+    /// On Windows and macOS, this property does nothing and always returns <c>0</c>.
     /// </para>
     /// </remarks>
-    public ulong GetPostTextDelayX11() =>
-        UioHook.GetPostTextDelayX11();
+    public ulong PostTextDelayX11
+    {
+        get => UioHook.GetPostTextDelayX11();
+        set => UioHook.SetPostTextDelayX11(value);
+    }
 
     /// <summary>
-    /// Sets the delay (in nanoseconds) between posting individual characters when posting text on Linux.
+    /// Checks whether access to macOS Accessibility API is enabled for the process, optionally prompting the user
+    /// if it is disabled.
     /// </summary>
-    /// <param name="delayNanoseconds">
-    /// The delay (in nanoseconds) between posting individual characters when posting text on Linux.
-    /// </param>
+    /// <param name="promptUserIfDisabled">Prompt the user if access to macOS Accessibility API is disabled.</param>
+    /// <returns>
+    /// <see langword="true" /> if access to macOS Accessibility API is enabled for the process which means that
+    /// global hooks and event simulation can be used. Otherwise, <see langword="false" />.
+    /// </returns>
     /// <remarks>
-    /// <para>
-    /// X11 doesn't support posting arbitrary Unicode characters directly. Instead, for each character,
-    /// an unused key code is remapped to that character, and then key press/release is simulated. Since the receiving
-    /// application must react to the remapping, and may not do so instantaneously, a delay is needed for accurate
-    /// simulation.
-    /// </para>
-    /// <para>
-    /// The default delay is 50 milliseconds.
-    /// </para>
-    /// <para>
-    /// On Windows and macOS this method does nothing.
-    /// </para>
+    /// On Windows and Linux, this method does nothing and always returns <see langword="true" />.
     /// </remarks>
-    public void SetPostTextDelayX11(ulong delayNanoseconds) =>
-        UioHook.SetPostTextDelayX11(delayNanoseconds);
+    public bool IsAxApiEnabled(bool promptUserIfDisabled) =>
+        UioHook.IsAxApiEnabled(promptUserIfDisabled);
+
+    /// <summary>
+    /// Gets or sets the value which indicates whether global hooks or event simulation should prompt the user when they
+    /// try to request access to macOS Accessibility API, and it is disabled. The default value is
+    /// <see langword="true" />.
+    /// </summary>
+    /// <value>
+    /// <see langword="true" /> if global hooks and event simulation should prompt the user for access to macOS
+    /// Accessibility API when it is disabled. Otherwise, <see langword="false" />.
+    /// </value>
+    /// <remarks>
+    /// On Windows and Linux, this property does nothing and always returns <see langword="false" />.
+    /// </remarks>
+    public bool PromptUserIfAxApiDisabled
+    {
+        get => UioHook.GetPromptUserIfAxApiDisabled();
+        set => UioHook.SetPromptUserIfAxApiDisabled(value);
+    }
 
     /// <summary>
     /// Gets the information about screens.

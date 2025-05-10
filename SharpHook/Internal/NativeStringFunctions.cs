@@ -4,7 +4,7 @@ namespace SharpHook.Internal;
 internal static partial class NativeStringFunctions
 {
     private const string Msvcrt = "msvcrt";
-    private const string Libc = "libc";
+    private const string LibC = "libc";
     private const string LibSystem = "libSystem";
 
 #if NET7_0_OR_GREATER
@@ -17,11 +17,11 @@ internal static partial class NativeStringFunctions
 #endif
 
 #if NET7_0_OR_GREATER
-    [LibraryImport(Libc, EntryPoint = "vsprintf")]
+    [LibraryImport(LibC, EntryPoint = "vsprintf")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial int LinuxVsprintf(IntPtr buffer, IntPtr format, IntPtr args);
 #else
-    [DllImport(Libc, EntryPoint = "vsprintf", CallingConvention = CallingConvention.Cdecl)]
+    [DllImport(LibC, EntryPoint = "vsprintf", CallingConvention = CallingConvention.Cdecl)]
     internal static extern int LinuxVsprintf(IntPtr buffer, IntPtr format, IntPtr args);
 #endif
 
@@ -44,11 +44,11 @@ internal static partial class NativeStringFunctions
 #endif
 
 #if NET7_0_OR_GREATER
-    [LibraryImport(Libc, EntryPoint = "vsnprintf")]
+    [LibraryImport(LibC, EntryPoint = "vsnprintf")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial int LinuxVsnprintf(IntPtr buffer, UIntPtr size, IntPtr format, IntPtr args);
 #else
-    [DllImport(Libc, EntryPoint = "vsnprintf", CallingConvention = CallingConvention.Cdecl)]
+    [DllImport(LibC, EntryPoint = "vsnprintf", CallingConvention = CallingConvention.Cdecl)]
     internal static extern int LinuxVsnprintf(IntPtr buffer, UIntPtr size, IntPtr format, IntPtr args);
 #endif
 }
