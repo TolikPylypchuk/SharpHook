@@ -519,6 +519,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Providers.IAccessibilityProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Providers.IAccessibilityProvider.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Providers.IAccessibilityProvider",
+      "Summary": "<p sourcefile=\"api/SharpHook.Providers.IAccessibilityProvider.yml\" sourcestartlinenumber=\"1\">Represents a provider of low-level macOS Accessibility API functionality.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SharpHook.Providers.IEventSimulationProvider.yml",
       "output": {
         ".html": {

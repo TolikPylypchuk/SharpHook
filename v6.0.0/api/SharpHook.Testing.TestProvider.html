@@ -102,7 +102,7 @@ Class TestProvider  <a class="header-action link-secondary" title="View source" 
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class TestProvider : IGlobalHookProvider, ILoggingProvider, IEventSimulationProvider, IScreenInfoProvider, IMouseInfoProvider</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class TestProvider : IGlobalHookProvider, ILoggingProvider, IEventSimulationProvider, IAccessibilityProvider, IScreenInfoProvider, IMouseInfoProvider</code></pre>
   </div>
 
 
@@ -122,6 +122,7 @@ Class TestProvider  <a class="header-action link-secondary" title="View source" 
       <div><a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html">IGlobalHookProvider</a></div>
       <div><a class="xref" href="SharpHook.Providers.ILoggingProvider.html">ILoggingProvider</a></div>
       <div><a class="xref" href="SharpHook.Providers.IEventSimulationProvider.html">IEventSimulationProvider</a></div>
+      <div><a class="xref" href="SharpHook.Providers.IAccessibilityProvider.html">IAccessibilityProvider</a></div>
       <div><a class="xref" href="SharpHook.Providers.IScreenInfoProvider.html">IScreenInfoProvider</a></div>
       <div><a class="xref" href="SharpHook.Providers.IMouseInfoProvider.html">IMouseInfoProvider</a></div>
     </dd>
@@ -806,6 +807,53 @@ and <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType
 
   <h2 class="section" id="methods">Methods
 </h2>
+
+
+  <a id="SharpHook_Testing_TestProvider_IsAxApiEnabled_" data-uid="SharpHook.Testing.TestProvider.IsAxApiEnabled*"></a>
+
+  <h3 id="SharpHook_Testing_TestProvider_IsAxApiEnabled_System_Boolean_" data-uid="SharpHook.Testing.TestProvider.IsAxApiEnabled(System.Boolean)">
+  IsAxApiEnabled(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks whether access to macOS Accessibility API is enabled for the process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsAxApiEnabled(bool promptUserIfDisabled)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>promptUserIfDisabled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Not used.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> if at least one of <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunResult">RunResult</a>, <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEventResult">PostEventResult</a>, or
+<a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostTextResult">PostTextResult</a> is configured to return <a class="xref" href="SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_ErrorAxApiDisabled">ErrorAxApiDisabled</a>.
+Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_Testing_TestProvider_IsAxApiEnabled_System_Boolean__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>In general, if the test provider should simulate the macOS Accessibility API being disabled, then all three
+properties - <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_RunResult">RunResult</a>, <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEventResult">PostEventResult</a>, and<a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostTextResult">PostTextResult</a> - should
+be configured to return <a class="xref" href="SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_ErrorAxApiDisabled">ErrorAxApiDisabled</a>, for consistency with real
+Accessibility API checks.</p>
+</div>
+
+
 
 
   <a id="SharpHook_Testing_TestProvider_PostEvent_" data-uid="SharpHook.Testing.TestProvider.PostEvent*"></a>

@@ -482,7 +482,7 @@ simulation.
 The default delay is 50 milliseconds.
 </p>
 <p>
-On Windows and macOS this method always returns 0.
+On Windows and macOS, this method always returns <code>0</code>.
 </p>
 </div>
 
@@ -493,6 +493,88 @@ On Windows and macOS this method always returns 0.
     <div><a class="xref" href="SharpHook.EventSimulator.html">EventSimulator</a></div>
     </dd>
   </dl>
+
+
+  <a id="SharpHook_Native_UioHook_GetPromptUserIfAxApiDisabled_" data-uid="SharpHook.Native.UioHook.GetPromptUserIfAxApiDisabled*"></a>
+
+  <h3 id="SharpHook_Native_UioHook_GetPromptUserIfAxApiDisabled" data-uid="SharpHook.Native.UioHook.GetPromptUserIfAxApiDisabled">
+  GetPromptUserIfAxApiDisabled()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/obj/Release/net9.0/Microsoft.Interop.LibraryImportGenerator/Microsoft.Interop.LibraryImportGenerator/LibraryImports.g.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the value which indicates whether global hooks or event simulation should prompt the user when they try
+to request access to macOS Accessibility API, and it is disabled. The default value is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool GetPromptUserIfAxApiDisabled()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if global hooks and event simulation will prompt the user for access to macOS
+Accessibility API when it is disabled. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_Native_UioHook_GetPromptUserIfAxApiDisabled_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>On Windows and Linux, this method does nothing and always returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</div>
+
+
+
+
+  <a id="SharpHook_Native_UioHook_IsAxApiEnabled_" data-uid="SharpHook.Native.UioHook.IsAxApiEnabled*"></a>
+
+  <h3 id="SharpHook_Native_UioHook_IsAxApiEnabled_System_Boolean_" data-uid="SharpHook.Native.UioHook.IsAxApiEnabled(System.Boolean)">
+  IsAxApiEnabled(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/obj/Release/net9.0/Microsoft.Interop.LibraryImportGenerator/Microsoft.Interop.LibraryImportGenerator/LibraryImports.g.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks whether access to macOS Accessibility API is enabled for the process, optionally prompting the user
+if it is disabled.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsAxApiEnabled(bool promptUserIfDisabled)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>promptUserIfDisabled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p>Prompt the user if access to macOS Accessibility API is disabled.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if access to macOS Accessibility API is enabled for the process which means that
+global hooks and event simulation can be used. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_Native_UioHook_IsAxApiEnabled_System_Boolean__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>On Windows and Linux, this method does nothing and always returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+</div>
+
+
 
 
   <a id="SharpHook_Native_UioHook_PostEvent_" data-uid="SharpHook.Native.UioHook.PostEvent*"></a>
@@ -600,13 +682,13 @@ Only <a class="xref" href="SharpHook.Data.MouseWheelEventData.html#SharpHook_Dat
   <h4 class="section" id="SharpHook_Native_UioHook_PostText_System_String__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 The text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16 (including
-surrogate pairs, e.g. emojis) is supported.
+surrogate pairs, e.g., emojis) is supported.
 </p>
 <p>
-On Windows text simulation should work correctly and consistently.
+On Windows, text simulation should work correctly and consistently.
 </p>
 <p>
-On macOS applications are not required to process text simulation, but most of them should handle it correctly.
+On macOS, applications are not required to process text simulation, but most of them should handle it correctly.
 </p>
 <p>
 X11 doesn't support text simulation directly. Instead, for each character, an unused key code is remapped to
@@ -658,8 +740,8 @@ end users. <a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_
 
 
   <h4 class="section" id="SharpHook_Native_UioHook_Run_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>Calling this method when another global hook is running should never be done as it will corrupt the global state
-of libuiohook.</p>
+  <div class="markdown level1 remarks"><p>This method must not be called when a global hook is already running since it will corrupt the global state of
+libuiohook.</p>
 </div>
 
 
@@ -887,7 +969,7 @@ simulation.
 The default delay is 50 milliseconds.
 </p>
 <p>
-On Windows and macOS this method does nothing.
+On Windows and macOS, this method does nothing.
 </p>
 </div>
 
@@ -898,6 +980,44 @@ On Windows and macOS this method does nothing.
     <div><a class="xref" href="SharpHook.EventSimulator.html">EventSimulator</a></div>
     </dd>
   </dl>
+
+
+  <a id="SharpHook_Native_UioHook_SetPromptUserIfAxApiDisabled_" data-uid="SharpHook.Native.UioHook.SetPromptUserIfAxApiDisabled*"></a>
+
+  <h3 id="SharpHook_Native_UioHook_SetPromptUserIfAxApiDisabled_System_Boolean_" data-uid="SharpHook.Native.UioHook.SetPromptUserIfAxApiDisabled(System.Boolean)">
+  SetPromptUserIfAxApiDisabled(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/obj/Release/net9.0/Microsoft.Interop.LibraryImportGenerator/Microsoft.Interop.LibraryImportGenerator/LibraryImports.g.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the value which indicates whether global hooks or event simulation should prompt the user when they try
+to request access to macOS Accessibility API, and it is disabled. The default value is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetPromptUserIfAxApiDisabled(bool promptUserIfDisabled)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>promptUserIfDisabled</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if global hooks and event simulation should prompt the user for access to macOS
+Accessibility API when it is disabled. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_Native_UioHook_SetPromptUserIfAxApiDisabled_System_Boolean__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>On Windows and Linux, this method does nothing.</p>
+</div>
+
+
 
 
   <a id="SharpHook_Native_UioHook_Stop_" data-uid="SharpHook.Native.UioHook.Stop*"></a>
@@ -935,6 +1055,7 @@ On Windows and macOS this method does nothing.
 
   <h2 id="seealso">See Also</h2>
   <div class="seealso">
+      <div><a class="xref" href="SharpHook.Providers.IAccessibilityProvider.html">IAccessibilityProvider</a></div>
       <div><a class="xref" href="SharpHook.Providers.IEventSimulationProvider.html">IEventSimulationProvider</a></div>
       <div><a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html">IGlobalHookProvider</a></div>
       <div><a class="xref" href="SharpHook.Providers.ILoggingProvider.html">ILoggingProvider</a></div>

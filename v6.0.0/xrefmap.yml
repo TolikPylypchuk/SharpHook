@@ -4105,6 +4105,33 @@ references:
   commentId: Overload:SharpHook.Native.UioHook.GetPostTextDelayX11
   fullName: SharpHook.Native.UioHook.GetPostTextDelayX11
   nameWithType: UioHook.GetPostTextDelayX11
+- uid: SharpHook.Native.UioHook.GetPromptUserIfAxApiDisabled
+  name: GetPromptUserIfAxApiDisabled()
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetPromptUserIfAxApiDisabled
+  commentId: M:SharpHook.Native.UioHook.GetPromptUserIfAxApiDisabled
+  fullName: SharpHook.Native.UioHook.GetPromptUserIfAxApiDisabled()
+  nameWithType: UioHook.GetPromptUserIfAxApiDisabled()
+- uid: SharpHook.Native.UioHook.GetPromptUserIfAxApiDisabled*
+  name: GetPromptUserIfAxApiDisabled
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetPromptUserIfAxApiDisabled_
+  commentId: Overload:SharpHook.Native.UioHook.GetPromptUserIfAxApiDisabled
+  fullName: SharpHook.Native.UioHook.GetPromptUserIfAxApiDisabled
+  nameWithType: UioHook.GetPromptUserIfAxApiDisabled
+- uid: SharpHook.Native.UioHook.IsAxApiEnabled(System.Boolean)
+  name: IsAxApiEnabled(bool)
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_IsAxApiEnabled_System_Boolean_
+  commentId: M:SharpHook.Native.UioHook.IsAxApiEnabled(System.Boolean)
+  name.vb: IsAxApiEnabled(Boolean)
+  fullName: SharpHook.Native.UioHook.IsAxApiEnabled(bool)
+  fullName.vb: SharpHook.Native.UioHook.IsAxApiEnabled(Boolean)
+  nameWithType: UioHook.IsAxApiEnabled(bool)
+  nameWithType.vb: UioHook.IsAxApiEnabled(Boolean)
+- uid: SharpHook.Native.UioHook.IsAxApiEnabled*
+  name: IsAxApiEnabled
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_IsAxApiEnabled_
+  commentId: Overload:SharpHook.Native.UioHook.IsAxApiEnabled
+  fullName: SharpHook.Native.UioHook.IsAxApiEnabled
+  nameWithType: UioHook.IsAxApiEnabled
 - uid: SharpHook.Native.UioHook.PostEvent(SharpHook.Data.UioHookEvent@)
   name: PostEvent(ref UioHookEvent)
   href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_PostEvent_SharpHook_Data_UioHookEvent__
@@ -4216,6 +4243,21 @@ references:
   commentId: Overload:SharpHook.Native.UioHook.SetPostTextDelayX11
   fullName: SharpHook.Native.UioHook.SetPostTextDelayX11
   nameWithType: UioHook.SetPostTextDelayX11
+- uid: SharpHook.Native.UioHook.SetPromptUserIfAxApiDisabled(System.Boolean)
+  name: SetPromptUserIfAxApiDisabled(bool)
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetPromptUserIfAxApiDisabled_System_Boolean_
+  commentId: M:SharpHook.Native.UioHook.SetPromptUserIfAxApiDisabled(System.Boolean)
+  name.vb: SetPromptUserIfAxApiDisabled(Boolean)
+  fullName: SharpHook.Native.UioHook.SetPromptUserIfAxApiDisabled(bool)
+  fullName.vb: SharpHook.Native.UioHook.SetPromptUserIfAxApiDisabled(Boolean)
+  nameWithType: UioHook.SetPromptUserIfAxApiDisabled(bool)
+  nameWithType.vb: UioHook.SetPromptUserIfAxApiDisabled(Boolean)
+- uid: SharpHook.Native.UioHook.SetPromptUserIfAxApiDisabled*
+  name: SetPromptUserIfAxApiDisabled
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetPromptUserIfAxApiDisabled_
+  commentId: Overload:SharpHook.Native.UioHook.SetPromptUserIfAxApiDisabled
+  fullName: SharpHook.Native.UioHook.SetPromptUserIfAxApiDisabled
+  nameWithType: UioHook.SetPromptUserIfAxApiDisabled
 - uid: SharpHook.Native.UioHook.Stop
   name: Stop()
   href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_Stop
@@ -4234,24 +4276,45 @@ references:
   commentId: N:SharpHook.Providers
   fullName: SharpHook.Providers
   nameWithType: SharpHook.Providers
+- uid: SharpHook.Providers.IAccessibilityProvider
+  name: IAccessibilityProvider
+  href: api/SharpHook.Providers.IAccessibilityProvider.html
+  commentId: T:SharpHook.Providers.IAccessibilityProvider
+  fullName: SharpHook.Providers.IAccessibilityProvider
+  nameWithType: IAccessibilityProvider
+- uid: SharpHook.Providers.IAccessibilityProvider.IsAxApiEnabled(System.Boolean)
+  name: IsAxApiEnabled(bool)
+  href: api/SharpHook.Providers.IAccessibilityProvider.html#SharpHook_Providers_IAccessibilityProvider_IsAxApiEnabled_System_Boolean_
+  commentId: M:SharpHook.Providers.IAccessibilityProvider.IsAxApiEnabled(System.Boolean)
+  name.vb: IsAxApiEnabled(Boolean)
+  fullName: SharpHook.Providers.IAccessibilityProvider.IsAxApiEnabled(bool)
+  fullName.vb: SharpHook.Providers.IAccessibilityProvider.IsAxApiEnabled(Boolean)
+  nameWithType: IAccessibilityProvider.IsAxApiEnabled(bool)
+  nameWithType.vb: IAccessibilityProvider.IsAxApiEnabled(Boolean)
+- uid: SharpHook.Providers.IAccessibilityProvider.IsAxApiEnabled*
+  name: IsAxApiEnabled
+  href: api/SharpHook.Providers.IAccessibilityProvider.html#SharpHook_Providers_IAccessibilityProvider_IsAxApiEnabled_
+  commentId: Overload:SharpHook.Providers.IAccessibilityProvider.IsAxApiEnabled
+  fullName: SharpHook.Providers.IAccessibilityProvider.IsAxApiEnabled
+  nameWithType: IAccessibilityProvider.IsAxApiEnabled
+- uid: SharpHook.Providers.IAccessibilityProvider.PromptUserIfAxApiDisabled
+  name: PromptUserIfAxApiDisabled
+  href: api/SharpHook.Providers.IAccessibilityProvider.html#SharpHook_Providers_IAccessibilityProvider_PromptUserIfAxApiDisabled
+  commentId: P:SharpHook.Providers.IAccessibilityProvider.PromptUserIfAxApiDisabled
+  fullName: SharpHook.Providers.IAccessibilityProvider.PromptUserIfAxApiDisabled
+  nameWithType: IAccessibilityProvider.PromptUserIfAxApiDisabled
+- uid: SharpHook.Providers.IAccessibilityProvider.PromptUserIfAxApiDisabled*
+  name: PromptUserIfAxApiDisabled
+  href: api/SharpHook.Providers.IAccessibilityProvider.html#SharpHook_Providers_IAccessibilityProvider_PromptUserIfAxApiDisabled_
+  commentId: Overload:SharpHook.Providers.IAccessibilityProvider.PromptUserIfAxApiDisabled
+  fullName: SharpHook.Providers.IAccessibilityProvider.PromptUserIfAxApiDisabled
+  nameWithType: IAccessibilityProvider.PromptUserIfAxApiDisabled
 - uid: SharpHook.Providers.IEventSimulationProvider
   name: IEventSimulationProvider
   href: api/SharpHook.Providers.IEventSimulationProvider.html
   commentId: T:SharpHook.Providers.IEventSimulationProvider
   fullName: SharpHook.Providers.IEventSimulationProvider
   nameWithType: IEventSimulationProvider
-- uid: SharpHook.Providers.IEventSimulationProvider.GetPostTextDelayX11
-  name: GetPostTextDelayX11()
-  href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_GetPostTextDelayX11
-  commentId: M:SharpHook.Providers.IEventSimulationProvider.GetPostTextDelayX11
-  fullName: SharpHook.Providers.IEventSimulationProvider.GetPostTextDelayX11()
-  nameWithType: IEventSimulationProvider.GetPostTextDelayX11()
-- uid: SharpHook.Providers.IEventSimulationProvider.GetPostTextDelayX11*
-  name: GetPostTextDelayX11
-  href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_GetPostTextDelayX11_
-  commentId: Overload:SharpHook.Providers.IEventSimulationProvider.GetPostTextDelayX11
-  fullName: SharpHook.Providers.IEventSimulationProvider.GetPostTextDelayX11
-  nameWithType: IEventSimulationProvider.GetPostTextDelayX11
 - uid: SharpHook.Providers.IEventSimulationProvider.PostEvent(SharpHook.Data.UioHookEvent@)
   name: PostEvent(ref UioHookEvent)
   href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_PostEvent_SharpHook_Data_UioHookEvent__
@@ -4282,21 +4345,18 @@ references:
   commentId: Overload:SharpHook.Providers.IEventSimulationProvider.PostText
   fullName: SharpHook.Providers.IEventSimulationProvider.PostText
   nameWithType: IEventSimulationProvider.PostText
-- uid: SharpHook.Providers.IEventSimulationProvider.SetPostTextDelayX11(System.UInt64)
-  name: SetPostTextDelayX11(ulong)
-  href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_SetPostTextDelayX11_System_UInt64_
-  commentId: M:SharpHook.Providers.IEventSimulationProvider.SetPostTextDelayX11(System.UInt64)
-  name.vb: SetPostTextDelayX11(ULong)
-  fullName: SharpHook.Providers.IEventSimulationProvider.SetPostTextDelayX11(ulong)
-  fullName.vb: SharpHook.Providers.IEventSimulationProvider.SetPostTextDelayX11(ULong)
-  nameWithType: IEventSimulationProvider.SetPostTextDelayX11(ulong)
-  nameWithType.vb: IEventSimulationProvider.SetPostTextDelayX11(ULong)
-- uid: SharpHook.Providers.IEventSimulationProvider.SetPostTextDelayX11*
-  name: SetPostTextDelayX11
-  href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_SetPostTextDelayX11_
-  commentId: Overload:SharpHook.Providers.IEventSimulationProvider.SetPostTextDelayX11
-  fullName: SharpHook.Providers.IEventSimulationProvider.SetPostTextDelayX11
-  nameWithType: IEventSimulationProvider.SetPostTextDelayX11
+- uid: SharpHook.Providers.IEventSimulationProvider.PostTextDelayX11
+  name: PostTextDelayX11
+  href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_PostTextDelayX11
+  commentId: P:SharpHook.Providers.IEventSimulationProvider.PostTextDelayX11
+  fullName: SharpHook.Providers.IEventSimulationProvider.PostTextDelayX11
+  nameWithType: IEventSimulationProvider.PostTextDelayX11
+- uid: SharpHook.Providers.IEventSimulationProvider.PostTextDelayX11*
+  name: PostTextDelayX11
+  href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_PostTextDelayX11_
+  commentId: Overload:SharpHook.Providers.IEventSimulationProvider.PostTextDelayX11
+  fullName: SharpHook.Providers.IEventSimulationProvider.PostTextDelayX11
+  nameWithType: IEventSimulationProvider.PostTextDelayX11
 - uid: SharpHook.Providers.IGlobalHookProvider
   name: IGlobalHookProvider
   href: api/SharpHook.Providers.IGlobalHookProvider.html
@@ -4573,18 +4633,6 @@ references:
   commentId: Overload:SharpHook.Providers.UioHookProvider.GetPointerSensitivity
   fullName: SharpHook.Providers.UioHookProvider.GetPointerSensitivity
   nameWithType: UioHookProvider.GetPointerSensitivity
-- uid: SharpHook.Providers.UioHookProvider.GetPostTextDelayX11
-  name: GetPostTextDelayX11()
-  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_GetPostTextDelayX11
-  commentId: M:SharpHook.Providers.UioHookProvider.GetPostTextDelayX11
-  fullName: SharpHook.Providers.UioHookProvider.GetPostTextDelayX11()
-  nameWithType: UioHookProvider.GetPostTextDelayX11()
-- uid: SharpHook.Providers.UioHookProvider.GetPostTextDelayX11*
-  name: GetPostTextDelayX11
-  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_GetPostTextDelayX11_
-  commentId: Overload:SharpHook.Providers.UioHookProvider.GetPostTextDelayX11
-  fullName: SharpHook.Providers.UioHookProvider.GetPostTextDelayX11
-  nameWithType: UioHookProvider.GetPostTextDelayX11
 - uid: SharpHook.Providers.UioHookProvider.Instance
   name: Instance
   href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_Instance
@@ -4597,6 +4645,21 @@ references:
   commentId: Overload:SharpHook.Providers.UioHookProvider.Instance
   fullName: SharpHook.Providers.UioHookProvider.Instance
   nameWithType: UioHookProvider.Instance
+- uid: SharpHook.Providers.UioHookProvider.IsAxApiEnabled(System.Boolean)
+  name: IsAxApiEnabled(bool)
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_IsAxApiEnabled_System_Boolean_
+  commentId: M:SharpHook.Providers.UioHookProvider.IsAxApiEnabled(System.Boolean)
+  name.vb: IsAxApiEnabled(Boolean)
+  fullName: SharpHook.Providers.UioHookProvider.IsAxApiEnabled(bool)
+  fullName.vb: SharpHook.Providers.UioHookProvider.IsAxApiEnabled(Boolean)
+  nameWithType: UioHookProvider.IsAxApiEnabled(bool)
+  nameWithType.vb: UioHookProvider.IsAxApiEnabled(Boolean)
+- uid: SharpHook.Providers.UioHookProvider.IsAxApiEnabled*
+  name: IsAxApiEnabled
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_IsAxApiEnabled_
+  commentId: Overload:SharpHook.Providers.UioHookProvider.IsAxApiEnabled
+  fullName: SharpHook.Providers.UioHookProvider.IsAxApiEnabled
+  nameWithType: UioHookProvider.IsAxApiEnabled
 - uid: SharpHook.Providers.UioHookProvider.PostEvent(SharpHook.Data.UioHookEvent@)
   name: PostEvent(ref UioHookEvent)
   href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_PostEvent_SharpHook_Data_UioHookEvent__
@@ -4627,6 +4690,30 @@ references:
   commentId: Overload:SharpHook.Providers.UioHookProvider.PostText
   fullName: SharpHook.Providers.UioHookProvider.PostText
   nameWithType: UioHookProvider.PostText
+- uid: SharpHook.Providers.UioHookProvider.PostTextDelayX11
+  name: PostTextDelayX11
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_PostTextDelayX11
+  commentId: P:SharpHook.Providers.UioHookProvider.PostTextDelayX11
+  fullName: SharpHook.Providers.UioHookProvider.PostTextDelayX11
+  nameWithType: UioHookProvider.PostTextDelayX11
+- uid: SharpHook.Providers.UioHookProvider.PostTextDelayX11*
+  name: PostTextDelayX11
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_PostTextDelayX11_
+  commentId: Overload:SharpHook.Providers.UioHookProvider.PostTextDelayX11
+  fullName: SharpHook.Providers.UioHookProvider.PostTextDelayX11
+  nameWithType: UioHookProvider.PostTextDelayX11
+- uid: SharpHook.Providers.UioHookProvider.PromptUserIfAxApiDisabled
+  name: PromptUserIfAxApiDisabled
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_PromptUserIfAxApiDisabled
+  commentId: P:SharpHook.Providers.UioHookProvider.PromptUserIfAxApiDisabled
+  fullName: SharpHook.Providers.UioHookProvider.PromptUserIfAxApiDisabled
+  nameWithType: UioHookProvider.PromptUserIfAxApiDisabled
+- uid: SharpHook.Providers.UioHookProvider.PromptUserIfAxApiDisabled*
+  name: PromptUserIfAxApiDisabled
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_PromptUserIfAxApiDisabled_
+  commentId: Overload:SharpHook.Providers.UioHookProvider.PromptUserIfAxApiDisabled
+  fullName: SharpHook.Providers.UioHookProvider.PromptUserIfAxApiDisabled
+  nameWithType: UioHookProvider.PromptUserIfAxApiDisabled
 - uid: SharpHook.Providers.UioHookProvider.Run
   name: Run()
   href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_Run
@@ -4693,21 +4780,6 @@ references:
   commentId: Overload:SharpHook.Providers.UioHookProvider.SetLoggerProc
   fullName: SharpHook.Providers.UioHookProvider.SetLoggerProc
   nameWithType: UioHookProvider.SetLoggerProc
-- uid: SharpHook.Providers.UioHookProvider.SetPostTextDelayX11(System.UInt64)
-  name: SetPostTextDelayX11(ulong)
-  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_SetPostTextDelayX11_System_UInt64_
-  commentId: M:SharpHook.Providers.UioHookProvider.SetPostTextDelayX11(System.UInt64)
-  name.vb: SetPostTextDelayX11(ULong)
-  fullName: SharpHook.Providers.UioHookProvider.SetPostTextDelayX11(ulong)
-  fullName.vb: SharpHook.Providers.UioHookProvider.SetPostTextDelayX11(ULong)
-  nameWithType: UioHookProvider.SetPostTextDelayX11(ulong)
-  nameWithType.vb: UioHookProvider.SetPostTextDelayX11(ULong)
-- uid: SharpHook.Providers.UioHookProvider.SetPostTextDelayX11*
-  name: SetPostTextDelayX11
-  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_SetPostTextDelayX11_
-  commentId: Overload:SharpHook.Providers.UioHookProvider.SetPostTextDelayX11
-  fullName: SharpHook.Providers.UioHookProvider.SetPostTextDelayX11
-  nameWithType: UioHookProvider.SetPostTextDelayX11
 - uid: SharpHook.Providers.UioHookProvider.Stop
   name: Stop()
   href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_Stop
@@ -6349,6 +6421,21 @@ references:
   commentId: Overload:SharpHook.Testing.TestProvider.GlobalHookType
   fullName: SharpHook.Testing.TestProvider.GlobalHookType
   nameWithType: TestProvider.GlobalHookType
+- uid: SharpHook.Testing.TestProvider.IsAxApiEnabled(System.Boolean)
+  name: IsAxApiEnabled(bool)
+  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_IsAxApiEnabled_System_Boolean_
+  commentId: M:SharpHook.Testing.TestProvider.IsAxApiEnabled(System.Boolean)
+  name.vb: IsAxApiEnabled(Boolean)
+  fullName: SharpHook.Testing.TestProvider.IsAxApiEnabled(bool)
+  fullName.vb: SharpHook.Testing.TestProvider.IsAxApiEnabled(Boolean)
+  nameWithType: TestProvider.IsAxApiEnabled(bool)
+  nameWithType.vb: TestProvider.IsAxApiEnabled(Boolean)
+- uid: SharpHook.Testing.TestProvider.IsAxApiEnabled*
+  name: IsAxApiEnabled
+  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_IsAxApiEnabled_
+  commentId: Overload:SharpHook.Testing.TestProvider.IsAxApiEnabled
+  fullName: SharpHook.Testing.TestProvider.IsAxApiEnabled
+  nameWithType: TestProvider.IsAxApiEnabled
 - uid: SharpHook.Testing.TestProvider.IsRunning
   name: IsRunning
   href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_IsRunning
