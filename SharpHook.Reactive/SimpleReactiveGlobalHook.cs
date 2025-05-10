@@ -1,3 +1,5 @@
+using System.Collections.Concurrent;
+
 #if MACCATALYST
 using ObjCRuntime;
 #endif
@@ -14,7 +16,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     private const string Stopping = "stopping";
 
     private static readonly DispatchProc dispatchProc = HandleHookEvent;
-    private static readonly Dictionary<int, SimpleReactiveGlobalHook> runningGlobalHooks = [];
+    private static readonly ConcurrentDictionary<int, SimpleReactiveGlobalHook> runningGlobalHooks = [];
 
     private static int currentHookIndex = 0;
 
@@ -300,7 +302,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
             throw new HookException(UioHookResult.Failure, e);
         } finally
         {
-            runningGlobalHooks.Remove(this.hookIndex);
+            runningGlobalHooks.TryRemove(this.hookIndex, out _);
         }
 
         if (result != UioHookResult.Success)
@@ -353,7 +355,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
                 hookStopped.OnError(new HookException(UioHookResult.Failure, e));
             } finally
             {
-                runningGlobalHooks.Remove(this.hookIndex);
+                runningGlobalHooks.TryRemove(this.hookIndex, out _);
             }
         })
         {

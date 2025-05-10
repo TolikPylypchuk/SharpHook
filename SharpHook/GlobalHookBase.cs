@@ -1,3 +1,5 @@
+using System.Collections.Concurrent;
+
 #if MACCATALYST
 using ObjCRuntime;
 #endif
@@ -17,7 +19,7 @@ public abstract class GlobalHookBase : IGlobalHook
     private const string Stopping = "stopping";
 
     private static readonly DispatchProc dispatchProc = HandleHookEventIfNeeded;
-    private static readonly Dictionary<int, GlobalHookBase> runningGlobalHooks = [];
+    private static readonly ConcurrentDictionary<int, GlobalHookBase> runningGlobalHooks = [];
 
     private static int currentHookIndex = 0;
 
@@ -140,7 +142,7 @@ public abstract class GlobalHookBase : IGlobalHook
             throw new HookException(UioHookResult.Failure, e);
         } finally
         {
-            runningGlobalHooks.Remove(this.hookIndex);
+            runningGlobalHooks.TryRemove(this.hookIndex, out _);
         }
 
         if (result != UioHookResult.Success)
@@ -189,7 +191,7 @@ public abstract class GlobalHookBase : IGlobalHook
                 source.SetException(new HookException(UioHookResult.Failure, e));
             } finally
             {
-                runningGlobalHooks.Remove(this.hookIndex);
+                runningGlobalHooks.TryRemove(this.hookIndex, out _);
             }
         })
         {
