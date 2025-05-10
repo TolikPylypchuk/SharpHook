@@ -3,19 +3,19 @@ namespace SharpHook.Testing;
 public sealed class TestProviderTests
 {
     [Property(DisplayName = "SetDispatchProc, Run, and PostEvent should work together")]
-    public async void SetDispatchProc(UioHookEvent eventToPost, IntPtr userData)
+    public async void SetDispatchProc(UioHookEvent eventToPost, nint userData)
     {
         // Arrange
 
         var actualEvent = new UioHookEvent();
-        var actualUserData = IntPtr.Zero;
+        nint actualUserData = IntPtr.Zero;
 
         var provider = new TestProvider();
 
         // Act
 
         provider.SetDispatchProc(
-            (ref UioHookEvent e, IntPtr data) =>
+            (ref UioHookEvent e, nint data) =>
             {
                 actualEvent = e;
                 actualUserData = data;
@@ -65,19 +65,19 @@ public sealed class TestProviderTests
     }
 
     [Property(DisplayName = "RunKeyboard should not dispatch mouse events")]
-    public async void RunKeyboard(MouseEvent eventToPost, IntPtr userData)
+    public async void RunKeyboard(MouseEvent eventToPost, nint userData)
     {
         // Arrange
 
         UioHookEvent? actualEvent = null;
-        IntPtr? actualUserData = null;
+        nint? actualUserData = null;
 
         var provider = new TestProvider();
 
         // Act
 
         provider.SetDispatchProc(
-            (ref UioHookEvent e, IntPtr data) =>
+            (ref UioHookEvent e, nint data) =>
             {
                 if (e.Type != EventType.HookEnabled)
                 {
@@ -104,19 +104,19 @@ public sealed class TestProviderTests
     }
 
     [Property(DisplayName = "RunMouse should not dispatch mouse events")]
-    public async void RunMouse(KeyboardEvent eventToPost, IntPtr userData)
+    public async void RunMouse(KeyboardEvent eventToPost, nint userData)
     {
         // Arrange
 
         UioHookEvent? actualEvent = null;
-        IntPtr? actualUserData = null;
+        nint? actualUserData = null;
 
         var provider = new TestProvider();
 
         // Act
 
         provider.SetDispatchProc(
-            (ref UioHookEvent e, IntPtr data) =>
+            (ref UioHookEvent e, nint data) =>
             {
                 if (e.Type != EventType.HookEnabled)
                 {
@@ -151,7 +151,7 @@ public sealed class TestProviderTests
 
         // Act
 
-        provider.SetDispatchProc((ref UioHookEvent e, IntPtr data) => e.Mask |= EventMask.SuppressEvent, IntPtr.Zero);
+        provider.SetDispatchProc((ref UioHookEvent e, nint data) => e.Mask |= EventMask.SuppressEvent, IntPtr.Zero);
 
         var task = provider.RunAsync();
 
@@ -320,7 +320,7 @@ public sealed class TestProviderTests
         UioHookEvent actualEvent = default;
 
         provider.SetDispatchProc(
-            (ref UioHookEvent e, IntPtr userData) =>
+            (ref UioHookEvent e, nint userData) =>
             {
                 if (e.Type == EventType.HookEnabled)
                 {
@@ -356,7 +356,7 @@ public sealed class TestProviderTests
         UioHookEvent actualEvent = default;
 
         provider.SetDispatchProc(
-            (ref UioHookEvent e, IntPtr userData) =>
+            (ref UioHookEvent e, nint userData) =>
             {
                 if (e.Type == EventType.HookDisabled)
                 {

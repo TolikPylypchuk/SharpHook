@@ -5,7 +5,7 @@ namespace SharpHook.Internal;
 [ExcludeFromCodeCoverage]
 internal static class StringUtil
 {
-    internal static string ToStringFromUtf8(this IntPtr nativeString)
+    internal static string ToStringFromUtf8(this nint nativeString)
     {
         if (nativeString == IntPtr.Zero)
         {

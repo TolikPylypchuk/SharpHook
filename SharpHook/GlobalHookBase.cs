@@ -16,14 +16,14 @@ namespace SharpHook;
 public abstract class GlobalHookBase : IGlobalHook
 {
     private static readonly DispatchProc dispatchProc = HandleHookEventIfNeeded;
-    private static readonly ConcurrentDictionary<int, GlobalHookBase> runningGlobalHooks = [];
+    private static readonly ConcurrentDictionary<nint, GlobalHookBase> runningGlobalHooks = [];
 
     private static int currentHookIndex = 0;
 
     private readonly IGlobalHookProvider globalHookProvider;
     private readonly GlobalHookType globalHookType;
     private readonly bool runAsyncOnBackgroundThread;
-    private readonly int hookIndex;
+    private readonly nint hookIndex;
 
     /// <summary>
     /// Initializes a new instance of <see cref="GlobalHookBase" />.
@@ -86,7 +86,7 @@ public abstract class GlobalHookBase : IGlobalHook
         try
         {
             runningGlobalHooks[this.hookIndex] = this;
-            this.globalHookProvider.SetDispatchProc(dispatchProc, (IntPtr)this.hookIndex);
+            this.globalHookProvider.SetDispatchProc(dispatchProc, this.hookIndex);
 
             this.IsRunning = true;
             result = this.RunGlobalHook();
@@ -127,7 +127,7 @@ public abstract class GlobalHookBase : IGlobalHook
             try
             {
                 runningGlobalHooks[this.hookIndex] = this;
-                this.globalHookProvider.SetDispatchProc(dispatchProc, (IntPtr)this.hookIndex);
+                this.globalHookProvider.SetDispatchProc(dispatchProc, this.hookIndex);
 
                 this.IsRunning = true;
                 var result = this.RunGlobalHook();
@@ -373,9 +373,9 @@ public abstract class GlobalHookBase : IGlobalHook
 #if MACCATALYST
     [MonoPInvokeCallback(typeof(DispatchProc))]
 #endif
-    private static void HandleHookEventIfNeeded(ref UioHookEvent e, IntPtr hookIndex)
+    private static void HandleHookEventIfNeeded(ref UioHookEvent e, nint hookIndex)
     {
-        if (runningGlobalHooks.TryGetValue(hookIndex.ToInt32(), out var hook) &&
+        if (runningGlobalHooks.TryGetValue(hookIndex, out var hook) &&
             hook.ShouldDispatchEvent(ref e))
         {
             hook.HandleHookEvent(ref e);

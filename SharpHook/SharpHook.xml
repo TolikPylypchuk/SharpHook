@@ -1167,7 +1167,7 @@
         </member>
         <member name="F:SharpHook.Data.MouseButton.Button3">
             <summary>
-            Button 3
+            Button 3 (usually the middle mouse button)
             </summary>
         </member>
         <member name="F:SharpHook.Data.MouseButton.Button4">
@@ -1635,47 +1635,47 @@
         </member>
         <member name="F:SharpHook.Data.UioHookResult.ErrorPostTextNull">
             <summary>
-            A <see langword="null" /> string was passed to <see cref="M:SharpHook.Native.UioHook.PostText(System.String)" />.
+            A <see langword="null" /> string was passed to <see cref="M:SharpHook.Native.UioHook.PostText(System.String)" />
             </summary>
         </member>
         <member name="F:SharpHook.Data.UioHookResult.ErrorXOpenDisplay">
             <summary>
-            XOpenDisplay failed (X11)
+            <c>XOpenDisplay</c> has failed (X11)
             </summary>
         </member>
         <member name="F:SharpHook.Data.UioHookResult.ErrorXRecordNotFound">
             <summary>
-            XRecord not found (X11)
+            <c>XRecord</c> not found (X11)
             </summary>
         </member>
         <member name="F:SharpHook.Data.UioHookResult.ErrorXRecordAllocRange">
             <summary>
-            XRecordAllocRange failed (X11)
+            <c>XRecordAllocRange</c> has failed (X11)
             </summary>
         </member>
         <member name="F:SharpHook.Data.UioHookResult.ErrorXRecordCreateContext">
             <summary>
-            XRecordCreateContext failed (X11)
+            <c>XRecordCreateContext</c> has failed (X11)
             </summary>
         </member>
         <member name="F:SharpHook.Data.UioHookResult.ErrorXRecordEnableContext">
             <summary>
-            XRecordEnableContext failed (X11)
+            <c>XRecordEnableContext</c> has failed (X11)
             </summary>
         </member>
         <member name="F:SharpHook.Data.UioHookResult.ErrorXRecordGetContext">
             <summary>
-            XRecordGetContext failed (X11)
+            <c>XRecordGetContext</c> has failed (X11)
             </summary>
         </member>
         <member name="F:SharpHook.Data.UioHookResult.ErrorSetWindowsHookEx">
             <summary>
-            SetWindowsHookEx failed (Windows)
+            <c>SetWindowsHookEx</c> has failed (Windows)
             </summary>
         </member>
         <member name="F:SharpHook.Data.UioHookResult.ErrorGetModuleHandle">
             <summary>
-            Couldn't get a module handle for SetWindowsHookEx (Windows)
+            Couldn't get a module handle for <c>SetWindowsHookEx</c> (Windows)
             </summary>
         </member>
         <member name="F:SharpHook.Data.UioHookResult.ErrorCreateInvisibleWindow">
@@ -1695,17 +1695,17 @@
         </member>
         <member name="F:SharpHook.Data.UioHookResult.ErrorCreateRunLoopSource">
             <summary>
-            CFRunLoopSourceCreate or CFMachPortCreateRunLoopSource failed (macOS)
+            <c>CFRunLoopSourceCreate</c> or <c>CFMachPortCreateRunLoopSource</c> has failed (macOS)
             </summary>
         </member>
         <member name="F:SharpHook.Data.UioHookResult.ErrorGetRunLoop">
             <summary>
-            CFRunLoopGetCurrent failed (macOS)
+            <c>CFRunLoopGetCurrent</c> has failed (macOS)
             </summary>
         </member>
         <member name="F:SharpHook.Data.UioHookResult.ErrorCreateObserver">
             <summary>
-            CFRunLoopObserverCreate failed (macOS)
+            <c>CFRunLoopObserverCreate</c> has failed (macOS)
             </summary>
         </member>
         <member name="T:SharpHook.EventSimulator">
@@ -3003,6 +3003,19 @@
             <seealso cref="T:SharpHook.Providers.IScreenInfoProvider" />
             <seealso cref="T:SharpHook.Providers.UioHookProvider" />
         </member>
+        <member name="M:SharpHook.Native.UioHook.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)">
+            <summary>
+            Sets the log callback function.
+            </summary>
+            <param name="loggerProc">
+            The function to call for logging, or <see langword="null" /> to unset the function.
+            </param>
+            <param name="userData">
+            Custom data to pass to the callback. Should not be used to pass pointers to objects,
+            and <see cref="F:System.IntPtr.Zero" /> should usually be passed.
+            </param>
+            <seealso cref="T:SharpHook.Native.LoggerProc" />
+        </member>
         <member name="M:SharpHook.Native.UioHook.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)">
             <summary>
             Sets the hook callback function.
@@ -3073,19 +3086,6 @@
             Stops the global hook.
             </summary>
             <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.Native.UioHook.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)">
-            <summary>
-            Sets the log callback function.
-            </summary>
-            <param name="loggerProc">
-            The function to call for logging, or <see langword="null" /> to unset the function.
-            </param>
-            <param name="userData">
-            Custom data to pass to the callback. Should not be used to pass pointers to objects,
-            and <see cref="F:System.IntPtr.Zero" /> should usually be passed.
-            </param>
-            <seealso cref="T:SharpHook.Native.LoggerProc" />
         </member>
         <member name="M:SharpHook.Native.UioHook.PostEvent(SharpHook.Data.UioHookEvent@)">
             <summary>
@@ -3623,6 +3623,19 @@
             Gets the single instance of <see cref="T:SharpHook.Providers.UioHookProvider" />.
             </summary>
         </member>
+        <member name="M:SharpHook.Providers.UioHookProvider.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)">
+            <summary>
+            Sets the log callback function.
+            </summary>
+            <param name="loggerProc">
+            The function to call for logging, or <see langword="null" /> to unset the function.
+            </param>
+            <param name="userData">
+            Custom data to pass to the callback. Should not be used to pass pointers to objects,
+            and <see cref="F:System.IntPtr.Zero" /> should usually be passed.
+            </param>
+            <seealso cref="T:SharpHook.Native.LoggerProc" />
+        </member>
         <member name="M:SharpHook.Providers.UioHookProvider.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)">
             <summary>
             Sets the hook callback function.
@@ -3631,7 +3644,8 @@
             The function to call when an event is raised, or <see langword="null" /> to unset the function.
             </param>
             <param name="userData">
-            Custom data to pass to the callback. Should not be used, and <see cref="F:System.IntPtr.Zero" /> should always be passed.
+            Custom data to pass to the callback. Should not be used to pass pointers to objects,
+            and <see cref="F:System.IntPtr.Zero" /> should usually be passed.
             </param>
             <seealso cref="T:SharpHook.Native.DispatchProc" />
         </member>
@@ -3668,18 +3682,6 @@
             Stops the global hook.
             </summary>
             <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.Providers.UioHookProvider.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)">
-            <summary>
-            Sets the log callback function.
-            </summary>
-            <param name="loggerProc">
-            The function to call for logging, or <see langword="null" /> to unset the function.
-            </param>
-            <param name="userData">
-            Custom data to pass to the callback. Should not be used, and <see cref="F:System.IntPtr.Zero" /> should always be passed.
-            </param>
-            <seealso cref="T:SharpHook.Native.LoggerProc" />
         </member>
         <member name="M:SharpHook.Providers.UioHookProvider.PostEvent(SharpHook.Data.UioHookEvent@)">
             <summary>

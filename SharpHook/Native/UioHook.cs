@@ -26,6 +26,26 @@ public static partial class UioHook
     private const string LibUioHook = "uiohook";
 
     /// <summary>
+    /// Sets the log callback function.
+    /// </summary>
+    /// <param name="loggerProc">
+    /// The function to call for logging, or <see langword="null" /> to unset the function.
+    /// </param>
+    /// <param name="userData">
+    /// Custom data to pass to the callback. Should not be used to pass pointers to objects,
+    /// and <see cref="IntPtr.Zero" /> should usually be passed.
+    /// </param>
+    /// <seealso cref="LoggerProc" />
+#if NET7_0_OR_GREATER
+    [LibraryImport(LibUioHook, EntryPoint = "hook_set_logger_proc")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void SetLoggerProc(LoggerProc? loggerProc, nint userData);
+#else
+    [DllImport(LibUioHook, EntryPoint = "hook_set_logger_proc", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void SetLoggerProc(LoggerProc? loggerProc, nint userData);
+#endif
+
+    /// <summary>
     /// Sets the hook callback function.
     /// </summary>
     /// <param name="dispatchProc">
@@ -39,10 +59,10 @@ public static partial class UioHook
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_set_dispatch_proc")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetDispatchProc(DispatchProc? dispatchProc, IntPtr userData);
+    public static partial void SetDispatchProc(DispatchProc? dispatchProc, nint userData);
 #else
     [DllImport(LibUioHook, EntryPoint = "hook_set_dispatch_proc", CallingConvention = CallingConvention.Cdecl)]
-    public static extern void SetDispatchProc(DispatchProc? dispatchProc, IntPtr userData);
+    public static extern void SetDispatchProc(DispatchProc? dispatchProc, nint userData);
 #endif
 
     /// <summary>
@@ -129,26 +149,6 @@ public static partial class UioHook
 #else
     [DllImport(LibUioHook, EntryPoint = "hook_stop", CallingConvention = CallingConvention.Cdecl)]
     public static extern UioHookResult Stop();
-#endif
-
-    /// <summary>
-    /// Sets the log callback function.
-    /// </summary>
-    /// <param name="loggerProc">
-    /// The function to call for logging, or <see langword="null" /> to unset the function.
-    /// </param>
-    /// <param name="userData">
-    /// Custom data to pass to the callback. Should not be used to pass pointers to objects,
-    /// and <see cref="IntPtr.Zero" /> should usually be passed.
-    /// </param>
-    /// <seealso cref="LoggerProc" />
-#if NET7_0_OR_GREATER
-    [LibraryImport(LibUioHook, EntryPoint = "hook_set_logger_proc")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetLoggerProc(LoggerProc? loggerProc, IntPtr userData);
-#else
-    [DllImport(LibUioHook, EntryPoint = "hook_set_logger_proc", CallingConvention = CallingConvention.Cdecl)]
-    public static extern void SetLoggerProc(LoggerProc? loggerProc, IntPtr userData);
 #endif
 
     /// <summary>
@@ -417,10 +417,10 @@ public static partial class UioHook
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_create_screen_info")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial IntPtr CreateScreenInfo(out byte count);
+    public static partial nint CreateScreenInfo(out byte count);
 #else
     [DllImport(LibUioHook, EntryPoint = "hook_create_screen_info", CallingConvention = CallingConvention.Cdecl)]
-    public static extern IntPtr CreateScreenInfo(out byte count);
+    public static extern nint CreateScreenInfo(out byte count);
 #endif
 
     /// <summary>
@@ -433,14 +433,14 @@ public static partial class UioHook
     /// <seealso cref="CreateScreenInfo(out byte)" />
     public static ScreenData[] CreateScreenInfo()
     {
-        var screens = CreateScreenInfo(out byte count);
+        nint screens = CreateScreenInfo(out byte count);
 
         var result = new ScreenData[count];
         int size = Marshal.SizeOf<ScreenData>();
 
         for (int i = 0; i < count; i++)
         {
-            result[i] = Marshal.PtrToStructure<ScreenData>(new IntPtr(screens.ToInt64() + i * size));
+            result[i] = Marshal.PtrToStructure<ScreenData>((nint)((long)screens + i * size));
         }
 
         Marshal.FreeHGlobal(screens);

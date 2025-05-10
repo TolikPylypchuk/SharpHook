@@ -22,7 +22,7 @@ public enum MouseButton : ushort
     Button2 = 2,
 
     /// <summary>
-    /// Button 3
+    /// Button 3 (usually the middle mouse button)
     /// </summary>
     Button3 = 3,
 

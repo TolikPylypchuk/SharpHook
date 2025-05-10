@@ -2,8 +2,8 @@ namespace SharpHook.TestData;
 
 public sealed class Generators
 {
-    public static Arbitrary<IntPtr> IntPtrs =>
-        ArbMap.Default.GeneratorFor<int>().Select(v => (IntPtr)v).ToArbitrary();
+    public static Arbitrary<nint> NativeInts =>
+        ArbMap.Default.GeneratorFor<int>().Select(v => (nint)v).ToArbitrary();
 
     public static Arbitrary<UioHookEvent> UioHookEvents =>
         Gen.OneOf(HookEvents, KeyboardEvents, MouseEvents, WheelEvents).ToArbitrary();

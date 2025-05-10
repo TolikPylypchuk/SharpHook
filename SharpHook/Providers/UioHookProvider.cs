@@ -6,8 +6,8 @@ namespace SharpHook.Providers;
 /// <seealso cref="UioHook" />
 [ExcludeFromCodeCoverage]
 public sealed class UioHookProvider :
-    IGlobalHookProvider,
     ILoggingProvider,
+    IGlobalHookProvider,
     IEventSimulationProvider,
     IAccessibilityProvider,
     IScreenInfoProvider,
@@ -22,16 +22,31 @@ public sealed class UioHookProvider :
     public static UioHookProvider Instance { get; } = new();
 
     /// <summary>
+    /// Sets the log callback function.
+    /// </summary>
+    /// <param name="loggerProc">
+    /// The function to call for logging, or <see langword="null" /> to unset the function.
+    /// </param>
+    /// <param name="userData">
+    /// Custom data to pass to the callback. Should not be used to pass pointers to objects,
+    /// and <see cref="IntPtr.Zero" /> should usually be passed.
+    /// </param>
+    /// <seealso cref="LoggerProc" />
+    public void SetLoggerProc(LoggerProc? loggerProc, nint userData) =>
+        UioHook.SetLoggerProc(loggerProc, userData);
+
+    /// <summary>
     /// Sets the hook callback function.
     /// </summary>
     /// <param name="dispatchProc">
     /// The function to call when an event is raised, or <see langword="null" /> to unset the function.
     /// </param>
     /// <param name="userData">
-    /// Custom data to pass to the callback. Should not be used, and <see cref="IntPtr.Zero" /> should always be passed.
+    /// Custom data to pass to the callback. Should not be used to pass pointers to objects,
+    /// and <see cref="IntPtr.Zero" /> should usually be passed.
     /// </param>
     /// <seealso cref="DispatchProc" />
-    public void SetDispatchProc(DispatchProc? dispatchProc, IntPtr userData) =>
+    public void SetDispatchProc(DispatchProc? dispatchProc, nint userData) =>
         UioHook.SetDispatchProc(dispatchProc, userData);
 
     /// <summary>
@@ -71,19 +86,6 @@ public sealed class UioHookProvider :
     /// <returns>The result of the operation.</returns>
     public UioHookResult Stop() =>
         UioHook.Stop();
-
-    /// <summary>
-    /// Sets the log callback function.
-    /// </summary>
-    /// <param name="loggerProc">
-    /// The function to call for logging, or <see langword="null" /> to unset the function.
-    /// </param>
-    /// <param name="userData">
-    /// Custom data to pass to the callback. Should not be used, and <see cref="IntPtr.Zero" /> should always be passed.
-    /// </param>
-    /// <seealso cref="LoggerProc" />
-    public void SetLoggerProc(LoggerProc? loggerProc, IntPtr userData) =>
-        UioHook.SetLoggerProc(loggerProc, userData);
 
     /// <summary>
     /// Posts a fake input event.

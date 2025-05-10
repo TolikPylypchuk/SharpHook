@@ -22,47 +22,47 @@ public enum UioHookResult
     ErrorOutOfMemory = 0x02,
 
     /// <summary>
-    /// A <see langword="null" /> string was passed to <see cref="UioHook.PostText(string)" />.
+    /// A <see langword="null" /> string was passed to <see cref="UioHook.PostText(string)" />
     /// </summary>
     ErrorPostTextNull = 0x03,
 
     /// <summary>
-    /// XOpenDisplay failed (X11)
+    /// <c>XOpenDisplay</c> has failed (X11)
     /// </summary>
     ErrorXOpenDisplay = 0x20,
 
     /// <summary>
-    /// XRecord not found (X11)
+    /// <c>XRecord</c> not found (X11)
     /// </summary>
     ErrorXRecordNotFound = 0x21,
 
     /// <summary>
-    /// XRecordAllocRange failed (X11)
+    /// <c>XRecordAllocRange</c> has failed (X11)
     /// </summary>
     ErrorXRecordAllocRange = 0x22,
 
     /// <summary>
-    /// XRecordCreateContext failed (X11)
+    /// <c>XRecordCreateContext</c> has failed (X11)
     /// </summary>
     ErrorXRecordCreateContext = 0x23,
 
     /// <summary>
-    /// XRecordEnableContext failed (X11)
+    /// <c>XRecordEnableContext</c> has failed (X11)
     /// </summary>
     ErrorXRecordEnableContext = 0x24,
 
     /// <summary>
-    /// XRecordGetContext failed (X11)
+    /// <c>XRecordGetContext</c> has failed (X11)
     /// </summary>
     ErrorXRecordGetContext = 0x25,
 
     /// <summary>
-    /// SetWindowsHookEx failed (Windows)
+    /// <c>SetWindowsHookEx</c> has failed (Windows)
     /// </summary>
     ErrorSetWindowsHookEx = 0x30,
 
     /// <summary>
-    /// Couldn't get a module handle for SetWindowsHookEx (Windows)
+    /// Couldn't get a module handle for <c>SetWindowsHookEx</c> (Windows)
     /// </summary>
     ErrorGetModuleHandle = 0x31,
 
@@ -82,17 +82,17 @@ public enum UioHookResult
     ErrorCreateEventPort = 0x41,
 
     /// <summary>
-    /// CFRunLoopSourceCreate or CFMachPortCreateRunLoopSource failed (macOS)
+    /// <c>CFRunLoopSourceCreate</c> or <c>CFMachPortCreateRunLoopSource</c> has failed (macOS)
     /// </summary>
     ErrorCreateRunLoopSource = 0x42,
 
     /// <summary>
-    /// CFRunLoopGetCurrent failed (macOS)
+    /// <c>CFRunLoopGetCurrent</c> has failed (macOS)
     /// </summary>
     ErrorGetRunLoop = 0x43,
 
     /// <summary>
-    /// CFRunLoopObserverCreate failed (macOS)
+    /// <c>CFRunLoopObserverCreate</c> has failed (macOS)
     /// </summary>
     ErrorCreateObserver = 0x44
 }

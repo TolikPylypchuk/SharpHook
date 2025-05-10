@@ -17,7 +17,7 @@ public sealed class TestProvider :
     private readonly List<string> postedText = [];
 
     private DispatchProc? dispatchProc;
-    private IntPtr userData;
+    private nint userData;
     private ScreenData[] screenInfo = [];
 
     private Func<EventType, DateTimeOffset> eventDateTime = t => DateTimeOffset.UtcNow;
@@ -159,7 +159,7 @@ public sealed class TestProvider :
     /// <param name="userData">
     /// Custom data to pass to the callback.
     /// </param>
-    public void SetDispatchProc(DispatchProc? dispatchProc, IntPtr userData)
+    public void SetDispatchProc(DispatchProc? dispatchProc, nint userData)
     {
         this.dispatchProc = dispatchProc;
         this.userData = userData;
@@ -431,7 +431,7 @@ public sealed class TestProvider :
 
     bool IAccessibilityProvider.PromptUserIfAxApiDisabled { get; set; } = true;
 
-    void ILoggingProvider.SetLoggerProc(LoggerProc? loggerProc, IntPtr userData)
+    void ILoggingProvider.SetLoggerProc(LoggerProc? loggerProc, nint userData)
     { }
 
     ScreenData[] IScreenInfoProvider.CreateScreenInfo() =>

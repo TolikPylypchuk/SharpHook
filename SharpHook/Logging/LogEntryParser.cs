@@ -33,7 +33,7 @@ public sealed class LogEntryParser
     /// <param name="format">A pointer to the native format of the log message.</param>
     /// <param name="args">A pointer to the native arguments of the log message.</param>
     /// <returns>A log entry represented by the level, format, and argumets.</returns>
-    public LogEntry ParseNativeLogEntry(LogLevel level, IntPtr format, IntPtr args)
+    public LogEntry ParseNativeLogEntry(LogLevel level, nint format, nint args)
     {
         string rawFormat = format.ToStringFromUtf8().Trim();
         string message = this.GetLogMessage(format, args).Trim();
@@ -49,7 +49,7 @@ public sealed class LogEntryParser
             result.ArgumentPlaceholders);
     }
 
-    private string GetLogMessage(IntPtr format, IntPtr args)
+    private string GetLogMessage(nint format, nint args)
     {
         if (PlatformDetector.IsMacOS)
         {
@@ -156,7 +156,7 @@ public sealed class LogEntryParser
                 _ => argument
             },
             'c' when Char.TryParse(argument, out char result) => result,
-            'p' when Int64.TryParse(argument, NumberStyles.AllowHexSpecifier, null, out long result) => (IntPtr)result,
+            'p' when Int64.TryParse(argument, NumberStyles.AllowHexSpecifier, null, out long result) => (nint)result,
             _ => argument
         };
     }
@@ -186,7 +186,7 @@ public sealed class LogEntryParser
     private string NormalizeFormat(string part) =>
         part.Replace("%%", "%").Replace("{", "{{").Replace("}", "}}");
 
-    private string GetDefaultString(IntPtr format, IntPtr args)
+    private string GetDefaultString(nint format, nint args)
     {
         var byteLength = Vsnprintf(IntPtr.Zero, UIntPtr.Zero, format, args) + 1;
 
@@ -208,7 +208,7 @@ public sealed class LogEntryParser
         }
     }
 
-    private string GetMacString(IntPtr format, IntPtr args)
+    private string GetMacString(nint format, nint args)
     {
         var buffer = IntPtr.Zero;
         try
@@ -221,7 +221,7 @@ public sealed class LogEntryParser
         }
     }
 
-    private string GetLinuxX64String(IntPtr format, IntPtr args)
+    private string GetLinuxX64String(nint format, nint args)
     {
         var listStructure = Marshal.PtrToStructure<VaListLinuxX64>(args);
 
@@ -249,7 +249,7 @@ public sealed class LogEntryParser
         }
     }
 
-    private R UseStructurePointer<T, R>(T structure, Func<IntPtr, R> action) where T : notnull
+    private R UseStructurePointer<T, R>(T structure, Func<nint, R> action) where T : notnull
     {
         var structurePointer = IntPtr.Zero;
         try
@@ -263,7 +263,7 @@ public sealed class LogEntryParser
         }
     }
 
-    private void UseStructurePointer<T>(T structure, Action<IntPtr> action) where T : notnull
+    private void UseStructurePointer<T>(T structure, Action<nint> action) where T : notnull
     {
         var structurePointer = IntPtr.Zero;
         try
@@ -277,12 +277,12 @@ public sealed class LogEntryParser
         }
     }
 
-    private int Vsprintf(IntPtr buffer, IntPtr format, IntPtr args) =>
+    private int Vsprintf(nint buffer, nint format, nint args) =>
         PlatformDetector.IsWindows
             ? NativeStringFunctions.WindowsVsprintf(buffer, format, args)
             : PlatformDetector.IsLinux ? NativeStringFunctions.LinuxVsprintf(buffer, format, args) : -1;
 
-    private int Vsnprintf(IntPtr buffer, UIntPtr size, IntPtr format, IntPtr args) =>
+    private int Vsnprintf(nint buffer, nuint size, nint format, nint args) =>
         PlatformDetector.IsWindows
             ? NativeStringFunctions.WindowsVsnprintf(buffer, size, format, args)
             : PlatformDetector.IsLinux ? NativeStringFunctions.LinuxVsnprintf(buffer, size, format, args) : -1;
@@ -320,7 +320,7 @@ public sealed class LogEntryParser
     {
         internal uint GpOffset;
         internal uint FpOffset;
-        internal IntPtr OverflowArgArea;
-        internal IntPtr RegSaveArea;
+        internal nint OverflowArgArea;
+        internal nint RegSaveArea;
     }
 }

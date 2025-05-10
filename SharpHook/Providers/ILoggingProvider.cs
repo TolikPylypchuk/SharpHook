@@ -15,5 +15,5 @@ public interface ILoggingProvider
     /// Custom data to pass to the callback. Should not be used to pass pointers to objects,
     /// and <see cref="IntPtr.Zero" /> should usually be passed.
     /// </param>
-    void SetLoggerProc(LoggerProc? loggerProc, IntPtr userData);
+    void SetLoggerProc(LoggerProc? loggerProc, nint userData);
 }

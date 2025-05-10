@@ -15,7 +15,7 @@ public interface IGlobalHookProvider
     /// Custom data to pass to the callback. Should not be used to pass pointers to objects,
     /// and <see cref="IntPtr.Zero" /> should usually be passed.
     /// </param>
-    void SetDispatchProc(DispatchProc? dispatchProc, IntPtr userData);
+    void SetDispatchProc(DispatchProc? dispatchProc, nint userData);
 
     /// <summary>
     /// Runs the global hook and blocks the thread until it's stopped.

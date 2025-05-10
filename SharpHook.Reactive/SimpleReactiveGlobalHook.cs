@@ -13,7 +13,7 @@ namespace SharpHook.Reactive;
 public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
 {
     private static readonly DispatchProc dispatchProc = HandleHookEvent;
-    private static readonly ConcurrentDictionary<int, SimpleReactiveGlobalHook> runningGlobalHooks = [];
+    private static readonly ConcurrentDictionary<nint, SimpleReactiveGlobalHook> runningGlobalHooks = [];
 
     private static int currentHookIndex = 0;
 
@@ -35,7 +35,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     private readonly IGlobalHookProvider globalHookProvider;
     private readonly GlobalHookType globalHookType;
     private readonly bool runAsyncOnBackgroundThread;
-    private readonly int hookIndex;
+    private readonly nint hookIndex;
 
     /// <summary>
     /// Initializes a new instance of <see cref="SimpleReactiveGlobalHook" />.
@@ -190,7 +190,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
         try
         {
             runningGlobalHooks[this.hookIndex] = this;
-            this.globalHookProvider.SetDispatchProc(dispatchProc, (IntPtr)this.hookIndex);
+            this.globalHookProvider.SetDispatchProc(dispatchProc, this.hookIndex);
 
             this.IsRunning = true;
             result = this.RunGlobalHook();
@@ -234,7 +234,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
             try
             {
                 runningGlobalHooks[this.hookIndex] = this;
-                this.globalHookProvider.SetDispatchProc(dispatchProc, (IntPtr)this.hookIndex);
+                this.globalHookProvider.SetDispatchProc(dispatchProc, this.hookIndex);
 
                 this.IsRunning = true;
                 var result = this.RunGlobalHook();
@@ -283,9 +283,9 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
 #if MACCATALYST
     [MonoPInvokeCallback(typeof(DispatchProc))]
 #endif
-    private static void HandleHookEvent(ref UioHookEvent e, IntPtr hookIndex)
+    private static void HandleHookEvent(ref UioHookEvent e, nint hookIndex)
     {
-        if (runningGlobalHooks.TryGetValue(hookIndex.ToInt32(), out var hook))
+        if (runningGlobalHooks.TryGetValue(hookIndex, out var hook))
         {
             hook.DispatchEvent(ref e);
         }

@@ -135,7 +135,7 @@ public sealed class LogSource : ILogSource
 #if MACCATALYST
     [MonoPInvokeCallback(typeof(LoggerProc))]
 #endif
-    private static void OnLog(LogLevel level, IntPtr userData, IntPtr format, IntPtr args)
+    private static void OnLog(LogLevel level, nint userData, nint format, nint args)
     {
         if (registeredLogSource is null || level < registeredLogSource.MinLevel)
         {
