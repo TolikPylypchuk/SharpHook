@@ -4,7 +4,6 @@
     <OutputType>Exe</OutputType>
     <TargetFrameworks></TargetFrameworks>
     <TargetFramework>net9.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
     <PublishTrimmed>true</PublishTrimmed>
     <TrimmerDefaultAction>link</TrimmerDefaultAction>
     <ApplicationManifest>app.manifest</ApplicationManifest>

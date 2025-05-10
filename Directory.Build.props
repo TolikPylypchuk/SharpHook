@@ -2,12 +2,19 @@
 
 <Project>
   <PropertyGroup>
-    <TargetFrameworks>net472;netstandard2.0;net8.0;net8.0-maccatalyst;net9.0;net9.0-maccatalyst</TargetFrameworks>
-    <Platforms>x86;x64;ARM32;ARM64;AnyCPU</Platforms>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
-    <IsAotCompatible Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net7.0'))">true</IsAotCompatible>
+    <ImplicitUsings>enable</ImplicitUsings>
     <UseArtifactsOutput>true</UseArtifactsOutput>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFrameworks>net472;netstandard2.0;net8.0;net8.0-maccatalyst;net9.0;net9.0-maccatalyst</TargetFrameworks>
+    <Platforms>x86;x64;ARM32;ARM64;AnyCPU</Platforms>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net7.0'))">
+    <IsAotCompatible>true</IsAotCompatible>
   </PropertyGroup>
 
   <PropertyGroup>
