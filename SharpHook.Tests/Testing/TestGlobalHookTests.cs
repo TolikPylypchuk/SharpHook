@@ -3,7 +3,7 @@ namespace SharpHook.Testing;
 public sealed class TestGlobalHookTests
 {
     [Property(DisplayName = "KeyPressed events should be simulated and handled")]
-    public void HandleKeyPressed(KeyCode keyCode, ushort rawCode, DateTimeAfterEpoch dateTime, EventMask mask)
+    public async Task HandleKeyPressed(KeyCode keyCode, ushort rawCode, DateTimeAfterEpoch dateTime, EventMask mask)
     {
         // Arrange
 
@@ -24,9 +24,12 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        _ = hook.RunAsync();
+        var task = hook.RunAsync();
 
         hook.SimulateKeyPress(keyCode);
+
+        hook.Dispose();
+        await task;
 
         // Assert
 
@@ -38,21 +41,11 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.Single(hook.SimulatedEvents);
-
-        var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
-
-        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
-        {
-            actualEvent.Mask &= ~EventMask.SuppressEvent;
-        }
-
-        Assert.Equal(actualEventArgs.RawEvent, actualEvent);
+        this.AssertSimulatedEvents(hook, actualEventArgs);
     }
 
     [Property(DisplayName = "KeyPressed events should be simulated and handled for null characters")]
-    public void HandleKeyPressedNullCharacters(
+    public async Task HandleKeyPressedNullCharacters(
         KeyCode keyCode,
         ushort rawCode,
         DateTimeAfterEpoch dateTime,
@@ -78,9 +71,12 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        _ = hook.RunAsync();
+        var task = hook.RunAsync();
 
         hook.SimulateKeyPress(keyCode);
+
+        hook.Dispose();
+        await task;
 
         // Assert
 
@@ -92,21 +88,11 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.Single(hook.SimulatedEvents);
-
-        var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
-
-        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
-        {
-            actualEvent.Mask &= ~EventMask.SuppressEvent;
-        }
-
-        Assert.Equal(actualEventArgs.RawEvent, actualEvent);
+        this.AssertSimulatedEvents(hook, actualEventArgs);
     }
 
     [Property(DisplayName = "KeyReleased events should be simulated and handled")]
-    public void HandleKeyReleased(KeyCode keyCode, ushort rawCode, DateTimeAfterEpoch dateTime, EventMask mask)
+    public async Task HandleKeyReleased(KeyCode keyCode, ushort rawCode, DateTimeAfterEpoch dateTime, EventMask mask)
     {
         // Arrange
 
@@ -127,9 +113,12 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        _ = hook.RunAsync();
+        var task = hook.RunAsync();
 
         hook.SimulateKeyRelease(keyCode);
+
+        hook.Dispose();
+        await task;
 
         // Assert
 
@@ -141,21 +130,11 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.Single(hook.SimulatedEvents);
-
-        var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
-
-        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
-        {
-            actualEvent.Mask &= ~EventMask.SuppressEvent;
-        }
-
-        Assert.Equal(actualEventArgs.RawEvent, actualEvent);
+        this.AssertSimulatedEvents(hook, actualEventArgs);
     }
 
     [Property(DisplayName = "KeyTyped events should be simulated and handled")]
-    public void HandleKeyTyped(
+    public async Task HandleKeyTyped(
         char keyChar,
         KeyCode keyCode,
         ushort rawCode,
@@ -182,9 +161,12 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        _ = hook.RunAsync();
+        var task = hook.RunAsync();
 
         hook.SimulateKeyPress(keyCode);
+
+        hook.Dispose();
+        await task;
 
         // Assert
 
@@ -195,21 +177,11 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.Equal(2, hook.SimulatedEvents.Count);
-
-        var actualEvent = hook.SimulatedEvents[1];
-        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
-
-        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
-        {
-            actualEvent.Mask &= ~EventMask.SuppressEvent;
-        }
-
-        Assert.Equal(actualEventArgs.RawEvent, actualEvent);
+        this.AssertSimulatedEvents(hook, actualEventArgs, eventCount: 2);
     }
 
     [Property(DisplayName = "MousePressed events should be simulated and handled")]
-    public void HandleMousePressed(
+    public async Task HandleMousePressed(
         short x,
         short y,
         MouseButton button,
@@ -238,9 +210,12 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        _ = hook.RunAsync();
+        var task = hook.RunAsync();
 
         hook.SimulateMousePress(button);
+
+        hook.Dispose();
+        await task;
 
         // Assert
 
@@ -252,21 +227,11 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.Single(hook.SimulatedEvents);
-
-        var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
-
-        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
-        {
-            actualEvent.Mask &= ~EventMask.SuppressEvent;
-        }
-
-        Assert.Equal(actualEventArgs.RawEvent, actualEvent);
+        this.AssertSimulatedEvents(hook, actualEventArgs);
     }
 
     [Property(DisplayName = "MousePressed events with explicit clicks should be simulated and handled")]
-    public void HandleMousePressedExplicitClicks(
+    public async Task HandleMousePressedExplicitClicks(
         short x,
         short y,
         MouseButton button,
@@ -294,9 +259,12 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        _ = hook.RunAsync();
+        var task = hook.RunAsync();
 
         hook.SimulateMousePress(button, clicks);
+
+        hook.Dispose();
+        await task;
 
         // Assert
 
@@ -308,21 +276,11 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.Single(hook.SimulatedEvents);
-
-        var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
-
-        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
-        {
-            actualEvent.Mask &= ~EventMask.SuppressEvent;
-        }
-
-        Assert.Equal(actualEventArgs.RawEvent, actualEvent);
+        this.AssertSimulatedEvents(hook, actualEventArgs);
     }
 
     [Property(DisplayName = "MousePressed events with explicit coordinates should be simulated and handled")]
-    public void HandleMousePressedExplicitCoordinates(
+    public async Task HandleMousePressedExplicitCoordinates(
         short x,
         short y,
         MouseButton button,
@@ -349,9 +307,12 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        _ = hook.RunAsync();
+        var task = hook.RunAsync();
 
         hook.SimulateMousePress(x, y, button);
+
+        hook.Dispose();
+        await task;
 
         // Assert
 
@@ -363,21 +324,11 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.Single(hook.SimulatedEvents);
-
-        var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
-
-        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
-        {
-            actualEvent.Mask &= ~EventMask.SuppressEvent;
-        }
-
-        Assert.Equal(actualEventArgs.RawEvent, actualEvent);
+        this.AssertSimulatedEvents(hook, actualEventArgs);
     }
 
     [Property(DisplayName = "MousePressed events with explicit coordinates and clicks should be simulated and handled")]
-    public void HandleMousePressedExplicitCoordinatesAndClicks(
+    public async Task HandleMousePressedExplicitCoordinatesAndClicks(
         short x,
         short y,
         MouseButton button,
@@ -403,10 +354,13 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        _ = hook.RunAsync();
+        var task = hook.RunAsync();
 
         hook.SimulateMousePress(x, y, button, clicks);
 
+        hook.Dispose();
+        await task;
+
         // Assert
 
         Assert.NotNull(actualEventArgs);
@@ -417,21 +371,11 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.Single(hook.SimulatedEvents);
-
-        var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
-
-        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
-        {
-            actualEvent.Mask &= ~EventMask.SuppressEvent;
-        }
-
-        Assert.Equal(actualEventArgs.RawEvent, actualEvent);
+        this.AssertSimulatedEvents(hook, actualEventArgs);
     }
 
     [Property(DisplayName = "MouseReleased events should be simulated and handled")]
-    public void HandleMouseReleased(
+    public async Task HandleMouseReleased(
         short x,
         short y,
         MouseButton button,
@@ -461,10 +405,13 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        _ = hook.RunAsync();
+        var task = hook.RunAsync();
 
         hook.SimulateMouseRelease(button);
 
+        hook.Dispose();
+        await task;
+
         // Assert
 
         Assert.NotNull(actualEventArgs);
@@ -475,21 +422,11 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.Single(hook.SimulatedEvents);
-
-        var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
-
-        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
-        {
-            actualEvent.Mask &= ~EventMask.SuppressEvent;
-        }
-
-        Assert.Equal(actualEventArgs.RawEvent, actualEvent);
+        this.AssertSimulatedEvents(hook, actualEventArgs);
     }
 
     [Property(DisplayName = "MouseReleased events with explicit clicks should be simulated and handled")]
-    public void HandleMouseReleasedExplicitClicks(
+    public async Task HandleMouseReleasedExplicitClicks(
         short x,
         short y,
         MouseButton button,
@@ -518,9 +455,12 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        _ = hook.RunAsync();
+        var task = hook.RunAsync();
 
         hook.SimulateMouseRelease(button, clicks);
+
+        hook.Dispose();
+        await task;
 
         // Assert
 
@@ -532,21 +472,11 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.Single(hook.SimulatedEvents);
-
-        var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
-
-        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
-        {
-            actualEvent.Mask &= ~EventMask.SuppressEvent;
-        }
-
-        Assert.Equal(actualEventArgs.RawEvent, actualEvent);
+        this.AssertSimulatedEvents(hook, actualEventArgs);
     }
 
     [Property(DisplayName = "MouseReleased events with explicit coordinates should be simulated and handled")]
-    public void HandleMouseReleasedExplicitCoordinates(
+    public async Task HandleMouseReleasedExplicitCoordinates(
         short x,
         short y,
         MouseButton button,
@@ -574,9 +504,12 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        _ = hook.RunAsync();
+        var task = hook.RunAsync();
 
         hook.SimulateMouseRelease(x, y, button);
+
+        hook.Dispose();
+        await task;
 
         // Assert
 
@@ -588,22 +521,12 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.Single(hook.SimulatedEvents);
-
-        var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
-
-        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
-        {
-            actualEvent.Mask &= ~EventMask.SuppressEvent;
-        }
-
-        Assert.Equal(actualEventArgs.RawEvent, actualEvent);
+        this.AssertSimulatedEvents(hook, actualEventArgs);
     }
 
     [Property(DisplayName =
         "MouseReleased events with explicit coordinates and clicks should be simulated and handled")]
-    public void HandleMouseReleasedExplicitCoordinatesAndClicks(
+    public async Task HandleMouseReleasedExplicitCoordinatesAndClicks(
         short x,
         short y,
         MouseButton button,
@@ -630,9 +553,12 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        _ = hook.RunAsync();
+        var task = hook.RunAsync();
 
         hook.SimulateMouseRelease(x, y, button, clicks);
+
+        hook.Dispose();
+        await task;
 
         // Assert
 
@@ -644,21 +570,11 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.Single(hook.SimulatedEvents);
-
-        var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
-
-        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
-        {
-            actualEvent.Mask &= ~EventMask.SuppressEvent;
-        }
-
-        Assert.Equal(actualEventArgs.RawEvent, actualEvent);
+        this.AssertSimulatedEvents(hook, actualEventArgs);
     }
 
     [Property(DisplayName = "MouseClicked events should be simulated and handled")]
-    public void HandleMouseClicked(
+    public async Task HandleMouseClicked(
         short x,
         short y,
         MouseButton button,
@@ -688,9 +604,12 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        _ = hook.RunAsync();
+        var task = hook.RunAsync();
 
         hook.SimulateMouseRelease(button);
+
+        hook.Dispose();
+        await task;
 
         // Assert
 
@@ -702,21 +621,11 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.Equal(2, hook.SimulatedEvents.Count);
-
-        var actualEvent = hook.SimulatedEvents[1];
-        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
-
-        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
-        {
-            actualEvent.Mask &= ~EventMask.SuppressEvent;
-        }
-
-        Assert.Equal(actualEventArgs.RawEvent, actualEvent);
+        this.AssertSimulatedEvents(hook, actualEventArgs, eventCount: 2);
     }
 
     [Property(DisplayName = "MouseClicked events with explicit coordinates should be simulated and handled")]
-    public void HandleMouseClickedExplicitCoordinates(
+    public async Task HandleMouseClickedExplicitCoordinates(
         short x,
         short y,
         MouseButton button,
@@ -744,9 +653,12 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        _ = hook.RunAsync();
+        var task = hook.RunAsync();
 
         hook.SimulateMouseRelease(x, y, button);
+
+        hook.Dispose();
+        await task;
 
         // Assert
 
@@ -758,21 +670,11 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.Equal(2, hook.SimulatedEvents.Count);
-
-        var actualEvent = hook.SimulatedEvents[1];
-        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
-
-        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
-        {
-            actualEvent.Mask &= ~EventMask.SuppressEvent;
-        }
-
-        Assert.Equal(actualEventArgs.RawEvent, actualEvent);
+        this.AssertSimulatedEvents(hook, actualEventArgs, eventCount: 2);
     }
 
     [Property(DisplayName = "MouseMoved events should be simulated and handled")]
-    public void HandleMouseMovement(short x, short y, DateTimeAfterEpoch dateTime, EventMask mask)
+    public async Task HandleMouseMovement(short x, short y, DateTimeAfterEpoch dateTime, EventMask mask)
     {
         // Arrange
 
@@ -792,9 +694,12 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        _ = hook.RunAsync();
+        var task = hook.RunAsync();
 
         hook.SimulateMouseMovement(x, y);
+
+        hook.Dispose();
+        await task;
 
         // Assert
 
@@ -806,21 +711,11 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.Single(hook.SimulatedEvents);
-
-        var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
-
-        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
-        {
-            actualEvent.Mask &= ~EventMask.SuppressEvent;
-        }
-
-        Assert.Equal(actualEventArgs.RawEvent, actualEvent);
+        this.AssertSimulatedEvents(hook, actualEventArgs);
     }
 
     [Property(DisplayName = "Relatvie MouseMoved events should be simulated and handled")]
-    public void HandleMouseMovementRelative(
+    public async Task HandleMouseMovementRelative(
         short x,
         short y,
         short xOffset,
@@ -848,9 +743,12 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        _ = hook.RunAsync();
+        var task = hook.RunAsync();
 
         hook.SimulateMouseMovementRelative(xOffset, yOffset);
+
+        hook.Dispose();
+        await task;
 
         // Assert
 
@@ -862,21 +760,11 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.Single(hook.SimulatedEvents);
-
-        var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
-
-        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
-        {
-            actualEvent.Mask &= ~EventMask.SuppressEvent;
-        }
-
-        Assert.Equal(actualEventArgs.RawEvent, actualEvent);
+        this.AssertSimulatedEvents(hook, actualEventArgs);
     }
 
     [Property(DisplayName = "MouseDragged events should be simulated and handled")]
-    public void HandleMouseDragged(short x, short y, DateTimeAfterEpoch dateTime, EventMask mask)
+    public async Task HandleMouseDragged(short x, short y, DateTimeAfterEpoch dateTime, EventMask mask)
     {
         // Arrange
 
@@ -897,9 +785,12 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        _ = hook.RunAsync();
+        var task = hook.RunAsync();
 
         hook.SimulateMouseMovement(x, y);
+
+        hook.Dispose();
+        await task;
 
         // Assert
 
@@ -911,21 +802,11 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.Single(hook.SimulatedEvents);
-
-        var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
-
-        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
-        {
-            actualEvent.Mask &= ~EventMask.SuppressEvent;
-        }
-
-        Assert.Equal(actualEventArgs.RawEvent, actualEvent);
+        this.AssertSimulatedEvents(hook, actualEventArgs);
     }
 
     [Property(DisplayName = "Relatvie MouseDragged events should be simulated and handled")]
-    public void HandleMouseDraggedRelative(
+    public async Task HandleMouseDraggedRelative(
         short x,
         short y,
         short xOffset,
@@ -954,9 +835,12 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        _ = hook.RunAsync();
+        var task = hook.RunAsync();
 
         hook.SimulateMouseMovementRelative(xOffset, yOffset);
+
+        hook.Dispose();
+        await task;
 
         // Assert
 
@@ -968,21 +852,11 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.Single(hook.SimulatedEvents);
-
-        var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
-
-        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
-        {
-            actualEvent.Mask &= ~EventMask.SuppressEvent;
-        }
-
-        Assert.Equal(actualEventArgs.RawEvent, actualEvent);
+        this.AssertSimulatedEvents(hook, actualEventArgs);
     }
 
     [Property(DisplayName = "MouseWheel events should be simulated and handled")]
-    public void HandleMouseWheel(
+    public async Task HandleMouseWheel(
         short rotation,
         MouseWheelScrollDirection direction,
         MouseWheelScrollType type,
@@ -1007,9 +881,12 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        _ = hook.RunAsync();
+        var task = hook.RunAsync();
 
         hook.SimulateMouseWheel(rotation, direction, type);
+
+        hook.Dispose();
+        await task;
 
         // Assert
 
@@ -1020,17 +897,7 @@ public sealed class TestGlobalHookTests
         Assert.Equal(dateTime.Value, actualEventArgs.EventTime);
         Assert.Equal(mask, actualEventArgs.RawEvent.Mask);
 
-        Assert.Single(hook.SimulatedEvents);
-
-        var actualEvent = hook.SimulatedEvents[0];
-        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
-
-        if (!actualEventArgs.RawEvent.Mask.HasFlag(EventMask.SuppressEvent))
-        {
-            actualEvent.Mask &= ~EventMask.SuppressEvent;
-        }
-
-        Assert.Equal(actualEventArgs.RawEvent, actualEvent);
+        this.AssertSimulatedEvents(hook, actualEventArgs);
     }
 
     [Property(DisplayName = "SimulateTextEntry should add it to the simulated text collection")]
@@ -1123,7 +990,7 @@ public sealed class TestGlobalHookTests
 
         // Act + Assert
 
-        _ = hook.RunAsync();
+        var task = hook.RunAsync();
 
         var exception = Assert.Throws<HookException>(hook.Dispose);
 
@@ -1459,5 +1326,20 @@ public sealed class TestGlobalHookTests
         // Assert
 
         Assert.Equal(delay, hook.TextSimulationDelayOnX11);
+    }
+
+    private void AssertSimulatedEvents(TestGlobalHook hook, HookEventArgs actualEventArgs, int eventCount = 1)
+    {
+        Assert.Equal(eventCount, hook.SimulatedEvents.Count);
+        Assert.Single(hook.SuppressedEvents);
+
+        var actualEvent = hook.SimulatedEvents[^1];
+        Assert.False(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
+        Assert.Equal(actualEventArgs.RawEvent, actualEvent);
+
+        var suppressedEvent = hook.SuppressedEvents[0];
+        Assert.True(suppressedEvent.Mask.HasFlag(EventMask.SuppressEvent));
+        suppressedEvent.Mask &= ~EventMask.SuppressEvent;
+        Assert.Equal(actualEventArgs.RawEvent, suppressedEvent);
     }
 }

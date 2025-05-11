@@ -3987,6 +3987,11 @@
             Gets the events that have been simulated using this instance.
             </summary>
         </member>
+        <member name="P:SharpHook.Testing.TestGlobalHook.SuppressedEvents">
+            <summary>
+            Gets the events that have been suppressed in the event handlers.
+            </summary>
+        </member>
         <member name="P:SharpHook.Testing.TestGlobalHook.SimulatedText">
             <summary>
             Gets the text that has been simulated using this instance.

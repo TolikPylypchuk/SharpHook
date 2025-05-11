@@ -39,7 +39,7 @@ public sealed class Generators
         select (ulong)time.ToUnixTimeMilliseconds();
 
     public static Arbitrary<EventMask> EventMasks =>
-        Gen.Elements(Enum.GetValues<EventMask>()).ToArbitrary();
+        Gen.Elements(Enum.GetValues<EventMask>()).Where(m => m != EventMask.SuppressEvent).ToArbitrary();
 
     private static Gen<UioHookEvent> HookEvents =>
         from type in Gen.Elements(EventType.HookEnabled, EventType.HookDisabled)

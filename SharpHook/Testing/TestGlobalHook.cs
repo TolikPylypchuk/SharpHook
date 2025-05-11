@@ -1,3 +1,5 @@
+using System.Collections.Concurrent;
+
 namespace SharpHook.Testing;
 
 /// <summary>
@@ -5,9 +7,16 @@ namespace SharpHook.Testing;
 /// </summary>
 public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
 {
-    private TaskCompletionSource<object?> runCompletionSource = new();
+#if NET9_0_OR_GREATER
+    private readonly Lock syncRoot = new();
+#else
+    private readonly object syncRoot = new();
+#endif
+
+    private BlockingCollection<UioHookEvent>? eventLoop;
 
     private readonly List<UioHookEvent> simulatedEvents = [];
+    private readonly List<UioHookEvent> suppressedEvents = [];
     private readonly List<string> simulatedText = [];
 
     private Func<EventType, DateTimeOffset> eventDateTime = t => DateTimeOffset.UtcNow;
@@ -37,6 +46,12 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// </summary>
     public IReadOnlyList<UioHookEvent> SimulatedEvents =>
         this.simulatedEvents.AsReadOnly();
+
+    /// <summary>
+    /// Gets the events that have been suppressed in the event handlers.
+    /// </summary>
+    public IReadOnlyList<UioHookEvent> SuppressedEvents =>
+        this.suppressedEvents.AsReadOnly();
 
     /// <summary>
     /// Gets the text that has been simulated using this instance.
@@ -212,18 +227,31 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
     public void Run()
     {
+        this.ThrowIfRunning();
+        this.ThrowIfDisposed();
+
+        var result = this.RunResult;
+        if (result != UioHookResult.Success)
+        {
+            throw new HookException(result);
+        }
+
         try
         {
-            this.RunAsync().Wait();
-        } catch (AggregateException e)
+            this.eventLoop = [];
+            this.IsRunning = true;
+
+            this.DispatchHookEvent(EventType.HookEnabled);
+            this.RunEventLoop();
+            this.DispatchHookEvent(EventType.HookDisabled);
+        } finally
         {
-            var exception = e.InnerExceptions.FirstOrDefault();
-            if (exception is not null)
+            this.IsRunning = false;
+
+            lock (this.syncRoot)
             {
-                throw exception;
-            } else
-            {
-                throw;
+                this.eventLoop?.Dispose();
+                this.eventLoop = null;
             }
         }
     }
@@ -244,21 +272,41 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
         this.ThrowIfDisposed();
 
         var result = this.RunResult;
-
         if (result != UioHookResult.Success)
         {
             throw new HookException(result);
         }
 
-        var source = this.runCompletionSource;
+        try
+        {
+            this.eventLoop = [];
+            this.IsRunning = true;
 
-        this.IsRunning = true;
-        this.DispatchHookEvent(EventType.HookEnabled);
+            this.DispatchHookEvent(EventType.HookEnabled);
 
-        await source.Task;
+            var runCompletionSource = new TaskCompletionSource<object?>();
 
-        this.DispatchHookEvent(EventType.HookDisabled);
-        this.IsRunning = false;
+            var thread = new Thread(() =>
+            {
+                this.RunEventLoop();
+                runCompletionSource.SetResult(null);
+            });
+
+            thread.Start();
+
+            await runCompletionSource.Task;
+
+            this.DispatchHookEvent(EventType.HookDisabled);
+        } finally
+        {
+            this.IsRunning = false;
+
+            lock (this.syncRoot)
+            {
+                this.eventLoop?.Dispose();
+                this.eventLoop = null;
+            }
+        }
     }
 
     /// <summary>
@@ -278,17 +326,16 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
             return;
         }
 
-        if (this.IsRunning)
+        var result = this.DisposeResult;
+
+        if (result != UioHookResult.Success)
         {
-            var result = this.DisposeResult;
+            throw new HookException(result);
+        }
 
-            if (result != UioHookResult.Success)
-            {
-                throw new HookException(result);
-            }
-
-            this.runCompletionSource.SetResult(null);
-            this.runCompletionSource = new();
+        lock (this.syncRoot)
+        {
+            this.eventLoop?.CompleteAdding();
         }
 
         this.IsDisposed = true;
@@ -340,7 +387,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
                     }
                 };
 
-                this.DispatchEvent(ref keyTypedEvent);
+                this.SimulateEvent(UioHookResult.Success, ref keyTypedEvent);
             }
         }
 
@@ -545,22 +592,10 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
                 }
             };
 
-            this.DispatchEvent(ref mouseClickedEvent);
+            this.SimulateEvent(UioHookResult.Success, ref mouseClickedEvent);
         }
 
         return result;
-    }
-
-    private void DispatchHookEvent(EventType eventType)
-    {
-        var hookEvent = new UioHookEvent
-        {
-            Type = eventType,
-            Time = (ulong)this.EventDateTime(eventType).ToUnixTimeMilliseconds(),
-            Mask = this.EventMask(eventType)
-        };
-
-        this.DispatchEvent(ref hookEvent, addToSimulatedEvents: false);
     }
 
     /// <summary>
@@ -632,7 +667,49 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
         return this.SimulateEvent(this.SimulateMouseWheelResult, ref mouseWheelEvent);
     }
 
-    private void DispatchEvent(ref UioHookEvent e, bool addToSimulatedEvents = true)
+    private void RunEventLoop()
+    {
+        if (this.eventLoop is null)
+        {
+            return;
+        }
+
+        foreach (var @event in this.eventLoop.GetConsumingEnumerable())
+        {
+            var currentEvent = @event;
+            this.DispatchEvent(ref currentEvent);
+
+            if (currentEvent.Mask.HasFlag(Data.EventMask.SuppressEvent))
+            {
+                this.suppressedEvents.Add(currentEvent);
+            }
+        }
+    }
+
+    private UioHookResult SimulateEvent(UioHookResult result, ref UioHookEvent e)
+    {
+        if (result == UioHookResult.Success)
+        {
+            this.eventLoop?.Add(e);
+            this.simulatedEvents.Add(e);
+        }
+
+        return result;
+    }
+
+    private void DispatchHookEvent(EventType eventType)
+    {
+        var hookEvent = new UioHookEvent
+        {
+            Type = eventType,
+            Time = (ulong)this.EventDateTime(eventType).ToUnixTimeMilliseconds(),
+            Mask = this.EventMask(eventType)
+        };
+
+        this.DispatchEvent(ref hookEvent);
+    }
+
+    private void DispatchEvent(ref UioHookEvent e)
     {
         HookEventArgs? args = null;
 
@@ -697,22 +774,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
             {
                 e.Mask |= Data.EventMask.SuppressEvent;
             }
-
-            if (addToSimulatedEvents)
-            {
-                this.simulatedEvents.Add(e);
-            }
         }
-    }
-
-    private UioHookResult SimulateEvent(UioHookResult result, ref UioHookEvent e)
-    {
-        if (result == UioHookResult.Success)
-        {
-            this.DispatchEvent(ref e);
-        }
-
-        return result;
     }
 
     private void ThrowIfRunning()

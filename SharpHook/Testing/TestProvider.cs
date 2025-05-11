@@ -13,6 +13,12 @@ public sealed class TestProvider :
     IScreenInfoProvider,
     IMouseInfoProvider
 {
+#if NET9_0_OR_GREATER
+    private readonly Lock syncRoot = new();
+#else
+    private readonly object syncRoot = new();
+#endif
+
     private BlockingCollection<UioHookEvent>? eventLoop;
 
     private readonly List<UioHookEvent> postedEvents = [];
@@ -236,7 +242,10 @@ public sealed class TestProvider :
             return result;
         }
 
-        this.eventLoop?.CompleteAdding();
+        lock (this.syncRoot)
+        {
+            this.eventLoop?.CompleteAdding();
+        }
 
         return result;
     }
@@ -337,8 +346,11 @@ public sealed class TestProvider :
         {
             this.IsRunning = false;
 
-            this.eventLoop?.Dispose();
-            this.eventLoop = null;
+            lock (this.syncRoot)
+            {
+                this.eventLoop?.Dispose();
+                this.eventLoop = null;
+            }
         }
 
         return result;
@@ -380,8 +392,11 @@ public sealed class TestProvider :
         {
             this.IsRunning = false;
 
-            this.eventLoop?.Dispose();
-            this.eventLoop = null;
+            lock (this.syncRoot)
+            {
+                this.eventLoop?.Dispose();
+                this.eventLoop = null;
+            }
         }
 
         return result;
