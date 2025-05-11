@@ -6175,6 +6175,18 @@ references:
   commentId: Overload:SharpHook.Testing.TestGlobalHook.SimulatedText
   fullName: SharpHook.Testing.TestGlobalHook.SimulatedText
   nameWithType: TestGlobalHook.SimulatedText
+- uid: SharpHook.Testing.TestGlobalHook.SuppressedEvents
+  name: SuppressedEvents
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SuppressedEvents
+  commentId: P:SharpHook.Testing.TestGlobalHook.SuppressedEvents
+  fullName: SharpHook.Testing.TestGlobalHook.SuppressedEvents
+  nameWithType: TestGlobalHook.SuppressedEvents
+- uid: SharpHook.Testing.TestGlobalHook.SuppressedEvents*
+  name: SuppressedEvents
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SuppressedEvents_
+  commentId: Overload:SharpHook.Testing.TestGlobalHook.SuppressedEvents
+  fullName: SharpHook.Testing.TestGlobalHook.SuppressedEvents
+  nameWithType: TestGlobalHook.SuppressedEvents
 - uid: SharpHook.Testing.TestProvider
   name: TestProvider
   href: api/SharpHook.Testing.TestProvider.html
