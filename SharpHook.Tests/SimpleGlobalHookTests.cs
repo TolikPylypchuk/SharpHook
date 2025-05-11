@@ -51,7 +51,7 @@ public sealed class SimpleGlobalHookTests
             EventMask = t => mask
         };
 
-        using var hook = new SimpleGlobalHook(globalHookType, provider);
+        var hook = new SimpleGlobalHook(globalHookType, provider);
 
         object? actualSender = null;
         HookEventArgs? actualEventArgs = null;
@@ -91,7 +91,7 @@ public sealed class SimpleGlobalHookTests
             EventMask = t => mask
         };
 
-        using var hook = new SimpleGlobalHook(globalHookType, provider);
+        var hook = new SimpleGlobalHook(globalHookType, provider);
 
         object? actualSender = null;
         HookEventArgs? actualEventArgs = null;
@@ -132,7 +132,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(globalHookType, provider);
+        var hook = new SimpleGlobalHook(globalHookType, provider);
 
         var e = new UioHookEvent
         {
@@ -196,7 +196,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(globalHookType, provider);
+        var hook = new SimpleGlobalHook(globalHookType, provider);
 
         var e = new UioHookEvent
         {
@@ -261,7 +261,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(globalHookType, provider);
+        var hook = new SimpleGlobalHook(globalHookType, provider);
 
         var e = new UioHookEvent
         {
@@ -327,7 +327,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(globalHookType, provider);
+        var hook = new SimpleGlobalHook(globalHookType, provider);
 
         var e = new UioHookEvent
         {
@@ -395,7 +395,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(globalHookType, provider);
+        var hook = new SimpleGlobalHook(globalHookType, provider);
 
         var e = new UioHookEvent
         {
@@ -463,7 +463,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(globalHookType, provider);
+        var hook = new SimpleGlobalHook(globalHookType, provider);
 
         var e = new UioHookEvent
         {
@@ -529,7 +529,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(globalHookType, provider);
+        var hook = new SimpleGlobalHook(globalHookType, provider);
 
         var e = new UioHookEvent
         {
@@ -591,7 +591,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(globalHookType, provider);
+        var hook = new SimpleGlobalHook(globalHookType, provider);
 
         var e = new UioHookEvent
         {
@@ -657,7 +657,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(globalHookType, provider);
+        var hook = new SimpleGlobalHook(globalHookType, provider);
 
         var e = new UioHookEvent
         {

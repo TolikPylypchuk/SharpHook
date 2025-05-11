@@ -7,9 +7,8 @@ namespace SharpHook;
 /// <para>
 /// The event handlers will run with the specified parallelism level on separate threads inside the default thread
 /// pool for tasks. This way the hook itself will not be blocked if the handlers are long-running.
-/// The exception is the <see cref="IGlobalHook.HookDisabled" /> event which will run on the same thread that called
-/// the <see cref="IDisposable.Dispose()" /> method since at that point it doesn't matter anymore that the hook is
-/// not blocked.
+/// The exception is the <see cref="IGlobalHook.HookDisabled" /> event which will run on the same thread on which the
+/// hook itself is running since at that point it doesn't matter anymore that the hook is not blocked.
 /// </para>
 /// <para>
 /// Setting <see cref="HookEventArgs.SuppressEvent" /> inside the handlers will have no effect as they are run
