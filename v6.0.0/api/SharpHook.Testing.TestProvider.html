@@ -567,39 +567,6 @@ and <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType
 
 
 
-  <a id="SharpHook_Testing_TestProvider_PostTextDelayX11_" data-uid="SharpHook.Testing.TestProvider.PostTextDelayX11*"></a>
-
-  <h3 id="SharpHook_Testing_TestProvider_PostTextDelayX11" data-uid="SharpHook.Testing.TestProvider.PostTextDelayX11">
-  PostTextDelayX11
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Gets or sets the delay (in nanoseconds) between posting individual characters when posting text on Linux.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ulong PostTextDelayX11 { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
-    <dd><p>The delay (in nanoseconds) between posting individual characters when posting text on Linux.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
   <a id="SharpHook_Testing_TestProvider_PostTextResult_" data-uid="SharpHook.Testing.TestProvider.PostTextResult*"></a>
 
   <h3 id="SharpHook_Testing_TestProvider_PostTextResult" data-uid="SharpHook.Testing.TestProvider.PostTextResult">
@@ -805,6 +772,38 @@ and <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType
 
 
 
+  <a id="SharpHook_Testing_TestProvider_SuppressedEvents_" data-uid="SharpHook.Testing.TestProvider.SuppressedEvents*"></a>
+
+  <h3 id="SharpHook_Testing_TestProvider_SuppressedEvents" data-uid="SharpHook.Testing.TestProvider.SuppressedEvents">
+  SuppressedEvents
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the events that have been suppressed in the event handlers. /&gt;.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IReadOnlyList&lt;UioHookEvent&gt; SuppressedEvents { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <h2 class="section" id="methods">Methods
 </h2>
 
@@ -970,19 +969,13 @@ does nothing.</p>
 
 
 
-  <h4 class="section" id="SharpHook_Testing_TestProvider_Run_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>
-This method simply blocks the current thread until <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_Stop">Stop()</a> is called. Actual event dispatching
-happens directly in the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Data_UioHookEvent__">PostEvent(ref UioHookEvent)</a> method. As such, it's different from the real
-global hook where the thread which calls the <a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html#SharpHook_Providers_IGlobalHookProvider_Run">Run()</a> method is the thread
-which dispatches events - this is not the case with <a class="xref" href="SharpHook.Testing.TestProvider.html">TestProvider</a>.
-</p>
-<p>
-This method can be called when the provider is already running - it will also block the current thread.
-Calling the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_Stop">Stop()</a> method will unblock all blocked threads.
-</p>
-</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The provider is already running.</p>
+</dd>
+  </dl>
 
 
 
@@ -1016,21 +1009,13 @@ does nothing.</p>
 
 
 
-  <h4 class="section" id="SharpHook_Testing_TestProvider_RunAsync_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>
-This method doesn't do anything and returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which will be finished when
-<a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_Stop">Stop()</a> is called. Actual event dispatching happens directly in the
-<a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Data_UioHookEvent__">PostEvent(ref UioHookEvent)</a> method. As such, it's different from the real global hook where
-the thread which calls the <a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html#SharpHook_Providers_IGlobalHookProvider_Run">Run()</a> method is the thread which dispatches
-events - this is not the case with <a class="xref" href="SharpHook.Testing.TestProvider.html">TestProvider</a>.
-</p>
-<p>
-This method can be called when the provider is already running - the same <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> will be returned.
-This is not recommended though as it does not mirror the behaviour of the real hook, and will throw an exception
-in a future version.
-</p>
-</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The provider is already running.</p>
+</dd>
+  </dl>
 
 
 
@@ -1064,20 +1049,13 @@ does nothing. The hook will react only to keyboard events.</p>
 
 
 
-  <h4 class="section" id="SharpHook_Testing_TestProvider_RunKeyboard_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>
-This method simply blocks the current thread until <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_Stop">Stop()</a> is called. Actual event dispatching
-happens directly in the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Data_UioHookEvent__">PostEvent(ref UioHookEvent)</a> method. As such, it's different from the real
-global hook where the thread which calls the <a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html#SharpHook_Providers_IGlobalHookProvider_Run">Run()</a> method is the thread
-which dispatches events - this is not the case with <a class="xref" href="SharpHook.Testing.TestProvider.html">TestProvider</a>.
-</p>
-<p>
-This method can be called when the provider is already running - it will also block the current thread.
-Calling the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_Stop">Stop()</a> method will unblock all blocked threads. This is not recommended though as it
-does not mirror the behaviour of the real hook, and will throw an exception in a future release.
-</p>
-</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The provider is already running.</p>
+</dd>
+  </dl>
 
 
 
@@ -1111,21 +1089,13 @@ does nothing. The hook will react only to keyboard events.</p>
 
 
 
-  <h4 class="section" id="SharpHook_Testing_TestProvider_RunKeyboardAsync_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>
-This method doesn't do anything and returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which will be finished when
-<a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_Stop">Stop()</a> is called. Actual event dispatching happens directly in the
-<a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Data_UioHookEvent__">PostEvent(ref UioHookEvent)</a> method. As such, it's different from the real global hook where
-the thread which calls the <a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html#SharpHook_Providers_IGlobalHookProvider_Run">Run()</a> method is the thread which dispatches
-events - this is not the case with <a class="xref" href="SharpHook.Testing.TestProvider.html">TestProvider</a>.
-</p>
-<p>
-This method can be called when the provider is already running - the same <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> will be returned.
-This is not recommended though as it does not mirror the behaviour of the real hook, and will throw an exception
-in a future version.
-</p>
-</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The provider is already running.</p>
+</dd>
+  </dl>
 
 
 
@@ -1159,20 +1129,13 @@ does nothing. The hook will react only to mouse events.</p>
 
 
 
-  <h4 class="section" id="SharpHook_Testing_TestProvider_RunMouse_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>
-This method simply blocks the current thread until <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_Stop">Stop()</a> is called. Actual event dispatching
-happens directly in the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Data_UioHookEvent__">PostEvent(ref UioHookEvent)</a> method. As such, it's different from the real
-global hook where the thread which calls the <a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html#SharpHook_Providers_IGlobalHookProvider_Run">Run()</a> method is the thread
-which dispatches events - this is not the case with <a class="xref" href="SharpHook.Testing.TestProvider.html">TestProvider</a>.
-</p>
-<p>
-This method can be called when the provider is already running - it will also block the current thread.
-Calling the <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_Stop">Stop()</a> method will unblock all blocked threads. This is not recommended though as it
-does not mirror the behaviour of the real hook, and will throw an exception in a future release.
-</p>
-</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The provider is already running.</p>
+</dd>
+  </dl>
 
 
 
@@ -1206,21 +1169,13 @@ does nothing. The hook will react only to mouse events.</p>
 
 
 
-  <h4 class="section" id="SharpHook_Testing_TestProvider_RunMouseAsync_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>
-This method doesn't do anything and returns a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which will be finished when
-<a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_Stop">Stop()</a> is called. Actual event dispatching happens directly in the
-<a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Data_UioHookEvent__">PostEvent(ref UioHookEvent)</a> method. As such, it's different from the real global hook where
-the thread which calls the <a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html#SharpHook_Providers_IGlobalHookProvider_Run">Run()</a> method is the thread which dispatches
-events - this is not the case with <a class="xref" href="SharpHook.Testing.TestProvider.html">TestProvider</a>.
-</p>
-<p>
-This method can be called when the provider is already running - the same <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> will be returned.
-This is not recommended though as it does not mirror the behaviour of the real hook, and will throw an exception
-in a future version.
-</p>
-</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The provider is already running.</p>
+</dd>
+  </dl>
 
 
 

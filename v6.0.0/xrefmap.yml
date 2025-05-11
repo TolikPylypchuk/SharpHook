@@ -6376,18 +6376,6 @@ references:
   commentId: Overload:SharpHook.Testing.TestProvider.PostText
   fullName: SharpHook.Testing.TestProvider.PostText
   nameWithType: TestProvider.PostText
-- uid: SharpHook.Testing.TestProvider.PostTextDelayX11
-  name: PostTextDelayX11
-  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostTextDelayX11
-  commentId: P:SharpHook.Testing.TestProvider.PostTextDelayX11
-  fullName: SharpHook.Testing.TestProvider.PostTextDelayX11
-  nameWithType: TestProvider.PostTextDelayX11
-- uid: SharpHook.Testing.TestProvider.PostTextDelayX11*
-  name: PostTextDelayX11
-  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostTextDelayX11_
-  commentId: Overload:SharpHook.Testing.TestProvider.PostTextDelayX11
-  fullName: SharpHook.Testing.TestProvider.PostTextDelayX11
-  nameWithType: TestProvider.PostTextDelayX11
 - uid: SharpHook.Testing.TestProvider.PostTextResult
   name: PostTextResult
   href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostTextResult
@@ -6559,3 +6547,15 @@ references:
   commentId: Overload:SharpHook.Testing.TestProvider.StopResult
   fullName: SharpHook.Testing.TestProvider.StopResult
   nameWithType: TestProvider.StopResult
+- uid: SharpHook.Testing.TestProvider.SuppressedEvents
+  name: SuppressedEvents
+  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_SuppressedEvents
+  commentId: P:SharpHook.Testing.TestProvider.SuppressedEvents
+  fullName: SharpHook.Testing.TestProvider.SuppressedEvents
+  nameWithType: TestProvider.SuppressedEvents
+- uid: SharpHook.Testing.TestProvider.SuppressedEvents*
+  name: SuppressedEvents
+  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_SuppressedEvents_
+  commentId: Overload:SharpHook.Testing.TestProvider.SuppressedEvents
+  fullName: SharpHook.Testing.TestProvider.SuppressedEvents
+  nameWithType: TestProvider.SuppressedEvents
