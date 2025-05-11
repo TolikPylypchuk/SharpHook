@@ -669,10 +669,8 @@ public sealed class EventSimulatorTests
     {
         // Arrange
 
-        var provider = new TestProvider
-        {
-            PostTextDelayX11 = delay
-        };
+        var provider = new TestProvider();
+        ((IEventSimulationProvider)provider).PostTextDelayX11 = delay;
 
         var simulator = new EventSimulator(provider);
 
@@ -696,7 +694,9 @@ public sealed class EventSimulatorTests
         if (timeSpan >= TimeSpan.Zero)
         {
             simulator.TextSimulationDelayOnX11 = timeSpan;
-            Assert.Equal((ulong)(timeSpan.Ticks * NanosecondsPerTick), provider.PostTextDelayX11);
+            Assert.Equal(
+                (ulong)(timeSpan.Ticks * NanosecondsPerTick),
+                ((IEventSimulationProvider)provider).PostTextDelayX11);
         } else
         {
             Assert.Throws<ArgumentOutOfRangeException>(() => simulator.TextSimulationDelayOnX11 = timeSpan);

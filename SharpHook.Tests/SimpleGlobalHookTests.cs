@@ -162,6 +162,8 @@ public sealed class SimpleGlobalHookTests
 
         provider.PostEvent(ref e);
 
+        this.DisposeHookAndWaitForStop(hook);
+
         // Assert
 
         if (globalHookType != GlobalHookType.Mouse)
@@ -223,6 +225,8 @@ public sealed class SimpleGlobalHookTests
         this.RunHookAndWaitForStart(hook, provider);
 
         provider.PostEvent(ref e);
+
+        this.DisposeHookAndWaitForStop(hook);
 
         // Assert
 
@@ -286,6 +290,8 @@ public sealed class SimpleGlobalHookTests
         this.RunHookAndWaitForStart(hook, provider);
 
         provider.PostEvent(ref e);
+
+        this.DisposeHookAndWaitForStop(hook);
 
         // Assert
 
@@ -351,6 +357,8 @@ public sealed class SimpleGlobalHookTests
         this.RunHookAndWaitForStart(hook, provider);
 
         provider.PostEvent(ref e);
+
+        this.DisposeHookAndWaitForStop(hook);
 
         // Assert
 
@@ -418,6 +426,8 @@ public sealed class SimpleGlobalHookTests
 
         provider.PostEvent(ref e);
 
+        this.DisposeHookAndWaitForStop(hook);
+
         // Assert
 
         if (globalHookType != GlobalHookType.Keyboard)
@@ -482,7 +492,9 @@ public sealed class SimpleGlobalHookTests
 
         this.RunHookAndWaitForStart(hook, provider);
 
-         provider.PostEvent(ref e);
+        provider.PostEvent(ref e);
+
+        this.DisposeHookAndWaitForStop(hook);
 
         // Assert
 
@@ -546,6 +558,8 @@ public sealed class SimpleGlobalHookTests
 
         provider.PostEvent(ref e);
 
+        this.DisposeHookAndWaitForStop(hook);
+
         // Assert
 
         if (globalHookType != GlobalHookType.Keyboard)
@@ -605,6 +619,8 @@ public sealed class SimpleGlobalHookTests
         this.RunHookAndWaitForStart(hook, provider);
 
         provider.PostEvent(ref e);
+
+        this.DisposeHookAndWaitForStop(hook);
 
         // Assert
 
@@ -674,6 +690,8 @@ public sealed class SimpleGlobalHookTests
 
         provider.PostEvent(ref e);
 
+        this.DisposeHookAndWaitForStop(hook);
+
         // Assert
 
         if (globalHookType != GlobalHookType.Keyboard)
@@ -717,7 +735,7 @@ public sealed class SimpleGlobalHookTests
     }
 
     [Property(DisplayName = "RunAsync should throw if the hook failed to start")]
-    public async void RunAsyncFail(GlobalHookType globalHookType, FailedUioHookResult result)
+    public async Task RunAsyncFail(GlobalHookType globalHookType, FailedUioHookResult result)
     {
         // Arrange
 
@@ -750,7 +768,7 @@ public sealed class SimpleGlobalHookTests
     }
 
     [Property(DisplayName = "RunAsync should throw if the hook is already running")]
-    public async void RunAsyncRunning(GlobalHookType globalHookType)
+    public async Task RunAsyncRunning(GlobalHookType globalHookType)
     {
         // Arrange
 
@@ -778,7 +796,7 @@ public sealed class SimpleGlobalHookTests
     }
 
     [Property(DisplayName = "RunAsync should throw if the hook is disposed")]
-    public async void RunAsyncDisposed(GlobalHookType globalHookType)
+    public async Task RunAsyncDisposed(GlobalHookType globalHookType)
     {
         // Arrange
 

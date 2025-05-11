@@ -2,10 +2,15 @@ namespace SharpHook.Testing;
 
 public sealed class TestProviderTests
 {
-    [Property(DisplayName = "SetDispatchProc, Run, and PostEvent should work together")]
-    public async void SetDispatchProc(UioHookEvent eventToPost, nint userData)
+    [Property(DisplayName = "Run, SetDispatchProc, and PostEvent should work together")]
+    public void Run(UioHookEvent eventToPost, nint userData)
     {
         // Arrange
+
+        if (eventToPost.Type == EventType.HookEnabled || eventToPost.Type == EventType.HookDisabled)
+        {
+            return;
+        }
 
         var actualEvent = new UioHookEvent();
         nint actualUserData = IntPtr.Zero;
@@ -17,14 +22,19 @@ public sealed class TestProviderTests
         provider.SetDispatchProc(
             (ref UioHookEvent e, nint data) =>
             {
-                actualEvent = e;
-                actualUserData = data;
+                if (e.Type != EventType.HookEnabled && e.Type != EventType.HookDisabled)
+                {
+                    actualEvent = e;
+                    actualUserData = data;
+                }
             },
             userData);
 
-        var task = provider.RunAsync();
+        this.RunAndWaitForStart(provider);
 
         provider.PostEvent(ref eventToPost);
+
+        this.StopAndWaitForStop(provider);
 
         // Assert
 
@@ -33,15 +43,75 @@ public sealed class TestProviderTests
 
         Assert.Single(provider.PostedEvents);
         Assert.Equal(eventToPost, provider.PostedEvents[0]);
+    }
 
-        // Clean up
+    [Property(DisplayName = "RunAsync, SetDispatchProc, and PostEvent should work together")]
+    public async Task RunAsync(UioHookEvent eventToPost, nint userData)
+    {
+        // Arrange
+
+        if (eventToPost.Type == EventType.HookEnabled || eventToPost.Type == EventType.HookDisabled)
+        {
+            return;
+        }
+
+        var actualEvent = new UioHookEvent();
+        nint actualUserData = IntPtr.Zero;
+
+        var provider = new TestProvider();
+
+        // Act
+
+        provider.SetDispatchProc(
+            (ref UioHookEvent e, nint data) =>
+            {
+                if (e.Type != EventType.HookEnabled && e.Type != EventType.HookDisabled)
+                {
+                    actualEvent = e;
+                    actualUserData = data;
+                }
+            },
+            userData);
+
+        var task = provider.RunAsync();
+
+        provider.PostEvent(ref eventToPost);
 
         provider.Stop();
         await task;
+
+        // Assert
+
+        Assert.Equal(eventToPost, actualEvent);
+        Assert.Equal(userData, actualUserData);
+
+        Assert.Single(provider.PostedEvents);
+        Assert.Equal(eventToPost, provider.PostedEvents[0]);
     }
 
     [Property(DisplayName = "Run and PostEvent should work without SetDispatchProc")]
-    public async void RunPostEvent(UioHookEvent eventToPost)
+    public void RunPostEvent(UioHookEvent eventToPost)
+    {
+        // Arrange
+
+        var provider = new TestProvider();
+
+        // Act
+
+        this.RunAndWaitForStart(provider);
+
+        provider.PostEvent(ref eventToPost);
+
+        this.StopAndWaitForStop(provider);
+
+        // Assert
+
+        Assert.Single(provider.PostedEvents);
+        Assert.Equal(eventToPost, provider.PostedEvents[0]);
+    }
+
+    [Property(DisplayName = "RunAsync and PostEvent should work without SetDispatchProc")]
+    public async Task RunAsyncPostEvent(UioHookEvent eventToPost)
     {
         // Arrange
 
@@ -53,19 +123,17 @@ public sealed class TestProviderTests
 
         provider.PostEvent(ref eventToPost);
 
+        provider.Stop();
+        await task;
+
         // Assert
 
         Assert.Single(provider.PostedEvents);
         Assert.Equal(eventToPost, provider.PostedEvents[0]);
-
-        // Clean up
-
-        provider.Stop();
-        await task;
     }
 
     [Property(DisplayName = "RunKeyboard should not dispatch mouse events")]
-    public async void RunKeyboard(MouseEvent eventToPost, nint userData)
+    public async Task RunKeyboard(MouseEvent eventToPost, nint userData)
     {
         // Arrange
 
@@ -79,7 +147,7 @@ public sealed class TestProviderTests
         provider.SetDispatchProc(
             (ref UioHookEvent e, nint data) =>
             {
-                if (e.Type != EventType.HookEnabled)
+                if (e.Type != EventType.HookEnabled && e.Type != EventType.HookDisabled)
                 {
                     actualEvent = e;
                     actualUserData = data;
@@ -92,19 +160,17 @@ public sealed class TestProviderTests
         var e = eventToPost.Value;
         provider.PostEvent(ref e);
 
+        provider.Stop();
+        await task;
+
         // Assert
 
         Assert.Null(actualEvent);
         Assert.Null(actualUserData);
-
-        // Clean up
-
-        provider.Stop();
-        await task;
     }
 
-    [Property(DisplayName = "RunMouse should not dispatch mouse events")]
-    public async void RunMouse(KeyboardEvent eventToPost, nint userData)
+    [Property(DisplayName = "RunMouse should not dispatch keyboard events")]
+    public async Task RunMouse(KeyboardEvent eventToPost, nint userData)
     {
         // Arrange
 
@@ -118,7 +184,7 @@ public sealed class TestProviderTests
         provider.SetDispatchProc(
             (ref UioHookEvent e, nint data) =>
             {
-                if (e.Type != EventType.HookEnabled)
+                if (e.Type != EventType.HookEnabled && e.Type != EventType.HookDisabled)
                 {
                     actualEvent = e;
                     actualUserData = data;
@@ -131,19 +197,17 @@ public sealed class TestProviderTests
         var e = eventToPost.Value;
         provider.PostEvent(ref e);
 
+        provider.Stop();
+        await task;
+
         // Assert
 
         Assert.Null(actualEvent);
         Assert.Null(actualUserData);
-
-        // Clean up
-
-        provider.Stop();
-        await task;
     }
 
     [Property(DisplayName = "Events should be suppressible")]
-    public async void SuppressEvent(UioHookEvent eventToPost)
+    public async Task SuppressEvent(UioHookEvent eventToPost)
     {
         // Arrange
 
@@ -157,18 +221,20 @@ public sealed class TestProviderTests
 
         provider.PostEvent(ref eventToPost);
 
-        // Assert
-
-        Assert.Single(provider.PostedEvents);
-
-        var actualEvent = provider.PostedEvents[0];
-        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
-        Assert.Equal(eventToPost, actualEvent);
-
-        // Clean up
-
         provider.Stop();
         await task;
+
+        // Assert
+
+        var actualEvent = provider.PostedEvents[0];
+
+        Assert.Single(provider.PostedEvents);
+        Assert.Equal(eventToPost, actualEvent);
+
+        actualEvent.Mask |= EventMask.SuppressEvent;
+
+        Assert.Single(provider.SuppressedEvents);
+        Assert.Equal(actualEvent, provider.SuppressedEvents[0]);
     }
 
     [Fact(DisplayName = "Run and Stop should change the state of the provider")]
@@ -185,32 +251,29 @@ public sealed class TestProviderTests
         Assert.True(provider.IsRunning);
 
         var result = provider.Stop();
-        Assert.False(provider.IsRunning);
-
-        Assert.Equal(UioHookResult.Success, result);
-
-        // Clean up
 
         await task;
+
+        Assert.False(provider.IsRunning);
+        Assert.Equal(UioHookResult.Success, result);
     }
 
-    [Fact(DisplayName = "Run should work if the provider is already running")]
+    [Fact(DisplayName = "Run should throw if the provider is already running")]
     public async Task RunWhenAlreadyRunning()
     {
         // Arrange
 
         var provider = new TestProvider();
-        var task1 = provider.RunAsync();
+        var task = provider.RunAsync();
 
-        // Act
+        // Act + Assert
 
-        var task2 = provider.RunAsync();
+        await Assert.ThrowsAsync<InvalidOperationException>(provider.RunAsync);
 
         // Clean up
 
         provider.Stop();
-        await task1;
-        await task2;
+        await task;
     }
 
     [Property(DisplayName = "Run should return an error if configured to do so")]
@@ -226,6 +289,26 @@ public sealed class TestProviderTests
         // Act
 
         var actualResult = provider.Run();
+
+        // Assert
+
+        Assert.False(provider.IsRunning);
+        Assert.Equal(result.Value, actualResult);
+    }
+
+    [Property(DisplayName = "RunAsync should return an error if configured to do so")]
+    public async Task RunAsyncFail(FailedUioHookResult result)
+    {
+        // Arrange
+
+        var provider = new TestProvider
+        {
+            RunResult = result.Value
+        };
+
+        // Act
+
+        var actualResult = await provider.RunAsync();
 
         // Assert
 
@@ -274,7 +357,7 @@ public sealed class TestProviderTests
     }
 
     [Property(DisplayName = "Stop should return an error if configured to do so")]
-    public async void StopFail(FailedUioHookResult result)
+    public async Task StopFail(FailedUioHookResult result)
     {
         // Arrange
 
@@ -331,19 +414,17 @@ public sealed class TestProviderTests
 
         var task = provider.RunAsync();
 
+        provider.Stop();
+        await task;
+
         // Assert
 
         Assert.Equal(dateTime.ToUnixTimeMilliseconds(), (long)actualEvent.Time);
         Assert.Equal(modifierMask, actualEvent.Mask);
-
-        // Clean up
-
-        provider.Stop();
-        await task;
     }
 
     [Property(DisplayName = "HookDisabled should be raised when the hook is stopped")]
-    public async void HookDisabled(DateTimeAfterEpoch dateTime, EventMask modifierMask)
+    public async Task HookDisabled(DateTimeAfterEpoch dateTime, EventMask modifierMask)
     {
         // Act
 
@@ -368,10 +449,9 @@ public sealed class TestProviderTests
         var task = provider.RunAsync();
 
         provider.Stop();
+        await task;
 
         // Assert
-
-        await task;
 
         Assert.Equal(dateTime.Value.ToUnixTimeMilliseconds(), (long)actualEvent.Time);
         Assert.Equal(modifierMask, actualEvent.Mask);
@@ -498,23 +578,7 @@ public sealed class TestProviderTests
         Assert.Throws<ArgumentNullException>(() => provider.EventMask = null!);
     }
 
-    [Property(DisplayName = "Post text delay should be gettable through the property")]
-    public void GetPostTextDelayX11(ulong postTextDelay)
-    {
-        // Act
-
-        var provider = new TestProvider
-        {
-            PostTextDelayX11 = postTextDelay
-        };
-
-        // Assert
-
-        Assert.Equal(postTextDelay, provider.PostTextDelayX11);
-        Assert.Equal(postTextDelay, ((IEventSimulationProvider)provider).PostTextDelayX11);
-    }
-
-    [Property(DisplayName = "Post text delay should be settable through the property")]
+    [Property(DisplayName = "Post text delay should be gettable and settable through the property")]
     public void SetPostTextDelayX11(ulong postTextDelay)
     {
         // Arrange
@@ -527,7 +591,6 @@ public sealed class TestProviderTests
 
         // Assert
 
-        Assert.Equal(postTextDelay, provider.PostTextDelayX11);
         Assert.Equal(postTextDelay, ((IEventSimulationProvider)provider).PostTextDelayX11);
     }
 
@@ -704,5 +767,25 @@ public sealed class TestProviderTests
 
         Assert.Equal(multiClickTime, provider.MultiClickTime);
         Assert.Equal(multiClickTime, ((IMouseInfoProvider)provider).GetMultiClickTime());
+    }
+
+    private void RunAndWaitForStart(TestProvider provider)
+    {
+        new Thread(() => provider.Run()).Start();
+
+        while (!provider.IsRunning)
+        {
+            Thread.Yield();
+        }
+    }
+
+    private void StopAndWaitForStop(TestProvider provider)
+    {
+        provider.Stop();
+
+        while (provider.IsRunning)
+        {
+            Thread.Yield();
+        }
     }
 }

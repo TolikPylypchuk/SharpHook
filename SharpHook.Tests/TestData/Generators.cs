@@ -45,12 +45,11 @@ public sealed class Generators
         from type in Gen.Elements(EventType.HookEnabled, EventType.HookDisabled)
         from time in Timestamp
         from mask in ArbMap.Default.GeneratorFor<EventMask>()
-        from isSimulated in ArbMap.Default.GeneratorFor<bool>()
         select new UioHookEvent()
         {
             Type = type,
             Time = time,
-            Mask = isSimulated ? mask | EventMask.SimulatedEvent : mask & ~EventMask.SimulatedEvent
+            Mask = mask & ~EventMask.SimulatedEvent
         };
 
     private static Gen<UioHookEvent> KeyboardEvents =>
@@ -65,7 +64,7 @@ public sealed class Generators
         {
             Type = type,
             Time = time,
-            Mask = mask,
+            Mask = mask & ~EventMask.SimulatedEvent,
             Keyboard = new KeyboardEventData
             {
                 KeyCode = keyCode,
@@ -91,7 +90,7 @@ public sealed class Generators
         {
             Type = type,
             Time = time,
-            Mask = mask,
+            Mask = mask & ~EventMask.SimulatedEvent,
             Mouse = new MouseEventData
             {
                 X = x,
@@ -116,7 +115,7 @@ public sealed class Generators
         {
             Type = EventType.MouseWheel,
             Time = time,
-            Mask = mask,
+            Mask = mask & ~EventMask.SimulatedEvent,
             Wheel = new MouseWheelEventData
             {
                 X = x,

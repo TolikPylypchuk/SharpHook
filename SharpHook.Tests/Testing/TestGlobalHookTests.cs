@@ -1069,7 +1069,7 @@ public sealed class TestGlobalHookTests
     }
 
     [Property(DisplayName = "RunAsync should throw an exception if configured to do so")]
-    public async void RunAsyncFail(FailedUioHookResult result)
+    public async Task RunAsyncFail(FailedUioHookResult result)
     {
         // Arrange
 

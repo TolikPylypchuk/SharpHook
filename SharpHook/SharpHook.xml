@@ -4381,6 +4381,11 @@
             Gets the events that have been posted using <see cref="M:SharpHook.Testing.TestProvider.PostEvent(SharpHook.Data.UioHookEvent@)" />.
             </summary>
         </member>
+        <member name="P:SharpHook.Testing.TestProvider.SuppressedEvents">
+            <summary>
+            Gets the events that have been suppressed in the event handlers. />.
+            </summary>
+        </member>
         <member name="P:SharpHook.Testing.TestProvider.PostedText">
             <summary>
             Gets the text that has been posted using <see cref="M:SharpHook.Testing.TestProvider.PostText(System.String)" />.
@@ -4439,12 +4444,6 @@
             <see cref="F:SharpHook.Data.UioHookResult.Success" /> is set, then the text won't be posted.
             </summary>
             <value>The result of the <see cref="M:SharpHook.Testing.TestProvider.PostText(System.String)" /> method.</value>
-        </member>
-        <member name="P:SharpHook.Testing.TestProvider.PostTextDelayX11">
-            <summary>
-            Gets or sets the delay (in nanoseconds) between posting individual characters when posting text on Linux.
-            </summary>
-            <returns>The delay (in nanoseconds) between posting individual characters when posting text on Linux.</returns>
         </member>
         <member name="P:SharpHook.Testing.TestProvider.ScreenInfo">
             <summary>
@@ -4506,18 +4505,7 @@
             does nothing.
             </summary>
             <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.RunResult" />.</returns>
-            <remarks>
-            <para>
-            This method simply blocks the current thread until <see cref="M:SharpHook.Testing.TestProvider.Stop" /> is called. Actual event dispatching
-            happens directly in the <see cref="M:SharpHook.Testing.TestProvider.PostEvent(SharpHook.Data.UioHookEvent@)" /> method. As such, it's different from the real
-            global hook where the thread which calls the <see cref="M:SharpHook.Providers.IGlobalHookProvider.Run" /> method is the thread
-            which dispatches events - this is not the case with <see cref="T:SharpHook.Testing.TestProvider" />.
-            </para>
-            <para>
-            This method can be called when the provider is already running - it will also block the current thread.
-            Calling the <see cref="M:SharpHook.Testing.TestProvider.Stop" /> method will unblock all blocked threads.
-            </para>
-            </remarks>
+            <exception cref="T:System.InvalidOperationException">The provider is already running.</exception>
         </member>
         <member name="M:SharpHook.Testing.TestProvider.RunKeyboard">
             <summary>
@@ -4525,19 +4513,7 @@
             does nothing. The hook will react only to keyboard events.
             </summary>
             <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.RunResult" />.</returns>
-            <remarks>
-            <para>
-            This method simply blocks the current thread until <see cref="M:SharpHook.Testing.TestProvider.Stop" /> is called. Actual event dispatching
-            happens directly in the <see cref="M:SharpHook.Testing.TestProvider.PostEvent(SharpHook.Data.UioHookEvent@)" /> method. As such, it's different from the real
-            global hook where the thread which calls the <see cref="M:SharpHook.Providers.IGlobalHookProvider.Run" /> method is the thread
-            which dispatches events - this is not the case with <see cref="T:SharpHook.Testing.TestProvider" />.
-            </para>
-            <para>
-            This method can be called when the provider is already running - it will also block the current thread.
-            Calling the <see cref="M:SharpHook.Testing.TestProvider.Stop" /> method will unblock all blocked threads. This is not recommended though as it
-            does not mirror the behaviour of the real hook, and will throw an exception in a future release.
-            </para>
-            </remarks>
+            <exception cref="T:System.InvalidOperationException">The provider is already running.</exception>
         </member>
         <member name="M:SharpHook.Testing.TestProvider.RunMouse">
             <summary>
@@ -4545,19 +4521,7 @@
             does nothing. The hook will react only to mouse events.
             </summary>
             <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.RunResult" />.</returns>
-            <remarks>
-            <para>
-            This method simply blocks the current thread until <see cref="M:SharpHook.Testing.TestProvider.Stop" /> is called. Actual event dispatching
-            happens directly in the <see cref="M:SharpHook.Testing.TestProvider.PostEvent(SharpHook.Data.UioHookEvent@)" /> method. As such, it's different from the real
-            global hook where the thread which calls the <see cref="M:SharpHook.Providers.IGlobalHookProvider.Run" /> method is the thread
-            which dispatches events - this is not the case with <see cref="T:SharpHook.Testing.TestProvider" />.
-            </para>
-            <para>
-            This method can be called when the provider is already running - it will also block the current thread.
-            Calling the <see cref="M:SharpHook.Testing.TestProvider.Stop" /> method will unblock all blocked threads. This is not recommended though as it
-            does not mirror the behaviour of the real hook, and will throw an exception in a future release.
-            </para>
-            </remarks>
+            <exception cref="T:System.InvalidOperationException">The provider is already running.</exception>
         </member>
         <member name="M:SharpHook.Testing.TestProvider.RunAsync">
             <summary>
@@ -4565,20 +4529,7 @@
             does nothing.
             </summary>
             <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.RunResult" />.</returns>
-            <remarks>
-            <para>
-            This method doesn't do anything and returns a <see cref="T:System.Threading.Tasks.Task" /> which will be finished when
-            <see cref="M:SharpHook.Testing.TestProvider.Stop" /> is called. Actual event dispatching happens directly in the
-            <see cref="M:SharpHook.Testing.TestProvider.PostEvent(SharpHook.Data.UioHookEvent@)" /> method. As such, it's different from the real global hook where
-            the thread which calls the <see cref="M:SharpHook.Providers.IGlobalHookProvider.Run" /> method is the thread which dispatches
-            events - this is not the case with <see cref="T:SharpHook.Testing.TestProvider" />.
-            </para>
-            <para>
-            This method can be called when the provider is already running - the same <see cref="T:System.Threading.Tasks.Task" /> will be returned.
-            This is not recommended though as it does not mirror the behaviour of the real hook, and will throw an exception
-            in a future version.
-            </para>
-            </remarks>
+            <exception cref="T:System.InvalidOperationException">The provider is already running.</exception>
         </member>
         <member name="M:SharpHook.Testing.TestProvider.RunKeyboardAsync">
             <summary>
@@ -4586,20 +4537,7 @@
             does nothing. The hook will react only to keyboard events.
             </summary>
             <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.RunResult" />.</returns>
-            <remarks>
-            <para>
-            This method doesn't do anything and returns a <see cref="T:System.Threading.Tasks.Task" /> which will be finished when
-            <see cref="M:SharpHook.Testing.TestProvider.Stop" /> is called. Actual event dispatching happens directly in the
-            <see cref="M:SharpHook.Testing.TestProvider.PostEvent(SharpHook.Data.UioHookEvent@)" /> method. As such, it's different from the real global hook where
-            the thread which calls the <see cref="M:SharpHook.Providers.IGlobalHookProvider.Run" /> method is the thread which dispatches
-            events - this is not the case with <see cref="T:SharpHook.Testing.TestProvider" />.
-            </para>
-            <para>
-            This method can be called when the provider is already running - the same <see cref="T:System.Threading.Tasks.Task" /> will be returned.
-            This is not recommended though as it does not mirror the behaviour of the real hook, and will throw an exception
-            in a future version.
-            </para>
-            </remarks>
+            <exception cref="T:System.InvalidOperationException">The provider is already running.</exception>
         </member>
         <member name="M:SharpHook.Testing.TestProvider.RunMouseAsync">
             <summary>
@@ -4607,20 +4545,7 @@
             does nothing. The hook will react only to mouse events.
             </summary>
             <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.RunResult" />.</returns>
-            <remarks>
-            <para>
-            This method doesn't do anything and returns a <see cref="T:System.Threading.Tasks.Task" /> which will be finished when
-            <see cref="M:SharpHook.Testing.TestProvider.Stop" /> is called. Actual event dispatching happens directly in the
-            <see cref="M:SharpHook.Testing.TestProvider.PostEvent(SharpHook.Data.UioHookEvent@)" /> method. As such, it's different from the real global hook where
-            the thread which calls the <see cref="M:SharpHook.Providers.IGlobalHookProvider.Run" /> method is the thread which dispatches
-            events - this is not the case with <see cref="T:SharpHook.Testing.TestProvider" />.
-            </para>
-            <para>
-            This method can be called when the provider is already running - the same <see cref="T:System.Threading.Tasks.Task" /> will be returned.
-            This is not recommended though as it does not mirror the behaviour of the real hook, and will throw an exception
-            in a future version.
-            </para>
-            </remarks>
+            <exception cref="T:System.InvalidOperationException">The provider is already running.</exception>
         </member>
         <member name="M:SharpHook.Testing.TestProvider.Stop">
             <summary>
