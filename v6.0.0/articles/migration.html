@@ -94,6 +94,24 @@ just abstractions over the corresponding classes. As such, when new features are
 low-level functionality providers, these interfaces need to be changed. Technically, this is a breaking change and
 would require bumping the major version. Instead, changes to these interfaces are usually treated as minor version
 updates since they are not expected to break client code.</p>
+<h2 id="version-5-to-6">Version 5 to 6</h2>
+<p>Version 6 contains multiple breaking changes, so you will most probably need to change your code to upgrade.</p>
+<p>All structs and enums were moved from <code>SharpHook.Native</code> to <code>SharpHook.Data</code>.</p>
+<p>The <code>ModifierMask</code> and <code>EventReservedValueMask</code> enums were merged into a single enum - <code>EventMask</code>. <code>UioHookEvent</code>
+doesn't contain the <code>Reserved</code> field anymore. Instead, its values are now part of <code>Mask</code>.</p>
+<p><code>TaskPoolGlobalHookOptions</code> was removed. Instead, the options should be passed directly into the constructor of
+<code>TaskPoolGlobalHook</code>.</p>
+<p>All constructors of <code>SimpleGlobalHook</code>, <code>TaskPoolGlobalHook</code>, <code>SimpleReactiveGlobalHook</code>, and
+<code>ReactiveGlobalHookAdapter</code> except the main ones were removed.</p>
+<p><code>LogSource.Register</code> was removed. <code>RegisterOrGet</code> should be used instead.</p>
+<p>All obsolete values in the <code>KeyCode</code> enum were removed.</p>
+<p><code>HookException</code> doesn't support <code>BinaryFormatter</code> serialization anymore.</p>
+<p>The behavoiur of <code>TestGlobalHook</code> and <code>TestProvider</code> was changed. Instead of dispatching events in the same thread that
+simulates them, they now instead add events into an event loop running on a different thread. <code>TestProvider</code> now throws
+an exception if <code>Run</code> or <code>RunAsync</code> is called and it's already running.</p>
+<p>The minimum .NET Framework version was bumped to 4.7.2 and direct support for .NET 6 and .NET 7 was dropped (though they
+are still supported through .NET Standard 2.0).</p>
+<p>SharpHook.Reactive now depends on Rx.NET 6.0.1.</p>
 <h2 id="version-4-to-5">Version 4 to 5</h2>
 <p>Version 5 contains multiple breaking changes, so you may need to change your code to upgrade.</p>
 <p>Almost all <code>KeyCode</code> values were changed. New codes were added and some were removed. Before upgrading, make sure that

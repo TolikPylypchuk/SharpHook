@@ -92,7 +92,7 @@ package is preferred when possible since it's more powerful.</p>
 <h2 id="the-interface">The Interface</h2>
 <p>SharpHook.Reactive provides the <code>SharpHook.Reactive.IReactiveGlobalHook</code> interface along with a default implementation
 which you can use to use to control the hook and subscribe to its observables. Here's a basic example:</p>
-<pre><code class="lang-C#">using SharpHook.Reactive;
+<pre><code class="lang-c#">using SharpHook.Reactive;
 
 // ...
 
@@ -148,8 +148,8 @@ hook when another global hook is already running will corrupt the internal globa
 and where to handle the events through schedulers. A default scheduler can be specified for all observables.</p>
 </li>
 <li><p><code>SharpHook.Reactive.ReactiveGlobalHookAdapter</code> adapts an <code>IGlobalHook</code> to <code>IReactiveGlobalHook</code>. All
-subscriptions and changes are propagated to the adapted hook. There is no default adapter from <code>IReactiveGlobalHook</code>
-to <code>IGlobalHook</code>. A default scheduler can be specified for all observables.</p>
+subscriptions and changes are propagated to the adapted hook. A default scheduler can be specified for all observables.
+There is no default adapter from <code>IReactiveGlobalHook</code> to <code>IGlobalHook</code>.</p>
 </li>
 </ul>
 <p><code>SimpleReactiveGlobalHook</code> contains a finalizer which will stop the global hook if the object is not reachable anymore.

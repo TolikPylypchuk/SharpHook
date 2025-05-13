@@ -101,8 +101,8 @@ source from receiving the logs. The <code>IsDisposed</code> property is also ava
 <p><code>LogSource</code> also contains the <code>MinLevel</code> property which can be set to filter log messages by level. It's not recommended
 to use the debug level for long periods of time since a debug message is logged for every single input event.</p>
 <p>Here's a usage example:</p>
-<pre><code>using SharpHook.Logging;
-using SharpHook.Native;
+<pre><code class="lang-c#">using SharpHook.Data;
+using SharpHook.Logging;
 
 // ...
 
@@ -113,7 +113,7 @@ private void OnMessageLogged(object? sender, LogEventArgs e) =&gt;
     this.logger.Log(this.AdaptLogLevel(e.LogEntry.Level), e.LogEntry.FullText);
 </code></pre>
 <p>You can get an instance of <code>LogSource</code> by using the static <code>RegisterOrGet</code> method. Subsequent calls to this method will
-return the same registered instance. You can dispose of a log source to stop receiving libuiohook messages. After that
+return the same registered instance. You can dispose of a log source to stop receiving libuiohook messages. After that,
 calling <code>RegisterOrGet</code> will register a new instance.</p>
 <p>The <code>MessageLogged</code> event contains event args of type <code>LogEventArgs</code> which contains just one property of type
 <code>LogEntry</code>. This class contains the actual log message.</p>
@@ -121,7 +121,7 @@ calling <code>RegisterOrGet</code> will register a new instance.</p>
 message format and arguments so you don't have to do it yourself.</p>
 <p>SharpHook.Reactive contains the <code>IReactiveLogSource</code> and its implementation - <code>ReactiveLogSourceAdapter</code>. Here's a
 usage example:</p>
-<pre><code>using SharpHook.Logging;
+<pre><code class="lang-c#">using SharpHook.Logging;
 using SharpHook.Native;
 using SharpHook.Reactive.Logging;
 
@@ -138,7 +138,7 @@ scheduler can be set for the <code>MessageLogged</code> observable.</p>
 <p>The logging functionality works by using <code>UioHook.SetLoggerProc</code>. This method sets the log callback - a delegate of
 type <code>LoggerProc</code>, which will be called to log the messages of libuiohook. <code>LoggerProc</code> receives the log level, a
 pointer to the message format, and a pointer to the message arguments. It also receives a pointer to user-supplied data
-(which is set in the <code>UioHook.SetLoggerProc</code>), but you shouldn't ever use that.</p>
+(which is set in the <code>UioHook.SetLoggerProc</code>), but you usually shouldn't use it.</p>
 <p>It is highly recommended to use <code>LogEntryParser</code> in order to create a log entry out of the pointers to the message
 format and arguments. This way you won't have to handle these pointers directly. The problem with handling them directly
 is that the log callback receives a variable number of arguments. In C# you can use the <code>params</code> keyword for that, but
@@ -147,8 +147,8 @@ undocumented <code>__arglist</code> keyword, but it can't be used in delegates a
 its code is based on the log handling code of <a href="https://github.com/videolan/libvlcsharp">LibVLCSharp</a>. Basically it calls
 the native <code>vsprintf</code> function from the C runtime and lets it deal with formatting the log message with native variable
 arguments. It then parses the log message and the log format and extracts the arguments.</p>
-<p>If you want to use your own callback then its form should be the following:</p>
-<pre><code>private void OnLog(LogLevel level, IntPtr userData, IntPtr format, IntPtr args)
+<p>If you want to use your own callback, then its form should be the following:</p>
+<pre><code class="lang-c#">private void OnLog(LogLevel level, IntPtr userData, IntPtr format, IntPtr args)
 {
     // Filter by log level if needed
 
@@ -158,7 +158,7 @@ arguments. It then parses the log message and the log format and extracts the ar
 }
 </code></pre>
 <h2 id="advanced-usage">Advanced Usage</h2>
-<p>If you use structured logging then you may want to use the message format and arguments directly, instead of using the
+<p>If you use structured logging, then you may want to use the message format and arguments directly, instead of using the
 formatted result. <code>LogEntry</code> contains properties which can help you with that:</p>
 <ul>
 <li><code>Format</code> - the format of the log message which can be passed to <code>String.Format</code>.</li>
@@ -228,7 +228,7 @@ placeholders. Only the specifier and length are considered (see the C's <code>pr
     <td><code>%c</code></td>
   </tr>
   <tr>
-    <td><code>IntPtr</code></td>
+    <td><code>nint</code></td>
     <td><code>%p</code></td>
   </tr>
   <tr>

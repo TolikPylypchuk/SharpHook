@@ -88,7 +88,7 @@
 <h1 id="testing">Testing</h1>
 
 <p>SharpHook provides two classes which make testing easier. They aren't required since mocks can be used instead, but
-unlike mocks, no setup is required to use these classes.</p>
+unlike mocks, no setup is required to use these classes, and they respect the invariants of their real counterparts.</p>
 <div class="NOTE">
 <h5>Note</h5>
 <p>Testing classes are contained directly in the <code>SharpHook</code> package. This increases the package size, but these classes
@@ -100,33 +100,42 @@ for testing. When the <code>Run</code> or <code>RunAsync</code> method is called
 from <code>IEventSimulator</code>.</p>
 <p>Here's a very simple example of a test which utilizes <code>TestGlobalHook</code>:</p>
 <pre><code class="lang-c#">[Fact]
-public void TestLastPressedKey()
+public async Task TestLastPressedKey()
 {
-    using var hook = new TestGlobalHook();
+    var hook = new TestGlobalHook();
     var keyCode = KeyCode.VcA;
     var componentUnderTest = new SomeClassWhichUsesGlobalHookEvents(hook);
 
     // Run the test hook asynchronously and ignore the result
-    _ = hook.RunAsync();
+    var hookStopped = hook.RunAsync();
 
     hook.SimulateKeyPress(keyCode);
+
+    hook.Dispose();
+    await hookStopped;
 
     Assert.Equal(keyCode, componentUnderTest.LastPressedKey);
 }
 </code></pre>
 <p>If this class is used as an <code>IEventSimulator</code> in the tested code, then the <code>SimulatedEvents</code> property can be checked to
 see which events were simulated using the test instance.</p>
-<p>Members of <code>TestGlobalHook</code> are quite straightforward; the API reference should be viewed for more info.</p>
+<p>It's recommended to stop the global hook and wait for it to stop before asserting any events. The test global hook runs
+an event loop using <code>BlockingCollection</code>, and posting an even will add an event to this collection for the global hook
+to dispatch. Since these actions are done in different threads, it is not guaranteed that an event will be dispatched
+immediately after it is simulated. <code>Run</code> and the task returned by <code>RunAsync</code> will complete after every event has been
+dispatched.</p>
+<p>Other than that, members of <code>TestGlobalHook</code> are quite straightforward; the API reference should be viewed for more
+info.</p>
 <p>If an <code>IReactiveGlobalHook</code> is needed for testing, then <code>ReactiveGlobalHookAdapter</code> can be used to adapt an instance of
 <code>TestGlobalHook</code>.</p>
 <h2 id="test-low-level-functionality-provider">Test Low-Level Functionality Provider</h2>
 <p>If the low-level functionality of SharpHook should be mocked, or mocking should be pushed as far away as possible,
-then <code>SharpHook.Testing.TestProvider</code> can be used. It implements every interface in the <code>SharpHook.Providers</code> namespace
-and as such it can be used instead of a normal low-level functionality provider.</p>
-<p>Like <code>TestGlobalHook</code>, this class can post events using the <code>PostEvent</code> method and dispatch them if <code>Run</code> was called.
-It also contains the <code>PostedEvents</code> property.</p>
+then <code>SharpHook.Testing.TestProvider</code> can be used. It implements every interface in the <code>SharpHook.Providers</code> namespace,
+and as such, it can be used instead of normal low-level functionality providers.</p>
+<p>Like <code>TestGlobalHook</code>, this class can post events using the <code>PostEvent</code> method and dispatch them if <code>Run</code> has been
+called. It also contains the <code>PostedEvents</code> property.</p>
 <p>All classes in SharpHook use providers instead of directly using the <code>UioHook</code> class for low-level functionality.
-The providers are selectable, so e.g. the following global hook can be used for testing:</p>
+The providers are selectable, so e.g., the following global hook can be used for testing:</p>
 <pre><code class="lang-c#">var testProvider = new TestProvider();
 
 // Calls to methods in testProvider will be reflected in the hook
@@ -138,6 +147,8 @@ var hook = new SimpleGlobalHook(globalHookProvider: testProvider);
 way to know when they are actually executed. As such, it's difficult to check event handler results. If you want
 to use a real hook, e.g. for integration testing, then use <code>SimpleGlobalHook</code> instead.</p>
 </div>
+<p>It's recommended to stop the provider and wait for it to stop before asserting any events. The test provider runs
+an event loop just like the test global hook so the same constraints apply to its usage.</p>
 
 </article>
 
