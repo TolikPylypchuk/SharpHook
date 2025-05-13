@@ -5074,15 +5074,6 @@ references:
   commentId: T:SharpHook.Reactive.ReactiveGlobalHookAdapter
   fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter
   nameWithType: ReactiveGlobalHookAdapter
-- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.#ctor(SharpHook.IGlobalHook)
-  name: ReactiveGlobalHookAdapter(IGlobalHook)
-  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter__ctor_SharpHook_IGlobalHook_
-  commentId: M:SharpHook.Reactive.ReactiveGlobalHookAdapter.#ctor(SharpHook.IGlobalHook)
-  name.vb: New(IGlobalHook)
-  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.ReactiveGlobalHookAdapter(SharpHook.IGlobalHook)
-  fullName.vb: SharpHook.Reactive.ReactiveGlobalHookAdapter.New(SharpHook.IGlobalHook)
-  nameWithType: ReactiveGlobalHookAdapter.ReactiveGlobalHookAdapter(IGlobalHook)
-  nameWithType.vb: ReactiveGlobalHookAdapter.New(IGlobalHook)
 - uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.#ctor(SharpHook.IGlobalHook,System.Reactive.Concurrency.IScheduler)
   name: ReactiveGlobalHookAdapter(IGlobalHook, IScheduler?)
   href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter__ctor_SharpHook_IGlobalHook_System_Reactive_Concurrency_IScheduler_
