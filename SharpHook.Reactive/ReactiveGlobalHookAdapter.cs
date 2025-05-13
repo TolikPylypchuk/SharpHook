@@ -30,17 +30,10 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
     /// Initializes a new instance of <see cref="ReactiveGlobalHookAdapter" />.
     /// </summary>
     /// <param name="hook">The hook to adapt.</param>
-    /// <exception cref="ArgumentNullException"><paramref name="hook" /> is <see langword="null" />.</exception>
-    public ReactiveGlobalHookAdapter(IGlobalHook hook)
-        : this(hook, null)
-    { }
-
-    /// <summary>
-    /// Initializes a new instance of <see cref="ReactiveGlobalHookAdapter" />.
-    /// </summary>
-    /// <param name="hook">The hook to adapt.</param>
-    /// <param name="defaultScheduler">The default scheduler for observables.</param>
-    public ReactiveGlobalHookAdapter(IGlobalHook hook, IScheduler? defaultScheduler)
+    /// <param name="defaultScheduler">
+    /// The default scheduler for observables, or <see langword="null" /> to use the default scheduler.
+    /// </param>
+    public ReactiveGlobalHookAdapter(IGlobalHook hook, IScheduler? defaultScheduler = null)
     {
         this.hook = hook ?? throw new ArgumentNullException(nameof(hook));
 

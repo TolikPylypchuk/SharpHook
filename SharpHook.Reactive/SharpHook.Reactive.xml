@@ -206,19 +206,14 @@
             <seealso cref="T:SharpHook.IGlobalHook" />
             <seealso cref="T:SharpHook.Reactive.IReactiveGlobalHook" />
         </member>
-        <member name="M:SharpHook.Reactive.ReactiveGlobalHookAdapter.#ctor(SharpHook.IGlobalHook)">
-            <summary>
-            Initializes a new instance of <see cref="T:SharpHook.Reactive.ReactiveGlobalHookAdapter" />.
-            </summary>
-            <param name="hook">The hook to adapt.</param>
-            <exception cref="T:System.ArgumentNullException"><paramref name="hook" /> is <see langword="null" />.</exception>
-        </member>
         <member name="M:SharpHook.Reactive.ReactiveGlobalHookAdapter.#ctor(SharpHook.IGlobalHook,System.Reactive.Concurrency.IScheduler)">
             <summary>
             Initializes a new instance of <see cref="T:SharpHook.Reactive.ReactiveGlobalHookAdapter" />.
             </summary>
             <param name="hook">The hook to adapt.</param>
-            <param name="defaultScheduler">The default scheduler for observables.</param>
+            <param name="defaultScheduler">
+            The default scheduler for observables, or <see langword="null" /> to use the default scheduler.
+            </param>
         </member>
         <member name="P:SharpHook.Reactive.ReactiveGlobalHookAdapter.IsRunning">
             <summary>
