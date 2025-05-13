@@ -1,7 +1,7 @@
 # Testing
 
 SharpHook provides two classes which make testing easier. They aren't required since mocks can be used instead, but
-unlike mocks, no setup is required to use these classes.
+unlike mocks, no setup is required to use these classes, and they respect the invariants of their real counterparts.
 
 > [!NOTE]
 > Testing classes are contained directly in the `SharpHook` package. This increases the package size, but these classes
@@ -17,16 +17,19 @@ Here's a very simple example of a test which utilizes `TestGlobalHook`:
 
 ```c#
 [Fact]
-public void TestLastPressedKey()
+public async Task TestLastPressedKey()
 {
-    using var hook = new TestGlobalHook();
+    var hook = new TestGlobalHook();
     var keyCode = KeyCode.VcA;
     var componentUnderTest = new SomeClassWhichUsesGlobalHookEvents(hook);
 
     // Run the test hook asynchronously and ignore the result
-    _ = hook.RunAsync();
+    var hookStopped = hook.RunAsync();
 
     hook.SimulateKeyPress(keyCode);
+
+    hook.Dispose();
+    await hookStopped;
 
     Assert.Equal(keyCode, componentUnderTest.LastPressedKey);
 }
@@ -35,7 +38,14 @@ public void TestLastPressedKey()
 If this class is used as an `IEventSimulator` in the tested code, then the `SimulatedEvents` property can be checked to
 see which events were simulated using the test instance.
 
-Members of `TestGlobalHook` are quite straightforward; the API reference should be viewed for more info.
+It's recommended to stop the global hook and wait for it to stop before asserting any events. The test global hook runs
+an event loop using `BlockingCollection`, and posting an even will add an event to this collection for the global hook
+to dispatch. Since these actions are done in different threads, it is not guaranteed that an event will be dispatched
+immediately after it is simulated. `Run` and the task returned by `RunAsync` will complete after every event has been
+dispatched.
+
+Other than that, members of `TestGlobalHook` are quite straightforward; the API reference should be viewed for more
+info.
 
 If an `IReactiveGlobalHook` is needed for testing, then `ReactiveGlobalHookAdapter` can be used to adapt an instance of
 `TestGlobalHook`.
@@ -43,14 +53,14 @@ If an `IReactiveGlobalHook` is needed for testing, then `ReactiveGlobalHookAdapt
 ## Test Low-Level Functionality Provider
 
 If the low-level functionality of SharpHook should be mocked, or mocking should be pushed as far away as possible,
-then `SharpHook.Testing.TestProvider` can be used. It implements every interface in the `SharpHook.Providers` namespace
-and as such it can be used instead of a normal low-level functionality provider.
+then `SharpHook.Testing.TestProvider` can be used. It implements every interface in the `SharpHook.Providers` namespace,
+and as such, it can be used instead of normal low-level functionality providers.
 
-Like `TestGlobalHook`, this class can post events using the `PostEvent` method and dispatch them if `Run` was called.
-It also contains the `PostedEvents` property.
+Like `TestGlobalHook`, this class can post events using the `PostEvent` method and dispatch them if `Run` has been
+called. It also contains the `PostedEvents` property.
 
 All classes in SharpHook use providers instead of directly using the `UioHook` class for low-level functionality.
-The providers are selectable, so e.g. the following global hook can be used for testing:
+The providers are selectable, so e.g., the following global hook can be used for testing:
 
 ```c#
 var testProvider = new TestProvider();
@@ -63,3 +73,6 @@ var hook = new SimpleGlobalHook(globalHookProvider: testProvider);
 > `TaskPoolGlobalHook` shouldn't be used this way since its event handlers are asynchronous and there is no built-in
 > way to know when they are actually executed. As such, it's difficult to check event handler results. If you want
 > to use a real hook, e.g. for integration testing, then use `SimpleGlobalHook` instead.
+
+It's recommended to stop the provider and wait for it to stop before asserting any events. The test provider runs
+an event loop just like the test global hook so the same constraints apply to its usage.

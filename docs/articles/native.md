@@ -2,12 +2,19 @@
 
 This article describes how to use the low-level features provided by SharpHook.
 
-SharpHook exposes the functions of libuiohook in the `SharpHook.Native.UioHook` class. The `SharpHook.Native`
-namespace also contains types which represent the data used by libuiohook.
+SharpHook exposes the functions of libuiohook in the `SharpHook.Native.UioHook` class. The `SharpHook.Data` namespace
+contains types which represent the data used by libuiohook.
 
 In general, you don't need to use the native methods directly. Instead, use the higher-level interfaces and classes
 provided by SharpHook. However, you should still read this article to know how the high-level features work under
 the hood.
+
+## Low-Level Functionality Providers
+
+If you want to use the low-level functionality, you don't need to use the `UioHook` class directly. Instead you can use
+interfaces in the `SharpHook.Providers` namespace. The methods in those interfaces are the same as in the `UioHook`
+class. `SharpHook.Providers.UioHookProvider` implements all of these interfaces and simply calls the corresponding
+methods in `UioHook`. This should be done to decouple your code from `UioHook` and make testing easier.
 
 ## Working with the Hook Itself
 
@@ -26,23 +33,20 @@ previously set one. Also, running a global hook when another global hook is alre
 global state of libuiohook.
 
 `SetDispatchProc` accepts a delegate of type `SharpHook.Native.DispatchProc`. This delegate in turn accepts a
-`SharpHook.Native.UioHookEvent` by reference, and returns nothing.  You can pass `null` to `SetDispatchProc` in order
+`SharpHook.Data.UioHookEvent` by reference, and returns nothing.  You can pass `null` to `SetDispatchProc` in order
 to unset the callback function.
 
-`Run` and `Stop` return a `UioHookResult` which specifies whether the result of the method was successful
+`Run` and `Stop` return a `SharpHook.Data.UioHookResult` which specifies whether the result of the method was successful
 (`UioHookResult.Success`) or not (any other value).
 
 The methods described above are also defined in the `SharpHook.Providers.IGlobalHookProvider` interface.
 
-macOS has constraints on how the global hook can be used. More info can be found in the article on
-[OS-specific constraints](os-constraints.md).
-
 ## Input Events
 
-The `SharpHook.Native.UioHookEvent` struct contains information about events that have occured.
+The `SharpHook.Data.UioHookEvent` struct contains information about events that have occured.
 
 There are several event types supported by libuiohook (contained in the event's `Type` field and defined in the
-`SharpHook.Native.EventType` enum).
+`SharpHook.Data.EventType` enum).
 
 Following are the general-purpose events:
 
@@ -74,18 +78,15 @@ has more information:
 `UioHookEvent` also contains the `Time` field which is the event's UNIX timestamp.
 
 `UioHookEvent` also contains the `Mask` field which contains the state of keyboard modifiers and the mouse state at the
-time of the event. Note that when running a keyboard-only global hook, `Mask` will not contain any mouse state;
-conversely, when running a mouse-only global hook, `Mask` will not contain the state of keyboard modifiers.
+time of the event. It also contains other bit flags with information about the event. Currently two such flags are
+present:
 
-Lastly, `UioHookEvent` contains the `Reserved` field which is contains various bit flags. Currently two flags are
-supported:
+- Distinguishing real events from simulated events (`EventMask.SimulatedEvent`). If this flag is set, then the event
+is simulated. Otherwise, the event is real.
 
-- Suppressing event propagation (bit 0). If it's set in the event handler then libuiohook will not propagate the event
-further and it will effectively be blocked. This bit should be set synchronously i.e. on the same thread which handles
-the event. Supressing events works only on Windows and macOS.
-
-- Distinguishing real events from simulated events (bit 1). If this bit is set, then the event is simulated. Otherwise,
-the event is real.
+- Suppressing event propagation (`EventMask.SuppressEvent`). If it's set in the event handler then libuiohook will not
+propagate the event further and it will effectively be blocked. This bit should be set synchronously, i.e., on the same
+thread which handles the event. Supressing events works only on Windows and macOS.
 
 > [!NOTE]
 > `KeyTyped` and `MouseClicked` events are not raised by the OS, but by libuiohook itself. `KeyTyped` is raised after
@@ -136,7 +137,7 @@ The following table describes the specifics of simulating each event type.
     <tr>
       <td><code>MousePressed</code></td>
       <td>
-        Only <code>MouseWheelEventData.X</code>, <code>MouseWheelEventData.Y</code>, and
+        Only <code>MouseEventData.X</code>, <code>MouseEventData.Y</code>, and
         <code>MouseEventData.Button</code> are considered.
       </td>
     </tr>
@@ -149,7 +150,7 @@ The following table describes the specifics of simulating each event type.
     <tr>
       <td><code>MouseReleased</code></td>
       <td>
-        Only <code>MouseWheelEventData.X</code>, <code>MouseWheelEventData.Y</code>, and
+        Only <code>MouseEventData.X</code>, <code>MouseEventData.Y</code>, and
         <code>MouseEventData.Button</code> are considered.
       </td>
     </tr>
@@ -203,12 +204,42 @@ is ignored.
 
 SharpHook also provides text entry simulation. `UioHook` contains the `PostText` method which accepts a `string`. The
 text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16 (including surrogate pairs,
-e.g. emojis) is supported.
+e.g., emojis) is supported.
 
-Text entry simulation may not work well on Linux. More info can be found in the article on
-[OS-specific constraints](os-constraints.md).
+X11 doesn't support text simulation directly. Instead, for each character, an unused key code is remapped to that
+character, and then key press/release is simulated. Since the receiving application must react to the remapping, and
+may not do so instantaneously, a delay is needed for accurate simulation. This means that text simulation on Linux works
+slowly and is not guaranteed to be correct.
+
+`UioHook` contains the `SetPostTextDelayX11` method which can be used to increase (or decrease) the delay if needed -
+longer delays add consistency but may be more jarring to end users. `UioHook` also contains the `GetPostTextDelayX11`
+which can be used to get the currently configured delay - the default is 50 milliseconds. Delays are configurable on a
+nanosecond level. On Windows and macOS `SetPostTextDelayX11` does nothing, and `GetPostTextDelayX11` always returns 0.
+`IEventSimulator` contains the `TextSimulationDelayOnX11` property which is wrapper arount the aforementioned methods.
 
 The methods described above are also defined in the `SharpHook.Providers.IEventSimulationProvider` interface.
+
+## macOS Accessibility API
+
+macOS requires that the processes that use global hooks or event simulation have access to its Accessibility API. When
+starting a global hook or simulating an event, libuiohook first checks whether the process has such access. If it
+doesn't, then it returns `UioHookResult.ErrorAxApiDisabled`.
+
+By default, when this error happens, a system dialog will appear and prompt the user to enable access to the
+Accessibility API. However, if this is undesired, the `UioHook.SetPromptUserIfAxApiDisabled` method can be called to
+control this behaviour. If it is called with `false` then all future tries will not result in a system dialog appearing.
+The current behaviour can be queried with the `UioHook.GetPromptUserIfAxApiDisabled` method.
+
+`UioHook` also contains the `IsAxApiEnabled` method to proactively check access to the Accessibility API. If `true` is
+passed to this method, then a system dialog will appear if this access is disabled.
+
+These methods only make sense on macOS, and as such, their behaviour on Windows and Linux is the following:
+
+- `IsAxApiEnabled` does nothing and always returns `true`.
+- `GetPromptUserIfAxApiDisabled` does nothing and always returns `false`.
+- `SetPromptUserIfAxApiDisabled` does nothing.
+
+The methods described above are also defined in the `SharpHook.Providers.IAccessibilityProvider` interface.
 
 ## Logging
 
@@ -225,24 +256,28 @@ not recommended to use it directly.
 
 ## Passing Custom Data to Callbacks
 
-`SetDispatchProc` and `SetLoggerProc` also receive a pointer to user-supplied data. It is then passed to the
-callbacks - both `DispatcherProc` and `LoggerProc` receive user-supplied data as well.
+`SetDispatchProc` and `SetLoggerProc` also receive a pointer to user-supplied data as a parameter of type `nint`. It is
+then passed to the callbacks - both `DispatcherProc` and `LoggerProc` receive user-supplied data as well.
 
-Do not use them.
-
-You should always pass `IntPtr.Zero` to `SetDispatchProc` and `SetLoggerProc` and not use the respective parameters in
-the callbacks.
+In general it's not recommended to use them. You should usually pass `IntPtr.Zero` to `SetDispatchProc` and
+`SetLoggerProc` and not use the respective parameters in the callbacks.
 
 The reason is that in order to use pointers to managed objects, they have to be pinned. As these callbacks tend to be
 long-lived (probably as long as the program itself), the objects will have to be pinned for a long time as well, and
 that's detrimental to the performance of the garbage collector and the memory layout of the program.
 
-If you need to pass custom data to the callbacks then simply use closures. This feature was created with the C language
-in mind, and C doesn't have closures.
+If you need to pass custom data to the callbacks, then use closures.
+
+One of the ways this parameter may be useful, however, is to help with constraints of Mac Catalyst applications. These
+applications require ahead-of-time compilation and they also require all callbacks that are called from native code
+to be static and annotated with the `[MonoPInvokeCallback]` attribute. Since these methods must be static and annotated,
+there is no way to pass additional data through closures. However, the user-supplied data can be used as a number (e.g.,
+a key in a static dictionary which contains relevant data objects), not as a pointer. This is exactly how higher-level
+classes use this parameter.
 
 ## Other Functions
 
-libuiohook also provides functions which get various pieces of information about the system, and are listed below:
+`UioHook` also provides functions which get various pieces of information about the system, and are listed below:
 
 - `CreateScreenInfo`
 - `GetAutoRepeatRate`
@@ -253,16 +288,9 @@ libuiohook also provides functions which get various pieces of information about
 - `GetMultiClickTime`
 
 These functions are quite straightforward, except for `CreateScreenInfo`. `UioHook` defines two versions of this
-function. One is a native function which returns an unmanaged array of `ScreenData` objects (as an `IntPtr`) along
+function. One is a native function which returns an unmanaged array of `ScreenData` objects (as an `nint`) along
 with its length in an output parameter. Another is a wrapper which returns a managed array. Use the second one if you
 need it since it's safer. If you decide to use the native version then you must free the returned memory manually.
 
 The safe version of `CreateScreenInfo` is also defined in the `SharpHook.Providers.IScreenInfoProvider` interface.
 Other methods described above are also defined in the `SharpHook.Providers.IMouseInfoProvider` interface.
-
-## Low-Level Functionality Providers
-
-If you want to use the low-level functionality, you don't need to use the `UioHook` class directly. Instead you can use
-interfaces in the `SharpHook.Providers` namespace. The methods in those interfaces are the same as in the `UioHook`
-class. `SharpHook.Providers.UioHookProvider` implements all of these interfaces and simply calls the corresponding
-methods in `UioHook`. This should be done to decouple your code from `UioHook` and make testing easier.

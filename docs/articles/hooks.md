@@ -6,7 +6,7 @@ SharpHook provides the `SharpHook.IGlobalHook` interface along with two default 
 to control the hook and subscribe to its events. This way is preferred to using native functions since it's more
 convenient. Here's a basic usage example:
 
-```C#
+```c#
 using SharpHook;
 
 // ...

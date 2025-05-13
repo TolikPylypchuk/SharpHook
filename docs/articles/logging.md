@@ -24,9 +24,9 @@ to use the debug level for long periods of time since a debug message is logged 
 
 Here's a usage example:
 
-```
+```c#
+using SharpHook.Data;
 using SharpHook.Logging;
-using SharpHook.Native;
 
 // ...
 
@@ -38,7 +38,7 @@ private void OnMessageLogged(object? sender, LogEventArgs e) =>
 ```
 
 You can get an instance of `LogSource` by using the static `RegisterOrGet` method. Subsequent calls to this method will
-return the same registered instance. You can dispose of a log source to stop receiving libuiohook messages. After that
+return the same registered instance. You can dispose of a log source to stop receiving libuiohook messages. After that,
 calling `RegisterOrGet` will register a new instance.
 
 The `MessageLogged` event contains event args of type `LogEventArgs` which contains just one property of type
@@ -50,7 +50,7 @@ message format and arguments so you don't have to do it yourself.
 SharpHook.Reactive contains the `IReactiveLogSource` and its implementation - `ReactiveLogSourceAdapter`. Here's a
 usage example:
 
-```
+```c#
 using SharpHook.Logging;
 using SharpHook.Native;
 using SharpHook.Reactive.Logging;
@@ -71,7 +71,7 @@ scheduler can be set for the `MessageLogged` observable.
 The logging functionality works by using `UioHook.SetLoggerProc`. This method sets the log callback - a delegate of
 type `LoggerProc`, which will be called to log the messages of libuiohook. `LoggerProc` receives the log level, a
 pointer to the message format, and a pointer to the message arguments. It also receives a pointer to user-supplied data
-(which is set in the `UioHook.SetLoggerProc`), but you shouldn't ever use that.
+(which is set in the `UioHook.SetLoggerProc`), but you usually shouldn't use it.
 
 It is highly recommended to use `LogEntryParser` in order to create a log entry out of the pointers to the message
 format and arguments. This way you won't have to handle these pointers directly. The problem with handling them directly
@@ -82,9 +82,9 @@ its code is based on the log handling code of [LibVLCSharp](https://github.com/v
 the native `vsprintf` function from the C runtime and lets it deal with formatting the log message with native variable
 arguments. It then parses the log message and the log format and extracts the arguments.
 
-If you want to use your own callback then its form should be the following:
+If you want to use your own callback, then its form should be the following:
 
-```
+```c#
 private void OnLog(LogLevel level, IntPtr userData, IntPtr format, IntPtr args)
 {
     // Filter by log level if needed
@@ -97,7 +97,7 @@ private void OnLog(LogLevel level, IntPtr userData, IntPtr format, IntPtr args)
 
 ## Advanced Usage
 
-If you use structured logging then you may want to use the message format and arguments directly, instead of using the
+If you use structured logging, then you may want to use the message format and arguments directly, instead of using the
 formatted result. `LogEntry` contains properties which can help you with that:
 
 - `Format` - the format of the log message which can be passed to `String.Format`.
@@ -170,7 +170,7 @@ placeholders. Only the specifier and length are considered (see the C's `printf`
     <td><code>%c</code></td>
   </tr>
   <tr>
-    <td><code>IntPtr</code></td>
+    <td><code>nint</code></td>
     <td><code>%p</code></td>
   </tr>
   <tr>

@@ -1,12 +1,11 @@
 # About SharpHook
 
-SharpHook. Version 5.3.9. Created by Tolik Pylypchuk.
+SharpHook - created by Tolik Pylypchuk.
 
 ## Library Status
 
-I will maintain the library to keep up with the releases of libuiohook which uses a rolling release model - every commit
-to its `1.3` branch is considered stable. If you've noticed that this library hasn't gotten new commits in some time,
-rest assured that it's not abandoned! I'm not giving up on this library any time soon.
+If you've noticed that this library hasn't gotten new commits in some time, rest assured that it's not abandoned!
+I'm not giving up on this library any time soon.
 
 ## Changelog
 

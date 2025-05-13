@@ -1,7 +1,7 @@
 # Key Code Mappings
 
-The following table contains the mapping of virtual key codes defined in the `SharpHook.Native.KeyCode` enum to
-OS-specific key code definitions. Note that many key codes are not available on all 3 OSes.
+The following table contains the mapping of virtual key codes defined in the `SharpHook.Data.KeyCode` enum to
+OS-specific key code definitions. Note that several key codes are not available on all 3 OSes.
 
 > [!IMPORTANT]
 > Key code values in the `KeyCode` enum are meaningless and may change between major versions. Only the enum constant

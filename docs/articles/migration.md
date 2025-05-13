@@ -9,6 +9,36 @@ low-level functionality providers, these interfaces need to be changed. Technica
 would require bumping the major version. Instead, changes to these interfaces are usually treated as minor version
 updates since they are not expected to break client code.
 
+## Version 5 to 6
+
+Version 6 contains multiple breaking changes, so you will most probably need to change your code to upgrade.
+
+All structs and enums were moved from `SharpHook.Native` to `SharpHook.Data`.
+
+The `ModifierMask` and `EventReservedValueMask` enums were merged into a single enum - `EventMask`. `UioHookEvent`
+doesn't contain the `Reserved` field anymore. Instead, its values are now part of `Mask`.
+
+`TaskPoolGlobalHookOptions` was removed. Instead, the options should be passed directly into the constructor of
+`TaskPoolGlobalHook`.
+
+All constructors of `SimpleGlobalHook`, `TaskPoolGlobalHook`, `SimpleReactiveGlobalHook`, and
+`ReactiveGlobalHookAdapter` except the main ones were removed. 
+
+`LogSource.Register` was removed. `RegisterOrGet` should be used instead.
+
+All obsolete values in the `KeyCode` enum were removed.
+
+`HookException` doesn't support `BinaryFormatter` serialization anymore.
+
+The behavoiur of `TestGlobalHook` and `TestProvider` was changed. Instead of dispatching events in the same thread that
+simulates them, they now instead add events into an event loop running on a different thread. `TestProvider` now throws
+an exception if `Run` or `RunAsync` is called and it's already running.
+
+The minimum .NET Framework version was bumped to 4.7.2 and direct support for .NET 6 and .NET 7 was dropped (though they
+are still supported through .NET Standard 2.0).
+
+SharpHook.Reactive now depends on Rx.NET 6.0.1.
+
 ## Version 4 to 5
 
 Version 5 contains multiple breaking changes, so you may need to change your code to upgrade.

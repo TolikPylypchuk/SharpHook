@@ -15,6 +15,11 @@ Only Windows 10 and 11 are supported.
 > determine which characters are typed by key presses, and before Windows 10 1607 this function changed the keyboard
 > state.
 
+> [!IMPORTANT]
+> There is an issue on Windows 10 - when a global hook is running, some editors may insert Unicode characters when the
+> user presses <kbd>Alt</kbd>+<kbd>Up Arrow</kbd> or <kbd>Alt</kbd>+<kbd>Down Arrow</kbd>. This issue is not present on
+> Windows 11.
+
 ### Supported Architectures
 
 x86, x64, and Arm64 are supported. Arm32 is not supported since its support was dropped in .NET 5.
@@ -38,7 +43,7 @@ manifest example.
 
 ### Text Entry Simulation
 
-On Windows text simulation should work correctly and consistently.
+On Windows, text simulation should work correctly and consistently.
 
 ## macOS
 
@@ -52,13 +57,13 @@ x64 and Arm64 are supported.
 
 ### Accessibility API
 
-macOS requires that the accessibility API be enabled for the application if it wants to create a global hook.
-If the accessiblity API is not enabled, then `Run` will fail and return `UioHookResult.ErrorAxApiDisabled`. If that
-happens then the OS will show a dialog about enabling accessibility for the app.
+macOS requires that the Accessibility API access be enabled for the application if it wants to create a global hook or
+simulate events. If the Accessiblity API access is not enabled, then `Run` and `PostEvent` will fail and return
+`UioHookResult.ErrorAxApiDisabled`. More info can be found in the [article on low-level functionality](native.md).
 
 ### Main Run-Loop
 
-On macOS running the global hook requires that the main run-loop is present. libuiohook takes care of it if the hook
+On macOS running the global hook requires that the main run-loop be present. libuiohook takes care of it if the hook
 is run on the main thread. It's also taken care of by UI frameworks since they need an event loop on the main thread
 to run. But if you're using a global hook in a console app or a background service and want to run it on some thread
 other than the main one then you should take care of it yourself. You can do that by P/Invoking the native
@@ -73,7 +78,7 @@ press/release, starting with `1`.
 
 ### Text Entry Simulation
 
-On macOS applications are not required to process text entry simulation, but most of them should handle it correctly.
+On macOS, applications are not required to process text entry simulation, but most of them should handle it correctly.
 
 ## Linux
 
@@ -95,10 +100,5 @@ Only X11 is supported. Wayland support may be available in a future version.
 X11 doesn't support text simulation directly. Instead, for each character, an unused key code is remapped to that
 character, and then key press/release is simulated. Since the receiving application must react to the remapping, and
 may not do so instantaneously, a delay is needed for accurate simulation. This means that text simulation on Linux works
-slowly and is not guaranteed to be correct.
-
-`UioHook` contains the `SetPostTextDelayX11` method which can be used to increase (or decrease) the delay if needed -
-longer delays add consistency but may be more jarring to end users. `UioHook` also contains the `GetPostTextDelayX11`
-which can be used to get the currently configured delay - the default is 50 milliseconds. Delays are configurable on a
-nanosecond level. On Windows and macOS `SetPostTextDelayX11` does nothing, and `GetPostTextDelayX11` always returns 0.
-`IEventSimulator` contains the `TextSimulationDelayOnX11` property which is wrapper arount the aforementioned methods.
+slowly and is not guaranteed to be correct. More info can be found in the
+[article on low-level functionality](native.md).
