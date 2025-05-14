@@ -18,7 +18,10 @@ internal sealed class TaskQueue(int parallelismLevel) : IDisposable
             await taskGenerator();
         } finally
         {
-            this.semaphore.Release();
+            if (!this.disposed)
+            {
+                this.semaphore.Release();
+            }
         }
     }
 
