@@ -2131,6 +2131,12 @@ references:
   commentId: F:SharpHook.Data.UioHookResult.ErrorAxApiDisabled
   fullName: SharpHook.Data.UioHookResult.ErrorAxApiDisabled
   nameWithType: UioHookResult.ErrorAxApiDisabled
+- uid: SharpHook.Data.UioHookResult.ErrorAxApiRevoked
+  name: ErrorAxApiRevoked
+  href: api/SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_ErrorAxApiRevoked
+  commentId: F:SharpHook.Data.UioHookResult.ErrorAxApiRevoked
+  fullName: SharpHook.Data.UioHookResult.ErrorAxApiRevoked
+  nameWithType: UioHookResult.ErrorAxApiRevoked
 - uid: SharpHook.Data.UioHookResult.ErrorCreateEventPort
   name: ErrorCreateEventPort
   href: api/SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_ErrorCreateEventPort
@@ -4009,6 +4015,18 @@ references:
   commentId: Overload:SharpHook.Native.UioHook.GetAutoRepeatRate
   fullName: SharpHook.Native.UioHook.GetAutoRepeatRate
   nameWithType: UioHook.GetAutoRepeatRate
+- uid: SharpHook.Native.UioHook.GetAxPollFrequency
+  name: GetAxPollFrequency()
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetAxPollFrequency
+  commentId: M:SharpHook.Native.UioHook.GetAxPollFrequency
+  fullName: SharpHook.Native.UioHook.GetAxPollFrequency()
+  nameWithType: UioHook.GetAxPollFrequency()
+- uid: SharpHook.Native.UioHook.GetAxPollFrequency*
+  name: GetAxPollFrequency
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetAxPollFrequency_
+  commentId: Overload:SharpHook.Native.UioHook.GetAxPollFrequency
+  fullName: SharpHook.Native.UioHook.GetAxPollFrequency
+  nameWithType: UioHook.GetAxPollFrequency
 - uid: SharpHook.Native.UioHook.GetMultiClickTime
   name: GetMultiClickTime()
   href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetMultiClickTime
@@ -4162,6 +4180,21 @@ references:
   commentId: Overload:SharpHook.Native.UioHook.RunMouse
   fullName: SharpHook.Native.UioHook.RunMouse
   nameWithType: UioHook.RunMouse
+- uid: SharpHook.Native.UioHook.SetAxPollFrequency(System.UInt32)
+  name: SetAxPollFrequency(uint)
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetAxPollFrequency_System_UInt32_
+  commentId: M:SharpHook.Native.UioHook.SetAxPollFrequency(System.UInt32)
+  name.vb: SetAxPollFrequency(UInteger)
+  fullName: SharpHook.Native.UioHook.SetAxPollFrequency(uint)
+  fullName.vb: SharpHook.Native.UioHook.SetAxPollFrequency(UInteger)
+  nameWithType: UioHook.SetAxPollFrequency(uint)
+  nameWithType.vb: UioHook.SetAxPollFrequency(UInteger)
+- uid: SharpHook.Native.UioHook.SetAxPollFrequency*
+  name: SetAxPollFrequency
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetAxPollFrequency_
+  commentId: Overload:SharpHook.Native.UioHook.SetAxPollFrequency
+  fullName: SharpHook.Native.UioHook.SetAxPollFrequency
+  nameWithType: UioHook.SetAxPollFrequency
 - uid: SharpHook.Native.UioHook.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)
   name: SetDispatchProc(DispatchProc?, nint)
   href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetDispatchProc_SharpHook_Native_DispatchProc_System_IntPtr_
@@ -4246,6 +4279,18 @@ references:
   commentId: T:SharpHook.Providers.IAccessibilityProvider
   fullName: SharpHook.Providers.IAccessibilityProvider
   nameWithType: IAccessibilityProvider
+- uid: SharpHook.Providers.IAccessibilityProvider.AxPollFrequency
+  name: AxPollFrequency
+  href: api/SharpHook.Providers.IAccessibilityProvider.html#SharpHook_Providers_IAccessibilityProvider_AxPollFrequency
+  commentId: P:SharpHook.Providers.IAccessibilityProvider.AxPollFrequency
+  fullName: SharpHook.Providers.IAccessibilityProvider.AxPollFrequency
+  nameWithType: IAccessibilityProvider.AxPollFrequency
+- uid: SharpHook.Providers.IAccessibilityProvider.AxPollFrequency*
+  name: AxPollFrequency
+  href: api/SharpHook.Providers.IAccessibilityProvider.html#SharpHook_Providers_IAccessibilityProvider_AxPollFrequency_
+  commentId: Overload:SharpHook.Providers.IAccessibilityProvider.AxPollFrequency
+  fullName: SharpHook.Providers.IAccessibilityProvider.AxPollFrequency
+  nameWithType: IAccessibilityProvider.AxPollFrequency
 - uid: SharpHook.Providers.IAccessibilityProvider.IsAxApiEnabled(System.Boolean)
   name: IsAxApiEnabled(bool)
   href: api/SharpHook.Providers.IAccessibilityProvider.html#SharpHook_Providers_IAccessibilityProvider_IsAxApiEnabled_System_Boolean_
@@ -4513,6 +4558,18 @@ references:
   commentId: T:SharpHook.Providers.UioHookProvider
   fullName: SharpHook.Providers.UioHookProvider
   nameWithType: UioHookProvider
+- uid: SharpHook.Providers.UioHookProvider.AxPollFrequency
+  name: AxPollFrequency
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_AxPollFrequency
+  commentId: P:SharpHook.Providers.UioHookProvider.AxPollFrequency
+  fullName: SharpHook.Providers.UioHookProvider.AxPollFrequency
+  nameWithType: UioHookProvider.AxPollFrequency
+- uid: SharpHook.Providers.UioHookProvider.AxPollFrequency*
+  name: AxPollFrequency
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_AxPollFrequency_
+  commentId: Overload:SharpHook.Providers.UioHookProvider.AxPollFrequency
+  fullName: SharpHook.Providers.UioHookProvider.AxPollFrequency
+  nameWithType: UioHookProvider.AxPollFrequency
 - uid: SharpHook.Providers.UioHookProvider.CreateScreenInfo
   name: CreateScreenInfo()
   href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_CreateScreenInfo
