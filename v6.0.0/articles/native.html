@@ -255,8 +255,8 @@ all its fields. Only <code>Type</code> and <code>Keyboard</code>/<code>Mouse</co
   </tbody>
 </table>
 <p>Mouse wheel simulation is a little more complex than other events.</p>
-<p>A positive <code>MouseWheelEventData.Rotation</code> value indicates that the wheel will be rotated up or left, and
-a negative value indicates that the wheel will be rotated down or right.</p>
+<p>A positive <code>MouseWheelEventData.Rotation</code> value indicates scrolling up or left, and a negative value indicates scrolling
+down or right.</p>
 <p>On Windows the value 120 represents the default wheel step. As such, multiples of 120 can be used as the
 rotation value, but it's not required. The value of <code>MouseWheelEventData.Type</code> is ignored.</p>
 <p>On macOS it's recommended to use values between -10 and 10. This will result in quite a small scroll amount with pixel
