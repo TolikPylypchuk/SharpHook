@@ -194,19 +194,18 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
 
             this.IsRunning = true;
             result = this.RunGlobalHook();
-            this.IsRunning = false;
         } catch (Exception e)
         {
-            this.IsRunning = false;
             throw new HookException(UioHookResult.Failure, e);
         } finally
         {
+            this.IsRunning = false;
             runningGlobalHooks.TryRemove(this.hookIndex, out _);
         }
 
         if (result != UioHookResult.Success)
         {
-            throw new HookException(result, this.FormatStartFailureMessage(result));
+            throw new HookException(result, this.FormatRunFailureMessage(result));
         }
     }
 
@@ -246,7 +245,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
                     hookStopped.OnCompleted();
                 } else
                 {
-                    hookStopped.OnError(new HookException(result, this.FormatStartFailureMessage(result)));
+                    hookStopped.OnError(new HookException(result, this.FormatRunFailureMessage(result)));
                 }
             } catch (Exception e)
             {
@@ -449,8 +448,8 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
         }
     }
 
-    private string FormatStartFailureMessage(UioHookResult result) =>
-        FormatFailureMessage("starting", result);
+    private string FormatRunFailureMessage(UioHookResult result) =>
+        FormatFailureMessage("running", result);
 
     private string FormatStopFailureMessage(UioHookResult result) =>
         FormatFailureMessage("stopping", result);

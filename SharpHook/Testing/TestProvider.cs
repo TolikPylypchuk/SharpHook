@@ -454,6 +454,8 @@ public sealed class TestProvider :
 
     bool IAccessibilityProvider.PromptUserIfAxApiDisabled { get; set; } = true;
 
+    uint IAccessibilityProvider.AxPollFrequency { get; set; } = 1;
+
     void ILoggingProvider.SetLoggerProc(LoggerProc? loggerProc, nint userData)
     { }
 

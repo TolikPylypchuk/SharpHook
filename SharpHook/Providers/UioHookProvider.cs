@@ -22,6 +22,64 @@ public sealed class UioHookProvider :
     public static UioHookProvider Instance { get; } = new();
 
     /// <summary>
+    /// Gets or sets the delay (in nanoseconds) between posting individual characters when posting text on Linux.
+    /// </summary>
+    /// <value>The delay (in nanoseconds) between posting individual characters when posting text on Linux.</value>
+    /// <remarks>
+    /// <para>
+    /// X11 doesn't support posting arbitrary Unicode characters directly. Instead, for each character,
+    /// an unused key code is remapped to that character, and then key press/release is simulated. Since the receiving
+    /// application must react to the remapping, and may not do so instantaneously, a delay is needed for accurate
+    /// simulation.
+    /// </para>
+    /// <para>
+    /// The default delay is 50 milliseconds.
+    /// </para>
+    /// <para>
+    /// On Windows and macOS, this property does nothing and always returns <c>0</c>.
+    /// </para>
+    /// </remarks>
+    public ulong PostTextDelayX11
+    {
+        get => UioHook.GetPostTextDelayX11();
+        set => UioHook.SetPostTextDelayX11(value);
+    }
+
+    /// <summary>
+    /// Gets or sets the value which indicates whether global hooks or event simulation should prompt the user when they
+    /// try to request access to macOS Accessibility API, and it is disabled. The default value is
+    /// <see langword="true" />.
+    /// </summary>
+    /// <value>
+    /// <see langword="true" /> if global hooks and event simulation should prompt the user for access to macOS
+    /// Accessibility API when it is disabled. Otherwise, <see langword="false" />.
+    /// </value>
+    /// <remarks>
+    /// On Windows and Linux, this property does nothing and always returns <see langword="false" />.
+    /// </remarks>
+    public bool PromptUserIfAxApiDisabled
+    {
+        get => UioHook.GetPromptUserIfAxApiDisabled();
+        set => UioHook.SetPromptUserIfAxApiDisabled(value);
+    }
+
+    /// <summary>
+    /// Gets or sets the frequency in seconds for polling the access to the macOS Accessibility API when the global hook
+    /// is running. The default value is 1 second.
+    /// </summary>
+    /// <value>
+    /// The frequency in seconds for polling the access to the macOS Accessibility API when the global hook is running.
+    /// </value>
+    /// <remarks>
+    /// On Windows and Linux, this property does nothing and always returns <c>0</c>.
+    /// </remarks>
+    public uint AxPollFrequency
+    {
+        get => UioHook.GetAxPollFrequency();
+        set => UioHook.SetAxPollFrequency(value);
+    }
+
+    /// <summary>
     /// Sets the log callback function.
     /// </summary>
     /// <param name="loggerProc">
@@ -193,30 +251,6 @@ public sealed class UioHookProvider :
         UioHook.PostText(text);
 
     /// <summary>
-    /// Gets or sets the delay (in nanoseconds) between posting individual characters when posting text on Linux.
-    /// </summary>
-    /// <value>The delay (in nanoseconds) between posting individual characters when posting text on Linux.</value>
-    /// <remarks>
-    /// <para>
-    /// X11 doesn't support posting arbitrary Unicode characters directly. Instead, for each character,
-    /// an unused key code is remapped to that character, and then key press/release is simulated. Since the receiving
-    /// application must react to the remapping, and may not do so instantaneously, a delay is needed for accurate
-    /// simulation.
-    /// </para>
-    /// <para>
-    /// The default delay is 50 milliseconds.
-    /// </para>
-    /// <para>
-    /// On Windows and macOS, this property does nothing and always returns <c>0</c>.
-    /// </para>
-    /// </remarks>
-    public ulong PostTextDelayX11
-    {
-        get => UioHook.GetPostTextDelayX11();
-        set => UioHook.SetPostTextDelayX11(value);
-    }
-
-    /// <summary>
     /// Checks whether access to macOS Accessibility API is enabled for the process, optionally prompting the user
     /// if it is disabled.
     /// </summary>
@@ -230,24 +264,6 @@ public sealed class UioHookProvider :
     /// </remarks>
     public bool IsAxApiEnabled(bool promptUserIfDisabled) =>
         UioHook.IsAxApiEnabled(promptUserIfDisabled);
-
-    /// <summary>
-    /// Gets or sets the value which indicates whether global hooks or event simulation should prompt the user when they
-    /// try to request access to macOS Accessibility API, and it is disabled. The default value is
-    /// <see langword="true" />.
-    /// </summary>
-    /// <value>
-    /// <see langword="true" /> if global hooks and event simulation should prompt the user for access to macOS
-    /// Accessibility API when it is disabled. Otherwise, <see langword="false" />.
-    /// </value>
-    /// <remarks>
-    /// On Windows and Linux, this property does nothing and always returns <see langword="false" />.
-    /// </remarks>
-    public bool PromptUserIfAxApiDisabled
-    {
-        get => UioHook.GetPromptUserIfAxApiDisabled();
-        set => UioHook.SetPromptUserIfAxApiDisabled(value);
-    }
 
     /// <summary>
     /// Gets the information about screens.

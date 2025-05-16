@@ -403,6 +403,44 @@ public static partial class UioHook
 #endif
 
     /// <summary>
+    /// Gets the frequency in seconds for polling the access to the macOS Accessibility API when the global hook is
+    /// running. The default value is 1 second.
+    /// </summary>
+    /// <returns>
+    /// The frequency in seconds for polling the access to the macOS Accessibility API when the global hook is running.
+    /// </returns>
+    /// <remarks>
+    /// On Windows and Linux, this method does nothing and always returns <c>0</c>.
+    /// </remarks>
+#if NET7_0_OR_GREATER
+    [LibraryImport(LibUioHook, EntryPoint = "hook_get_ax_poll_frequency")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial uint GetAxPollFrequency();
+#else
+    [DllImport(LibUioHook, EntryPoint = "hook_get_ax_poll_frequency", CallingConvention = CallingConvention.Cdecl)]
+    public static extern uint GetAxPollFrequency();
+#endif
+
+    /// <summary>
+    /// Sets the frequency in seconds for polling the access to the macOS Accessibility API when the global hook is
+    /// running. The default value is 1 second.
+    /// </summary>
+    /// <param name="frequency">
+    /// The frequency in seconds for polling the access to the macOS Accessibility API when the global hook is running.
+    /// </param>
+    /// <remarks>
+    /// On Windows and Linux, this method does nothing.
+    /// </remarks>
+#if NET7_0_OR_GREATER
+    [LibraryImport(LibUioHook, EntryPoint = "hook_set_ax_poll_frequency")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void SetAxPollFrequency(uint frequency);
+#else
+    [DllImport(LibUioHook, EntryPoint = "hook_set_ax_poll_frequency", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void SetAxPollFrequency(uint frequency);
+#endif
+
+    /// <summary>
     /// Gets the information about screens.
     /// </summary>
     /// <param name="count">The number of screens.</param>

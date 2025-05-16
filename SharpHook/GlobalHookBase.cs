@@ -90,19 +90,18 @@ public abstract class GlobalHookBase : IGlobalHook
 
             this.IsRunning = true;
             result = this.RunGlobalHook();
-            this.IsRunning = false;
         } catch (Exception e)
         {
-            this.IsRunning = false;
             throw new HookException(UioHookResult.Failure, e);
         } finally
         {
+            this.IsRunning = false;
             runningGlobalHooks.TryRemove(this.hookIndex, out _);
         }
 
         if (result != UioHookResult.Success)
         {
-            throw new HookException(result, this.FormatStartFailureMessage(result));
+            throw new HookException(result, this.FormatRunFailureMessage(result));
         }
     }
 
@@ -138,7 +137,7 @@ public abstract class GlobalHookBase : IGlobalHook
                     source.SetResult(null);
                 } else
                 {
-                    source.SetException(new HookException(result, this.FormatStartFailureMessage(result)));
+                    source.SetException(new HookException(result, this.FormatRunFailureMessage(result)));
                 }
             } catch (Exception e)
             {
@@ -415,8 +414,8 @@ public abstract class GlobalHookBase : IGlobalHook
         }
     }
 
-    private string FormatStartFailureMessage(UioHookResult result) =>
-        FormatFailureMessage("starting", result);
+    private string FormatRunFailureMessage(UioHookResult result) =>
+        FormatFailureMessage("running", result);
 
     private string FormatStopFailureMessage(UioHookResult result) =>
         FormatFailureMessage("stopping", result);

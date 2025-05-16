@@ -6,6 +6,26 @@ namespace SharpHook.Providers;
 public interface IEventSimulationProvider
 {
     /// <summary>
+    /// Gets or sets the delay (in nanoseconds) between posting individual characters when posting text on Linux.
+    /// </summary>
+    /// <value>The delay (in nanoseconds) between posting individual characters when posting text on Linux.</value>
+    /// <remarks>
+    /// <para>
+    /// X11 doesn't support posting arbitrary Unicode characters directly. Instead, for each character,
+    /// an unused key code is remapped to that character, and then key press/release is simulated. Since the receiving
+    /// application must react to the remapping, and may not do so instantaneously, a delay is needed for accurate
+    /// simulation.
+    /// </para>
+    /// <para>
+    /// The default delay is 50 milliseconds.
+    /// </para>
+    /// <para>
+    /// On Windows and macOS, this property does nothing and always returns <c>0</c>.
+    /// </para>
+    /// </remarks>
+    ulong PostTextDelayX11 { get; set; }
+
+    /// <summary>
     /// Posts a fake input event.
     /// </summary>
     /// <param name="e">The event to post.</param>
@@ -109,24 +129,4 @@ public interface IEventSimulationProvider
     /// </para>
     /// </remarks>
     UioHookResult PostText(string text);
-
-    /// <summary>
-    /// Gets or sets the delay (in nanoseconds) between posting individual characters when posting text on Linux.
-    /// </summary>
-    /// <value>The delay (in nanoseconds) between posting individual characters when posting text on Linux.</value>
-    /// <remarks>
-    /// <para>
-    /// X11 doesn't support posting arbitrary Unicode characters directly. Instead, for each character,
-    /// an unused key code is remapped to that character, and then key press/release is simulated. Since the receiving
-    /// application must react to the remapping, and may not do so instantaneously, a delay is needed for accurate
-    /// simulation.
-    /// </para>
-    /// <para>
-    /// The default delay is 50 milliseconds.
-    /// </para>
-    /// <para>
-    /// On Windows and macOS, this property does nothing and always returns <c>0</c>.
-    /// </para>
-    /// </remarks>
-    ulong PostTextDelayX11 { get; set; }
 }

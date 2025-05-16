@@ -643,6 +643,34 @@ public sealed class TestProviderTests
         Assert.Equal(prompt, ((IAccessibilityProvider)provider).PromptUserIfAxApiDisabled);
     }
 
+    [Fact(DisplayName = "Frequency for polling Accessibility API access should be 1 by default")]
+    public void GetAxPollFrequency()
+    {
+        // Arrange
+
+        var provider = new TestProvider();
+
+        // Act + Assert
+
+        Assert.Equal(1U, ((IAccessibilityProvider)provider).AxPollFrequency);
+    }
+
+    [Property(DisplayName = "Frequency for polling Accessibility API access should be settable through the property")]
+    public void SetAxPollFrequency(uint frequency)
+    {
+        // Arrange
+
+        var provider = new TestProvider();
+
+        // Act
+
+        ((IAccessibilityProvider)provider).AxPollFrequency = frequency;
+
+        // Assert
+
+        Assert.Equal(frequency, ((IAccessibilityProvider)provider).AxPollFrequency);
+    }
+
     [Property(DisplayName = "Screen info should be settable")]
     public void ScreenInfo(byte number, short x, short y, ushort width, ushort height)
     {

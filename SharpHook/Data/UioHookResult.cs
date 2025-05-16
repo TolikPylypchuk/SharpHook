@@ -72,7 +72,7 @@ public enum UioHookResult
     ErrorCreateInvisibleWindow = 0x32,
 
     /// <summary>
-    /// Accessibility API is disabled for the process (macOS)
+    /// Accessibility API access is disabled for the process (macOS)
     /// </summary>
     ErrorAxApiDisabled = 0x40,
 
@@ -94,5 +94,10 @@ public enum UioHookResult
     /// <summary>
     /// <c>CFRunLoopObserverCreate</c> has failed (macOS)
     /// </summary>
-    ErrorCreateObserver = 0x44
+    ErrorCreateObserver = 0x44,
+
+    /// <summary>
+    /// Accessibility API access has been revoked for the process (macOS)
+    /// </summary>
+    ErrorAxApiRevoked = 0x45
 }
