@@ -188,8 +188,8 @@ The following table describes the specifics of simulating each event type.
 
 Mouse wheel simulation is a little more complex than other events.
 
-A positive `MouseWheelEventData.Rotation` value indicates that the wheel will be rotated up or left, and
-a negative value indicates that the wheel will be rotated down or right.
+A positive `MouseWheelEventData.Rotation` value indicates scrolling up or left, and a negative value indicates scrolling
+down or right.
 
 On Windows the value 120 represents the default wheel step. As such, multiples of 120 can be used as the
 rotation value, but it's not required. The value of `MouseWheelEventData.Type` is ignored.
