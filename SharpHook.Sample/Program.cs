@@ -56,11 +56,11 @@ hook.MouseWheel.Subscribe(OnHookEvent);
 
 while (!hook.IsDisposed)
 {
-    await hook.RunAsync();
+    hook.Run();
 
     if (!hook.IsDisposed)
     {
-        await Task.Delay(TimeSpan.FromSeconds(5));
+        Thread.Sleep(TimeSpan.FromSeconds(5));
     }
 }
 
