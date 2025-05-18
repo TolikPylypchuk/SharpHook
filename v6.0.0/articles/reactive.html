@@ -130,11 +130,11 @@ use a closure.</p>
 <code>IObservable&lt;Unit&gt;</code> instead of a <code>Task</code> (the observable is hot). This observable will emit a single value and then
 complete when the global hook is destroyed. Running the hook when it's already running is also not allowed, and the
 <code>IsRunning</code> property is also available.</p>
-<p><code>IReactiveGlobalHook</code> extends <code>IDisposable</code> as well and calling <code>Dispose</code> will destroy the global hook. As with
-<code>IGlobalHook</code>, starting a disposed instance again shouldn't be allowed. Calling <code>Dispose</code> when the hook is not running
-is safe - it just won't do anything (other than marking the instance as disposed). The <code>IsDisposed</code> property is also
-available.</p>
-<p>The <code>HookEnabled</code> and <code>HookDisabled</code> observables will emit a single event and then immediately complete afterwards.</p>
+<p>The <code>Stop</code> method is also available and is basically the same as in <code>IGlobalHook</code>.</p>
+<p><code>IReactiveGlobalHook</code> extends <code>IDisposable</code> as well and calling <code>Dispose</code> will dispose of the global hook, stopping it
+if it is running. As with <code>IGlobalHook</code>, starting a disposed instance again isn't allowed. Calling <code>Dispose</code> when the
+hook is not running won't do anything other than marking the instance as disposed. All observables in the hook will
+complete when the hook is disposed. The <code>IsDisposed</code> property is also available.</p>
 <div class="IMPORTANT">
 <h5>Important</h5>
 <p>Always use one instance of <code>IReactiveGlobalHook</code> at a time in the entire application since they all must use the same
@@ -152,8 +152,7 @@ subscriptions and changes are propagated to the adapted hook. A default schedule
 There is no default adapter from <code>IReactiveGlobalHook</code> to <code>IGlobalHook</code>.</p>
 </li>
 </ul>
-<p><code>SimpleReactiveGlobalHook</code> contains a finalizer which will stop the global hook if the object is not reachable anymore.
-All event observables of both classes will be completed when the hook is destroyed.</p>
+<p><code>SimpleReactiveGlobalHook</code> keeps a reference to a running global hook so that it's not garbage-collected.</p>
 
 </article>
 

@@ -120,10 +120,10 @@ public async Task TestLastPressedKey()
 <p>If this class is used as an <code>IEventSimulator</code> in the tested code, then the <code>SimulatedEvents</code> property can be checked to
 see which events were simulated using the test instance.</p>
 <p>It's recommended to stop the global hook and wait for it to stop before asserting any events. The test global hook runs
-an event loop using <code>BlockingCollection</code>, and posting an even will add an event to this collection for the global hook
-to dispatch. Since these actions are done in different threads, it is not guaranteed that an event will be dispatched
-immediately after it is simulated. <code>Run</code> and the task returned by <code>RunAsync</code> will complete after every event has been
-dispatched.</p>
+an event loop using <code>BlockingCollection</code>, and posting an event will add this event to this collection for the global
+hook to dispatch. Since these actions are done in different threads, it is not guaranteed that an event will be
+dispatched immediately after it is simulated. <code>Run</code> and the task returned by <code>RunAsync</code> will complete after every event
+has been dispatched.</p>
 <p>Other than that, members of <code>TestGlobalHook</code> are quite straightforward; the API reference should be viewed for more
 info.</p>
 <p>If an <code>IReactiveGlobalHook</code> is needed for testing, then <code>ReactiveGlobalHookAdapter</code> can be used to adapt an instance of
@@ -134,12 +134,20 @@ then <code>SharpHook.Testing.TestProvider</code> can be used. It implements ever
 and as such, it can be used instead of normal low-level functionality providers.</p>
 <p>Like <code>TestGlobalHook</code>, this class can post events using the <code>PostEvent</code> method and dispatch them if <code>Run</code> has been
 called. It also contains the <code>PostedEvents</code> property.</p>
+<p>It's recommended to stop the provider and wait for it to stop before asserting any events. The test provider runs an
+event loop using <code>BlockingCollection</code>, and posting an event will add this event to this collection for the provider to
+dispatch. Since these actions are done in different threads, it is not guaranteed that an event will be dispatched
+immediately after it is simulated. <code>Run</code> and the task returned by <code>RunAsync</code> will complete after every event has been
+dispatched.</p>
 <p>All classes in SharpHook use providers instead of directly using the <code>UioHook</code> class for low-level functionality.
 The providers are selectable, so e.g., the following global hook can be used for testing:</p>
 <pre><code class="lang-c#">var testProvider = new TestProvider();
 
 // Calls to methods in testProvider will be reflected in the hook
 var hook = new SimpleGlobalHook(globalHookProvider: testProvider);
+
+// Calls to methods in testProvider will be reflected in the simulator
+var simulator = new EventSimulator(simulationProvider: testProvider);
 </code></pre>
 <div class="NOTE">
 <h5>Note</h5>

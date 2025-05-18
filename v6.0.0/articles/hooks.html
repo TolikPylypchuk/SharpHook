@@ -128,12 +128,14 @@ will not be a background thread.</p>
 <p>You can subscribe to events after the hook is started.</p>
 <p>If you run the hook when it's already running, then an exception will be thrown. You can check whether a hook is running
 using its <code>IsRunning</code> property.</p>
-<p><code>IGlobalHook</code> extends <code>IDisposable</code>. When you call the <code>Dispose</code> method on a hook, it's destroyed. The contract of
-the interface is that once a hook has been destroyed, it cannot be started again - you'll have to create a new instance.
-Calling <code>Dispose</code> when the hook is not running is safe - it just won't do anything (other than marking the instance as
-disposed). You can check whether the hook is disposed using the <code>IsDisposed</code> property.</p>
-<p>The <code>HookEnabled</code> event is raised once when the <code>Run</code> or <code>RunAsync</code> method is called. The <code>HookDisabled</code> event is raised
-once when the <code>Dispose</code> method is called.</p>
+<p><code>IGlobalHook</code> contains the <code>Stop</code> method to stop the global hook. After stopping, the global hook can be started again
+by calling the <code>Run</code> or <code>RunAsync</code> method. Calling <code>Stop</code> when the hook is not running won't do anything.</p>
+<p><code>IGlobalHook</code> extends <code>IDisposable</code>. When you call the <code>Dispose</code> method on a hook, it's disposed and stopped if it was
+running. Once a hook has been disposed, it cannot be started again - you'll have to create a new instance. Calling
+<code>Dispose</code> when the hook is not running won't do anything other than marking the instance as disposed. You can check
+whether the hook is disposed using the <code>IsDisposed</code> property.</p>
+<p>The <code>HookEnabled</code> event is raised when the <code>Run</code> or <code>RunAsync</code> method is called. The <code>HookDisabled</code> event is raised when
+the <code>Stop</code> or <code>Dispose</code> method is called.</p>
 <p>Hook events are of type <code>HookEventArgs</code> or a derived type which contains more info. It's possible to suppress event
 propagation by setting the <code>SuppressEvent</code> property to <code>true</code> inside the event handler. This must be done synchronously
 and is only supported on Windows and macOS. You can check the event time and whether the event is real or simulated with
@@ -145,8 +147,9 @@ method to set the hook callback for libuiohook, so there may only be one callbac
 when another global hook is already running will corrupt the internal global state of libuiohook.</p>
 </div>
 <p>You can create a keyboard-only or a mouse-only hook by passing a <code>GlobalHookType</code> to the hook's constructor. This makes
-a difference only on Windows where there are two different global hooks - a keyboard hook and a mouse hook. On macOS and
-Linux there is one hook for all events, and this simply enables filtering keyboard or mouse events out on these OSes.</p>
+a real difference only on Windows where there are two different global hooks - a keyboard hook and a mouse hook. On
+macOS and Linux, there is one hook for all events, and this simply enables filtering keyboard or mouse events out on
+these OSes.</p>
 <h2 id="the-default-implementations">The Default Implementations</h2>
 <p>SharpHook provides two implementations of <code>IGlobalHook</code>:</p>
 <ul>
@@ -163,7 +166,7 @@ ignored since event handlers are run on other threads.</p>
 </ul>
 <p>The library also provides the <code>SharpHook.GlobalHookBase</code> class which you can extend to create your own implementation
 of the global hook. It calls the appropriate event handlers, and you only need to implement a strategy for dispatching
-the events. It also contains a finalizer which will stop the global hook if this object is not reachable anymore.</p>
+the events. It also keeps a reference to a running global hook so that it's not garbage-collected.</p>
 
 </article>
 
