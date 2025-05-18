@@ -22,7 +22,7 @@ doesn't contain the `Reserved` field anymore. Instead, its values are now part o
 `TaskPoolGlobalHook`.
 
 All constructors of `SimpleGlobalHook`, `TaskPoolGlobalHook`, `SimpleReactiveGlobalHook`, and
-`ReactiveGlobalHookAdapter` except the main ones were removed. 
+`ReactiveGlobalHookAdapter` except the main ones were removed.
 
 `LogSource.Register` was removed. `RegisterOrGet` should be used instead.
 
@@ -30,7 +30,7 @@ All obsolete values in the `KeyCode` enum were removed.
 
 `HookException` doesn't support `BinaryFormatter` serialization anymore.
 
-The behavoiur of `TestGlobalHook` and `TestProvider` was changed. Instead of dispatching events in the same thread that
+The behaviour of `TestGlobalHook` and `TestProvider` was changed. Instead of dispatching events in the same thread that
 simulates them, they now instead add events into an event loop running on a different thread. `TestProvider` now throws
 an exception if `Run` or `RunAsync` is called and it's already running.
 

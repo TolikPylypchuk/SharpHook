@@ -1,5 +1,69 @@
 # SharpHook Changelog
 
+## [v6.0.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v6.0.0) (May 18, 2025)
+
+### Platform Support
+
+- Support for Mac Catalyst on non-MAUI applications was added.
+
+- The minimum .NET Framework version was bumped to 4.7.2. Direct support for .NET 6 and 7 was removed, but it's still
+available through .NET Standard.
+
+### Breaking Changes
+
+- All structs and enums were moved from `SharpHook.Native` to `SharpHook.Data`.
+
+- `ModifierMask` and `EventReservedValueMask` were merged into a single enum - `EventMask`.
+
+- `UioHookEvent.Reserved` was removed. Its values are now part of `UioHookEvent.Mask`.
+
+- All constructors of `SimpleGlobalHook`, `TaskPoolGlobalHook`, `SimpleReactiveGlobalHook`, and
+`ReactiveGlobalHookAdapter` except the main ones were removed.
+
+- `TaskPoolGlobalHookOptions` was removed.
+
+- All obsolete values in the `KeyCode` enum were removed.
+
+- `LogSource.Register` was removed.
+
+- Members of `HookException` related to binary formatters were removed.
+
+- The behaviour of `TestGlobalHook` and `TestProvider` was changed. Instead of dispatching events in the same thread
+that simulates them, they now instead add events into an event loop running on a different thread.
+
+- `TestProvider` now throws an exception if `Run` or `RunAsync` is called and it's already running.
+
+### New Features
+
+- The ability to stop global hooks without disposing of them was added.
+
+- Several functions for working with the macOS Accessibility API were added.
+
+- `UioHookEvent.Mask` now contains the state of modifiers and mouse buttons regardless of the global hook type
+(keyboard, mouse, or both).
+
+- Running global hooks won't be garbage-collected.
+
+### Bug Fixes
+
+- Getting libuiohook logs on Mac Catalyst applications was fixed.
+
+- The issue with global hooks breaking Alt codes on Windows was fixed.
+
+- Getting events for Caps Lock was fixed on macOS.
+
+- Disposing a `TaskPoolGlobalHook` inside an event handler doesn't throw an exception anymore.
+
+### Other Changes
+
+- libuiohook was updated to commit
+[c61b486](https://github.com/TolikPylypchuk/libuiohook/tree/c61b4863caa7def54349d1426ef431414466f8b9).
+
+- SharpHook.Reactive now depends on Rx.NET 6.0.1.
+
+- Docs for older versions were removed. From now on, only the latest version will have docs hosted on
+[sharphook.tolik.io](https://sharphook.tolik.io).
+
 ## [v5.3.9](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.3.9) (March 29, 2025)
 
 - The state of the modifiers is now queried on every event instead of tracking them internally which removes
