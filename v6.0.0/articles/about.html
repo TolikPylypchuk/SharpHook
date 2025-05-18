@@ -146,6 +146,8 @@ that simulates them, they now instead add events into an event loop running on a
 </li>
 <li><p>Getting events for Caps Lock was fixed on macOS.</p>
 </li>
+<li><p>Disabling access to the Accessibility API when a global hook is running on macOS won't freeze the OS anymore.</p>
+</li>
 <li><p>Disposing a <code>TaskPoolGlobalHook</code> inside an event handler doesn't throw an exception anymore.</p>
 </li>
 </ul>
