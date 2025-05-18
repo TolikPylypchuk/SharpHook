@@ -15,15 +15,17 @@ public interface IGlobalHook : IDisposable
     bool IsRunning { get; }
 
     /// <summary>
-    /// Gets the value which indicates whether the global hook is disposed.
+    /// Gets the value which indicates whether the global hook has been disposed.
     /// </summary>
-    /// <value><see langword="true" /> if the global hook is disposed. Otherwise, <see langword="false" />.</value>
+    /// <value>
+    /// <see langword="true" /> if the global hook has been disposed. Otherwise, <see langword="false" />.
+    /// </value>
     /// <remarks>A disposed global hook cannot be started again.</remarks>
     bool IsDisposed { get; }
 
     /// <summary>
-    /// Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
-    /// <see cref="IDisposable.Dispose" /> method.
+    /// Runs the global hook on the current thread, blocking it. The hook can be stopped by calling the
+    /// <see cref="Stop" /> or the <see cref="IDisposable.Dispose" /> methods.
     /// </summary>
     /// <exception cref="HookException">Starting the global hook has failed.</exception>
     /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
@@ -31,10 +33,10 @@ public interface IGlobalHook : IDisposable
     void Run();
 
     /// <summary>
-    /// Runs the global hook without blocking the current thread. The hook can be destroyed by calling the
-    /// <see cref="IDisposable.Dispose" /> method.
+    /// Runs the global hook without blocking the current thread. The hook can be stopped by calling the
+    /// <see cref="Stop" /> or the <see cref="IDisposable.Dispose" /> methods.
     /// </summary>
-    /// <returns>A <see cref="Task" /> which finishes when the hook is destroyed.</returns>
+    /// <returns>A <see cref="Task" /> which finishes when the hook is stopped.</returns>
     /// <exception cref="HookException">Starting the global hook has failed.</exception>
     /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
     /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
@@ -43,6 +45,15 @@ public interface IGlobalHook : IDisposable
     /// the current thread is to run it on a separate thread.
     /// </remarks>
     Task RunAsync();
+
+    /// <summary>
+    /// Stops the global hook.
+    /// </summary>
+    /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
+    /// <remarks>
+    /// After stopping, the global hook can run again.
+    /// </remarks>
+    void Stop();
 
     /// <summary>
     /// An event which is raised when the global hook is enabled.

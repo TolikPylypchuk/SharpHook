@@ -28,7 +28,7 @@ Console.WriteLine();
 
 logSource.MinLevel = LogLevel.Info;
 
-Console.WriteLine("---------- Press q to quit ----------\n");
+Console.WriteLine("---------- Press q to quit and w to stop the hook for 5 seconds ----------\n");
 
 var hook = new SimpleReactiveGlobalHook(defaultScheduler: TaskPoolScheduler.Default);
 
@@ -54,7 +54,15 @@ hook.MouseDragged
 
 hook.MouseWheel.Subscribe(OnHookEvent);
 
-hook.Run();
+while (!hook.IsDisposed)
+{
+    await hook.RunAsync();
+
+    if (!hook.IsDisposed)
+    {
+        await Task.Delay(TimeSpan.FromSeconds(5));
+    }
+}
 
 static void OnHookEvent(HookEventArgs e) =>
     Console.WriteLine($"{e.EventTime.ToLocalTime()}: {e.RawEvent}");
@@ -67,5 +75,8 @@ static void OnKeyReleased(KeyboardHookEventArgs e, IReactiveGlobalHook hook)
     if (e.Data.KeyCode == KeyCode.VcQ)
     {
         hook.Dispose();
+    } else if (e.Data.KeyCode == KeyCode.VcW)
+    {
+        hook.Stop();
     }
 }

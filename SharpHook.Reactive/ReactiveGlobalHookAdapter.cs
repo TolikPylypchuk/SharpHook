@@ -209,8 +209,8 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
     public IObservable<MouseWheelHookEventArgs> MouseWheel { get; }
 
     /// <summary>
-    /// Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
-    /// <see cref="IDisposable.Dispose" /> method.
+    /// Runs the global hook on the current thread, blocking it. The hook can be stopped by calling the
+    /// <see cref="Stop" /> or the <see cref="IDisposable.Dispose" /> methods.
     /// </summary>
     /// <exception cref="HookException">Starting the global hook has failed.</exception>
     /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
@@ -224,16 +224,16 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
     }
 
     /// <summary>
-    /// Runs the global hook without blocking the current thread. The hook can be destroyed by calling the
-    /// <see cref="IDisposable.Dispose" /> method.
+    /// Runs the global hook without blocking the current thread. The hook can be stopped by calling the
+    /// <see cref="Stop" /> or the <see cref="IDisposable.Dispose" /> methods.
     /// </summary>
-    /// <returns>An observable which is completed when the hook is destroyed.</returns>
+    /// <returns>An observable which is completed when the hook is stopped.</returns>
     /// <exception cref="HookException">Starting the global hook has failed.</exception>
     /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
     /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
     /// <remarks>
     /// The hook is started on a separate thread. The returned observable is hot. It emits a single value and then
-    /// immediately completes when the hook is destroyed.
+    /// immediately completes when the hook is stopped.
     /// </remarks>
     public IObservable<Unit> RunAsync()
     {
@@ -246,11 +246,25 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
     }
 
     /// <summary>
-    /// Destroys the global hook.
+    /// Stops the global hook.
     /// </summary>
+    /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
     /// <remarks>
-    /// After calling this method, the hook cannot be started again. If you want to do that, create a new instance
-    /// of <see cref="IGlobalHook" />.
+    /// After stopping, the global hook can run again.
+    /// </remarks>
+    public void Stop()
+    {
+        this.ThrowIfDisposed();
+        this.hook.Stop();
+    }
+
+    /// <summary>
+    /// Disposes of the global hook, stopping it if it is running.
+    /// </summary>
+    /// <exception cref="HookException">Stopping the hook has failed.</exception>
+    /// <remarks>
+    /// After calling this method, the hook cannot run again. If you want to stop the global hook with the ability to
+    /// run it again, call the <see cref="Stop" /> method instead.
     /// </remarks>
     public void Dispose()
     {

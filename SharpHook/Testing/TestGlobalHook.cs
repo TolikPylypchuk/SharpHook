@@ -157,6 +157,13 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     public UioHookResult RunResult { get; set; } = UioHookResult.Success;
 
     /// <summary>
+    /// Gets or sets the result of the <see cref="Stop()" /> method. If anything other than
+    /// <see cref="UioHookResult.Success" /> is set, then the method will throw a <see cref="HookException" />.
+    /// </summary>
+    /// <value>The result of the <see cref="Stop()" /> method.</value>
+    public UioHookResult StopResult { get; set; } = UioHookResult.Success;
+
+    /// <summary>
     /// Gets or sets the result of the <see cref="Dispose()" /> method. If anything other than
     /// <see cref="UioHookResult.Success" /> is set, then the method will throw a <see cref="HookException" />.
     /// </summary>
@@ -310,7 +317,34 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     }
 
     /// <summary>
-    /// Destroys the global hook.
+    /// Stops the global hook.
+    /// </summary>
+    /// <exception cref="HookException">
+    /// <see cref="StopResult" /> was set to something other than <see cref="UioHookResult.Success" />.
+    /// </exception>
+    /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
+    /// <remarks>
+    /// After calling this method, the hook can be started again.
+    /// </remarks>
+    public void Stop()
+    {
+        this.ThrowIfDisposed();
+
+        var result = this.StopResult;
+
+        if (result != UioHookResult.Success)
+        {
+            throw new HookException(result);
+        }
+
+        lock (this.syncRoot)
+        {
+            this.eventLoop?.CompleteAdding();
+        }
+    }
+
+    /// <summary>
+    /// Disposes of the global hook, stopping it if it is running.
     /// </summary>
     /// <exception cref="HookException">
     /// <see cref="DisposeResult" /> was set to something other than <see cref="UioHookResult.Success" />.

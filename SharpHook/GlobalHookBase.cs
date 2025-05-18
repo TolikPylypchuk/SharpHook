@@ -50,7 +50,7 @@ public abstract class GlobalHookBase : IGlobalHook
     }
 
     /// <summary>
-    /// Destroys the global hook if it's running.
+    /// Stops the global hook if it's running.
     /// </summary>
     [ExcludeFromCodeCoverage]
     ~GlobalHookBase() =>
@@ -63,9 +63,11 @@ public abstract class GlobalHookBase : IGlobalHook
     public bool IsRunning { get; private set; }
 
     /// <summary>
-    /// Gets the value which indicates whether the global hook is disposed.
+    /// Gets the value which indicates whether the global hook has been disposed.
     /// </summary>
-    /// <value><see langword="true" /> if the global hook is disposed. Otherwise, <see langword="false" />.</value>
+    /// <value>
+    /// <see langword="true" /> if the global hook has been disposed. Otherwise, <see langword="false" />.
+    /// </value>
     /// <remarks>A disposed global hook cannot be started again.</remarks>
     public bool IsDisposed { get; private set; }
 
@@ -97,6 +99,7 @@ public abstract class GlobalHookBase : IGlobalHook
         {
             this.IsRunning = false;
             runningGlobalHooks.TryRemove(this.hookIndex, out _);
+            this.globalHookProvider.SetDispatchProc(null, IntPtr.Zero);
         }
 
         if (result != UioHookResult.Success)
@@ -146,6 +149,7 @@ public abstract class GlobalHookBase : IGlobalHook
             } finally
             {
                 runningGlobalHooks.TryRemove(this.hookIndex, out _);
+                this.globalHookProvider.SetDispatchProc(null, IntPtr.Zero);
             }
         })
         {
@@ -158,12 +162,34 @@ public abstract class GlobalHookBase : IGlobalHook
     }
 
     /// <summary>
-    /// Destroys the global hook.
+    /// Stops the global hook.
+    /// </summary>
+    /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
+    /// <remarks>
+    /// After stopping, the global hook can run again.
+    /// </remarks>
+    public void Stop()
+    {
+        this.ThrowIfDisposed();
+
+        if (this.IsRunning)
+        {
+            var result = this.globalHookProvider.Stop();
+
+            if (result != UioHookResult.Success)
+            {
+                throw new HookException(result, this.FormatStopFailureMessage(result));
+            }
+        }
+    }
+
+    /// <summary>
+    /// Disposes of the global hook, stopping it if it is running.
     /// </summary>
     /// <exception cref="HookException">Stopping the hook has failed.</exception>
     /// <remarks>
-    /// After calling this method, the hook cannot be started again. If you want to do that, create a new instance
-    /// of <see cref="IGlobalHook" />.
+    /// After calling this method, the hook cannot run again. If you want to stop the global hook with the ability to
+    /// run it again, call the <see cref="Stop" /> method instead.
     /// </remarks>
     public void Dispose()
     {
@@ -195,7 +221,6 @@ public abstract class GlobalHookBase : IGlobalHook
                 this.OnHookEnabled(args = new HookEventArgs(e));
                 break;
             case EventType.HookDisabled:
-                this.globalHookProvider.SetDispatchProc(null, IntPtr.Zero);
                 this.OnHookDisabled(args = new HookEventArgs(e));
                 break;
             case EventType.KeyTyped:
@@ -329,7 +354,7 @@ public abstract class GlobalHookBase : IGlobalHook
         this.MouseWheel?.Invoke(this, args);
 
     /// <summary>
-    /// Destroys the global hook.
+    /// Disposes of the global hook, stopping it if it is running.
     /// </summary>
     /// <param name="disposing">
     /// <see langword="true" /> if the method is called from the <see cref="Dispose()" /> method.

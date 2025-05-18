@@ -15,11 +15,15 @@ public sealed class ReactiveGlobalHookAdapterTests
         Assert.False(hook.IsRunning);
 
         this.RunHookAndWaitForStart(hook, provider);
+        Assert.True(hook.IsRunning);
 
+        this.StopHookAndWaitForStop(hook);
+        Assert.False(hook.IsRunning);
+
+        this.RunHookAndWaitForStart(hook, provider);
         Assert.True(hook.IsRunning);
 
         this.DisposeHookAndWaitForStop(hook);
-
         Assert.False(hook.IsRunning);
     }
 
@@ -724,6 +728,38 @@ public sealed class ReactiveGlobalHookAdapterTests
         await Assert.ThrowsAsync<ObjectDisposedException>(async () => await hook.RunAsync());
     }
 
+    [Property(DisplayName = "Stop should throw if the hook failed to start")]
+    public void StopFail(GlobalHookType globalHookType, FailedUioHookResult result)
+    {
+        // Arrange
+
+        var provider = new TestProvider
+        {
+            StopResult = result.Value
+        };
+
+        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider));
+        this.RunHookAndWaitForStart(hook, provider);
+
+        // Act + Assert
+
+        var exception = Assert.Throws<HookException>(hook.Stop);
+        Assert.Equal(result.Value, exception.Result);
+    }
+
+    [Property(DisplayName = "Stop should throw if the hook is disposed")]
+    public void StopDisposed(GlobalHookType globalHookType)
+    {
+        // Arrange
+
+        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(globalHookType));
+        hook.Dispose();
+
+        // Act + Assert
+
+        Assert.Throws<ObjectDisposedException>(hook.Stop);
+    }
+
     [Property(DisplayName = "Dispose should throw if the hook failed to stop")]
     public void DisposeFail(GlobalHookType globalHookType, FailedUioHookResult result)
     {
@@ -744,6 +780,23 @@ public sealed class ReactiveGlobalHookAdapterTests
         Assert.Equal(result.Value, exception.Result);
     }
 
+    [Property(DisplayName = "Dispose should do nothing if the hook is disposed")]
+    public void DisposeDisposed(GlobalHookType globalHookType)
+    {
+        // Arrange
+
+        var hook = new ReactiveGlobalHookAdapter(new SimpleGlobalHook(globalHookType));
+        hook.Dispose();
+
+        // Act
+
+        var exception = Record.Exception(hook.Dispose);
+
+        // Assert
+
+        Assert.Null(exception);
+    }
+
     [Fact(DisplayName = "ReactiveGlobalHookAdapter should throw if the adapted hook is null")]
     public void AdaptedHookNull() =>
         Assert.Throws<ArgumentNullException>(() => new ReactiveGlobalHookAdapter(null!));
@@ -761,6 +814,16 @@ public sealed class ReactiveGlobalHookAdapterTests
         hook.RunAsync();
 
         while (!provider.IsRunning)
+        {
+            Thread.Yield();
+        }
+    }
+
+    private void StopHookAndWaitForStop(ReactiveGlobalHookAdapter hook)
+    {
+        hook.Stop();
+
+        while (hook.IsRunning)
         {
             Thread.Yield();
         }

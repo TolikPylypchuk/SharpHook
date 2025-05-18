@@ -1,5 +1,3 @@
-using System.Threading.Tasks;
-
 namespace SharpHook.Testing;
 
 public sealed class TestGlobalHookTests
@@ -832,6 +830,76 @@ public sealed class TestGlobalHookTests
         this.AssertSimulatedEvents(hook, actualEventArgs);
     }
 
+    [Fact(DisplayName = "Stop should stop the global hook")]
+    public async Task Stop()
+    {
+        // Arrange
+
+        using var hook = new TestGlobalHook();
+        var task = hook.RunAsync();
+
+        // Act
+
+        hook.Stop();
+        await task;
+
+        // Assert
+
+        Assert.False(hook.IsRunning);
+    }
+
+    [Fact(DisplayName = "Stop should do nothing if the global hook is not running")]
+    public void StopNotRunning()
+    {
+        // Arrange
+
+        using var hook = new TestGlobalHook();
+
+        // Act
+
+        hook.Stop();
+
+        // Assert
+
+        Assert.False(hook.IsRunning);
+    }
+
+    [Fact(DisplayName = "Dispose should stop the global hook")]
+    public async Task Dispose()
+    {
+        // Arrange
+
+        var hook = new TestGlobalHook();
+        var task = hook.RunAsync();
+
+        // Act
+
+        hook.Dispose();
+        await task;
+
+        // Assert
+
+        Assert.False(hook.IsRunning);
+        Assert.True(hook.IsDisposed);
+    }
+
+    [Fact(DisplayName = "Dispose should do nothing if the global hook is not running")]
+    public void DisposeNotRunning()
+    {
+        // Arrange
+
+        var hook = new TestGlobalHook();
+
+        // Act
+
+        hook.Dispose();
+
+        // Assert
+
+        Assert.False(hook.IsRunning);
+        Assert.True(hook.IsDisposed);
+    }
+
     [Property(DisplayName = "SimulateTextEntry should add it to the simulated text collection")]
     public void SimulateTextEntry(NonNull<string> text)
     {
@@ -867,7 +935,7 @@ public sealed class TestGlobalHookTests
         Assert.Equal(result.Value, exception.Result);
     }
 
-    [Property(DisplayName = "Run should throw an exception if the global hook is already running")]
+    [Fact(DisplayName = "Run should throw an exception if the global hook is already running")]
     public async Task RunRunning()
     {
         // Arrange
@@ -901,7 +969,7 @@ public sealed class TestGlobalHookTests
         Assert.Equal(result.Value, exception.Result);
     }
 
-    [Property(DisplayName = "RunAsync should throw an exception if the global hook is already running")]
+    [Fact(DisplayName = "RunAsync should throw an exception if the global hook is already running")]
     public async Task RunAsyncRunning()
     {
         // Arrange
@@ -942,6 +1010,38 @@ public sealed class TestGlobalHookTests
         // Act + Assert
 
         await Assert.ThrowsAsync<ObjectDisposedException>(hook.RunAsync);
+    }
+
+    [Property(DisplayName = "Stop should throw an exception if configured to do so")]
+    public void StopFail(FailedUioHookResult result)
+    {
+        // Arrange
+
+        var hook = new TestGlobalHook
+        {
+            StopResult = result.Value
+        };
+
+        // Act + Assert
+
+        var task = hook.RunAsync();
+
+        var exception = Assert.Throws<HookException>(hook.Stop);
+
+        Assert.Equal(result.Value, exception.Result);
+    }
+
+    [Fact(DisplayName = "Stop should throw an exception if the hook is disposed")]
+    public void StopDisposed()
+    {
+        // Arrange
+
+        var hook = new TestGlobalHook();
+        hook.Dispose();
+
+        // Act + Assert
+
+        Assert.Throws<ObjectDisposedException>(hook.Stop);
     }
 
     [Property(DisplayName = "Dispose should throw an exception if configured to do so")]

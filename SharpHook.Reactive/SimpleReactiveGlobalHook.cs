@@ -64,8 +64,8 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
 
         defaultScheduler ??= ImmediateScheduler.Instance;
 
-        this.HookEnabled = this.hookEnabledSubject.Take(1).ObserveOn(defaultScheduler);
-        this.HookDisabled = this.hookDisabledSubject.Take(1).ObserveOn(defaultScheduler);
+        this.HookEnabled = this.hookEnabledSubject.ObserveOn(defaultScheduler);
+        this.HookDisabled = this.hookDisabledSubject.ObserveOn(defaultScheduler);
 
         this.KeyTyped = this.keyTypedSubject.ObserveOn(defaultScheduler);
         this.KeyPressed = this.keyPressedSubject.ObserveOn(defaultScheduler);
@@ -81,7 +81,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     }
 
     /// <summary>
-    /// Destroys the global hook if it's running.
+    /// Stops the global hook if it's running.
     /// </summary>
     ~SimpleReactiveGlobalHook() =>
         this.Dispose(false);
@@ -93,9 +93,11 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     public bool IsRunning { get; private set; }
 
     /// <summary>
-    /// Gets the value which indicates whether the global hook is disposed.
+    /// Gets the value which indicates whether the global hook has been disposed.
     /// </summary>
-    /// <value><see langword="true" /> if the global hook is disposed. Otherwise, <see langword="false" />.</value>
+    /// <value>
+    /// <see langword="true" /> if the global hook has been disposed. Otherwise, <see langword="false" />.
+    /// </value>
     /// <remarks>A disposed global hook cannot be started again.</remarks>
     public bool IsDisposed { get; private set; }
 
@@ -104,8 +106,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     /// </summary>
     /// <value>An observable which emits a value when the global hook is enabled.</value>
     /// <remarks>
-    /// The observable emits a value when the <see cref="Run" /> or <see cref="RunAsync" /> method is called and
-    /// then immediately completes.
+    /// The observable emits a value when the <see cref="Run" /> or <see cref="RunAsync" /> method is called.
     /// </remarks>
     public IObservable<HookEventArgs> HookEnabled { get; }
 
@@ -114,8 +115,8 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     /// </summary>
     /// <value>An observable which emits a value when the global hook is disabled.</value>
     /// <remarks>
-    /// The observable emits a value when the <see cref="IDisposable.Dispose" /> method is called and then
-    /// immediately completes.
+    /// The observable emits a value when the <see cref="Stop" /> or <see cref="IDisposable.Dispose" /> method is
+    /// called.
     /// </remarks>
     public IObservable<HookEventArgs> HookDisabled { get; }
 
@@ -174,8 +175,8 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     public IObservable<MouseWheelHookEventArgs> MouseWheel { get; }
 
     /// <summary>
-    /// Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
-    /// <see cref="IDisposable.Dispose" /> method.
+    /// Runs the global hook on the current thread, blocking it. The hook can be stopped by calling the
+    /// <see cref="Stop" /> or the <see cref="IDisposable.Dispose" /> methods.
     /// </summary>
     /// <exception cref="HookException">Starting the global hook has failed.</exception>
     /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
@@ -201,6 +202,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
         {
             this.IsRunning = false;
             runningGlobalHooks.TryRemove(this.hookIndex, out _);
+            this.globalHookProvider.SetDispatchProc(null, IntPtr.Zero);
         }
 
         if (result != UioHookResult.Success)
@@ -210,16 +212,16 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     }
 
     /// <summary>
-    /// Runs the global hook without blocking the current thread. The hook can be destroyed by calling the
-    /// <see cref="IDisposable.Dispose" /> method.
+    /// Runs the global hook without blocking the current thread. The hook can be stopped by calling the
+    /// <see cref="Stop" /> or the <see cref="IDisposable.Dispose" /> methods.
     /// </summary>
-    /// <returns>An observable which is completed when the hook is destroyed.</returns>
+    /// <returns>An observable which is completed when the hook is stopped.</returns>
     /// <exception cref="HookException">Starting the global hook has failed.</exception>
     /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
     /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
     /// <remarks>
     /// The hook is started on a separate thread. The returned observable is hot. It emits a single value and then
-    /// immediately completes when the hook is destroyed.
+    /// immediately completes when the hook is stopped.
     /// </remarks>
     public IObservable<Unit> RunAsync()
     {
@@ -254,6 +256,8 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
             } finally
             {
                 runningGlobalHooks.TryRemove(this.hookIndex, out _);
+                this.globalHookProvider.SetDispatchProc(null, IntPtr.Zero);
+
             }
         })
         {
@@ -266,12 +270,34 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     }
 
     /// <summary>
-    /// Destroys the global hook.
+    /// Stops the global hook.
+    /// </summary>
+    /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
+    /// <remarks>
+    /// After stopping, the global hook can run again.
+    /// </remarks>
+    public void Stop()
+    {
+        this.ThrowIfDisposed();
+
+        if (this.IsRunning)
+        {
+            var result = this.globalHookProvider.Stop();
+
+            if (result != UioHookResult.Success)
+            {
+                throw new HookException(result, this.FormatStopFailureMessage(result));
+            }
+        }
+    }
+
+    /// <summary>
+    /// Disposes of the global hook, stopping it if it is running.
     /// </summary>
     /// <exception cref="HookException">Stopping the hook has failed.</exception>
     /// <remarks>
-    /// After calling this method, the hook cannot be started again. If you want to do that, create a new instance
-    /// of <see cref="IReactiveGlobalHook" />.
+    /// After calling this method, the hook cannot run again. If you want to stop the global hook with the ability to
+    /// run it again, call the <see cref="Stop" /> method instead.
     /// </remarks>
     public void Dispose()
     {
@@ -376,8 +402,6 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
         {
             this.hookDisabledSubject.Subscribe(_ =>
             {
-                this.globalHookProvider.SetDispatchProc(null, IntPtr.Zero);
-
                 this.CompleteAllSubjects();
 
                 if (disposing)
