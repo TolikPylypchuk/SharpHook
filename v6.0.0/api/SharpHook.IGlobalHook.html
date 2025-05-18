@@ -135,7 +135,7 @@ Interface IGlobalHook  <a class="header-action link-secondary" title="View sourc
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets the value which indicates whether the global hook is disposed.</p>
+  <div class="markdown level1 summary"><p>Gets the value which indicates whether the global hook has been disposed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -150,7 +150,7 @@ Interface IGlobalHook  <a class="header-action link-secondary" title="View sourc
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the global hook is disposed. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the global hook has been disposed. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </dd>
   </dl>
 
@@ -208,8 +208,8 @@ Interface IGlobalHook  <a class="header-action link-secondary" title="View sourc
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
-<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">Dispose()</a> method.</p>
+  <div class="markdown level1 summary"><p>Runs the global hook on the current thread, blocking it. The hook can be stopped by calling the
+<a class="xref" href="SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_Stop">Stop()</a> or the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">Dispose()</a> methods.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -248,8 +248,8 @@ Interface IGlobalHook  <a class="header-action link-secondary" title="View sourc
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Runs the global hook without blocking the current thread. The hook can be destroyed by calling the
-<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">Dispose()</a> method.</p>
+  <div class="markdown level1 summary"><p>Runs the global hook without blocking the current thread. The hook can be stopped by calling the
+<a class="xref" href="SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_Stop">Stop()</a> or the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">Dispose()</a> methods.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -261,7 +261,7 @@ Interface IGlobalHook  <a class="header-action link-secondary" title="View sourc
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
-    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the hook is destroyed.</p>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the hook is stopped.</p>
 </dd>
   </dl>
 
@@ -284,6 +284,42 @@ the current thread is to run it on a separate thread.</p>
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
     <dd><p>The global hook is already running.</p>
 </dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>The global hook has been disposed.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="SharpHook_IGlobalHook_Stop_" data-uid="SharpHook.IGlobalHook.Stop*"></a>
+
+  <h3 id="SharpHook_IGlobalHook_Stop" data-uid="SharpHook.IGlobalHook.Stop">
+  Stop()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stops the global hook.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Stop()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_IGlobalHook_Stop_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>After stopping, the global hook can run again.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
     <dd><p>The global hook has been disposed.</p>
 </dd>

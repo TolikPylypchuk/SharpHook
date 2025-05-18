@@ -2782,6 +2782,18 @@ references:
   commentId: Overload:SharpHook.GlobalHookBase.RunAsync
   fullName: SharpHook.GlobalHookBase.RunAsync
   nameWithType: GlobalHookBase.RunAsync
+- uid: SharpHook.GlobalHookBase.Stop
+  name: Stop()
+  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_Stop
+  commentId: M:SharpHook.GlobalHookBase.Stop
+  fullName: SharpHook.GlobalHookBase.Stop()
+  nameWithType: GlobalHookBase.Stop()
+- uid: SharpHook.GlobalHookBase.Stop*
+  name: Stop
+  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_Stop_
+  commentId: Overload:SharpHook.GlobalHookBase.Stop
+  fullName: SharpHook.GlobalHookBase.Stop
+  nameWithType: GlobalHookBase.Stop
 - uid: SharpHook.GlobalHookBase.ThrowIfDisposed(System.String)
   name: ThrowIfDisposed(string?)
   href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_ThrowIfDisposed_System_String_
@@ -3271,6 +3283,18 @@ references:
   commentId: Overload:SharpHook.IGlobalHook.RunAsync
   fullName: SharpHook.IGlobalHook.RunAsync
   nameWithType: IGlobalHook.RunAsync
+- uid: SharpHook.IGlobalHook.Stop
+  name: Stop()
+  href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_Stop
+  commentId: M:SharpHook.IGlobalHook.Stop
+  fullName: SharpHook.IGlobalHook.Stop()
+  nameWithType: IGlobalHook.Stop()
+- uid: SharpHook.IGlobalHook.Stop*
+  name: Stop
+  href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_Stop_
+  commentId: Overload:SharpHook.IGlobalHook.Stop
+  fullName: SharpHook.IGlobalHook.Stop
+  nameWithType: IGlobalHook.Stop
 - uid: SharpHook.KeyboardHookEventArgs
   name: KeyboardHookEventArgs
   href: api/SharpHook.KeyboardHookEventArgs.html
@@ -5005,6 +5029,18 @@ references:
   commentId: Overload:SharpHook.Reactive.IReactiveGlobalHook.RunAsync
   fullName: SharpHook.Reactive.IReactiveGlobalHook.RunAsync
   nameWithType: IReactiveGlobalHook.RunAsync
+- uid: SharpHook.Reactive.IReactiveGlobalHook.Stop
+  name: Stop()
+  href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_Stop
+  commentId: M:SharpHook.Reactive.IReactiveGlobalHook.Stop
+  fullName: SharpHook.Reactive.IReactiveGlobalHook.Stop()
+  nameWithType: IReactiveGlobalHook.Stop()
+- uid: SharpHook.Reactive.IReactiveGlobalHook.Stop*
+  name: Stop
+  href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_Stop_
+  commentId: Overload:SharpHook.Reactive.IReactiveGlobalHook.Stop
+  fullName: SharpHook.Reactive.IReactiveGlobalHook.Stop
+  nameWithType: IReactiveGlobalHook.Stop
 - uid: SharpHook.Reactive.Logging
   name: SharpHook.Reactive.Logging
   href: api/SharpHook.Reactive.Logging.html
@@ -5341,6 +5377,18 @@ references:
   commentId: Overload:SharpHook.Reactive.ReactiveGlobalHookAdapter.RunAsync
   fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.RunAsync
   nameWithType: ReactiveGlobalHookAdapter.RunAsync
+- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.Stop
+  name: Stop()
+  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_Stop
+  commentId: M:SharpHook.Reactive.ReactiveGlobalHookAdapter.Stop
+  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.Stop()
+  nameWithType: ReactiveGlobalHookAdapter.Stop()
+- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.Stop*
+  name: Stop
+  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_Stop_
+  commentId: Overload:SharpHook.Reactive.ReactiveGlobalHookAdapter.Stop
+  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.Stop
+  nameWithType: ReactiveGlobalHookAdapter.Stop
 - uid: SharpHook.Reactive.SimpleReactiveGlobalHook
   name: SimpleReactiveGlobalHook
   href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html
@@ -5572,6 +5620,18 @@ references:
   commentId: Overload:SharpHook.Reactive.SimpleReactiveGlobalHook.RunAsync
   fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.RunAsync
   nameWithType: SimpleReactiveGlobalHook.RunAsync
+- uid: SharpHook.Reactive.SimpleReactiveGlobalHook.Stop
+  name: Stop()
+  href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook_Stop
+  commentId: M:SharpHook.Reactive.SimpleReactiveGlobalHook.Stop
+  fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.Stop()
+  nameWithType: SimpleReactiveGlobalHook.Stop()
+- uid: SharpHook.Reactive.SimpleReactiveGlobalHook.Stop*
+  name: Stop
+  href: api/SharpHook.Reactive.SimpleReactiveGlobalHook.html#SharpHook_Reactive_SimpleReactiveGlobalHook_Stop_
+  commentId: Overload:SharpHook.Reactive.SimpleReactiveGlobalHook.Stop
+  fullName: SharpHook.Reactive.SimpleReactiveGlobalHook.Stop
+  nameWithType: SimpleReactiveGlobalHook.Stop
 - uid: SharpHook.SimpleGlobalHook
   name: SimpleGlobalHook
   href: api/SharpHook.SimpleGlobalHook.html
@@ -6223,6 +6283,30 @@ references:
   commentId: Overload:SharpHook.Testing.TestGlobalHook.SimulatedText
   fullName: SharpHook.Testing.TestGlobalHook.SimulatedText
   nameWithType: TestGlobalHook.SimulatedText
+- uid: SharpHook.Testing.TestGlobalHook.Stop
+  name: Stop()
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_Stop
+  commentId: M:SharpHook.Testing.TestGlobalHook.Stop
+  fullName: SharpHook.Testing.TestGlobalHook.Stop()
+  nameWithType: TestGlobalHook.Stop()
+- uid: SharpHook.Testing.TestGlobalHook.Stop*
+  name: Stop
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_Stop_
+  commentId: Overload:SharpHook.Testing.TestGlobalHook.Stop
+  fullName: SharpHook.Testing.TestGlobalHook.Stop
+  nameWithType: TestGlobalHook.Stop
+- uid: SharpHook.Testing.TestGlobalHook.StopResult
+  name: StopResult
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_StopResult
+  commentId: P:SharpHook.Testing.TestGlobalHook.StopResult
+  fullName: SharpHook.Testing.TestGlobalHook.StopResult
+  nameWithType: TestGlobalHook.StopResult
+- uid: SharpHook.Testing.TestGlobalHook.StopResult*
+  name: StopResult
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_StopResult_
+  commentId: Overload:SharpHook.Testing.TestGlobalHook.StopResult
+  fullName: SharpHook.Testing.TestGlobalHook.StopResult
+  nameWithType: TestGlobalHook.StopResult
 - uid: SharpHook.Testing.TestGlobalHook.SuppressedEvents
   name: SuppressedEvents
   href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SuppressedEvents

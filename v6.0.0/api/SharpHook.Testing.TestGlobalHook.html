@@ -964,6 +964,40 @@ method.</p>
 
 
 
+  <a id="SharpHook_Testing_TestGlobalHook_StopResult_" data-uid="SharpHook.Testing.TestGlobalHook.StopResult*"></a>
+
+  <h3 id="SharpHook_Testing_TestGlobalHook_StopResult" data-uid="SharpHook.Testing.TestGlobalHook.StopResult">
+  StopResult
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Testing/TestGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets the result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_Stop">Stop()</a> method. If anything other than
+<a class="xref" href="SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_Success">Success</a> is set, then the method will throw a <a class="xref" href="SharpHook.HookException.html">HookException</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UioHookResult StopResult { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
+    <dd><p>The result of the <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_Stop">Stop()</a> method.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="SharpHook_Testing_TestGlobalHook_SuppressedEvents_" data-uid="SharpHook.Testing.TestGlobalHook.SuppressedEvents*"></a>
 
   <h3 id="SharpHook_Testing_TestGlobalHook_SuppressedEvents" data-uid="SharpHook.Testing.TestGlobalHook.SuppressedEvents">
@@ -1007,7 +1041,7 @@ method.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Testing/TestGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Destroys the global hook.</p>
+  <div class="markdown level1 summary"><p>Disposes of the global hook, stopping it if it is running.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1756,6 +1790,45 @@ and a negative value indicates that the wheel will be rotated down or right.</p>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
     <dd><p><code class="paramref">text</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
+
+
+
+  <a id="SharpHook_Testing_TestGlobalHook_Stop_" data-uid="SharpHook.Testing.TestGlobalHook.Stop*"></a>
+
+  <h3 id="SharpHook_Testing_TestGlobalHook_Stop" data-uid="SharpHook.Testing.TestGlobalHook.Stop">
+  Stop()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Testing/TestGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stops the global hook.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Stop()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_Testing_TestGlobalHook_Stop_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>After calling this method, the hook can be started again.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.HookException.html">HookException</a></dt>
+    <dd><p><a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_StopResult">StopResult</a> was set to something other than <a class="xref" href="SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_Success">Success</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>The global hook has been disposed.</p>
 </dd>
   </dl>
 
