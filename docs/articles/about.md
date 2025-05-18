@@ -7,6 +7,52 @@ SharpHook - created by [Tolik Pylypchuk](https://tolik.io).
 If you've noticed that this library hasn't gotten new commits in some time, rest assured that it's not abandoned!
 I'm not giving up on this library any time soon.
 
+## Building from Source
+
+In order to build this library, you'll first need to get libuiohook binaries. You you can get a
+[nightly build from this repository](https://github.com/TolikPylypchuk/SharpHook/actions/workflows/build.yml), or you
+can build them yourself as instructed in the [libuiohook fork](https://github.com/TolikPylypchuk/libuiohook) that
+SharpHook uses (not recommended as it's non-trivial, and you should most probably use the same options that the build in
+this repository uses anyway).
+
+Place the binaries into the appropriate directories in the `SharpHook` project, as described in the following table:
+
+<table>
+  <tr>
+    <th>OS</th>
+    <th>File</th>
+    <th>Source directory</th>
+    <th>Target directory</th>
+  </tr>
+  <tr>
+    <th>Windows</th>
+    <td>uiohook.dll</td>
+    <td>windows/&lt;platform&gt;/bin</td>
+    <td>lib/win-&lt;platform&gt;</td>
+  </tr>
+  <tr>
+    <th>macOS</th>
+    <td>libuiohook.dylib</td>
+    <td>darwin/&lt;platform&gt;/lib</td>
+    <td>lib/osx-&lt;platform&gt;</td>
+  </tr>
+  <tr>
+    <th>Mac Catalyst</th>
+    <td>libuiohook.dylib</td>
+    <td>catalyst/&lt;platform&gt;/lib</td>
+    <td>lib/maccatalyst-&lt;platform&gt;</td>
+  </tr>
+  <tr>
+    <th>Linux</th>
+    <td>libuiohook.so</td>
+    <td>linux/&lt;platform&gt;/lib</td>
+    <td>lib/linux-&lt;platform&gt;</td>
+  </tr>
+</table>
+
+With libuiohook in place you can build SharpHook using your usual methods, e.g. with Visual Studio or the `dotnet` CLI.
+You need .NET 9 to build SharpHook.
+
 ## Changelog
 
 ### [v6.0.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v6.0.0) (May 18, 2025)

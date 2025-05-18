@@ -11,7 +11,6 @@ on:
   workflow_dispatch:
 
 env:
-  SHARPHOOK_VERSION: v6.0.0
   DOTNET_VERSION: 9.0.x
 
 jobs:
@@ -597,10 +596,10 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: docs/_site/
-          destination_dir: ${{ env.SHARPHOOK_VERSION }}
           user_name: "Tolik Pylypchuk"
           user_email: "pylypchuk.tolik@gmail.com"
           commit_message: "Deploy docs to GitHub Pages"
+          cname: sharphook.tolik.io
 
   publish:
     runs-on: windows-latest

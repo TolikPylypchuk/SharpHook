@@ -16,30 +16,17 @@ dotnet add package SharpHook.Reactive
 
 ## Upgrading
 
-A [migration guide](https://sharphook.tolik.io/v5.3.9/articles/migration.html) is available for upgrading between major
+A [migration guide](https://sharphook.tolik.io/articles/migration.html) is available for upgrading between major
 versions.
 
 ## Docs
 
 You can find more information (including the API reference) in the docs at
-[https://sharphook.tolik.io](https://sharphook.tolik.io). Or if you need a specific version:
-
-- [v5.3.9](https://sharphook.tolik.io/v5.3.9) | [v5.3.8](https://sharphook.tolik.io/v5.3.8) | [v5.3.7](https://sharphook.tolik.io/v5.3.7) | [v5.3.6](https://sharphook.tolik.io/v5.3.6) | [v5.3.5](https://sharphook.tolik.io/v5.3.5) | [v5.3.4](https://sharphook.tolik.io/v5.3.4) | [v5.3.3](https://sharphook.tolik.io/v5.3.3) | [v5.3.2](https://sharphook.tolik.io/v5.3.2) | [v5.3.1](https://sharphook.tolik.io/v5.3.1) | [v5.3.0](https://sharphook.tolik.io/v5.3.0)
-- [v5.2.3](https://sharphook.tolik.io/v5.2.3) | [v5.2.2](https://sharphook.tolik.io/v5.2.2) | [v5.2.1](https://sharphook.tolik.io/v5.2.1) | [v5.2.0](https://sharphook.tolik.io/v5.2.0)
-- [v5.1.2](https://sharphook.tolik.io/v5.1.2) | [v5.1.1](https://sharphook.tolik.io/v5.1.1) | [v5.1.0](https://sharphook.tolik.io/v5.1.0)
-- [v5.0.0](https://sharphook.tolik.io/v5.0.0)
-- [v4.2.1](https://sharphook.tolik.io/v4.2.1) | [v4.2.0](https://sharphook.tolik.io/v4.2.0)
-- [v4.1.0](https://sharphook.tolik.io/v4.1.0)
-- [v4.0.1](https://sharphook.tolik.io/v4.0.1) | [v4.0.0](https://sharphook.tolik.io/v4.0.0)
-- [v3.1.3](https://sharphook.tolik.io/v3.1.3) | [v3.1.2](https://sharphook.tolik.io/v3.1.2) | [v3.1.1](https://sharphook.tolik.io/v3.1.1) | [v3.1.0](https://sharphook.tolik.io/v3.1.0)
-- [v3.0.2](https://sharphook.tolik.io/v3.0.2) | [v3.0.1](https://sharphook.tolik.io/v3.0.1) | [v3.0.0](https://sharphook.tolik.io/v3.0.0)
-- [v2.0.0](https://sharphook.tolik.io/v2.0.0)
-- [v1.1.0](https://sharphook.tolik.io/v1.1.0)
-- [v1.0.1](https://sharphook.tolik.io/v1.0.1) | [v1.0.0](https://sharphook.tolik.io/v1.0.0)
+[https://sharphook.tolik.io](https://sharphook.tolik.io).
 
 ## Supported Platforms
 
-SharpHook targets .NET 6+, .NET Framework 4.6.2+, and .NET Standard 2.0. The following table describes
+SharpHook targets .NET 8+, .NET Framework 4.7.2+, and .NET Standard 2.0. The following table describes
 the availability of SharpHook on various platforms:
 
 <table>
@@ -77,29 +64,34 @@ the availability of SharpHook on various platforms:
 
 Platform support notes:
 
-- Windows 10/11 is supported. Arm32 is not supported since its support was
+- Windows 10/11 is supported. Support for Windows on Arm32 was removed in version 5.0 since it was
 [removed in .NET 5](https://github.com/dotnet/core/blob/main/release-notes/5.0/5.0-supported-os.md).
 
-- macOS 10.15+ is supported. Mac Catalyst is also supported (13.1+). macOS requires that the accessibility API be
-enabled for the application if it wants to create a global hook.
+- macOS 10.15+ is supported. Mac Catalyst 13.1+ is also supported. macOS requires that the access to the Accessibility
+API be enabled for the application if it wants to create a global hook or simulate events.
 
 - Linux distributions supported by .NET are supported by SharpHook. Linux on x86 is
 [not supported](https://github.com/dotnet/runtime/issues/7335) by .NET itself. Only X11 is supported - Wayland support
-[may be coming](https://github.com/kwhat/libuiohook/issues/100), but it's not yet here.
+[may be coming](https://github.com/kwhat/libuiohook/issues/196), but it's not yet here.
 
 More info on OS support can be found in
-[an article on OS-specific constraints](https://sharphook.tolik.io/v5.3.9/articles/os-constraints.html).
+[an article on OS-specific constraints](https://sharphook.tolik.io/articles/os-constraints.html).
 
 ## Usage
 
 ### Native Functions of libuiohook
 
-SharpHook exposes the functions of libuiohook in the `SharpHook.Native.UioHook` class. The `SharpHook.Native`
-namespace also contains types which represent the data used by libuiohook.
+SharpHook exposes the functions of libuiohook in the `SharpHook.Native.UioHook` class. The `SharpHook.Data` namespace
+contains types which represent the data used by libuiohook.
 
 In general, you don't need to use the native methods directly. Instead, use the higher-level interfaces and classes
 provided by SharpHook. However, you should still read this section to know how the high-level features work under
 the hood.
+
+If you want to use the low-level functionality, you don't need to use the `UioHook` class directly. Instead you can use
+interfaces in the `SharpHook.Providers` namespace. The methods in those interfaces are the same as in the `UioHook`
+class. `SharpHook.Providers.UioHookProvider` implements all of these interfaces and simply calls the corresponding
+methods in `UioHook`. This should be done to decouple your code from `UioHook` and make testing easier.
 
 `UioHook` contains the following methods for working with the global hook:
 
@@ -111,29 +103,24 @@ called.
 - `RunMouse` - creates a mouse-only global hook and runs it on the current thread, blocking it until `Stop` is called.
 - `Stop` - destroys the global hook.
 
-You have to remember that only one global hook can exist at a time since calling `SetDispatchProc` will override the
-previously set one.
+> [!IMPORTANT]
+> You have to remember that only one global hook can exist at a time since calling `SetDispatchProc` will override the
+> previously set one.
 
-Additionally, `UioHook` contains the `PostEvent` method for simulating input events, and the `SetLoggerProc` method for
-setting the log callback.
+Additionally, `UioHook` contains the `PostEvent` method for simulating input events.
 
-SharpHook also provides text entry simulation and `UioHook` contains the `PostText` method. The text to simulate doesn't
-depend on the current keyboard layout. The full range of UTF-16 (including surrogate pairs, e.g. emojis) is supported.
+`UioHook` also contains the `PostText` method which simulates text entry. The text to simulate doesn't depend on the
+current keyboard layout. The full range of UTF-16 (including surrogate pairs, e.g. emojis) is supported.
 
 libuiohook also provides functions to get various system properties. The corresponding methods are also present in
 `UioHook`.
-
-If you want to use the low-level functionality, you don't need to use the `UioHook` class directly. Instead you can use
-interfaces in the `SharpHook.Providers` namespace. The methods in those interfaces are the same as in the `UioHook`
-class. `SharpHook.Providers.UioHookProvider` implements all of these interfaces and simply calls the corresponding
-methods in `UioHook`. This should be done to decouple your code from `UioHook` and make testing easier.
 
 ### Global Hooks
 
 SharpHook provides the `IGlobalHook` interface along with two default implementations which you can use to control the
 hook and subscribe to its events. Here's a basic usage example:
 
-```C#
+```c#
 using SharpHook;
 
 // ...
@@ -162,12 +149,14 @@ await hook.RunAsync();
 
 First, you create the hook, then subscribe to its events, and then run it. The `Run` method runs the hook on the current
 thread, blocking it. The `RunAsync()` method runs the hook on a separate thread and returns a `Task` which is finished
-when the hook is destroyed. You can subscribe to events after the hook is started.
+when the hook is stopped. You can subscribe to events after the hook is started.
 
-`IGlobalHook` extends `IDisposable`. When you call the `Dispose` method on a hook, it's destroyed. The contract of
-the interface is that once a hook has been destroyed, it cannot be started again - you'll have to create a new instance.
-Calling `Dispose` when the hook is not running is safe - it just won't do anything (other than marking the instance as
-disposed).
+`IGlobalHook` contains the `Stop` method to stop the global hook. After stopping, the global hook can be started again
+by calling the `Run` or `RunAsync` method. Calling `Stop` when the hook is not running won't do anything.
+
+`IGlobalHook` extends `IDisposable`. When you call the `Dispose` method on a hook, it's disposed and stopped if it was
+running. Once a hook has been disposed, it cannot be started again - you'll have to create a new instance. Calling
+`Dispose` when the hook is not running won't do anything other than marking the instance as disposed.
 
 Hook events are of type `HookEventArgs` or a derived type which contains more info. It's possible to suppress event
 propagation by setting the `SuppressEvent` property to `true` inside the event handler. This must be done synchronously
@@ -180,8 +169,9 @@ the `EventTime` and `IsEventSimulated` properties respectively.
 > when another global hook is already running will corrupt the internal global state of libuiohook.
 
 You can create a keyboard-only or a mouse-only hook by passing a `GlobalHookType` to the hook's constructor. This makes
-a difference only on Windows where there are two different global hooks - a keyboard hook and a mouse hook. On macOS and
-Linux there is one hook for all events, and this simply enables filtering keyboard or mouse events out on these OSes.
+a real difference only on Windows where there are two different global hooks - a keyboard hook and a mouse hook. On
+macOS and Linux, there is one hook for all events, and this simply enables filtering keyboard or mouse events out on
+these OSes.
 
 SharpHook provides two implementations of `IGlobalHook`:
 
@@ -197,7 +187,7 @@ ignored since event handlers are run on other threads.
 
 The library also provides the `SharpHook.GlobalHookBase` class which you can extend to create your own implementation
 of the global hook. It calls the appropriate event handlers, and you only need to implement a strategy for dispatching
-the events. It also contains a finalizer which will stop the global hook if this object is not reachable anymore.
+the events. It also keeps a reference to a running global hook so that it's not garbage-collected.
 
 ### Reactive Global Hooks
 
@@ -206,7 +196,7 @@ If you're using Rx.NET, you can use the SharpHook.Reactive package to integrate 
 SharpHook.Reactive provides the `SharpHook.Reactive.IReactiveGlobalHook` interface along with a default implementation
 which you can use to use to control the hook and subscribe to its observables. Here's a basic example:
 
-```C#
+```c#
 using SharpHook.Reactive;
 
 // ...
@@ -255,7 +245,7 @@ to `IGlobalHook`. A default scheduler can be specified for all observables.
 SharpHook provides the ability to simulate keyboard and mouse events in a cross-platform way as well. Here's a quick
 example:
 
-```C#
+```c#
 using SharpHook;
 using SharpHook.Native;
 
@@ -303,14 +293,14 @@ SharpHook provides the `IEventSimulator` interface, and the default implementati
 
 SharpHook also provides text entry simulation. `IEventSimulator` contains the `SimulateTextEntry` method which accepts
 a `string`. The text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16 (including
-surrogate pairs, e.g. emojis) is supported.
+surrogate pairs, e.g., emojis) is supported.
 
 ### Logging
 
 libuiohook can log messages throughout its execution. By default the messages are not logged anywhere, but you can get
 these logs by using the `ILogSource` interface and its default implementation, `LogSource`:
 
-```C#
+```c#
 using SharpHook.Logging;
 
 // ...
@@ -364,6 +354,11 @@ and as such it can be used instead of a normal low-level functionality provider.
 Like `TestGlobalHook`, this class can post events using the `PostEvent` method and dispatch them if `Run` was called.
 It also contains the `PostedEvents` property.
 
+## Library Status
+
+If you've noticed that this library hasn't gotten new commits in some time, rest assured that it's not abandoned!
+I'm not giving up on this library any time soon.
+
 ## Building from Source
 
 In order to build this library, you'll first need to get libuiohook binaries. You you can get a
@@ -408,13 +403,7 @@ Place the binaries into the appropriate directories in the `SharpHook` project, 
 </table>
 
 With libuiohook in place you can build SharpHook using your usual methods, e.g. with Visual Studio or the `dotnet` CLI.
-You need .NET 8 to build SharpHook.
-
-## Library Status
-
-I will maintain the library to keep up with the releases of libuiohook which uses a rolling release model - every commit
-to its `1.3` branch is considered stable. If you've noticed that this library hasn't gotten new commits in some time,
-rest assured that it's not abandoned! I'm not giving up on this library any time soon.
+You need .NET 9 to build SharpHook.
 
 ## Icon
 
