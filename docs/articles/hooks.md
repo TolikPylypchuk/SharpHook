@@ -50,13 +50,16 @@ You can subscribe to events after the hook is started.
 If you run the hook when it's already running, then an exception will be thrown. You can check whether a hook is running
 using its `IsRunning` property.
 
-`IGlobalHook` extends `IDisposable`. When you call the `Dispose` method on a hook, it's destroyed. The contract of
-the interface is that once a hook has been destroyed, it cannot be started again - you'll have to create a new instance.
-Calling `Dispose` when the hook is not running is safe - it just won't do anything (other than marking the instance as
-disposed). You can check whether the hook is disposed using the `IsDisposed` property.
+`IGlobalHook` contains the `Stop` method to stop the global hook. After stopping, the global hook can be started again
+by calling the `Run` or `RunAsync` method. Calling `Stop` when the hook is not running won't do anything.
 
-The `HookEnabled` event is raised once when the `Run` or `RunAsync` method is called. The `HookDisabled` event is raised
-once when the `Dispose` method is called.
+`IGlobalHook` extends `IDisposable`. When you call the `Dispose` method on a hook, it's disposed and stopped if it was
+running. Once a hook has been disposed, it cannot be started again - you'll have to create a new instance. Calling
+`Dispose` when the hook is not running won't do anything other than marking the instance as disposed. You can check
+whether the hook is disposed using the `IsDisposed` property.
+
+The `HookEnabled` event is raised when the `Run` or `RunAsync` method is called. The `HookDisabled` event is raised when
+the `Stop` or `Dispose` method is called.
 
 Hook events are of type `HookEventArgs` or a derived type which contains more info. It's possible to suppress event
 propagation by setting the `SuppressEvent` property to `true` inside the event handler. This must be done synchronously
@@ -69,8 +72,9 @@ the `EventTime` and `IsEventSimulated` properties respectively.
 > when another global hook is already running will corrupt the internal global state of libuiohook.
 
 You can create a keyboard-only or a mouse-only hook by passing a `GlobalHookType` to the hook's constructor. This makes
-a difference only on Windows where there are two different global hooks - a keyboard hook and a mouse hook. On macOS and
-Linux there is one hook for all events, and this simply enables filtering keyboard or mouse events out on these OSes.
+a real difference only on Windows where there are two different global hooks - a keyboard hook and a mouse hook. On
+macOS and Linux, there is one hook for all events, and this simply enables filtering keyboard or mouse events out on
+these OSes.
 
 ## The Default Implementations
 
@@ -88,4 +92,4 @@ ignored since event handlers are run on other threads.
 
 The library also provides the `SharpHook.GlobalHookBase` class which you can extend to create your own implementation
 of the global hook. It calls the appropriate event handlers, and you only need to implement a strategy for dispatching
-the events. It also contains a finalizer which will stop the global hook if this object is not reachable anymore.
+the events. It also keeps a reference to a running global hook so that it's not garbage-collected.

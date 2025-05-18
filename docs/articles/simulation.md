@@ -14,7 +14,7 @@ Input event simulation is quite straightforward. Here's a quick example:
 
 ```c#
 using SharpHook;
-using SharpHook.Native;
+using SharpHook.Data;
 
 // ...
 

@@ -39,10 +39,10 @@ If this class is used as an `IEventSimulator` in the tested code, then the `Simu
 see which events were simulated using the test instance.
 
 It's recommended to stop the global hook and wait for it to stop before asserting any events. The test global hook runs
-an event loop using `BlockingCollection`, and posting an even will add an event to this collection for the global hook
-to dispatch. Since these actions are done in different threads, it is not guaranteed that an event will be dispatched
-immediately after it is simulated. `Run` and the task returned by `RunAsync` will complete after every event has been
-dispatched.
+an event loop using `BlockingCollection`, and posting an event will add this event to this collection for the global
+hook to dispatch. Since these actions are done in different threads, it is not guaranteed that an event will be
+dispatched immediately after it is simulated. `Run` and the task returned by `RunAsync` will complete after every event
+has been dispatched.
 
 Other than that, members of `TestGlobalHook` are quite straightforward; the API reference should be viewed for more
 info.
@@ -59,6 +59,12 @@ and as such, it can be used instead of normal low-level functionality providers.
 Like `TestGlobalHook`, this class can post events using the `PostEvent` method and dispatch them if `Run` has been
 called. It also contains the `PostedEvents` property.
 
+It's recommended to stop the provider and wait for it to stop before asserting any events. The test provider runs an
+event loop using `BlockingCollection`, and posting an event will add this event to this collection for the provider to
+dispatch. Since these actions are done in different threads, it is not guaranteed that an event will be dispatched
+immediately after it is simulated. `Run` and the task returned by `RunAsync` will complete after every event has been
+dispatched.
+
 All classes in SharpHook use providers instead of directly using the `UioHook` class for low-level functionality.
 The providers are selectable, so e.g., the following global hook can be used for testing:
 
@@ -67,6 +73,9 @@ var testProvider = new TestProvider();
 
 // Calls to methods in testProvider will be reflected in the hook
 var hook = new SimpleGlobalHook(globalHookProvider: testProvider);
+
+// Calls to methods in testProvider will be reflected in the simulator
+var simulator = new EventSimulator(simulationProvider: testProvider);
 ```
 
 > [!NOTE]

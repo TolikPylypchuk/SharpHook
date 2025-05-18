@@ -50,12 +50,12 @@ The `Run` and `RunAsync` methods are basically the same as in `IGlobalHook`, but
 complete when the global hook is destroyed. Running the hook when it's already running is also not allowed, and the
 `IsRunning` property is also available.
 
-`IReactiveGlobalHook` extends `IDisposable` as well and calling `Dispose` will destroy the global hook. As with
-`IGlobalHook`, starting a disposed instance again shouldn't be allowed. Calling `Dispose` when the hook is not running
-is safe - it just won't do anything (other than marking the instance as disposed). The `IsDisposed` property is also
-available.
+The `Stop` method is also available and is basically the same as in `IGlobalHook`.
 
-The `HookEnabled` and `HookDisabled` observables will emit a single event and then immediately complete afterwards.
+`IReactiveGlobalHook` extends `IDisposable` as well and calling `Dispose` will dispose of the global hook, stopping it
+if it is running. As with `IGlobalHook`, starting a disposed instance again isn't allowed. Calling `Dispose` when the
+hook is not running won't do anything other than marking the instance as disposed. All observables in the hook will
+complete when the hook is disposed. The `IsDisposed` property is also available.
 
 > [!IMPORTANT]
 > Always use one instance of `IReactiveGlobalHook` at a time in the entire application since they all must use the same
@@ -73,5 +73,4 @@ and where to handle the events through schedulers. A default scheduler can be sp
 subscriptions and changes are propagated to the adapted hook. A default scheduler can be specified for all observables.
 There is no default adapter from `IReactiveGlobalHook` to `IGlobalHook`.
 
-`SimpleReactiveGlobalHook` contains a finalizer which will stop the global hook if the object is not reachable anymore.
-All event observables of both classes will be completed when the hook is destroyed.
+`SimpleReactiveGlobalHook` keeps a reference to a running global hook so that it's not garbage-collected.

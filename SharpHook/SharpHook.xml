@@ -1717,19 +1717,6 @@
             <summary>
             A keyboard and mouse event simulator which posts events to a simulation provider (libuiohook by default).
             </summary>
-            <param name="simulationProvider">
-            The simulation functionality provider (or <see cref="P:SharpHook.Providers.UioHookProvider.Instance" /> if <see langword="null" />).
-            </param>
-            <seealso cref="T:SharpHook.Providers.IEventSimulationProvider" />
-            <seealso cref="M:SharpHook.Native.UioHook.PostEvent(SharpHook.Data.UioHookEvent@)" />
-        </member>
-        <member name="M:SharpHook.EventSimulator.#ctor(SharpHook.Providers.IEventSimulationProvider)">
-            <summary>
-            A keyboard and mouse event simulator which posts events to a simulation provider (libuiohook by default).
-            </summary>
-            <param name="simulationProvider">
-            The simulation functionality provider (or <see cref="P:SharpHook.Providers.UioHookProvider.Instance" /> if <see langword="null" />).
-            </param>
             <seealso cref="T:SharpHook.Providers.IEventSimulationProvider" />
             <seealso cref="M:SharpHook.Native.UioHook.PostEvent(SharpHook.Data.UioHookEvent@)" />
         </member>
@@ -1737,6 +1724,14 @@
             <summary>
             Initializes a new instance of the <see cref="T:SharpHook.EventSimulator" /> class.
             </summary>
+        </member>
+        <member name="M:SharpHook.EventSimulator.#ctor(SharpHook.Providers.IEventSimulationProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpHook.EventSimulator" /> class.
+            </summary>
+            <param name="simulationProvider">
+            The simulation functionality provider (or <see cref="P:SharpHook.Providers.UioHookProvider.Instance" /> if <see langword="null" />).
+            </param>
         </member>
         <member name="P:SharpHook.EventSimulator.TextSimulationDelayOnX11">
             <summary>

@@ -3,14 +3,11 @@ namespace SharpHook;
 /// <summary>
 /// A keyboard and mouse event simulator which posts events to a simulation provider (libuiohook by default).
 /// </summary>
-/// <param name="simulationProvider">
-/// The simulation functionality provider (or <see cref="UioHookProvider.Instance" /> if <see langword="null" />).
-/// </param>
 /// <seealso cref="IEventSimulationProvider" />
 /// <seealso cref="UioHook.PostEvent(ref UioHookEvent)" />
-public class EventSimulator(IEventSimulationProvider? simulationProvider) : IEventSimulator
+public class EventSimulator : IEventSimulator
 {
-    private readonly IEventSimulationProvider simulationProvider = simulationProvider ?? UioHookProvider.Instance;
+    private readonly IEventSimulationProvider simulationProvider;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="EventSimulator" /> class.
@@ -19,6 +16,17 @@ public class EventSimulator(IEventSimulationProvider? simulationProvider) : IEve
     public EventSimulator()
         : this(null)
     { }
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="EventSimulator" /> class.
+    /// </summary>
+    /// <param name="simulationProvider">
+    /// The simulation functionality provider (or <see cref="UioHookProvider.Instance" /> if <see langword="null" />).
+    /// </param>
+    [SuppressMessage(
+        "Style", "IDE0290:Use primary constructor", Justification = "Primary constructors don't support XML comments")]
+    public EventSimulator(IEventSimulationProvider? simulationProvider) =>
+        this.simulationProvider = simulationProvider ?? UioHookProvider.Instance;
 
     /// <summary>
     /// Gets or sets the delay between simulating individual characters when simulating text on Linux.
