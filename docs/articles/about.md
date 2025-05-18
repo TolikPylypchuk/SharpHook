@@ -61,6 +61,8 @@ that simulates them, they now instead add events into an event loop running on a
 
 - Getting events for Caps Lock was fixed on macOS.
 
+- Disabling access to the Accessibility API when a global hook is running on macOS won't freeze the OS anymore.
+
 - Disposing a `TaskPoolGlobalHook` inside an event handler doesn't throw an exception anymore.
 
 #### Other Changes
