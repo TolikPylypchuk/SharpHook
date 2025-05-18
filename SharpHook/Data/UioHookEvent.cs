@@ -150,7 +150,11 @@ public struct UioHookEvent : IEquatable<UioHookEvent>
             EventType.MouseClicked => $"; {nameof(this.Mouse)} = {this.Mouse}",
             EventType.MousePressed => $"; {nameof(this.Mouse)} = {this.Mouse}",
             EventType.MouseReleased => $"; {nameof(this.Mouse)} = {this.Mouse}",
+            EventType.MousePressedIgnoreCoordinates => $"; {nameof(this.Mouse)} = {this.Mouse}",
+            EventType.MouseReleasedIgnoreCoordinates => $"; {nameof(this.Mouse)} = {this.Mouse}",
             EventType.MouseMoved => $"; {nameof(this.Mouse)} = {this.Mouse}",
+            EventType.MouseDragged => $"; {nameof(this.Mouse)} = {this.Mouse}",
+            EventType.MouseMovedRelativeToCursor => $"; {nameof(this.Mouse)} = {this.Mouse}",
             EventType.MouseWheel => $"; {nameof(this.Wheel)} = {this.Wheel}",
             _ => String.Empty
         };
