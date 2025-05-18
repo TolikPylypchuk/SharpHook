@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>OS-Specific Constraints | SharpHook </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="OS-Specific Constraints | SharpHook ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TolikPylypchuk/SharpHook/blob/main/docs/articles/os-constraints.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="SharpHook">
+            SharpHook
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="os-specific-constraints">OS-Specific Constraints</h1>
+
+<p>This article describes OS-specific constrains and other things that should be noted about OS support.</p>
+<h2 id="windows">Windows</h2>
+<h3 id="supported-versions">Supported Versions</h3>
+<p>Only Windows 10 and 11 are supported.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>If the global hook runs on versions of Windows older than Windows 10 1607, then it will destroy dead keys rendering
+them unusable. This is because it uses the
+<a href="https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-tounicodeex"><code>ToUnicodeEx</code></a> function to
+determine which characters are typed by key presses, and before Windows 10 1607 this function changed the keyboard
+state.</p>
+</div>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>There is an issue on Windows 10 - when a global hook is running, some editors may insert Unicode characters when the
+user presses <kbd>Alt</kbd>+<kbd>Up Arrow</kbd> or <kbd>Alt</kbd>+<kbd>Down Arrow</kbd>. This issue is not present on
+Windows 11.</p>
+</div>
+<h3 id="supported-architectures">Supported Architectures</h3>
+<p>x86, x64, and Arm64 are supported. Arm32 is not supported since its support was dropped in .NET 5.</p>
+<h3 id="visual-c-redistributable">Visual C++ Redistributable</h3>
+<p>The libuiohook build used by SharpHook on Windows is statically linked to the C runtime which means that client apps
+don't need the Visual C++ Redistributable package.</p>
+<p>An exception is the logging functionality - <code>LogEntryParser</code> uses the <code>vsprintf</code> function from the C runtime, and as
+such, it requires the Visual C++ Redistributable package on Windows, unlike the rest of SharpHook. If you don't want
+your app to be dependent on this package, then you can use the <code>EmptyLogSource</code> class instead of <code>LogSource</code> in release
+builds of your app. <code>EmptyLogSource</code> implements <code>ILogSource</code>, but never raises the <code>MessageLogged</code> event and doesn't
+subscribe to libuiohook logs.</p>
+<h3 id="dpi-awareness">DPI Awareness</h3>
+<p>An application manifest is required on Windows to enable DPI awareness for your app. If it's not enabled then mouse
+coordinates will be wrong on high-DPI screens. You can look at the sample app in the SharpHook repository to see the
+manifest example.</p>
+<h3 id="text-entry-simulation">Text Entry Simulation</h3>
+<p>On Windows, text simulation should work correctly and consistently.</p>
+<h2 id="macos">macOS</h2>
+<h3 id="supported-versions-1">Supported Versions</h3>
+<p>macOS 10.15+ is supported. Mac Catalyst 13.1+ is supported.</p>
+<h3 id="supported-architectures-1">Supported Architectures</h3>
+<p>x64 and Arm64 are supported.</p>
+<h3 id="accessibility-api">Accessibility API</h3>
+<p>macOS requires that the Accessibility API access be enabled for the application if it wants to create a global hook or
+simulate events. If the Accessiblity API access is not enabled, then <code>Run</code> and <code>PostEvent</code> will fail and return
+<code>UioHookResult.ErrorAxApiDisabled</code>. More info can be found in the <a href="native.html">article on low-level functionality</a>.</p>
+<h3 id="main-run-loop">Main Run-Loop</h3>
+<p>On macOS running the global hook requires that the main run-loop be present. libuiohook takes care of it if the hook
+is run on the main thread. It's also taken care of by UI frameworks since they need an event loop on the main thread
+to run. But if you're using a global hook in a console app or a background service and want to run it on some thread
+other than the main one then you should take care of it yourself. You can do that by P/Invoking the native
+<code>CFRunLoopRun</code> function on the main thread.</p>
+<h3 id="simulating-multiple-mouse-clicks">Simulating Multiple Mouse Clicks</h3>
+<p>macOS doesn't recognize that a mouse was clicked multiple times when multiple press/release events have been simulated.
+Instead, the click count must be explicitly provided. This is why <code>IEvenSimulator</code> contains the <code>SimulateMousePress</code> and
+<code>SimulateMouseRelease</code> overloads with the <code>clicks</code> parameter. This parameter should be incremented for each
+press/release, starting with <code>1</code>.</p>
+<h3 id="text-entry-simulation-1">Text Entry Simulation</h3>
+<p>On macOS, applications are not required to process text entry simulation, but most of them should handle it correctly.</p>
+<h2 id="linux">Linux</h2>
+<h3 id="supported-distributions">Supported Distributions</h3>
+<p>Linux distributions supported by .NET are supported by SharpHook. It may work correctly on other distributions, but if
+it doesn't then the problems will most probably not be fixed.</p>
+<h3 id="supported-architectures-2">Supported Architectures</h3>
+<p>x64, Arm32, and Arm64 are supported. x86 is not supported by .NET itself.</p>
+<h3 id="x11-and-wayland">X11 and Wayland</h3>
+<p>Only X11 is supported. Wayland support may be available in a future version.</p>
+<h3 id="text-entry-simulation-2">Text Entry Simulation</h3>
+<p>X11 doesn't support text simulation directly. Instead, for each character, an unused key code is remapped to that
+character, and then key press/release is simulated. Since the receiving application must react to the remapping, and
+may not do so instantaneously, a delay is needed for accurate simulation. This means that text simulation on Linux works
+slowly and is not guaranteed to be correct. More info can be found in the
+<a href="native.html">article on low-level functionality</a>.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/main/docs/articles/os-constraints.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Created by <a href="https://tolik.io">Tolik Pylypchuk</a>. Docs made with <a href="https://dotnet.github.io/docfx">docfx</a></span>.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
