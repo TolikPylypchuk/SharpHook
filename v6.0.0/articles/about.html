@@ -87,11 +87,79 @@
         <article data-uid="">
 <h1 id="about-sharphook">About SharpHook</h1>
 
-<p>SharpHook - created by Tolik Pylypchuk.</p>
+<p>SharpHook - created by <a href="https://tolik.io">Tolik Pylypchuk</a>.</p>
 <h2 id="library-status">Library Status</h2>
 <p>If you've noticed that this library hasn't gotten new commits in some time, rest assured that it's not abandoned!
 I'm not giving up on this library any time soon.</p>
 <h2 id="changelog">Changelog</h2>
+<h3 id="v600-may-18-2025"><a href="https://github.com/TolikPylypchuk/SharpHook/releases/tag/v6.0.0">v6.0.0</a> (May 18, 2025)</h3>
+<h4 id="platform-support">Platform Support</h4>
+<ul>
+<li><p>Support for Mac Catalyst on non-MAUI applications was added.</p>
+</li>
+<li><p>The minimum .NET Framework version was bumped to 4.7.2. Direct support for .NET 6 and 7 was removed, but it's still
+available through .NET Standard.</p>
+</li>
+</ul>
+<h4 id="breaking-changes">Breaking Changes</h4>
+<ul>
+<li><p>All structs and enums were moved from <code>SharpHook.Native</code> to <code>SharpHook.Data</code>.</p>
+</li>
+<li><p><code>ModifierMask</code> and <code>EventReservedValueMask</code> were merged into a single enum - <code>EventMask</code>.</p>
+</li>
+<li><p><code>UioHookEvent.Reserved</code> was removed. Its values are now part of <code>UioHookEvent.Mask</code>.</p>
+</li>
+<li><p>All constructors of <code>SimpleGlobalHook</code>, <code>TaskPoolGlobalHook</code>, <code>SimpleReactiveGlobalHook</code>, and
+<code>ReactiveGlobalHookAdapter</code> except the main ones were removed.</p>
+</li>
+<li><p><code>TaskPoolGlobalHookOptions</code> was removed.</p>
+</li>
+<li><p>All obsolete values in the <code>KeyCode</code> enum were removed.</p>
+</li>
+<li><p><code>LogSource.Register</code> was removed.</p>
+</li>
+<li><p>Members of <code>HookException</code> related to binary formatters were removed.</p>
+</li>
+<li><p>The behaviour of <code>TestGlobalHook</code> and <code>TestProvider</code> was changed. Instead of dispatching events in the same thread
+that simulates them, they now instead add events into an event loop running on a different thread.</p>
+</li>
+<li><p><code>TestProvider</code> now throws an exception if <code>Run</code> or <code>RunAsync</code> is called and it's already running.</p>
+</li>
+</ul>
+<h4 id="new-features">New Features</h4>
+<ul>
+<li><p>The ability to stop global hooks without disposing of them was added.</p>
+</li>
+<li><p>Several functions for working with the macOS Accessibility API were added.</p>
+</li>
+<li><p><code>UioHookEvent.Mask</code> now contains the state of modifiers and mouse buttons regardless of the global hook type
+(keyboard, mouse, or both).</p>
+</li>
+<li><p>Running global hooks won't be garbage-collected.</p>
+</li>
+</ul>
+<h4 id="bug-fixes">Bug Fixes</h4>
+<ul>
+<li><p>Getting libuiohook logs on Mac Catalyst applications was fixed.</p>
+</li>
+<li><p>The issue with global hooks breaking Alt codes on Windows was fixed.</p>
+</li>
+<li><p>Getting events for Caps Lock was fixed on macOS.</p>
+</li>
+<li><p>Disposing a <code>TaskPoolGlobalHook</code> inside an event handler doesn't throw an exception anymore.</p>
+</li>
+</ul>
+<h4 id="other-changes">Other Changes</h4>
+<ul>
+<li><p>libuiohook was updated to commit
+<a href="https://github.com/TolikPylypchuk/libuiohook/tree/c61b4863caa7def54349d1426ef431414466f8b9">c61b486</a>.</p>
+</li>
+<li><p>SharpHook.Reactive now depends on Rx.NET 6.0.1.</p>
+</li>
+<li><p>Docs for older versions were removed. From now on, only the latest version will have docs hosted on
+<a href="https://sharphook.tolik.io">sharphook.tolik.io</a>.</p>
+</li>
+</ul>
 <h3 id="v539-march-29-2025"><a href="https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.3.9">v5.3.9</a> (March 29, 2025)</h3>
 <ul>
 <li><p>The state of the modifiers is now queried on every event instead of tracking them internally which removes
@@ -237,7 +305,7 @@ which fixes a CPU usage issue on Linux.</li>
 </li>
 </ul>
 <h3 id="v500-august-10-2023"><a href="https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.0.0">v5.0.0</a> (August 10, 2023)</h3>
-<h4 id="platform-support">Platform Support</h4>
+<h4 id="platform-support-1">Platform Support</h4>
 <ul>
 <li><p>Support for Mac Catalyst was added which makes it possible to use SharpHook in .NET MAUI apps on macOS.</p>
 </li>
@@ -246,7 +314,7 @@ which fixes a CPU usage issue on Linux.</li>
 <li><p>Support for Windows on Arm32 was removed.</p>
 </li>
 </ul>
-<h4 id="breaking-changes">Breaking Changes</h4>
+<h4 id="breaking-changes-1">Breaking Changes</h4>
 <ul>
 <li><p>Almost all <code>KeyCode</code> values were changed. New codes were added and some were removed. The actual enum values are
 meaningless and may be changed again in the future.</p>
@@ -268,7 +336,7 @@ was added.</p>
 <code>HorizontalDirection</code> to <code>Horizontal</code>.</p>
 </li>
 </ul>
-<h4 id="new-features">New Features</h4>
+<h4 id="new-features-1">New Features</h4>
 <ul>
 <li><p>Text entry simulation was added.</p>
 </li>
@@ -283,7 +351,7 @@ was added.</p>
 <li><p>Extension methods for <code>SharpHook.Native.ModifierMask</code> were added.</p>
 </li>
 </ul>
-<h4 id="bug-fixes">Bug Fixes</h4>
+<h4 id="bug-fixes-1">Bug Fixes</h4>
 <ul>
 <li><p>Global hooks can now be created and disposed multiple times on Windows without problems.</p>
 </li>
@@ -292,7 +360,7 @@ was added.</p>
 <li><p><code>KeyTyped</code> events are now better at determining which characters should be produced by key presses on Windows.</p>
 </li>
 </ul>
-<h4 id="other-changes">Other Changes</h4>
+<h4 id="other-changes-1">Other Changes</h4>
 <ul>
 <li><p>libuiohook was updated to commit
 <a href="https://github.com/TolikPylypchuk/libuiohook/tree/6f42599e28099406d279146de4720110d40be047">6f42599</a>.</p>

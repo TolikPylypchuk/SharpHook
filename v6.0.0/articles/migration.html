@@ -106,7 +106,7 @@ doesn't contain the <code>Reserved</code> field anymore. Instead, its values are
 <p><code>LogSource.Register</code> was removed. <code>RegisterOrGet</code> should be used instead.</p>
 <p>All obsolete values in the <code>KeyCode</code> enum were removed.</p>
 <p><code>HookException</code> doesn't support <code>BinaryFormatter</code> serialization anymore.</p>
-<p>The behavoiur of <code>TestGlobalHook</code> and <code>TestProvider</code> was changed. Instead of dispatching events in the same thread that
+<p>The behaviour of <code>TestGlobalHook</code> and <code>TestProvider</code> was changed. Instead of dispatching events in the same thread that
 simulates them, they now instead add events into an event loop running on a different thread. <code>TestProvider</code> now throws
 an exception if <code>Run</code> or <code>RunAsync</code> is called and it's already running.</p>
 <p>The minimum .NET Framework version was bumped to 4.7.2 and direct support for .NET 6 and .NET 7 was dropped (though they
