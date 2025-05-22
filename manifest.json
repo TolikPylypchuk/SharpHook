@@ -785,6 +785,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Testing.TestThreadingMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Testing.TestThreadingMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Testing.TestThreadingMode",
+      "Summary": "<p sourcefile=\"api/SharpHook.Testing.TestThreadingMode.yml\" sourcestartlinenumber=\"1\">Represents the mode of dispatching simulated events in testing hooks - either on the same thread which simulates\nthem, or on the thread which runs the testing hook.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SharpHook.Testing.yml",
       "output": {
         ".html": {

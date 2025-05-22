@@ -165,13 +165,47 @@ Class TestGlobalHook  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Testing/TestGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.Testing.TestGlobalHook.html">TestGlobalHook</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public TestGlobalHook()</code></pre>
   </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpHook_Testing_TestGlobalHook__ctor_" data-uid="SharpHook.Testing.TestGlobalHook.#ctor*"></a>
+
+  <h3 id="SharpHook_Testing_TestGlobalHook__ctor_SharpHook_Testing_TestThreadingMode_" data-uid="SharpHook.Testing.TestGlobalHook.#ctor(SharpHook.Testing.TestThreadingMode)">
+  TestGlobalHook(TestThreadingMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Testing/TestGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.Testing.TestGlobalHook.html">TestGlobalHook</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TestGlobalHook(TestThreadingMode threadingMode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>threadingMode</code> <a class="xref" href="SharpHook.Testing.TestThreadingMode.html">TestThreadingMode</a></dt>
+    <dd><p>The threading mode to use.</p>
+</dd>
+  </dl>
 
 
 
@@ -1030,6 +1064,38 @@ method.</p>
 
 
 
+  <a id="SharpHook_Testing_TestGlobalHook_ThreadingMode_" data-uid="SharpHook.Testing.TestGlobalHook.ThreadingMode*"></a>
+
+  <h3 id="SharpHook_Testing_TestGlobalHook_ThreadingMode" data-uid="SharpHook.Testing.TestGlobalHook.ThreadingMode">
+  ThreadingMode
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Testing/TestGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the threading mode of this global hook.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TestThreadingMode ThreadingMode { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.Testing.TestThreadingMode.html">TestThreadingMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <h2 class="section" id="methods">Methods
 </h2>
 
@@ -1078,8 +1144,8 @@ been disposed.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Testing/TestGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
-<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">Dispose()</a> method.</p>
+  <div class="markdown level1 summary"><p>Runs the global hook on the current thread, blocking it. The hook can be stopped by calling the
+<a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_Stop">Stop()</a> or <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">Dispose()</a> method.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1095,6 +1161,10 @@ been disposed.</p>
 
 
 
+  <h4 class="section" id="SharpHook_Testing_TestGlobalHook_Run_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Depending on the threading mode, this method will either run an event loop or do nothing and wait for the hook
+to be stopped.</p>
+</div>
 
   <h4 class="section">Exceptions</h4>
   <dl class="parameters">
@@ -1118,8 +1188,8 @@ been disposed.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Testing/TestGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Runs the global hook without blocking the current thread. The hook can be destroyed by calling the
-<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">Dispose()</a> method.</p>
+  <div class="markdown level1 summary"><p>Runs the global hook without blocking the current thread. The hook can be stopped by calling the
+<a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_Stop">Stop()</a> or <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">Dispose()</a> method.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1131,7 +1201,7 @@ been disposed.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
-    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the hook is destroyed.</p>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the hook is stopped.</p>
 </dd>
   </dl>
 
@@ -1141,6 +1211,10 @@ been disposed.</p>
 
 
 
+  <h4 class="section" id="SharpHook_Testing_TestGlobalHook_RunAsync_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Depending on the threading mode, this method will either run an event loop or do nothing and wait for the hook
+to be stopped.</p>
+</div>
 
   <h4 class="section">Exceptions</h4>
   <dl class="parameters">
@@ -1194,8 +1268,16 @@ Otherwise, does nothing.</p>
 
 
   <h4 class="section" id="SharpHook_Testing_TestGlobalHook_SimulateKeyPress_SharpHook_Data_KeyCode__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>This method simulates <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a> events as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_KeyCodeToChars">KeyCodeToChars</a> returns
-characters for <code class="paramref">keyCode</code>.</p>
+  <div class="markdown level1 remarks"><p>
+If the hook's threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_Simple">Simple</a> then this method will immediately
+dispatch the event. If the threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_EventLoop">EventLoop</a> then the event will be
+posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+there.
+</p>
+<p>
+This method simulates <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a> events as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_KeyCodeToChars">KeyCodeToChars</a> returns
+characters for <code class="paramref">keyCode</code>.
+</p>
 </div>
 
 
@@ -1237,6 +1319,12 @@ Otherwise, does nothing.</p>
 
 
 
+  <h4 class="section" id="SharpHook_Testing_TestGlobalHook_SimulateKeyRelease_SharpHook_Data_KeyCode__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If the hook's threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_Simple">Simple</a> then this method will immediately
+dispatch the event. If the threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_EventLoop">EventLoop</a> then the event will be
+posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+there.</p>
+</div>
 
 
 
@@ -1280,6 +1368,12 @@ Otherwise, does nothing.</p>
 
 
 
+  <h4 class="section" id="SharpHook_Testing_TestGlobalHook_SimulateMouseMovement_System_Int16_System_Int16__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If the hook's threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_Simple">Simple</a> then this method will immediately
+dispatch the event. If the threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_EventLoop">EventLoop</a> then the event will be
+posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+there.</p>
+</div>
 
 
 
@@ -1323,6 +1417,12 @@ Otherwise, does nothing.</p>
 
 
 
+  <h4 class="section" id="SharpHook_Testing_TestGlobalHook_SimulateMouseMovementRelative_System_Int16_System_Int16__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If the hook's threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_Simple">Simple</a> then this method will immediately
+dispatch the event. If the threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_EventLoop">EventLoop</a> then the event will be
+posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+there.</p>
+</div>
 
 
 
@@ -1363,6 +1463,12 @@ Otherwise, does nothing.</p>
 
 
 
+  <h4 class="section" id="SharpHook_Testing_TestGlobalHook_SimulateMousePress_SharpHook_Data_MouseButton__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If the hook's threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_Simple">Simple</a> then this method will immediately
+dispatch the event. If the threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_EventLoop">EventLoop</a> then the event will be
+posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+there.</p>
+</div>
 
 
 
@@ -1406,6 +1512,12 @@ Otherwise, does nothing.</p>
 
 
 
+  <h4 class="section" id="SharpHook_Testing_TestGlobalHook_SimulateMousePress_SharpHook_Data_MouseButton_System_UInt16__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If the hook's threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_Simple">Simple</a> then this method will immediately
+dispatch the event. If the threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_EventLoop">EventLoop</a> then the event will be
+posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+there.</p>
+</div>
 
 
 
@@ -1452,6 +1564,12 @@ Otherwise, does nothing.</p>
 
 
 
+  <h4 class="section" id="SharpHook_Testing_TestGlobalHook_SimulateMousePress_System_Int16_System_Int16_SharpHook_Data_MouseButton__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If the hook's threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_Simple">Simple</a> then this method will immediately
+dispatch the event. If the threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_EventLoop">EventLoop</a> then the event will be
+posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+there.</p>
+</div>
 
 
 
@@ -1501,6 +1619,12 @@ Otherwise, does nothing.</p>
 
 
 
+  <h4 class="section" id="SharpHook_Testing_TestGlobalHook_SimulateMousePress_System_Int16_System_Int16_SharpHook_Data_MouseButton_System_UInt16__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If the hook's threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_Simple">Simple</a> then this method will immediately
+dispatch the event. If the threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_EventLoop">EventLoop</a> then the event will be
+posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+there.</p>
+</div>
 
 
 
@@ -1542,8 +1666,16 @@ Otherwise, does nothing.</p>
 
 
   <h4 class="section" id="SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_SharpHook_Data_MouseButton__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>This method simulates a <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseClicked">MouseClicked</a> event as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_RaiseMouseClicked">RaiseMouseClicked</a>
-is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+  <div class="markdown level1 remarks"><p>
+If the hook's threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_Simple">Simple</a> then this method will immediately
+dispatch the event. If the threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_EventLoop">EventLoop</a> then the event will be
+posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+there.
+</p>
+<p>
+This method simulates a <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseClicked">MouseClicked</a> event as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_RaiseMouseClicked">RaiseMouseClicked</a>
+is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
+</p>
 </div>
 
 
@@ -1589,8 +1721,16 @@ is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin
 
 
   <h4 class="section" id="SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_SharpHook_Data_MouseButton_System_UInt16__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>This method simulates a <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseClicked">MouseClicked</a> event as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_RaiseMouseClicked">RaiseMouseClicked</a>
-is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+  <div class="markdown level1 remarks"><p>
+If the hook's threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_Simple">Simple</a> then this method will immediately
+dispatch the event. If the threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_EventLoop">EventLoop</a> then the event will be
+posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+there.
+</p>
+<p>
+This method simulates a <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseClicked">MouseClicked</a> event as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_RaiseMouseClicked">RaiseMouseClicked</a>
+is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
+</p>
 </div>
 
 
@@ -1639,8 +1779,16 @@ is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin
 
 
   <h4 class="section" id="SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_System_Int16_System_Int16_SharpHook_Data_MouseButton__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>This method simulates a <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseClicked">MouseClicked</a> event as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_RaiseMouseClicked">RaiseMouseClicked</a>
-is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+  <div class="markdown level1 remarks"><p>
+If the hook's threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_Simple">Simple</a> then this method will immediately
+dispatch the event. If the threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_EventLoop">EventLoop</a> then the event will be
+posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+there.
+</p>
+<p>
+This method simulates a <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseClicked">MouseClicked</a> event as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_RaiseMouseClicked">RaiseMouseClicked</a>
+is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
+</p>
 </div>
 
 
@@ -1692,8 +1840,16 @@ is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin
 
 
   <h4 class="section" id="SharpHook_Testing_TestGlobalHook_SimulateMouseRelease_System_Int16_System_Int16_SharpHook_Data_MouseButton_System_UInt16__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>This method simulates a <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseClicked">MouseClicked</a> event as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_RaiseMouseClicked">RaiseMouseClicked</a>
-is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+  <div class="markdown level1 remarks"><p>
+If the hook's threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_Simple">Simple</a> then this method will immediately
+dispatch the event. If the threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_EventLoop">EventLoop</a> then the event will be
+posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+there.
+</p>
+<p>
+This method simulates a <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseClicked">MouseClicked</a> event as well if <a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_RaiseMouseClicked">RaiseMouseClicked</a>
+is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
+</p>
 </div>
 
 
@@ -1742,6 +1898,12 @@ and a negative value indicates that the wheel will be rotated down or right.</p>
 
 
 
+  <h4 class="section" id="SharpHook_Testing_TestGlobalHook_SimulateMouseWheel_System_Int16_SharpHook_Data_MouseWheelScrollDirection_SharpHook_Data_MouseWheelScrollType__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If the hook's threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_Simple">Simple</a> then this method will immediately
+dispatch the event. If the threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_EventLoop">EventLoop</a> then the event will be
+posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+there.</p>
+</div>
 
 
 

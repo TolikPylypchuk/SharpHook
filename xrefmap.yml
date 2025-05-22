@@ -5746,6 +5746,15 @@ references:
   fullName.vb: SharpHook.Testing.TestGlobalHook.New()
   nameWithType: TestGlobalHook.TestGlobalHook()
   nameWithType.vb: TestGlobalHook.New()
+- uid: SharpHook.Testing.TestGlobalHook.#ctor(SharpHook.Testing.TestThreadingMode)
+  name: TestGlobalHook(TestThreadingMode)
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook__ctor_SharpHook_Testing_TestThreadingMode_
+  commentId: M:SharpHook.Testing.TestGlobalHook.#ctor(SharpHook.Testing.TestThreadingMode)
+  name.vb: New(TestThreadingMode)
+  fullName: SharpHook.Testing.TestGlobalHook.TestGlobalHook(SharpHook.Testing.TestThreadingMode)
+  fullName.vb: SharpHook.Testing.TestGlobalHook.New(SharpHook.Testing.TestThreadingMode)
+  nameWithType: TestGlobalHook.TestGlobalHook(TestThreadingMode)
+  nameWithType.vb: TestGlobalHook.New(TestThreadingMode)
 - uid: SharpHook.Testing.TestGlobalHook.#ctor*
   name: TestGlobalHook
   href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook__ctor_
@@ -6319,6 +6328,18 @@ references:
   commentId: Overload:SharpHook.Testing.TestGlobalHook.SuppressedEvents
   fullName: SharpHook.Testing.TestGlobalHook.SuppressedEvents
   nameWithType: TestGlobalHook.SuppressedEvents
+- uid: SharpHook.Testing.TestGlobalHook.ThreadingMode
+  name: ThreadingMode
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_ThreadingMode
+  commentId: P:SharpHook.Testing.TestGlobalHook.ThreadingMode
+  fullName: SharpHook.Testing.TestGlobalHook.ThreadingMode
+  nameWithType: TestGlobalHook.ThreadingMode
+- uid: SharpHook.Testing.TestGlobalHook.ThreadingMode*
+  name: ThreadingMode
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_ThreadingMode_
+  commentId: Overload:SharpHook.Testing.TestGlobalHook.ThreadingMode
+  fullName: SharpHook.Testing.TestGlobalHook.ThreadingMode
+  nameWithType: TestGlobalHook.ThreadingMode
 - uid: SharpHook.Testing.TestProvider
   name: TestProvider
   href: api/SharpHook.Testing.TestProvider.html
@@ -6334,6 +6355,15 @@ references:
   fullName.vb: SharpHook.Testing.TestProvider.New()
   nameWithType: TestProvider.TestProvider()
   nameWithType.vb: TestProvider.New()
+- uid: SharpHook.Testing.TestProvider.#ctor(SharpHook.Testing.TestThreadingMode)
+  name: TestProvider(TestThreadingMode)
+  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider__ctor_SharpHook_Testing_TestThreadingMode_
+  commentId: M:SharpHook.Testing.TestProvider.#ctor(SharpHook.Testing.TestThreadingMode)
+  name.vb: New(TestThreadingMode)
+  fullName: SharpHook.Testing.TestProvider.TestProvider(SharpHook.Testing.TestThreadingMode)
+  fullName.vb: SharpHook.Testing.TestProvider.New(SharpHook.Testing.TestThreadingMode)
+  nameWithType: TestProvider.TestProvider(TestThreadingMode)
+  nameWithType.vb: TestProvider.New(TestThreadingMode)
 - uid: SharpHook.Testing.TestProvider.#ctor*
   name: TestProvider
   href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider__ctor_
@@ -6703,3 +6733,33 @@ references:
   commentId: Overload:SharpHook.Testing.TestProvider.SuppressedEvents
   fullName: SharpHook.Testing.TestProvider.SuppressedEvents
   nameWithType: TestProvider.SuppressedEvents
+- uid: SharpHook.Testing.TestProvider.ThreadingMode
+  name: ThreadingMode
+  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_ThreadingMode
+  commentId: P:SharpHook.Testing.TestProvider.ThreadingMode
+  fullName: SharpHook.Testing.TestProvider.ThreadingMode
+  nameWithType: TestProvider.ThreadingMode
+- uid: SharpHook.Testing.TestProvider.ThreadingMode*
+  name: ThreadingMode
+  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_ThreadingMode_
+  commentId: Overload:SharpHook.Testing.TestProvider.ThreadingMode
+  fullName: SharpHook.Testing.TestProvider.ThreadingMode
+  nameWithType: TestProvider.ThreadingMode
+- uid: SharpHook.Testing.TestThreadingMode
+  name: TestThreadingMode
+  href: api/SharpHook.Testing.TestThreadingMode.html
+  commentId: T:SharpHook.Testing.TestThreadingMode
+  fullName: SharpHook.Testing.TestThreadingMode
+  nameWithType: TestThreadingMode
+- uid: SharpHook.Testing.TestThreadingMode.EventLoop
+  name: EventLoop
+  href: api/SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_EventLoop
+  commentId: F:SharpHook.Testing.TestThreadingMode.EventLoop
+  fullName: SharpHook.Testing.TestThreadingMode.EventLoop
+  nameWithType: TestThreadingMode.EventLoop
+- uid: SharpHook.Testing.TestThreadingMode.Simple
+  name: Simple
+  href: api/SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_Simple
+  commentId: F:SharpHook.Testing.TestThreadingMode.Simple
+  fullName: SharpHook.Testing.TestThreadingMode.Simple
+  nameWithType: TestThreadingMode.Simple
