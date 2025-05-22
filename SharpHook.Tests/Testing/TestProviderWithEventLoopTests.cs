@@ -1,9 +1,9 @@
 namespace SharpHook.Testing;
 
-public sealed class TestProviderTests
+public sealed class TestProviderWithEventLoopTests
 {
-    [Property(DisplayName = "SetDispatchProc, Run, and PostEvent should work together")]
-    public void Run(UioHookEvent eventToPost, IntPtr userData)
+    [Property(DisplayName = "Run, SetDispatchProc, and PostEvent should work together")]
+    public void Run(UioHookEvent eventToPost, nint userData)
     {
         // Arrange
 
@@ -13,14 +13,14 @@ public sealed class TestProviderTests
         }
 
         var actualEvent = new UioHookEvent();
-        var actualUserData = IntPtr.Zero;
+        nint actualUserData = IntPtr.Zero;
 
-        var provider = new TestProvider();
+        var provider = new TestProvider(TestThreadingMode.EventLoop);
 
         // Act
 
         provider.SetDispatchProc(
-            (ref UioHookEvent e, IntPtr data) =>
+            (ref UioHookEvent e, nint data) =>
             {
                 if (e.Type != EventType.HookEnabled && e.Type != EventType.HookDisabled)
                 {
@@ -34,6 +34,8 @@ public sealed class TestProviderTests
 
         provider.PostEvent(ref eventToPost);
 
+        this.StopAndWaitForStop(provider);
+
         // Assert
 
         Assert.Equal(eventToPost, actualEvent);
@@ -41,10 +43,6 @@ public sealed class TestProviderTests
 
         Assert.Single(provider.PostedEvents);
         Assert.Equal(eventToPost, provider.PostedEvents[0]);
-
-        // Clean up
-
-        provider.Stop();
     }
 
     [Property(DisplayName = "RunAsync, SetDispatchProc, and PostEvent should work together")]
@@ -60,7 +58,7 @@ public sealed class TestProviderTests
         var actualEvent = new UioHookEvent();
         nint actualUserData = IntPtr.Zero;
 
-        var provider = new TestProvider();
+        var provider = new TestProvider(TestThreadingMode.EventLoop);
 
         // Act
 
@@ -79,6 +77,9 @@ public sealed class TestProviderTests
 
         provider.PostEvent(ref eventToPost);
 
+        provider.Stop();
+        await task;
+
         // Assert
 
         Assert.Equal(eventToPost, actualEvent);
@@ -86,11 +87,6 @@ public sealed class TestProviderTests
 
         Assert.Single(provider.PostedEvents);
         Assert.Equal(eventToPost, provider.PostedEvents[0]);
-
-        // Clean up
-
-        provider.Stop();
-        await task;
     }
 
     [Property(DisplayName = "Run and PostEvent should work without SetDispatchProc")]
@@ -98,7 +94,7 @@ public sealed class TestProviderTests
     {
         // Arrange
 
-        var provider = new TestProvider();
+        var provider = new TestProvider(TestThreadingMode.EventLoop);
 
         // Act
 
@@ -106,14 +102,12 @@ public sealed class TestProviderTests
 
         provider.PostEvent(ref eventToPost);
 
+        this.StopAndWaitForStop(provider);
+
         // Assert
 
         Assert.Single(provider.PostedEvents);
         Assert.Equal(eventToPost, provider.PostedEvents[0]);
-
-        // Clean up
-
-        provider.Stop();
     }
 
     [Property(DisplayName = "RunAsync and PostEvent should work without SetDispatchProc")]
@@ -121,7 +115,7 @@ public sealed class TestProviderTests
     {
         // Arrange
 
-        var provider = new TestProvider();
+        var provider = new TestProvider(TestThreadingMode.EventLoop);
 
         // Act
 
@@ -129,33 +123,31 @@ public sealed class TestProviderTests
 
         provider.PostEvent(ref eventToPost);
 
+        provider.Stop();
+        await task;
+
         // Assert
 
         Assert.Single(provider.PostedEvents);
         Assert.Equal(eventToPost, provider.PostedEvents[0]);
-
-        // Clean up
-
-        provider.Stop();
-        await task;
     }
 
     [Property(DisplayName = "RunKeyboard should not dispatch mouse events")]
-    public async Task RunKeyboard(MouseEvent eventToPost, IntPtr userData)
+    public async Task RunKeyboard(MouseEvent eventToPost, nint userData)
     {
         // Arrange
 
         UioHookEvent? actualEvent = null;
-        IntPtr? actualUserData = null;
+        nint? actualUserData = null;
 
-        var provider = new TestProvider();
+        var provider = new TestProvider(TestThreadingMode.EventLoop);
 
         // Act
 
         provider.SetDispatchProc(
-            (ref UioHookEvent e, IntPtr data) =>
+            (ref UioHookEvent e, nint data) =>
             {
-                if (e.Type != EventType.HookEnabled)
+                if (e.Type != EventType.HookEnabled && e.Type != EventType.HookDisabled)
                 {
                     actualEvent = e;
                     actualUserData = data;
@@ -168,33 +160,31 @@ public sealed class TestProviderTests
         var e = eventToPost.Value;
         provider.PostEvent(ref e);
 
+        provider.Stop();
+        await task;
+
         // Assert
 
         Assert.Null(actualEvent);
         Assert.Null(actualUserData);
-
-        // Clean up
-
-        provider.Stop();
-        await task;
     }
 
-    [Property(DisplayName = "RunMouse should not dispatch mouse events")]
-    public async Task RunMouse(KeyboardEvent eventToPost, IntPtr userData)
+    [Property(DisplayName = "RunMouse should not dispatch keyboard events")]
+    public async Task RunMouse(KeyboardEvent eventToPost, nint userData)
     {
         // Arrange
 
         UioHookEvent? actualEvent = null;
-        IntPtr? actualUserData = null;
+        nint? actualUserData = null;
 
-        var provider = new TestProvider();
+        var provider = new TestProvider(TestThreadingMode.EventLoop);
 
         // Act
 
         provider.SetDispatchProc(
-            (ref UioHookEvent e, IntPtr data) =>
+            (ref UioHookEvent e, nint data) =>
             {
-                if (e.Type != EventType.HookEnabled)
+                if (e.Type != EventType.HookEnabled && e.Type != EventType.HookDisabled)
                 {
                     actualEvent = e;
                     actualUserData = data;
@@ -207,15 +197,13 @@ public sealed class TestProviderTests
         var e = eventToPost.Value;
         provider.PostEvent(ref e);
 
+        provider.Stop();
+        await task;
+
         // Assert
 
         Assert.Null(actualEvent);
         Assert.Null(actualUserData);
-
-        // Clean up
-
-        provider.Stop();
-        await task;
     }
 
     [Property(DisplayName = "Events should be suppressible")]
@@ -223,30 +211,30 @@ public sealed class TestProviderTests
     {
         // Arrange
 
-        var provider = new TestProvider();
+        var provider = new TestProvider(TestThreadingMode.EventLoop);
 
         // Act
 
-        provider.SetDispatchProc(
-            (ref UioHookEvent e, IntPtr data) => e.Mask |= EventMask.SuppressEvent,
-            IntPtr.Zero);
+        provider.SetDispatchProc((ref UioHookEvent e, nint data) => e.Mask |= EventMask.SuppressEvent, IntPtr.Zero);
 
         var task = provider.RunAsync();
 
         provider.PostEvent(ref eventToPost);
 
-        // Assert
-
-        Assert.Single(provider.PostedEvents);
-
-        var actualEvent = provider.PostedEvents[0];
-        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
-        Assert.Equal(eventToPost, actualEvent);
-
-        // Clean up
-
         provider.Stop();
         await task;
+
+        // Assert
+
+        var actualEvent = provider.PostedEvents[0];
+
+        Assert.Single(provider.PostedEvents);
+        Assert.Equal(eventToPost, actualEvent);
+
+        actualEvent.Mask |= EventMask.SuppressEvent;
+
+        Assert.Single(provider.SuppressedEvents);
+        Assert.Equal(actualEvent, provider.SuppressedEvents[0]);
     }
 
     [Fact(DisplayName = "Run and Stop should change the state of the provider")]
@@ -254,7 +242,7 @@ public sealed class TestProviderTests
     {
         // Arrange
 
-        var provider = new TestProvider();
+        var provider = new TestProvider(TestThreadingMode.EventLoop);
 
         // Act + Assert
 
@@ -263,13 +251,11 @@ public sealed class TestProviderTests
         Assert.True(provider.IsRunning);
 
         var result = provider.Stop();
-        Assert.False(provider.IsRunning);
-
-        Assert.Equal(UioHookResult.Success, result);
-
-        // Clean up
 
         await task;
+
+        Assert.False(provider.IsRunning);
+        Assert.Equal(UioHookResult.Success, result);
     }
 
     [Fact(DisplayName = "Run should throw if the provider is already running")]
@@ -277,7 +263,7 @@ public sealed class TestProviderTests
     {
         // Arrange
 
-        var provider = new TestProvider();
+        var provider = new TestProvider(TestThreadingMode.EventLoop);
         var task = provider.RunAsync();
 
         // Act + Assert
@@ -295,7 +281,7 @@ public sealed class TestProviderTests
     {
         // Arrange
 
-        var provider = new TestProvider
+        var provider = new TestProvider(TestThreadingMode.EventLoop)
         {
             RunResult = result.Value
         };
@@ -315,7 +301,7 @@ public sealed class TestProviderTests
     {
         // Arrange
 
-        var provider = new TestProvider
+        var provider = new TestProvider(TestThreadingMode.EventLoop)
         {
             RunResult = result.Value
         };
@@ -335,7 +321,7 @@ public sealed class TestProviderTests
     {
         // Arrange
 
-        var provider = new TestProvider
+        var provider = new TestProvider(TestThreadingMode.EventLoop)
         {
             RunResult = result.Value
         };
@@ -355,7 +341,7 @@ public sealed class TestProviderTests
     {
         // Arrange
 
-        var provider = new TestProvider
+        var provider = new TestProvider(TestThreadingMode.EventLoop)
         {
             RunResult = result.Value
         };
@@ -375,7 +361,7 @@ public sealed class TestProviderTests
     {
         // Arrange
 
-        var provider = new TestProvider
+        var provider = new TestProvider(TestThreadingMode.EventLoop)
         {
             StopResult = result.Value
         };
@@ -404,20 +390,20 @@ public sealed class TestProviderTests
         // Arrange
 
         var dateTime = DateTimeOffset.UtcNow;
-        var eventMask = EventMask.LeftCtrl | EventMask.LeftShift;
+        var modifierMask = EventMask.LeftCtrl | EventMask.LeftShift;
 
         // Act
 
-        var provider = new TestProvider
+        var provider = new TestProvider(TestThreadingMode.EventLoop)
         {
             EventDateTime = t => dateTime,
-            EventMask = t => eventMask
+            EventMask = t => modifierMask
         };
 
         UioHookEvent actualEvent = default;
 
         provider.SetDispatchProc(
-            (ref UioHookEvent e, IntPtr userData) =>
+            (ref UioHookEvent e, nint userData) =>
             {
                 if (e.Type == EventType.HookEnabled)
                 {
@@ -428,33 +414,30 @@ public sealed class TestProviderTests
 
         var task = provider.RunAsync();
 
+        provider.Stop();
+        await task;
+
         // Assert
 
         Assert.Equal(dateTime.ToUnixTimeMilliseconds(), (long)actualEvent.Time);
-        Assert.Equal(eventMask, actualEvent.Mask);
-        Assert.False(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
-
-        // Clean up
-
-        provider.Stop();
-        await task;
+        Assert.Equal(modifierMask, actualEvent.Mask);
     }
 
     [Property(DisplayName = "HookDisabled should be raised when the hook is stopped")]
-    public async Task HookDisabled(DateTimeAfterEpoch dateTime, EventMask eventMask)
+    public async Task HookDisabled(DateTimeAfterEpoch dateTime, EventMask modifierMask)
     {
         // Act
 
-        var provider = new TestProvider
+        var provider = new TestProvider(TestThreadingMode.EventLoop)
         {
             EventDateTime = t => dateTime.Value,
-            EventMask = t => eventMask
+            EventMask = t => modifierMask
         };
 
         UioHookEvent actualEvent = default;
 
         provider.SetDispatchProc(
-            (ref UioHookEvent e, IntPtr userData) =>
+            (ref UioHookEvent e, nint userData) =>
             {
                 if (e.Type == EventType.HookDisabled)
                 {
@@ -466,14 +449,12 @@ public sealed class TestProviderTests
         var task = provider.RunAsync();
 
         provider.Stop();
+        await task;
 
         // Assert
 
-        await task;
-
         Assert.Equal(dateTime.Value.ToUnixTimeMilliseconds(), (long)actualEvent.Time);
-        Assert.Equal(eventMask, actualEvent.Mask);
-        Assert.False(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
+        Assert.Equal(modifierMask, actualEvent.Mask);
     }
 
     [Property(DisplayName = "PostEvent should post an event")]
@@ -481,7 +462,7 @@ public sealed class TestProviderTests
     {
         // Arrange
 
-        var provider = new TestProvider();
+        var provider = new TestProvider(TestThreadingMode.EventLoop);
 
         // Act
 
@@ -499,7 +480,7 @@ public sealed class TestProviderTests
     {
         // Arrange
 
-        var provider = new TestProvider
+        var provider = new TestProvider(TestThreadingMode.EventLoop)
         {
             PostEventResult = result.Value
         };
@@ -519,7 +500,7 @@ public sealed class TestProviderTests
     {
         // Arrange
 
-        var provider = new TestProvider();
+        var provider = new TestProvider(TestThreadingMode.EventLoop);
 
         // Act
 
@@ -537,7 +518,7 @@ public sealed class TestProviderTests
     {
         // Arrange
 
-        var provider = new TestProvider
+        var provider = new TestProvider(TestThreadingMode.EventLoop)
         {
             PostTextResult = result.Value
         };
@@ -557,7 +538,7 @@ public sealed class TestProviderTests
     {
         // Arrange
 
-        var provider = new TestProvider();
+        var provider = new TestProvider(TestThreadingMode.EventLoop);
 
         // Act
 
@@ -571,14 +552,14 @@ public sealed class TestProviderTests
 
     [Fact(DisplayName = "Setting the logger callback should do nothing")]
     public void SetLoggerProc() =>
-        ((ILoggingProvider)new TestProvider()).SetLoggerProc(delegate { }, IntPtr.Zero);
+        ((ILoggingProvider)new TestProvider(TestThreadingMode.EventLoop)).SetLoggerProc(delegate { }, IntPtr.Zero);
 
     [Fact(DisplayName = "EventDateTime should not be settable to null")]
     public void EventDateTimeNull()
     {
         // Arrange
 
-        var provider = new TestProvider();
+        var provider = new TestProvider(TestThreadingMode.EventLoop);
 
         // Act + Assert
 
@@ -590,7 +571,7 @@ public sealed class TestProviderTests
     {
         // Arrange
 
-        var provider = new TestProvider();
+        var provider = new TestProvider(TestThreadingMode.EventLoop);
 
         // Act + Assert
 
@@ -602,7 +583,7 @@ public sealed class TestProviderTests
     {
         // Arrange
 
-        var provider = new TestProvider();
+        var provider = new TestProvider(TestThreadingMode.EventLoop);
 
         // Act
 
@@ -618,7 +599,7 @@ public sealed class TestProviderTests
     {
         // Arrange
 
-        var provider = new TestProvider
+        var provider = new TestProvider(TestThreadingMode.EventLoop)
         {
             RunResult = runDisabled ? UioHookResult.ErrorAxApiDisabled : UioHookResult.Success,
             PostEventResult = postEventDisabled ? UioHookResult.ErrorAxApiDisabled : UioHookResult.Success,
@@ -639,7 +620,7 @@ public sealed class TestProviderTests
     {
         // Arrange
 
-        var provider = new TestProvider();
+        var provider = new TestProvider(TestThreadingMode.EventLoop);
 
         // Act + Assert
 
@@ -651,7 +632,7 @@ public sealed class TestProviderTests
     {
         // Arrange
 
-        var provider = new TestProvider();
+        var provider = new TestProvider(TestThreadingMode.EventLoop);
 
         // Act
 
@@ -667,7 +648,7 @@ public sealed class TestProviderTests
     {
         // Arrange
 
-        var provider = new TestProvider();
+        var provider = new TestProvider(TestThreadingMode.EventLoop);
 
         // Act + Assert
 
@@ -679,7 +660,7 @@ public sealed class TestProviderTests
     {
         // Arrange
 
-        var provider = new TestProvider();
+        var provider = new TestProvider(TestThreadingMode.EventLoop);
 
         // Act
 
@@ -699,7 +680,7 @@ public sealed class TestProviderTests
 
         // Act
 
-        var provider = new TestProvider
+        var provider = new TestProvider(TestThreadingMode.EventLoop)
         {
             ScreenInfo = screenInfo
         };
@@ -718,14 +699,15 @@ public sealed class TestProviderTests
 
     [Fact(DisplayName = "Screen info should not be settable to null")]
     public void ScreenInfoNull() =>
-        Assert.Throws<ArgumentNullException>(() => new TestProvider { ScreenInfo = null! });
+        Assert.Throws<ArgumentNullException>(() =>
+            new TestProvider(TestThreadingMode.EventLoop) { ScreenInfo = null! });
 
     [Property(DisplayName = "Auto-repeat rate should be settable")]
     public void AutoRepeatRate(int autoRepeatRate)
     {
         // Act
 
-        var provider = new TestProvider
+        var provider = new TestProvider(TestThreadingMode.EventLoop)
         {
             AutoRepeatRate = autoRepeatRate
         };
@@ -741,7 +723,7 @@ public sealed class TestProviderTests
     {
         // Act
 
-        var provider = new TestProvider
+        var provider = new TestProvider(TestThreadingMode.EventLoop)
         {
             AutoRepeatDelay = autoRepeatDelay
         };
@@ -757,7 +739,7 @@ public sealed class TestProviderTests
     {
         // Act
 
-        var provider = new TestProvider
+        var provider = new TestProvider(TestThreadingMode.EventLoop)
         {
             PointerAccelerationMultiplier = multiplier
         };
@@ -773,7 +755,7 @@ public sealed class TestProviderTests
     {
         // Act
 
-        var provider = new TestProvider
+        var provider = new TestProvider(TestThreadingMode.EventLoop)
         {
             PointerAccelerationThreshold = threshold
         };
@@ -789,7 +771,7 @@ public sealed class TestProviderTests
     {
         // Act
 
-        var provider = new TestProvider
+        var provider = new TestProvider(TestThreadingMode.EventLoop)
         {
             PointerSensitivity = sensitivity
         };
@@ -805,7 +787,7 @@ public sealed class TestProviderTests
     {
         // Act
 
-        var provider = new TestProvider
+        var provider = new TestProvider(TestThreadingMode.EventLoop)
         {
             MultiClickTime = multiClickTime
         };
@@ -821,6 +803,16 @@ public sealed class TestProviderTests
         new Thread(() => provider.Run()).Start();
 
         while (!provider.IsRunning)
+        {
+            Thread.Yield();
+        }
+    }
+
+    private void StopAndWaitForStop(TestProvider provider)
+    {
+        provider.Stop();
+
+        while (provider.IsRunning)
         {
             Thread.Yield();
         }

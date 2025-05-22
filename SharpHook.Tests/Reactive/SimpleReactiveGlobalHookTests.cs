@@ -55,7 +55,7 @@ public sealed class SimpleReactiveGlobalHookTests
             EventMask = t => mask
         };
 
-        using var hook = new SimpleReactiveGlobalHook(globalHookType, globalHookProvider: provider);
+        var hook = new SimpleReactiveGlobalHook(globalHookType, globalHookProvider: provider);
 
         HookEventArgs? actualEventArgs = null;
 
@@ -91,7 +91,7 @@ public sealed class SimpleReactiveGlobalHookTests
             EventMask = t => mask
         };
 
-        using var hook = new SimpleReactiveGlobalHook(globalHookType, globalHookProvider: provider);
+        var hook = new SimpleReactiveGlobalHook(globalHookType, globalHookProvider: provider);
 
         HookEventArgs? actualEventArgs = null;
 
@@ -149,8 +149,6 @@ public sealed class SimpleReactiveGlobalHookTests
 
         provider.PostEvent(ref e);
 
-        this.DisposeHookAndWaitForStop(hook);
-
         // Assert
 
         if (globalHookType != GlobalHookType.Mouse)
@@ -204,8 +202,6 @@ public sealed class SimpleReactiveGlobalHookTests
         this.RunHookAndWaitForStart(hook, provider);
 
         provider.PostEvent(ref e);
-
-        this.DisposeHookAndWaitForStop(hook);
 
         // Assert
 
@@ -261,8 +257,6 @@ public sealed class SimpleReactiveGlobalHookTests
         this.RunHookAndWaitForStart(hook, provider);
 
         provider.PostEvent(ref e);
-
-        this.DisposeHookAndWaitForStop(hook);
 
         // Assert
 
@@ -320,8 +314,6 @@ public sealed class SimpleReactiveGlobalHookTests
         this.RunHookAndWaitForStart(hook, provider);
 
         provider.PostEvent(ref e);
-
-        this.DisposeHookAndWaitForStop(hook);
 
         // Assert
 
@@ -381,8 +373,6 @@ public sealed class SimpleReactiveGlobalHookTests
 
         provider.PostEvent(ref e);
 
-        this.DisposeHookAndWaitForStop(hook);
-
         // Assert
 
         if (globalHookType != GlobalHookType.Keyboard)
@@ -441,8 +431,6 @@ public sealed class SimpleReactiveGlobalHookTests
 
         provider.PostEvent(ref e);
 
-        this.DisposeHookAndWaitForStop(hook);
-
         // Assert
 
         if (globalHookType != GlobalHookType.Keyboard)
@@ -497,8 +485,6 @@ public sealed class SimpleReactiveGlobalHookTests
 
         provider.PostEvent(ref e);
 
-        this.DisposeHookAndWaitForStop(hook);
-
         // Assert
 
         if (globalHookType != GlobalHookType.Keyboard)
@@ -550,8 +536,6 @@ public sealed class SimpleReactiveGlobalHookTests
         this.RunHookAndWaitForStart(hook, provider);
 
         provider.PostEvent(ref e);
-
-        this.DisposeHookAndWaitForStop(hook);
 
         // Assert
 
@@ -612,8 +596,6 @@ public sealed class SimpleReactiveGlobalHookTests
         this.RunHookAndWaitForStart(hook, provider);
 
         provider.PostEvent(ref e);
-
-        this.DisposeHookAndWaitForStop(hook);
 
         // Assert
 

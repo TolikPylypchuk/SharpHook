@@ -136,7 +136,7 @@ public sealed class TaskPoolGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new TaskPoolGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        using var hook = new TaskPoolGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
 
         var e = new UioHookEvent
         {
@@ -174,8 +174,6 @@ public sealed class TaskPoolGlobalHookTests
             await keyPressed.Task;
         }
 
-        this.DisposeHookAndWaitForStop(hook);
-
         // Assert
 
         if (globalHookType != GlobalHookType.Mouse)
@@ -208,7 +206,7 @@ public sealed class TaskPoolGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new TaskPoolGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        using var hook = new TaskPoolGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
 
         var e = new UioHookEvent
         {
@@ -246,8 +244,6 @@ public sealed class TaskPoolGlobalHookTests
             await keyReleased.Task;
         }
 
-        this.DisposeHookAndWaitForStop(hook);
-
         // Assert
 
         if (globalHookType != GlobalHookType.Mouse)
@@ -281,7 +277,7 @@ public sealed class TaskPoolGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new TaskPoolGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        using var hook = new TaskPoolGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
 
         var e = new UioHookEvent
         {
@@ -319,8 +315,6 @@ public sealed class TaskPoolGlobalHookTests
             await keyTyped.Task;
         }
 
-        this.DisposeHookAndWaitForStop(hook);
-
         // Assert
 
         if (globalHookType != GlobalHookType.Mouse)
@@ -355,7 +349,7 @@ public sealed class TaskPoolGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new TaskPoolGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        using var hook = new TaskPoolGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
 
         var e = new UioHookEvent
         {
@@ -394,8 +388,6 @@ public sealed class TaskPoolGlobalHookTests
             await mousePressed.Task;
         }
 
-        this.DisposeHookAndWaitForStop(hook);
-
         // Assert
 
         if (globalHookType != GlobalHookType.Keyboard)
@@ -431,7 +423,7 @@ public sealed class TaskPoolGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new TaskPoolGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        using var hook = new TaskPoolGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
 
         var e = new UioHookEvent
         {
@@ -470,8 +462,6 @@ public sealed class TaskPoolGlobalHookTests
             await mouseReleased.Task;
         }
 
-        this.DisposeHookAndWaitForStop(hook);
-
         // Assert
 
         if (globalHookType != GlobalHookType.Keyboard)
@@ -507,7 +497,7 @@ public sealed class TaskPoolGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new TaskPoolGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        using var hook = new TaskPoolGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
 
         var e = new UioHookEvent
         {
@@ -546,8 +536,6 @@ public sealed class TaskPoolGlobalHookTests
             await mouseClicked.Task;
         }
 
-        this.DisposeHookAndWaitForStop(hook);
-
         // Assert
 
         if (globalHookType != GlobalHookType.Keyboard)
@@ -581,7 +569,7 @@ public sealed class TaskPoolGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new TaskPoolGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        using var hook = new TaskPoolGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
 
         var e = new UioHookEvent
         {
@@ -618,8 +606,6 @@ public sealed class TaskPoolGlobalHookTests
             await mouseMoved.Task;
         }
 
-        this.DisposeHookAndWaitForStop(hook);
-
         // Assert
 
         if (globalHookType != GlobalHookType.Keyboard)
@@ -651,7 +637,7 @@ public sealed class TaskPoolGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new TaskPoolGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        using var hook = new TaskPoolGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
 
         var e = new UioHookEvent
         {
@@ -688,8 +674,6 @@ public sealed class TaskPoolGlobalHookTests
             await mouseDragged.Task;
         }
 
-        this.DisposeHookAndWaitForStop(hook);
-
         // Assert
 
         if (globalHookType != GlobalHookType.Keyboard)
@@ -725,7 +709,7 @@ public sealed class TaskPoolGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new TaskPoolGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        using var hook = new TaskPoolGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
 
         var e = new UioHookEvent
         {
@@ -765,8 +749,6 @@ public sealed class TaskPoolGlobalHookTests
         {
             await mouseWheel.Task;
         }
-
-        this.DisposeHookAndWaitForStop(hook);
 
         // Assert
 
@@ -954,10 +936,12 @@ public sealed class TaskPoolGlobalHookTests
         Assert.Null(exception);
     }
 
-    [Property(DisplayName = "SimpleGlobalHook should not throw if the provider is null")]
+    [Property(DisplayName = "TaskPoolGlobalHook should not throw if the provider is null")]
     public void ProviderNull(GlobalHookType globalHookType)
     {
-        var exception = Record.Exception(() => new SimpleGlobalHook(globalHookType, null));
+        var exception = Record.Exception(() =>
+            new TaskPoolGlobalHook(globalHookType: globalHookType, globalHookProvider: null));
+
         Assert.Null(exception);
     }
 

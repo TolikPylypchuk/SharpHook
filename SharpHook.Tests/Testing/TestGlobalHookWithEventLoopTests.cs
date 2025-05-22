@@ -1,9 +1,9 @@
 namespace SharpHook.Testing;
 
-public sealed class TestGlobalHookTests
+public sealed class TestGlobalHookWithEventLoopTests
 {
     [Property(DisplayName = "KeyPressed events should be simulated and handled")]
-    public void HandleKeyPressed(
+    public async Task HandleKeyPressed(
         KeyCode keyCode,
         ushort rawCode,
         DateTimeAfterEpoch dateTime,
@@ -14,7 +14,7 @@ public sealed class TestGlobalHookTests
 
         KeyboardHookEventArgs? actualEventArgs = null;
 
-        using var hook = new TestGlobalHook
+        using var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             EventDateTime = t => dateTime.Value,
             EventMask = t => mask,
@@ -29,7 +29,7 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        this.WithRunningHook(hook, runAsync, () => hook.SimulateKeyPress(keyCode));
+        await this.WithRunningHook(hook, runAsync, () => hook.SimulateKeyPress(keyCode));
 
         // Assert
 
@@ -45,7 +45,7 @@ public sealed class TestGlobalHookTests
     }
 
     [Property(DisplayName = "KeyPressed events should be simulated and handled for null characters")]
-    public void HandleKeyPressedNullCharacters(
+    public async Task HandleKeyPressedNullCharacters(
         KeyCode keyCode,
         ushort rawCode,
         DateTimeAfterEpoch dateTime,
@@ -56,7 +56,7 @@ public sealed class TestGlobalHookTests
 
         KeyboardHookEventArgs? actualEventArgs = null;
 
-        using var hook = new TestGlobalHook
+        using var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             EventDateTime = t => dateTime.Value,
             EventMask = t => mask,
@@ -72,7 +72,7 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        this.WithRunningHook(hook, runAsync, () => hook.SimulateKeyPress(keyCode));
+        await this.WithRunningHook(hook, runAsync, () => hook.SimulateKeyPress(keyCode));
 
         // Assert
 
@@ -88,7 +88,7 @@ public sealed class TestGlobalHookTests
     }
 
     [Property(DisplayName = "KeyReleased events should be simulated and handled")]
-    public void HandleKeyReleased(
+    public async Task HandleKeyReleased(
         KeyCode keyCode,
         ushort rawCode,
         DateTimeAfterEpoch dateTime,
@@ -99,7 +99,7 @@ public sealed class TestGlobalHookTests
 
         KeyboardHookEventArgs? actualEventArgs = null;
 
-        using var hook = new TestGlobalHook
+        using var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             EventDateTime = t => dateTime.Value,
             EventMask = t => mask,
@@ -114,7 +114,7 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        this.WithRunningHook(hook, runAsync, () => hook.SimulateKeyRelease(keyCode));
+        await this.WithRunningHook(hook, runAsync, () => hook.SimulateKeyRelease(keyCode));
 
         // Assert
 
@@ -130,7 +130,7 @@ public sealed class TestGlobalHookTests
     }
 
     [Property(DisplayName = "KeyTyped events should be simulated and handled")]
-    public void HandleKeyTyped(
+    public async Task HandleKeyTyped(
         char keyChar,
         KeyCode keyCode,
         ushort rawCode,
@@ -142,7 +142,7 @@ public sealed class TestGlobalHookTests
 
         KeyboardHookEventArgs? actualEventArgs = null;
 
-        using var hook = new TestGlobalHook
+        using var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             EventDateTime = t => dateTime.Value,
             EventMask = t => mask,
@@ -158,7 +158,7 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        this.WithRunningHook(hook, runAsync, () => hook.SimulateKeyPress(keyCode));
+        await this.WithRunningHook(hook, runAsync, () => hook.SimulateKeyPress(keyCode));
 
         // Assert
 
@@ -173,7 +173,7 @@ public sealed class TestGlobalHookTests
     }
 
     [Property(DisplayName = "MousePressed events should be simulated and handled")]
-    public void HandleMousePressed(
+    public async Task HandleMousePressed(
         short x,
         short y,
         MouseButton button,
@@ -186,7 +186,7 @@ public sealed class TestGlobalHookTests
 
         MouseHookEventArgs? actualEventArgs = null;
 
-        using var hook = new TestGlobalHook
+        using var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             EventDateTime = t => dateTime.Value,
             EventMask = t => mask,
@@ -203,7 +203,7 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        this.WithRunningHook(hook, runAsync, () => hook.SimulateMousePress(button));
+        await this.WithRunningHook(hook, runAsync, () => hook.SimulateMousePress(button));
 
         // Assert
 
@@ -219,7 +219,7 @@ public sealed class TestGlobalHookTests
     }
 
     [Property(DisplayName = "MousePressed events with explicit clicks should be simulated and handled")]
-    public void HandleMousePressedExplicitClicks(
+    public async Task HandleMousePressedExplicitClicks(
         short x,
         short y,
         MouseButton button,
@@ -232,7 +232,7 @@ public sealed class TestGlobalHookTests
 
         MouseHookEventArgs? actualEventArgs = null;
 
-        using var hook = new TestGlobalHook
+        using var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             EventDateTime = t => dateTime.Value,
             EventMask = t => mask,
@@ -248,7 +248,7 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        this.WithRunningHook(hook, runAsync, () => hook.SimulateMousePress(button, clicks));
+        await this.WithRunningHook(hook, runAsync, () => hook.SimulateMousePress(button, clicks));
 
         // Assert
 
@@ -264,7 +264,7 @@ public sealed class TestGlobalHookTests
     }
 
     [Property(DisplayName = "MousePressed events with explicit coordinates should be simulated and handled")]
-    public void HandleMousePressedExplicitCoordinates(
+    public async Task HandleMousePressedExplicitCoordinates(
         short x,
         short y,
         MouseButton button,
@@ -277,7 +277,7 @@ public sealed class TestGlobalHookTests
 
         MouseHookEventArgs? actualEventArgs = null;
 
-        using var hook = new TestGlobalHook
+        using var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             EventDateTime = t => dateTime.Value,
             EventMask = t => mask,
@@ -292,7 +292,7 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        this.WithRunningHook(hook, runAsync, () => hook.SimulateMousePress(x, y, button));
+        await this.WithRunningHook(hook, runAsync, () => hook.SimulateMousePress(x, y, button));
 
         // Assert
 
@@ -308,7 +308,7 @@ public sealed class TestGlobalHookTests
     }
 
     [Property(DisplayName = "MousePressed events with explicit coordinates and clicks should be simulated and handled")]
-    public void HandleMousePressedExplicitCoordinatesAndClicks(
+    public async Task HandleMousePressedExplicitCoordinatesAndClicks(
         short x,
         short y,
         MouseButton button,
@@ -321,7 +321,7 @@ public sealed class TestGlobalHookTests
 
         MouseHookEventArgs? actualEventArgs = null;
 
-        using var hook = new TestGlobalHook
+        using var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             EventDateTime = t => dateTime.Value,
             EventMask = t => mask
@@ -335,7 +335,7 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        this.WithRunningHook(hook, runAsync, () => hook.SimulateMousePress(x, y, button, clicks));
+        await this.WithRunningHook(hook, runAsync, () => hook.SimulateMousePress(x, y, button, clicks));
 
         // Assert
 
@@ -351,7 +351,7 @@ public sealed class TestGlobalHookTests
     }
 
     [Property(DisplayName = "MouseReleased events should be simulated and handled")]
-    public void HandleMouseReleased(
+    public async Task HandleMouseReleased(
         short x,
         short y,
         MouseButton button,
@@ -364,7 +364,7 @@ public sealed class TestGlobalHookTests
 
         MouseHookEventArgs? actualEventArgs = null;
 
-        using var hook = new TestGlobalHook
+        using var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             EventDateTime = t => dateTime.Value,
             EventMask = t => mask,
@@ -382,7 +382,7 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        this.WithRunningHook(hook, runAsync, () => hook.SimulateMouseRelease(button));
+        await this.WithRunningHook(hook, runAsync, () => hook.SimulateMouseRelease(button));
 
         // Assert
 
@@ -398,7 +398,7 @@ public sealed class TestGlobalHookTests
     }
 
     [Property(DisplayName = "MouseReleased events with explicit clicks should be simulated and handled")]
-    public void HandleMouseReleasedExplicitClicks(
+    public async Task HandleMouseReleasedExplicitClicks(
         short x,
         short y,
         MouseButton button,
@@ -411,7 +411,7 @@ public sealed class TestGlobalHookTests
 
         MouseHookEventArgs? actualEventArgs = null;
 
-        using var hook = new TestGlobalHook
+        using var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             EventDateTime = t => dateTime.Value,
             EventMask = t => mask,
@@ -428,7 +428,7 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        this.WithRunningHook(hook, runAsync, () => hook.SimulateMouseRelease(button, clicks));
+        await this.WithRunningHook(hook, runAsync, () => hook.SimulateMouseRelease(button, clicks));
 
         // Assert
 
@@ -444,7 +444,7 @@ public sealed class TestGlobalHookTests
     }
 
     [Property(DisplayName = "MouseReleased events with explicit coordinates should be simulated and handled")]
-    public void HandleMouseReleasedExplicitCoordinates(
+    public async Task HandleMouseReleasedExplicitCoordinates(
         short x,
         short y,
         MouseButton button,
@@ -457,7 +457,7 @@ public sealed class TestGlobalHookTests
 
         MouseHookEventArgs? actualEventArgs = null;
 
-        using var hook = new TestGlobalHook
+        using var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             EventDateTime = t => dateTime.Value,
             EventMask = t => mask,
@@ -473,7 +473,7 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        this.WithRunningHook(hook, runAsync, () => hook.SimulateMouseRelease(x, y, button));
+        await this.WithRunningHook(hook, runAsync, () => hook.SimulateMouseRelease(x, y, button));
 
         // Assert
 
@@ -488,9 +488,9 @@ public sealed class TestGlobalHookTests
         this.AssertSimulatedEvents(hook, actualEventArgs);
     }
 
-    [Property(
-        DisplayName = "MouseReleased events with explicit coordinates and clicks should be simulated and handled")]
-    public void HandleMouseReleasedExplicitCoordinatesAndClicks(
+    [Property(DisplayName =
+        "MouseReleased events with explicit coordinates and clicks should be simulated and handled")]
+    public async Task HandleMouseReleasedExplicitCoordinatesAndClicks(
         short x,
         short y,
         MouseButton button,
@@ -503,7 +503,7 @@ public sealed class TestGlobalHookTests
 
         MouseHookEventArgs? actualEventArgs = null;
 
-        using var hook = new TestGlobalHook
+        using var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             EventDateTime = t => dateTime.Value,
             EventMask = t => mask,
@@ -518,7 +518,7 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        this.WithRunningHook(hook, runAsync, () => hook.SimulateMouseRelease(x, y, button, clicks));
+        await this.WithRunningHook(hook, runAsync, () => hook.SimulateMouseRelease(x, y, button, clicks));
 
         // Assert
 
@@ -534,7 +534,7 @@ public sealed class TestGlobalHookTests
     }
 
     [Property(DisplayName = "MouseClicked events should be simulated and handled")]
-    public void HandleMouseClicked(
+    public async Task HandleMouseClicked(
         short x,
         short y,
         MouseButton button,
@@ -547,7 +547,7 @@ public sealed class TestGlobalHookTests
 
         MouseHookEventArgs? actualEventArgs = null;
 
-        using var hook = new TestGlobalHook
+        using var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             EventDateTime = t => dateTime.Value,
             EventMask = t => mask,
@@ -565,7 +565,7 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        this.WithRunningHook(hook, runAsync, () => hook.SimulateMouseRelease(button));
+        await this.WithRunningHook(hook, runAsync, () => hook.SimulateMouseRelease(button));
 
         // Assert
 
@@ -581,7 +581,7 @@ public sealed class TestGlobalHookTests
     }
 
     [Property(DisplayName = "MouseClicked events with explicit coordinates should be simulated and handled")]
-    public void HandleMouseClickedExplicitCoordinates(
+    public async Task HandleMouseClickedExplicitCoordinates(
         short x,
         short y,
         MouseButton button,
@@ -594,7 +594,7 @@ public sealed class TestGlobalHookTests
 
         MouseHookEventArgs? actualEventArgs = null;
 
-        using var hook = new TestGlobalHook
+        using var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             EventDateTime = t => dateTime.Value,
             EventMask = t => mask,
@@ -610,7 +610,7 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        this.WithRunningHook(hook, runAsync, () => hook.SimulateMouseRelease(x, y, button));
+        await this.WithRunningHook(hook, runAsync, () => hook.SimulateMouseRelease(x, y, button));
 
         // Assert
 
@@ -626,13 +626,13 @@ public sealed class TestGlobalHookTests
     }
 
     [Property(DisplayName = "MouseMoved events should be simulated and handled")]
-    public void HandleMouseMovement(short x, short y, DateTimeAfterEpoch dateTime, EventMask mask, bool runAsync)
+    public async Task HandleMouseMovement(short x, short y, DateTimeAfterEpoch dateTime, EventMask mask, bool runAsync)
     {
         // Arrange
 
         MouseHookEventArgs? actualEventArgs = null;
 
-        using var hook = new TestGlobalHook
+        using var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             EventDateTime = t => dateTime.Value,
             EventMask = t => mask
@@ -646,7 +646,7 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        this.WithRunningHook(hook, runAsync, () => hook.SimulateMouseMovement(x, y));
+        await this.WithRunningHook(hook, runAsync, () => hook.SimulateMouseMovement(x, y));
 
         // Assert
 
@@ -662,7 +662,7 @@ public sealed class TestGlobalHookTests
     }
 
     [Property(DisplayName = "Relatvie MouseMoved events should be simulated and handled")]
-    public void HandleMouseMovementRelative(
+    public async Task HandleMouseMovementRelative(
         short x,
         short y,
         short xOffset,
@@ -675,7 +675,7 @@ public sealed class TestGlobalHookTests
 
         MouseHookEventArgs? actualEventArgs = null;
 
-        using var hook = new TestGlobalHook
+        using var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             EventDateTime = t => dateTime.Value,
             EventMask = t => mask,
@@ -691,7 +691,7 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        this.WithRunningHook(hook, runAsync, () => hook.SimulateMouseMovementRelative(xOffset, yOffset));
+        await this.WithRunningHook(hook, runAsync, () => hook.SimulateMouseMovementRelative(xOffset, yOffset));
 
         // Assert
 
@@ -707,13 +707,13 @@ public sealed class TestGlobalHookTests
     }
 
     [Property(DisplayName = "MouseDragged events should be simulated and handled")]
-    public void HandleMouseDragged(short x, short y, DateTimeAfterEpoch dateTime, EventMask mask, bool runAsync)
+    public async Task HandleMouseDragged(short x, short y, DateTimeAfterEpoch dateTime, EventMask mask, bool runAsync)
     {
         // Arrange
 
         MouseHookEventArgs? actualEventArgs = null;
 
-        using var hook = new TestGlobalHook
+        using var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             EventDateTime = t => dateTime.Value,
             EventMask = t => mask,
@@ -728,7 +728,7 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        this.WithRunningHook(hook, runAsync, () => hook.SimulateMouseMovement(x, y));
+        await this.WithRunningHook(hook, runAsync, () => hook.SimulateMouseMovement(x, y));
 
         // Assert
 
@@ -744,7 +744,7 @@ public sealed class TestGlobalHookTests
     }
 
     [Property(DisplayName = "Relatvie MouseDragged events should be simulated and handled")]
-    public void HandleMouseDraggedRelative(
+    public async Task HandleMouseDraggedRelative(
         short x,
         short y,
         short xOffset,
@@ -757,7 +757,7 @@ public sealed class TestGlobalHookTests
 
         MouseHookEventArgs? actualEventArgs = null;
 
-        using var hook = new TestGlobalHook
+        using var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             EventDateTime = t => dateTime.Value,
             EventMask = t => mask,
@@ -774,7 +774,7 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        this.WithRunningHook(hook, runAsync, () => hook.SimulateMouseMovementRelative(xOffset, yOffset));
+        await this.WithRunningHook(hook, runAsync, () => hook.SimulateMouseMovementRelative(xOffset, yOffset));
 
         // Assert
 
@@ -790,7 +790,7 @@ public sealed class TestGlobalHookTests
     }
 
     [Property(DisplayName = "MouseWheel events should be simulated and handled")]
-    public void HandleMouseWheel(
+    public async Task HandleMouseWheel(
         short rotation,
         MouseWheelScrollDirection direction,
         MouseWheelScrollType type,
@@ -802,7 +802,7 @@ public sealed class TestGlobalHookTests
 
         MouseWheelHookEventArgs? actualEventArgs = null;
 
-        using var hook = new TestGlobalHook
+        using var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             EventDateTime = t => dateTime.Value,
             EventMask = t => mask
@@ -816,7 +816,7 @@ public sealed class TestGlobalHookTests
             e.SuppressEvent = true;
         };
 
-        this.WithRunningHook(hook, runAsync, () => hook.SimulateMouseWheel(rotation, direction, type));
+        await this.WithRunningHook(hook, runAsync, () => hook.SimulateMouseWheel(rotation, direction, type));
 
         // Assert
 
@@ -835,7 +835,7 @@ public sealed class TestGlobalHookTests
     {
         // Arrange
 
-        using var hook = new TestGlobalHook();
+        using var hook = new TestGlobalHook(TestThreadingMode.EventLoop);
         var task = hook.RunAsync();
 
         // Act
@@ -853,7 +853,7 @@ public sealed class TestGlobalHookTests
     {
         // Arrange
 
-        using var hook = new TestGlobalHook();
+        using var hook = new TestGlobalHook(TestThreadingMode.EventLoop);
 
         // Act
 
@@ -869,7 +869,7 @@ public sealed class TestGlobalHookTests
     {
         // Arrange
 
-        var hook = new TestGlobalHook();
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop);
         var task = hook.RunAsync();
 
         // Act
@@ -888,7 +888,7 @@ public sealed class TestGlobalHookTests
     {
         // Arrange
 
-        var hook = new TestGlobalHook();
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop);
 
         // Act
 
@@ -905,7 +905,7 @@ public sealed class TestGlobalHookTests
     {
         // Arrange
 
-        var hook = new TestGlobalHook();
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop);
 
         // Act
 
@@ -923,7 +923,7 @@ public sealed class TestGlobalHookTests
     {
         // Arrange
 
-        var hook = new TestGlobalHook
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             RunResult = result.Value
         };
@@ -936,17 +936,20 @@ public sealed class TestGlobalHookTests
     }
 
     [Fact(DisplayName = "Run should throw an exception if the global hook is already running")]
-    public void RunRunning()
+    public async Task RunRunning()
     {
         // Arrange
 
-        using var hook = new TestGlobalHook();
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop);
 
         // Act + Assert
 
-        _ = hook.RunAsync();
+        var task = hook.RunAsync();
 
         Assert.Throws<InvalidOperationException>(hook.Run);
+
+        hook.Dispose();
+        await task;
     }
 
     [Fact(DisplayName = "Run should throw an exception if the hook is disposed")]
@@ -954,7 +957,7 @@ public sealed class TestGlobalHookTests
     {
         // Arrange
 
-        var hook = new TestGlobalHook();
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop);
         hook.Dispose();
 
         // Act + Assert
@@ -967,7 +970,7 @@ public sealed class TestGlobalHookTests
     {
         // Arrange
 
-        var hook = new TestGlobalHook
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             RunResult = result.Value
         };
@@ -979,12 +982,29 @@ public sealed class TestGlobalHookTests
         Assert.Equal(result.Value, exception.Result);
     }
 
+    [Fact(DisplayName = "RunAsync should throw an exception if the global hook is already running")]
+    public async Task RunAsyncRunning()
+    {
+        // Arrange
+
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop);
+
+        // Act + Assert
+
+        var task = hook.RunAsync();
+
+        await Assert.ThrowsAsync<InvalidOperationException>(hook.RunAsync);
+
+        hook.Dispose();
+        await task;
+    }
+
     [Fact(DisplayName = "RunAsync should throw an exception if the hook is disposed")]
     public async Task RunAsyncDisposed()
     {
         // Arrange
 
-        var hook = new TestGlobalHook();
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop);
         hook.Dispose();
 
         // Act + Assert
@@ -992,26 +1012,12 @@ public sealed class TestGlobalHookTests
         await Assert.ThrowsAsync<ObjectDisposedException>(hook.RunAsync);
     }
 
-    [Fact(DisplayName = "RunAsync should throw an exception if the global hook is already running")]
-    public async Task RunAsyncRunning()
-    {
-        // Arrange
-
-        using var hook = new TestGlobalHook();
-
-        // Act + Assert
-
-        _ = hook.RunAsync();
-
-        await Assert.ThrowsAsync<InvalidOperationException>(hook.RunAsync);
-    }
-
     [Property(DisplayName = "Stop should throw an exception if configured to do so")]
     public void StopFail(FailedUioHookResult result)
     {
         // Arrange
 
-        var hook = new TestGlobalHook
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             StopResult = result.Value
         };
@@ -1030,7 +1036,7 @@ public sealed class TestGlobalHookTests
     {
         // Arrange
 
-        var hook = new TestGlobalHook();
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop);
         hook.Dispose();
 
         // Act + Assert
@@ -1043,14 +1049,14 @@ public sealed class TestGlobalHookTests
     {
         // Arrange
 
-        var hook = new TestGlobalHook
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             DisposeResult = result.Value
         };
 
         // Act + Assert
 
-        _ = hook.RunAsync();
+        var task = hook.RunAsync();
 
         var exception = Assert.Throws<HookException>(hook.Dispose);
 
@@ -1062,7 +1068,7 @@ public sealed class TestGlobalHookTests
     {
         // Arrange
 
-        var hook = new TestGlobalHook();
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop);
         hook.Dispose();
 
         // Act
@@ -1079,7 +1085,7 @@ public sealed class TestGlobalHookTests
     {
         // Arrange
 
-        var hook = new TestGlobalHook
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             SimulateKeyPressResult = result.Value
         };
@@ -1099,7 +1105,7 @@ public sealed class TestGlobalHookTests
     {
         // Arrange
 
-        var hook = new TestGlobalHook
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             SimulateKeyReleaseResult = result.Value
         };
@@ -1119,7 +1125,7 @@ public sealed class TestGlobalHookTests
     {
         // Arrange
 
-        var hook = new TestGlobalHook
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             SimulateMousePressResult = result.Value
         };
@@ -1134,8 +1140,8 @@ public sealed class TestGlobalHookTests
         Assert.Empty(hook.SimulatedEvents);
     }
 
-    [Property(
-        DisplayName = "SimulateMousePress with explicit coordinates should return an error if configured to do so")]
+    [Property(DisplayName =
+        "SimulateMousePress with explicit coordinates should return an error if configured to do so")]
     public void SimulateMousePressExplicitCoordinatesFail(
         FailedUioHookResult result,
         short x,
@@ -1144,7 +1150,7 @@ public sealed class TestGlobalHookTests
     {
         // Arrange
 
-        var hook = new TestGlobalHook
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             SimulateMousePressResult = result.Value
         };
@@ -1164,7 +1170,7 @@ public sealed class TestGlobalHookTests
     {
         // Arrange
 
-        var hook = new TestGlobalHook
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             SimulateMouseReleaseResult = result.Value
         };
@@ -1179,8 +1185,8 @@ public sealed class TestGlobalHookTests
         Assert.Empty(hook.SimulatedEvents);
     }
 
-    [Property(
-        DisplayName = "SimulateMouseRelease with explicit coordinates should return an error if configured to do so")]
+    [Property(DisplayName =
+        "SimulateMouseRelease with explicit coordinates should return an error if configured to do so")]
     public void SimulateMouseReleaseExplicitCoordinatesFail(
         FailedUioHookResult result,
         short x,
@@ -1189,7 +1195,7 @@ public sealed class TestGlobalHookTests
     {
         // Arrange
 
-        var hook = new TestGlobalHook
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             SimulateMouseReleaseResult = result.Value
         };
@@ -1209,7 +1215,7 @@ public sealed class TestGlobalHookTests
     {
         // Arrange
 
-        var hook = new TestGlobalHook
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             SimulateMouseMovementResult = result.Value
         };
@@ -1229,7 +1235,7 @@ public sealed class TestGlobalHookTests
     {
         // Arrange
 
-        var hook = new TestGlobalHook
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             SimulateMouseMovementResult = result.Value
         };
@@ -1253,7 +1259,7 @@ public sealed class TestGlobalHookTests
     {
         // Arrange
 
-        var hook = new TestGlobalHook
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             SimulateMouseWheelResult = result.Value
         };
@@ -1273,7 +1279,7 @@ public sealed class TestGlobalHookTests
     {
         // Arrange
 
-        var hook = new TestGlobalHook
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop)
         {
             SimulateTextEntryResult = result.Value
         };
@@ -1293,7 +1299,7 @@ public sealed class TestGlobalHookTests
     {
         // Arrange
 
-        var hook = new TestGlobalHook();
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop);
 
         // Act + Assert
 
@@ -1305,7 +1311,7 @@ public sealed class TestGlobalHookTests
     {
         // Arange
 
-        var hook = new TestGlobalHook();
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop);
 
         // Act + Assert
 
@@ -1317,7 +1323,7 @@ public sealed class TestGlobalHookTests
     {
         // Arange
 
-        var hook = new TestGlobalHook();
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop);
 
         // Act + Assert
 
@@ -1329,7 +1335,7 @@ public sealed class TestGlobalHookTests
     {
         // Arange
 
-        var hook = new TestGlobalHook();
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop);
 
         // Act + Assert
 
@@ -1341,7 +1347,7 @@ public sealed class TestGlobalHookTests
     {
         // Arange
 
-        var hook = new TestGlobalHook();
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop);
 
         // Act + Assert
 
@@ -1353,7 +1359,7 @@ public sealed class TestGlobalHookTests
     {
         // Arange
 
-        var hook = new TestGlobalHook();
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop);
 
         // Act + Assert
 
@@ -1365,7 +1371,7 @@ public sealed class TestGlobalHookTests
     {
         // Arange
 
-        var hook = new TestGlobalHook();
+        var hook = new TestGlobalHook(TestThreadingMode.EventLoop);
 
         // Act + Assert
 
@@ -1377,7 +1383,7 @@ public sealed class TestGlobalHookTests
     {
         // Arrange
 
-        IEventSimulator hook = new TestGlobalHook();
+        IEventSimulator hook = new TestGlobalHook(TestThreadingMode.EventLoop);
 
         // Act
 
@@ -1388,16 +1394,23 @@ public sealed class TestGlobalHookTests
         Assert.Equal(delay, hook.TextSimulationDelayOnX11);
     }
 
-    private void WithRunningHook(TestGlobalHook hook, bool runAsync, Action action)
+    private async Task WithRunningHook(TestGlobalHook hook, bool runAsync, Action action)
     {
         if (runAsync)
         {
-            _ = hook.RunAsync();
+            var task = hook.RunAsync();
+
             action();
+
+            hook.Dispose();
+            await task;
         } else
         {
             this.RunAndWaitForStart(hook);
+
             action();
+
+            this.DisposeAndWaitForStop(hook);
         }
     }
 
@@ -1411,21 +1424,28 @@ public sealed class TestGlobalHookTests
         }
     }
 
+    private void DisposeAndWaitForStop(TestGlobalHook hook)
+    {
+        hook.Dispose();
+
+        while (hook.IsRunning)
+        {
+            Thread.Yield();
+        }
+    }
+
     private void AssertSimulatedEvents(TestGlobalHook hook, HookEventArgs actualEventArgs, int eventCount = 1)
     {
         Assert.Equal(eventCount, hook.SimulatedEvents.Count);
         Assert.Single(hook.SuppressedEvents);
 
         var actualEvent = hook.SimulatedEvents[^1];
-        Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
+        Assert.False(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
+        Assert.Equal(actualEventArgs.RawEvent, actualEvent);
 
         var suppressedEvent = hook.SuppressedEvents[0];
         Assert.True(suppressedEvent.Mask.HasFlag(EventMask.SuppressEvent));
-
-        var expectedEvent = actualEventArgs.RawEvent;
-        expectedEvent.Mask |= EventMask.SuppressEvent;
-
-        Assert.Equal(expectedEvent, actualEvent);
-        Assert.Equal(expectedEvent, suppressedEvent);
+        suppressedEvent.Mask &= ~EventMask.SuppressEvent;
+        Assert.Equal(actualEventArgs.RawEvent, suppressedEvent);
     }
 }

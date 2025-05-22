@@ -136,7 +136,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new SimpleGlobalHook(globalHookType, provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider);
 
         var e = new UioHookEvent
         {
@@ -165,8 +165,6 @@ public sealed class SimpleGlobalHookTests
         this.RunHookAndWaitForStart(hook, provider);
 
         provider.PostEvent(ref e);
-
-        this.DisposeHookAndWaitForStop(hook);
 
         // Assert
 
@@ -200,7 +198,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new SimpleGlobalHook(globalHookType, provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider);
 
         var e = new UioHookEvent
         {
@@ -229,8 +227,6 @@ public sealed class SimpleGlobalHookTests
         this.RunHookAndWaitForStart(hook, provider);
 
         provider.PostEvent(ref e);
-
-        this.DisposeHookAndWaitForStop(hook);
 
         // Assert
 
@@ -265,7 +261,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new SimpleGlobalHook(globalHookType, provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider);
 
         var e = new UioHookEvent
         {
@@ -294,8 +290,6 @@ public sealed class SimpleGlobalHookTests
         this.RunHookAndWaitForStart(hook, provider);
 
         provider.PostEvent(ref e);
-
-        this.DisposeHookAndWaitForStop(hook);
 
         // Assert
 
@@ -331,7 +325,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new SimpleGlobalHook(globalHookType, provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider);
 
         var e = new UioHookEvent
         {
@@ -361,8 +355,6 @@ public sealed class SimpleGlobalHookTests
         this.RunHookAndWaitForStart(hook, provider);
 
         provider.PostEvent(ref e);
-
-        this.DisposeHookAndWaitForStop(hook);
 
         // Assert
 
@@ -399,7 +391,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new SimpleGlobalHook(globalHookType, provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider);
 
         var e = new UioHookEvent
         {
@@ -429,8 +421,6 @@ public sealed class SimpleGlobalHookTests
         this.RunHookAndWaitForStart(hook, provider);
 
         provider.PostEvent(ref e);
-
-        this.DisposeHookAndWaitForStop(hook);
 
         // Assert
 
@@ -467,7 +457,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new SimpleGlobalHook(globalHookType, provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider);
 
         var e = new UioHookEvent
         {
@@ -497,8 +487,6 @@ public sealed class SimpleGlobalHookTests
         this.RunHookAndWaitForStart(hook, provider);
 
         provider.PostEvent(ref e);
-
-        this.DisposeHookAndWaitForStop(hook);
 
         // Assert
 
@@ -533,7 +521,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new SimpleGlobalHook(globalHookType, provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider);
 
         var e = new UioHookEvent
         {
@@ -561,8 +549,6 @@ public sealed class SimpleGlobalHookTests
         this.RunHookAndWaitForStart(hook, provider);
 
         provider.PostEvent(ref e);
-
-        this.DisposeHookAndWaitForStop(hook);
 
         // Assert
 
@@ -595,7 +581,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new SimpleGlobalHook(globalHookType, provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider);
 
         var e = new UioHookEvent
         {
@@ -623,8 +609,6 @@ public sealed class SimpleGlobalHookTests
         this.RunHookAndWaitForStart(hook, provider);
 
         provider.PostEvent(ref e);
-
-        this.DisposeHookAndWaitForStop(hook);
 
         // Assert
 
@@ -661,7 +645,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new SimpleGlobalHook(globalHookType, provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider);
 
         var e = new UioHookEvent
         {
@@ -693,8 +677,6 @@ public sealed class SimpleGlobalHookTests
         this.RunHookAndWaitForStart(hook, provider);
 
         provider.PostEvent(ref e);
-
-        this.DisposeHookAndWaitForStop(hook);
 
         // Assert
 

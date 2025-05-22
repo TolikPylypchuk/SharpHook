@@ -13,6 +13,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     private readonly object syncRoot = new();
 #endif
 
+    private TaskCompletionSource<object?>? runCompletionSource;
     private BlockingCollection<UioHookEvent>? eventLoop;
 
     private readonly List<UioHookEvent> simulatedEvents = [];
@@ -27,6 +28,27 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
 
     private Func<short> currentMouseX = () => 0;
     private Func<short> currentMouseY = () => 0;
+
+    /// <summary>
+    /// Initializes a new instance of <see cref="TestGlobalHook" />.
+    /// </summary>
+    public TestGlobalHook()
+        : this(TestThreadingMode.Simple)
+    { }
+
+    /// <summary>
+    /// Initializes a new instance of <see cref="TestGlobalHook" />.
+    /// </summary>
+    /// <param name="threadingMode">The threading mode to use.</param>
+    [SuppressMessage(
+        "Style", "IDE0290:Use primary constructor", Justification = "Primary constructors don't support XML comments")]
+    public TestGlobalHook(TestThreadingMode threadingMode) =>
+        this.ThreadingMode = threadingMode;
+
+    /// <summary>
+    /// Gets the threading mode of this global hook.
+    /// </summary>
+    public TestThreadingMode ThreadingMode { get; }
 
     /// <summary>
     /// Gets the value which indicates whether the global hook is running.
@@ -224,14 +246,18 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     public UioHookResult SimulateMouseWheelResult { get; set; } = UioHookResult.Success;
 
     /// <summary>
-    /// Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
-    /// <see cref="IDisposable.Dispose" /> method.
+    /// Runs the global hook on the current thread, blocking it. The hook can be stopped by calling the
+    /// <see cref="Stop" /> or <see cref="IDisposable.Dispose" /> method.
     /// </summary>
     /// <exception cref="HookException">
     /// <see cref="RunResult" /> was set to something other than <see cref="UioHookResult.Success" />.
     /// </exception>
     /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
     /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
+    /// <remarks>
+    /// Depending on the threading mode, this method will either run an event loop or do nothing and wait for the hook
+    /// to be stopped.
+    /// </remarks>
     public void Run()
     {
         this.ThrowIfRunning();
@@ -243,36 +269,31 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
             throw new HookException(result);
         }
 
-        try
+        switch (this.ThreadingMode)
         {
-            this.eventLoop = [];
-            this.IsRunning = true;
-
-            this.DispatchHookEvent(EventType.HookEnabled);
-            this.RunEventLoop();
-            this.DispatchHookEvent(EventType.HookDisabled);
-        } finally
-        {
-            this.IsRunning = false;
-
-            lock (this.syncRoot)
-            {
-                this.eventLoop?.Dispose();
-                this.eventLoop = null;
-            }
+            case TestThreadingMode.Simple:
+                this.RunSimple();
+                break;
+            case TestThreadingMode.EventLoop:
+                this.RunWithEventLoop();
+                break;
         }
     }
 
     /// <summary>
-    /// Runs the global hook without blocking the current thread. The hook can be destroyed by calling the
-    /// <see cref="IDisposable.Dispose" /> method.
+    /// Runs the global hook without blocking the current thread. The hook can be stopped by calling the
+    /// <see cref="Stop" /> or <see cref="IDisposable.Dispose" /> method.
     /// </summary>
-    /// <returns>A <see cref="Task" /> which finishes when the hook is destroyed.</returns>
+    /// <returns>A <see cref="Task" /> which finishes when the hook is stopped.</returns>
     /// <exception cref="HookException">
     /// <see cref="RunResult" /> was set to something other than <see cref="UioHookResult.Success" />.
     /// </exception>
     /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
     /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
+    /// <remarks>
+    /// Depending on the threading mode, this method will either run an event loop or do nothing and wait for the hook
+    /// to be stopped.
+    /// </remarks>
     public async Task RunAsync()
     {
         this.ThrowIfRunning();
@@ -284,35 +305,14 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
             throw new HookException(result);
         }
 
-        try
+        switch (this.ThreadingMode)
         {
-            this.eventLoop = [];
-            this.IsRunning = true;
-
-            this.DispatchHookEvent(EventType.HookEnabled);
-
-            var runCompletionSource = new TaskCompletionSource<object?>();
-
-            var thread = new Thread(() =>
-            {
-                this.RunEventLoop();
-                runCompletionSource.SetResult(null);
-            });
-
-            thread.Start();
-
-            await runCompletionSource.Task;
-
-            this.DispatchHookEvent(EventType.HookDisabled);
-        } finally
-        {
-            this.IsRunning = false;
-
-            lock (this.syncRoot)
-            {
-                this.eventLoop?.Dispose();
-                this.eventLoop = null;
-            }
+            case TestThreadingMode.Simple:
+                await this.RunAsyncSimple();
+                break;
+            case TestThreadingMode.EventLoop:
+                await this.RunAsyncWithEventLoop();
+                break;
         }
     }
 
@@ -337,10 +337,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
             throw new HookException(result);
         }
 
-        lock (this.syncRoot)
-        {
-            this.eventLoop?.CompleteAdding();
-        }
+        this.StopInternal();
     }
 
     /// <summary>
@@ -360,16 +357,16 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
             return;
         }
 
-        var result = this.DisposeResult;
-
-        if (result != UioHookResult.Success)
+        if (this.IsRunning)
         {
-            throw new HookException(result);
-        }
+            var result = this.DisposeResult;
 
-        lock (this.syncRoot)
-        {
-            this.eventLoop?.CompleteAdding();
+            if (result != UioHookResult.Success)
+            {
+                throw new HookException(result);
+            }
+
+            this.StopInternal();
         }
 
         this.IsDisposed = true;
@@ -382,8 +379,16 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <param name="keyCode">The code of the key to press.</param>
     /// <returns>The value of <see cref="SimulateKeyPressResult" />.</returns>
     /// <remarks>
+    /// <para>
+    /// If the hook's threading mode is <see cref="TestThreadingMode.Simple" /> then this method will immediately
+    /// dispatch the event. If the threading mode is <see cref="TestThreadingMode.EventLoop" /> then the event will be
+    /// posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+    /// there.
+    /// </para>
+    /// <para>
     /// This method simulates <see cref="EventType.KeyTyped" /> events as well if <see cref="KeyCodeToChars" /> returns
     /// characters for <paramref name="keyCode" />.
+    /// </para>
     /// </remarks>
     public UioHookResult SimulateKeyPress(KeyCode keyCode)
     {
@@ -434,6 +439,12 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// </summary>
     /// <param name="keyCode">The code of the key to release.</param>
     /// <returns>The value of <see cref="SimulateKeyReleaseResult" />.</returns>
+    /// <remarks>
+    /// If the hook's threading mode is <see cref="TestThreadingMode.Simple" /> then this method will immediately
+    /// dispatch the event. If the threading mode is <see cref="TestThreadingMode.EventLoop" /> then the event will be
+    /// posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+    /// there.
+    /// </remarks>
     public UioHookResult SimulateKeyRelease(KeyCode keyCode)
     {
         ushort rawCode = this.keyCodeToRawCode(keyCode);
@@ -485,6 +496,12 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// </summary>
     /// <param name="button">The mouse button to press.</param>
     /// <returns>The value of <see cref="SimulateMousePressResult" />.</returns>
+    /// <remarks>
+    /// If the hook's threading mode is <see cref="TestThreadingMode.Simple" /> then this method will immediately
+    /// dispatch the event. If the threading mode is <see cref="TestThreadingMode.EventLoop" /> then the event will be
+    /// posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+    /// there.
+    /// </remarks>
     public UioHookResult SimulateMousePress(MouseButton button) =>
         this.SimulateMousePress(this.currentMouseX(), this.currentMouseY(), button);
 
@@ -495,6 +512,12 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <param name="button">The mouse button to press.</param>
     /// <param name="clicks">The click count.</param>
     /// <returns>The value of <see cref="SimulateMousePressResult" />.</returns>
+    /// <remarks>
+    /// If the hook's threading mode is <see cref="TestThreadingMode.Simple" /> then this method will immediately
+    /// dispatch the event. If the threading mode is <see cref="TestThreadingMode.EventLoop" /> then the event will be
+    /// posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+    /// there.
+    /// </remarks>
     public UioHookResult SimulateMousePress(MouseButton button, ushort clicks) =>
         this.SimulateMousePress(this.currentMouseX(), this.currentMouseY(), button, clicks);
 
@@ -506,6 +529,12 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
     /// <param name="button">The mouse button to press.</param>
     /// <returns>The value of <see cref="SimulateMousePressResult" />.</returns>
+    /// <remarks>
+    /// If the hook's threading mode is <see cref="TestThreadingMode.Simple" /> then this method will immediately
+    /// dispatch the event. If the threading mode is <see cref="TestThreadingMode.EventLoop" /> then the event will be
+    /// posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+    /// there.
+    /// </remarks>
     public UioHookResult SimulateMousePress(short x, short y, MouseButton button) =>
         this.SimulateMousePress(x, y, button, this.MouseClickCount);
 
@@ -518,6 +547,12 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <param name="button">The mouse button to press.</param>
     /// <param name="clicks">The click count.</param>
     /// <returns>The value of <see cref="SimulateMousePressResult" />.</returns>
+    /// <remarks>
+    /// If the hook's threading mode is <see cref="TestThreadingMode.Simple" /> then this method will immediately
+    /// dispatch the event. If the threading mode is <see cref="TestThreadingMode.EventLoop" /> then the event will be
+    /// posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+    /// there.
+    /// </remarks>
     public UioHookResult SimulateMousePress(short x, short y, MouseButton button, ushort clicks)
     {
         var mousePressedEvent = new UioHookEvent
@@ -544,8 +579,16 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <param name="button">The mouse button to release.</param>
     /// <returns>The value of <see cref="SimulateMouseReleaseResult" />.</returns>
     /// <remarks>
+    /// <para>
+    /// If the hook's threading mode is <see cref="TestThreadingMode.Simple" /> then this method will immediately
+    /// dispatch the event. If the threading mode is <see cref="TestThreadingMode.EventLoop" /> then the event will be
+    /// posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+    /// there.
+    /// </para>
+    /// <para>
     /// This method simulates a <see cref="EventType.MouseClicked" /> event as well if <see cref="RaiseMouseClicked" />
     /// is <see langword="true" />.
+    /// </para>
     /// </remarks>
     public UioHookResult SimulateMouseRelease(MouseButton button) =>
         this.SimulateMouseRelease(this.currentMouseX(), this.currentMouseY(), button);
@@ -558,8 +601,16 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <param name="clicks">The click count.</param>
     /// <returns>The value of <see cref="SimulateMouseReleaseResult" />.</returns>
     /// <remarks>
+    /// <para>
+    /// If the hook's threading mode is <see cref="TestThreadingMode.Simple" /> then this method will immediately
+    /// dispatch the event. If the threading mode is <see cref="TestThreadingMode.EventLoop" /> then the event will be
+    /// posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+    /// there.
+    /// </para>
+    /// <para>
     /// This method simulates a <see cref="EventType.MouseClicked" /> event as well if <see cref="RaiseMouseClicked" />
     /// is <see langword="true" />.
+    /// </para>
     /// </remarks>
     public UioHookResult SimulateMouseRelease(MouseButton button, ushort clicks) =>
         this.SimulateMouseRelease(this.currentMouseX(), this.currentMouseY(), button, clicks);
@@ -573,8 +624,16 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <param name="button">The mouse button to release.</param>
     /// <returns>The value of <see cref="SimulateMouseReleaseResult" />.</returns>
     /// <remarks>
+    /// <para>
+    /// If the hook's threading mode is <see cref="TestThreadingMode.Simple" /> then this method will immediately
+    /// dispatch the event. If the threading mode is <see cref="TestThreadingMode.EventLoop" /> then the event will be
+    /// posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+    /// there.
+    /// </para>
+    /// <para>
     /// This method simulates a <see cref="EventType.MouseClicked" /> event as well if <see cref="RaiseMouseClicked" />
     /// is <see langword="true" />.
+    /// </para>
     /// </remarks>
     public UioHookResult SimulateMouseRelease(short x, short y, MouseButton button) =>
         this.SimulateMouseRelease(x, y, button, this.MouseClickCount);
@@ -589,8 +648,16 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <param name="clicks">The click count.</param>
     /// <returns>The value of <see cref="SimulateMouseReleaseResult" />.</returns>
     /// <remarks>
+    /// <para>
+    /// If the hook's threading mode is <see cref="TestThreadingMode.Simple" /> then this method will immediately
+    /// dispatch the event. If the threading mode is <see cref="TestThreadingMode.EventLoop" /> then the event will be
+    /// posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+    /// there.
+    /// </para>
+    /// <para>
     /// This method simulates a <see cref="EventType.MouseClicked" /> event as well if <see cref="RaiseMouseClicked" />
     /// is <see langword="true" />.
+    /// </para>
     /// </remarks>
     public UioHookResult SimulateMouseRelease(short x, short y, MouseButton button, ushort clicks)
     {
@@ -640,6 +707,12 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
     /// <returns>The result of the operation.</returns>
     /// <returns>The value of <see cref="SimulateMouseMovementResult" />.</returns>
+    /// <remarks>
+    /// If the hook's threading mode is <see cref="TestThreadingMode.Simple" /> then this method will immediately
+    /// dispatch the event. If the threading mode is <see cref="TestThreadingMode.EventLoop" /> then the event will be
+    /// posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+    /// there.
+    /// </remarks>
     public UioHookResult SimulateMouseMovement(short x, short y)
     {
         var eventType = this.DragMouseWhenMoving ? EventType.MouseDragged : EventType.MouseMoved;
@@ -666,6 +739,12 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <param name="x">The X-coordinate offset.</param>
     /// <param name="y">The Y-coordinate offset.</param>
     /// <returns>The value of <see cref="SimulateMouseMovementResult" />.</returns>
+    /// <remarks>
+    /// If the hook's threading mode is <see cref="TestThreadingMode.Simple" /> then this method will immediately
+    /// dispatch the event. If the threading mode is <see cref="TestThreadingMode.EventLoop" /> then the event will be
+    /// posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+    /// there.
+    /// </remarks>
     public UioHookResult SimulateMouseMovementRelative(short x, short y) =>
         this.SimulateMouseMovement((short)(this.currentMouseX() + x), (short)(this.currentMouseY() + y));
 
@@ -680,6 +759,12 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <param name="direction">The scroll direction.</param>
     /// <param name="type">The scroll type.</param>
     /// <returns>The value of <see cref="SimulateMouseWheelResult" />.</returns>
+    /// <remarks>
+    /// If the hook's threading mode is <see cref="TestThreadingMode.Simple" /> then this method will immediately
+    /// dispatch the event. If the threading mode is <see cref="TestThreadingMode.EventLoop" /> then the event will be
+    /// posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+    /// there.
+    /// </remarks>
     public UioHookResult SimulateMouseWheel(
         short rotation,
         MouseWheelScrollDirection direction = MouseWheelScrollDirection.Vertical,
@@ -699,6 +784,94 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
         };
 
         return this.SimulateEvent(this.SimulateMouseWheelResult, ref mouseWheelEvent);
+    }
+
+    private void RunSimple()
+    {
+        try
+        {
+            this.RunAsync().Wait();
+        } catch (AggregateException e)
+        {
+            var exception = e.InnerExceptions.FirstOrDefault();
+            if (exception is not null)
+            {
+                throw exception;
+            } else
+            {
+                throw;
+            }
+        }
+    }
+
+    private void RunWithEventLoop()
+    {
+        try
+        {
+            this.eventLoop = [];
+            this.IsRunning = true;
+
+            this.DispatchHookEvent(EventType.HookEnabled);
+            this.RunEventLoop();
+            this.DispatchHookEvent(EventType.HookDisabled);
+        } finally
+        {
+            this.IsRunning = false;
+
+            lock (this.syncRoot)
+            {
+                this.eventLoop?.Dispose();
+                this.eventLoop = null;
+            }
+        }
+    }
+
+    private async Task RunAsyncSimple()
+    {
+        this.runCompletionSource = new();
+        var task = this.runCompletionSource.Task;
+
+        this.IsRunning = true;
+        this.DispatchHookEvent(EventType.HookEnabled);
+
+        await task;
+
+        this.DispatchHookEvent(EventType.HookDisabled);
+        this.IsRunning = false;
+    }
+
+    private async Task RunAsyncWithEventLoop()
+    {
+        try
+        {
+            this.eventLoop = [];
+            this.IsRunning = true;
+
+            this.DispatchHookEvent(EventType.HookEnabled);
+
+            var eventLoopCompletionSource = new TaskCompletionSource<object?>();
+
+            var thread = new Thread(() =>
+            {
+                this.RunEventLoop();
+                eventLoopCompletionSource.SetResult(null);
+            });
+
+            thread.Start();
+
+            await eventLoopCompletionSource.Task;
+
+            this.DispatchHookEvent(EventType.HookDisabled);
+        } finally
+        {
+            this.IsRunning = false;
+
+            lock (this.syncRoot)
+            {
+                this.eventLoop?.Dispose();
+                this.eventLoop = null;
+            }
+        }
     }
 
     private void RunEventLoop()
@@ -722,11 +895,27 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
 
     private UioHookResult SimulateEvent(UioHookResult result, ref UioHookEvent e)
     {
-        if (result == UioHookResult.Success)
+        if (result != UioHookResult.Success)
         {
-            this.eventLoop?.Add(e);
-            this.simulatedEvents.Add(e);
+            return result;
         }
+
+        switch (this.ThreadingMode)
+        {
+            case TestThreadingMode.Simple:
+                this.DispatchEvent(ref e);
+
+                if (e.Mask.HasFlag(Data.EventMask.SuppressEvent))
+                {
+                    this.suppressedEvents.Add(e);
+                }
+                break;
+            case TestThreadingMode.EventLoop:
+                this.eventLoop?.Add(e);
+                break;
+        }
+
+        this.simulatedEvents.Add(e);
 
         return result;
     }
@@ -808,6 +997,23 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
             {
                 e.Mask |= Data.EventMask.SuppressEvent;
             }
+        }
+    }
+
+    private void StopInternal()
+    {
+        switch (this.ThreadingMode)
+        {
+            case TestThreadingMode.Simple:
+                this.runCompletionSource?.SetResult(null);
+                this.runCompletionSource = null;
+                break;
+            case TestThreadingMode.EventLoop:
+                lock (this.syncRoot)
+                {
+                    this.eventLoop?.CompleteAdding();
+                }
+                break;
         }
     }
 

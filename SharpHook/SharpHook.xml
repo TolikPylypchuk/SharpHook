@@ -4038,6 +4038,22 @@
             A global hook and event simulator which can be used in tests.
             </summary>
         </member>
+        <member name="M:SharpHook.Testing.TestGlobalHook.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.Testing.TestGlobalHook" />.
+            </summary>
+        </member>
+        <member name="M:SharpHook.Testing.TestGlobalHook.#ctor(SharpHook.Testing.TestThreadingMode)">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.Testing.TestGlobalHook" />.
+            </summary>
+            <param name="threadingMode">The threading mode to use.</param>
+        </member>
+        <member name="P:SharpHook.Testing.TestGlobalHook.ThreadingMode">
+            <summary>
+            Gets the threading mode of this global hook.
+            </summary>
+        </member>
         <member name="P:SharpHook.Testing.TestGlobalHook.IsRunning">
             <summary>
             Gets the value which indicates whether the global hook is running.
@@ -4208,26 +4224,34 @@
         </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.Run">
             <summary>
-            Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
-            <see cref="M:System.IDisposable.Dispose" /> method.
+            Runs the global hook on the current thread, blocking it. The hook can be stopped by calling the
+            <see cref="M:SharpHook.Testing.TestGlobalHook.Stop" /> or <see cref="M:System.IDisposable.Dispose" /> method.
             </summary>
             <exception cref="T:SharpHook.HookException">
             <see cref="P:SharpHook.Testing.TestGlobalHook.RunResult" /> was set to something other than <see cref="F:SharpHook.Data.UioHookResult.Success" />.
             </exception>
             <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
             <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
+            <remarks>
+            Depending on the threading mode, this method will either run an event loop or do nothing and wait for the hook
+            to be stopped.
+            </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.RunAsync">
             <summary>
-            Runs the global hook without blocking the current thread. The hook can be destroyed by calling the
-            <see cref="M:System.IDisposable.Dispose" /> method.
+            Runs the global hook without blocking the current thread. The hook can be stopped by calling the
+            <see cref="M:SharpHook.Testing.TestGlobalHook.Stop" /> or <see cref="M:System.IDisposable.Dispose" /> method.
             </summary>
-            <returns>A <see cref="T:System.Threading.Tasks.Task" /> which finishes when the hook is destroyed.</returns>
+            <returns>A <see cref="T:System.Threading.Tasks.Task" /> which finishes when the hook is stopped.</returns>
             <exception cref="T:SharpHook.HookException">
             <see cref="P:SharpHook.Testing.TestGlobalHook.RunResult" /> was set to something other than <see cref="F:SharpHook.Data.UioHookResult.Success" />.
             </exception>
             <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
             <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
+            <remarks>
+            Depending on the threading mode, this method will either run an event loop or do nothing and wait for the hook
+            to be stopped.
+            </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.Stop">
             <summary>
@@ -4261,8 +4285,16 @@
             <param name="keyCode">The code of the key to press.</param>
             <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateKeyPressResult" />.</returns>
             <remarks>
+            <para>
+            If the hook's threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.Simple" /> then this method will immediately
+            dispatch the event. If the threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.EventLoop" /> then the event will be
+            posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+            there.
+            </para>
+            <para>
             This method simulates <see cref="F:SharpHook.Data.EventType.KeyTyped" /> events as well if <see cref="P:SharpHook.Testing.TestGlobalHook.KeyCodeToChars" /> returns
             characters for <paramref name="keyCode" />.
+            </para>
             </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.SimulateKeyRelease(SharpHook.Data.KeyCode)">
@@ -4272,6 +4304,12 @@
             </summary>
             <param name="keyCode">The code of the key to release.</param>
             <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateKeyReleaseResult" />.</returns>
+            <remarks>
+            If the hook's threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.Simple" /> then this method will immediately
+            dispatch the event. If the threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.EventLoop" /> then the event will be
+            posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+            there.
+            </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.SimulateTextEntry(System.String)">
             <summary>
@@ -4290,6 +4328,12 @@
             </summary>
             <param name="button">The mouse button to press.</param>
             <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMousePressResult" />.</returns>
+            <remarks>
+            If the hook's threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.Simple" /> then this method will immediately
+            dispatch the event. If the threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.EventLoop" /> then the event will be
+            posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+            there.
+            </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMousePress(SharpHook.Data.MouseButton,System.UInt16)">
             <summary>
@@ -4299,6 +4343,12 @@
             <param name="button">The mouse button to press.</param>
             <param name="clicks">The click count.</param>
             <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMousePressResult" />.</returns>
+            <remarks>
+            If the hook's threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.Simple" /> then this method will immediately
+            dispatch the event. If the threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.EventLoop" /> then the event will be
+            posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+            there.
+            </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton)">
             <summary>
@@ -4309,6 +4359,12 @@
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
             <param name="button">The mouse button to press.</param>
             <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMousePressResult" />.</returns>
+            <remarks>
+            If the hook's threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.Simple" /> then this method will immediately
+            dispatch the event. If the threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.EventLoop" /> then the event will be
+            posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+            there.
+            </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)">
             <summary>
@@ -4320,6 +4376,12 @@
             <param name="button">The mouse button to press.</param>
             <param name="clicks">The click count.</param>
             <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMousePressResult" />.</returns>
+            <remarks>
+            If the hook's threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.Simple" /> then this method will immediately
+            dispatch the event. If the threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.EventLoop" /> then the event will be
+            posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+            there.
+            </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(SharpHook.Data.MouseButton)">
             <summary>
@@ -4329,8 +4391,16 @@
             <param name="button">The mouse button to release.</param>
             <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseResult" />.</returns>
             <remarks>
+            <para>
+            If the hook's threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.Simple" /> then this method will immediately
+            dispatch the event. If the threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.EventLoop" /> then the event will be
+            posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+            there.
+            </para>
+            <para>
             This method simulates a <see cref="F:SharpHook.Data.EventType.MouseClicked" /> event as well if <see cref="P:SharpHook.Testing.TestGlobalHook.RaiseMouseClicked" />
             is <see langword="true" />.
+            </para>
             </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(SharpHook.Data.MouseButton,System.UInt16)">
@@ -4342,8 +4412,16 @@
             <param name="clicks">The click count.</param>
             <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseResult" />.</returns>
             <remarks>
+            <para>
+            If the hook's threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.Simple" /> then this method will immediately
+            dispatch the event. If the threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.EventLoop" /> then the event will be
+            posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+            there.
+            </para>
+            <para>
             This method simulates a <see cref="F:SharpHook.Data.EventType.MouseClicked" /> event as well if <see cref="P:SharpHook.Testing.TestGlobalHook.RaiseMouseClicked" />
             is <see langword="true" />.
+            </para>
             </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton)">
@@ -4356,8 +4434,16 @@
             <param name="button">The mouse button to release.</param>
             <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseResult" />.</returns>
             <remarks>
+            <para>
+            If the hook's threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.Simple" /> then this method will immediately
+            dispatch the event. If the threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.EventLoop" /> then the event will be
+            posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+            there.
+            </para>
+            <para>
             This method simulates a <see cref="F:SharpHook.Data.EventType.MouseClicked" /> event as well if <see cref="P:SharpHook.Testing.TestGlobalHook.RaiseMouseClicked" />
             is <see langword="true" />.
+            </para>
             </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)">
@@ -4371,8 +4457,16 @@
             <param name="clicks">The click count.</param>
             <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMouseReleaseResult" />.</returns>
             <remarks>
+            <para>
+            If the hook's threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.Simple" /> then this method will immediately
+            dispatch the event. If the threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.EventLoop" /> then the event will be
+            posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+            there.
+            </para>
+            <para>
             This method simulates a <see cref="F:SharpHook.Data.EventType.MouseClicked" /> event as well if <see cref="P:SharpHook.Testing.TestGlobalHook.RaiseMouseClicked" />
             is <see langword="true" />.
+            </para>
             </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMouseMovement(System.Int16,System.Int16)">
@@ -4384,6 +4478,12 @@
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
             <returns>The result of the operation.</returns>
             <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMouseMovementResult" />.</returns>
+            <remarks>
+            If the hook's threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.Simple" /> then this method will immediately
+            dispatch the event. If the threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.EventLoop" /> then the event will be
+            posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+            there.
+            </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMouseMovementRelative(System.Int16,System.Int16)">
             <summary>
@@ -4393,6 +4493,12 @@
             <param name="x">The X-coordinate offset.</param>
             <param name="y">The Y-coordinate offset.</param>
             <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMouseMovementResult" />.</returns>
+            <remarks>
+            If the hook's threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.Simple" /> then this method will immediately
+            dispatch the event. If the threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.EventLoop" /> then the event will be
+            posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+            there.
+            </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestGlobalHook.SimulateMouseWheel(System.Int16,SharpHook.Data.MouseWheelScrollDirection,SharpHook.Data.MouseWheelScrollType)">
             <summary>
@@ -4406,6 +4512,12 @@
             <param name="direction">The scroll direction.</param>
             <param name="type">The scroll type.</param>
             <returns>The value of <see cref="P:SharpHook.Testing.TestGlobalHook.SimulateMouseWheelResult" />.</returns>
+            <remarks>
+            If the hook's threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.Simple" /> then this method will immediately
+            dispatch the event. If the threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.EventLoop" /> then the event will be
+            posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+            there.
+            </remarks>
         </member>
         <member name="E:SharpHook.Testing.TestGlobalHook.HookEnabled">
             <summary>
@@ -4467,6 +4579,22 @@
         <member name="T:SharpHook.Testing.TestProvider">
             <summary>
             A provider of low-level functionality which can be used in tests.
+            </summary>
+        </member>
+        <member name="M:SharpHook.Testing.TestProvider.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.Testing.TestProvider" />.
+            </summary>
+        </member>
+        <member name="M:SharpHook.Testing.TestProvider.#ctor(SharpHook.Testing.TestThreadingMode)">
+            <summary>
+            Initializes a new instance of <see cref="T:SharpHook.Testing.TestProvider" />.
+            </summary>
+            <param name="threadingMode">The threading mode to use.</param>
+        </member>
+        <member name="P:SharpHook.Testing.TestProvider.ThreadingMode">
+            <summary>
+            Gets the threading mode of this provider.
             </summary>
         </member>
         <member name="P:SharpHook.Testing.TestProvider.PostedEvents">
@@ -4599,6 +4727,10 @@
             </summary>
             <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.RunResult" />.</returns>
             <exception cref="T:System.InvalidOperationException">The provider is already running.</exception>
+            <remarks>
+            Depending on the threading mode, this method will either run an event loop or do nothing and wait for the hook
+            to be stopped.
+            </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestProvider.RunKeyboard">
             <summary>
@@ -4607,6 +4739,10 @@
             </summary>
             <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.RunResult" />.</returns>
             <exception cref="T:System.InvalidOperationException">The provider is already running.</exception>
+            <remarks>
+            Depending on the threading mode, this method will either run an event loop or do nothing and wait for the hook
+            to be stopped.
+            </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestProvider.RunMouse">
             <summary>
@@ -4615,6 +4751,10 @@
             </summary>
             <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.RunResult" />.</returns>
             <exception cref="T:System.InvalidOperationException">The provider is already running.</exception>
+            <remarks>
+            Depending on the threading mode, this method will either run an event loop or do nothing and wait for the hook
+            to be stopped.
+            </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestProvider.RunAsync">
             <summary>
@@ -4623,6 +4763,10 @@
             </summary>
             <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.RunResult" />.</returns>
             <exception cref="T:System.InvalidOperationException">The provider is already running.</exception>
+            <remarks>
+            Depending on the threading mode, this method will either run an event loop or do nothing and wait for the hook
+            to be stopped.
+            </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestProvider.RunKeyboardAsync">
             <summary>
@@ -4631,6 +4775,10 @@
             </summary>
             <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.RunResult" />.</returns>
             <exception cref="T:System.InvalidOperationException">The provider is already running.</exception>
+            <remarks>
+            Depending on the threading mode, this method will either run an event loop or do nothing and wait for the hook
+            to be stopped.
+            </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestProvider.RunMouseAsync">
             <summary>
@@ -4639,6 +4787,10 @@
             </summary>
             <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.RunResult" />.</returns>
             <exception cref="T:System.InvalidOperationException">The provider is already running.</exception>
+            <remarks>
+            Depending on the threading mode, this method will either run an event loop or do nothing and wait for the hook
+            to be stopped.
+            </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestProvider.Stop">
             <summary>
@@ -4654,6 +4806,12 @@
             </summary>
             <param name="e">The event to post.</param>
             <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.PostEventResult" />.</returns>
+            <remarks>
+            If the provider's threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.Simple" /> then this method will immediately
+            dispatch the event. If the threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.EventLoop" /> then the event will be
+            posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+            there.
+            </remarks>
         </member>
         <member name="M:SharpHook.Testing.TestProvider.PostText(System.String)">
             <summary>
@@ -4683,6 +4841,22 @@
             be configured to return <see cref="F:SharpHook.Data.UioHookResult.ErrorAxApiDisabled" />, for consistency with real
             Accessibility API checks.
             </remarks>
+        </member>
+        <member name="T:SharpHook.Testing.TestThreadingMode">
+            <summary>
+            Represents the mode of dispatching simulated events in testing hooks - either on the same thread which simulates
+            them, or on the thread which runs the testing hook.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Testing.TestThreadingMode.Simple">
+            <summary>
+            Simulated events will be dispatched immediately on the same thread which simulates them.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Testing.TestThreadingMode.EventLoop">
+            <summary>
+            Simulated events will be posted to an event loop and dispatched on the thread on which the testing hook runs.
+            </summary>
         </member>
     </members>
 </doc>

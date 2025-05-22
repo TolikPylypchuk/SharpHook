@@ -19,6 +19,7 @@ public sealed class TestProvider :
     private readonly object syncRoot = new();
 #endif
 
+    private TaskCompletionSource<object?>? runCompletionSource;
     private BlockingCollection<UioHookEvent>? eventLoop;
 
     private readonly List<UioHookEvent> postedEvents = [];
@@ -31,6 +32,27 @@ public sealed class TestProvider :
 
     private Func<EventType, DateTimeOffset> eventDateTime = t => DateTimeOffset.UtcNow;
     private Func<EventType, EventMask> eventMask = t => Data.EventMask.None;
+
+    /// <summary>
+    /// Initializes a new instance of <see cref="TestProvider" />.
+    /// </summary>
+    public TestProvider()
+        : this(TestThreadingMode.Simple)
+    { }
+
+    /// <summary>
+    /// Initializes a new instance of <see cref="TestProvider" />.
+    /// </summary>
+    /// <param name="threadingMode">The threading mode to use.</param>
+    [SuppressMessage(
+        "Style", "IDE0290:Use primary constructor", Justification = "Primary constructors don't support XML comments")]
+    public TestProvider(TestThreadingMode threadingMode) =>
+        this.ThreadingMode = threadingMode;
+
+    /// <summary>
+    /// Gets the threading mode of this provider.
+    /// </summary>
+    public TestThreadingMode ThreadingMode { get; }
 
     /// <summary>
     /// Gets the events that have been posted using <see cref="PostEvent(ref UioHookEvent)" />.
@@ -180,6 +202,10 @@ public sealed class TestProvider :
     /// </summary>
     /// <returns>The value of <see cref="RunResult" />.</returns>
     /// <exception cref="InvalidOperationException">The provider is already running.</exception>
+    /// <remarks>
+    /// Depending on the threading mode, this method will either run an event loop or do nothing and wait for the hook
+    /// to be stopped.
+    /// </remarks>
     public UioHookResult Run() =>
         this.Run(GlobalHookType.All);
 
@@ -189,6 +215,10 @@ public sealed class TestProvider :
     /// </summary>
     /// <returns>The value of <see cref="RunResult" />.</returns>
     /// <exception cref="InvalidOperationException">The provider is already running.</exception>
+    /// <remarks>
+    /// Depending on the threading mode, this method will either run an event loop or do nothing and wait for the hook
+    /// to be stopped.
+    /// </remarks>
     public UioHookResult RunKeyboard() =>
         this.Run(GlobalHookType.Keyboard);
 
@@ -198,6 +228,10 @@ public sealed class TestProvider :
     /// </summary>
     /// <returns>The value of <see cref="RunResult" />.</returns>
     /// <exception cref="InvalidOperationException">The provider is already running.</exception>
+    /// <remarks>
+    /// Depending on the threading mode, this method will either run an event loop or do nothing and wait for the hook
+    /// to be stopped.
+    /// </remarks>
     public UioHookResult RunMouse() =>
         this.Run(GlobalHookType.Mouse);
 
@@ -207,6 +241,10 @@ public sealed class TestProvider :
     /// </summary>
     /// <returns>The value of <see cref="RunResult" />.</returns>
     /// <exception cref="InvalidOperationException">The provider is already running.</exception>
+    /// <remarks>
+    /// Depending on the threading mode, this method will either run an event loop or do nothing and wait for the hook
+    /// to be stopped.
+    /// </remarks>
     public Task<UioHookResult> RunAsync() =>
         this.RunAsync(GlobalHookType.All);
 
@@ -216,6 +254,10 @@ public sealed class TestProvider :
     /// </summary>
     /// <returns>The value of <see cref="RunResult" />.</returns>
     /// <exception cref="InvalidOperationException">The provider is already running.</exception>
+    /// <remarks>
+    /// Depending on the threading mode, this method will either run an event loop or do nothing and wait for the hook
+    /// to be stopped.
+    /// </remarks>
     public Task<UioHookResult> RunKeyboardAsync() =>
         this.RunAsync(GlobalHookType.Keyboard);
 
@@ -225,6 +267,10 @@ public sealed class TestProvider :
     /// </summary>
     /// <returns>The value of <see cref="RunResult" />.</returns>
     /// <exception cref="InvalidOperationException">The provider is already running.</exception>
+    /// <remarks>
+    /// Depending on the threading mode, this method will either run an event loop or do nothing and wait for the hook
+    /// to be stopped.
+    /// </remarks>
     public Task<UioHookResult> RunMouseAsync() =>
         this.RunAsync(GlobalHookType.Mouse);
 
@@ -242,9 +288,18 @@ public sealed class TestProvider :
             return result;
         }
 
-        lock (this.syncRoot)
+        switch (this.ThreadingMode)
         {
-            this.eventLoop?.CompleteAdding();
+            case TestThreadingMode.Simple:
+                this.runCompletionSource?.SetResult(null);
+                this.runCompletionSource = null;
+                break;
+            case TestThreadingMode.EventLoop:
+                lock (this.syncRoot)
+                {
+                    this.eventLoop?.CompleteAdding();
+                }
+                break;
         }
 
         return result;
@@ -256,6 +311,12 @@ public sealed class TestProvider :
     /// </summary>
     /// <param name="e">The event to post.</param>
     /// <returns>The value of <see cref="PostEventResult" />.</returns>
+    /// <remarks>
+    /// If the provider's threading mode is <see cref="TestThreadingMode.Simple" /> then this method will immediately
+    /// dispatch the event. If the threading mode is <see cref="TestThreadingMode.EventLoop" /> then the event will be
+    /// posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+    /// there.
+    /// </remarks>
     public UioHookResult PostEvent(ref UioHookEvent e)
     {
         var result = this.PostEventResult;
@@ -267,7 +328,20 @@ public sealed class TestProvider :
 
         if (this.IsRunning && this.ShouldDispatchEvent(e.Type))
         {
-            this.eventLoop?.Add(e);
+            switch (this.ThreadingMode)
+            {
+                case TestThreadingMode.Simple:
+                    this.dispatchProc?.Invoke(ref e, this.userData);
+
+                    if (e.Mask.HasFlag(Data.EventMask.SuppressEvent))
+                    {
+                        this.suppressedEvents.Add(e);
+                    }
+                    break;
+                case TestThreadingMode.EventLoop:
+                    this.eventLoop?.Add(e);
+                    break;
+            }
         }
 
         this.postedEvents.Add(e);
@@ -334,6 +408,21 @@ public sealed class TestProvider :
 
         this.GlobalHookType = globalHookType;
 
+        switch (this.ThreadingMode)
+        {
+            case TestThreadingMode.Simple:
+                this.RunAsyncSimple().Wait();
+                break;
+            case TestThreadingMode.EventLoop:
+                this.RunWithEventLoop();
+                break;
+        }
+
+        return result;
+    }
+
+    private void RunWithEventLoop()
+    {
         try
         {
             this.eventLoop = [];
@@ -352,8 +441,6 @@ public sealed class TestProvider :
                 this.eventLoop = null;
             }
         }
-
-        return result;
     }
 
     private async Task<UioHookResult> RunAsync(GlobalHookType globalHookType)
@@ -368,6 +455,35 @@ public sealed class TestProvider :
 
         this.GlobalHookType = globalHookType;
 
+        switch (this.ThreadingMode)
+        {
+            case TestThreadingMode.Simple:
+                await this.RunAsyncSimple();
+                break;
+            case TestThreadingMode.EventLoop:
+                await this.RunAsyncWithEventLoop();
+                break;
+        }
+
+        return result;
+    }
+
+    private async Task RunAsyncSimple()
+    {
+        this.runCompletionSource = new();
+        var task = this.runCompletionSource.Task;
+
+        this.IsRunning = true;
+        this.DispatchHookEvent(EventType.HookEnabled);
+
+        await task;
+
+        this.DispatchHookEvent(EventType.HookDisabled);
+        this.IsRunning = false;
+    }
+
+    private async Task RunAsyncWithEventLoop()
+    {
         try
         {
             this.eventLoop = [];
@@ -398,8 +514,6 @@ public sealed class TestProvider :
                 this.eventLoop = null;
             }
         }
-
-        return result;
     }
 
     private void RunEventLoop()

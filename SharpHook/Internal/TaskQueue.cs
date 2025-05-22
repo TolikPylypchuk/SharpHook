@@ -3,6 +3,12 @@ namespace SharpHook.Internal;
 [ExcludeFromCodeCoverage]
 internal sealed class TaskQueue(int parallelismLevel) : IDisposable
 {
+#if NET9_0_OR_GREATER
+    private readonly Lock syncRoot = new();
+#else
+    private readonly object syncRoot = new();
+#endif
+
     private readonly SemaphoreSlim semaphore = new(parallelismLevel);
 
     private bool disposed = false;
@@ -18,9 +24,12 @@ internal sealed class TaskQueue(int parallelismLevel) : IDisposable
             await taskGenerator();
         } finally
         {
-            if (!this.disposed)
+            lock (this.syncRoot)
             {
-                this.semaphore.Release();
+                if (!this.disposed)
+                {
+                    this.semaphore.Release();
+                }
             }
         }
     }
@@ -29,8 +38,11 @@ internal sealed class TaskQueue(int parallelismLevel) : IDisposable
     {
         if (!this.disposed)
         {
-            this.semaphore.Dispose();
-            this.disposed = true;
+            lock (this.syncRoot)
+            {
+                this.disposed = true;
+                this.semaphore.Dispose();
+            }
         }
     }
 
