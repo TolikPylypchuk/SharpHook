@@ -38,11 +38,18 @@ public async Task TestLastPressedKey()
 If this class is used as an `IEventSimulator` in the tested code, then the `SimulatedEvents` property can be checked to
 see which events were simulated using the test instance.
 
-It's recommended to stop the global hook and wait for it to stop before asserting any events. The test global hook runs
-an event loop using `BlockingCollection`, and posting an event will add this event to this collection for the global
-hook to dispatch. Since these actions are done in different threads, it is not guaranteed that an event will be
-dispatched immediately after it is simulated. `Run` and the task returned by `RunAsync` will complete after every event
-has been dispatched.
+`TestGlobalHook` can be used with two different threading modes - the simple mode and the event loop mode.
+
+When running in simple mode (the default mode) the hook will dispatch events immediately in the same thread which
+simulates them.
+
+When running the event loop, the hook will run an actual even loop on the thread on which `Run` was called. When
+simulating events, they will be posted to the event loop, and then dispatched in the hook thread. This mode is much more
+difficult to use correctly, so it is useful only when it is important for event handlers to run in the same thread on
+which the hook itself is running. It's recommended to stop the global hook and wait for it to stop before asserting any
+events. Since these actions are done in different threads, it is not guaranteed that an event will be dispatched
+immediately after it is simulated. `Run` and the task returned by `RunAsync` will complete after every event has been
+dispatched.
 
 Other than that, members of `TestGlobalHook` are quite straightforward; the API reference should be viewed for more
 info.
@@ -56,12 +63,19 @@ If the low-level functionality of SharpHook should be mocked, or mocking should 
 then `SharpHook.Testing.TestProvider` can be used. It implements every interface in the `SharpHook.Providers` namespace,
 and as such, it can be used instead of normal low-level functionality providers.
 
-Like `TestGlobalHook`, this class can post events using the `PostEvent` method and dispatch them if `Run` has been
+Like `TestProvider`, this class can post events using the `PostEvent` method and dispatch them if `Run` has been
 called. It also contains the `PostedEvents` property.
 
-It's recommended to stop the provider and wait for it to stop before asserting any events. The test provider runs an
-event loop using `BlockingCollection`, and posting an event will add this event to this collection for the provider to
-dispatch. Since these actions are done in different threads, it is not guaranteed that an event will be dispatched
+`TestProvider` can be used with two different threading modes - the simple mode and the event loop mode.
+
+When running in simple mode (the default mode) the provider will dispatch events immediately in the same thread which
+simulates them.
+
+When running the event loop, the provider will run an actual even loop on the thread on which `Run` was called. When
+simulating events, they will be posted to the event loop, and then dispatched in the hook thread. This mode is much more
+difficult to use correctly, so it is useful only when it is important for event handlers to run in the same thread on
+which the hook itself is running. It's recommended to stop the provider and wait for it to stop before asserting any
+events. Since these actions are done in different threads, it is not guaranteed that an event will be dispatched
 immediately after it is simulated. `Run` and the task returned by `RunAsync` will complete after every event has been
 dispatched.
 
@@ -82,6 +96,3 @@ var simulator = new EventSimulator(simulationProvider: testProvider);
 > `TaskPoolGlobalHook` shouldn't be used this way since its event handlers are asynchronous and there is no built-in
 > way to know when they are actually executed. As such, it's difficult to check event handler results. If you want
 > to use a real hook, e.g. for integration testing, then use `SimpleGlobalHook` instead.
-
-It's recommended to stop the provider and wait for it to stop before asserting any events. The test provider runs
-an event loop just like the test global hook so the same constraints apply to its usage.

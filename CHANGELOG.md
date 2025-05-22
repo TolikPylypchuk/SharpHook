@@ -1,5 +1,10 @@
 # SharpHook Changelog
 
+## [v6.1.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v6.1.0) (May 23, 2025)
+
+- The ability to control the behaviour of `TestGlobalHook` and `TestProvider` (simple dispatching from version 5 vs an
+event loop from version 6) was added. The simple behaviour from version 5 is the default as it is much easier to use.
+
 ## [v6.0.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v6.0.0) (May 18, 2025)
 
 ### Platform Support

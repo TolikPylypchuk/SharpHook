@@ -30,9 +30,7 @@ All obsolete values in the `KeyCode` enum were removed.
 
 `HookException` doesn't support `BinaryFormatter` serialization anymore.
 
-The behaviour of `TestGlobalHook` and `TestProvider` was changed. Instead of dispatching events in the same thread that
-simulates them, they now instead add events into an event loop running on a different thread. `TestProvider` now throws
-an exception if `Run` or `RunAsync` is called and it's already running.
+`TestProvider` now throws an exception if `Run` or `RunAsync` is called and it's already running.
 
 The minimum .NET Framework version was bumped to 4.7.2 and direct support for .NET 6 and .NET 7 was dropped (though they
 are still supported through .NET Standard 2.0).
