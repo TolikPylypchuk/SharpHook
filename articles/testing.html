@@ -119,11 +119,16 @@ public async Task TestLastPressedKey()
 </code></pre>
 <p>If this class is used as an <code>IEventSimulator</code> in the tested code, then the <code>SimulatedEvents</code> property can be checked to
 see which events were simulated using the test instance.</p>
-<p>It's recommended to stop the global hook and wait for it to stop before asserting any events. The test global hook runs
-an event loop using <code>BlockingCollection</code>, and posting an event will add this event to this collection for the global
-hook to dispatch. Since these actions are done in different threads, it is not guaranteed that an event will be
-dispatched immediately after it is simulated. <code>Run</code> and the task returned by <code>RunAsync</code> will complete after every event
-has been dispatched.</p>
+<p><code>TestGlobalHook</code> can be used with two different threading modes - the simple mode and the event loop mode.</p>
+<p>When running in simple mode (the default mode) the hook will dispatch events immediately in the same thread which
+simulates them.</p>
+<p>When running the event loop, the hook will run an actual even loop on the thread on which <code>Run</code> was called. When
+simulating events, they will be posted to the event loop, and then dispatched in the hook thread. This mode is much more
+difficult to use correctly, so it is useful only when it is important for event handlers to run in the same thread on
+which the hook itself is running. It's recommended to stop the global hook and wait for it to stop before asserting any
+events. Since these actions are done in different threads, it is not guaranteed that an event will be dispatched
+immediately after it is simulated. <code>Run</code> and the task returned by <code>RunAsync</code> will complete after every event has been
+dispatched.</p>
 <p>Other than that, members of <code>TestGlobalHook</code> are quite straightforward; the API reference should be viewed for more
 info.</p>
 <p>If an <code>IReactiveGlobalHook</code> is needed for testing, then <code>ReactiveGlobalHookAdapter</code> can be used to adapt an instance of
@@ -132,11 +137,16 @@ info.</p>
 <p>If the low-level functionality of SharpHook should be mocked, or mocking should be pushed as far away as possible,
 then <code>SharpHook.Testing.TestProvider</code> can be used. It implements every interface in the <code>SharpHook.Providers</code> namespace,
 and as such, it can be used instead of normal low-level functionality providers.</p>
-<p>Like <code>TestGlobalHook</code>, this class can post events using the <code>PostEvent</code> method and dispatch them if <code>Run</code> has been
+<p>Like <code>TestProvider</code>, this class can post events using the <code>PostEvent</code> method and dispatch them if <code>Run</code> has been
 called. It also contains the <code>PostedEvents</code> property.</p>
-<p>It's recommended to stop the provider and wait for it to stop before asserting any events. The test provider runs an
-event loop using <code>BlockingCollection</code>, and posting an event will add this event to this collection for the provider to
-dispatch. Since these actions are done in different threads, it is not guaranteed that an event will be dispatched
+<p><code>TestProvider</code> can be used with two different threading modes - the simple mode and the event loop mode.</p>
+<p>When running in simple mode (the default mode) the provider will dispatch events immediately in the same thread which
+simulates them.</p>
+<p>When running the event loop, the provider will run an actual even loop on the thread on which <code>Run</code> was called. When
+simulating events, they will be posted to the event loop, and then dispatched in the hook thread. This mode is much more
+difficult to use correctly, so it is useful only when it is important for event handlers to run in the same thread on
+which the hook itself is running. It's recommended to stop the provider and wait for it to stop before asserting any
+events. Since these actions are done in different threads, it is not guaranteed that an event will be dispatched
 immediately after it is simulated. <code>Run</code> and the task returned by <code>RunAsync</code> will complete after every event has been
 dispatched.</p>
 <p>All classes in SharpHook use providers instead of directly using the <code>UioHook</code> class for low-level functionality.
@@ -155,8 +165,6 @@ var simulator = new EventSimulator(simulationProvider: testProvider);
 way to know when they are actually executed. As such, it's difficult to check event handler results. If you want
 to use a real hook, e.g. for integration testing, then use <code>SimpleGlobalHook</code> instead.</p>
 </div>
-<p>It's recommended to stop the provider and wait for it to stop before asserting any events. The test provider runs
-an event loop just like the test global hook so the same constraints apply to its usage.</p>
 
 </article>
 
