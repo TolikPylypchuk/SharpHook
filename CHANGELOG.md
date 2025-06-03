@@ -1,5 +1,14 @@
 # SharpHook Changelog
 
+## [v6.1.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v6.1.1) (June 3, 2025)
+
+- Simulation of mouse button press and release for buttons 2, 3, 4, and 5 was fixed on Linux.
+
+- The location of simulated mouse events was fixed on macOS.
+
+- libuiohook was updated to commit
+[0e77cac](https://github.com/TolikPylypchuk/libuiohook/tree/0e77cac5b88369c3e1bb3cdb8c605728ea19c767).
+
 ## [v6.1.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v6.1.0) (May 23, 2025)
 
 - The ability to control the behaviour of `TestGlobalHook` and `TestProvider` (simple dispatching from version 5 vs an
