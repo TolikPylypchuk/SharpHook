@@ -114,7 +114,7 @@ this repository uses anyway).</p>
   <tr>
     <th>macOS</th>
     <td>libuiohook.dylib</td>
-    <td>darwin/&lt;platform&gt;/lib</td>
+    <td>macos/&lt;platform&gt;/lib</td>
     <td>lib/osx-&lt;platform&gt;</td>
   </tr>
   <tr>
@@ -133,6 +133,15 @@ this repository uses anyway).</p>
 <p>With libuiohook in place you can build SharpHook using your usual methods, e.g. with Visual Studio or the <code>dotnet</code> CLI.
 You need .NET 9 to build SharpHook.</p>
 <h2 id="changelog">Changelog</h2>
+<h3 id="v612-june-22-2025"><a href="https://github.com/TolikPylypchuk/SharpHook/releases/tag/v6.1.2">v6.1.2</a> (June 22, 2025)</h3>
+<ul>
+<li><p>Simulation of letter keys in different layouts was fixed on Windows - the same keys are simulated regardless of the
+current keyboard layout (e.g., QWERTY or AZERTY).</p>
+</li>
+<li><p>libuiohook was updated to commit
+<a href="https://github.com/TolikPylypchuk/libuiohook/tree/a8d1578835f0d88d751a31153a1169208c389039">a8d1578</a>.</p>
+</li>
+</ul>
 <h3 id="v611-june-3-2025"><a href="https://github.com/TolikPylypchuk/SharpHook/releases/tag/v6.1.1">v6.1.1</a> (June 3, 2025)</h3>
 <ul>
 <li><p>Simulation of mouse button press and release for buttons 2, 3, 4, and 5 was fixed on Linux.</p>
