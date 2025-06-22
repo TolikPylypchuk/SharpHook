@@ -2,17 +2,17 @@
 
   <PropertyGroup>
     <TargetFrameworks>net9.0</TargetFrameworks>
-    <IsPackable>false</IsPackable>
+    <OutputType>exe</OutputType>
     <IsTestProject>true</IsTestProject>
+    <IsPackable>false</IsPackable>
     <RootNamespace>SharpHook</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FsCheck" Version="3.2.0" />
-    <PackageReference Include="FsCheck.Xunit" Version="3.2.0" />
+    <PackageReference Include="FsCheck" Version="3.3.0" />
+    <PackageReference Include="FsCheck.Xunit.v3" Version="3.3.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
-    <PackageReference Include="xunit" Version="2.9.3" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.0">
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.1">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
@@ -20,6 +20,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="xunit.v3" Version="2.0.3" />
   </ItemGroup>
 
   <ItemGroup>
