@@ -1,5 +1,13 @@
 # SharpHook Changelog
 
+## [v6.1.2](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v6.1.2) (June 22, 2025)
+
+- Simulation of letter keys in different layouts was fixed on Windows - the same keys are simulated regardless of the
+current keyboard layout (e.g., QWERTY or AZERTY).
+
+- libuiohook was updated to commit
+[a8d1578](https://github.com/TolikPylypchuk/libuiohook/tree/a8d1578835f0d88d751a31153a1169208c389039).
+
 ## [v6.1.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v6.1.1) (June 3, 2025)
 
 - Simulation of mouse button press and release for buttons 2, 3, 4, and 5 was fixed on Linux.

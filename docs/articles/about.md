@@ -33,7 +33,7 @@ Place the binaries into the appropriate directories in the `SharpHook` project, 
   <tr>
     <th>macOS</th>
     <td>libuiohook.dylib</td>
-    <td>darwin/&lt;platform&gt;/lib</td>
+    <td>macos/&lt;platform&gt;/lib</td>
     <td>lib/osx-&lt;platform&gt;</td>
   </tr>
   <tr>
@@ -54,6 +54,14 @@ With libuiohook in place you can build SharpHook using your usual methods, e.g. 
 You need .NET 9 to build SharpHook.
 
 ## Changelog
+
+### [v6.1.2](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v6.1.2) (June 22, 2025)
+
+- Simulation of letter keys in different layouts was fixed on Windows - the same keys are simulated regardless of the
+current keyboard layout (e.g., QWERTY or AZERTY).
+
+- libuiohook was updated to commit
+[a8d1578](https://github.com/TolikPylypchuk/libuiohook/tree/a8d1578835f0d88d751a31153a1169208c389039).
 
 ### [v6.1.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v6.1.1) (June 3, 2025)
 

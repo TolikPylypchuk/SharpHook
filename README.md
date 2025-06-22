@@ -385,7 +385,7 @@ Place the binaries into the appropriate directories in the `SharpHook` project, 
   <tr>
     <th>macOS</th>
     <td>libuiohook.dylib</td>
-    <td>darwin/&lt;platform&gt;/lib</td>
+    <td>macos/&lt;platform&gt;/lib</td>
     <td>lib/osx-&lt;platform&gt;</td>
   </tr>
   <tr>
