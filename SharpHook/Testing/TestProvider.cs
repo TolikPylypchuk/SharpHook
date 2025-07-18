@@ -564,6 +564,8 @@ public sealed class TestProvider :
         }
     }
 
+    bool IGlobalHookProvider.KeyTypedEnabled { get; set; }
+
     ulong IEventSimulationProvider.PostTextDelayX11 { get; set; }
 
     bool IAccessibilityProvider.PromptUserIfAxApiDisabled { get; set; } = true;

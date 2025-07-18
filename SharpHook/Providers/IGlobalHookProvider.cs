@@ -6,6 +6,16 @@ namespace SharpHook.Providers;
 public interface IGlobalHookProvider
 {
     /// <summary>
+    /// Gets or sets the value which indicates whether events of type <see cref="EventType.KeyTyped" /> are enabled. The
+    /// default value is <see langword="true" />.
+    /// </summary>
+    /// <value>
+    /// <see langword="true" /> if events of type <see cref="EventType.KeyTyped" /> are enabled. Otherwise,
+    /// <see langword="false" />.
+    /// </value>
+    bool KeyTypedEnabled { get; set; }
+
+    /// <summary>
     /// Sets the hook callback function.
     /// </summary>
     /// <param name="dispatchProc">

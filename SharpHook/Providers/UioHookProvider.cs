@@ -22,6 +22,20 @@ public sealed class UioHookProvider :
     public static UioHookProvider Instance { get; } = new();
 
     /// <summary>
+    /// Gets or sets the value which indicates whether events of type <see cref="EventType.KeyTyped" /> are enabled. The
+    /// default value is <see langword="true" />.
+    /// </summary>
+    /// <value>
+    /// <see langword="true" /> if events of type <see cref="EventType.KeyTyped" /> are enabled. Otherwise,
+    /// <see langword="false" />.
+    /// </value>
+    public bool KeyTypedEnabled
+    {
+        get => UioHook.IsKeyTypedEnabled();
+        set => UioHook.SetKeyTypedEnabled(value);
+    }
+
+    /// <summary>
     /// Gets or sets the delay (in nanoseconds) between posting individual characters when posting text on Linux.
     /// </summary>
     /// <value>The delay (in nanoseconds) between posting individual characters when posting text on Linux.</value>

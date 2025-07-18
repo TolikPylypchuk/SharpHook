@@ -332,6 +332,52 @@ public static partial class UioHook
 #endif
 
     /// <summary>
+    /// Checks whether events of type <see cref="EventType.KeyTyped" /> are enabled.
+    /// </summary>
+    /// <returns>
+    /// <see langword="true" /> if events of type <see cref="EventType.KeyTyped" /> are enabled. Otherwise,
+    /// <see langword="false" />.
+    /// </returns>
+    /// <remarks>
+    /// If the application doesn't use events of type <see cref="EventType.KeyTyped" />, then they should be disabled
+    /// so that there is no performance penalty and no subtle system-wide side effects.
+    /// </remarks>
+#if NET7_0_OR_GREATER
+    [LibraryImport(LibUioHook, EntryPoint = "hook_is_key_typed_enabled")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    [return: MarshalAs(UnmanagedType.I1)]
+    public static partial bool IsKeyTypedEnabled();
+#else
+    [DllImport(LibUioHook, EntryPoint = "hook_is_key_typed_enabled", CallingConvention = CallingConvention.Cdecl)]
+    [return: MarshalAs(UnmanagedType.I1)]
+    public static extern bool IsKeyTypedEnabled();
+#endif
+
+    /// <summary>
+    /// Sets the value which indicates whether events of type <see cref="EventType.KeyTyped" /> are enabled. The default
+    /// value is <see langword="true" />.
+    /// </summary>
+    /// <param name="enabled">
+    /// <see langword="true" /> if events of type <see cref="EventType.KeyTyped" /> should be enabled. Otherwise,
+    /// <see langword="false" />.
+    /// </param>
+    /// <remarks>
+    /// If the application doesn't use events of type <see cref="EventType.KeyTyped" />, then they should be disabled
+    /// so that there is no performance penalty and no subtle system-wide side effects.
+    /// </remarks>
+#if NET7_0_OR_GREATER
+    [LibraryImport(LibUioHook, EntryPoint = "hook_set_key_typed_enabled")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void SetKeyTypedEnabled([MarshalAs(UnmanagedType.I1)] bool enabled);
+#else
+    [DllImport(
+        LibUioHook,
+        EntryPoint = "hook_set_key_typed_enabled",
+        CallingConvention = CallingConvention.Cdecl)]
+    public static extern void SetKeyTypedEnabled([MarshalAs(UnmanagedType.I1)] bool enabled);
+#endif
+
+    /// <summary>
     /// Checks whether access to macOS Accessibility API is enabled for the process, optionally prompting the user
     /// if it is disabled.
     /// </summary>

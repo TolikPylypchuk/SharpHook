@@ -3261,6 +3261,33 @@
             </remarks>
             <seealso cref="T:SharpHook.EventSimulator" />
         </member>
+        <member name="M:SharpHook.Native.UioHook.IsKeyTypedEnabled">
+            <summary>
+            Checks whether events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> are enabled.
+            </summary>
+            <returns>
+            <see langword="true" /> if events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> are enabled. Otherwise,
+            <see langword="false" />.
+            </returns>
+            <remarks>
+            If the application doesn't use events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" />, then they should be disabled
+            so that there is no performance penalty and no subtle system-wide side effects.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Native.UioHook.SetKeyTypedEnabled(System.Boolean)">
+            <summary>
+            Sets the value which indicates whether events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> are enabled. The default
+            value is <see langword="true" />.
+            </summary>
+            <param name="enabled">
+            <see langword="true" /> if events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> should be enabled. Otherwise,
+            <see langword="false" />.
+            </param>
+            <remarks>
+            If the application doesn't use events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" />, then they should be disabled
+            so that there is no performance penalty and no subtle system-wide side effects.
+            </remarks>
+        </member>
         <member name="M:SharpHook.Native.UioHook.IsAxApiEnabled(System.Boolean)">
             <summary>
             Checks whether access to macOS Accessibility API is enabled for the process, optionally prompting the user
@@ -3565,6 +3592,16 @@
             Represents a provider of low-level global hook functionality.
             </summary>
         </member>
+        <member name="P:SharpHook.Providers.IGlobalHookProvider.KeyTypedEnabled">
+            <summary>
+            Gets or sets the value which indicates whether events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> are enabled. The
+            default value is <see langword="true" />.
+            </summary>
+            <value>
+            <see langword="true" /> if events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> are enabled. Otherwise,
+            <see langword="false" />.
+            </value>
+        </member>
         <member name="M:SharpHook.Providers.IGlobalHookProvider.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)">
             <summary>
             Sets the hook callback function.
@@ -3680,6 +3717,16 @@
             <summary>
             Gets the single instance of <see cref="T:SharpHook.Providers.UioHookProvider" />.
             </summary>
+        </member>
+        <member name="P:SharpHook.Providers.UioHookProvider.KeyTypedEnabled">
+            <summary>
+            Gets or sets the value which indicates whether events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> are enabled. The
+            default value is <see langword="true" />.
+            </summary>
+            <value>
+            <see langword="true" /> if events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> are enabled. Otherwise,
+            <see langword="false" />.
+            </value>
         </member>
         <member name="P:SharpHook.Providers.UioHookProvider.PostTextDelayX11">
             <summary>
