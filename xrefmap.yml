@@ -4138,6 +4138,18 @@ references:
   commentId: Overload:SharpHook.Native.UioHook.IsAxApiEnabled
   fullName: SharpHook.Native.UioHook.IsAxApiEnabled
   nameWithType: UioHook.IsAxApiEnabled
+- uid: SharpHook.Native.UioHook.IsKeyTypedEnabled
+  name: IsKeyTypedEnabled()
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_IsKeyTypedEnabled
+  commentId: M:SharpHook.Native.UioHook.IsKeyTypedEnabled
+  fullName: SharpHook.Native.UioHook.IsKeyTypedEnabled()
+  nameWithType: UioHook.IsKeyTypedEnabled()
+- uid: SharpHook.Native.UioHook.IsKeyTypedEnabled*
+  name: IsKeyTypedEnabled
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_IsKeyTypedEnabled_
+  commentId: Overload:SharpHook.Native.UioHook.IsKeyTypedEnabled
+  fullName: SharpHook.Native.UioHook.IsKeyTypedEnabled
+  nameWithType: UioHook.IsKeyTypedEnabled
 - uid: SharpHook.Native.UioHook.PostEvent(SharpHook.Data.UioHookEvent@)
   name: PostEvent(ref UioHookEvent)
   href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_PostEvent_SharpHook_Data_UioHookEvent__
@@ -4234,6 +4246,21 @@ references:
   commentId: Overload:SharpHook.Native.UioHook.SetDispatchProc
   fullName: SharpHook.Native.UioHook.SetDispatchProc
   nameWithType: UioHook.SetDispatchProc
+- uid: SharpHook.Native.UioHook.SetKeyTypedEnabled(System.Boolean)
+  name: SetKeyTypedEnabled(bool)
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetKeyTypedEnabled_System_Boolean_
+  commentId: M:SharpHook.Native.UioHook.SetKeyTypedEnabled(System.Boolean)
+  name.vb: SetKeyTypedEnabled(Boolean)
+  fullName: SharpHook.Native.UioHook.SetKeyTypedEnabled(bool)
+  fullName.vb: SharpHook.Native.UioHook.SetKeyTypedEnabled(Boolean)
+  nameWithType: UioHook.SetKeyTypedEnabled(bool)
+  nameWithType.vb: UioHook.SetKeyTypedEnabled(Boolean)
+- uid: SharpHook.Native.UioHook.SetKeyTypedEnabled*
+  name: SetKeyTypedEnabled
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetKeyTypedEnabled_
+  commentId: Overload:SharpHook.Native.UioHook.SetKeyTypedEnabled
+  fullName: SharpHook.Native.UioHook.SetKeyTypedEnabled
+  nameWithType: UioHook.SetKeyTypedEnabled
 - uid: SharpHook.Native.UioHook.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)
   name: SetLoggerProc(LoggerProc?, nint)
   href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetLoggerProc_SharpHook_Native_LoggerProc_System_IntPtr_
@@ -4396,6 +4423,18 @@ references:
   commentId: T:SharpHook.Providers.IGlobalHookProvider
   fullName: SharpHook.Providers.IGlobalHookProvider
   nameWithType: IGlobalHookProvider
+- uid: SharpHook.Providers.IGlobalHookProvider.KeyTypedEnabled
+  name: KeyTypedEnabled
+  href: api/SharpHook.Providers.IGlobalHookProvider.html#SharpHook_Providers_IGlobalHookProvider_KeyTypedEnabled
+  commentId: P:SharpHook.Providers.IGlobalHookProvider.KeyTypedEnabled
+  fullName: SharpHook.Providers.IGlobalHookProvider.KeyTypedEnabled
+  nameWithType: IGlobalHookProvider.KeyTypedEnabled
+- uid: SharpHook.Providers.IGlobalHookProvider.KeyTypedEnabled*
+  name: KeyTypedEnabled
+  href: api/SharpHook.Providers.IGlobalHookProvider.html#SharpHook_Providers_IGlobalHookProvider_KeyTypedEnabled_
+  commentId: Overload:SharpHook.Providers.IGlobalHookProvider.KeyTypedEnabled
+  fullName: SharpHook.Providers.IGlobalHookProvider.KeyTypedEnabled
+  nameWithType: IGlobalHookProvider.KeyTypedEnabled
 - uid: SharpHook.Providers.IGlobalHookProvider.Run
   name: Run()
   href: api/SharpHook.Providers.IGlobalHookProvider.html#SharpHook_Providers_IGlobalHookProvider_Run
@@ -4705,6 +4744,18 @@ references:
   commentId: Overload:SharpHook.Providers.UioHookProvider.IsAxApiEnabled
   fullName: SharpHook.Providers.UioHookProvider.IsAxApiEnabled
   nameWithType: UioHookProvider.IsAxApiEnabled
+- uid: SharpHook.Providers.UioHookProvider.KeyTypedEnabled
+  name: KeyTypedEnabled
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_KeyTypedEnabled
+  commentId: P:SharpHook.Providers.UioHookProvider.KeyTypedEnabled
+  fullName: SharpHook.Providers.UioHookProvider.KeyTypedEnabled
+  nameWithType: UioHookProvider.KeyTypedEnabled
+- uid: SharpHook.Providers.UioHookProvider.KeyTypedEnabled*
+  name: KeyTypedEnabled
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_KeyTypedEnabled_
+  commentId: Overload:SharpHook.Providers.UioHookProvider.KeyTypedEnabled
+  fullName: SharpHook.Providers.UioHookProvider.KeyTypedEnabled
+  nameWithType: UioHookProvider.KeyTypedEnabled
 - uid: SharpHook.Providers.UioHookProvider.PostEvent(SharpHook.Data.UioHookEvent@)
   name: PostEvent(ref UioHookEvent)
   href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_PostEvent_SharpHook_Data_UioHookEvent__
