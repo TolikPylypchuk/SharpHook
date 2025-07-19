@@ -89,7 +89,7 @@
 
 <h2 id="a-note-on-semver">A Note on SemVer</h2>
 <p>SharpHook follows SemVer with two exceptions: the <code>IEventSimulator</code> interface and the interfaces in the
-<code>SharpHook.Providers</code> namespace. These interfaces are not meant to be implemented directly in client code - they are
+<code>SharpHook.Providers</code> namespace. These interfaces are not meant to be implemented directly in client code – they are
 just abstractions over the corresponding classes. As such, when new features are added to event simulation or
 low-level functionality providers, these interfaces need to be changed. Technically, this is a breaking change and
 would require bumping the major version. Instead, changes to these interfaces are usually treated as minor version
@@ -97,7 +97,7 @@ updates since they are not expected to break client code.</p>
 <h2 id="version-5-to-6">Version 5 to 6</h2>
 <p>Version 6 contains multiple breaking changes, so you will most probably need to change your code to upgrade.</p>
 <p>All structs and enums were moved from <code>SharpHook.Native</code> to <code>SharpHook.Data</code>.</p>
-<p>The <code>ModifierMask</code> and <code>EventReservedValueMask</code> enums were merged into a single enum - <code>EventMask</code>. <code>UioHookEvent</code>
+<p>The <code>ModifierMask</code> and <code>EventReservedValueMask</code> enums were merged into a single enum – <code>EventMask</code>. <code>UioHookEvent</code>
 doesn't contain the <code>Reserved</code> field anymore. Instead, its values are now part of <code>Mask</code>.</p>
 <p><code>TaskPoolGlobalHookOptions</code> was removed. Instead, the options should be passed directly into the constructor of
 <code>TaskPoolGlobalHook</code>.</p>
@@ -115,10 +115,10 @@ are still supported through .NET Standard 2.0).</p>
 <p>Almost all <code>KeyCode</code> values were changed. New codes were added and some were removed. Before upgrading, make sure that
 no numeric key code values are persisted since they will be incompatible. The actual enum values are meaningless and
 may be changed again in the future. Make sure to only use the enum constant names, e.g. when persisting key codes.</p>
-<p>Mouse wheel events were changed. <code>MouseWheelEventData</code> doesn't contain <code>Amount</code> anymore - instead only <code>Rotation</code> should
+<p>Mouse wheel events were changed. <code>MouseWheelEventData</code> doesn't contain <code>Amount</code> anymore – instead only <code>Rotation</code> should
 be considered the value of the scroll. Mouse wheel simulation was changed as well and doesn't accept the amount anymore.
 Instead it accepts the scroll direction and type which makes it possible to simulate horizontal scrolling. The
-meaning of the <code>Rotation</code> value was changed - a positive value indicates that the wheel is rotated up or left, and
+meaning of the <code>Rotation</code> value was changed – a positive value indicates that the wheel is rotated up or left, and
 a negative value indicates that the wheel is rotated down or right.</p>
 <p><code>KeyboardEventData.KeyChar</code> was renamed to <code>KeyboardEventData.RawKeyChar</code>. Since the key char is of type <code>ushort</code> for
 marshalling reasons but should be used as a <code>char</code>, the <code>KeyboardEventData.KeyChar</code> property was added, which simply
@@ -138,7 +138,7 @@ actually always required by libuiohook, so previously the buttons were always pr
 <code>EventSimulator.SimulateMousePress</code> and <code>EventSimulator.SimulateMouseRelease</code> now have the following parameters:
 <code>short x, short y, MouseButton button</code>.</p>
 <p><code>HookEventArgs</code> doesn't contain the <code>Reserved</code> property anymore as its purpose wasn't really clear. Now <code>HookEventArgs</code>
-contains the <code>SuppressEvent</code> property - set it to <code>true</code> inside an event handler to suppress the event.</p>
+contains the <code>SuppressEvent</code> property – set it to <code>true</code> inside an event handler to suppress the event.</p>
 <p>On .NET 7 <code>[LibraryImport]</code> is now used instead of <code>[DllImport]</code>. This change required making <code>UioHookEvent</code> a blittable
 type, and as a result, the type of <code>KeyboardEventData.KeyChar</code> was changed from <code>char</code> to <code>ushort</code>. The field should
 still be used as a <code>char</code>.</p>
@@ -147,7 +147,7 @@ still be used as a <code>char</code>.</p>
 <p><code>KeyCode.VcPrintscreen</code> was renamed to <code>KeyCode.VcPrintScreen</code>.</p>
 <p>When simulating mouse wheel events on Windows, their rotation value was previously multiplied by 120. This behavior was
 removed.</p>
-<p>The ability to make <code>RunAsync</code> create a background thread was added - you can now specify that a running hook won't stop
+<p>The ability to make <code>RunAsync</code> create a background thread was added – you can now specify that a running hook won't stop
 the application from exiting if all other threads have finished executing.</p>
 <p>Versioned libuiohook binaries for macOS and Linux were removed from the NuGet package as they were bit-for-bit same as
 the unversioned binaries.</p>
@@ -165,17 +165,17 @@ and Linux allow it, so this functionality was removed from libuiohook on other O
 <p><code>UioHook.PostEvent</code> now returns <code>UioHookResult</code> instead of being <code>void</code>. Thus, all methods of <code>IEventSimulator</code> and
 <code>EventSimulator</code> also return <code>UioHookResult</code>.</p>
 <p><code>UioHookEvent.Time</code> now contains the event's UNIX timestamp, and <code>HookEventArgs</code> now contains the <code>EventTime</code>
-property - a <code>DateTimeOffset</code> object derived from the timestamp.</p>
+property – a <code>DateTimeOffset</code> object derived from the timestamp.</p>
 <p>You can now get libuiohook logs if you need to log its execution, which was not possible before.</p>
 <p>Other changes were done independently of libuiohook.</p>
 <p><code>IGlobalHook</code> and <code>IReactiveGlobalHook</code> now contain the <code>IsDisposed</code> property.</p>
 <p>The <code>HookEvent&lt;TArgs&gt;</code> class was removed from SharpHook.Reactive. The observables of <code>IReactiveGlobalHook</code> now emit
 <code>HookEventArgs</code> or a derived type directly. If you need the sender of the event, then use closures.</p>
 <h2 id="version-1-to-2">Version 1 to 2</h2>
-<p>In order to migrate from version 1 to version 2 there are several things that should be done - they are all quite small.</p>
+<p>In order to migrate from version 1 to version 2 there are several things that should be done – they are all quite small.</p>
 <p>The <code>Start</code> method was removed from <code>IGlobalHook</code> and <code>IReactiveGlobalHook</code>. Instead these interfaces now provide two
 methods: <code>Run</code> and <code>RunAsync</code>. <code>Run</code> is for running the global hook on the same thread and blocking that thread.
-<code>RunAsync</code> behaves the same way that <code>Start</code> did before - it starts the hook on a separate thread and doesn't block
+<code>RunAsync</code> behaves the same way that <code>Start</code> did before – it starts the hook on a separate thread and doesn't block
 the calling thread.</p>
 <p>Replace the invocation of <code>Start</code> to the invocation of <code>RunAsync</code> on a global hook if you simply want to keep the
 previous behavior.</p>

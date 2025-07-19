@@ -119,7 +119,7 @@ public async Task TestLastPressedKey()
 </code></pre>
 <p>If this class is used as an <code>IEventSimulator</code> in the tested code, then the <code>SimulatedEvents</code> property can be checked to
 see which events were simulated using the test instance.</p>
-<p><code>TestGlobalHook</code> can be used with two different threading modes - the simple mode and the event loop mode.</p>
+<p><code>TestGlobalHook</code> can be used with two different threading modes – the simple mode and the event loop mode.</p>
 <p>When running in simple mode (the default mode) the hook will dispatch events immediately in the same thread which
 simulates them.</p>
 <p>When running the event loop, the hook will run an actual even loop on the thread on which <code>Run</code> was called. When
@@ -139,7 +139,7 @@ then <code>SharpHook.Testing.TestProvider</code> can be used. It implements ever
 and as such, it can be used instead of normal low-level functionality providers.</p>
 <p>Like <code>TestProvider</code>, this class can post events using the <code>PostEvent</code> method and dispatch them if <code>Run</code> has been
 called. It also contains the <code>PostedEvents</code> property.</p>
-<p><code>TestProvider</code> can be used with two different threading modes - the simple mode and the event loop mode.</p>
+<p><code>TestProvider</code> can be used with two different threading modes – the simple mode and the event loop mode.</p>
 <p>When running in simple mode (the default mode) the provider will dispatch events immediately in the same thread which
 simulates them.</p>
 <p>When running the event loop, the provider will run an actual even loop on the thread on which <code>Run</code> was called. When

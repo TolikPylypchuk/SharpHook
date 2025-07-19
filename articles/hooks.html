@@ -120,7 +120,7 @@ await hook.RunAsync();
 events is the <code>IGlobalHook</code> itself.</p>
 <p>It also contains the <code>Run</code> and <code>RunAsync</code> methods which run the global hook. <code>Run</code> runs it on the current thread,
 blocking it until the global hook is disposed. <code>RunAsync</code> runs the global hook in a non-blocking way and returns a
-<code>Task</code> - this task is finished when the hook is destroyed. Since the underlying native API is blocking, the only way to
+<code>Task</code> – this task is finished when the hook is destroyed. Since the underlying native API is blocking, the only way to
 run the hook in a non-blocking way is to run it on a separate thread, and all default implementations do just that.</p>
 <p>You can specify in the hook constructors whether <code>RunAsync</code> should create a background thread or not. Background threads
 don't block the application from exiting if all other threads have finished executing. By default the created thread
@@ -131,7 +131,7 @@ using its <code>IsRunning</code> property.</p>
 <p><code>IGlobalHook</code> contains the <code>Stop</code> method to stop the global hook. After stopping, the global hook can be started again
 by calling the <code>Run</code> or <code>RunAsync</code> method. Calling <code>Stop</code> when the hook is not running won't do anything.</p>
 <p><code>IGlobalHook</code> extends <code>IDisposable</code>. When you call the <code>Dispose</code> method on a hook, it's disposed and stopped if it was
-running. Once a hook has been disposed, it cannot be started again - you'll have to create a new instance. Calling
+running. Once a hook has been disposed, it cannot be started again – you'll have to create a new instance. Calling
 <code>Dispose</code> when the hook is not running won't do anything other than marking the instance as disposed. You can check
 whether the hook is disposed using the <code>IsDisposed</code> property.</p>
 <p>The <code>HookEnabled</code> event is raised when the <code>Run</code> or <code>RunAsync</code> method is called. The <code>HookDisabled</code> event is raised when
@@ -147,7 +147,7 @@ method to set the hook callback for libuiohook, so there may only be one callbac
 when another global hook is already running will corrupt the internal global state of libuiohook.</p>
 </div>
 <p>You can create a keyboard-only or a mouse-only hook by passing a <code>GlobalHookType</code> to the hook's constructor. This makes
-a real difference only on Windows where there are two different global hooks - a keyboard hook and a mouse hook. On
+a real difference only on Windows where there are two different global hooks – a keyboard hook and a mouse hook. On
 macOS and Linux, there is one hook for all events, and this simply enables filtering keyboard or mouse events out on
 these OSes.</p>
 <h2 id="the-default-implementations">The Default Implementations</h2>
@@ -160,7 +160,7 @@ they run for too long.</p>
 <li><p><code>SharpHook.TaskPoolGlobalHook</code> runs all of its event handlers on other threads inside the default thread pool for
 tasks. The parallelism level of the handlers can be configured. On backpressure it will queue the remaining handlers.
 This means that the hook will be able to process all events. This implementation should be preferred to
-<code>SimpleGlobalHook</code> except for very simple use-cases. But it has a downside - suppressing event propagation will be
+<code>SimpleGlobalHook</code> except for very simple use-cases. But it has a downside – suppressing event propagation will be
 ignored since event handlers are run on other threads.</p>
 </li>
 </ul>

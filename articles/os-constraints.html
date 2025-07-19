@@ -101,7 +101,7 @@ state.</p>
 </div>
 <div class="IMPORTANT">
 <h5>Important</h5>
-<p>There is an issue on Windows 10 - when a global hook is running, some editors may insert Unicode characters when the
+<p>There is an issue on Windows 10 – when a global hook is running, some editors may insert Unicode characters when the
 user presses <kbd>Alt</kbd>+<kbd>Up Arrow</kbd> or <kbd>Alt</kbd>+<kbd>Down Arrow</kbd>. This issue is not present on
 Windows 11.</p>
 </div>
@@ -110,7 +110,7 @@ Windows 11.</p>
 <h3 id="visual-c-redistributable">Visual C++ Redistributable</h3>
 <p>The libuiohook build used by SharpHook on Windows is statically linked to the C runtime which means that client apps
 don't need the Visual C++ Redistributable package.</p>
-<p>An exception is the logging functionality - <code>LogEntryParser</code> uses the <code>vsprintf</code> function from the C runtime, and as
+<p>An exception is the logging functionality – <code>LogEntryParser</code> uses the <code>vsprintf</code> function from the C runtime, and as
 such, it requires the Visual C++ Redistributable package on Windows, unlike the rest of SharpHook. If you don't want
 your app to be dependent on this package, then you can use the <code>EmptyLogSource</code> class instead of <code>LogSource</code> in release
 builds of your app. <code>EmptyLogSource</code> implements <code>ILogSource</code>, but never raises the <code>MessageLogged</code> event and doesn't

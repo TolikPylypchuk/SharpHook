@@ -67,7 +67,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Data.GlobalHookType",
-      "Summary": "<p sourcefile=\"api/SharpHook.Data.GlobalHookType.yml\" sourcestartlinenumber=\"1\">Represents a global hook type - keyboard hook, mouse hook, or both.</p>\n"
+      "Summary": "<p sourcefile=\"api/SharpHook.Data.GlobalHookType.yml\" sourcestartlinenumber=\"1\">Represents a global hook type – keyboard hook, mouse hook, or both.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -795,7 +795,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Testing.TestThreadingMode",
-      "Summary": "<p sourcefile=\"api/SharpHook.Testing.TestThreadingMode.yml\" sourcestartlinenumber=\"1\">Represents the mode of dispatching simulated events in testing hooks - either on the same thread which simulates\nthem, or on the thread which runs the testing hook.</p>\n"
+      "Summary": "<p sourcefile=\"api/SharpHook.Testing.TestThreadingMode.yml\" sourcestartlinenumber=\"1\">Represents the mode of dispatching simulated events in testing hooks – either on the same thread which simulates\nthem, or on the thread which runs the testing hook.</p>\n"
     },
     {
       "type": "ManagedReference",

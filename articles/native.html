@@ -101,13 +101,13 @@ methods in <code>UioHook</code>. This should be done to decouple your code from 
 <h2 id="working-with-the-hook-itself">Working with the Hook Itself</h2>
 <p><code>UioHook</code> contains the following methods for working with the global hook:</p>
 <ul>
-<li><code>SetDispatchProc</code> - sets the function which will be called when an event is raised by libuiohook.</li>
-<li><code>Run</code> - creates a keyboard and mouse global hook and runs it on the current thread, blocking it until <code>Stop</code> is
+<li><code>SetDispatchProc</code> – sets the function which will be called when an event is raised by libuiohook.</li>
+<li><code>Run</code> – creates a keyboard and mouse global hook and runs it on the current thread, blocking it until <code>Stop</code> is
 called.</li>
-<li><code>RunKeyboard</code> - creates a keyboard-only global hook and runs it on the current thread, blocking it until <code>Stop</code> is
+<li><code>RunKeyboard</code> – creates a keyboard-only global hook and runs it on the current thread, blocking it until <code>Stop</code> is
 called.</li>
-<li><code>RunMouse</code> - creates a mouse-only global hook and runs it on the current thread, blocking it until <code>Stop</code> is called.</li>
-<li><code>Stop</code> - destroys the global hook.</li>
+<li><code>RunMouse</code> – creates a mouse-only global hook and runs it on the current thread, blocking it until <code>Stop</code> is called.</li>
+<li><code>Stop</code> – destroys the global hook.</li>
 </ul>
 <p>You have to remember that only one global hook can exist at a time since calling <code>SetDispatchProc</code> will override the
 previously set one. Also, running a global hook when another global hook is already running will corrupt the internal
@@ -124,28 +124,28 @@ to unset the callback function.</p>
 <code>SharpHook.Data.EventType</code> enum).</p>
 <p>Following are the general-purpose events:</p>
 <ul>
-<li><code>HookEnabled</code> - raised when the <code>Run</code> method is called.</li>
-<li><code>HookDisabled</code> - raised when the <code>Stop</code> method is called.</li>
+<li><code>HookEnabled</code> – raised when the <code>Run</code> method is called.</li>
+<li><code>HookDisabled</code> – raised when the <code>Stop</code> method is called.</li>
 </ul>
 <p>Following are the keyboard events, and <code>UioHookEvent</code> will contain more infomration in its <code>Keyboard</code> field:</p>
 <ul>
-<li><code>KeyPressed</code> - raised when a key is pressed (its state changed from up to down).</li>
-<li><code>KeyReleased</code> - raised when a key is released (its state changed from down to up).</li>
-<li><code>KeyTyped</code> - raised when a key press may have caused a character to be typed regardless of whether a character was
+<li><code>KeyPressed</code> – raised when a key is pressed (its state changed from up to down).</li>
+<li><code>KeyReleased</code> – raised when a key is released (its state changed from down to up).</li>
+<li><code>KeyTyped</code> – raised when a key press may have caused a character to be typed regardless of whether a character was
 actually typed.</li>
 </ul>
 <p>Following are the mouse events, and <code>UioHookEvent</code> will contain more infomration in its <code>Mouse</code> field:</p>
 <ul>
-<li><code>MouseClicked</code> - raised when a mouse button is clicked (pressed and released without dragging).</li>
-<li><code>MousePressed</code> - raised when a mouse button is pressed (its state changed from up to down).</li>
-<li><code>MouseReleased</code> - raised when a mouse button is released (its state changed from down to up).</li>
-<li><code>MouseMoved</code> - raised when the mouse cursor is moved.</li>
-<li><code>MouseDragged</code> - raised when the mouse cursor is dragged (moved while a button is down).</li>
+<li><code>MouseClicked</code> – raised when a mouse button is clicked (pressed and released without dragging).</li>
+<li><code>MousePressed</code> – raised when a mouse button is pressed (its state changed from up to down).</li>
+<li><code>MouseReleased</code> – raised when a mouse button is released (its state changed from down to up).</li>
+<li><code>MouseMoved</code> – raised when the mouse cursor is moved.</li>
+<li><code>MouseDragged</code> – raised when the mouse cursor is dragged (moved while a button is down).</li>
 </ul>
 <p>And the last one is also a mouse event, but <code>UioHookEvent</code> will contain more information in its <code>Wheel</code> field since it
 has more information:</p>
 <ul>
-<li><code>MouseWheel</code> - raised when the mouse wheel is scrolled.</li>
+<li><code>MouseWheel</code> – raised when the mouse wheel is scrolled.</li>
 </ul>
 <p><code>EventType</code> defines three more types, but they are used only when simulating events.</p>
 <p><code>UioHookEvent</code> also contains the <code>Time</code> field which is the event's UNIX timestamp.</p>
@@ -273,7 +273,7 @@ may not do so instantaneously, a delay is needed for accurate simulation. This m
 slowly and is not guaranteed to be correct.</p>
 <p><code>UioHook</code> contains the <code>SetPostTextDelayX11</code> method which can be used to increase (or decrease) the delay if needed -
 longer delays add consistency but may be more jarring to end users. <code>UioHook</code> also contains the <code>GetPostTextDelayX11</code>
-which can be used to get the currently configured delay - the default is 50 milliseconds. Delays are configurable on a
+which can be used to get the currently configured delay – the default is 50 milliseconds. Delays are configurable on a
 nanosecond level. On Windows and macOS <code>SetPostTextDelayX11</code> does nothing, and <code>GetPostTextDelayX11</code> always returns 0.
 <code>IEventSimulator</code> contains the <code>TextSimulationDelayOnX11</code> property which is wrapper arount the aforementioned methods.</p>
 <p>The methods described above are also defined in the <code>SharpHook.Providers.IEventSimulationProvider</code> interface.</p>
@@ -296,7 +296,7 @@ passed to this method, then a system dialog will appear if this access is disabl
 <p>The methods described above are also defined in the <code>SharpHook.Providers.IAccessibilityProvider</code> interface.</p>
 <h2 id="logging">Logging</h2>
 <p>libuiohook can log messages throughout its execution. By default it doesn't log anything, but <code>UioHook</code> contains the
-<code>SetLoggerProc</code> method to set the log callback function - it will be called by libuiohook to log messages.</p>
+<code>SetLoggerProc</code> method to set the log callback function – it will be called by libuiohook to log messages.</p>
 <p>This method is also defined in the <code>SharpHook.Providers.ILoggingProvider</code> interface.</p>
 <p><code>SetLoggerProc</code> accepts a delegate of type <code>SharpHook.Native.LoggerProc</code>. This delegate in turn accepts a log level,
 the message format (as a pointer) and arguments (also as a pointer).</p>
@@ -304,7 +304,7 @@ the message format (as a pointer) and arguments (also as a pointer).</p>
 not recommended to use it directly.</p>
 <h2 id="passing-custom-data-to-callbacks">Passing Custom Data to Callbacks</h2>
 <p><code>SetDispatchProc</code> and <code>SetLoggerProc</code> also receive a pointer to user-supplied data as a parameter of type <code>nint</code>. It is
-then passed to the callbacks - both <code>DispatcherProc</code> and <code>LoggerProc</code> receive user-supplied data as well.</p>
+then passed to the callbacks – both <code>DispatcherProc</code> and <code>LoggerProc</code> receive user-supplied data as well.</p>
 <p>In general it's not recommended to use them. You should usually pass <code>IntPtr.Zero</code> to <code>SetDispatchProc</code> and
 <code>SetLoggerProc</code> and not use the respective parameters in the callbacks.</p>
 <p>The reason is that in order to use pointers to managed objects, they have to be pinned. As these callbacks tend to be

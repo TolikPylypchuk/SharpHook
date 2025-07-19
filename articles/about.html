@@ -87,7 +87,7 @@
         <article data-uid="">
 <h1 id="about-sharphook">About SharpHook</h1>
 
-<p>SharpHook - created by <a href="https://tolik.io">Tolik Pylypchuk</a>.</p>
+<p>SharpHook – created by <a href="https://tolik.io">Tolik Pylypchuk</a>.</p>
 <h2 id="library-status">Library Status</h2>
 <p>If you've noticed that this library hasn't gotten new commits in some time, rest assured that it's not abandoned!
 I'm not giving up on this library any time soon.</p>
@@ -135,7 +135,7 @@ You need .NET 9 to build SharpHook.</p>
 <h2 id="changelog">Changelog</h2>
 <h3 id="v612-june-22-2025"><a href="https://github.com/TolikPylypchuk/SharpHook/releases/tag/v6.1.2">v6.1.2</a> (June 22, 2025)</h3>
 <ul>
-<li><p>Simulation of letter keys in different layouts was fixed on Windows - the same keys are simulated regardless of the
+<li><p>Simulation of letter keys in different layouts was fixed on Windows – the same keys are simulated regardless of the
 current keyboard layout (e.g., QWERTY or AZERTY).</p>
 </li>
 <li><p>libuiohook was updated to commit
@@ -170,7 +170,7 @@ available through .NET Standard.</p>
 <ul>
 <li><p>All structs and enums were moved from <code>SharpHook.Native</code> to <code>SharpHook.Data</code>.</p>
 </li>
-<li><p><code>ModifierMask</code> and <code>EventReservedValueMask</code> were merged into a single enum - <code>EventMask</code>.</p>
+<li><p><code>ModifierMask</code> and <code>EventReservedValueMask</code> were merged into a single enum – <code>EventMask</code>.</p>
 </li>
 <li><p><code>UioHookEvent.Reserved</code> was removed. Its values are now part of <code>UioHookEvent.Mask</code>.</p>
 </li>
@@ -319,7 +319,7 @@ which fixes a CPU usage issue on Linux.</li>
 </ul>
 <h3 id="v521-january-3-2024"><a href="https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.2.1">v5.2.1</a> (January 3, 2024)</h3>
 <ul>
-<li><p><code>HookEventArgs.IsEventSimulated</code> has been fixed - previously it always returned <code>true</code>.</p>
+<li><p><code>HookEventArgs.IsEventSimulated</code> has been fixed – previously it always returned <code>true</code>.</p>
 </li>
 <li><p><code>kCGEventTapDisabledByTimeout</code> doesn't break the global hook on macOS anymore.</p>
 </li>
@@ -391,7 +391,7 @@ meaningless and may be changed again in the future.</p>
 <li><p>Mouse wheel simulation doesn't accept the amount anymore. Instead it accepts the scroll direction and type which
 makes it possible to simulate horizontal scrolling.</p>
 </li>
-<li><p>The meaning of the mouse wheel rotation value was changed - a positive value indicates that the wheel is rotated up or
+<li><p>The meaning of the mouse wheel rotation value was changed – a positive value indicates that the wheel is rotated up or
 left, and a negative value indicates that the wheel is rotated down or right.</p>
 </li>
 <li><p><code>KeyboardEventData.KeyChar</code> was renamed to <code>KeyboardEventData.RawKeyChar</code> and the <code>KeyboardEventData.KeyChar</code> property
@@ -407,7 +407,7 @@ was added.</p>
 <ul>
 <li><p>Text entry simulation was added.</p>
 </li>
-<li><p>Low-level functionality providers were added - they can be used instead of directly using the <code>UioHook</code> class.</p>
+<li><p>Low-level functionality providers were added – they can be used instead of directly using the <code>UioHook</code> class.</p>
 </li>
 <li><p>Horizontal mouse wheel simulation is now possible.</p>
 </li>
@@ -481,7 +481,7 @@ support for multiple screens on Windows.</p>
 </li>
 <li><p><code>HookEventArgs</code> now contains the <code>SuppressEvent</code> property instead of <code>Reserved</code>.</p>
 </li>
-<li><p><code>KeyboardEventData.KeyChar</code> is now of type <code>ushort</code> instead of <code>char</code> - this was changed purely for marshalling
+<li><p><code>KeyboardEventData.KeyChar</code> is now of type <code>ushort</code> instead of <code>char</code> – this was changed purely for marshalling
 reasons and it should still be used as a <code>char</code>.</p>
 </li>
 <li><p>Simulating mouse presses and releases now requires providing mouse pointer coordinates.</p>
@@ -566,7 +566,7 @@ method was removed.</p>
 </li>
 <li><p>Support for suppressing event propagation.</p>
 </li>
-<li><p><code>UioHookEvent.Time</code> now has the correct type - <code>ulong</code> instead of <code>ushort</code>.</p>
+<li><p><code>UioHookEvent.Time</code> now has the correct type – <code>ulong</code> instead of <code>ushort</code>.</p>
 </li>
 <li><p>Global hooks now throw an exception if they are started when already running.</p>
 </li>
@@ -577,7 +577,7 @@ method was removed.</p>
 </li>
 <li><p>Support for Windows on Arm64.</p>
 </li>
-<li><p><code>MouseWheelEventData.Rotation</code> now has the correct type - <code>short</code> instead of <code>ushort</code>. This is a tiny breaking change,
+<li><p><code>MouseWheelEventData.Rotation</code> now has the correct type – <code>short</code> instead of <code>ushort</code>. This is a tiny breaking change,
 but had to be fixed.</p>
 </li>
 <li><p>libuiohook was updated to commit <a href="https://github.com/kwhat/libuiohook/tree/5cf864d37bdee41bcef2297401c4538d9010b770">5cf864d</a>.</p>
