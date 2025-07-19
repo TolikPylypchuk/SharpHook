@@ -91,20 +91,22 @@
 <h2 id="windows">Windows</h2>
 <h3 id="supported-versions">Supported Versions</h3>
 <p>Only Windows 10 and 11 are supported.</p>
-<div class="IMPORTANT">
-<h5>Important</h5>
-<p>If the global hook runs on versions of Windows older than Windows 10 1607, then it will destroy dead keys rendering
-them unusable. This is because it uses the
+<h3 id="keytyped-events"><code>KeyTyped</code> Events</h3>
+<p>It is recommended to disable events of type <code>KeyTyped</code> if they are unused since they may cause system-wide side
+effects:</p>
+<ul>
+<li><p>When a keyboard global hook is running with <code>KeyTyped</code> events enabled on versions of Windows older than Windows 10
+1607, it will destroy dead keys rendering them unusable. This is because it uses the
 <a href="https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-tounicodeex"><code>ToUnicodeEx</code></a> function to
-determine which characters are typed by key presses, and before Windows 10 1607 this function changed the keyboard
+determine which characters are typed by key presses, and before Windows 10 1607 this function changed the dead key
 state.</p>
-</div>
-<div class="IMPORTANT">
-<h5>Important</h5>
-<p>There is an issue on Windows 10 – when a global hook is running, some editors may insert Unicode characters when the
-user presses <kbd>Alt</kbd>+<kbd>Up Arrow</kbd> or <kbd>Alt</kbd>+<kbd>Down Arrow</kbd>. This issue is not present on
-Windows 11.</p>
-</div>
+</li>
+<li><p>When a keyboard global hook is running with <code>KeyTyped</code> events enabled, some editors may insert Unicode characters when
+the user presses <kbd>Alt</kbd>+<kbd>Up Arrow</kbd> or <kbd>Alt</kbd>+<kbd>Down Arrow</kbd>. As of July 2025, on Windows
+11, this issue can be reproduced in Microsoft Visual Studio, but on Windows 10, it can be reproduced in other editors as
+well.</p>
+</li>
+</ul>
 <h3 id="supported-architectures">Supported Architectures</h3>
 <p>x86, x64, and Arm64 are supported. Arm32 is not supported since its support was dropped in .NET 5.</p>
 <h3 id="visual-c-redistributable">Visual C++ Redistributable</h3>

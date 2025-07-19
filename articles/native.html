@@ -95,9 +95,9 @@ provided by SharpHook. However, you should still read this article to know how t
 the hood.</p>
 <h2 id="low-level-functionality-providers">Low-Level Functionality Providers</h2>
 <p>If you want to use the low-level functionality, you don't need to use the <code>UioHook</code> class directly. Instead you can use
-interfaces in the <code>SharpHook.Providers</code> namespace. The methods in those interfaces are the same as in the <code>UioHook</code>
-class. <code>SharpHook.Providers.UioHookProvider</code> implements all of these interfaces and simply calls the corresponding
-methods in <code>UioHook</code>. This should be done to decouple your code from <code>UioHook</code> and make testing easier.</p>
+interfaces in the <code>SharpHook.Providers</code> namespace. The methods and properties in those interfaces are the same as in the
+<code>UioHook</code> class. <code>SharpHook.Providers.UioHookProvider</code> implements all of these interfaces and simply calls the
+corresponding methods in <code>UioHook</code>. This should be done to decouple your code from <code>UioHook</code> and make testing easier.</p>
 <h2 id="working-with-the-hook-itself">Working with the Hook Itself</h2>
 <p><code>UioHook</code> contains the following methods for working with the global hook:</p>
 <ul>
@@ -169,6 +169,11 @@ characters to be typed, a single <code>KeyPressed</code> event can raise multipl
 after <code>MouseReleased</code> if the cursor was not dragged. Since these events are raised by libuiohook, and not the OS,
 suppressing them has no effect.</p>
 </div>
+<p>Events of type <code>KeyTyped</code> can be disabled using the <code>UioHook.SetKeyTypedEnabled</code> method. It is recommended to disable
+them if your application doesn't use them as these events may cause slight system-wide side effects. More information
+can be found in <a href="os-constraints.html">an article on OS-specific constraints</a>. <code>UioHook.IsKeyTypedEnabled</code> can be used to
+query whether <code>KeyTyped</code> events are enabled. By default they are enabled. <code>SharpHook.Providers.IGlobalHookProvider</code>
+contains the <code>KeyTypedEnabled</code> property which can also be used to control this behaviour.</p>
 <h2 id="simulating-input-events">Simulating Input Events</h2>
 <p><code>UioHook</code> contains the <code>PostEvent</code> method for simulating input events. It accepts a <code>UioHookEvent</code>, but it doesn't need
 all its fields. Only <code>Type</code> and <code>Keyboard</code>/<code>Mouse</code>/<code>Wheel</code> should be present.</p>
