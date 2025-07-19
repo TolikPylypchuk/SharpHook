@@ -71,7 +71,7 @@ Platform support notes:
 API be enabled for the application if it wants to create a global hook or simulate events.
 
 - Linux distributions supported by .NET are supported by SharpHook. Linux on x86 is
-[not supported](https://github.com/dotnet/runtime/issues/7335) by .NET itself. Only X11 is supported - Wayland support
+[not supported](https://github.com/dotnet/runtime/issues/7335) by .NET itself. Only X11 is supported – Wayland support
 [may be coming](https://github.com/kwhat/libuiohook/issues/196), but it's not yet here.
 
 More info on OS support can be found in
@@ -95,13 +95,13 @@ methods in `UioHook`. This should be done to decouple your code from `UioHook` a
 
 `UioHook` contains the following methods for working with the global hook:
 
-- `SetDispatchProc` - sets the function which will be called when an event is raised by libuiohook.
-- `Run` - creates a keyboard and mouse global hook and runs it on the current thread, blocking it until `Stop` is
+- `SetDispatchProc` – sets the function which will be called when an event is raised by libuiohook.
+- `Run` – creates a keyboard and mouse global hook and runs it on the current thread, blocking it until `Stop` is
 called.
-- `RunKeyboard` - creates a keyboard-only global hook and runs it on the current thread, blocking it until `Stop` is
+- `RunKeyboard` – creates a keyboard-only global hook and runs it on the current thread, blocking it until `Stop` is
 called.
-- `RunMouse` - creates a mouse-only global hook and runs it on the current thread, blocking it until `Stop` is called.
-- `Stop` - destroys the global hook.
+- `RunMouse` – creates a mouse-only global hook and runs it on the current thread, blocking it until `Stop` is called.
+- `Stop` – destroys the global hook.
 
 > [!IMPORTANT]
 > You have to remember that only one global hook can exist at a time since calling `SetDispatchProc` will override the
@@ -155,7 +155,7 @@ when the hook is stopped. You can subscribe to events after the hook is started.
 by calling the `Run` or `RunAsync` method. Calling `Stop` when the hook is not running won't do anything.
 
 `IGlobalHook` extends `IDisposable`. When you call the `Dispose` method on a hook, it's disposed and stopped if it was
-running. Once a hook has been disposed, it cannot be started again - you'll have to create a new instance. Calling
+running. Once a hook has been disposed, it cannot be started again – you'll have to create a new instance. Calling
 `Dispose` when the hook is not running won't do anything other than marking the instance as disposed.
 
 Hook events are of type `HookEventArgs` or a derived type which contains more info. It's possible to suppress event
@@ -169,7 +169,7 @@ the `EventTime` and `IsEventSimulated` properties respectively.
 > when another global hook is already running will corrupt the internal global state of libuiohook.
 
 You can create a keyboard-only or a mouse-only hook by passing a `GlobalHookType` to the hook's constructor. This makes
-a real difference only on Windows where there are two different global hooks - a keyboard hook and a mouse hook. On
+a real difference only on Windows where there are two different global hooks – a keyboard hook and a mouse hook. On
 macOS and Linux, there is one hook for all events, and this simply enables filtering keyboard or mouse events out on
 these OSes.
 
@@ -182,7 +182,7 @@ they run for too long.
 - `SharpHook.TaskPoolGlobalHook` runs all of its event handlers on other threads inside the default thread pool for
 tasks. The parallelism level of the handlers can be configured. On backpressure it will queue the remaining handlers.
 This means that the hook will be able to process all events. This implementation should be preferred to
-`SimpleGlobalHook` except for very simple use-cases. But it has a downside - suppressing event propagation will be
+`SimpleGlobalHook` except for very simple use-cases. But it has a downside – suppressing event propagation will be
 ignored since event handlers are run on other threads.
 
 The library also provides the `SharpHook.GlobalHookBase` class which you can extend to create your own implementation
@@ -312,10 +312,10 @@ private void OnMessageLogged(object? sender, LogEventArgs e) =>
     this.logger.Log(this.AdaptLogLevel(e.LogEntry.Level), e.LogEntry.FullText);
 ```
 
-As with global hooks, you should use only one `LogSource` object at a time. `ILogSource` extends `IDisposable` - you
+As with global hooks, you should use only one `LogSource` object at a time. `ILogSource` extends `IDisposable` – you
 can dispose of a log source to stop receiving libuiohook messages.
 
-An `EmptyLogSource` class is also available - this class doesn't listen to the libuiohook logs and can be used instead
+An `EmptyLogSource` class is also available – this class doesn't listen to the libuiohook logs and can be used instead
 of `LogSource` in release builds.
 
 SharpHook.Reactive contains the `IReactiveLogSource` and `ReactiveLogSourceAdapter` so you can use them in a more

@@ -298,7 +298,7 @@
         </member>
         <member name="T:SharpHook.Data.GlobalHookType">
             <summary>
-            Represents a global hook type - keyboard hook, mouse hook, or both.
+            Represents a global hook type – keyboard hook, mouse hook, or both.
             </summary>
         </member>
         <member name="F:SharpHook.Data.GlobalHookType.All">
@@ -1792,9 +1792,9 @@
             that character, and then key press/release is simulated. Since the receiving application must react to the
             remapping, and may not do so instantaneously, a delay is needed for accurate simulation. This means that text
             simulation on Linux works slowly and is not guaranteed to be correct. <see cref="P:SharpHook.EventSimulator.TextSimulationDelayOnX11" />
-            can be used to increase (or decrease) the delay if needed - longer delays add consistency but may be more
+            can be used to increase (or decrease) the delay if needed – longer delays add consistency but may be more
             jarring to end users. <see cref="P:SharpHook.EventSimulator.TextSimulationDelayOnX11" /> can also be used to get the currently configured
-            delay - the default is 50 milliseconds.
+            delay – the default is 50 milliseconds.
             </para>
             </remarks>
             <exception cref="T:System.ArgumentNullException"><paramref name="text" /> is <see langword="null" />.</exception>
@@ -2327,9 +2327,9 @@
             that character, and then key press/release is simulated. Since the receiving application must react to the
             remapping, and may not do so instantaneously, a delay is needed for accurate simulation. This means that text
             simulation on Linux works slowly and is not guaranteed to be correct. <see cref="P:SharpHook.IEventSimulator.TextSimulationDelayOnX11" />
-            can be used to increase (or decrease) the delay if needed - longer delays add consistency but may be more
+            can be used to increase (or decrease) the delay if needed – longer delays add consistency but may be more
             jarring to end users. <see cref="P:SharpHook.IEventSimulator.TextSimulationDelayOnX11" /> can also be used to get the currently configured
-            delay - the default is 50 milliseconds.
+            delay – the default is 50 milliseconds.
             </para>
             </remarks>
             <exception cref="T:System.ArgumentNullException"><paramref name="text" /> is <see langword="null" />.</exception>
@@ -3068,7 +3068,7 @@
             <returns>The result of the operation.</returns>
             <remarks>
             <para>
-            This method makes a difference only on Windows where there are two different global hooks - a keyboard hook and
+            This method makes a difference only on Windows where there are two different global hooks – a keyboard hook and
             a mouse hook. On macOS and Linux there is one hook for all events, and this method simply enables filtering
             mouse events out on these OSes.
             </para>
@@ -3089,7 +3089,7 @@
             <returns>The result of the operation.</returns>
             <remarks>
             <para>
-            This method makes a difference only on Windows where there are two different global hooks - a keyboard hook and
+            This method makes a difference only on Windows where there are two different global hooks – a keyboard hook and
             a mouse hook. On macOS and Linux there is one hook for all events, and this method simply enables filtering
             keyboard events out on these OSes.
             </para>
@@ -3210,8 +3210,8 @@
             that character, and then key press/release is simulated. Since the receiving application must react to the
             remapping, and may not do so instantaneously, a delay is needed for accurate simulation. This means that text
             simulation on Linux works slowly and is not guaranteed to be correct. <see cref="M:SharpHook.Native.UioHook.SetPostTextDelayX11(System.UInt64)" /> can be
-            used to increase (or decrease) the delay if needed - longer dealys add consistency but may be more jarring to
-            end users. <see cref="M:SharpHook.Native.UioHook.GetPostTextDelayX11" /> can be used to get the currently configured delay - the default is
+            used to increase (or decrease) the delay if needed – longer dealys add consistency but may be more jarring to
+            end users. <see cref="M:SharpHook.Native.UioHook.GetPostTextDelayX11" /> can be used to get the currently configured delay – the default is
             50 milliseconds.
             </para>
             </remarks>
@@ -3582,8 +3582,8 @@
             that character, and then key press/release is simulated. Since the receiving application must react to the
             remapping, and may not do so instantaneously, a delay is needed for accurate simulation. This means that text
             entry on Linux works slowly and is not guaranteed to be correct. <see cref="P:SharpHook.Providers.IEventSimulationProvider.PostTextDelayX11" /> can be used
-            to get or set the delay if needed - longer delays add consistency but may be more jarring to end
-            users - the default is 50 milliseconds.
+            to get or set the delay if needed – longer delays add consistency but may be more jarring to end
+            users – the default is 50 milliseconds.
             </para>
             </remarks>
         </member>
@@ -3812,7 +3812,7 @@
             </summary>
             <returns>The result of the operation.</returns>
             <remarks>
-            This method makes a difference only on Windows where there are two different global hooks - a keyboard hook and
+            This method makes a difference only on Windows where there are two different global hooks – a keyboard hook and
             a mouse hook. On macOS and Linux there is one hook for all events, and this method simply filters mouse events
             out at the libuiohook level on these OSes.
             </remarks>
@@ -3823,7 +3823,7 @@
             </summary>
             <returns>The result of the operation.</returns>
             <remarks>
-            This method makes a difference only on Windows where there are two different global hooks - a keyboard hook and
+            This method makes a difference only on Windows where there are two different global hooks – a keyboard hook and
             a mouse hook. On macOS and Linux there is one hook for all events, and this method simply filters keyboard
             events out at the libuiohook level on these OSes.
             </remarks>
@@ -3932,8 +3932,8 @@
             that character, and then key press/release is simulated. Since the receiving application must react to the
             remapping, and may not do so instantaneously, a delay is needed for accurate simulation. This means that text
             entry on Linux works slowly and is not guaranteed to be correct. <see cref="P:SharpHook.Providers.UioHookProvider.PostTextDelayX11" /> can be used
-            to get or set the delay if needed - longer delays add consistency but may be more jarring to end
-            users - the default is 50 milliseconds.
+            to get or set the delay if needed – longer delays add consistency but may be more jarring to end
+            users – the default is 50 milliseconds.
             </para>
             </remarks>
         </member>
@@ -4884,14 +4884,14 @@
             </returns>
             <remarks>
             In general, if the test provider should simulate the macOS Accessibility API being disabled, then all three
-            properties - <see cref="P:SharpHook.Testing.TestProvider.RunResult"/>, <see cref="P:SharpHook.Testing.TestProvider.PostEventResult" />, and<see cref="P:SharpHook.Testing.TestProvider.PostTextResult" /> - should
+            properties – <see cref="P:SharpHook.Testing.TestProvider.RunResult"/>, <see cref="P:SharpHook.Testing.TestProvider.PostEventResult" />, and<see cref="P:SharpHook.Testing.TestProvider.PostTextResult" /> – should
             be configured to return <see cref="F:SharpHook.Data.UioHookResult.ErrorAxApiDisabled" />, for consistency with real
             Accessibility API checks.
             </remarks>
         </member>
         <member name="T:SharpHook.Testing.TestThreadingMode">
             <summary>
-            Represents the mode of dispatching simulated events in testing hooks - either on the same thread which simulates
+            Represents the mode of dispatching simulated events in testing hooks – either on the same thread which simulates
             them, or on the thread which runs the testing hook.
             </summary>
         </member>

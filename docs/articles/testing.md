@@ -38,7 +38,7 @@ public async Task TestLastPressedKey()
 If this class is used as an `IEventSimulator` in the tested code, then the `SimulatedEvents` property can be checked to
 see which events were simulated using the test instance.
 
-`TestGlobalHook` can be used with two different threading modes - the simple mode and the event loop mode.
+`TestGlobalHook` can be used with two different threading modes – the simple mode and the event loop mode.
 
 When running in simple mode (the default mode) the hook will dispatch events immediately in the same thread which
 simulates them.
@@ -66,7 +66,7 @@ and as such, it can be used instead of normal low-level functionality providers.
 Like `TestProvider`, this class can post events using the `PostEvent` method and dispatch them if `Run` has been
 called. It also contains the `PostedEvents` property.
 
-`TestProvider` can be used with two different threading modes - the simple mode and the event loop mode.
+`TestProvider` can be used with two different threading modes – the simple mode and the event loop mode.
 
 When running in simple mode (the default mode) the provider will dispatch events immediately in the same thread which
 simulates them.

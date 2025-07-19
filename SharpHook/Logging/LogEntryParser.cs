@@ -71,11 +71,7 @@ public sealed class LogEntryParser
 
         if (rawParts.Length <= 1)
         {
-            return new(
-                this.NormalizeFormat(rawFormat),
-                Array.Empty<object>(),
-                Array.Empty<string>(),
-                Array.Empty<string>());
+            return new(this.NormalizeFormat(rawFormat), [], [], []);
         }
 
         var arguments = new List<object>();

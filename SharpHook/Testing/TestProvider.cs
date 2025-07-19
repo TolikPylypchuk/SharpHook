@@ -387,7 +387,7 @@ public sealed class TestProvider :
     /// </returns>
     /// <remarks>
     /// In general, if the test provider should simulate the macOS Accessibility API being disabled, then all three
-    /// properties - <see cref="RunResult "/>, <see cref="PostEventResult" />, and<see cref="PostTextResult" /> - should
+    /// properties – <see cref="RunResult "/>, <see cref="PostEventResult" />, and<see cref="PostTextResult" /> – should
     /// be configured to return <see cref="UioHookResult.ErrorAxApiDisabled" />, for consistency with real
     /// Accessibility API checks.
     /// </remarks>

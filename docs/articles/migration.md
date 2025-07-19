@@ -3,7 +3,7 @@
 ## A Note on SemVer
 
 SharpHook follows SemVer with two exceptions: the `IEventSimulator` interface and the interfaces in the
-`SharpHook.Providers` namespace. These interfaces are not meant to be implemented directly in client code - they are
+`SharpHook.Providers` namespace. These interfaces are not meant to be implemented directly in client code – they are
 just abstractions over the corresponding classes. As such, when new features are added to event simulation or
 low-level functionality providers, these interfaces need to be changed. Technically, this is a breaking change and
 would require bumping the major version. Instead, changes to these interfaces are usually treated as minor version
@@ -15,7 +15,7 @@ Version 6 contains multiple breaking changes, so you will most probably need to 
 
 All structs and enums were moved from `SharpHook.Native` to `SharpHook.Data`.
 
-The `ModifierMask` and `EventReservedValueMask` enums were merged into a single enum - `EventMask`. `UioHookEvent`
+The `ModifierMask` and `EventReservedValueMask` enums were merged into a single enum – `EventMask`. `UioHookEvent`
 doesn't contain the `Reserved` field anymore. Instead, its values are now part of `Mask`.
 
 `TaskPoolGlobalHookOptions` was removed. Instead, the options should be passed directly into the constructor of
@@ -45,10 +45,10 @@ Almost all `KeyCode` values were changed. New codes were added and some were rem
 no numeric key code values are persisted since they will be incompatible. The actual enum values are meaningless and
 may be changed again in the future. Make sure to only use the enum constant names, e.g. when persisting key codes.
 
-Mouse wheel events were changed. `MouseWheelEventData` doesn't contain `Amount` anymore - instead only `Rotation` should
+Mouse wheel events were changed. `MouseWheelEventData` doesn't contain `Amount` anymore – instead only `Rotation` should
 be considered the value of the scroll. Mouse wheel simulation was changed as well and doesn't accept the amount anymore.
 Instead it accepts the scroll direction and type which makes it possible to simulate horizontal scrolling. The
-meaning of the `Rotation` value was changed - a positive value indicates that the wheel is rotated up or left, and
+meaning of the `Rotation` value was changed – a positive value indicates that the wheel is rotated up or left, and
 a negative value indicates that the wheel is rotated down or right.
 
 `KeyboardEventData.KeyChar` was renamed to `KeyboardEventData.RawKeyChar`. Since the key char is of type `ushort` for
@@ -79,7 +79,7 @@ actually always required by libuiohook, so previously the buttons were always pr
 `short x, short y, MouseButton button`.
 
 `HookEventArgs` doesn't contain the `Reserved` property anymore as its purpose wasn't really clear. Now `HookEventArgs`
-contains the `SuppressEvent` property - set it to `true` inside an event handler to suppress the event.
+contains the `SuppressEvent` property – set it to `true` inside an event handler to suppress the event.
 
 On .NET 7 `[LibraryImport]` is now used instead of `[DllImport]`. This change required making `UioHookEvent` a blittable
 type, and as a result, the type of `KeyboardEventData.KeyChar` was changed from `char` to `ushort`. The field should
@@ -93,7 +93,7 @@ Explicit targets for .NET 5 and .NET Core 3.1 were removed, though the library c
 When simulating mouse wheel events on Windows, their rotation value was previously multiplied by 120. This behavior was
 removed.
 
-The ability to make `RunAsync` create a background thread was added - you can now specify that a running hook won't stop
+The ability to make `RunAsync` create a background thread was added – you can now specify that a running hook won't stop
 the application from exiting if all other threads have finished executing.
 
 Versioned libuiohook binaries for macOS and Linux were removed from the NuGet package as they were bit-for-bit same as
@@ -119,7 +119,7 @@ and Linux allow it, so this functionality was removed from libuiohook on other O
 `EventSimulator` also return `UioHookResult`.
 
 `UioHookEvent.Time` now contains the event's UNIX timestamp, and `HookEventArgs` now contains the `EventTime`
-property - a `DateTimeOffset` object derived from the timestamp.
+property – a `DateTimeOffset` object derived from the timestamp.
 
 You can now get libuiohook logs if you need to log its execution, which was not possible before.
 
@@ -132,11 +132,11 @@ The `HookEvent<TArgs>` class was removed from SharpHook.Reactive. The observable
 
 ## Version 1 to 2
 
-In order to migrate from version 1 to version 2 there are several things that should be done - they are all quite small.
+In order to migrate from version 1 to version 2 there are several things that should be done – they are all quite small.
 
 The `Start` method was removed from `IGlobalHook` and `IReactiveGlobalHook`. Instead these interfaces now provide two
 methods: `Run` and `RunAsync`. `Run` is for running the global hook on the same thread and blocking that thread.
-`RunAsync` behaves the same way that `Start` did before - it starts the hook on a separate thread and doesn't block
+`RunAsync` behaves the same way that `Start` did before – it starts the hook on a separate thread and doesn't block
 the calling thread.
 
 Replace the invocation of `Start` to the invocation of `RunAsync` on a global hook if you simply want to keep the

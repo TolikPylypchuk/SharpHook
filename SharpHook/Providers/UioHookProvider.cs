@@ -133,7 +133,7 @@ public sealed class UioHookProvider :
     /// </summary>
     /// <returns>The result of the operation.</returns>
     /// <remarks>
-    /// This method makes a difference only on Windows where there are two different global hooks - a keyboard hook and
+    /// This method makes a difference only on Windows where there are two different global hooks – a keyboard hook and
     /// a mouse hook. On macOS and Linux there is one hook for all events, and this method simply filters mouse events
     /// out at the libuiohook level on these OSes.
     /// </remarks>
@@ -145,7 +145,7 @@ public sealed class UioHookProvider :
     /// </summary>
     /// <returns>The result of the operation.</returns>
     /// <remarks>
-    /// This method makes a difference only on Windows where there are two different global hooks - a keyboard hook and
+    /// This method makes a difference only on Windows where there are two different global hooks – a keyboard hook and
     /// a mouse hook. On macOS and Linux there is one hook for all events, and this method simply filters keyboard
     /// events out at the libuiohook level on these OSes.
     /// </remarks>
@@ -257,8 +257,8 @@ public sealed class UioHookProvider :
     /// that character, and then key press/release is simulated. Since the receiving application must react to the
     /// remapping, and may not do so instantaneously, a delay is needed for accurate simulation. This means that text
     /// entry on Linux works slowly and is not guaranteed to be correct. <see cref="PostTextDelayX11" /> can be used
-    /// to get or set the delay if needed - longer delays add consistency but may be more jarring to end
-    /// users - the default is 50 milliseconds.
+    /// to get or set the delay if needed – longer delays add consistency but may be more jarring to end
+    /// users – the default is 50 milliseconds.
     /// </para>
     /// </remarks>
     public UioHookResult PostText(string text) =>

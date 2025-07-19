@@ -1,7 +1,7 @@
 namespace SharpHook.Testing;
 
 /// <summary>
-/// Represents the mode of dispatching simulated events in testing hooks - either on the same thread which simulates
+/// Represents the mode of dispatching simulated events in testing hooks – either on the same thread which simulates
 /// them, or on the thread which runs the testing hook.
 /// </summary>
 public enum TestThreadingMode

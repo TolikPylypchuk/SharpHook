@@ -51,7 +51,7 @@ internal sealed class TaskQueue(int parallelismLevel) : IDisposable
         if (this.disposed)
         {
             throw new ObjectDisposedException(
-                this.GetType().Name, $"Cannot call {method} - the object is disposed");
+                this.GetType().Name, $"Cannot call {method} – the object is disposed");
         }
     }
 }

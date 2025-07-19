@@ -15,7 +15,7 @@ function [line]: message
 
 ## Using High-Level Types
 
-The easiest way to subscribe to libuiohook's logs is to use the `LogSource` class and its interface - `ILogSource`. The
+The easiest way to subscribe to libuiohook's logs is to use the `LogSource` class and its interface – `ILogSource`. The
 interface contains the `MessageLogged` event, and extends `IDisposable`. Calling the `Dispose` method will stop the log
 source from receiving the logs. The `IsDisposed` property is also available.
 
@@ -47,7 +47,7 @@ The `MessageLogged` event contains event args of type `LogEventArgs` which conta
 The simplest way to use `LogEntry` is to use its `Level` and `FullText` properties. `FullText` is created using the log
 message format and arguments so you don't have to do it yourself.
 
-SharpHook.Reactive contains the `IReactiveLogSource` and its implementation - `ReactiveLogSourceAdapter`. Here's a
+SharpHook.Reactive contains the `IReactiveLogSource` and its implementation – `ReactiveLogSourceAdapter`. Here's a
 usage example:
 
 ```c#
@@ -68,7 +68,7 @@ scheduler can be set for the `MessageLogged` observable.
 
 ## Using the Low-Level Functionality
 
-The logging functionality works by using `UioHook.SetLoggerProc`. This method sets the log callback - a delegate of
+The logging functionality works by using `UioHook.SetLoggerProc`. This method sets the log callback – a delegate of
 type `LoggerProc`, which will be called to log the messages of libuiohook. `LoggerProc` receives the log level, a
 pointer to the message format, and a pointer to the message arguments. It also receives a pointer to user-supplied data
 (which is set in the `UioHook.SetLoggerProc`), but you usually shouldn't use it.
@@ -100,11 +100,11 @@ private void OnLog(LogLevel level, IntPtr userData, IntPtr format, IntPtr args)
 If you use structured logging, then you may want to use the message format and arguments directly, instead of using the
 formatted result. `LogEntry` contains properties which can help you with that:
 
-- `Format` - the format of the log message which can be passed to `String.Format`.
-- `RawFormat` - the raw native format of the log message (which uses argument placeholders for C's `printf` function).
-- `Arguments` - the strongly-typed arguments of the log message.
-- `RawArguments` - the arguments of the log message as they appear in the formatted log message.
-- `ArgumentPlaceholders` - the placeholders extracted from the native log format (e.g. `%d` for a number).
+- `Format` – the format of the log message which can be passed to `String.Format`.
+- `RawFormat` – the raw native format of the log message (which uses argument placeholders for C's `printf` function).
+- `Arguments` – the strongly-typed arguments of the log message.
+- `RawArguments` – the arguments of the log message as they appear in the formatted log message.
+- `ArgumentPlaceholders` – the placeholders extracted from the native log format (e.g. `%d` for a number).
 
 `String.Format(entry.Format, entry.RawAguments.ToArray())` is equal to `entry.FullText`.
 
@@ -182,4 +182,4 @@ placeholders. Only the specifier and length are considered (see the C's `printf`
 The `%a`, `%A`, and `%n` specifiers are not supported, as well as length `z` and `t`.
 
 `LogEntry` also contains the `Function` and `SourceLine` properties. These are the first two arguments of the log
-message - the function name in the libuiohook source code, and the source code line.
+message – the function name in the libuiohook source code, and the source code line.

@@ -76,6 +76,6 @@ character, and then key press/release is simulated. Since the receiving applicat
 may not do so instantaneously, a delay is needed for accurate simulation. This means that text simulation on Linux works
 slowly and is not guaranteed to be correct.
 
-`IEventSimulator` contains the `TextSimulationDelayOnX11` property to get or set the delay if needed - longer delays add
-consistency but may be more jarring to end users - the default is 50 milliseconds. Delays are configurable on a
+`IEventSimulator` contains the `TextSimulationDelayOnX11` property to get or set the delay if needed – longer delays add
+consistency but may be more jarring to end users – the default is 50 milliseconds. Delays are configurable on a
 nanosecond level. On Windows and macOS, setting this property does nothing, and it always returns `0`.

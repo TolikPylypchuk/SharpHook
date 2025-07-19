@@ -38,7 +38,7 @@ events is the `IGlobalHook` itself.
 
 It also contains the `Run` and `RunAsync` methods which run the global hook. `Run` runs it on the current thread,
 blocking it until the global hook is disposed. `RunAsync` runs the global hook in a non-blocking way and returns a
-`Task` - this task is finished when the hook is destroyed. Since the underlying native API is blocking, the only way to
+`Task` – this task is finished when the hook is destroyed. Since the underlying native API is blocking, the only way to
 run the hook in a non-blocking way is to run it on a separate thread, and all default implementations do just that.
 
 You can specify in the hook constructors whether `RunAsync` should create a background thread or not. Background threads
@@ -54,7 +54,7 @@ using its `IsRunning` property.
 by calling the `Run` or `RunAsync` method. Calling `Stop` when the hook is not running won't do anything.
 
 `IGlobalHook` extends `IDisposable`. When you call the `Dispose` method on a hook, it's disposed and stopped if it was
-running. Once a hook has been disposed, it cannot be started again - you'll have to create a new instance. Calling
+running. Once a hook has been disposed, it cannot be started again – you'll have to create a new instance. Calling
 `Dispose` when the hook is not running won't do anything other than marking the instance as disposed. You can check
 whether the hook is disposed using the `IsDisposed` property.
 
@@ -72,7 +72,7 @@ the `EventTime` and `IsEventSimulated` properties respectively.
 > when another global hook is already running will corrupt the internal global state of libuiohook.
 
 You can create a keyboard-only or a mouse-only hook by passing a `GlobalHookType` to the hook's constructor. This makes
-a real difference only on Windows where there are two different global hooks - a keyboard hook and a mouse hook. On
+a real difference only on Windows where there are two different global hooks – a keyboard hook and a mouse hook. On
 macOS and Linux, there is one hook for all events, and this simply enables filtering keyboard or mouse events out on
 these OSes.
 
@@ -87,7 +87,7 @@ they run for too long.
 - `SharpHook.TaskPoolGlobalHook` runs all of its event handlers on other threads inside the default thread pool for
 tasks. The parallelism level of the handlers can be configured. On backpressure it will queue the remaining handlers.
 This means that the hook will be able to process all events. This implementation should be preferred to
-`SimpleGlobalHook` except for very simple use-cases. But it has a downside - suppressing event propagation will be
+`SimpleGlobalHook` except for very simple use-cases. But it has a downside – suppressing event propagation will be
 ignored since event handlers are run on other threads.
 
 The library also provides the `SharpHook.GlobalHookBase` class which you can extend to create your own implementation

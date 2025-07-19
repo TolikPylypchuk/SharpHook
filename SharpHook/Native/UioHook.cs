@@ -88,7 +88,7 @@ public static partial class UioHook
     /// <returns>The result of the operation.</returns>
     /// <remarks>
     /// <para>
-    /// This method makes a difference only on Windows where there are two different global hooks - a keyboard hook and
+    /// This method makes a difference only on Windows where there are two different global hooks – a keyboard hook and
     /// a mouse hook. On macOS and Linux there is one hook for all events, and this method simply enables filtering
     /// mouse events out on these OSes.
     /// </para>
@@ -116,7 +116,7 @@ public static partial class UioHook
     /// <returns>The result of the operation.</returns>
     /// <remarks>
     /// <para>
-    /// This method makes a difference only on Windows where there are two different global hooks - a keyboard hook and
+    /// This method makes a difference only on Windows where there are two different global hooks – a keyboard hook and
     /// a mouse hook. On macOS and Linux there is one hook for all events, and this method simply enables filtering
     /// keyboard events out on these OSes.
     /// </para>
@@ -258,8 +258,8 @@ public static partial class UioHook
     /// that character, and then key press/release is simulated. Since the receiving application must react to the
     /// remapping, and may not do so instantaneously, a delay is needed for accurate simulation. This means that text
     /// simulation on Linux works slowly and is not guaranteed to be correct. <see cref="SetPostTextDelayX11" /> can be
-    /// used to increase (or decrease) the delay if needed - longer dealys add consistency but may be more jarring to
-    /// end users. <see cref="GetPostTextDelayX11" /> can be used to get the currently configured delay - the default is
+    /// used to increase (or decrease) the delay if needed – longer dealys add consistency but may be more jarring to
+    /// end users. <see cref="GetPostTextDelayX11" /> can be used to get the currently configured delay – the default is
     /// 50 milliseconds.
     /// </para>
     /// </remarks>

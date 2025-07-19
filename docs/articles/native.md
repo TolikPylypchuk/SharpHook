@@ -20,13 +20,13 @@ methods in `UioHook`. This should be done to decouple your code from `UioHook` a
 
 `UioHook` contains the following methods for working with the global hook:
 
-- `SetDispatchProc` - sets the function which will be called when an event is raised by libuiohook.
-- `Run` - creates a keyboard and mouse global hook and runs it on the current thread, blocking it until `Stop` is
+- `SetDispatchProc` – sets the function which will be called when an event is raised by libuiohook.
+- `Run` – creates a keyboard and mouse global hook and runs it on the current thread, blocking it until `Stop` is
 called.
-- `RunKeyboard` - creates a keyboard-only global hook and runs it on the current thread, blocking it until `Stop` is
+- `RunKeyboard` – creates a keyboard-only global hook and runs it on the current thread, blocking it until `Stop` is
 called.
-- `RunMouse` - creates a mouse-only global hook and runs it on the current thread, blocking it until `Stop` is called.
-- `Stop` - destroys the global hook.
+- `RunMouse` – creates a mouse-only global hook and runs it on the current thread, blocking it until `Stop` is called.
+- `Stop` – destroys the global hook.
 
 You have to remember that only one global hook can exist at a time since calling `SetDispatchProc` will override the
 previously set one. Also, running a global hook when another global hook is already running will corrupt the internal
@@ -50,28 +50,28 @@ There are several event types supported by libuiohook (contained in the event's 
 
 Following are the general-purpose events:
 
-- `HookEnabled` - raised when the `Run` method is called.
-- `HookDisabled` - raised when the `Stop` method is called.
+- `HookEnabled` – raised when the `Run` method is called.
+- `HookDisabled` – raised when the `Stop` method is called.
 
 Following are the keyboard events, and `UioHookEvent` will contain more infomration in its `Keyboard` field:
 
-- `KeyPressed` - raised when a key is pressed (its state changed from up to down).
-- `KeyReleased` - raised when a key is released (its state changed from down to up).
-- `KeyTyped` - raised when a key press may have caused a character to be typed regardless of whether a character was
+- `KeyPressed` – raised when a key is pressed (its state changed from up to down).
+- `KeyReleased` – raised when a key is released (its state changed from down to up).
+- `KeyTyped` – raised when a key press may have caused a character to be typed regardless of whether a character was
 actually typed.
 
 Following are the mouse events, and `UioHookEvent` will contain more infomration in its `Mouse` field:
 
-- `MouseClicked` - raised when a mouse button is clicked (pressed and released without dragging).
-- `MousePressed` - raised when a mouse button is pressed (its state changed from up to down).
-- `MouseReleased` - raised when a mouse button is released (its state changed from down to up).
-- `MouseMoved` - raised when the mouse cursor is moved.
-- `MouseDragged` - raised when the mouse cursor is dragged (moved while a button is down).
+- `MouseClicked` – raised when a mouse button is clicked (pressed and released without dragging).
+- `MousePressed` – raised when a mouse button is pressed (its state changed from up to down).
+- `MouseReleased` – raised when a mouse button is released (its state changed from down to up).
+- `MouseMoved` – raised when the mouse cursor is moved.
+- `MouseDragged` – raised when the mouse cursor is dragged (moved while a button is down).
 
 And the last one is also a mouse event, but `UioHookEvent` will contain more information in its `Wheel` field since it
 has more information:
 
-- `MouseWheel` - raised when the mouse wheel is scrolled.
+- `MouseWheel` – raised when the mouse wheel is scrolled.
 
 `EventType` defines three more types, but they are used only when simulating events.
 
@@ -213,7 +213,7 @@ slowly and is not guaranteed to be correct.
 
 `UioHook` contains the `SetPostTextDelayX11` method which can be used to increase (or decrease) the delay if needed -
 longer delays add consistency but may be more jarring to end users. `UioHook` also contains the `GetPostTextDelayX11`
-which can be used to get the currently configured delay - the default is 50 milliseconds. Delays are configurable on a
+which can be used to get the currently configured delay – the default is 50 milliseconds. Delays are configurable on a
 nanosecond level. On Windows and macOS `SetPostTextDelayX11` does nothing, and `GetPostTextDelayX11` always returns 0.
 `IEventSimulator` contains the `TextSimulationDelayOnX11` property which is wrapper arount the aforementioned methods.
 
@@ -244,7 +244,7 @@ The methods described above are also defined in the `SharpHook.Providers.IAccess
 ## Logging
 
 libuiohook can log messages throughout its execution. By default it doesn't log anything, but `UioHook` contains the
-`SetLoggerProc` method to set the log callback function - it will be called by libuiohook to log messages.
+`SetLoggerProc` method to set the log callback function – it will be called by libuiohook to log messages.
 
 This method is also defined in the `SharpHook.Providers.ILoggingProvider` interface.
 
@@ -257,7 +257,7 @@ not recommended to use it directly.
 ## Passing Custom Data to Callbacks
 
 `SetDispatchProc` and `SetLoggerProc` also receive a pointer to user-supplied data as a parameter of type `nint`. It is
-then passed to the callbacks - both `DispatcherProc` and `LoggerProc` receive user-supplied data as well.
+then passed to the callbacks – both `DispatcherProc` and `LoggerProc` receive user-supplied data as well.
 
 In general it's not recommended to use them. You should usually pass `IntPtr.Zero` to `SetDispatchProc` and
 `SetLoggerProc` and not use the respective parameters in the callbacks.

@@ -1,7 +1,7 @@
 namespace SharpHook.Data;
 
 /// <summary>
-/// Represents a global hook type - keyboard hook, mouse hook, or both.
+/// Represents a global hook type – keyboard hook, mouse hook, or both.
 /// </summary>
 [Flags]
 public enum GlobalHookType

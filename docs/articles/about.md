@@ -1,6 +1,6 @@
 # About SharpHook
 
-SharpHook - created by [Tolik Pylypchuk](https://tolik.io).
+SharpHook – created by [Tolik Pylypchuk](https://tolik.io).
 
 ## Library Status
 
@@ -57,7 +57,7 @@ You need .NET 9 to build SharpHook.
 
 ### [v6.1.2](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v6.1.2) (June 22, 2025)
 
-- Simulation of letter keys in different layouts was fixed on Windows - the same keys are simulated regardless of the
+- Simulation of letter keys in different layouts was fixed on Windows – the same keys are simulated regardless of the
 current keyboard layout (e.g., QWERTY or AZERTY).
 
 - libuiohook was updated to commit
@@ -90,7 +90,7 @@ available through .NET Standard.
 
 - All structs and enums were moved from `SharpHook.Native` to `SharpHook.Data`.
 
-- `ModifierMask` and `EventReservedValueMask` were merged into a single enum - `EventMask`.
+- `ModifierMask` and `EventReservedValueMask` were merged into a single enum – `EventMask`.
 
 - `UioHookEvent.Reserved` was removed. Its values are now part of `UioHookEvent.Mask`.
 
@@ -228,7 +228,7 @@ which fixes a CPU usage issue on Linux.
 
 ### [v5.2.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v5.2.1) (January 3, 2024)
 
-- `HookEventArgs.IsEventSimulated` has been fixed - previously it always returned `true`.
+- `HookEventArgs.IsEventSimulated` has been fixed – previously it always returned `true`.
 
 - `kCGEventTapDisabledByTimeout` doesn't break the global hook on macOS anymore.
 
@@ -295,7 +295,7 @@ meaningless and may be changed again in the future.
 - Mouse wheel simulation doesn't accept the amount anymore. Instead it accepts the scroll direction and type which
 makes it possible to simulate horizontal scrolling.
 
-- The meaning of the mouse wheel rotation value was changed - a positive value indicates that the wheel is rotated up or
+- The meaning of the mouse wheel rotation value was changed – a positive value indicates that the wheel is rotated up or
 left, and a negative value indicates that the wheel is rotated down or right.
 
 - `KeyboardEventData.KeyChar` was renamed to `KeyboardEventData.RawKeyChar` and the `KeyboardEventData.KeyChar` property
@@ -310,7 +310,7 @@ was added.
 
 - Text entry simulation was added.
 
-- Low-level functionality providers were added - they can be used instead of directly using the `UioHook` class.
+- Low-level functionality providers were added – they can be used instead of directly using the `UioHook` class.
 
 - Horizontal mouse wheel simulation is now possible.
 
@@ -380,7 +380,7 @@ support for multiple screens on Windows.
 
 - `HookEventArgs` now contains the `SuppressEvent` property instead of `Reserved`.
 
-- `KeyboardEventData.KeyChar` is now of type `ushort` instead of `char` - this was changed purely for marshalling
+- `KeyboardEventData.KeyChar` is now of type `ushort` instead of `char` – this was changed purely for marshalling
 reasons and it should still be used as a `char`.
 
 - Simulating mouse presses and releases now requires providing mouse pointer coordinates.
@@ -459,7 +459,7 @@ method was removed.
 
 - Support for suppressing event propagation.
 
-- `UioHookEvent.Time` now has the correct type - `ulong` instead of `ushort`.
+- `UioHookEvent.Time` now has the correct type – `ulong` instead of `ushort`.
 
 - Global hooks now throw an exception if they are started when already running.
 
@@ -469,7 +469,7 @@ method was removed.
 
 - Support for Windows on Arm64.
 
-- `MouseWheelEventData.Rotation` now has the correct type - `short` instead of `ushort`. This is a tiny breaking change,
+- `MouseWheelEventData.Rotation` now has the correct type – `short` instead of `ushort`. This is a tiny breaking change,
 but had to be fixed.
 
 - libuiohook was updated to commit [5cf864d](https://github.com/kwhat/libuiohook/tree/5cf864d37bdee41bcef2297401c4538d9010b770).
