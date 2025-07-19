@@ -30,8 +30,8 @@ called.
 - `RunMouse` – creates a mouse-only global hook and runs it on the current thread, blocking it until `Stop` is called.
 - `Stop` – destroys the global hook.
 
-**Important**: You have to remember that only one global hook can exist at a time since calling `SetDispatchProc` will
-override the previously set one.
+> **Important**: You have to remember that only one global hook can exist at a time since calling `SetDispatchProc` will
+> override the previously set one.
 
 Additionally, `UioHook` contains the `PostEvent` method for simulating input events.
 
@@ -89,9 +89,9 @@ propagation by setting the `SuppressEvent` property to `true` inside the event h
 and is only supported on Windows and macOS. You can check the event time and whether the event is real or simulated with
 the `EventTime` and `IsEventSimulated` properties respectively.
 
-**Important**: Always use one instance of `IGlobalHook` at a time in the entire application since they all must use the
-same static method to set the hook callback for libuiohook, so there may only be one callback at a time. Running a
-global hook when another global hook is already running will corrupt the internal global state of libuiohook.
+> **Important**: Always use one instance of `IGlobalHook` at a time in the entire application since they all must use the
+> same static method to set the hook callback for libuiohook, so there may only be one callback at a time. Running a
+> global hook when another global hook is already running will corrupt the internal global state of libuiohook.
 
 You can create a keyboard-only or a mouse-only hook by passing a `GlobalHookType` to the hook's constructor. This makes
 a real difference only on Windows where there are two different global hooks – a keyboard hook and a mouse hook. On

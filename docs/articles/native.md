@@ -12,9 +12,9 @@ the hood.
 ## Low-Level Functionality Providers
 
 If you want to use the low-level functionality, you don't need to use the `UioHook` class directly. Instead you can use
-interfaces in the `SharpHook.Providers` namespace. The methods in those interfaces are the same as in the `UioHook`
-class. `SharpHook.Providers.UioHookProvider` implements all of these interfaces and simply calls the corresponding
-methods in `UioHook`. This should be done to decouple your code from `UioHook` and make testing easier.
+interfaces in the `SharpHook.Providers` namespace. The methods and properties in those interfaces are the same as in the
+`UioHook` class. `SharpHook.Providers.UioHookProvider` implements all of these interfaces and simply calls the
+corresponding methods in `UioHook`. This should be done to decouple your code from `UioHook` and make testing easier.
 
 ## Working with the Hook Itself
 
@@ -94,6 +94,12 @@ thread which handles the event. Supressing events works only on Windows and macO
 > characters to be typed, a single `KeyPressed` event can raise multiple `KeyTyped` events. `MouseClicked` is raised
 > after `MouseReleased` if the cursor was not dragged. Since these events are raised by libuiohook, and not the OS,
 > suppressing them has no effect.
+
+Events of type `KeyTyped` can be disabled using the `UioHook.SetKeyTypedEnabled` method. It is recommended to disable
+them if your application doesn't use them as these events may cause slight system-wide side effects. More information
+can be found in [an article on OS-specific constraints](os-constraints.md). `UioHook.IsKeyTypedEnabled` can be used to
+query whether `KeyTyped` events are enabled. By default they are enabled. `SharpHook.Providers.IGlobalHookProvider`
+contains the `KeyTypedEnabled` property which can also be used to control this behaviour.
 
 ## Simulating Input Events
 

@@ -55,6 +55,15 @@ You need .NET 9 to build SharpHook.
 
 ## Changelog
 
+### [v6.2.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v6.2.0) (July 19, 2025)
+
+- The ability to disable events of type `KeyTyped` was added.
+
+- Simulation of keyboard events was fixed on macOS.
+
+- libuiohook was updated to commit
+[4217638](https://github.com/TolikPylypchuk/libuiohook/tree/42176381d991fc009b369295121bb2bccc9ff705).
+
 ### [v6.1.2](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v6.1.2) (June 22, 2025)
 
 - Simulation of letter keys in different layouts was fixed on Windows – the same keys are simulated regardless of the
