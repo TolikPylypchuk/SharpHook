@@ -18,7 +18,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Version>6.2.0</Version>
+    <Version>6.3.0</Version>
     <Authors>Tolik Pylypchuk</Authors>
     <Company>Tolik Pylypchuk</Company>
     <Product>SharpHook</Product>
