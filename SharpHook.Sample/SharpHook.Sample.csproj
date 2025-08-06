@@ -10,9 +10,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SharpHook.Reactive\SharpHook.Reactive.csproj" />
     <ProjectReference Include="..\SharpHook\SharpHook.csproj" />
+    <ProjectReference Include="..\SharpHook.R3\SharpHook.R3.csproj" />
+    <ProjectReference Include="..\SharpHook.Reactive\SharpHook.Reactive.csproj" />
     <TrimmerRootAssembly Include="SharpHook" />
+    <TrimmerRootAssembly Include="SharpHook.R3" />
     <TrimmerRootAssembly Include="SharpHook.Reactive" />
   </ItemGroup>
 

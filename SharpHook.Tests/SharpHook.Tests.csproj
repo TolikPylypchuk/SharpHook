@@ -24,8 +24,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SharpHook.Reactive\SharpHook.Reactive.csproj" />
     <ProjectReference Include="..\SharpHook\SharpHook.csproj" />
+    <ProjectReference Include="..\SharpHook.R3\SharpHook.R3.csproj" />
+    <ProjectReference Include="..\SharpHook.Reactive\SharpHook.Reactive.csproj" />
   </ItemGroup>
 
 </Project>

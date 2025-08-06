@@ -37,6 +37,12 @@
     <File Path="LICENSE" />
     <File Path="README.md" />
   </Folder>
+  <Project Path="SharpHook.R3/SharpHook.R3.csproj" Id="2d4e4ce3-36c6-4b74-97fd-4b28bc1ec8bf">
+    <Platform Solution="*|ARM32" Project="ARM32" />
+    <Platform Solution="*|ARM64" Project="ARM64" />
+    <Platform Solution="*|x64" Project="x64" />
+    <Platform Solution="*|x86" Project="x86" />
+  </Project>
   <Project Path="SharpHook.Reactive/SharpHook.Reactive.csproj">
     <Platform Solution="*|ARM32" Project="ARM32" />
     <Platform Solution="*|ARM64" Project="ARM64" />

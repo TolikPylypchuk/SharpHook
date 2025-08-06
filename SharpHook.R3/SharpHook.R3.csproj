@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <PackageTags>$(PackageTags) rx reactive</PackageTags>
+    <PackageTags>$(PackageTags) r3 reactive</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup>
-    <DocumentationFile>$(ProjectDir)SharpHook.Reactive.xml</DocumentationFile>
+    <DocumentationFile>$(ProjectDir)SharpHook.R3.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,7 +13,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="System.Reactive" Version="6.0.1" />
+    <PackageReference Include="R3" Version="1.3.0" />
   </ItemGroup>
 
   <ItemGroup>
