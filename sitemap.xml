@@ -2,421 +2,421 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Data.EventMask.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Data.EventMaskExtensions.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Data.EventType.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Data.GlobalHookType.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Data.KeyCode.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Data.KeyboardEventData.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Data.LogLevel.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Data.MouseButton.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Data.MouseEventData.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Data.MouseWheelEventData.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Data.MouseWheelScrollDirection.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Data.MouseWheelScrollType.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Data.ScreenData.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Data.UioHookEvent.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Data.UioHookResult.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Data.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.EventSimulator.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.GlobalHookBase.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.HookEventArgs.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.HookException.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.IEventSimulator.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.IGlobalHook.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.KeyboardHookEventArgs.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Logging.EmptyLogSource.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Logging.ILogSource.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Logging.LogEntry.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Logging.LogEntryParser.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Logging.LogEventArgs.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Logging.LogSource.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Logging.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.MouseHookEventArgs.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.MouseWheelHookEventArgs.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Native.DispatchProc.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Native.LoggerProc.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Native.UioHook.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Native.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Providers.IAccessibilityProvider.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Providers.IEventSimulationProvider.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Providers.IGlobalHookProvider.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Providers.ILoggingProvider.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Providers.IMouseInfoProvider.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Providers.IScreenInfoProvider.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Providers.UioHookProvider.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Providers.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Reactive.IReactiveGlobalHook.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Reactive.Logging.IReactiveLogSource.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Reactive.Logging.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Reactive.SimpleReactiveGlobalHook.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Reactive.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.SimpleGlobalHook.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.TaskPoolGlobalHook.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Testing.TestGlobalHook.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Testing.TestProvider.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Testing.TestThreadingMode.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.Testing.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/SharpHook.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/api/index.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/articles/about.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/articles/hooks.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/articles/keycodes.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/articles/logging.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/articles/migration.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/articles/native.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/articles/os-constraints.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/articles/reactive.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/articles/simulation.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/articles/testing.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://sharphook.tolik.io/index.html</loc>
-    <lastmod>2025-07-19T08:27:38+00:00</lastmod>
+    <lastmod>2025-08-06T06:03:10+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
