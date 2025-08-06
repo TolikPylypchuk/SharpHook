@@ -1,11 +1,13 @@
-namespace SharpHook.Reactive;
+using System.Runtime.CompilerServices;
+
+namespace SharpHook.R3;
 
 /// <summary>
-/// Adapts an <see cref="IGlobalHook" /> to the <see cref="IReactiveGlobalHook" /> interface.
+/// Adapts an <see cref="IGlobalHook" /> to the <see cref="IR3GlobalHook" /> interface.
 /// </summary>
 /// <seealso cref="IGlobalHook" />
-/// <seealso cref="IReactiveGlobalHook" />
-public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
+/// <seealso cref="IR3GlobalHook" />
+public sealed class R3GlobalHookAdapter : IGlobalHook, IR3GlobalHook
 {
     private readonly IGlobalHook hook;
 
@@ -24,101 +26,106 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
 
     private readonly Subject<MouseWheelHookEventArgs> mouseWheelSubject = new();
 
-    private readonly CompositeDisposable subscriptions = [];
+    private readonly IDisposable subscriptions;
 
     /// <summary>
-    /// Initializes a new instance of <see cref="ReactiveGlobalHookAdapter" />.
+    /// Initializes a new instance of <see cref="R3GlobalHookAdapter" />.
     /// </summary>
     /// <param name="hook">The hook to adapt.</param>
-    /// <param name="defaultScheduler">
-    /// The default scheduler for observables, or <see langword="null" /> to use the default scheduler.
+    /// <param name="defaultTimeProvider">
+    /// The default time provider for observables, or <see langword="null" /> to use the default one
+    /// (as defined in <see cref="ObservableSystem.DefaultTimeProvider" />).
     /// </param>
-    public ReactiveGlobalHookAdapter(IGlobalHook hook, IScheduler? defaultScheduler = null)
+    public R3GlobalHookAdapter(IGlobalHook hook, TimeProvider? defaultTimeProvider = null)
     {
         this.hook = hook ?? throw new ArgumentNullException(nameof(hook));
 
-        defaultScheduler ??= ImmediateScheduler.Instance;
+        defaultTimeProvider ??= ObservableSystem.DefaultTimeProvider;
 
-        this.subscriptions.Add(
-            Observable.FromEventPattern<HookEventArgs>(
+        var subscriptions = Disposable.CreateBuilder();
+
+        subscriptions.Add(
+            Observable.FromEventHandler<HookEventArgs>(
                 h => this.hook.HookEnabled += h, h => this.hook.HookEnabled -= h)
-                .Select(e => e.EventArgs)
-                .Subscribe(this.hookEnabledSubject));
+                .Select(this.SelectEventArgs)
+                .Subscribe(this.hookEnabledSubject.AsObserver()));
 
-        this.subscriptions.Add(
-            Observable.FromEventPattern<HookEventArgs>(
+        subscriptions.Add(
+            Observable.FromEventHandler<HookEventArgs>(
                 h => this.hook.HookDisabled += h, h => this.hook.HookDisabled -= h)
-                .Select(e => e.EventArgs)
-                .Subscribe(this.hookDisabledSubject));
+                .Select(this.SelectEventArgs)
+                .Subscribe(this.hookDisabledSubject.AsObserver()));
 
-        this.subscriptions.Add(
-            Observable.FromEventPattern<KeyboardHookEventArgs>(
+        subscriptions.Add(
+            Observable.FromEventHandler<KeyboardHookEventArgs>(
                 h => this.hook.KeyTyped += h, h => this.hook.KeyTyped -= h)
-                .Select(e => e.EventArgs)
-                .Subscribe(this.keyTypedSubject));
+                .Select(this.SelectEventArgs)
+                .Subscribe(this.keyTypedSubject.AsObserver()));
 
-        this.subscriptions.Add(
-            Observable.FromEventPattern<KeyboardHookEventArgs>(
+        subscriptions.Add(
+            Observable.FromEventHandler<KeyboardHookEventArgs>(
                 h => this.hook.KeyPressed += h, h => this.hook.KeyPressed -= h)
-                .Select(e => e.EventArgs)
-                .Subscribe(this.keyPressedSubject));
+                .Select(this.SelectEventArgs)
+                .Subscribe(this.keyPressedSubject.AsObserver()));
 
-        this.subscriptions.Add(
-            Observable.FromEventPattern<KeyboardHookEventArgs>(
+        subscriptions.Add(
+            Observable.FromEventHandler<KeyboardHookEventArgs>(
                 h => this.hook.KeyReleased += h, h => this.hook.KeyReleased -= h)
-                .Select(e => e.EventArgs)
-                .Subscribe(this.keyReleasedSubject));
+                .Select(this.SelectEventArgs)
+                .Subscribe(this.keyReleasedSubject.AsObserver()));
 
-        this.subscriptions.Add(
-            Observable.FromEventPattern<MouseHookEventArgs>(
+        subscriptions.Add(
+            Observable.FromEventHandler<MouseHookEventArgs>(
                 h => this.hook.MouseClicked += h, h => this.hook.MouseClicked -= h)
-                .Select(e => e.EventArgs)
-                .Subscribe(this.mouseClickedSubject));
+                .Select(this.SelectEventArgs)
+                .Subscribe(this.mouseClickedSubject.AsObserver()));
 
-        this.subscriptions.Add(
-            Observable.FromEventPattern<MouseHookEventArgs>(
+        subscriptions.Add(
+            Observable.FromEventHandler<MouseHookEventArgs>(
                 h => this.hook.MousePressed += h, h => this.hook.MousePressed -= h)
-                .Select(e => e.EventArgs)
-                .Subscribe(this.mousePressedSubject));
+                .Select(this.SelectEventArgs)
+                .Subscribe(this.mousePressedSubject.AsObserver()));
 
-        this.subscriptions.Add(
-            Observable.FromEventPattern<MouseHookEventArgs>(
+        subscriptions.Add(
+            Observable.FromEventHandler<MouseHookEventArgs>(
                 h => this.hook.MouseReleased += h, h => this.hook.MouseReleased -= h)
-                .Select(e => e.EventArgs)
-                .Subscribe(this.mouseReleasedSubject));
+                .Select(this.SelectEventArgs)
+                .Subscribe(this.mouseReleasedSubject.AsObserver()));
 
-        this.subscriptions.Add(
-            Observable.FromEventPattern<MouseHookEventArgs>(
+        subscriptions.Add(
+            Observable.FromEventHandler<MouseHookEventArgs>(
                 h => this.hook.MouseMoved += h, h => this.hook.MouseMoved -= h)
-                .Select(e => e.EventArgs)
-                .Subscribe(this.mouseMovedSubject));
+                .Select(this.SelectEventArgs)
+                .Subscribe(this.mouseMovedSubject.AsObserver()));
 
-        this.subscriptions.Add(
-            Observable.FromEventPattern<MouseHookEventArgs>(
+        subscriptions.Add(
+            Observable.FromEventHandler<MouseHookEventArgs>(
                 h => this.hook.MouseDragged += h, h => this.hook.MouseDragged -= h)
-                .Select(e => e.EventArgs)
-                .Subscribe(this.mouseDraggedSubject));
+                .Select(this.SelectEventArgs)
+                .Subscribe(this.mouseDraggedSubject.AsObserver()));
 
-        this.subscriptions.Add(
-            Observable.FromEventPattern<MouseWheelHookEventArgs>(
+        subscriptions.Add(
+            Observable.FromEventHandler<MouseWheelHookEventArgs>(
                 h => this.hook.MouseWheel += h, h => this.hook.MouseWheel -= h)
-                .Select(e => e.EventArgs)
-                .Subscribe(this.mouseWheelSubject));
+                .Select(this.SelectEventArgs)
+                .Subscribe(this.mouseWheelSubject.AsObserver()));
 
-        this.HookEnabled = this.hookEnabledSubject.ObserveOn(defaultScheduler);
-        this.HookDisabled = this.hookDisabledSubject.ObserveOn(defaultScheduler);
+        this.subscriptions = subscriptions.Build();
 
-        this.KeyTyped = this.keyTypedSubject.ObserveOn(defaultScheduler);
-        this.KeyPressed = this.keyPressedSubject.ObserveOn(defaultScheduler);
-        this.KeyReleased = this.keyReleasedSubject.ObserveOn(defaultScheduler);
+        this.HookEnabled = this.hookEnabledSubject.ObserveOn(defaultTimeProvider);
+        this.HookDisabled = this.hookDisabledSubject.ObserveOn(defaultTimeProvider);
 
-        this.MouseClicked = this.mouseClickedSubject.ObserveOn(defaultScheduler);
-        this.MousePressed = this.mousePressedSubject.ObserveOn(defaultScheduler);
-        this.MouseReleased = this.mouseReleasedSubject.ObserveOn(defaultScheduler);
-        this.MouseMoved = this.mouseMovedSubject.ObserveOn(defaultScheduler);
-        this.MouseDragged = this.mouseDraggedSubject.ObserveOn(defaultScheduler);
+        this.KeyTyped = this.keyTypedSubject.ObserveOn(defaultTimeProvider);
+        this.KeyPressed = this.keyPressedSubject.ObserveOn(defaultTimeProvider);
+        this.KeyReleased = this.keyReleasedSubject.ObserveOn(defaultTimeProvider);
 
-        this.MouseWheel = this.mouseWheelSubject.ObserveOn(defaultScheduler);
+        this.MouseClicked = this.mouseClickedSubject.ObserveOn(defaultTimeProvider);
+        this.MousePressed = this.mousePressedSubject.ObserveOn(defaultTimeProvider);
+        this.MouseReleased = this.mouseReleasedSubject.ObserveOn(defaultTimeProvider);
+        this.MouseMoved = this.mouseMovedSubject.ObserveOn(defaultTimeProvider);
+        this.MouseDragged = this.mouseDraggedSubject.ObserveOn(defaultTimeProvider);
+
+        this.MouseWheel = this.mouseWheelSubject.ObserveOn(defaultTimeProvider);
     }
 
     /// <summary>
@@ -142,7 +149,7 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
     /// The observable emits a value when the <see cref="Run" /> or <see cref="RunAsync" /> method is called and
     /// then immediately completes.
     /// </remarks>
-    public IObservable<HookEventArgs> HookEnabled { get; }
+    public Observable<HookEventArgs> HookEnabled { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when the global hook is disabled.
@@ -152,61 +159,61 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
     /// The observable emits a value when the <see cref="IDisposable.Dispose" /> method is called and then
     /// immediately completes.
     /// </remarks>
-    public IObservable<HookEventArgs> HookDisabled { get; }
+    public Observable<HookEventArgs> HookDisabled { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when a key is typed.
     /// </summary>
     /// <value>An observable which emits a value when a key is typed.</value>
-    public IObservable<KeyboardHookEventArgs> KeyTyped { get; }
+    public Observable<KeyboardHookEventArgs> KeyTyped { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when a key is pressed.
     /// </summary>
     /// <value>An observable which emits a value when a key is pressed.</value>
-    public IObservable<KeyboardHookEventArgs> KeyPressed { get; }
+    public Observable<KeyboardHookEventArgs> KeyPressed { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when a key is released.
     /// </summary>
     /// <value>An observable which emits a value when a key is released.</value>
-    public IObservable<KeyboardHookEventArgs> KeyReleased { get; }
+    public Observable<KeyboardHookEventArgs> KeyReleased { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when a mouse button is clicked.
     /// </summary>
     /// <value>An observable which emits a value when a mouse button is clicked.</value>
-    public IObservable<MouseHookEventArgs> MouseClicked { get; }
+    public Observable<MouseHookEventArgs> MouseClicked { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when a mouse button is pressed.
     /// </summary>
     /// <value>An observable which emits a value when a mouse button is pressed.</value>
-    public IObservable<MouseHookEventArgs> MousePressed { get; }
+    public Observable<MouseHookEventArgs> MousePressed { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when a mouse button is released.
     /// </summary>
     /// <value>An observable which emits a value when a mouse button is released.</value>
-    public IObservable<MouseHookEventArgs> MouseReleased { get; }
+    public Observable<MouseHookEventArgs> MouseReleased { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when the mouse cursor is moved.
     /// </summary>
     /// <value>An observable which emits a value when the mouse cursor is moved.</value>
-    public IObservable<MouseHookEventArgs> MouseMoved { get; }
+    public Observable<MouseHookEventArgs> MouseMoved { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when the mouse cursor is dragged.
     /// </summary>
     /// <value>An observable which emits a value when the mouse cursor is dragged.</value>
-    public IObservable<MouseHookEventArgs> MouseDragged { get; }
+    public Observable<MouseHookEventArgs> MouseDragged { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when the mouse wheel is scrolled.
     /// </summary>
     /// <value>An observable which emits a value when the mouse wheel is scrolled.</value>
-    public IObservable<MouseWheelHookEventArgs> MouseWheel { get; }
+    public Observable<MouseWheelHookEventArgs> MouseWheel { get; }
 
     /// <summary>
     /// Runs the global hook on the current thread, blocking it. The hook can be stopped by calling the
@@ -227,22 +234,19 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
     /// Runs the global hook without blocking the current thread. The hook can be stopped by calling the
     /// <see cref="Stop" /> or the <see cref="IDisposable.Dispose" /> methods.
     /// </summary>
-    /// <returns>An observable which is completed when the hook is stopped.</returns>
+    /// <returns>A task which is completed when the hook is stopped.</returns>
     /// <exception cref="HookException">Starting the global hook has failed.</exception>
     /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
     /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
     /// <remarks>
-    /// The hook is started on a separate thread. The returned observable is hot. It emits a single value and then
-    /// immediately completes when the hook is stopped.
+    /// The hook is started on a separate thread.
     /// </remarks>
-    public IObservable<Unit> RunAsync()
+    public Task RunAsync()
     {
         this.ThrowIfRunning();
         this.ThrowIfDisposed();
 
-        var start = Observable.FromAsync(this.hook.RunAsync).Publish();
-        start.Connect();
-        return start.AsObservable();
+        return this.hook.RunAsync();
     }
 
     /// <summary>
@@ -275,7 +279,6 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
 
         this.hookDisabledSubject.Subscribe(_ =>
         {
-            this.CompleteAllSubjects();
             this.subscriptions.Dispose();
             this.DisposeAllSubjects();
         });
@@ -283,23 +286,8 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
         this.hook.Dispose();
     }
 
-    private void CompleteAllSubjects()
-    {
-        this.hookEnabledSubject.OnCompleted();
-        this.hookDisabledSubject.OnCompleted();
-
-        this.keyTypedSubject.OnCompleted();
-        this.keyPressedSubject.OnCompleted();
-        this.keyReleasedSubject.OnCompleted();
-
-        this.mouseClickedSubject.OnCompleted();
-        this.mousePressedSubject.OnCompleted();
-        this.mouseReleasedSubject.OnCompleted();
-        this.mouseMovedSubject.OnCompleted();
-        this.mouseDraggedSubject.OnCompleted();
-
-        this.mouseWheelSubject.OnCompleted();
-    }
+    private TArgs SelectEventArgs<TArgs>((object? Sender, TArgs Args) e) =>
+        e.Args;
 
     private void DisposeAllSubjects()
     {

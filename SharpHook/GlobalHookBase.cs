@@ -268,7 +268,7 @@ public abstract class GlobalHookBase : IGlobalHook
                 args = mouseWheelArgs;
                 this.OnMouseWheel(mouseWheelArgs);
                 break;
-        };
+        }
 
         if (args is not null && args.SuppressEvent)
         {
