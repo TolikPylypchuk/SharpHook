@@ -202,7 +202,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
         {
             this.IsRunning = false;
             runningGlobalHooks.TryRemove(this.hookIndex, out _);
-            this.globalHookProvider.SetDispatchProc(null, IntPtr.Zero);
+            this.globalHookProvider.SetDispatchProc(null, this.hookIndex);
         }
 
         if (result != UioHookResult.Success)
@@ -256,7 +256,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
             } finally
             {
                 runningGlobalHooks.TryRemove(this.hookIndex, out _);
-                this.globalHookProvider.SetDispatchProc(null, IntPtr.Zero);
+                this.globalHookProvider.SetDispatchProc(null, this.hookIndex);
 
             }
         })

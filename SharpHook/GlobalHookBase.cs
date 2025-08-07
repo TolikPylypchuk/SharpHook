@@ -99,7 +99,7 @@ public abstract class GlobalHookBase : IGlobalHook
         {
             this.IsRunning = false;
             runningGlobalHooks.TryRemove(this.hookIndex, out _);
-            this.globalHookProvider.SetDispatchProc(null, IntPtr.Zero);
+            this.globalHookProvider.SetDispatchProc(null, this.hookIndex);
         }
 
         if (result != UioHookResult.Success)
@@ -149,7 +149,7 @@ public abstract class GlobalHookBase : IGlobalHook
             } finally
             {
                 runningGlobalHooks.TryRemove(this.hookIndex, out _);
-                this.globalHookProvider.SetDispatchProc(null, IntPtr.Zero);
+                this.globalHookProvider.SetDispatchProc(null, this.hookIndex);
             }
         })
         {

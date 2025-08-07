@@ -136,6 +136,71 @@
             After stopping, the global hook can run again.
             </remarks>
         </member>
+        <member name="T:SharpHook.R3.Logging.IR3LogSource">
+            <summary>
+            Represents a reactive R3 source of libuiohook logs.
+            </summary>
+            <seealso cref="T:SharpHook.Logging.ILogSource" />
+            <seealso cref="T:SharpHook.Logging.LogSource" />
+        </member>
+        <member name="P:SharpHook.R3.Logging.IR3LogSource.MessageLogged">
+            <summary>
+            An observable which is emitted when libuiohook logs a message.
+            </summary>
+        </member>
+        <member name="P:SharpHook.R3.Logging.IR3LogSource.IsDisposed">
+            <summary>
+            Gets the value which indicates whether the log source is disposed.
+            </summary>
+            <value><see langword="true" /> if the log source is disposed. Otherwise, <see langword="false" />.</value>
+            <remarks>The <see cref="P:SharpHook.R3.Logging.IR3LogSource.MessageLogged" /> observable doesn't emit any values in a disposed log source.</remarks>
+        </member>
+        <member name="T:SharpHook.R3.Logging.R3LogSourceAdapter">
+            <summary>
+            Adapts an <see cref="T:SharpHook.Logging.ILogSource" /> to the <see cref="T:SharpHook.R3.Logging.IR3LogSource" /> interface.
+            </summary>
+            <seealso cref="T:SharpHook.Logging.ILogSource" />
+            <seealso cref="T:SharpHook.R3.Logging.IR3LogSource" />
+        </member>
+        <member name="M:SharpHook.R3.Logging.R3LogSourceAdapter.#ctor(SharpHook.Logging.ILogSource)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpHook.R3.Logging.R3LogSourceAdapter" /> class.
+            </summary>
+            <param name="logSource">The log source to adapt.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="logSource" /> is <see langword="null" />.</exception>
+        </member>
+        <member name="M:SharpHook.R3.Logging.R3LogSourceAdapter.#ctor(SharpHook.Logging.ILogSource,System.TimeProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpHook.R3.Logging.R3LogSourceAdapter" /> class.
+            </summary>
+            <param name="logSource">The log source to adapt.</param>
+            <param name="defaultTimeProvider">The default time provider for the observable.</param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="logSource" /> or <paramref name="defaultTimeProvider" /> is <see langword="null" />.
+            </exception>
+        </member>
+        <member name="M:SharpHook.R3.Logging.R3LogSourceAdapter.Finalize">
+            <summary>
+            Completes the <see cref="P:SharpHook.R3.Logging.R3LogSourceAdapter.MessageLogged" /> observable if the log source hasn't been disposed.
+            </summary>
+        </member>
+        <member name="P:SharpHook.R3.Logging.R3LogSourceAdapter.MessageLogged">
+            <summary>
+            An observable which is emitted when libuiohook logs a message.
+            </summary>
+        </member>
+        <member name="P:SharpHook.R3.Logging.R3LogSourceAdapter.IsDisposed">
+            <summary>
+            Gets the value which indicates whether the log source is disposed.
+            </summary>
+            <value><see langword="true" /> if the log source is disposed. Otherwise, <see langword="false" />.</value>
+            <remarks>The <see cref="P:SharpHook.R3.Logging.R3LogSourceAdapter.MessageLogged" /> observable doesn't emit any values in a disposed log source.</remarks>
+        </member>
+        <member name="M:SharpHook.R3.Logging.R3LogSourceAdapter.Dispose">
+            <summary>
+            Disposes the adapted log source and emits the completion signal for <see cref="P:SharpHook.R3.Logging.R3LogSourceAdapter.MessageLogged" />.
+            </summary>
+        </member>
         <member name="T:SharpHook.R3.R3GlobalHookAdapter">
             <summary>
             Adapts an <see cref="T:SharpHook.IGlobalHook" /> to the <see cref="T:SharpHook.R3.IR3GlobalHook" /> interface.

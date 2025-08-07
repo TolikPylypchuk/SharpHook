@@ -206,7 +206,7 @@ public sealed class SimpleR3GlobalHook : IR3GlobalHook
         {
             this.IsRunning = false;
             runningGlobalHooks.TryRemove(this.hookIndex, out _);
-            this.globalHookProvider.SetDispatchProc(null, IntPtr.Zero);
+            this.globalHookProvider.SetDispatchProc(null, this.hookIndex);
         }
 
         if (result != UioHookResult.Success)
@@ -258,7 +258,7 @@ public sealed class SimpleR3GlobalHook : IR3GlobalHook
             } finally
             {
                 runningGlobalHooks.TryRemove(this.hookIndex, out _);
-                this.globalHookProvider.SetDispatchProc(null, IntPtr.Zero);
+                this.globalHookProvider.SetDispatchProc(null, this.hookIndex);
             }
         })
         {
