@@ -4,7 +4,8 @@ SharpHook provides a cross-platform global keyboard and mouse hook, event simula
 .NET. It is a wrapper of [libuiohook](https://github.com/TolikPylypchuk/libuiohook) and provides direct access to its
 features as well as higher-level types to work with it.
 
-If you're using Rx.NET, you can use the SharpHook.Reactive package to integrate SharpHook with Rx.NET.
+If you're using [Rx.NET](https://github.com/dotnet/reactive), you can use the SharpHook.Reactive package to integrate
+SharpHook with Rx.NET.
 
 ## Usage
 
@@ -76,6 +77,11 @@ var logSource = LogSource.RegisterOrGet();
 var reactiveLogSource = new ReactiveLogSourceAdapter(logSource);
 reactiveLogSource.MessageLogged.Subscribe(this.OnMessageLogged);
 ```
+
+### R3 Integration
+
+As an alternative, SharpHook also provides integration with [R3](https://github.com/Cysharp/R3) in the
+[SharpHook.R3](https://www.nuget.org/packages/SharpHook.R3) package.
 
 ## Icon
 
