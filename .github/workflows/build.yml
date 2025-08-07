@@ -558,6 +558,9 @@ jobs:
           cd SharpHook
           dotnet build --nologo -c Release /p:ContinuousIntegrationBuild=true
 
+          cd ..\SharpHook.R3
+          dotnet build --nologo -c Release /p:ContinuousIntegrationBuild=true
+
           cd ..\SharpHook.Reactive
           dotnet build --nologo -c Release /p:ContinuousIntegrationBuild=true
 
@@ -574,6 +577,9 @@ jobs:
         shell: pwsh
         run: |
           cd SharpHook
+          dotnet pack --no-build --nologo -c Release -o ${{github.workspace}}\build\
+
+          cd ..\SharpHook.R3
           dotnet pack --no-build --nologo -c Release -o ${{github.workspace}}\build\
 
           cd ..\SharpHook.Reactive
