@@ -15,6 +15,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.BasicGlobalHookBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.BasicGlobalHookBase.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.BasicGlobalHookBase",
+      "Summary": "<p sourcefile=\"api/SharpHook.BasicGlobalHookBase.yml\" sourcestartlinenumber=\"1\">Represents an abstract implementation of <xref href=\"SharpHook.IBasicGlobalHook\" data-throw-if-not-resolved=\"false\"></xref> which defines everything needed except for\na strategy for handling events and uses a global hook provider (libuiohook by default).</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SharpHook.Data.EventMask.yml",
       "output": {
         ".html": {
@@ -292,6 +306,20 @@
       "IsMRef": true,
       "Title": "SharpHook.HookException",
       "Summary": "<p sourcefile=\"api/SharpHook.HookException.yml\" sourcestartlinenumber=\"1\">Represents an exception related to global hooks.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.IBasicGlobalHook.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.IBasicGlobalHook.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.IBasicGlobalHook",
+      "Summary": "<p sourcefile=\"api/SharpHook.IBasicGlobalHook.yml\" sourcestartlinenumber=\"1\">Represents basic operations for a global keyboard and mouse hook regardless of the form of its events.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -641,7 +669,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.R3.IR3GlobalHook",
-      "Summary": "<p sourcefile=\"api/SharpHook.R3.IR3GlobalHook.yml\" sourcestartlinenumber=\"1\">Represents a global reactive R3 keyboard and mouse hook.</p>\n"
+      "Summary": "<p sourcefile=\"api/SharpHook.R3.IR3GlobalHook.yml\" sourcestartlinenumber=\"1\">Represents a reactive R3 global keyboard and mouse hook.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -697,7 +725,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.R3.R3GlobalHook",
-      "Summary": "<p sourcefile=\"api/SharpHook.R3.R3GlobalHook.yml\" sourcestartlinenumber=\"1\">Represents a reactive R3 global hook.</p>\n"
+      "Summary": "<p sourcefile=\"api/SharpHook.R3.R3GlobalHook.yml\" sourcestartlinenumber=\"1\">Represents a reactive R3 global keyboard and mouse hook.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -739,7 +767,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Reactive.IReactiveGlobalHook",
-      "Summary": "<p sourcefile=\"api/SharpHook.Reactive.IReactiveGlobalHook.yml\" sourcestartlinenumber=\"1\">Represents a global reactive keyboard and mouse hook.</p>\n"
+      "Summary": "<p sourcefile=\"api/SharpHook.Reactive.IReactiveGlobalHook.yml\" sourcestartlinenumber=\"1\">Represents a reactive global keyboard and mouse hook.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -795,7 +823,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Reactive.ReactiveGlobalHook",
-      "Summary": "<p sourcefile=\"api/SharpHook.Reactive.ReactiveGlobalHook.yml\" sourcestartlinenumber=\"1\">Represents a simple reactive global hook.</p>\n"
+      "Summary": "<p sourcefile=\"api/SharpHook.Reactive.ReactiveGlobalHook.yml\" sourcestartlinenumber=\"1\">Represents a reactive global keyboard and mouse hook.</p>\n"
     },
     {
       "type": "ManagedReference",

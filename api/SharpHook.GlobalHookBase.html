@@ -103,7 +103,7 @@ a strategy for dispatching events and uses a global hook provider (libuiohook by
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class GlobalHookBase : IGlobalHook, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class GlobalHookBase : BasicGlobalHookBase, IGlobalHook, IBasicGlobalHook, IDisposable</code></pre>
   </div>
 
 
@@ -113,6 +113,7 @@ a strategy for dispatching events and uses a global hook provider (libuiohook by
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="SharpHook.BasicGlobalHookBase.html">BasicGlobalHookBase</a></div>
       <div><span class="xref">GlobalHookBase</span></div>
     </dd>
   </dl>
@@ -121,6 +122,7 @@ a strategy for dispatching events and uses a global hook provider (libuiohook by
     <dt>Implements</dt>
     <dd>
       <div><a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a></div>
+      <div><a class="xref" href="SharpHook.IBasicGlobalHook.html">IBasicGlobalHook</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>
@@ -136,6 +138,30 @@ a strategy for dispatching events and uses a global hook provider (libuiohook by
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
+    <div>
+      <a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_Run">BasicGlobalHookBase.Run()</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_RunAsync">BasicGlobalHookBase.RunAsync()</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_Stop">BasicGlobalHookBase.Stop()</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_Dispose">BasicGlobalHookBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_Dispose_System_Boolean_">BasicGlobalHookBase.Dispose(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_ThrowIfDisposed_System_String_">BasicGlobalHookBase.ThrowIfDisposed(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_IsRunning">BasicGlobalHookBase.IsRunning</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_IsDisposed">BasicGlobalHookBase.IsDisposed</a>
+    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
     </div>
@@ -192,7 +218,7 @@ a strategy for dispatching events and uses a global hook provider (libuiohook by
     <dd><p>The underlying global hook provider, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to use the default one.</p>
 </dd>
     <dt><code>runAsyncOnBackgroundThread</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <a class="xref" href="SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_RunAsync">RunAsync()</a> should run the hook on a background thread.
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <a class="xref" href="SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_RunAsync">RunAsync()</a> should run the hook on a background thread.
 Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </dd>
   </dl>
@@ -200,79 +226,6 @@ Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference
 
 
 
-
-
-
-
-
-
-
-
-  <h2 class="section" id="properties">Properties
-</h2>
-
-
-  <a id="SharpHook_GlobalHookBase_IsDisposed_" data-uid="SharpHook.GlobalHookBase.IsDisposed*"></a>
-
-  <h3 id="SharpHook_GlobalHookBase_IsDisposed" data-uid="SharpHook.GlobalHookBase.IsDisposed">
-  IsDisposed
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Gets the value which indicates whether the global hook has been disposed.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsDisposed { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the global hook has been disposed. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
-</dd>
-  </dl>
-
-
-
-
-  <h4 class="section" id="SharpHook_GlobalHookBase_IsDisposed_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>A disposed global hook cannot be started again.</p>
-</div>
-
-
-
-
-  <a id="SharpHook_GlobalHookBase_IsRunning_" data-uid="SharpHook.GlobalHookBase.IsRunning*"></a>
-
-  <h3 id="SharpHook_GlobalHookBase_IsRunning" data-uid="SharpHook.GlobalHookBase.IsRunning">
-  IsRunning
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Gets the value which indicates whether the global hook is running.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool IsRunning { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the global hook is running. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
-</dd>
-  </dl>
 
 
 
@@ -318,110 +271,6 @@ Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference
 
 
 
-  <a id="SharpHook_GlobalHookBase_Dispose_" data-uid="SharpHook.GlobalHookBase.Dispose*"></a>
-
-  <h3 id="SharpHook_GlobalHookBase_Dispose" data-uid="SharpHook.GlobalHookBase.Dispose">
-  Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Disposes of the global hook, stopping it if it is running.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-  <h4 class="section" id="SharpHook_GlobalHookBase_Dispose_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>After calling this method, the hook cannot run again. If you want to stop the global hook with the ability to
-run it again, call the <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_Stop">Stop()</a> method instead.</p>
-</div>
-
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="SharpHook.HookException.html">HookException</a></dt>
-    <dd><p>Stopping the hook has failed.</p>
-</dd>
-  </dl>
-
-
-
-  <a id="SharpHook_GlobalHookBase_Dispose_" data-uid="SharpHook.GlobalHookBase.Dispose*"></a>
-
-  <h3 id="SharpHook_GlobalHookBase_Dispose_System_Boolean_" data-uid="SharpHook.GlobalHookBase.Dispose(System.Boolean)">
-  Dispose(bool)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Disposes of the global hook, stopping it if it is running.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual void Dispose(bool disposing)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>disposing</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the method is called from the <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_Dispose">Dispose()</a> method.
-Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="SharpHook.HookException.html">HookException</a></dt>
-    <dd><p>Stopping the hook has failed.</p>
-</dd>
-  </dl>
-
-
-
-  <a id="SharpHook_GlobalHookBase_Finalize_" data-uid="SharpHook.GlobalHookBase.Finalize*"></a>
-
-  <h3 id="SharpHook_GlobalHookBase_Finalize" data-uid="SharpHook.GlobalHookBase.Finalize">
-  ~GlobalHookBase()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Stops the global hook if it's running.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected ~GlobalHookBase()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
   <a id="SharpHook_GlobalHookBase_HandleHookEvent_" data-uid="SharpHook.GlobalHookBase.HandleHookEvent*"></a>
 
   <h3 id="SharpHook_GlobalHookBase_HandleHookEvent_SharpHook_Data_UioHookEvent__" data-uid="SharpHook.GlobalHookBase.HandleHookEvent(SharpHook.Data.UioHookEvent@)">
@@ -434,7 +283,7 @@ Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void HandleHookEvent(ref UioHookEvent e)</code></pre>
+    <pre><code class="lang-csharp hljs">protected override abstract void HandleHookEvent(ref UioHookEvent e)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -822,150 +671,34 @@ appropriate event.</p>
 
 
 
-  <a id="SharpHook_GlobalHookBase_Run_" data-uid="SharpHook.GlobalHookBase.Run*"></a>
+  <a id="SharpHook_GlobalHookBase_ShouldDispatchEvent_" data-uid="SharpHook.GlobalHookBase.ShouldDispatchEvent*"></a>
 
-  <h3 id="SharpHook_GlobalHookBase_Run" data-uid="SharpHook.GlobalHookBase.Run">
-  Run()
+  <h3 id="SharpHook_GlobalHookBase_ShouldDispatchEvent_SharpHook_Data_UioHookEvent__" data-uid="SharpHook.GlobalHookBase.ShouldDispatchEvent(SharpHook.Data.UioHookEvent@)">
+  ShouldDispatchEvent(ref UioHookEvent)
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Runs the global hook on the current thread, blocking it. The hook can be destroyed by calling the
-<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">Dispose()</a> method.</p>
+  <div class="markdown level1 summary"><p>Returns a value which indicates whether there are any subscribers to an event which corresponds to the hook
+event type.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Run()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="SharpHook.HookException.html">HookException</a></dt>
-    <dd><p>Starting the global hook has failed.</p>
-</dd>
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
-    <dd><p>The global hook is already running.</p>
-</dd>
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
-    <dd><p>The global hook has been disposed.</p>
-</dd>
-  </dl>
-
-
-
-  <a id="SharpHook_GlobalHookBase_RunAsync_" data-uid="SharpHook.GlobalHookBase.RunAsync*"></a>
-
-  <h3 id="SharpHook_GlobalHookBase_RunAsync" data-uid="SharpHook.GlobalHookBase.RunAsync">
-  RunAsync()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Runs the global hook without blocking the current thread. The hook can be destroyed by calling the
-<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">Dispose()</a> method.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task RunAsync()</code></pre>
-  </div>
-
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
-    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the hook is destroyed.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-  <h4 class="section" id="SharpHook_GlobalHookBase_RunAsync_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>The hook is started on a separate thread.</p>
-</div>
-
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="SharpHook.HookException.html">HookException</a></dt>
-    <dd><p>Starting the global hook has failed.</p>
-</dd>
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
-    <dd><p>The global hook is already running.</p>
-</dd>
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
-    <dd><p>The global hook has been disposed.</p>
-</dd>
-  </dl>
-
-
-
-  <a id="SharpHook_GlobalHookBase_Stop_" data-uid="SharpHook.GlobalHookBase.Stop*"></a>
-
-  <h3 id="SharpHook_GlobalHookBase_Stop" data-uid="SharpHook.GlobalHookBase.Stop">
-  Stop()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Stops the global hook.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Stop()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-  <h4 class="section" id="SharpHook_GlobalHookBase_Stop_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>After stopping, the global hook can run again.</p>
-</div>
-
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
-    <dd><p>The global hook has been disposed.</p>
-</dd>
-  </dl>
-
-
-
-  <a id="SharpHook_GlobalHookBase_ThrowIfDisposed_" data-uid="SharpHook.GlobalHookBase.ThrowIfDisposed*"></a>
-
-  <h3 id="SharpHook_GlobalHookBase_ThrowIfDisposed_System_String_" data-uid="SharpHook.GlobalHookBase.ThrowIfDisposed(System.String)">
-  ThrowIfDisposed(string?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Throws an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a> if this object is disposed.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected void ThrowIfDisposed(string? method = null)</code></pre>
+    <pre><code class="lang-csharp hljs">protected bool ShouldDispatchEvent(ref UioHookEvent e)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>method</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The method which calls this method.</p>
+    <dt><code>e</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></dt>
+    <dd><p>The event to check.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if there are any subscribers to an event which corresponds to the hook event type.
+Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </dd>
   </dl>
 
@@ -975,7 +708,9 @@ appropriate event.</p>
 
 
 
-
+  <h4 class="section" id="SharpHook_GlobalHookBase_ShouldDispatchEvent_SharpHook_Data_UioHookEvent___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Derived classes may call this method as an optimization before attempting to dispatch the hook event.</p>
+</div>
 
 
 
@@ -1046,8 +781,8 @@ appropriate event.</p>
 
 
   <h4 class="section" id="SharpHook_GlobalHookBase_HookEnabled_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>This event is raised when the <a class="xref" href="SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_Run">Run()</a> or <a class="xref" href="SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_RunAsync">RunAsync()</a> method
-is called.</p>
+  <div class="markdown level1 remarks"><p>This event is raised when the <a class="xref" href="SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_Run">Run()</a> or <a class="xref" href="SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_RunAsync">RunAsync()</a>
+method is called.</p>
 </div>
 
 
@@ -1337,6 +1072,7 @@ is called.</p>
       <div><a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a></div>
       <div><a class="xref" href="SharpHook.SimpleGlobalHook.html">SimpleGlobalHook</a></div>
       <div><a class="xref" href="SharpHook.TaskPoolGlobalHook.html">TaskPoolGlobalHook</a></div>
+      <div><a class="xref" href="SharpHook.BasicGlobalHookBase.html">BasicGlobalHookBase</a></div>
   </div>
 
 </article>

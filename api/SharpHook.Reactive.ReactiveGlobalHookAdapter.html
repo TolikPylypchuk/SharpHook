@@ -102,7 +102,7 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook, IBasicGlobalHook, IDisposable</code></pre>
   </div>
 
 
@@ -121,6 +121,7 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
     <dd>
       <div><a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a></div>
       <div><a class="xref" href="SharpHook.Reactive.IReactiveGlobalHook.html">IReactiveGlobalHook</a></div>
+      <div><a class="xref" href="SharpHook.IBasicGlobalHook.html">IBasicGlobalHook</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>
@@ -229,8 +230,8 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
 
   <h4 class="section" id="SharpHook_Reactive_ReactiveGlobalHookAdapter_HookDisabled_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>The observable emits a value when the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">Dispose()</a> method is called and then
-immediately completes.</p>
+  <div class="markdown level1 remarks"><p>The observable emits a value when the <a class="xref" href="SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_Stop">Stop()</a> or <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">Dispose()</a>
+method is called.</p>
 </div>
 
 
@@ -266,8 +267,8 @@ immediately completes.</p>
 
 
   <h4 class="section" id="SharpHook_Reactive_ReactiveGlobalHookAdapter_HookEnabled_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>The observable emits a value when the <a class="xref" href="SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_Run">Run()</a> or <a class="xref" href="SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_RunAsync">RunAsync()</a> method is called and
-then immediately completes.</p>
+  <div class="markdown level1 remarks"><p>The observable emits a value when the <a class="xref" href="SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_Run">Run()</a> or
+<a class="xref" href="SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_RunAsync">RunAsync()</a> method is called.</p>
 </div>
 
 
@@ -733,14 +734,14 @@ run it again, call the <a class="xref" href="SharpHook.Reactive.ReactiveGlobalHo
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IObservable&lt;Unit&gt; RunAsync()</code></pre>
+    <pre><code class="lang-csharp hljs">public Task RunAsync()</code></pre>
   </div>
 
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<span class="xref">Unit</span>&gt;</dt>
-    <dd><p>An observable which is completed when the hook is stopped.</p>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
+    <dd><p>A task which is completed when the hook is stopped.</p>
 </dd>
   </dl>
 
@@ -751,8 +752,7 @@ run it again, call the <a class="xref" href="SharpHook.Reactive.ReactiveGlobalHo
 
 
   <h4 class="section" id="SharpHook_Reactive_ReactiveGlobalHookAdapter_RunAsync_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>The hook is started on a separate thread. The returned observable is hot. It emits a single value and then
-immediately completes when the hook is stopped.</p>
+  <div class="markdown level1 remarks"><p>The hook is started on a separate thread.</p>
 </div>
 
   <h4 class="section">Exceptions</h4>

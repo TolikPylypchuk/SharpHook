@@ -102,7 +102,7 @@ Class TestGlobalHook  <a class="header-action link-secondary" title="View source
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class TestGlobalHook : IGlobalHook, IDisposable, IEventSimulator</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class TestGlobalHook : IGlobalHook, IBasicGlobalHook, IDisposable, IEventSimulator</code></pre>
   </div>
 
 
@@ -120,6 +120,7 @@ Class TestGlobalHook  <a class="header-action link-secondary" title="View source
     <dt>Implements</dt>
     <dd>
       <div><a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a></div>
+      <div><a class="xref" href="SharpHook.IBasicGlobalHook.html">IBasicGlobalHook</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
       <div><a class="xref" href="SharpHook.IEventSimulator.html">IEventSimulator</a></div>
     </dd>

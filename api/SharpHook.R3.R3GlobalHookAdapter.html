@@ -102,7 +102,7 @@ Class R3GlobalHookAdapter  <a class="header-action link-secondary" title="View s
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class R3GlobalHookAdapter : IGlobalHook, IR3GlobalHook, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class R3GlobalHookAdapter : IGlobalHook, IR3GlobalHook, IBasicGlobalHook, IDisposable</code></pre>
   </div>
 
 
@@ -121,6 +121,7 @@ Class R3GlobalHookAdapter  <a class="header-action link-secondary" title="View s
     <dd>
       <div><a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a></div>
       <div><a class="xref" href="SharpHook.R3.IR3GlobalHook.html">IR3GlobalHook</a></div>
+      <div><a class="xref" href="SharpHook.IBasicGlobalHook.html">IBasicGlobalHook</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>
@@ -229,8 +230,8 @@ Class R3GlobalHookAdapter  <a class="header-action link-secondary" title="View s
 
 
   <h4 class="section" id="SharpHook_R3_R3GlobalHookAdapter_HookDisabled_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>The observable emits a value when the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">Dispose()</a> method is called and then
-immediately completes.</p>
+  <div class="markdown level1 remarks"><p>The observable emits a value when the <a class="xref" href="SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_Stop">Stop()</a> or <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">Dispose()</a>
+method is called.</p>
 </div>
 
 
@@ -266,8 +267,8 @@ immediately completes.</p>
 
 
   <h4 class="section" id="SharpHook_R3_R3GlobalHookAdapter_HookEnabled_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>The observable emits a value when the <a class="xref" href="SharpHook.R3.R3GlobalHookAdapter.html#SharpHook_R3_R3GlobalHookAdapter_Run">Run()</a> or <a class="xref" href="SharpHook.R3.R3GlobalHookAdapter.html#SharpHook_R3_R3GlobalHookAdapter_RunAsync">RunAsync()</a> method is called and
-then immediately completes.</p>
+  <div class="markdown level1 remarks"><p>The observable emits a value when the <a class="xref" href="SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_Run">Run()</a> or
+<a class="xref" href="SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_RunAsync">RunAsync()</a> method is called.</p>
 </div>
 
 

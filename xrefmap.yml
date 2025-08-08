@@ -7,6 +7,156 @@ references:
   commentId: N:SharpHook
   fullName: SharpHook
   nameWithType: SharpHook
+- uid: SharpHook.BasicGlobalHookBase
+  name: BasicGlobalHookBase
+  href: api/SharpHook.BasicGlobalHookBase.html
+  commentId: T:SharpHook.BasicGlobalHookBase
+  fullName: SharpHook.BasicGlobalHookBase
+  nameWithType: BasicGlobalHookBase
+- uid: SharpHook.BasicGlobalHookBase.#ctor(SharpHook.Data.GlobalHookType,SharpHook.Providers.IGlobalHookProvider,System.Boolean)
+  name: BasicGlobalHookBase(GlobalHookType, IGlobalHookProvider?, bool)
+  href: api/SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase__ctor_SharpHook_Data_GlobalHookType_SharpHook_Providers_IGlobalHookProvider_System_Boolean_
+  commentId: M:SharpHook.BasicGlobalHookBase.#ctor(SharpHook.Data.GlobalHookType,SharpHook.Providers.IGlobalHookProvider,System.Boolean)
+  name.vb: New(GlobalHookType, IGlobalHookProvider, Boolean)
+  fullName: SharpHook.BasicGlobalHookBase.BasicGlobalHookBase(SharpHook.Data.GlobalHookType, SharpHook.Providers.IGlobalHookProvider?, bool)
+  fullName.vb: SharpHook.BasicGlobalHookBase.New(SharpHook.Data.GlobalHookType, SharpHook.Providers.IGlobalHookProvider, Boolean)
+  nameWithType: BasicGlobalHookBase.BasicGlobalHookBase(GlobalHookType, IGlobalHookProvider?, bool)
+  nameWithType.vb: BasicGlobalHookBase.New(GlobalHookType, IGlobalHookProvider, Boolean)
+- uid: SharpHook.BasicGlobalHookBase.#ctor*
+  name: BasicGlobalHookBase
+  href: api/SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase__ctor_
+  commentId: Overload:SharpHook.BasicGlobalHookBase.#ctor
+  name.vb: New
+  fullName: SharpHook.BasicGlobalHookBase.BasicGlobalHookBase
+  fullName.vb: SharpHook.BasicGlobalHookBase.New
+  nameWithType: BasicGlobalHookBase.BasicGlobalHookBase
+  nameWithType.vb: BasicGlobalHookBase.New
+- uid: SharpHook.BasicGlobalHookBase.Dispose
+  name: Dispose()
+  href: api/SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_Dispose
+  commentId: M:SharpHook.BasicGlobalHookBase.Dispose
+  fullName: SharpHook.BasicGlobalHookBase.Dispose()
+  nameWithType: BasicGlobalHookBase.Dispose()
+- uid: SharpHook.BasicGlobalHookBase.Dispose(System.Boolean)
+  name: Dispose(bool)
+  href: api/SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_Dispose_System_Boolean_
+  commentId: M:SharpHook.BasicGlobalHookBase.Dispose(System.Boolean)
+  name.vb: Dispose(Boolean)
+  fullName: SharpHook.BasicGlobalHookBase.Dispose(bool)
+  fullName.vb: SharpHook.BasicGlobalHookBase.Dispose(Boolean)
+  nameWithType: BasicGlobalHookBase.Dispose(bool)
+  nameWithType.vb: BasicGlobalHookBase.Dispose(Boolean)
+- uid: SharpHook.BasicGlobalHookBase.Dispose*
+  name: Dispose
+  href: api/SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_Dispose_
+  commentId: Overload:SharpHook.BasicGlobalHookBase.Dispose
+  fullName: SharpHook.BasicGlobalHookBase.Dispose
+  nameWithType: BasicGlobalHookBase.Dispose
+- uid: SharpHook.BasicGlobalHookBase.Finalize
+  name: ~BasicGlobalHookBase()
+  href: api/SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_Finalize
+  commentId: M:SharpHook.BasicGlobalHookBase.Finalize
+  name.vb: ''
+  fullName: SharpHook.BasicGlobalHookBase.~BasicGlobalHookBase()
+  fullName.vb: ''
+  nameWithType: BasicGlobalHookBase.~BasicGlobalHookBase()
+  nameWithType.vb: ''
+- uid: SharpHook.BasicGlobalHookBase.Finalize*
+  name: ~BasicGlobalHookBase
+  href: api/SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_Finalize_
+  commentId: Overload:SharpHook.BasicGlobalHookBase.Finalize
+  fullName: SharpHook.BasicGlobalHookBase.~BasicGlobalHookBase
+  nameWithType: BasicGlobalHookBase.~BasicGlobalHookBase
+- uid: SharpHook.BasicGlobalHookBase.HandleHookEvent(SharpHook.Data.UioHookEvent@)
+  name: HandleHookEvent(ref UioHookEvent)
+  href: api/SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_HandleHookEvent_SharpHook_Data_UioHookEvent__
+  commentId: M:SharpHook.BasicGlobalHookBase.HandleHookEvent(SharpHook.Data.UioHookEvent@)
+  name.vb: HandleHookEvent(UioHookEvent)
+  fullName: SharpHook.BasicGlobalHookBase.HandleHookEvent(ref SharpHook.Data.UioHookEvent)
+  fullName.vb: SharpHook.BasicGlobalHookBase.HandleHookEvent(SharpHook.Data.UioHookEvent)
+  nameWithType: BasicGlobalHookBase.HandleHookEvent(ref UioHookEvent)
+  nameWithType.vb: BasicGlobalHookBase.HandleHookEvent(UioHookEvent)
+- uid: SharpHook.BasicGlobalHookBase.HandleHookEvent*
+  name: HandleHookEvent
+  href: api/SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_HandleHookEvent_
+  commentId: Overload:SharpHook.BasicGlobalHookBase.HandleHookEvent
+  fullName: SharpHook.BasicGlobalHookBase.HandleHookEvent
+  nameWithType: BasicGlobalHookBase.HandleHookEvent
+- uid: SharpHook.BasicGlobalHookBase.IsDisposed
+  name: IsDisposed
+  href: api/SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_IsDisposed
+  commentId: P:SharpHook.BasicGlobalHookBase.IsDisposed
+  fullName: SharpHook.BasicGlobalHookBase.IsDisposed
+  nameWithType: BasicGlobalHookBase.IsDisposed
+- uid: SharpHook.BasicGlobalHookBase.IsDisposed*
+  name: IsDisposed
+  href: api/SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_IsDisposed_
+  commentId: Overload:SharpHook.BasicGlobalHookBase.IsDisposed
+  fullName: SharpHook.BasicGlobalHookBase.IsDisposed
+  nameWithType: BasicGlobalHookBase.IsDisposed
+- uid: SharpHook.BasicGlobalHookBase.IsRunning
+  name: IsRunning
+  href: api/SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_IsRunning
+  commentId: P:SharpHook.BasicGlobalHookBase.IsRunning
+  fullName: SharpHook.BasicGlobalHookBase.IsRunning
+  nameWithType: BasicGlobalHookBase.IsRunning
+- uid: SharpHook.BasicGlobalHookBase.IsRunning*
+  name: IsRunning
+  href: api/SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_IsRunning_
+  commentId: Overload:SharpHook.BasicGlobalHookBase.IsRunning
+  fullName: SharpHook.BasicGlobalHookBase.IsRunning
+  nameWithType: BasicGlobalHookBase.IsRunning
+- uid: SharpHook.BasicGlobalHookBase.Run
+  name: Run()
+  href: api/SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_Run
+  commentId: M:SharpHook.BasicGlobalHookBase.Run
+  fullName: SharpHook.BasicGlobalHookBase.Run()
+  nameWithType: BasicGlobalHookBase.Run()
+- uid: SharpHook.BasicGlobalHookBase.Run*
+  name: Run
+  href: api/SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_Run_
+  commentId: Overload:SharpHook.BasicGlobalHookBase.Run
+  fullName: SharpHook.BasicGlobalHookBase.Run
+  nameWithType: BasicGlobalHookBase.Run
+- uid: SharpHook.BasicGlobalHookBase.RunAsync
+  name: RunAsync()
+  href: api/SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_RunAsync
+  commentId: M:SharpHook.BasicGlobalHookBase.RunAsync
+  fullName: SharpHook.BasicGlobalHookBase.RunAsync()
+  nameWithType: BasicGlobalHookBase.RunAsync()
+- uid: SharpHook.BasicGlobalHookBase.RunAsync*
+  name: RunAsync
+  href: api/SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_RunAsync_
+  commentId: Overload:SharpHook.BasicGlobalHookBase.RunAsync
+  fullName: SharpHook.BasicGlobalHookBase.RunAsync
+  nameWithType: BasicGlobalHookBase.RunAsync
+- uid: SharpHook.BasicGlobalHookBase.Stop
+  name: Stop()
+  href: api/SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_Stop
+  commentId: M:SharpHook.BasicGlobalHookBase.Stop
+  fullName: SharpHook.BasicGlobalHookBase.Stop()
+  nameWithType: BasicGlobalHookBase.Stop()
+- uid: SharpHook.BasicGlobalHookBase.Stop*
+  name: Stop
+  href: api/SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_Stop_
+  commentId: Overload:SharpHook.BasicGlobalHookBase.Stop
+  fullName: SharpHook.BasicGlobalHookBase.Stop
+  nameWithType: BasicGlobalHookBase.Stop
+- uid: SharpHook.BasicGlobalHookBase.ThrowIfDisposed(System.String)
+  name: ThrowIfDisposed(string?)
+  href: api/SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_ThrowIfDisposed_System_String_
+  commentId: M:SharpHook.BasicGlobalHookBase.ThrowIfDisposed(System.String)
+  name.vb: ThrowIfDisposed(String)
+  fullName: SharpHook.BasicGlobalHookBase.ThrowIfDisposed(string?)
+  fullName.vb: SharpHook.BasicGlobalHookBase.ThrowIfDisposed(String)
+  nameWithType: BasicGlobalHookBase.ThrowIfDisposed(string?)
+  nameWithType.vb: BasicGlobalHookBase.ThrowIfDisposed(String)
+- uid: SharpHook.BasicGlobalHookBase.ThrowIfDisposed*
+  name: ThrowIfDisposed
+  href: api/SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_ThrowIfDisposed_
+  commentId: Overload:SharpHook.BasicGlobalHookBase.ThrowIfDisposed
+  fullName: SharpHook.BasicGlobalHookBase.ThrowIfDisposed
+  nameWithType: BasicGlobalHookBase.ThrowIfDisposed
 - uid: SharpHook.Data
   name: SharpHook.Data
   href: api/SharpHook.Data.html
@@ -2485,42 +2635,6 @@ references:
   commentId: Overload:SharpHook.GlobalHookBase.DispatchEvent
   fullName: SharpHook.GlobalHookBase.DispatchEvent
   nameWithType: GlobalHookBase.DispatchEvent
-- uid: SharpHook.GlobalHookBase.Dispose
-  name: Dispose()
-  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_Dispose
-  commentId: M:SharpHook.GlobalHookBase.Dispose
-  fullName: SharpHook.GlobalHookBase.Dispose()
-  nameWithType: GlobalHookBase.Dispose()
-- uid: SharpHook.GlobalHookBase.Dispose(System.Boolean)
-  name: Dispose(bool)
-  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_Dispose_System_Boolean_
-  commentId: M:SharpHook.GlobalHookBase.Dispose(System.Boolean)
-  name.vb: Dispose(Boolean)
-  fullName: SharpHook.GlobalHookBase.Dispose(bool)
-  fullName.vb: SharpHook.GlobalHookBase.Dispose(Boolean)
-  nameWithType: GlobalHookBase.Dispose(bool)
-  nameWithType.vb: GlobalHookBase.Dispose(Boolean)
-- uid: SharpHook.GlobalHookBase.Dispose*
-  name: Dispose
-  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_Dispose_
-  commentId: Overload:SharpHook.GlobalHookBase.Dispose
-  fullName: SharpHook.GlobalHookBase.Dispose
-  nameWithType: GlobalHookBase.Dispose
-- uid: SharpHook.GlobalHookBase.Finalize
-  name: ~GlobalHookBase()
-  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_Finalize
-  commentId: M:SharpHook.GlobalHookBase.Finalize
-  name.vb: ''
-  fullName: SharpHook.GlobalHookBase.~GlobalHookBase()
-  fullName.vb: ''
-  nameWithType: GlobalHookBase.~GlobalHookBase()
-  nameWithType.vb: ''
-- uid: SharpHook.GlobalHookBase.Finalize*
-  name: ~GlobalHookBase
-  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_Finalize_
-  commentId: Overload:SharpHook.GlobalHookBase.Finalize
-  fullName: SharpHook.GlobalHookBase.~GlobalHookBase
-  nameWithType: GlobalHookBase.~GlobalHookBase
 - uid: SharpHook.GlobalHookBase.HandleHookEvent(SharpHook.Data.UioHookEvent@)
   name: HandleHookEvent(ref UioHookEvent)
   href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_HandleHookEvent_SharpHook_Data_UioHookEvent__
@@ -2548,30 +2662,6 @@ references:
   commentId: E:SharpHook.GlobalHookBase.HookEnabled
   fullName: SharpHook.GlobalHookBase.HookEnabled
   nameWithType: GlobalHookBase.HookEnabled
-- uid: SharpHook.GlobalHookBase.IsDisposed
-  name: IsDisposed
-  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_IsDisposed
-  commentId: P:SharpHook.GlobalHookBase.IsDisposed
-  fullName: SharpHook.GlobalHookBase.IsDisposed
-  nameWithType: GlobalHookBase.IsDisposed
-- uid: SharpHook.GlobalHookBase.IsDisposed*
-  name: IsDisposed
-  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_IsDisposed_
-  commentId: Overload:SharpHook.GlobalHookBase.IsDisposed
-  fullName: SharpHook.GlobalHookBase.IsDisposed
-  nameWithType: GlobalHookBase.IsDisposed
-- uid: SharpHook.GlobalHookBase.IsRunning
-  name: IsRunning
-  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_IsRunning
-  commentId: P:SharpHook.GlobalHookBase.IsRunning
-  fullName: SharpHook.GlobalHookBase.IsRunning
-  nameWithType: GlobalHookBase.IsRunning
-- uid: SharpHook.GlobalHookBase.IsRunning*
-  name: IsRunning
-  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_IsRunning_
-  commentId: Overload:SharpHook.GlobalHookBase.IsRunning
-  fullName: SharpHook.GlobalHookBase.IsRunning
-  nameWithType: GlobalHookBase.IsRunning
 - uid: SharpHook.GlobalHookBase.KeyPressed
   name: KeyPressed
   href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_KeyPressed
@@ -2758,57 +2848,21 @@ references:
   commentId: Overload:SharpHook.GlobalHookBase.OnMouseWheel
   fullName: SharpHook.GlobalHookBase.OnMouseWheel
   nameWithType: GlobalHookBase.OnMouseWheel
-- uid: SharpHook.GlobalHookBase.Run
-  name: Run()
-  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_Run
-  commentId: M:SharpHook.GlobalHookBase.Run
-  fullName: SharpHook.GlobalHookBase.Run()
-  nameWithType: GlobalHookBase.Run()
-- uid: SharpHook.GlobalHookBase.Run*
-  name: Run
-  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_Run_
-  commentId: Overload:SharpHook.GlobalHookBase.Run
-  fullName: SharpHook.GlobalHookBase.Run
-  nameWithType: GlobalHookBase.Run
-- uid: SharpHook.GlobalHookBase.RunAsync
-  name: RunAsync()
-  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_RunAsync
-  commentId: M:SharpHook.GlobalHookBase.RunAsync
-  fullName: SharpHook.GlobalHookBase.RunAsync()
-  nameWithType: GlobalHookBase.RunAsync()
-- uid: SharpHook.GlobalHookBase.RunAsync*
-  name: RunAsync
-  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_RunAsync_
-  commentId: Overload:SharpHook.GlobalHookBase.RunAsync
-  fullName: SharpHook.GlobalHookBase.RunAsync
-  nameWithType: GlobalHookBase.RunAsync
-- uid: SharpHook.GlobalHookBase.Stop
-  name: Stop()
-  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_Stop
-  commentId: M:SharpHook.GlobalHookBase.Stop
-  fullName: SharpHook.GlobalHookBase.Stop()
-  nameWithType: GlobalHookBase.Stop()
-- uid: SharpHook.GlobalHookBase.Stop*
-  name: Stop
-  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_Stop_
-  commentId: Overload:SharpHook.GlobalHookBase.Stop
-  fullName: SharpHook.GlobalHookBase.Stop
-  nameWithType: GlobalHookBase.Stop
-- uid: SharpHook.GlobalHookBase.ThrowIfDisposed(System.String)
-  name: ThrowIfDisposed(string?)
-  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_ThrowIfDisposed_System_String_
-  commentId: M:SharpHook.GlobalHookBase.ThrowIfDisposed(System.String)
-  name.vb: ThrowIfDisposed(String)
-  fullName: SharpHook.GlobalHookBase.ThrowIfDisposed(string?)
-  fullName.vb: SharpHook.GlobalHookBase.ThrowIfDisposed(String)
-  nameWithType: GlobalHookBase.ThrowIfDisposed(string?)
-  nameWithType.vb: GlobalHookBase.ThrowIfDisposed(String)
-- uid: SharpHook.GlobalHookBase.ThrowIfDisposed*
-  name: ThrowIfDisposed
-  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_ThrowIfDisposed_
-  commentId: Overload:SharpHook.GlobalHookBase.ThrowIfDisposed
-  fullName: SharpHook.GlobalHookBase.ThrowIfDisposed
-  nameWithType: GlobalHookBase.ThrowIfDisposed
+- uid: SharpHook.GlobalHookBase.ShouldDispatchEvent(SharpHook.Data.UioHookEvent@)
+  name: ShouldDispatchEvent(ref UioHookEvent)
+  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_ShouldDispatchEvent_SharpHook_Data_UioHookEvent__
+  commentId: M:SharpHook.GlobalHookBase.ShouldDispatchEvent(SharpHook.Data.UioHookEvent@)
+  name.vb: ShouldDispatchEvent(UioHookEvent)
+  fullName: SharpHook.GlobalHookBase.ShouldDispatchEvent(ref SharpHook.Data.UioHookEvent)
+  fullName.vb: SharpHook.GlobalHookBase.ShouldDispatchEvent(SharpHook.Data.UioHookEvent)
+  nameWithType: GlobalHookBase.ShouldDispatchEvent(ref UioHookEvent)
+  nameWithType.vb: GlobalHookBase.ShouldDispatchEvent(UioHookEvent)
+- uid: SharpHook.GlobalHookBase.ShouldDispatchEvent*
+  name: ShouldDispatchEvent
+  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_ShouldDispatchEvent_
+  commentId: Overload:SharpHook.GlobalHookBase.ShouldDispatchEvent
+  fullName: SharpHook.GlobalHookBase.ShouldDispatchEvent
+  nameWithType: GlobalHookBase.ShouldDispatchEvent
 - uid: SharpHook.HookEventArgs
   name: HookEventArgs
   href: api/SharpHook.HookEventArgs.html
@@ -2983,6 +3037,72 @@ references:
   commentId: Overload:SharpHook.HookException.Result
   fullName: SharpHook.HookException.Result
   nameWithType: HookException.Result
+- uid: SharpHook.IBasicGlobalHook
+  name: IBasicGlobalHook
+  href: api/SharpHook.IBasicGlobalHook.html
+  commentId: T:SharpHook.IBasicGlobalHook
+  fullName: SharpHook.IBasicGlobalHook
+  nameWithType: IBasicGlobalHook
+- uid: SharpHook.IBasicGlobalHook.IsDisposed
+  name: IsDisposed
+  href: api/SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_IsDisposed
+  commentId: P:SharpHook.IBasicGlobalHook.IsDisposed
+  fullName: SharpHook.IBasicGlobalHook.IsDisposed
+  nameWithType: IBasicGlobalHook.IsDisposed
+- uid: SharpHook.IBasicGlobalHook.IsDisposed*
+  name: IsDisposed
+  href: api/SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_IsDisposed_
+  commentId: Overload:SharpHook.IBasicGlobalHook.IsDisposed
+  fullName: SharpHook.IBasicGlobalHook.IsDisposed
+  nameWithType: IBasicGlobalHook.IsDisposed
+- uid: SharpHook.IBasicGlobalHook.IsRunning
+  name: IsRunning
+  href: api/SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_IsRunning
+  commentId: P:SharpHook.IBasicGlobalHook.IsRunning
+  fullName: SharpHook.IBasicGlobalHook.IsRunning
+  nameWithType: IBasicGlobalHook.IsRunning
+- uid: SharpHook.IBasicGlobalHook.IsRunning*
+  name: IsRunning
+  href: api/SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_IsRunning_
+  commentId: Overload:SharpHook.IBasicGlobalHook.IsRunning
+  fullName: SharpHook.IBasicGlobalHook.IsRunning
+  nameWithType: IBasicGlobalHook.IsRunning
+- uid: SharpHook.IBasicGlobalHook.Run
+  name: Run()
+  href: api/SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_Run
+  commentId: M:SharpHook.IBasicGlobalHook.Run
+  fullName: SharpHook.IBasicGlobalHook.Run()
+  nameWithType: IBasicGlobalHook.Run()
+- uid: SharpHook.IBasicGlobalHook.Run*
+  name: Run
+  href: api/SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_Run_
+  commentId: Overload:SharpHook.IBasicGlobalHook.Run
+  fullName: SharpHook.IBasicGlobalHook.Run
+  nameWithType: IBasicGlobalHook.Run
+- uid: SharpHook.IBasicGlobalHook.RunAsync
+  name: RunAsync()
+  href: api/SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_RunAsync
+  commentId: M:SharpHook.IBasicGlobalHook.RunAsync
+  fullName: SharpHook.IBasicGlobalHook.RunAsync()
+  nameWithType: IBasicGlobalHook.RunAsync()
+- uid: SharpHook.IBasicGlobalHook.RunAsync*
+  name: RunAsync
+  href: api/SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_RunAsync_
+  commentId: Overload:SharpHook.IBasicGlobalHook.RunAsync
+  fullName: SharpHook.IBasicGlobalHook.RunAsync
+  nameWithType: IBasicGlobalHook.RunAsync
+- uid: SharpHook.IBasicGlobalHook.Stop
+  name: Stop()
+  href: api/SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_Stop
+  commentId: M:SharpHook.IBasicGlobalHook.Stop
+  fullName: SharpHook.IBasicGlobalHook.Stop()
+  nameWithType: IBasicGlobalHook.Stop()
+- uid: SharpHook.IBasicGlobalHook.Stop*
+  name: Stop
+  href: api/SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_Stop_
+  commentId: Overload:SharpHook.IBasicGlobalHook.Stop
+  fullName: SharpHook.IBasicGlobalHook.Stop
+  nameWithType: IBasicGlobalHook.Stop
 - uid: SharpHook.IEventSimulator
   name: IEventSimulator
   href: api/SharpHook.IEventSimulator.html
@@ -3181,30 +3301,6 @@ references:
   commentId: E:SharpHook.IGlobalHook.HookEnabled
   fullName: SharpHook.IGlobalHook.HookEnabled
   nameWithType: IGlobalHook.HookEnabled
-- uid: SharpHook.IGlobalHook.IsDisposed
-  name: IsDisposed
-  href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_IsDisposed
-  commentId: P:SharpHook.IGlobalHook.IsDisposed
-  fullName: SharpHook.IGlobalHook.IsDisposed
-  nameWithType: IGlobalHook.IsDisposed
-- uid: SharpHook.IGlobalHook.IsDisposed*
-  name: IsDisposed
-  href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_IsDisposed_
-  commentId: Overload:SharpHook.IGlobalHook.IsDisposed
-  fullName: SharpHook.IGlobalHook.IsDisposed
-  nameWithType: IGlobalHook.IsDisposed
-- uid: SharpHook.IGlobalHook.IsRunning
-  name: IsRunning
-  href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_IsRunning
-  commentId: P:SharpHook.IGlobalHook.IsRunning
-  fullName: SharpHook.IGlobalHook.IsRunning
-  nameWithType: IGlobalHook.IsRunning
-- uid: SharpHook.IGlobalHook.IsRunning*
-  name: IsRunning
-  href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_IsRunning_
-  commentId: Overload:SharpHook.IGlobalHook.IsRunning
-  fullName: SharpHook.IGlobalHook.IsRunning
-  nameWithType: IGlobalHook.IsRunning
 - uid: SharpHook.IGlobalHook.KeyPressed
   name: KeyPressed
   href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_KeyPressed
@@ -3259,42 +3355,6 @@ references:
   commentId: E:SharpHook.IGlobalHook.MouseWheel
   fullName: SharpHook.IGlobalHook.MouseWheel
   nameWithType: IGlobalHook.MouseWheel
-- uid: SharpHook.IGlobalHook.Run
-  name: Run()
-  href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_Run
-  commentId: M:SharpHook.IGlobalHook.Run
-  fullName: SharpHook.IGlobalHook.Run()
-  nameWithType: IGlobalHook.Run()
-- uid: SharpHook.IGlobalHook.Run*
-  name: Run
-  href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_Run_
-  commentId: Overload:SharpHook.IGlobalHook.Run
-  fullName: SharpHook.IGlobalHook.Run
-  nameWithType: IGlobalHook.Run
-- uid: SharpHook.IGlobalHook.RunAsync
-  name: RunAsync()
-  href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_RunAsync
-  commentId: M:SharpHook.IGlobalHook.RunAsync
-  fullName: SharpHook.IGlobalHook.RunAsync()
-  nameWithType: IGlobalHook.RunAsync()
-- uid: SharpHook.IGlobalHook.RunAsync*
-  name: RunAsync
-  href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_RunAsync_
-  commentId: Overload:SharpHook.IGlobalHook.RunAsync
-  fullName: SharpHook.IGlobalHook.RunAsync
-  nameWithType: IGlobalHook.RunAsync
-- uid: SharpHook.IGlobalHook.Stop
-  name: Stop()
-  href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_Stop
-  commentId: M:SharpHook.IGlobalHook.Stop
-  fullName: SharpHook.IGlobalHook.Stop()
-  nameWithType: IGlobalHook.Stop()
-- uid: SharpHook.IGlobalHook.Stop*
-  name: Stop
-  href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_Stop_
-  commentId: Overload:SharpHook.IGlobalHook.Stop
-  fullName: SharpHook.IGlobalHook.Stop
-  nameWithType: IGlobalHook.Stop
 - uid: SharpHook.KeyboardHookEventArgs
   name: KeyboardHookEventArgs
   href: api/SharpHook.KeyboardHookEventArgs.html
@@ -4924,30 +4984,6 @@ references:
   commentId: Overload:SharpHook.R3.IR3GlobalHook.HookEnabled
   fullName: SharpHook.R3.IR3GlobalHook.HookEnabled
   nameWithType: IR3GlobalHook.HookEnabled
-- uid: SharpHook.R3.IR3GlobalHook.IsDisposed
-  name: IsDisposed
-  href: api/SharpHook.R3.IR3GlobalHook.html#SharpHook_R3_IR3GlobalHook_IsDisposed
-  commentId: P:SharpHook.R3.IR3GlobalHook.IsDisposed
-  fullName: SharpHook.R3.IR3GlobalHook.IsDisposed
-  nameWithType: IR3GlobalHook.IsDisposed
-- uid: SharpHook.R3.IR3GlobalHook.IsDisposed*
-  name: IsDisposed
-  href: api/SharpHook.R3.IR3GlobalHook.html#SharpHook_R3_IR3GlobalHook_IsDisposed_
-  commentId: Overload:SharpHook.R3.IR3GlobalHook.IsDisposed
-  fullName: SharpHook.R3.IR3GlobalHook.IsDisposed
-  nameWithType: IR3GlobalHook.IsDisposed
-- uid: SharpHook.R3.IR3GlobalHook.IsRunning
-  name: IsRunning
-  href: api/SharpHook.R3.IR3GlobalHook.html#SharpHook_R3_IR3GlobalHook_IsRunning
-  commentId: P:SharpHook.R3.IR3GlobalHook.IsRunning
-  fullName: SharpHook.R3.IR3GlobalHook.IsRunning
-  nameWithType: IR3GlobalHook.IsRunning
-- uid: SharpHook.R3.IR3GlobalHook.IsRunning*
-  name: IsRunning
-  href: api/SharpHook.R3.IR3GlobalHook.html#SharpHook_R3_IR3GlobalHook_IsRunning_
-  commentId: Overload:SharpHook.R3.IR3GlobalHook.IsRunning
-  fullName: SharpHook.R3.IR3GlobalHook.IsRunning
-  nameWithType: IR3GlobalHook.IsRunning
 - uid: SharpHook.R3.IR3GlobalHook.KeyPressed
   name: KeyPressed
   href: api/SharpHook.R3.IR3GlobalHook.html#SharpHook_R3_IR3GlobalHook_KeyPressed
@@ -5056,42 +5092,6 @@ references:
   commentId: Overload:SharpHook.R3.IR3GlobalHook.MouseWheel
   fullName: SharpHook.R3.IR3GlobalHook.MouseWheel
   nameWithType: IR3GlobalHook.MouseWheel
-- uid: SharpHook.R3.IR3GlobalHook.Run
-  name: Run()
-  href: api/SharpHook.R3.IR3GlobalHook.html#SharpHook_R3_IR3GlobalHook_Run
-  commentId: M:SharpHook.R3.IR3GlobalHook.Run
-  fullName: SharpHook.R3.IR3GlobalHook.Run()
-  nameWithType: IR3GlobalHook.Run()
-- uid: SharpHook.R3.IR3GlobalHook.Run*
-  name: Run
-  href: api/SharpHook.R3.IR3GlobalHook.html#SharpHook_R3_IR3GlobalHook_Run_
-  commentId: Overload:SharpHook.R3.IR3GlobalHook.Run
-  fullName: SharpHook.R3.IR3GlobalHook.Run
-  nameWithType: IR3GlobalHook.Run
-- uid: SharpHook.R3.IR3GlobalHook.RunAsync
-  name: RunAsync()
-  href: api/SharpHook.R3.IR3GlobalHook.html#SharpHook_R3_IR3GlobalHook_RunAsync
-  commentId: M:SharpHook.R3.IR3GlobalHook.RunAsync
-  fullName: SharpHook.R3.IR3GlobalHook.RunAsync()
-  nameWithType: IR3GlobalHook.RunAsync()
-- uid: SharpHook.R3.IR3GlobalHook.RunAsync*
-  name: RunAsync
-  href: api/SharpHook.R3.IR3GlobalHook.html#SharpHook_R3_IR3GlobalHook_RunAsync_
-  commentId: Overload:SharpHook.R3.IR3GlobalHook.RunAsync
-  fullName: SharpHook.R3.IR3GlobalHook.RunAsync
-  nameWithType: IR3GlobalHook.RunAsync
-- uid: SharpHook.R3.IR3GlobalHook.Stop
-  name: Stop()
-  href: api/SharpHook.R3.IR3GlobalHook.html#SharpHook_R3_IR3GlobalHook_Stop
-  commentId: M:SharpHook.R3.IR3GlobalHook.Stop
-  fullName: SharpHook.R3.IR3GlobalHook.Stop()
-  nameWithType: IR3GlobalHook.Stop()
-- uid: SharpHook.R3.IR3GlobalHook.Stop*
-  name: Stop
-  href: api/SharpHook.R3.IR3GlobalHook.html#SharpHook_R3_IR3GlobalHook_Stop_
-  commentId: Overload:SharpHook.R3.IR3GlobalHook.Stop
-  fullName: SharpHook.R3.IR3GlobalHook.Stop
-  nameWithType: IR3GlobalHook.Stop
 - uid: SharpHook.R3.Logging
   name: SharpHook.R3.Logging
   href: api/SharpHook.R3.Logging.html
@@ -5227,33 +5227,36 @@ references:
   fullName.vb: SharpHook.R3.R3GlobalHook.New
   nameWithType: R3GlobalHook.R3GlobalHook
   nameWithType.vb: R3GlobalHook.New
-- uid: SharpHook.R3.R3GlobalHook.Dispose
-  name: Dispose()
-  href: api/SharpHook.R3.R3GlobalHook.html#SharpHook_R3_R3GlobalHook_Dispose
-  commentId: M:SharpHook.R3.R3GlobalHook.Dispose
-  fullName: SharpHook.R3.R3GlobalHook.Dispose()
-  nameWithType: R3GlobalHook.Dispose()
+- uid: SharpHook.R3.R3GlobalHook.Dispose(System.Boolean)
+  name: Dispose(bool)
+  href: api/SharpHook.R3.R3GlobalHook.html#SharpHook_R3_R3GlobalHook_Dispose_System_Boolean_
+  commentId: M:SharpHook.R3.R3GlobalHook.Dispose(System.Boolean)
+  name.vb: Dispose(Boolean)
+  fullName: SharpHook.R3.R3GlobalHook.Dispose(bool)
+  fullName.vb: SharpHook.R3.R3GlobalHook.Dispose(Boolean)
+  nameWithType: R3GlobalHook.Dispose(bool)
+  nameWithType.vb: R3GlobalHook.Dispose(Boolean)
 - uid: SharpHook.R3.R3GlobalHook.Dispose*
   name: Dispose
   href: api/SharpHook.R3.R3GlobalHook.html#SharpHook_R3_R3GlobalHook_Dispose_
   commentId: Overload:SharpHook.R3.R3GlobalHook.Dispose
   fullName: SharpHook.R3.R3GlobalHook.Dispose
   nameWithType: R3GlobalHook.Dispose
-- uid: SharpHook.R3.R3GlobalHook.Finalize
-  name: ~R3GlobalHook()
-  href: api/SharpHook.R3.R3GlobalHook.html#SharpHook_R3_R3GlobalHook_Finalize
-  commentId: M:SharpHook.R3.R3GlobalHook.Finalize
-  name.vb: ''
-  fullName: SharpHook.R3.R3GlobalHook.~R3GlobalHook()
-  fullName.vb: ''
-  nameWithType: R3GlobalHook.~R3GlobalHook()
-  nameWithType.vb: ''
-- uid: SharpHook.R3.R3GlobalHook.Finalize*
-  name: ~R3GlobalHook
-  href: api/SharpHook.R3.R3GlobalHook.html#SharpHook_R3_R3GlobalHook_Finalize_
-  commentId: Overload:SharpHook.R3.R3GlobalHook.Finalize
-  fullName: SharpHook.R3.R3GlobalHook.~R3GlobalHook
-  nameWithType: R3GlobalHook.~R3GlobalHook
+- uid: SharpHook.R3.R3GlobalHook.HandleHookEvent(SharpHook.Data.UioHookEvent@)
+  name: HandleHookEvent(ref UioHookEvent)
+  href: api/SharpHook.R3.R3GlobalHook.html#SharpHook_R3_R3GlobalHook_HandleHookEvent_SharpHook_Data_UioHookEvent__
+  commentId: M:SharpHook.R3.R3GlobalHook.HandleHookEvent(SharpHook.Data.UioHookEvent@)
+  name.vb: HandleHookEvent(UioHookEvent)
+  fullName: SharpHook.R3.R3GlobalHook.HandleHookEvent(ref SharpHook.Data.UioHookEvent)
+  fullName.vb: SharpHook.R3.R3GlobalHook.HandleHookEvent(SharpHook.Data.UioHookEvent)
+  nameWithType: R3GlobalHook.HandleHookEvent(ref UioHookEvent)
+  nameWithType.vb: R3GlobalHook.HandleHookEvent(UioHookEvent)
+- uid: SharpHook.R3.R3GlobalHook.HandleHookEvent*
+  name: HandleHookEvent
+  href: api/SharpHook.R3.R3GlobalHook.html#SharpHook_R3_R3GlobalHook_HandleHookEvent_
+  commentId: Overload:SharpHook.R3.R3GlobalHook.HandleHookEvent
+  fullName: SharpHook.R3.R3GlobalHook.HandleHookEvent
+  nameWithType: R3GlobalHook.HandleHookEvent
 - uid: SharpHook.R3.R3GlobalHook.HookDisabled
   name: HookDisabled
   href: api/SharpHook.R3.R3GlobalHook.html#SharpHook_R3_R3GlobalHook_HookDisabled
@@ -5278,30 +5281,6 @@ references:
   commentId: Overload:SharpHook.R3.R3GlobalHook.HookEnabled
   fullName: SharpHook.R3.R3GlobalHook.HookEnabled
   nameWithType: R3GlobalHook.HookEnabled
-- uid: SharpHook.R3.R3GlobalHook.IsDisposed
-  name: IsDisposed
-  href: api/SharpHook.R3.R3GlobalHook.html#SharpHook_R3_R3GlobalHook_IsDisposed
-  commentId: P:SharpHook.R3.R3GlobalHook.IsDisposed
-  fullName: SharpHook.R3.R3GlobalHook.IsDisposed
-  nameWithType: R3GlobalHook.IsDisposed
-- uid: SharpHook.R3.R3GlobalHook.IsDisposed*
-  name: IsDisposed
-  href: api/SharpHook.R3.R3GlobalHook.html#SharpHook_R3_R3GlobalHook_IsDisposed_
-  commentId: Overload:SharpHook.R3.R3GlobalHook.IsDisposed
-  fullName: SharpHook.R3.R3GlobalHook.IsDisposed
-  nameWithType: R3GlobalHook.IsDisposed
-- uid: SharpHook.R3.R3GlobalHook.IsRunning
-  name: IsRunning
-  href: api/SharpHook.R3.R3GlobalHook.html#SharpHook_R3_R3GlobalHook_IsRunning
-  commentId: P:SharpHook.R3.R3GlobalHook.IsRunning
-  fullName: SharpHook.R3.R3GlobalHook.IsRunning
-  nameWithType: R3GlobalHook.IsRunning
-- uid: SharpHook.R3.R3GlobalHook.IsRunning*
-  name: IsRunning
-  href: api/SharpHook.R3.R3GlobalHook.html#SharpHook_R3_R3GlobalHook_IsRunning_
-  commentId: Overload:SharpHook.R3.R3GlobalHook.IsRunning
-  fullName: SharpHook.R3.R3GlobalHook.IsRunning
-  nameWithType: R3GlobalHook.IsRunning
 - uid: SharpHook.R3.R3GlobalHook.KeyPressed
   name: KeyPressed
   href: api/SharpHook.R3.R3GlobalHook.html#SharpHook_R3_R3GlobalHook_KeyPressed
@@ -5410,42 +5389,6 @@ references:
   commentId: Overload:SharpHook.R3.R3GlobalHook.MouseWheel
   fullName: SharpHook.R3.R3GlobalHook.MouseWheel
   nameWithType: R3GlobalHook.MouseWheel
-- uid: SharpHook.R3.R3GlobalHook.Run
-  name: Run()
-  href: api/SharpHook.R3.R3GlobalHook.html#SharpHook_R3_R3GlobalHook_Run
-  commentId: M:SharpHook.R3.R3GlobalHook.Run
-  fullName: SharpHook.R3.R3GlobalHook.Run()
-  nameWithType: R3GlobalHook.Run()
-- uid: SharpHook.R3.R3GlobalHook.Run*
-  name: Run
-  href: api/SharpHook.R3.R3GlobalHook.html#SharpHook_R3_R3GlobalHook_Run_
-  commentId: Overload:SharpHook.R3.R3GlobalHook.Run
-  fullName: SharpHook.R3.R3GlobalHook.Run
-  nameWithType: R3GlobalHook.Run
-- uid: SharpHook.R3.R3GlobalHook.RunAsync
-  name: RunAsync()
-  href: api/SharpHook.R3.R3GlobalHook.html#SharpHook_R3_R3GlobalHook_RunAsync
-  commentId: M:SharpHook.R3.R3GlobalHook.RunAsync
-  fullName: SharpHook.R3.R3GlobalHook.RunAsync()
-  nameWithType: R3GlobalHook.RunAsync()
-- uid: SharpHook.R3.R3GlobalHook.RunAsync*
-  name: RunAsync
-  href: api/SharpHook.R3.R3GlobalHook.html#SharpHook_R3_R3GlobalHook_RunAsync_
-  commentId: Overload:SharpHook.R3.R3GlobalHook.RunAsync
-  fullName: SharpHook.R3.R3GlobalHook.RunAsync
-  nameWithType: R3GlobalHook.RunAsync
-- uid: SharpHook.R3.R3GlobalHook.Stop
-  name: Stop()
-  href: api/SharpHook.R3.R3GlobalHook.html#SharpHook_R3_R3GlobalHook_Stop
-  commentId: M:SharpHook.R3.R3GlobalHook.Stop
-  fullName: SharpHook.R3.R3GlobalHook.Stop()
-  nameWithType: R3GlobalHook.Stop()
-- uid: SharpHook.R3.R3GlobalHook.Stop*
-  name: Stop
-  href: api/SharpHook.R3.R3GlobalHook.html#SharpHook_R3_R3GlobalHook_Stop_
-  commentId: Overload:SharpHook.R3.R3GlobalHook.Stop
-  fullName: SharpHook.R3.R3GlobalHook.Stop
-  nameWithType: R3GlobalHook.Stop
 - uid: SharpHook.R3.R3GlobalHookAdapter
   name: R3GlobalHookAdapter
   href: api/SharpHook.R3.R3GlobalHookAdapter.html
@@ -5710,30 +5653,6 @@ references:
   commentId: Overload:SharpHook.Reactive.IReactiveGlobalHook.HookEnabled
   fullName: SharpHook.Reactive.IReactiveGlobalHook.HookEnabled
   nameWithType: IReactiveGlobalHook.HookEnabled
-- uid: SharpHook.Reactive.IReactiveGlobalHook.IsDisposed
-  name: IsDisposed
-  href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_IsDisposed
-  commentId: P:SharpHook.Reactive.IReactiveGlobalHook.IsDisposed
-  fullName: SharpHook.Reactive.IReactiveGlobalHook.IsDisposed
-  nameWithType: IReactiveGlobalHook.IsDisposed
-- uid: SharpHook.Reactive.IReactiveGlobalHook.IsDisposed*
-  name: IsDisposed
-  href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_IsDisposed_
-  commentId: Overload:SharpHook.Reactive.IReactiveGlobalHook.IsDisposed
-  fullName: SharpHook.Reactive.IReactiveGlobalHook.IsDisposed
-  nameWithType: IReactiveGlobalHook.IsDisposed
-- uid: SharpHook.Reactive.IReactiveGlobalHook.IsRunning
-  name: IsRunning
-  href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_IsRunning
-  commentId: P:SharpHook.Reactive.IReactiveGlobalHook.IsRunning
-  fullName: SharpHook.Reactive.IReactiveGlobalHook.IsRunning
-  nameWithType: IReactiveGlobalHook.IsRunning
-- uid: SharpHook.Reactive.IReactiveGlobalHook.IsRunning*
-  name: IsRunning
-  href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_IsRunning_
-  commentId: Overload:SharpHook.Reactive.IReactiveGlobalHook.IsRunning
-  fullName: SharpHook.Reactive.IReactiveGlobalHook.IsRunning
-  nameWithType: IReactiveGlobalHook.IsRunning
 - uid: SharpHook.Reactive.IReactiveGlobalHook.KeyPressed
   name: KeyPressed
   href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_KeyPressed
@@ -5842,42 +5761,6 @@ references:
   commentId: Overload:SharpHook.Reactive.IReactiveGlobalHook.MouseWheel
   fullName: SharpHook.Reactive.IReactiveGlobalHook.MouseWheel
   nameWithType: IReactiveGlobalHook.MouseWheel
-- uid: SharpHook.Reactive.IReactiveGlobalHook.Run
-  name: Run()
-  href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_Run
-  commentId: M:SharpHook.Reactive.IReactiveGlobalHook.Run
-  fullName: SharpHook.Reactive.IReactiveGlobalHook.Run()
-  nameWithType: IReactiveGlobalHook.Run()
-- uid: SharpHook.Reactive.IReactiveGlobalHook.Run*
-  name: Run
-  href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_Run_
-  commentId: Overload:SharpHook.Reactive.IReactiveGlobalHook.Run
-  fullName: SharpHook.Reactive.IReactiveGlobalHook.Run
-  nameWithType: IReactiveGlobalHook.Run
-- uid: SharpHook.Reactive.IReactiveGlobalHook.RunAsync
-  name: RunAsync()
-  href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_RunAsync
-  commentId: M:SharpHook.Reactive.IReactiveGlobalHook.RunAsync
-  fullName: SharpHook.Reactive.IReactiveGlobalHook.RunAsync()
-  nameWithType: IReactiveGlobalHook.RunAsync()
-- uid: SharpHook.Reactive.IReactiveGlobalHook.RunAsync*
-  name: RunAsync
-  href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_RunAsync_
-  commentId: Overload:SharpHook.Reactive.IReactiveGlobalHook.RunAsync
-  fullName: SharpHook.Reactive.IReactiveGlobalHook.RunAsync
-  nameWithType: IReactiveGlobalHook.RunAsync
-- uid: SharpHook.Reactive.IReactiveGlobalHook.Stop
-  name: Stop()
-  href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_Stop
-  commentId: M:SharpHook.Reactive.IReactiveGlobalHook.Stop
-  fullName: SharpHook.Reactive.IReactiveGlobalHook.Stop()
-  nameWithType: IReactiveGlobalHook.Stop()
-- uid: SharpHook.Reactive.IReactiveGlobalHook.Stop*
-  name: Stop
-  href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_Stop_
-  commentId: Overload:SharpHook.Reactive.IReactiveGlobalHook.Stop
-  fullName: SharpHook.Reactive.IReactiveGlobalHook.Stop
-  nameWithType: IReactiveGlobalHook.Stop
 - uid: SharpHook.Reactive.Logging
   name: SharpHook.Reactive.Logging
   href: api/SharpHook.Reactive.Logging.html
@@ -6013,33 +5896,36 @@ references:
   fullName.vb: SharpHook.Reactive.ReactiveGlobalHook.New
   nameWithType: ReactiveGlobalHook.ReactiveGlobalHook
   nameWithType.vb: ReactiveGlobalHook.New
-- uid: SharpHook.Reactive.ReactiveGlobalHook.Dispose
-  name: Dispose()
-  href: api/SharpHook.Reactive.ReactiveGlobalHook.html#SharpHook_Reactive_ReactiveGlobalHook_Dispose
-  commentId: M:SharpHook.Reactive.ReactiveGlobalHook.Dispose
-  fullName: SharpHook.Reactive.ReactiveGlobalHook.Dispose()
-  nameWithType: ReactiveGlobalHook.Dispose()
+- uid: SharpHook.Reactive.ReactiveGlobalHook.Dispose(System.Boolean)
+  name: Dispose(bool)
+  href: api/SharpHook.Reactive.ReactiveGlobalHook.html#SharpHook_Reactive_ReactiveGlobalHook_Dispose_System_Boolean_
+  commentId: M:SharpHook.Reactive.ReactiveGlobalHook.Dispose(System.Boolean)
+  name.vb: Dispose(Boolean)
+  fullName: SharpHook.Reactive.ReactiveGlobalHook.Dispose(bool)
+  fullName.vb: SharpHook.Reactive.ReactiveGlobalHook.Dispose(Boolean)
+  nameWithType: ReactiveGlobalHook.Dispose(bool)
+  nameWithType.vb: ReactiveGlobalHook.Dispose(Boolean)
 - uid: SharpHook.Reactive.ReactiveGlobalHook.Dispose*
   name: Dispose
   href: api/SharpHook.Reactive.ReactiveGlobalHook.html#SharpHook_Reactive_ReactiveGlobalHook_Dispose_
   commentId: Overload:SharpHook.Reactive.ReactiveGlobalHook.Dispose
   fullName: SharpHook.Reactive.ReactiveGlobalHook.Dispose
   nameWithType: ReactiveGlobalHook.Dispose
-- uid: SharpHook.Reactive.ReactiveGlobalHook.Finalize
-  name: ~ReactiveGlobalHook()
-  href: api/SharpHook.Reactive.ReactiveGlobalHook.html#SharpHook_Reactive_ReactiveGlobalHook_Finalize
-  commentId: M:SharpHook.Reactive.ReactiveGlobalHook.Finalize
-  name.vb: ''
-  fullName: SharpHook.Reactive.ReactiveGlobalHook.~ReactiveGlobalHook()
-  fullName.vb: ''
-  nameWithType: ReactiveGlobalHook.~ReactiveGlobalHook()
-  nameWithType.vb: ''
-- uid: SharpHook.Reactive.ReactiveGlobalHook.Finalize*
-  name: ~ReactiveGlobalHook
-  href: api/SharpHook.Reactive.ReactiveGlobalHook.html#SharpHook_Reactive_ReactiveGlobalHook_Finalize_
-  commentId: Overload:SharpHook.Reactive.ReactiveGlobalHook.Finalize
-  fullName: SharpHook.Reactive.ReactiveGlobalHook.~ReactiveGlobalHook
-  nameWithType: ReactiveGlobalHook.~ReactiveGlobalHook
+- uid: SharpHook.Reactive.ReactiveGlobalHook.HandleHookEvent(SharpHook.Data.UioHookEvent@)
+  name: HandleHookEvent(ref UioHookEvent)
+  href: api/SharpHook.Reactive.ReactiveGlobalHook.html#SharpHook_Reactive_ReactiveGlobalHook_HandleHookEvent_SharpHook_Data_UioHookEvent__
+  commentId: M:SharpHook.Reactive.ReactiveGlobalHook.HandleHookEvent(SharpHook.Data.UioHookEvent@)
+  name.vb: HandleHookEvent(UioHookEvent)
+  fullName: SharpHook.Reactive.ReactiveGlobalHook.HandleHookEvent(ref SharpHook.Data.UioHookEvent)
+  fullName.vb: SharpHook.Reactive.ReactiveGlobalHook.HandleHookEvent(SharpHook.Data.UioHookEvent)
+  nameWithType: ReactiveGlobalHook.HandleHookEvent(ref UioHookEvent)
+  nameWithType.vb: ReactiveGlobalHook.HandleHookEvent(UioHookEvent)
+- uid: SharpHook.Reactive.ReactiveGlobalHook.HandleHookEvent*
+  name: HandleHookEvent
+  href: api/SharpHook.Reactive.ReactiveGlobalHook.html#SharpHook_Reactive_ReactiveGlobalHook_HandleHookEvent_
+  commentId: Overload:SharpHook.Reactive.ReactiveGlobalHook.HandleHookEvent
+  fullName: SharpHook.Reactive.ReactiveGlobalHook.HandleHookEvent
+  nameWithType: ReactiveGlobalHook.HandleHookEvent
 - uid: SharpHook.Reactive.ReactiveGlobalHook.HookDisabled
   name: HookDisabled
   href: api/SharpHook.Reactive.ReactiveGlobalHook.html#SharpHook_Reactive_ReactiveGlobalHook_HookDisabled
@@ -6064,30 +5950,6 @@ references:
   commentId: Overload:SharpHook.Reactive.ReactiveGlobalHook.HookEnabled
   fullName: SharpHook.Reactive.ReactiveGlobalHook.HookEnabled
   nameWithType: ReactiveGlobalHook.HookEnabled
-- uid: SharpHook.Reactive.ReactiveGlobalHook.IsDisposed
-  name: IsDisposed
-  href: api/SharpHook.Reactive.ReactiveGlobalHook.html#SharpHook_Reactive_ReactiveGlobalHook_IsDisposed
-  commentId: P:SharpHook.Reactive.ReactiveGlobalHook.IsDisposed
-  fullName: SharpHook.Reactive.ReactiveGlobalHook.IsDisposed
-  nameWithType: ReactiveGlobalHook.IsDisposed
-- uid: SharpHook.Reactive.ReactiveGlobalHook.IsDisposed*
-  name: IsDisposed
-  href: api/SharpHook.Reactive.ReactiveGlobalHook.html#SharpHook_Reactive_ReactiveGlobalHook_IsDisposed_
-  commentId: Overload:SharpHook.Reactive.ReactiveGlobalHook.IsDisposed
-  fullName: SharpHook.Reactive.ReactiveGlobalHook.IsDisposed
-  nameWithType: ReactiveGlobalHook.IsDisposed
-- uid: SharpHook.Reactive.ReactiveGlobalHook.IsRunning
-  name: IsRunning
-  href: api/SharpHook.Reactive.ReactiveGlobalHook.html#SharpHook_Reactive_ReactiveGlobalHook_IsRunning
-  commentId: P:SharpHook.Reactive.ReactiveGlobalHook.IsRunning
-  fullName: SharpHook.Reactive.ReactiveGlobalHook.IsRunning
-  nameWithType: ReactiveGlobalHook.IsRunning
-- uid: SharpHook.Reactive.ReactiveGlobalHook.IsRunning*
-  name: IsRunning
-  href: api/SharpHook.Reactive.ReactiveGlobalHook.html#SharpHook_Reactive_ReactiveGlobalHook_IsRunning_
-  commentId: Overload:SharpHook.Reactive.ReactiveGlobalHook.IsRunning
-  fullName: SharpHook.Reactive.ReactiveGlobalHook.IsRunning
-  nameWithType: ReactiveGlobalHook.IsRunning
 - uid: SharpHook.Reactive.ReactiveGlobalHook.KeyPressed
   name: KeyPressed
   href: api/SharpHook.Reactive.ReactiveGlobalHook.html#SharpHook_Reactive_ReactiveGlobalHook_KeyPressed
@@ -6196,42 +6058,6 @@ references:
   commentId: Overload:SharpHook.Reactive.ReactiveGlobalHook.MouseWheel
   fullName: SharpHook.Reactive.ReactiveGlobalHook.MouseWheel
   nameWithType: ReactiveGlobalHook.MouseWheel
-- uid: SharpHook.Reactive.ReactiveGlobalHook.Run
-  name: Run()
-  href: api/SharpHook.Reactive.ReactiveGlobalHook.html#SharpHook_Reactive_ReactiveGlobalHook_Run
-  commentId: M:SharpHook.Reactive.ReactiveGlobalHook.Run
-  fullName: SharpHook.Reactive.ReactiveGlobalHook.Run()
-  nameWithType: ReactiveGlobalHook.Run()
-- uid: SharpHook.Reactive.ReactiveGlobalHook.Run*
-  name: Run
-  href: api/SharpHook.Reactive.ReactiveGlobalHook.html#SharpHook_Reactive_ReactiveGlobalHook_Run_
-  commentId: Overload:SharpHook.Reactive.ReactiveGlobalHook.Run
-  fullName: SharpHook.Reactive.ReactiveGlobalHook.Run
-  nameWithType: ReactiveGlobalHook.Run
-- uid: SharpHook.Reactive.ReactiveGlobalHook.RunAsync
-  name: RunAsync()
-  href: api/SharpHook.Reactive.ReactiveGlobalHook.html#SharpHook_Reactive_ReactiveGlobalHook_RunAsync
-  commentId: M:SharpHook.Reactive.ReactiveGlobalHook.RunAsync
-  fullName: SharpHook.Reactive.ReactiveGlobalHook.RunAsync()
-  nameWithType: ReactiveGlobalHook.RunAsync()
-- uid: SharpHook.Reactive.ReactiveGlobalHook.RunAsync*
-  name: RunAsync
-  href: api/SharpHook.Reactive.ReactiveGlobalHook.html#SharpHook_Reactive_ReactiveGlobalHook_RunAsync_
-  commentId: Overload:SharpHook.Reactive.ReactiveGlobalHook.RunAsync
-  fullName: SharpHook.Reactive.ReactiveGlobalHook.RunAsync
-  nameWithType: ReactiveGlobalHook.RunAsync
-- uid: SharpHook.Reactive.ReactiveGlobalHook.Stop
-  name: Stop()
-  href: api/SharpHook.Reactive.ReactiveGlobalHook.html#SharpHook_Reactive_ReactiveGlobalHook_Stop
-  commentId: M:SharpHook.Reactive.ReactiveGlobalHook.Stop
-  fullName: SharpHook.Reactive.ReactiveGlobalHook.Stop()
-  nameWithType: ReactiveGlobalHook.Stop()
-- uid: SharpHook.Reactive.ReactiveGlobalHook.Stop*
-  name: Stop
-  href: api/SharpHook.Reactive.ReactiveGlobalHook.html#SharpHook_Reactive_ReactiveGlobalHook_Stop_
-  commentId: Overload:SharpHook.Reactive.ReactiveGlobalHook.Stop
-  fullName: SharpHook.Reactive.ReactiveGlobalHook.Stop
-  nameWithType: ReactiveGlobalHook.Stop
 - uid: SharpHook.Reactive.ReactiveGlobalHookAdapter
   name: ReactiveGlobalHookAdapter
   href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html

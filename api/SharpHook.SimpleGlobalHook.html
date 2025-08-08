@@ -103,7 +103,7 @@ the hook itself runs.</p>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class SimpleGlobalHook : GlobalHookBase, IGlobalHook, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public sealed class SimpleGlobalHook : GlobalHookBase, IGlobalHook, IBasicGlobalHook, IDisposable</code></pre>
   </div>
 
 
@@ -113,6 +113,7 @@ the hook itself runs.</p>
     <dt>Inheritance</dt>
     <dd>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="SharpHook.BasicGlobalHookBase.html">BasicGlobalHookBase</a></div>
       <div><a class="xref" href="SharpHook.GlobalHookBase.html">GlobalHookBase</a></div>
       <div><span class="xref">SimpleGlobalHook</span></div>
     </dd>
@@ -122,6 +123,7 @@ the hook itself runs.</p>
     <dt>Implements</dt>
     <dd>
       <div><a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a></div>
+      <div><a class="xref" href="SharpHook.IBasicGlobalHook.html">IBasicGlobalHook</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>
@@ -130,24 +132,6 @@ the hook itself runs.</p>
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
-    <div>
-      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_Run">GlobalHookBase.Run()</a>
-    </div>
-    <div>
-      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_RunAsync">GlobalHookBase.RunAsync()</a>
-    </div>
-    <div>
-      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_Stop">GlobalHookBase.Stop()</a>
-    </div>
-    <div>
-      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_Dispose">GlobalHookBase.Dispose()</a>
-    </div>
-    <div>
-      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_IsRunning">GlobalHookBase.IsRunning</a>
-    </div>
-    <div>
-      <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_IsDisposed">GlobalHookBase.IsDisposed</a>
-    </div>
     <div>
       <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_HookEnabled">GlobalHookBase.HookEnabled</a>
     </div>
@@ -180,6 +164,24 @@ the hook itself runs.</p>
     </div>
     <div>
       <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MouseWheel">GlobalHookBase.MouseWheel</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_Run">BasicGlobalHookBase.Run()</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_RunAsync">BasicGlobalHookBase.RunAsync()</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_Stop">BasicGlobalHookBase.Stop()</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_Dispose">BasicGlobalHookBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_IsRunning">BasicGlobalHookBase.IsRunning</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_IsDisposed">BasicGlobalHookBase.IsDisposed</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
@@ -239,7 +241,7 @@ need to do a lot of processing in the event handlers then consider using another
     <dd><p>The underlying global hook provider, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to use the default one.</p>
 </dd>
     <dt><code>runAsyncOnBackgroundThread</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <a class="xref" href="SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_RunAsync">RunAsync()</a> should run the hook on a background thread.
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <a class="xref" href="SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_RunAsync">RunAsync()</a> should run the hook on a background thread.
 Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </dd>
   </dl>
