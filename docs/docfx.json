@@ -5,6 +5,7 @@
         {
           "files": [
             "artifacts/bin/SharpHook/release_net9.0/SharpHook.dll",
+            "artifacts/bin/SharpHook.R3/release_net9.0/SharpHook.R3.dll",
             "artifacts/bin/SharpHook.Reactive/release_net9.0/SharpHook.Reactive.dll"
           ],
           "src": "../"
