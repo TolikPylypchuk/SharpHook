@@ -23,7 +23,7 @@ using SharpHook.Reactive;
 
 // ...
 
-var hook = new SimpleReactiveGlobalHook();
+var hook = new ReactiveGlobalHook();
 
 hook.HookEnabled.Subscribe(OnHookEnabled);
 hook.HookDisabled.Subscribe(OnHookDisabled);
@@ -55,8 +55,8 @@ Reactive global hooks are basically the same as the default global hooks and the
 
 SharpHook.Reactive provides two implementations of `IReactiveGlobalHook`:
 
-- `SharpHook.Reactive.SimpleReactiveGlobalHook`. Since we're dealing with observables, it's up to you to decide when
-and where to handle the events through schedulers. A default scheduler can be specified for all observables.
+- `SharpHook.Reactive.ReactiveGlobalHook`. Since we're dealing with observables, it's up to you to decide when and where
+to handle the events through schedulers. A default scheduler can be specified for all observables.
 
 - `SharpHook.Reactive.ReactiveGlobalHookAdapter` adapts an `IGlobalHook` to `IReactiveGlobalHook`. All
 subscriptions and changes are propagated to the adapted hook. There is no default adapter from `IReactiveGlobalHook`

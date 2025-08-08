@@ -7,7 +7,7 @@ namespace SharpHook.Reactive;
 /// All observables of objects of this interface are completed when the object is disposed, unless stated otherwise.
 /// </remarks>
 /// <seealso cref="IGlobalHook" />
-/// <seealso cref="SimpleReactiveGlobalHook" />
+/// <seealso cref="ReactiveGlobalHook" />
 /// <seealso cref="ReactiveGlobalHookAdapter" />
 public interface IReactiveGlobalHook : IDisposable
 {

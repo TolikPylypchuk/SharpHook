@@ -10,13 +10,13 @@ using ObjCRuntime;
 namespace SharpHook.R3;
 
 /// <summary>
-/// Represents a simple reactive R3 global hook.
+/// Represents a reactive R3 global hook.
 /// </summary>
 /// <seealso cref="IR3GlobalHook" />
-public sealed class SimpleR3GlobalHook : IR3GlobalHook
+public sealed class R3GlobalHook : IR3GlobalHook
 {
     private static readonly DispatchProc dispatchProc = HandleHookEvent;
-    private static readonly ConcurrentDictionary<nint, SimpleR3GlobalHook> runningGlobalHooks = [];
+    private static readonly ConcurrentDictionary<nint, R3GlobalHook> runningGlobalHooks = [];
 
     private static int currentHookIndex = 0;
 
@@ -41,7 +41,7 @@ public sealed class SimpleR3GlobalHook : IR3GlobalHook
     private readonly nint hookIndex;
 
     /// <summary>
-    /// Initializes a new instance of <see cref="SimpleR3GlobalHook" />.
+    /// Initializes a new instance of <see cref="R3GlobalHook" />.
     /// </summary>
     /// <param name="globalHookType">The global hook type.</param>
     /// <param name="defaultTimeProvider">
@@ -55,7 +55,7 @@ public sealed class SimpleR3GlobalHook : IR3GlobalHook
     /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
     /// Otherwise, <see langword="false" />.
     /// </param>
-    public SimpleR3GlobalHook(
+    public R3GlobalHook(
         GlobalHookType globalHookType = GlobalHookType.All,
         TimeProvider? defaultTimeProvider = null,
         IGlobalHookProvider? globalHookProvider = null,
@@ -87,7 +87,7 @@ public sealed class SimpleR3GlobalHook : IR3GlobalHook
     /// <summary>
     /// Stops the global hook if it's running.
     /// </summary>
-    ~SimpleR3GlobalHook() =>
+    ~R3GlobalHook() =>
         this.Dispose(false);
 
     /// <summary>

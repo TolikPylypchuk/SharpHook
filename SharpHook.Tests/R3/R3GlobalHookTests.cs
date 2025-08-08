@@ -1,6 +1,6 @@
 namespace SharpHook.R3;
 
-public sealed class SimpleR3GlobalHookTests
+public sealed class R3GlobalHookTests
 {
     [Property(DisplayName = "IsRunning should be true only if the hook is running")]
     public void IsRunning(GlobalHookType globalHookType)
@@ -10,7 +10,7 @@ public sealed class SimpleR3GlobalHookTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        var hook = new SimpleR3GlobalHook(globalHookType, timeProvider, provider);
+        var hook = new R3GlobalHook(globalHookType, timeProvider, provider);
 
         // Act + Assert
 
@@ -37,7 +37,7 @@ public sealed class SimpleR3GlobalHookTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        var hook = new SimpleR3GlobalHook(globalHookType, timeProvider, provider);
+        var hook = new R3GlobalHook(globalHookType, timeProvider, provider);
 
         // Act + Assert
 
@@ -61,7 +61,7 @@ public sealed class SimpleR3GlobalHookTests
 
         var timeProvider = new FakeTimeProvider();
 
-        var hook = new SimpleR3GlobalHook(globalHookType, timeProvider, provider);
+        var hook = new R3GlobalHook(globalHookType, timeProvider, provider);
 
         HookEventArgs? actualEventArgs = null;
 
@@ -99,7 +99,7 @@ public sealed class SimpleR3GlobalHookTests
 
         var timeProvider = new FakeTimeProvider();
 
-        var hook = new SimpleR3GlobalHook(globalHookType, timeProvider, provider);
+        var hook = new R3GlobalHook(globalHookType, timeProvider, provider);
 
         HookEventArgs? actualEventArgs = null;
 
@@ -134,7 +134,7 @@ public sealed class SimpleR3GlobalHookTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new SimpleR3GlobalHook(globalHookType, timeProvider, provider);
+        using var hook = new R3GlobalHook(globalHookType, timeProvider, provider);
 
         var e = new UioHookEvent
         {
@@ -190,7 +190,7 @@ public sealed class SimpleR3GlobalHookTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new SimpleR3GlobalHook(globalHookType, timeProvider, provider);
+        using var hook = new R3GlobalHook(globalHookType, timeProvider, provider);
 
         var e = new UioHookEvent
         {
@@ -247,7 +247,7 @@ public sealed class SimpleR3GlobalHookTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new SimpleR3GlobalHook(globalHookType, timeProvider, provider);
+        using var hook = new R3GlobalHook(globalHookType, timeProvider, provider);
 
         var e = new UioHookEvent
         {
@@ -305,7 +305,7 @@ public sealed class SimpleR3GlobalHookTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new SimpleR3GlobalHook(globalHookType, timeProvider, provider);
+        using var hook = new R3GlobalHook(globalHookType, timeProvider, provider);
 
         var e = new UioHookEvent
         {
@@ -365,7 +365,7 @@ public sealed class SimpleR3GlobalHookTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new SimpleR3GlobalHook(globalHookType, timeProvider, provider);
+        using var hook = new R3GlobalHook(globalHookType, timeProvider, provider);
 
         var e = new UioHookEvent
         {
@@ -425,7 +425,7 @@ public sealed class SimpleR3GlobalHookTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new SimpleR3GlobalHook(globalHookType, timeProvider, provider);
+        using var hook = new R3GlobalHook(globalHookType, timeProvider, provider);
 
         var e = new UioHookEvent
         {
@@ -483,7 +483,7 @@ public sealed class SimpleR3GlobalHookTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new SimpleR3GlobalHook(globalHookType, timeProvider, provider);
+        using var hook = new R3GlobalHook(globalHookType, timeProvider, provider);
 
         var e = new UioHookEvent
         {
@@ -537,7 +537,7 @@ public sealed class SimpleR3GlobalHookTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new SimpleR3GlobalHook(globalHookType, timeProvider, provider);
+        using var hook = new R3GlobalHook(globalHookType, timeProvider, provider);
 
         var e = new UioHookEvent
         {
@@ -595,7 +595,7 @@ public sealed class SimpleR3GlobalHookTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new SimpleR3GlobalHook(globalHookType, timeProvider, provider);
+        using var hook = new R3GlobalHook(globalHookType, timeProvider, provider);
 
         var e = new UioHookEvent
         {
@@ -656,7 +656,7 @@ public sealed class SimpleR3GlobalHookTests
 
         var timeProvider = new FakeTimeProvider();
 
-        var hook = new SimpleR3GlobalHook(globalHookType, timeProvider, provider);
+        var hook = new R3GlobalHook(globalHookType, timeProvider, provider);
 
         // Act + Assert
 
@@ -676,7 +676,7 @@ public sealed class SimpleR3GlobalHookTests
 
         var timeProvider = new FakeTimeProvider();
 
-        var hook = new SimpleR3GlobalHook(globalHookType, timeProvider, provider);
+        var hook = new R3GlobalHook(globalHookType, timeProvider, provider);
 
         // Act + Assert
 
@@ -692,7 +692,7 @@ public sealed class SimpleR3GlobalHookTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new SimpleR3GlobalHook(globalHookType, timeProvider, provider);
+        using var hook = new R3GlobalHook(globalHookType, timeProvider, provider);
 
         this.RunHookAndWaitForStart(hook, provider);
 
@@ -709,7 +709,7 @@ public sealed class SimpleR3GlobalHookTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new SimpleR3GlobalHook(globalHookType, timeProvider, provider);
+        using var hook = new R3GlobalHook(globalHookType, timeProvider, provider);
 
         this.RunHookAndWaitForStart(hook, provider);
 
@@ -723,7 +723,7 @@ public sealed class SimpleR3GlobalHookTests
     {
         // Arrange
 
-        var hook = new SimpleR3GlobalHook(globalHookType);
+        var hook = new R3GlobalHook(globalHookType);
         hook.Dispose();
 
         // Act + Assert
@@ -736,7 +736,7 @@ public sealed class SimpleR3GlobalHookTests
     {
         // Arrange
 
-        var hook = new SimpleR3GlobalHook(globalHookType);
+        var hook = new R3GlobalHook(globalHookType);
         hook.Dispose();
 
         // Act + Assert
@@ -756,7 +756,7 @@ public sealed class SimpleR3GlobalHookTests
 
         var timeProvider = new FakeTimeProvider();
 
-        var hook = new SimpleR3GlobalHook(globalHookType, timeProvider, provider);
+        var hook = new R3GlobalHook(globalHookType, timeProvider, provider);
 
         this.RunHookAndWaitForStart(hook, provider);
 
@@ -771,7 +771,7 @@ public sealed class SimpleR3GlobalHookTests
     {
         // Arrange
 
-        var hook = new SimpleR3GlobalHook(globalHookType);
+        var hook = new R3GlobalHook(globalHookType);
         hook.Dispose();
 
         // Act + Assert
@@ -791,7 +791,7 @@ public sealed class SimpleR3GlobalHookTests
 
         var timeProvider = new FakeTimeProvider();
 
-        var hook = new SimpleR3GlobalHook(globalHookType, timeProvider, provider);
+        var hook = new R3GlobalHook(globalHookType, timeProvider, provider);
 
         this.RunHookAndWaitForStart(hook, provider);
 
@@ -806,7 +806,7 @@ public sealed class SimpleR3GlobalHookTests
     {
         // Arrange
 
-        var hook = new SimpleR3GlobalHook(globalHookType);
+        var hook = new R3GlobalHook(globalHookType);
         hook.Dispose();
 
         // Act
@@ -818,21 +818,21 @@ public sealed class SimpleR3GlobalHookTests
         Assert.Null(exception);
     }
 
-    [Property(DisplayName = "SimpleR3GlobalHook should not throw if the time provider is null")]
+    [Property(DisplayName = "R3GlobalHook should not throw if the time provider is null")]
     public void TimeProviderNull(GlobalHookType globalHookType)
     {
-        var exception = Record.Exception(() => new SimpleR3GlobalHook(globalHookType, defaultTimeProvider: null));
+        var exception = Record.Exception(() => new R3GlobalHook(globalHookType, defaultTimeProvider: null));
         Assert.Null(exception);
     }
 
-    [Property(DisplayName = "SimpleR3GlobalHook should not throw if the provider is null")]
+    [Property(DisplayName = "R3GlobalHook should not throw if the provider is null")]
     public void ProviderNull(GlobalHookType globalHookType)
     {
-        var exception = Record.Exception(() => new SimpleR3GlobalHook(globalHookType, globalHookProvider: null));
+        var exception = Record.Exception(() => new R3GlobalHook(globalHookType, globalHookProvider: null));
         Assert.Null(exception);
     }
 
-    private void RunHookAndWaitForStart(SimpleR3GlobalHook hook, TestProvider provider)
+    private void RunHookAndWaitForStart(R3GlobalHook hook, TestProvider provider)
     {
         hook.RunAsync();
 
@@ -842,7 +842,7 @@ public sealed class SimpleR3GlobalHookTests
         }
     }
 
-    private void StopHookAndWaitForStop(SimpleR3GlobalHook hook)
+    private void StopHookAndWaitForStop(R3GlobalHook hook)
     {
         hook.Stop();
 
@@ -852,7 +852,7 @@ public sealed class SimpleR3GlobalHookTests
         }
     }
 
-    private void DisposeHookAndWaitForStop(SimpleR3GlobalHook hook)
+    private void DisposeHookAndWaitForStop(R3GlobalHook hook)
     {
         hook.Dispose();
 

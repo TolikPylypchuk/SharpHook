@@ -10,10 +10,10 @@ namespace SharpHook.Reactive;
 /// Represents a simple reactive global hook.
 /// </summary>
 /// <seealso cref="IReactiveGlobalHook" />
-public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
+public sealed class ReactiveGlobalHook : IReactiveGlobalHook
 {
     private static readonly DispatchProc dispatchProc = HandleHookEvent;
-    private static readonly ConcurrentDictionary<nint, SimpleReactiveGlobalHook> runningGlobalHooks = [];
+    private static readonly ConcurrentDictionary<nint, ReactiveGlobalHook> runningGlobalHooks = [];
 
     private static int currentHookIndex = 0;
 
@@ -38,7 +38,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     private readonly nint hookIndex;
 
     /// <summary>
-    /// Initializes a new instance of <see cref="SimpleReactiveGlobalHook" />.
+    /// Initializes a new instance of <see cref="ReactiveGlobalHook" />.
     /// </summary>
     /// <param name="globalHookType">The global hook type.</param>
     /// <param name="defaultScheduler">
@@ -51,7 +51,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
     /// Otherwise, <see langword="false" />.
     /// </param>
-    public SimpleReactiveGlobalHook(
+    public ReactiveGlobalHook(
         GlobalHookType globalHookType = GlobalHookType.All,
         IScheduler? defaultScheduler = null,
         IGlobalHookProvider? globalHookProvider = null,
@@ -83,7 +83,7 @@ public sealed class SimpleReactiveGlobalHook : IReactiveGlobalHook
     /// <summary>
     /// Stops the global hook if it's running.
     /// </summary>
-    ~SimpleReactiveGlobalHook() =>
+    ~ReactiveGlobalHook() =>
         this.Dispose(false);
 
     /// <summary>

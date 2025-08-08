@@ -7,7 +7,7 @@ namespace SharpHook.R3;
 /// All observables of objects of this interface are completed when the object is disposed, unless stated otherwise.
 /// </remarks>
 /// <seealso cref="IGlobalHook" />
-/// <seealso cref="SimpleR3GlobalHook" />
+/// <seealso cref="R3GlobalHook" />
 /// <seealso cref="R3GlobalHookAdapter" />
 public interface IR3GlobalHook : IDisposable
 {

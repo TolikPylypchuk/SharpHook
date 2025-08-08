@@ -23,7 +23,7 @@ using SharpHook.R3;
 
 // ...
 
-var hook = new SimpleR3GlobalHook();
+var hook = new R3GlobalHook();
 
 hook.HookEnabled.Subscribe(OnHookEnabled);
 hook.HookDisabled.Subscribe(OnHookDisabled);
@@ -55,8 +55,8 @@ R3 global hooks are basically the same as the default global hooks and the same 
 
 SharpHook.R3 provides two implementations of `IR3GlobalHook`:
 
-- `SharpHook.R3.SimpleR3GlobalHook`. Since we're dealing with observables, it's up to you to decide when and where to
-handle the events through time providers. A default time provider can be specified for all observables.
+- `SharpHook.R3.R3GlobalHook`. Since we're dealing with observables, it's up to you to decide when and where to handle
+the events through time providers. A default time provider can be specified for all observables.
 
 - `SharpHook.R3.R3GlobalHookAdapter` adapts an `IGlobalHook` to `IR3GlobalHook`. All subscriptions and changes are
 propagated to the adapted hook. There is no default adapter from `IR3GlobalHook` to `IGlobalHook`. A default time
