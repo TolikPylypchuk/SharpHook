@@ -631,6 +631,104 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.R3.IR3GlobalHook.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.R3.IR3GlobalHook.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.R3.IR3GlobalHook",
+      "Summary": "<p sourcefile=\"api/SharpHook.R3.IR3GlobalHook.yml\" sourcestartlinenumber=\"1\">Represents a global reactive R3 keyboard and mouse hook.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.R3.Logging.IR3LogSource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.R3.Logging.IR3LogSource.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.R3.Logging.IR3LogSource",
+      "Summary": "<p sourcefile=\"api/SharpHook.R3.Logging.IR3LogSource.yml\" sourcestartlinenumber=\"1\">Represents a reactive R3 source of libuiohook logs.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.R3.Logging.R3LogSourceAdapter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.R3.Logging.R3LogSourceAdapter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.R3.Logging.R3LogSourceAdapter",
+      "Summary": "<p sourcefile=\"api/SharpHook.R3.Logging.R3LogSourceAdapter.yml\" sourcestartlinenumber=\"1\">Adapts an <xref href=\"SharpHook.Logging.ILogSource\" data-throw-if-not-resolved=\"false\"></xref> to the <xref href=\"SharpHook.R3.Logging.IR3LogSource\" data-throw-if-not-resolved=\"false\"></xref> interface.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.R3.Logging.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.R3.Logging.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.R3.Logging",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.R3.R3GlobalHook.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.R3.R3GlobalHook.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.R3.R3GlobalHook",
+      "Summary": "<p sourcefile=\"api/SharpHook.R3.R3GlobalHook.yml\" sourcestartlinenumber=\"1\">Represents a reactive R3 global hook.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.R3.R3GlobalHookAdapter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.R3.R3GlobalHookAdapter.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.R3.R3GlobalHookAdapter",
+      "Summary": "<p sourcefile=\"api/SharpHook.R3.R3GlobalHookAdapter.yml\" sourcestartlinenumber=\"1\">Adapts an <xref href=\"SharpHook.IGlobalHook\" data-throw-if-not-resolved=\"false\"></xref> to the <xref href=\"SharpHook.R3.IR3GlobalHook\" data-throw-if-not-resolved=\"false\"></xref> interface.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.R3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.R3.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.R3",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SharpHook.Reactive.IReactiveGlobalHook.yml",
       "output": {
         ".html": {
