@@ -5134,23 +5134,14 @@ references:
   commentId: T:SharpHook.Reactive.Logging.ReactiveLogSourceAdapter
   fullName: SharpHook.Reactive.Logging.ReactiveLogSourceAdapter
   nameWithType: ReactiveLogSourceAdapter
-- uid: SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.#ctor(SharpHook.Logging.ILogSource)
-  name: ReactiveLogSourceAdapter(ILogSource)
-  href: api/SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.html#SharpHook_Reactive_Logging_ReactiveLogSourceAdapter__ctor_SharpHook_Logging_ILogSource_
-  commentId: M:SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.#ctor(SharpHook.Logging.ILogSource)
-  name.vb: New(ILogSource)
-  fullName: SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.ReactiveLogSourceAdapter(SharpHook.Logging.ILogSource)
-  fullName.vb: SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.New(SharpHook.Logging.ILogSource)
-  nameWithType: ReactiveLogSourceAdapter.ReactiveLogSourceAdapter(ILogSource)
-  nameWithType.vb: ReactiveLogSourceAdapter.New(ILogSource)
 - uid: SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.#ctor(SharpHook.Logging.ILogSource,System.Reactive.Concurrency.IScheduler)
-  name: ReactiveLogSourceAdapter(ILogSource, IScheduler)
+  name: ReactiveLogSourceAdapter(ILogSource, IScheduler?)
   href: api/SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.html#SharpHook_Reactive_Logging_ReactiveLogSourceAdapter__ctor_SharpHook_Logging_ILogSource_System_Reactive_Concurrency_IScheduler_
   commentId: M:SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.#ctor(SharpHook.Logging.ILogSource,System.Reactive.Concurrency.IScheduler)
   name.vb: New(ILogSource, IScheduler)
-  fullName: SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.ReactiveLogSourceAdapter(SharpHook.Logging.ILogSource, System.Reactive.Concurrency.IScheduler)
+  fullName: SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.ReactiveLogSourceAdapter(SharpHook.Logging.ILogSource, System.Reactive.Concurrency.IScheduler?)
   fullName.vb: SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.New(SharpHook.Logging.ILogSource, System.Reactive.Concurrency.IScheduler)
-  nameWithType: ReactiveLogSourceAdapter.ReactiveLogSourceAdapter(ILogSource, IScheduler)
+  nameWithType: ReactiveLogSourceAdapter.ReactiveLogSourceAdapter(ILogSource, IScheduler?)
   nameWithType.vb: ReactiveLogSourceAdapter.New(ILogSource, IScheduler)
 - uid: SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.#ctor*
   name: ReactiveLogSourceAdapter
