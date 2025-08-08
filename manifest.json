@@ -687,6 +687,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Reactive.ReactiveGlobalHook.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Reactive.ReactiveGlobalHook.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Reactive.ReactiveGlobalHook",
+      "Summary": "<p sourcefile=\"api/SharpHook.Reactive.ReactiveGlobalHook.yml\" sourcestartlinenumber=\"1\">Represents a simple reactive global hook.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SharpHook.Reactive.ReactiveGlobalHookAdapter.yml",
       "output": {
         ".html": {
@@ -698,20 +712,6 @@
       "IsMRef": true,
       "Title": "SharpHook.Reactive.ReactiveGlobalHookAdapter",
       "Summary": "<p sourcefile=\"api/SharpHook.Reactive.ReactiveGlobalHookAdapter.yml\" sourcestartlinenumber=\"1\">Adapts an <xref href=\"SharpHook.IGlobalHook\" data-throw-if-not-resolved=\"false\"></xref> to the <xref href=\"SharpHook.Reactive.IReactiveGlobalHook\" data-throw-if-not-resolved=\"false\"></xref> interface.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Reactive.SimpleReactiveGlobalHook.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.Reactive.SimpleReactiveGlobalHook.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.Reactive.SimpleReactiveGlobalHook",
-      "Summary": "<p sourcefile=\"api/SharpHook.Reactive.SimpleReactiveGlobalHook.yml\" sourcestartlinenumber=\"1\">Represents a simple reactive global hook.</p>\n"
     },
     {
       "type": "ManagedReference",
