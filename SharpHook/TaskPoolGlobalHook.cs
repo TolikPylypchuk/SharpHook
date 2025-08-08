@@ -33,7 +33,7 @@ public sealed class TaskPoolGlobalHook : GlobalHookBase
     /// The underlying global hook provider, or <see langword="null" /> to use the default one.
     /// </param>
     /// <param name="runAsyncOnBackgroundThread">
-    /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
+    /// <see langword="true" /> if <see cref="IBasicGlobalHook.RunAsync" /> should run the hook on a background thread.
     /// Otherwise, <see langword="false" />.
     /// </param>
     [SuppressMessage(
@@ -52,6 +52,11 @@ public sealed class TaskPoolGlobalHook : GlobalHookBase
     /// <param name="e">The event to handle.</param>
     protected override void HandleHookEvent(ref UioHookEvent e)
     {
+        if (!this.ShouldDispatchEvent(ref e))
+        {
+            return;
+        }
+
         if (e.Type != EventType.HookDisabled)
         {
             var copy = e;

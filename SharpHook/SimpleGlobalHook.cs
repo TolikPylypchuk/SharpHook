@@ -22,7 +22,7 @@ public sealed class SimpleGlobalHook : GlobalHookBase
     /// The underlying global hook provider, or <see langword="null" /> to use the default one.
     /// </param>
     /// <param name="runAsyncOnBackgroundThread">
-    /// <see langword="true" /> if <see cref="IGlobalHook.RunAsync" /> should run the hook on a background thread.
+    /// <see langword="true" /> if <see cref="IBasicGlobalHook.RunAsync" /> should run the hook on a background thread.
     /// Otherwise, <see langword="false" />.
     /// </param>
     [SuppressMessage(

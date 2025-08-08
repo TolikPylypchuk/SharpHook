@@ -146,8 +146,8 @@ public sealed class R3GlobalHookAdapter : IGlobalHook, IR3GlobalHook
     /// </summary>
     /// <value>An observable which emits a value when the global hook is enabled.</value>
     /// <remarks>
-    /// The observable emits a value when the <see cref="Run" /> or <see cref="RunAsync" /> method is called and
-    /// then immediately completes.
+    /// The observable emits a value when the <see cref="IBasicGlobalHook.Run" /> or
+    /// <see cref="IBasicGlobalHook.RunAsync" /> method is called.
     /// </remarks>
     public Observable<HookEventArgs> HookEnabled { get; }
 
@@ -156,8 +156,8 @@ public sealed class R3GlobalHookAdapter : IGlobalHook, IR3GlobalHook
     /// </summary>
     /// <value>An observable which emits a value when the global hook is disabled.</value>
     /// <remarks>
-    /// The observable emits a value when the <see cref="IDisposable.Dispose" /> method is called and then
-    /// immediately completes.
+    /// The observable emits a value when the <see cref="IBasicGlobalHook.Stop" /> or <see cref="IDisposable.Dispose" />
+    /// method is called.
     /// </remarks>
     public Observable<HookEventArgs> HookDisabled { get; }
 
@@ -277,13 +277,24 @@ public sealed class R3GlobalHookAdapter : IGlobalHook, IR3GlobalHook
             return;
         }
 
-        this.hookDisabledSubject.Subscribe(_ =>
+        bool isRunning = this.IsRunning;
+
+        if (isRunning)
+        {
+            this.hookDisabledSubject.Subscribe(_ =>
+            {
+                this.subscriptions.Dispose();
+                this.DisposeAllSubjects();
+            });
+        }
+
+        this.hook.Dispose();
+
+        if (!isRunning)
         {
             this.subscriptions.Dispose();
             this.DisposeAllSubjects();
-        });
-
-        this.hook.Dispose();
+        }
     }
 
     private TArgs SelectEventArgs<TArgs>((object? Sender, TArgs Args) e) =>
@@ -324,7 +335,7 @@ public sealed class R3GlobalHookAdapter : IGlobalHook, IR3GlobalHook
         }
     }
 
-    Task IGlobalHook.RunAsync()
+    Task IBasicGlobalHook.RunAsync()
     {
         this.ThrowIfRunning();
         this.ThrowIfDisposed();

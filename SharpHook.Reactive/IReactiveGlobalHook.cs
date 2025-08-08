@@ -1,38 +1,30 @@
 namespace SharpHook.Reactive;
 
 /// <summary>
-/// Represents a global reactive keyboard and mouse hook.
+/// Represents a reactive global keyboard and mouse hook.
 /// </summary>
 /// <remarks>
-/// All observables of objects of this interface are completed when the object is disposed, unless stated otherwise.
+/// <para>
+/// All observables of objects of this interface are completed when the object is disposed.
+/// </para>
+/// <para>
+/// It is highly recommended to extend the <see cref="BasicGlobalHookBase" /> class if you want to implement this
+/// inteface as it correctly implements the invariants required for advanced scenarios.
+/// </para>
 /// </remarks>
 /// <seealso cref="IGlobalHook" />
+/// <seealso cref="IBasicGlobalHook" />
 /// <seealso cref="ReactiveGlobalHook" />
 /// <seealso cref="ReactiveGlobalHookAdapter" />
-public interface IReactiveGlobalHook : IDisposable
+public interface IReactiveGlobalHook : IBasicGlobalHook
 {
-    /// <summary>
-    /// Gets the value which indicates whether the global hook is running.
-    /// </summary>
-    /// <value><see langword="true" /> if the global hook is running. Otherwise, <see langword="false" />.</value>
-    bool IsRunning { get; }
-
-    /// <summary>
-    /// Gets the value which indicates whether the global hook has been disposed.
-    /// </summary>
-    /// <value>
-    /// <see langword="true" /> if the global hook has been disposed. Otherwise, <see langword="false" />.
-    /// </value>
-    /// <remarks>A disposed global hook cannot be started again.</remarks>
-    bool IsDisposed { get; }
-
     /// <summary>
     /// Gets an observable which emits a value when the global hook is enabled.
     /// </summary>
     /// <value>An observable which emits a value when the global hook is enabled.</value>
     /// <remarks>
-    /// The observable emits a value when the <see cref="Run" /> or <see cref="RunAsync" /> method is called and
-    /// then immediately completes.
+    /// The observable emits a value when the <see cref="IBasicGlobalHook.Run" /> or
+    /// <see cref="IBasicGlobalHook.RunAsync" /> method is called.
     /// </remarks>
     IObservable<HookEventArgs> HookEnabled { get; }
 
@@ -41,8 +33,8 @@ public interface IReactiveGlobalHook : IDisposable
     /// </summary>
     /// <value>An observable which emits a value when the global hook is disabled.</value>
     /// <remarks>
-    /// The observable emits a value when the <see cref="IDisposable.Dispose" /> method is called and then
-    /// immediately completes.
+    /// The observable emits a value when the <see cref="IBasicGlobalHook.Stop" /> or <see cref="IDisposable.Dispose" />
+    /// method is called.
     /// </remarks>
     IObservable<HookEventArgs> HookDisabled { get; }
 
@@ -99,42 +91,4 @@ public interface IReactiveGlobalHook : IDisposable
     /// </summary>
     /// <value>An observable which emits a value when the mouse wheel is scrolled.</value>
     IObservable<MouseWheelHookEventArgs> MouseWheel { get; }
-
-    /// <summary>
-    /// Runs the global hook on the current thread, blocking it. The hook can be stopped by calling the
-    /// <see cref="Stop" /> or the <see cref="IDisposable.Dispose" /> methods.
-    /// </summary>
-    /// <exception cref="HookException">Starting the global hook has failed.</exception>
-    /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
-    /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
-    void Run();
-
-    /// <summary>
-    /// Runs the global hook without blocking the current thread. The hook can be stopped by calling the
-    /// <see cref="Stop" /> or the <see cref="IDisposable.Dispose" /> methods.
-    /// </summary>
-    /// <returns>An observable which is completed when the hook is stopped.</returns>
-    /// <exception cref="HookException">Starting the global hook has failed.</exception>
-    /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
-    /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
-    /// <remarks>
-    /// <para>
-    /// Since the underlying native API for running a global hook is blocking, the only way to run it without blocking
-    /// the current thread is to run it on a separate thread.
-    /// </para>
-    /// <para>
-    /// The returned observable is hot. It emits a single value and then immediately completes when the hook is
-    /// stopped.
-    /// </para>
-    /// </remarks>
-    IObservable<Unit> RunAsync();
-
-    /// <summary>
-    /// Stops the global hook.
-    /// </summary>
-    /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
-    /// <remarks>
-    /// After stopping, the global hook can run again.
-    /// </remarks>
-    void Stop();
 }

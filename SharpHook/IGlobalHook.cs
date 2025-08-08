@@ -6,59 +6,20 @@ namespace SharpHook;
 /// <seealso cref="GlobalHookBase" />
 /// <seealso cref="SimpleGlobalHook" />
 /// <seealso cref="TaskPoolGlobalHook" />
-public interface IGlobalHook : IDisposable
+/// <remarks>
+/// It is highly recommended not to implement this interface directly. If you want to create a custom global hook, you
+/// should instead extend the <see cref="GlobalHookBase" /> class as it correctly implements the invariants required for
+/// advanced scenarios.
+/// </remarks>
+public interface IGlobalHook : IBasicGlobalHook
 {
-    /// <summary>
-    /// Gets the value which indicates whether the global hook is running.
-    /// </summary>
-    /// <value><see langword="true" /> if the global hook is running. Otherwise, <see langword="false" />.</value>
-    bool IsRunning { get; }
-
-    /// <summary>
-    /// Gets the value which indicates whether the global hook has been disposed.
-    /// </summary>
-    /// <value>
-    /// <see langword="true" /> if the global hook has been disposed. Otherwise, <see langword="false" />.
-    /// </value>
-    /// <remarks>A disposed global hook cannot be started again.</remarks>
-    bool IsDisposed { get; }
-
-    /// <summary>
-    /// Runs the global hook on the current thread, blocking it. The hook can be stopped by calling the
-    /// <see cref="Stop" /> or the <see cref="IDisposable.Dispose" /> methods.
-    /// </summary>
-    /// <exception cref="HookException">Starting the global hook has failed.</exception>
-    /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
-    /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
-    void Run();
-
-    /// <summary>
-    /// Runs the global hook without blocking the current thread. The hook can be stopped by calling the
-    /// <see cref="Stop" /> or the <see cref="IDisposable.Dispose" /> methods.
-    /// </summary>
-    /// <returns>A <see cref="Task" /> which finishes when the hook is stopped.</returns>
-    /// <exception cref="HookException">Starting the global hook has failed.</exception>
-    /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
-    /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
-    /// <remarks>
-    /// Since the underlying native API for running a global hook is blocking, the only way to run it without blocking
-    /// the current thread is to run it on a separate thread.
-    /// </remarks>
-    Task RunAsync();
-
-    /// <summary>
-    /// Stops the global hook.
-    /// </summary>
-    /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
-    /// <remarks>
-    /// After stopping, the global hook can run again.
-    /// </remarks>
-    void Stop();
-
     /// <summary>
     /// An event which is raised when the global hook is enabled.
     /// </summary>
-    /// <remarks>This event is raised when the <see cref="Run" /> or <see cref="RunAsync" /> method is called.</remarks>
+    /// <remarks>
+    /// This event is raised when the <see cref="IBasicGlobalHook.Run" /> or <see cref="IBasicGlobalHook.RunAsync" />
+    /// method is called.
+    /// </remarks>
     event EventHandler<HookEventArgs> HookEnabled;
 
     /// <summary>

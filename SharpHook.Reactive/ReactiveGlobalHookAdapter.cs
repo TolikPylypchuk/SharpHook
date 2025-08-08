@@ -140,8 +140,8 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
     /// </summary>
     /// <value>An observable which emits a value when the global hook is enabled.</value>
     /// <remarks>
-    /// The observable emits a value when the <see cref="Run" /> or <see cref="RunAsync" /> method is called and
-    /// then immediately completes.
+    /// The observable emits a value when the <see cref="IBasicGlobalHook.Run" /> or
+    /// <see cref="IBasicGlobalHook.RunAsync" /> method is called.
     /// </remarks>
     public IObservable<HookEventArgs> HookEnabled { get; }
 
@@ -150,8 +150,8 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
     /// </summary>
     /// <value>An observable which emits a value when the global hook is disabled.</value>
     /// <remarks>
-    /// The observable emits a value when the <see cref="IDisposable.Dispose" /> method is called and then
-    /// immediately completes.
+    /// The observable emits a value when the <see cref="IBasicGlobalHook.Stop" /> or <see cref="IDisposable.Dispose" />
+    /// method is called.
     /// </remarks>
     public IObservable<HookEventArgs> HookDisabled { get; }
 
@@ -228,22 +228,19 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
     /// Runs the global hook without blocking the current thread. The hook can be stopped by calling the
     /// <see cref="Stop" /> or the <see cref="IDisposable.Dispose" /> methods.
     /// </summary>
-    /// <returns>An observable which is completed when the hook is stopped.</returns>
+    /// <returns>A task which is completed when the hook is stopped.</returns>
     /// <exception cref="HookException">Starting the global hook has failed.</exception>
     /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
     /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
     /// <remarks>
-    /// The hook is started on a separate thread. The returned observable is hot. It emits a single value and then
-    /// immediately completes when the hook is stopped.
+    /// The hook is started on a separate thread.
     /// </remarks>
-    public IObservable<Unit> RunAsync()
+    public Task RunAsync()
     {
         this.ThrowIfRunning();
         this.ThrowIfDisposed();
 
-        var start = Observable.FromAsync(this.hook.RunAsync).Publish();
-        start.Connect();
-        return start.AsObservable();
+        return this.hook.RunAsync();
     }
 
     /// <summary>
@@ -274,14 +271,26 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
             return;
         }
 
-        this.hookDisabledSubject.Subscribe(_ =>
+        bool isRunning = this.IsRunning;
+
+        if (isRunning)
         {
-            this.CompleteAllSubjects();
-            this.subscriptions.Dispose();
-            this.DisposeAllSubjects();
-        });
+            this.hookDisabledSubject.Subscribe(_ => this.CompleteAndDisposeAllSubjects());
+        }
 
         this.hook.Dispose();
+
+        if (!isRunning)
+        {
+            this.CompleteAndDisposeAllSubjects();
+        }
+    }
+
+    private void CompleteAndDisposeAllSubjects()
+    {
+        this.CompleteAllSubjects();
+        this.subscriptions.Dispose();
+        this.DisposeAllSubjects();
     }
 
     private void CompleteAllSubjects()
@@ -335,14 +344,6 @@ public sealed class ReactiveGlobalHookAdapter : IGlobalHook, IReactiveGlobalHook
             throw new ObjectDisposedException(
                 this.GetType().Name, $"Cannot call {method} – the object is disposed");
         }
-    }
-
-    Task IGlobalHook.RunAsync()
-    {
-        this.ThrowIfRunning();
-        this.ThrowIfDisposed();
-
-        return this.hook.RunAsync();
     }
 
     event EventHandler<HookEventArgs> IGlobalHook.HookEnabled
