@@ -6,7 +6,7 @@ namespace SharpHook.Reactive.Logging;
 /// <seealso cref="ILogSource" />
 /// <seealso cref="IReactiveLogSource" />
 [ExcludeFromCodeCoverage]
-public sealed class ReactiveLogSourceAdapter : IReactiveLogSource
+public sealed class ReactiveLogSourceAdapter : IReactiveLogSource, ILogSource
 {
     private readonly ILogSource logSource;
     private readonly Subject<LogEntry> messageLoggedSubject = new();
@@ -15,27 +15,18 @@ public sealed class ReactiveLogSourceAdapter : IReactiveLogSource
     /// Initializes a new instance of the <see cref="ReactiveLogSourceAdapter" /> class.
     /// </summary>
     /// <param name="logSource">The log source to adapt.</param>
-    /// <exception cref="ArgumentNullException"><paramref name="logSource" /> is <see langword="null" />.</exception>
-    public ReactiveLogSourceAdapter(ILogSource logSource)
-        : this(logSource, ImmediateScheduler.Instance)
-    { }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="ReactiveLogSourceAdapter" /> class.
-    /// </summary>
-    /// <param name="logSource">The log source to adapt.</param>
-    /// <param name="defaultScheduler">The default shceduler for the observable.</param>
+    /// <param name="defaultScheduler">
+    /// The default scheduler for the observable, or <see langword="null" /> to use the default one
+    /// (<see cref="Scheduler.Immediate" />).
+    /// </param>
     /// <exception cref="ArgumentNullException">
-    /// <paramref name="logSource" /> or <paramref name="defaultScheduler" /> is <see langword="null" />.
+    /// <paramref name="logSource" /> is <see langword="null" />.
     /// </exception>
-    public ReactiveLogSourceAdapter(ILogSource logSource, IScheduler defaultScheduler)
+    public ReactiveLogSourceAdapter(ILogSource logSource, IScheduler? defaultScheduler = null)
     {
         this.logSource = logSource ?? throw new ArgumentNullException(nameof(logSource));
 
-        if (defaultScheduler is null)
-        {
-            throw new ArgumentNullException(nameof(defaultScheduler));
-        }
+        defaultScheduler ??= Scheduler.Immediate;
 
         Observable.FromEventPattern<LogEventArgs>(
             h => this.logSource.MessageLogged += h, h => this.logSource.MessageLogged -= h)
@@ -84,5 +75,11 @@ public sealed class ReactiveLogSourceAdapter : IReactiveLogSource
 
         this.messageLoggedSubject.OnCompleted();
         this.messageLoggedSubject.Dispose();
+    }
+
+    event EventHandler<LogEventArgs> ILogSource.MessageLogged
+    {
+        add => this.logSource.MessageLogged += value;
+        remove => this.logSource.MessageLogged -= value;
     }
 }

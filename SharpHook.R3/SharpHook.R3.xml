@@ -162,21 +162,17 @@
             <seealso cref="T:SharpHook.Logging.ILogSource" />
             <seealso cref="T:SharpHook.R3.Logging.IR3LogSource" />
         </member>
-        <member name="M:SharpHook.R3.Logging.R3LogSourceAdapter.#ctor(SharpHook.Logging.ILogSource)">
-            <summary>
-            Initializes a new instance of the <see cref="T:SharpHook.R3.Logging.R3LogSourceAdapter" /> class.
-            </summary>
-            <param name="logSource">The log source to adapt.</param>
-            <exception cref="T:System.ArgumentNullException"><paramref name="logSource" /> is <see langword="null" />.</exception>
-        </member>
         <member name="M:SharpHook.R3.Logging.R3LogSourceAdapter.#ctor(SharpHook.Logging.ILogSource,System.TimeProvider)">
             <summary>
             Initializes a new instance of the <see cref="T:SharpHook.R3.Logging.R3LogSourceAdapter" /> class.
             </summary>
             <param name="logSource">The log source to adapt.</param>
-            <param name="defaultTimeProvider">The default time provider for the observable.</param>
+            <param name="defaultTimeProvider">
+            The default time provider for the observable, or <see langword="null" /> to use the default one (as defined in
+            <see cref="P:R3.ObservableSystem.DefaultTimeProvider" />).
+            </param>
             <exception cref="T:System.ArgumentNullException">
-            <paramref name="logSource" /> or <paramref name="defaultTimeProvider" /> is <see langword="null" />.
+            <paramref name="logSource" /> is <see langword="null" />.
             </exception>
         </member>
         <member name="M:SharpHook.R3.Logging.R3LogSourceAdapter.Finalize">
@@ -213,8 +209,8 @@
             </summary>
             <param name="globalHookType">The global hook type.</param>
             <param name="defaultTimeProvider">
-            The default time provider for observables, or <see langword="null" /> to use the default one
-            (as defined in <see cref="P:R3.ObservableSystem.DefaultTimeProvider" />).
+            The default time provider for observables, or <see langword="null" /> to use the default one (as defined in
+            <see cref="P:R3.ObservableSystem.DefaultTimeProvider" />).
             </param>
             <param name="globalHookProvider">
             The underlying global hook provider, or <see langword="null" /> to use the default one.

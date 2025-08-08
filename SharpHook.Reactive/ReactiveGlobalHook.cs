@@ -42,7 +42,8 @@ public sealed class ReactiveGlobalHook : IReactiveGlobalHook
     /// </summary>
     /// <param name="globalHookType">The global hook type.</param>
     /// <param name="defaultScheduler">
-    /// The default scheduler for observables, or <see langword="null" /> to use the default one.
+    /// The default scheduler for observables, or <see langword="null" /> to use the default one
+    /// (<see cref="Scheduler.Immediate" />).
     /// </param>
     /// <param name="globalHookProvider">
     /// The underlying global hook provider, or <see langword="null" /> to use the default one.
@@ -62,7 +63,7 @@ public sealed class ReactiveGlobalHook : IReactiveGlobalHook
         this.runAsyncOnBackgroundThread = runAsyncOnBackgroundThread;
         this.hookIndex = Interlocked.Increment(ref currentHookIndex);
 
-        defaultScheduler ??= ImmediateScheduler.Instance;
+        defaultScheduler ??= Scheduler.Immediate;
 
         this.HookEnabled = this.hookEnabledSubject.ObserveOn(defaultScheduler);
         this.HookDisabled = this.hookDisabledSubject.ObserveOn(defaultScheduler);

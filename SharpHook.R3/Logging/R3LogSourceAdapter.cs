@@ -8,7 +8,7 @@ namespace SharpHook.R3.Logging;
 /// <seealso cref="ILogSource" />
 /// <seealso cref="IR3LogSource" />
 [ExcludeFromCodeCoverage]
-public sealed class R3LogSourceAdapter : IR3LogSource
+public sealed class R3LogSourceAdapter : IR3LogSource, ILogSource
 {
     private readonly ILogSource logSource;
     private readonly Subject<LogEntry> messageLoggedSubject = new();
@@ -17,27 +17,18 @@ public sealed class R3LogSourceAdapter : IR3LogSource
     /// Initializes a new instance of the <see cref="R3LogSourceAdapter" /> class.
     /// </summary>
     /// <param name="logSource">The log source to adapt.</param>
-    /// <exception cref="ArgumentNullException"><paramref name="logSource" /> is <see langword="null" />.</exception>
-    public R3LogSourceAdapter(ILogSource logSource)
-        : this(logSource, ObservableSystem.DefaultTimeProvider)
-    { }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="R3LogSourceAdapter" /> class.
-    /// </summary>
-    /// <param name="logSource">The log source to adapt.</param>
-    /// <param name="defaultTimeProvider">The default time provider for the observable.</param>
+    /// <param name="defaultTimeProvider">
+    /// The default time provider for the observable, or <see langword="null" /> to use the default one (as defined in
+    /// <see cref="ObservableSystem.DefaultTimeProvider" />).
+    /// </param>
     /// <exception cref="ArgumentNullException">
-    /// <paramref name="logSource" /> or <paramref name="defaultTimeProvider" /> is <see langword="null" />.
+    /// <paramref name="logSource" /> is <see langword="null" />.
     /// </exception>
-    public R3LogSourceAdapter(ILogSource logSource, TimeProvider defaultTimeProvider)
+    public R3LogSourceAdapter(ILogSource logSource, TimeProvider? defaultTimeProvider = null)
     {
         this.logSource = logSource ?? throw new ArgumentNullException(nameof(logSource));
 
-        if (defaultTimeProvider is null)
-        {
-            throw new ArgumentNullException(nameof(defaultTimeProvider));
-        }
+        defaultTimeProvider ??= ObservableSystem.DefaultTimeProvider;
 
         Observable.FromEventHandler<LogEventArgs>(
             h => this.logSource.MessageLogged += h, h => this.logSource.MessageLogged -= h)
@@ -90,4 +81,10 @@ public sealed class R3LogSourceAdapter : IR3LogSource
 
     private TArgs SelectEventArgs<TArgs>((object? Sender, TArgs Args) e) =>
         e.Args;
+
+    event EventHandler<LogEventArgs> ILogSource.MessageLogged
+    {
+        add => this.logSource.MessageLogged += value;
+        remove => this.logSource.MessageLogged -= value;
+    }
 }
