@@ -18,6 +18,7 @@ namespace SharpHook;
 /// <seealso cref="IGlobalHook" />
 /// <seealso cref="GlobalHookBase" />
 /// <seealso cref="SimpleGlobalHook" />
+/// <seealso cref="EventLoopGlobalHook" />
 public sealed class TaskPoolGlobalHook : GlobalHookBase
 {
     private const int DefaultParallelismLevel = 1;

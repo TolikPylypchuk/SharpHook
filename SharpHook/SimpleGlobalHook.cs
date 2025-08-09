@@ -11,6 +11,7 @@ namespace SharpHook;
 /// </remarks>
 /// <seealso cref="IGlobalHook" />
 /// <seealso cref="GlobalHookBase" />
+/// <seealso cref="EventLoopGlobalHook" />
 /// <seealso cref="TaskPoolGlobalHook" />
 public sealed class SimpleGlobalHook : GlobalHookBase
 {

@@ -82,6 +82,8 @@ public abstract class BasicGlobalHookBase : IBasicGlobalHook
         this.ThrowIfRunning();
         this.ThrowIfDisposed();
 
+        this.BeforeRun();
+
         UioHookResult result;
 
         try
@@ -120,6 +122,8 @@ public abstract class BasicGlobalHookBase : IBasicGlobalHook
     {
         this.ThrowIfRunning();
         this.ThrowIfDisposed();
+
+        this.BeforeRun();
 
         var source = new TaskCompletionSource<object?>();
 
@@ -180,6 +184,8 @@ public abstract class BasicGlobalHookBase : IBasicGlobalHook
                 throw new HookException(result, this.FormatStopFailureMessage(result));
             }
         }
+
+        this.AfterStop();
     }
 
     /// <summary>
@@ -192,6 +198,11 @@ public abstract class BasicGlobalHookBase : IBasicGlobalHook
     /// </remarks>
     public void Dispose()
     {
+        if (this.IsDisposed)
+        {
+            return;
+        }
+
         this.Dispose(true);
         GC.SuppressFinalize(this);
     }
@@ -203,7 +214,24 @@ public abstract class BasicGlobalHookBase : IBasicGlobalHook
     protected abstract void HandleHookEvent(ref UioHookEvent e);
 
     /// <summary>
-    /// Disposes of the global hook, stopping it if it is running.
+    /// Defines actions to be done before the global hook is started. The default implementation does nothing, but
+    /// it may change in a future version, so calling <see cref="BasicGlobalHookBase.BeforeRun" /> in an overriden
+    /// method is recommended.
+    /// </summary>
+    protected virtual void BeforeRun()
+    { }
+
+    /// <summary>
+    /// Defines actions to be done after the global hook is stopped. The default implementation does nothing, but
+    /// it may change in a future version, so calling <see cref="BasicGlobalHookBase.BeforeRun" /> in an overriden
+    /// method is recommended.
+    /// </summary>
+    protected virtual void AfterStop()
+    { }
+
+    /// <summary>
+    /// Disposes of the global hook, stopping it if it is running. This method will not be called if the global hook is
+    /// already disposed.
     /// </summary>
     /// <param name="disposing">
     /// <see langword="true" /> if the method is called from the <see cref="Dispose()" /> method.
@@ -212,11 +240,6 @@ public abstract class BasicGlobalHookBase : IBasicGlobalHook
     /// <exception cref="HookException">Stopping the hook has failed.</exception>
     protected virtual void Dispose(bool disposing)
     {
-        if (this.IsDisposed)
-        {
-            return;
-        }
-
         this.IsDisposed = true;
 
         if (this.IsRunning)

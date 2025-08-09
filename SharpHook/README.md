@@ -43,7 +43,7 @@ libuiohook also provides functions to get various system properties. The corresp
 
 ### Global Hooks
 
-SharpHook provides the `IGlobalHook` interface along with two default implementations which you can use to control the
+SharpHook provides the `IGlobalHook` interface along with three default implementations which you can use to control the
 hook and subscribe to its events. Here's a basic usage example:
 
 ```c#
@@ -51,7 +51,7 @@ using SharpHook;
 
 // ...
 
-var hook = new TaskPoolGlobalHook();
+var hook = new EventLoopGlobalHook();
 
 hook.HookEnabled += OnHookEnabled;     // EventHandler<HookEventArgs>
 hook.HookDisabled += OnHookDisabled;   // EventHandler<HookEventArgs>
@@ -98,15 +98,20 @@ a real difference only on Windows where there are two different global hooks –
 macOS and Linux, there is one hook for all events, and this simply enables filtering keyboard or mouse events out on
 these OSes.
 
-SharpHook provides two implementations of `IGlobalHook`:
+SharpHook provides three implementations of `IGlobalHook`:
 
 - `SharpHook.SimpleGlobalHook` runs all of its event handlers on the same thread on which the hook itself runs. This
 means that the handlers should generally be fast since they will block the hook from handling the events that follow if
 they run for too long.
 
+- `SharpHook.EventLoopGlobalHook` runs all of its event handlers on a separate dedicated thread. On backpressure it will
+queue the remaining events which means that the hook will be able to process all events. This implementation should be
+preferred to `SimpleGlobalHook` except for very simple use-cases. But it has a downside – suppressing event propagation
+will be ignored since event handlers are run on another thread.
+
 - `SharpHook.TaskPoolGlobalHook` runs all of its event handlers on other threads inside the default thread pool for
-tasks. The parallelism level of the handlers can be configured. On backpressure it will queue the remaining handlers.
-This means that the hook will be able to process all events. This implementation should be preferred to
+tasks. The parallelism level of the handlers can be configured. On backpressure it will queue the remaining events which
+means that the hook will be able to process all events. This implementation should be preferred to
 `SimpleGlobalHook` except for very simple use-cases. But it has a downside – suppressing event propagation will be
 ignored since event handlers are run on other threads.
 

@@ -6,6 +6,7 @@ namespace SharpHook;
 /// </summary>
 /// <seealso cref="IGlobalHook" />
 /// <seealso cref="SimpleGlobalHook" />
+/// <seealso cref="EventLoopGlobalHook" />
 /// <seealso cref="TaskPoolGlobalHook" />
 /// <seealso cref="BasicGlobalHookBase" />
 public abstract class GlobalHookBase : BasicGlobalHookBase, IGlobalHook
@@ -36,7 +37,8 @@ public abstract class GlobalHookBase : BasicGlobalHookBase, IGlobalHook
     /// <param name="e">The event to handle.</param>
     /// <remarks>
     /// Derived classes should call <see cref="DispatchEvent(ref UioHookEvent)" /> inside this method to raise the
-    /// appropriate event.
+    /// appropriate event. They can also call <see cref="ShouldDispatchEvent(ref UioHookEvent)" /> to determine whether
+    /// to attempt dispatching the event at all.
     /// </remarks>
     protected override abstract void HandleHookEvent(ref UioHookEvent e);
 
