@@ -31,6 +31,30 @@ references:
   fullName.vb: SharpHook.BasicGlobalHookBase.New
   nameWithType: BasicGlobalHookBase.BasicGlobalHookBase
   nameWithType.vb: BasicGlobalHookBase.New
+- uid: SharpHook.BasicGlobalHookBase.AfterStop
+  name: AfterStop()
+  href: api/SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_AfterStop
+  commentId: M:SharpHook.BasicGlobalHookBase.AfterStop
+  fullName: SharpHook.BasicGlobalHookBase.AfterStop()
+  nameWithType: BasicGlobalHookBase.AfterStop()
+- uid: SharpHook.BasicGlobalHookBase.AfterStop*
+  name: AfterStop
+  href: api/SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_AfterStop_
+  commentId: Overload:SharpHook.BasicGlobalHookBase.AfterStop
+  fullName: SharpHook.BasicGlobalHookBase.AfterStop
+  nameWithType: BasicGlobalHookBase.AfterStop
+- uid: SharpHook.BasicGlobalHookBase.BeforeRun
+  name: BeforeRun()
+  href: api/SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_BeforeRun
+  commentId: M:SharpHook.BasicGlobalHookBase.BeforeRun
+  fullName: SharpHook.BasicGlobalHookBase.BeforeRun()
+  nameWithType: BasicGlobalHookBase.BeforeRun()
+- uid: SharpHook.BasicGlobalHookBase.BeforeRun*
+  name: BeforeRun
+  href: api/SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_BeforeRun_
+  commentId: Overload:SharpHook.BasicGlobalHookBase.BeforeRun
+  fullName: SharpHook.BasicGlobalHookBase.BeforeRun
+  nameWithType: BasicGlobalHookBase.BeforeRun
 - uid: SharpHook.BasicGlobalHookBase.Dispose
   name: Dispose()
   href: api/SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_Dispose
@@ -2389,6 +2413,72 @@ references:
   commentId: F:SharpHook.Data.UioHookResult.Success
   fullName: SharpHook.Data.UioHookResult.Success
   nameWithType: UioHookResult.Success
+- uid: SharpHook.EventLoopGlobalHook
+  name: EventLoopGlobalHook
+  href: api/SharpHook.EventLoopGlobalHook.html
+  commentId: T:SharpHook.EventLoopGlobalHook
+  fullName: SharpHook.EventLoopGlobalHook
+  nameWithType: EventLoopGlobalHook
+- uid: SharpHook.EventLoopGlobalHook.#ctor(SharpHook.Data.GlobalHookType,SharpHook.Providers.IGlobalHookProvider,System.Boolean)
+  name: EventLoopGlobalHook(GlobalHookType, IGlobalHookProvider?, bool)
+  href: api/SharpHook.EventLoopGlobalHook.html#SharpHook_EventLoopGlobalHook__ctor_SharpHook_Data_GlobalHookType_SharpHook_Providers_IGlobalHookProvider_System_Boolean_
+  commentId: M:SharpHook.EventLoopGlobalHook.#ctor(SharpHook.Data.GlobalHookType,SharpHook.Providers.IGlobalHookProvider,System.Boolean)
+  name.vb: New(GlobalHookType, IGlobalHookProvider, Boolean)
+  fullName: SharpHook.EventLoopGlobalHook.EventLoopGlobalHook(SharpHook.Data.GlobalHookType, SharpHook.Providers.IGlobalHookProvider?, bool)
+  fullName.vb: SharpHook.EventLoopGlobalHook.New(SharpHook.Data.GlobalHookType, SharpHook.Providers.IGlobalHookProvider, Boolean)
+  nameWithType: EventLoopGlobalHook.EventLoopGlobalHook(GlobalHookType, IGlobalHookProvider?, bool)
+  nameWithType.vb: EventLoopGlobalHook.New(GlobalHookType, IGlobalHookProvider, Boolean)
+- uid: SharpHook.EventLoopGlobalHook.#ctor*
+  name: EventLoopGlobalHook
+  href: api/SharpHook.EventLoopGlobalHook.html#SharpHook_EventLoopGlobalHook__ctor_
+  commentId: Overload:SharpHook.EventLoopGlobalHook.#ctor
+  name.vb: New
+  fullName: SharpHook.EventLoopGlobalHook.EventLoopGlobalHook
+  fullName.vb: SharpHook.EventLoopGlobalHook.New
+  nameWithType: EventLoopGlobalHook.EventLoopGlobalHook
+  nameWithType.vb: EventLoopGlobalHook.New
+- uid: SharpHook.EventLoopGlobalHook.BeforeRun
+  name: BeforeRun()
+  href: api/SharpHook.EventLoopGlobalHook.html#SharpHook_EventLoopGlobalHook_BeforeRun
+  commentId: M:SharpHook.EventLoopGlobalHook.BeforeRun
+  fullName: SharpHook.EventLoopGlobalHook.BeforeRun()
+  nameWithType: EventLoopGlobalHook.BeforeRun()
+- uid: SharpHook.EventLoopGlobalHook.BeforeRun*
+  name: BeforeRun
+  href: api/SharpHook.EventLoopGlobalHook.html#SharpHook_EventLoopGlobalHook_BeforeRun_
+  commentId: Overload:SharpHook.EventLoopGlobalHook.BeforeRun
+  fullName: SharpHook.EventLoopGlobalHook.BeforeRun
+  nameWithType: EventLoopGlobalHook.BeforeRun
+- uid: SharpHook.EventLoopGlobalHook.Dispose(System.Boolean)
+  name: Dispose(bool)
+  href: api/SharpHook.EventLoopGlobalHook.html#SharpHook_EventLoopGlobalHook_Dispose_System_Boolean_
+  commentId: M:SharpHook.EventLoopGlobalHook.Dispose(System.Boolean)
+  name.vb: Dispose(Boolean)
+  fullName: SharpHook.EventLoopGlobalHook.Dispose(bool)
+  fullName.vb: SharpHook.EventLoopGlobalHook.Dispose(Boolean)
+  nameWithType: EventLoopGlobalHook.Dispose(bool)
+  nameWithType.vb: EventLoopGlobalHook.Dispose(Boolean)
+- uid: SharpHook.EventLoopGlobalHook.Dispose*
+  name: Dispose
+  href: api/SharpHook.EventLoopGlobalHook.html#SharpHook_EventLoopGlobalHook_Dispose_
+  commentId: Overload:SharpHook.EventLoopGlobalHook.Dispose
+  fullName: SharpHook.EventLoopGlobalHook.Dispose
+  nameWithType: EventLoopGlobalHook.Dispose
+- uid: SharpHook.EventLoopGlobalHook.HandleHookEvent(SharpHook.Data.UioHookEvent@)
+  name: HandleHookEvent(ref UioHookEvent)
+  href: api/SharpHook.EventLoopGlobalHook.html#SharpHook_EventLoopGlobalHook_HandleHookEvent_SharpHook_Data_UioHookEvent__
+  commentId: M:SharpHook.EventLoopGlobalHook.HandleHookEvent(SharpHook.Data.UioHookEvent@)
+  name.vb: HandleHookEvent(UioHookEvent)
+  fullName: SharpHook.EventLoopGlobalHook.HandleHookEvent(ref SharpHook.Data.UioHookEvent)
+  fullName.vb: SharpHook.EventLoopGlobalHook.HandleHookEvent(SharpHook.Data.UioHookEvent)
+  nameWithType: EventLoopGlobalHook.HandleHookEvent(ref UioHookEvent)
+  nameWithType.vb: EventLoopGlobalHook.HandleHookEvent(UioHookEvent)
+- uid: SharpHook.EventLoopGlobalHook.HandleHookEvent*
+  name: HandleHookEvent
+  href: api/SharpHook.EventLoopGlobalHook.html#SharpHook_EventLoopGlobalHook_HandleHookEvent_
+  commentId: Overload:SharpHook.EventLoopGlobalHook.HandleHookEvent
+  fullName: SharpHook.EventLoopGlobalHook.HandleHookEvent
+  nameWithType: EventLoopGlobalHook.HandleHookEvent
 - uid: SharpHook.EventSimulator
   name: EventSimulator
   href: api/SharpHook.EventSimulator.html

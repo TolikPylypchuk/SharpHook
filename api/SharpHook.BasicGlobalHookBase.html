@@ -286,6 +286,64 @@ Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference
 </h2>
 
 
+  <a id="SharpHook_BasicGlobalHookBase_AfterStop_" data-uid="SharpHook.BasicGlobalHookBase.AfterStop*"></a>
+
+  <h3 id="SharpHook_BasicGlobalHookBase_AfterStop" data-uid="SharpHook.BasicGlobalHookBase.AfterStop">
+  AfterStop()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/BasicGlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Defines actions to be done after the global hook is stopped. The default implementation does nothing, but
+it may change in a future version, so calling <a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_BeforeRun">BeforeRun()</a> in an overriden
+method is recommended.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void AfterStop()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpHook_BasicGlobalHookBase_BeforeRun_" data-uid="SharpHook.BasicGlobalHookBase.BeforeRun*"></a>
+
+  <h3 id="SharpHook_BasicGlobalHookBase_BeforeRun" data-uid="SharpHook.BasicGlobalHookBase.BeforeRun">
+  BeforeRun()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/BasicGlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Defines actions to be done before the global hook is started. The default implementation does nothing, but
+it may change in a future version, so calling <a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_BeforeRun">BeforeRun()</a> in an overriden
+method is recommended.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void BeforeRun()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="SharpHook_BasicGlobalHookBase_Dispose_" data-uid="SharpHook.BasicGlobalHookBase.Dispose*"></a>
 
   <h3 id="SharpHook_BasicGlobalHookBase_Dispose" data-uid="SharpHook.BasicGlobalHookBase.Dispose">
@@ -330,7 +388,8 @@ run it again, call the <a class="xref" href="SharpHook.BasicGlobalHookBase.html#
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/BasicGlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Disposes of the global hook, stopping it if it is running.</p>
+  <div class="markdown level1 summary"><p>Disposes of the global hook, stopping it if it is running. This method will not be called if the global hook is
+already disposed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 

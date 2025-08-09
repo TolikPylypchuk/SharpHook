@@ -130,6 +130,7 @@ a strategy for dispatching events and uses a global hook provider (libuiohook by
   <dl class="typelist derived">
     <dt>Derived</dt>
     <dd>
+      <div><a class="xref" href="SharpHook.EventLoopGlobalHook.html">EventLoopGlobalHook</a></div>
       <div><a class="xref" href="SharpHook.SimpleGlobalHook.html">SimpleGlobalHook</a></div>
       <div><a class="xref" href="SharpHook.TaskPoolGlobalHook.html">TaskPoolGlobalHook</a></div>
     </dd>
@@ -149,6 +150,12 @@ a strategy for dispatching events and uses a global hook provider (libuiohook by
     </div>
     <div>
       <a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_Dispose">BasicGlobalHookBase.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_BeforeRun">BasicGlobalHookBase.BeforeRun()</a>
+    </div>
+    <div>
+      <a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_AfterStop">BasicGlobalHookBase.AfterStop()</a>
     </div>
     <div>
       <a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_Dispose_System_Boolean_">BasicGlobalHookBase.Dispose(bool)</a>
@@ -302,7 +309,8 @@ Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference
 
   <h4 class="section" id="SharpHook_GlobalHookBase_HandleHookEvent_SharpHook_Data_UioHookEvent___remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>Derived classes should call <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_DispatchEvent_SharpHook_Data_UioHookEvent__">DispatchEvent(ref UioHookEvent)</a> inside this method to raise the
-appropriate event.</p>
+appropriate event. They can also call <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_ShouldDispatchEvent_SharpHook_Data_UioHookEvent__">ShouldDispatchEvent(ref UioHookEvent)</a> to determine whether
+to attempt dispatching the event at all.</p>
 </div>
 
 
@@ -1071,6 +1079,7 @@ method is called.</p>
   <div class="seealso">
       <div><a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a></div>
       <div><a class="xref" href="SharpHook.SimpleGlobalHook.html">SimpleGlobalHook</a></div>
+      <div><a class="xref" href="SharpHook.EventLoopGlobalHook.html">EventLoopGlobalHook</a></div>
       <div><a class="xref" href="SharpHook.TaskPoolGlobalHook.html">TaskPoolGlobalHook</a></div>
       <div><a class="xref" href="SharpHook.BasicGlobalHookBase.html">BasicGlobalHookBase</a></div>
   </div>

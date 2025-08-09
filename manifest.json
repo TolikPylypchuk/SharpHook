@@ -253,6 +253,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.EventLoopGlobalHook.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.EventLoopGlobalHook.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.EventLoopGlobalHook",
+      "Summary": "<p sourcefile=\"api/SharpHook.EventLoopGlobalHook.yml\" sourcestartlinenumber=\"1\">Represents an implementation of <xref href=\"SharpHook.IGlobalHook\" data-throw-if-not-resolved=\"false\"></xref> which dispatches events to an event loop running on a\nseparate dedicated thread.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SharpHook.EventSimulator.yml",
       "output": {
         ".html": {
