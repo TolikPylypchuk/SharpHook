@@ -94,6 +94,17 @@ just abstractions over the corresponding classes. As such, when new features are
 low-level functionality providers, these interfaces need to be changed. Technically, this is a breaking change and
 would require bumping the major version. Instead, changes to these interfaces are usually treated as minor version
 updates since they are not expected to break client code.</p>
+<h2 id="version-6-to-7">Version 6 to 7</h2>
+<p>Version 7 contains only a couple breaking changes and most of them are in SharpHook.Reactive.</p>
+<p><code>SimpleReactiveGlobalHook</code> was renamed to <code>ReactiveGlobalHook</code>.</p>
+<p><code>RunAsync</code> in <code>IReactiveGlobalHook</code> now returns a <code>Task</code> instead of an <code>IObservable&lt;Unit&gt;</code>. If you want to have
+<code>IObservable&lt;Unit&gt;</code> instead, you should wrap the returned task.</p>
+<p>Other breaking changes only require recompilation and don't require changing any code (unless reflection is used).</p>
+<p>The <code>Run</code>, <code>RunAsync</code>, and <code>Stop</code> methods as well as the <code>IsRunning</code> and <code>IsDisposed</code> properties were moved from
+<code>IGlobalHook</code> and <code>IReactiveGlobalHook</code> into <code>IBasicGlobalHook</code> which both <code>IGlobalHook</code> and <code>IReactiveGlobalHook</code> now
+extend.</p>
+<p><code>ReactiveLogSourceAdapter</code> now contains a single constructor with a default second parameter instead of two
+constructors.</p>
 <h2 id="version-5-to-6">Version 5 to 6</h2>
 <p>Version 6 contains multiple breaking changes, so you will most probably need to change your code to upgrade.</p>
 <p>All structs and enums were moved from <code>SharpHook.Native</code> to <code>SharpHook.Data</code>.</p>
