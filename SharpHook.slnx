@@ -14,6 +14,7 @@
   </Folder>
   <Folder Name="/Docs/Articles/">
     <File Path="docs/articles/about.md" />
+    <File Path="docs/articles/custom.md" />
     <File Path="docs/articles/hooks.md" />
     <File Path="docs/articles/keycodes.md" />
     <File Path="docs/articles/logging.md" />

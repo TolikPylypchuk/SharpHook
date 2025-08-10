@@ -66,12 +66,62 @@ reactiveLogSource.MessageLogged.Subscribe(this.OnMessageLogged);
 of an event. `ReactiveLogSourceAdapter` adapts an `ILogSource` to the `IReactiveLogSource` interface. A default
 scheduler can be set for the `MessageLogged` observable.
 
+SharpHook.R3 contains the `IR3LogSource` and its implementation – `R3LogSourceAdapter`. Here's a usage example:
+
+```c#
+using SharpHook.Logging;
+using SharpHook.Native;
+using SharpHook.R3.Logging;
+
+// ...
+
+var logSource = LogSource.RegisterOrGet(minLevel: LogLevel.Info);
+var reactiveLogSource = new R3LogSourceAdapter(logSource);
+reactiveLogSource.MessageLogged.Subscribe(this.OnMessageLogged);
+```
+
+`IR3LogSource` is basically the same as `ILogSource`, but `MessageLogged` is an observable of `LogEntry` instead of an
+event. `R3LogSourceAdapter` adapts an `ILogSource` to the `IR3LogSource` interface. A default time provider can be set
+for the `MessageLogged` observable.
+
 ## Using the Low-Level Functionality
 
-The logging functionality works by using `UioHook.SetLoggerProc`. This method sets the log callback – a delegate of
-type `LoggerProc`, which will be called to log the messages of libuiohook. `LoggerProc` receives the log level, a
-pointer to the message format, and a pointer to the message arguments. It also receives a pointer to user-supplied data
-(which is set in the `UioHook.SetLoggerProc`), but you usually shouldn't use it.
+### Calling the `SetLoggerProc` Method
+
+The logging functionality works by using `ILoggingProvider.SetLoggerProc` (which in turn uses `UioHook.SetLoggerProc` by
+default). This method sets the log callback – a delegate of type `LoggerProc` which will be called to log the messages
+of libuiohook. `LoggerProc` receives the log level, a pointer to the message format, and a pointer to the message
+arguments. It also receives user-supplied data as an `IntPtr` (which is set in the `UioHook.SetLoggerProc`), but you
+usually shouldn't use it.
+
+When calling `SetLoggerProc`, the function must be wrapped into a delegate reference and the reference must be stored
+to prevent garbage collection. This is because the following code:
+
+```c#
+provider.SetLoggerProc(someObj.SomeMethod, IntPtr.Zero);
+```
+
+is actually transformed into this code by the C# compiler:
+
+```c#
+provider.SetLoggerProc(new LoggerProc(someObj.SomeMethod), IntPtr.Zero);
+```
+
+The CLR protects the `LoggerProc` reference from being garbage-collected only until the `SetLoggerProc` methods exits
+(which happens almost instantly). The CLR does not and cannot know that the reference will be used later and so it will
+happily collect this reference thinking it's not needed anymore. Instead, the following should be done:
+
+```c#
+LoggerProc loggerProc = someObj.SomeMethod; // This reference should be stored, e.g., as a field of the object
+provider.SetLoggerProc(loggerProc, IntPtr.Zero);
+```
+
+Additionally, if you need to support Mac Catalyst, there are two conditions that the logger callback must satisfy:
+
+- The method must be `static`
+- The method must be decorated with the `[ObjCRuntime.MonoPInvokeCallback(typeof(LoggerProc))]` attribute
+
+### Using `LogEntryParser`
 
 It is highly recommended to use `LogEntryParser` in order to create a log entry out of the pointers to the message
 format and arguments. This way you won't have to handle these pointers directly. The problem with handling them directly

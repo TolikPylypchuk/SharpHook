@@ -105,7 +105,8 @@ called.
 
 > [!IMPORTANT]
 > You have to remember that only one global hook can exist at a time since calling `SetDispatchProc` will override the
-> previously set one.
+> previously set one. Also, running a global hook when another global hook is already running will corrupt the internal
+> global state of libuiohook.
 
 Additionally, `UioHook` contains the `PostEvent` method for simulating input events.
 
@@ -117,7 +118,7 @@ libuiohook also provides functions to get various system properties. The corresp
 
 ### Global Hooks
 
-SharpHook provides the `IGlobalHook` interface along with two default implementations which you can use to control the
+SharpHook provides the `IGlobalHook` interface along with three default implementations which you can use to control the
 hook and subscribe to its events. Here's a basic usage example:
 
 ```c#
@@ -125,7 +126,7 @@ using SharpHook;
 
 // ...
 
-var hook = new TaskPoolGlobalHook();
+var hook = new EventLoopGlobalHook();
 
 hook.HookEnabled += OnHookEnabled;     // EventHandler<HookEventArgs>
 hook.HookDisabled += OnHookDisabled;   // EventHandler<HookEventArgs>
@@ -173,25 +174,37 @@ a real difference only on Windows where there are two different global hooks –
 macOS and Linux, there is one hook for all events, and this simply enables filtering keyboard or mouse events out on
 these OSes.
 
-SharpHook provides two implementations of `IGlobalHook`:
+SharpHook provides three implementations of `IGlobalHook`:
 
 - `SharpHook.SimpleGlobalHook` runs all of its event handlers on the same thread on which the hook itself runs. This
 means that the handlers should generally be fast since they will block the hook from handling the events that follow if
 they run for too long.
 
+- `SharpHook.EventLoopGlobalHook` runs all of its event handlers on a separate dedicated thread. On backpressure it will
+queue the remaining events which means that the hook will be able to process all events. This implementation should be
+preferred to `SimpleGlobalHook` except for very simple use-cases. But it has a downside – suppressing event propagation
+will be ignored since event handlers are run on another thread.
+
 - `SharpHook.TaskPoolGlobalHook` runs all of its event handlers on other threads inside the default thread pool for
-tasks. The parallelism level of the handlers can be configured. On backpressure it will queue the remaining handlers.
-This means that the hook will be able to process all events. This implementation should be preferred to
-`SimpleGlobalHook` except for very simple use-cases. But it has a downside – suppressing event propagation will be
-ignored since event handlers are run on other threads.
+tasks. The parallelism level of the handlers can be configured. On backpressure it will queue the remaining events which
+means that the hook will be able to process all events. This implementation should be preferred to `SimpleGlobalHook`
+except for very simple use-cases. But it has a downside – suppressing event propagation will be ignored since event
+handlers are run on other threads. In general, `EventLoopGlobalHook` should be preferred instead, as this class provides
+benefits only if events should be processed in parallel, which is rarely the case.
 
 The library also provides the `SharpHook.GlobalHookBase` class which you can extend to create your own implementation
 of the global hook. It calls the appropriate event handlers, and you only need to implement a strategy for dispatching
 the events. It also keeps a reference to a running global hook so that it's not garbage-collected.
 
+The library also provides the `IBasicGlobalHook` interface and the `BasicGlobalHookBase` class. This class can be
+extended to create a custom global hook which has a different form of events from that in `IGlobalHook`.
+
 ### Reactive Global Hooks
 
-If you're using Rx.NET, you can use the SharpHook.Reactive package to integrate SharpHook with Rx.NET.
+#### Rx.NET
+
+If you're using [Rx.NET](https://github.com/dotnet/reactive), you can use the SharpHook.Reactive package to integrate
+SharpHook with Rx.NET.
 
 SharpHook.Reactive provides the `SharpHook.Reactive.IReactiveGlobalHook` interface along with a default implementation
 which you can use to use to control the hook and subscribe to its observables. Here's a basic example:
@@ -201,7 +214,7 @@ using SharpHook.Reactive;
 
 // ...
 
-var hook = new SimpleReactiveGlobalHook();
+var hook = new ReactiveGlobalHook();
 
 hook.HookEnabled.Subscribe(OnHookEnabled);
 hook.HookDisabled.Subscribe(OnHookDisabled);
@@ -226,19 +239,71 @@ hook.MouseWheel.Subscribe(OnMouseWheel);
 
 hook.Run();
 // or
-hook.RunAsync().Subscribe();
+await hook.RunAsync();
 ```
 
 Reactive global hooks are basically the same as the default global hooks and the same rules apply to them.
 
 SharpHook.Reactive provides two implementations of `IReactiveGlobalHook`:
 
-- `SharpHook.Reactive.SimpleReactiveGlobalHook`. Since we're dealing with observables, it's up to you to decide when
-and where to handle the events through schedulers. A default scheduler can be specified for all observables.
+- `SharpHook.Reactive.ReactiveGlobalHook`. Since we're dealing with observables, it's up to you to decide when and where
+to handle the events through schedulers. A default scheduler can be specified for all observables.
 
 - `SharpHook.Reactive.ReactiveGlobalHookAdapter` adapts an `IGlobalHook` to `IReactiveGlobalHook`. All
 subscriptions and changes are propagated to the adapted hook. There is no default adapter from `IReactiveGlobalHook`
 to `IGlobalHook`. A default scheduler can be specified for all observables.
+
+#### R3
+
+If you're using [R3](https://github.com/Cysharp/R3), you can use the SharpHook.R3 package to integrate SharpHook with
+R3.
+
+SharpHook.R3 provides the `SharpHook.R3.IR3GlobalHook` interface along with a default implementation which you can use
+to use to control the hook and subscribe to its observables. Here's a basic example:
+
+```c#
+using SharpHook.R3;
+
+// ...
+
+var hook = new R3GlobalHook();
+
+hook.HookEnabled.Subscribe(OnHookEnabled);
+hook.HookDisabled.Subscribe(OnHookDisabled);
+
+hook.KeyTyped.Subscribe(OnKeyTyped);
+hook.KeyPressed.Subscribe(OnKeyPressed);
+hook.KeyReleased.Subscribe(OnKeyReleased);
+
+hook.MouseClicked.Subscribe(OnMouseClicked);
+hook.MousePressed.Subscribe(OnMousePressed);
+hook.MouseReleased.Subscribe(OnMouseReleased);
+
+hook.MouseMoved
+    .Debouce(TimeSpan.FromSeconds(0.5))
+    .Subscribe(OnMouseMoved);
+
+hook.MouseDragged
+    .Debouce(TimeSpan.FromSeconds(0.5))
+    .Subscribe(OnMouseDragged);
+
+hook.MouseWheel.Subscribe(OnMouseWheel);
+
+hook.Run();
+// or
+await hook.RunAsync();
+```
+
+R3 global hooks are basically the same as the default global hooks and the same rules apply to them.
+
+SharpHook.R3 provides two implementations of `IR3GlobalHook`:
+
+- `SharpHook.R3.R3GlobalHook`. Since we're dealing with observables, it's up to you to decide when and where to handle
+the events through time providers. A default time provider can be specified for all observables.
+
+- `SharpHook.R3.R3GlobalHookAdapter` adapts an `IGlobalHook` to `IR3GlobalHook`. All subscriptions and changes are
+propagated to the adapted hook. There is no default adapter from `IR3GlobalHook` to `IGlobalHook`. A default time
+provider can be specified for all observables.
 
 ### Event Simulation
 
@@ -286,8 +351,8 @@ simulator.SimulateMouseWheel(
     type: MouseWheelScrollType.UnitScroll); // UnitScroll by default
 ```
 
-SharpHook provides the `IEventSimulator` interface, and the default implementation, `EventSimulator`, which calls
-`UioHook.PostEvent` to simulate the events.
+SharpHook provides the `IEventSimulator` interface, and the default implementation, `EventSimulator`, which by default
+calls `UioHook.PostEvent` to simulate the events.
 
 ### Text Entry Simulation
 
@@ -332,6 +397,19 @@ var reactiveLogSource = new ReactiveLogSourceAdapter(logSource);
 reactiveLogSource.MessageLogged.Subscribe(this.OnMessageLogged);
 ```
 
+SharpHook.R3 contains the `IR3LogSource` and `R3LogSourceAdapter` so you can use them in a more reactive way as well:
+
+```C#
+using SharpHook.Logging;
+using SharpHook.R3.Logging;
+
+// ...
+
+var logSource = LogSource.RegisterOrGet(minLevel: LogLevel.Info);
+var reactiveLogSource = new R3LogSourceAdapter(logSource);
+reactiveLogSource.MessageLogged.Subscribe(this.OnMessageLogged);
+```
+
 ### Testing
 
 SharpHook provides two classes which make testing easier. They aren't required since mocks can be used instead, but
@@ -345,6 +423,9 @@ If this class is used as an `IEventSimulator` in the tested code, then the `Simu
 see which events were simulated using the test instance.
 
 If an `IReactiveGlobalHook` is needed for testing, then `ReactiveGlobalHookAdapter` can be used to adapt an instance of
+`TestGlobalHook`.
+
+If an `IR3GlobalHook` is needed for testing, then `R3GlobalHookAdapter` can be used to adapt an instance of
 `TestGlobalHook`.
 
 If the low-level functionality of SharpHook should be mocked, or mocking should be pushed as far away as possible,
@@ -402,7 +483,7 @@ Place the binaries into the appropriate directories in the `SharpHook` project, 
   </tr>
 </table>
 
-With libuiohook in place you can build SharpHook using your usual methods, e.g. with Visual Studio or the `dotnet` CLI.
+With libuiohook in place, you can build SharpHook using your usual methods, e.g. with Visual Studio or the `dotnet` CLI.
 You need .NET 9 to build SharpHook.
 
 ## Icon

@@ -50,10 +50,44 @@ Place the binaries into the appropriate directories in the `SharpHook` project, 
   </tr>
 </table>
 
-With libuiohook in place you can build SharpHook using your usual methods, e.g. with Visual Studio or the `dotnet` CLI.
+With libuiohook in place, you can build SharpHook using your usual methods, e.g. with Visual Studio or the `dotnet` CLI.
 You need .NET 9 to build SharpHook.
 
 ## Changelog
+
+### [v7.0.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v7.0.0) (August 10, 2025)
+
+#### Breaking Changes
+
+- `SimpleReactiveGlobalHook` was renamed to `ReactiveGlobalHook`.
+
+- The `Run`, `RunAsync`, and `Stop` methods were moved from `IGlobalHook` and `IReactiveGlobalHook` into
+`IBasicGlobalHook` which both `IGlobalHook` and `IReactiveGlobalHook` now extend.
+
+- Because of the previous change, `RunAsync` for reactive global hooks now returns a `Task` instead of an
+`IObservable<Unit>`.
+
+- `ReactiveLogSourceAdapter` now contains a single constructor with a default parameter instead of two constructors.
+
+#### New Features
+
+- SharpHook.R3 – a new package for integration with R3 was added.
+
+- `EventLoopGlobalHook` – a new implementation of `IGlobalHook` – was added.
+
+- `IBasicGlobalHook` and `BasicGlobalHookBase` were added for easier creation of custom global hooks with different
+event forms.
+
+- `ReactiveLogSourceAdapter` now implements `ILogSource` in addition to `IReactiveLogSource`.
+
+#### Bug Fixes
+
+- On Windows, global hooks now correctly report the key that was pressed or released on non-QWERTY layouts.
+
+#### Other Changes
+
+- libuiohook was updated to commit
+[a2cba5f](https://github.com/TolikPylypchuk/libuiohook/tree/a2cba5f125072dad8683e812027a561e598c7a37).
 
 ### [v6.2.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v6.2.0) (July 19, 2025)
 

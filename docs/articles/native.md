@@ -33,13 +33,17 @@ previously set one. Also, running a global hook when another global hook is alre
 global state of libuiohook.
 
 `SetDispatchProc` accepts a delegate of type `SharpHook.Native.DispatchProc`. This delegate in turn accepts a
-`SharpHook.Data.UioHookEvent` by reference, and returns nothing.  You can pass `null` to `SetDispatchProc` in order
+`SharpHook.Data.UioHookEvent` by reference, and returns nothing. You can pass `null` to `SetDispatchProc` in order
 to unset the callback function.
 
 `Run` and `Stop` return a `SharpHook.Data.UioHookResult` which specifies whether the result of the method was successful
 (`UioHookResult.Success`) or not (any other value).
 
 The methods described above are also defined in the `SharpHook.Providers.IGlobalHookProvider` interface.
+
+> [!NOTE]
+> There are several considerations to have in mind when using these methods directly. You can read more in the article
+> on [custom global hooks](custom.md).
 
 ## Input Events
 

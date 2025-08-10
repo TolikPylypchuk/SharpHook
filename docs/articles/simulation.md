@@ -57,13 +57,13 @@ Mouse wheel simulation is a little more complex than other events.
 
 A positive `rotation` value indicates scrolling up or left, and a negative value indicates scrolling down or right.
 
-On Windows the value 120 represents the default wheel step. As such, multiples of 120 can be used as the rotation value,
+On Windows, the value 120 represents the default wheel step. As such, multiples of 120 can be used as the rotation value,
 but it's not required. The value of `type` is ignored.
 
-On macOS it's recommended to use values between -10 and 10. This will result in quite a small scroll amount with pixel
+On macOS, it's recommended to use values between -10 and 10. This will result in quite a small scroll amount with pixel
 scrolling, so `MouseWheelScrollType.BlockScroll` is recommended for line scrolling instead of pixel scrolling.
 
-On Linux there is no fixed recommendation, but multiples of 100 can be used. The value of `type` is ignored.
+On Linux, there is no fixed recommendation, but multiples of 100 can be used. The value of `type` is ignored.
 
 ## Text Entry Simulation
 
@@ -77,5 +77,5 @@ may not do so instantaneously, a delay is needed for accurate simulation. This m
 slowly and is not guaranteed to be correct.
 
 `IEventSimulator` contains the `TextSimulationDelayOnX11` property to get or set the delay if needed – longer delays add
-consistency but may be more jarring to end users – the default is 50 milliseconds. Delays are configurable on a
-nanosecond level. On Windows and macOS, setting this property does nothing, and it always returns `0`.
+consistency but may be more jarring to end users. The default is 50 milliseconds. Delays are configurable on a
+nanosecond level. On Windows and macOS, setting this property does nothing, and it always returns 0.

@@ -2,8 +2,8 @@
 
 ## The Interface
 
-SharpHook provides the `SharpHook.IGlobalHook` interface along with two default implementations which you can use
-to control the hook and subscribe to its events. This way is preferred to using native functions since it's more
+SharpHook provides the `SharpHook.IGlobalHook` interface along with three default implementations which you can use to
+control the hook and subscribe to its events. This way is preferred to using native functions since it's more
 convenient. Here's a basic usage example:
 
 ```c#
@@ -11,7 +11,7 @@ using SharpHook;
 
 // ...
 
-var hook = new TaskPoolGlobalHook();
+var hook = new EventLoopGlobalHook();
 
 hook.HookEnabled += OnHookEnabled;     // EventHandler<HookEventArgs>
 hook.HookDisabled += OnHookDisabled;   // EventHandler<HookEventArgs>
@@ -78,18 +78,20 @@ these OSes.
 
 ## The Default Implementations
 
-SharpHook provides two implementations of `IGlobalHook`:
+SharpHook provides three implementations of `IGlobalHook`:
 
 - `SharpHook.SimpleGlobalHook` runs all of its event handlers on the same thread on which the hook itself runs. This
 means that the handlers should generally be fast since they will block the hook from handling the events that follow if
 they run for too long.
 
-- `SharpHook.TaskPoolGlobalHook` runs all of its event handlers on other threads inside the default thread pool for
-tasks. The parallelism level of the handlers can be configured. On backpressure it will queue the remaining handlers.
-This means that the hook will be able to process all events. This implementation should be preferred to
-`SimpleGlobalHook` except for very simple use-cases. But it has a downside – suppressing event propagation will be
-ignored since event handlers are run on other threads.
+- `SharpHook.EventLoopGlobalHook` runs all of its event handlers on a separate dedicated thread. On backpressure it will
+queue the remaining events which means that the hook will be able to process all events. This implementation should be
+preferred to `SimpleGlobalHook` except for very simple use-cases. But it has a downside – suppressing event propagation
+will be ignored since event handlers are run on another thread.
 
-The library also provides the `SharpHook.GlobalHookBase` class which you can extend to create your own implementation
-of the global hook. It calls the appropriate event handlers, and you only need to implement a strategy for dispatching
-the events. It also keeps a reference to a running global hook so that it's not garbage-collected.
+- `SharpHook.TaskPoolGlobalHook` runs all of its event handlers on other threads inside the default thread pool for
+tasks. The parallelism level of the handlers can be configured. On backpressure it will queue the remaining events which
+means that the hook will be able to process all events. This implementation should be preferred to `SimpleGlobalHook`
+except for very simple use-cases. But it has a downside – suppressing event propagation will be ignored since event
+handlers are run on other threads. In general, `EventLoopGlobalHook` should be preferred instead, as this class provides
+benefits only if events should be processed in parallel, which is rarely the case.

@@ -111,9 +111,10 @@ will be ignored since event handlers are run on another thread.
 
 - `SharpHook.TaskPoolGlobalHook` runs all of its event handlers on other threads inside the default thread pool for
 tasks. The parallelism level of the handlers can be configured. On backpressure it will queue the remaining events which
-means that the hook will be able to process all events. This implementation should be preferred to
-`SimpleGlobalHook` except for very simple use-cases. But it has a downside – suppressing event propagation will be
-ignored since event handlers are run on other threads.
+means that the hook will be able to process all events. This implementation should be preferred to `SimpleGlobalHook`
+except for very simple use-cases. But it has a downside – suppressing event propagation will be ignored since event
+handlers are run on other threads. In general, `EventLoopGlobalHook` should be preferred instead, as this class provides
+benefits only if events should be processed in parallel, which is rarely the case.
 
 The library also provides the `SharpHook.GlobalHookBase` class which you can extend to create your own implementation
 of the global hook. It calls the appropriate event handlers, and you only need to implement a strategy for dispatching
@@ -173,8 +174,8 @@ simulator.SimulateMouseWheel(
     type: MouseWheelScrollType.UnitScroll); // UnitScroll by default
 ```
 
-SharpHook provides the `IEventSimulator` interface, and the default implementation, `EventSimulator`, which calls
-`UioHook.PostEvent` to simulate the events.
+SharpHook provides the `IEventSimulator` interface, and the default implementation, `EventSimulator`, which by default
+calls `UioHook.PostEvent` to simulate the events.
 
 ### Text Entry Simulation
 

@@ -8,6 +8,10 @@ This article describes OS-specific constrains and other things that should be no
 
 Only Windows 10 and 11 are supported.
 
+### Supported Architectures
+
+x86, x64, and Arm64 are supported. Arm32 is not supported since its support was dropped in .NET 5.
+
 ### `KeyTyped` Events
 
 It is recommended to disable events of type `KeyTyped` if they are unused since they may cause system-wide side effects:
@@ -15,17 +19,13 @@ It is recommended to disable events of type `KeyTyped` if they are unused since 
 - When a keyboard global hook is running with `KeyTyped` events enabled on versions of Windows older than Windows 10
 1607, it will destroy dead keys rendering them unusable. This is because it uses the
 [`ToUnicodeEx`](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-tounicodeex) function to
-determine which characters are typed by key presses, and before Windows 10 1607 this function changed the dead key
+determine which characters are typed by key presses, and before Windows 10 1607, this function changed the dead key
 state.
 
 - When a keyboard global hook is running with `KeyTyped` events enabled, some editors may insert Unicode characters when
 the user presses <kbd>Alt</kbd>+<kbd>Up Arrow</kbd> or <kbd>Alt</kbd>+<kbd>Down Arrow</kbd>. As of July 2025, on Windows
 11, this issue can be reproduced in Microsoft Visual Studio, but on Windows 10, it can be reproduced in other editors as
 well.
-
-### Supported Architectures
-
-x86, x64, and Arm64 are supported. Arm32 is not supported since its support was dropped in .NET 5.
 
 ### Visual C++ Redistributable
 
@@ -64,6 +64,11 @@ macOS requires that the Accessibility API access be enabled for the application 
 simulate events. If the Accessiblity API access is not enabled, then `Run` and `PostEvent` will fail and return
 `UioHookResult.ErrorAxApiDisabled`. More info can be found in the [article on low-level functionality](native.md).
 
+### `KeyTyped` Events
+
+It is recommended to disable events of type `KeyTyped` if they are unused even though they cause no known system-wide
+side effects on macOS.
+
 ### Main Run-Loop
 
 On macOS running the global hook requires that the main run-loop be present. libuiohook takes care of it if the hook
@@ -97,6 +102,11 @@ x64, Arm32, and Arm64 are supported. x86 is not supported by .NET itself.
 ### X11 and Wayland
 
 Only X11 is supported. Wayland support may be available in a future version.
+
+### `KeyTyped` Events
+
+It is recommended to disable events of type `KeyTyped` if they are unused since these events interfere with Chinese
+input methods on Linux.
 
 ### Text Entry Simulation
 

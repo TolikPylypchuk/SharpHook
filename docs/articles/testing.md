@@ -23,13 +23,12 @@ public async Task TestLastPressedKey()
     var keyCode = KeyCode.VcA;
     var componentUnderTest = new SomeClassWhichUsesGlobalHookEvents(hook);
 
-    // Run the test hook asynchronously and ignore the result
-    var hookStopped = hook.RunAsync();
+    var hookStopped = hook.RunAsync(); // Run the test hook asynchronously
 
-    hook.SimulateKeyPress(keyCode);
+    hook.SimulateKeyPress(keyCode); // Dispatch the event to the test global hook
 
     hook.Dispose();
-    await hookStopped;
+    await hookStopped; // Wait until the hook is actually stopped
 
     Assert.Equal(keyCode, componentUnderTest.LastPressedKey);
 }
@@ -55,6 +54,9 @@ Other than that, members of `TestGlobalHook` are quite straightforward; the API 
 info.
 
 If an `IReactiveGlobalHook` is needed for testing, then `ReactiveGlobalHookAdapter` can be used to adapt an instance of
+`TestGlobalHook`.
+
+If an `IR3GlobalHook` is needed for testing, then `R3GlobalHookAdapter` can be used to adapt an instance of
 `TestGlobalHook`.
 
 ## Test Low-Level Functionality Provider
@@ -93,6 +95,6 @@ var simulator = new EventSimulator(simulationProvider: testProvider);
 ```
 
 > [!NOTE]
-> `TaskPoolGlobalHook` shouldn't be used this way since its event handlers are asynchronous and there is no built-in
-> way to know when they are actually executed. As such, it's difficult to check event handler results. If you want
-> to use a real hook, e.g. for integration testing, then use `SimpleGlobalHook` instead.
+> `EventLoopGlobalHook` or `TaskPoolGlobalHook` shouldn't be used this way since their event handlers are asynchronous
+> and there is no built-in way to know when they are actually executed. As such, it's difficult to check event handler
+> results. If you want to use a real hook, e.g. for integration testing, then use `SimpleGlobalHook` instead.
