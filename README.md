@@ -2,6 +2,7 @@
 
 [![NuGet](https://img.shields.io/nuget/v/SharpHook.svg?label=SharpHook)](https://www.nuget.org/packages/SharpHook)
 [![NuGet](https://img.shields.io/nuget/v/SharpHook.Reactive.svg?label=SharpHook.Reactive)](https://www.nuget.org/packages/SharpHook.Reactive)
+[![NuGet](https://img.shields.io/nuget/v/SharpHook.R3.svg?label=SharpHook.R3)](https://www.nuget.org/packages/SharpHook.R3)
 
 SharpHook provides a cross-platform global keyboard and mouse hook, event simulation, and text entry simulation for
 .NET. It is a wrapper of [libuiohook](https://github.com/TolikPylypchuk/libuiohook) and provides direct access to its
