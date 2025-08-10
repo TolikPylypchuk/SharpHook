@@ -113,11 +113,16 @@ called.</li>
 previously set one. Also, running a global hook when another global hook is already running will corrupt the internal
 global state of libuiohook.</p>
 <p><code>SetDispatchProc</code> accepts a delegate of type <code>SharpHook.Native.DispatchProc</code>. This delegate in turn accepts a
-<code>SharpHook.Data.UioHookEvent</code> by reference, and returns nothing.  You can pass <code>null</code> to <code>SetDispatchProc</code> in order
+<code>SharpHook.Data.UioHookEvent</code> by reference, and returns nothing. You can pass <code>null</code> to <code>SetDispatchProc</code> in order
 to unset the callback function.</p>
 <p><code>Run</code> and <code>Stop</code> return a <code>SharpHook.Data.UioHookResult</code> which specifies whether the result of the method was successful
 (<code>UioHookResult.Success</code>) or not (any other value).</p>
 <p>The methods described above are also defined in the <code>SharpHook.Providers.IGlobalHookProvider</code> interface.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>There are several considerations to have in mind when using these methods directly. You can read more in the article
+on <a href="custom.html">custom global hooks</a>.</p>
+</div>
 <h2 id="input-events">Input Events</h2>
 <p>The <code>SharpHook.Data.UioHookEvent</code> struct contains information about events that have occured.</p>
 <p>There are several event types supported by libuiohook (contained in the event's <code>Type</code> field and defined in the

@@ -87,16 +87,16 @@
         <article data-uid="">
 <h1 id="reactive-global-hooks">Reactive Global Hooks</h1>
 
-<p>If you're using Rx.NET, you can use the SharpHook.Reactive package to integrate SharpHook with Rx.NET. Using this
-package is preferred when possible since it's more powerful.</p>
-<h2 id="the-interface">The Interface</h2>
+<h2 id="rxnet">Rx.NET</h2>
+<p>If you're using <a href="https://github.com/dotnet/reactive">Rx.NET</a>, you can use the SharpHook.Reactive package to integrate
+SharpHook with Rx.NET.</p>
 <p>SharpHook.Reactive provides the <code>SharpHook.Reactive.IReactiveGlobalHook</code> interface along with a default implementation
 which you can use to use to control the hook and subscribe to its observables. Here's a basic example:</p>
 <pre><code class="lang-c#">using SharpHook.Reactive;
 
 // ...
 
-var hook = new SimpleReactiveGlobalHook();
+var hook = new ReactiveGlobalHook();
 
 hook.HookEnabled.Subscribe(OnHookEnabled);
 hook.HookDisabled.Subscribe(OnHookDisabled);
@@ -121,15 +121,13 @@ hook.MouseWheel.Subscribe(OnMouseWheel);
 
 hook.Run();
 // or
-hook.RunAsync().Subscribe();
+await hook.RunAsync();
 </code></pre>
 <p>The observables for events emit the <code>EventArgs</code>-derived types which are the same as in the events of <code>IGlobalHook</code>.
 Unlike <code>IGlobalHook</code> you can't get the sender of the event by default. If you need to pass the hook itself as well, then
 use a closure.</p>
-<p>The <code>Run</code> and <code>RunAsync</code> methods are basically the same as in <code>IGlobalHook</code>, but <code>RunAsync</code> returns an
-<code>IObservable&lt;Unit&gt;</code> instead of a <code>Task</code> (the observable is hot). This observable will emit a single value and then
-complete when the global hook is destroyed. Running the hook when it's already running is also not allowed, and the
-<code>IsRunning</code> property is also available.</p>
+<p>The <code>Run</code> and <code>RunAsync</code> methods are basically the same as in <code>IGlobalHook</code>. Running the hook when it's already running
+is also not allowed, and the <code>IsRunning</code> property is also available.</p>
 <p>The <code>Stop</code> method is also available and is basically the same as in <code>IGlobalHook</code>.</p>
 <p><code>IReactiveGlobalHook</code> extends <code>IDisposable</code> as well and calling <code>Dispose</code> will dispose of the global hook, stopping it
 if it is running. As with <code>IGlobalHook</code>, starting a disposed instance again isn't allowed. Calling <code>Dispose</code> when the
@@ -141,18 +139,80 @@ complete when the hook is disposed. The <code>IsDisposed</code> property is also
 static method to set the hook callback for libuiohook, so there may only be one callback at a time. Running a global
 hook when another global hook is already running will corrupt the internal global state of libuiohook.</p>
 </div>
-<h2 id="the-default-implementations">The Default Implementations</h2>
 <p>SharpHook.Reactive provides two implementations of <code>IReactiveGlobalHook</code>:</p>
 <ul>
-<li><p><code>SharpHook.Reactive.SimpleReactiveGlobalHook</code>. Since we're dealing with observables, it's up to you to decide when
-and where to handle the events through schedulers. A default scheduler can be specified for all observables.</p>
+<li><p><code>SharpHook.Reactive.ReactiveGlobalHook</code>. Since we're dealing with observables, it's up to you to decide when and where
+to handle the events through schedulers. A default scheduler can be specified for all observables.</p>
 </li>
-<li><p><code>SharpHook.Reactive.ReactiveGlobalHookAdapter</code> adapts an <code>IGlobalHook</code> to <code>IReactiveGlobalHook</code>. All
-subscriptions and changes are propagated to the adapted hook. A default scheduler can be specified for all observables.
-There is no default adapter from <code>IReactiveGlobalHook</code> to <code>IGlobalHook</code>.</p>
+<li><p><code>SharpHook.Reactive.ReactiveGlobalHookAdapter</code> adapts an <code>IGlobalHook</code> to <code>IReactiveGlobalHook</code>. All subscriptions and
+changes are propagated to the adapted hook. A default scheduler can be specified for all observables. There is no
+default adapter from <code>IReactiveGlobalHook</code> to <code>IGlobalHook</code>.</p>
 </li>
 </ul>
-<p><code>SimpleReactiveGlobalHook</code> keeps a reference to a running global hook so that it's not garbage-collected.</p>
+<p><code>ReactiveGlobalHook</code> keeps a reference to a running global hook so that it's not garbage-collected.</p>
+<h2 id="r3">R3</h2>
+<p>If you're using <a href="https://github.com/Cysharp/R3">R3</a>, you can use the SharpHook.R3 package to integrate SharpHook with
+R3.</p>
+<p>SharpHook.R3 provides the <code>SharpHook.R3.IR3GlobalHook</code> interface along with a default implementation which you can use
+to use to control the hook and subscribe to its observables. Here's a basic example:</p>
+<pre><code class="lang-c#">using SharpHook.R3;
+
+// ...
+
+var hook = new R3GlobalHook();
+
+hook.HookEnabled.Subscribe(OnHookEnabled);
+hook.HookDisabled.Subscribe(OnHookDisabled);
+
+hook.KeyTyped.Subscribe(OnKeyTyped);
+hook.KeyPressed.Subscribe(OnKeyPressed);
+hook.KeyReleased.Subscribe(OnKeyReleased);
+
+hook.MouseClicked.Subscribe(OnMouseClicked);
+hook.MousePressed.Subscribe(OnMousePressed);
+hook.MouseReleased.Subscribe(OnMouseReleased);
+
+hook.MouseMoved
+    .Debounce(TimeSpan.FromSeconds(0.5))
+    .Subscribe(OnMouseMoved);
+
+hook.MouseDragged
+    .Debounce(TimeSpan.FromSeconds(0.5))
+    .Subscribe(OnMouseDragged);
+
+hook.MouseWheel.Subscribe(OnMouseWheel);
+
+hook.Run();
+// or
+await hook.RunAsync();
+</code></pre>
+<p>The observables for events emit the <code>EventArgs</code>-derived types which are the same as in the events of <code>IGlobalHook</code>.
+Unlike <code>IGlobalHook</code> you can't get the sender of the event by default. If you need to pass the hook itself as well, then
+use a closure.</p>
+<p>The <code>Run</code> and <code>RunAsync</code> methods are basically the same as in <code>IGlobalHook</code>. Running the hook when it's already running
+is also not allowed, and the <code>IsRunning</code> property is also available.</p>
+<p>The <code>Stop</code> method is also available and is basically the same as in <code>IGlobalHook</code>.</p>
+<p><code>IR3GlobalHook</code> extends <code>IDisposable</code> as well and calling <code>Dispose</code> will dispose of the global hook, stopping it if it
+is running. As with <code>IGlobalHook</code>, starting a disposed instance again isn't allowed. Calling <code>Dispose</code> when the hook is
+not running won't do anything other than marking the instance as disposed. All observables in the hook will complete
+when the hook is disposed. The <code>IsDisposed</code> property is also available.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Always use one instance of <code>IR3GlobalHook</code> at a time in the entire application since they all must use the same static
+method to set the hook callback for libuiohook, so there may only be one callback at a time. Running a global hook
+when another global hook is already running will corrupt the internal global state of libuiohook.</p>
+</div>
+<p>SharpHook.R3 provides two implementations of <code>IR3GlobalHook</code>:</p>
+<ul>
+<li><p><code>SharpHook.R3.R3GlobalHook</code>. Since we're dealing with observables, it's up to you to decide when and where to handle
+the events through time providers. A default time provider can be specified for all observables.</p>
+</li>
+<li><p><code>SharpHook.R3.R3GlobalHookAdapter</code> adapts an <code>IGlobalHook</code> to <code>IR3GlobalHook</code>. All subscriptions and changes are
+propagated to the adapted hook. A default time provider can be specified for all observables. There is no default
+adapter from <code>IR3GlobalHook</code> to <code>IGlobalHook</code>.</p>
+</li>
+</ul>
+<p><code>R3GlobalHook</code> keeps a reference to a running global hook so that it's not garbage-collected.</p>
 
 </article>
 

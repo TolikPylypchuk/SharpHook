@@ -106,13 +106,12 @@ public async Task TestLastPressedKey()
     var keyCode = KeyCode.VcA;
     var componentUnderTest = new SomeClassWhichUsesGlobalHookEvents(hook);
 
-    // Run the test hook asynchronously and ignore the result
-    var hookStopped = hook.RunAsync();
+    var hookStopped = hook.RunAsync(); // Run the test hook asynchronously
 
-    hook.SimulateKeyPress(keyCode);
+    hook.SimulateKeyPress(keyCode); // Dispatch the event to the test global hook
 
     hook.Dispose();
-    await hookStopped;
+    await hookStopped; // Wait until the hook is actually stopped
 
     Assert.Equal(keyCode, componentUnderTest.LastPressedKey);
 }
@@ -132,6 +131,8 @@ dispatched.</p>
 <p>Other than that, members of <code>TestGlobalHook</code> are quite straightforward; the API reference should be viewed for more
 info.</p>
 <p>If an <code>IReactiveGlobalHook</code> is needed for testing, then <code>ReactiveGlobalHookAdapter</code> can be used to adapt an instance of
+<code>TestGlobalHook</code>.</p>
+<p>If an <code>IR3GlobalHook</code> is needed for testing, then <code>R3GlobalHookAdapter</code> can be used to adapt an instance of
 <code>TestGlobalHook</code>.</p>
 <h2 id="test-low-level-functionality-provider">Test Low-Level Functionality Provider</h2>
 <p>If the low-level functionality of SharpHook should be mocked, or mocking should be pushed as far away as possible,
@@ -161,9 +162,9 @@ var simulator = new EventSimulator(simulationProvider: testProvider);
 </code></pre>
 <div class="NOTE">
 <h5>Note</h5>
-<p><code>TaskPoolGlobalHook</code> shouldn't be used this way since its event handlers are asynchronous and there is no built-in
-way to know when they are actually executed. As such, it's difficult to check event handler results. If you want
-to use a real hook, e.g. for integration testing, then use <code>SimpleGlobalHook</code> instead.</p>
+<p><code>EventLoopGlobalHook</code> or <code>TaskPoolGlobalHook</code> shouldn't be used this way since their event handlers are asynchronous
+and there is no built-in way to know when they are actually executed. As such, it's difficult to check event handler
+results. If you want to use a real hook, e.g. for integration testing, then use <code>SimpleGlobalHook</code> instead.</p>
 </div>
 
 </article>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Custom Global Hooks | SharpHook </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Custom Global Hooks | SharpHook ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/TolikPylypchuk/SharpHook/blob/main/docs/articles/custom.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="SharpHook">
+            SharpHook
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="custom-global-hooks">Custom Global Hooks</h1>
+
+<h2 id="custom-implementations-of-iglobalhook">Custom Implementations of <code>IGlobalHook</code></h2>
+<p>If you want an <code>IGlobalHook</code> with a custom dispatch logic, you should extend the <code>SharpHook.GlobalHookBase</code> class. It
+implements the logic for running, stopping, and disposing of the global hook, as well as raising appropriate events.
+It also keeps a reference to a running global hook so that it's not garbage-collected. You only need to implement the
+<code>HandleHookEvent</code> method, and call the <code>DispatchEvent</code> inside it in the way you see fit. You can also call
+<code>ShouldDispatchEvent</code> before executing any logic to determine whether the event should be dispatched (i.e. it has any
+subscribers).</p>
+<p>As an example, here's the implementation of <code>SimpleGlobalHook</code> (with XML comments removed):</p>
+<pre><code class="lang-c#">namespace SharpHook;
+
+public sealed class SimpleGlobalHook : GlobalHookBase
+{
+    public SimpleGlobalHook(
+        GlobalHookType globalHookType = GlobalHookType.All,
+        IGlobalHookProvider? globalHookProvider = null,
+        bool runAsyncOnBackgroundThread = false)
+        : base(globalHookType, globalHookProvider, runAsyncOnBackgroundThread)
+    { }
+
+    protected override void HandleHookEvent(ref UioHookEvent e) =&gt;
+        this.DispatchEvent(ref e);
+}
+</code></pre>
+<p>As you can see, it really is exceedingly simple!</p>
+<p><code>GlobalHookBase</code> also provides the <code>BeforeRun</code> and <code>AfterStop</code> methods to execute custom logic before a global hook
+starts running and after it finishes running. You can also override its <code>Dispose</code> method. You must call the base
+method inside the overriden method. For example, <code>EventLoopGlobalHook</code> overrides <code>BeforeRun</code> to start a separate thread
+with an event loop, and <code>Dispose</code> to stop it.</p>
+<p>Additionally, <code>GlobalHookBase</code> provides virtual methods that raise appropriate events like <code>OnHookEnabled</code> and
+<code>OnKeyPressed</code>.</p>
+<h2 id="custom-global-hooks-with-other-event-forms">Custom Global Hooks With Other Event Forms</h2>
+<p>SharpHook provides the <code>IBasicGlobalHook</code> interface and the <code>BasicGlobalHookBase</code> class which act as the roots of the
+entire hierarchy of global hook classes and interfaces in SharpHook.</p>
+<p><code>IBasicGlobalHook</code> represents basic operations for a global keyboard and mouse hook regardless of the form of its
+events. It extends <code>IDisposable</code> and defines three methods: <code>Run</code>, <code>RunAsync</code>, and <code>Stop</code>, as well as two properties:
+<code>IsRunning</code> and <code>IsDisposed</code>. <code>BasicGlobalHookBase</code> is an abstract class which implements these methods and leaves out
+only the actual handling of the events.</p>
+<p>If you want to create a custom global hook which doesn't implement <code>IGlobalHook</code> (e.g. if you want to implement
+<code>IReactiveGlobalHook</code> or <code>IR3GlobalHook</code>, or have a different interface altogether) then it's highly recommended to
+extend <code>BasicGlobalHookBase</code> since this way you will only need to implement handling the events, and all other logic
+(which is actually non-trivial) is handled for you.</p>
+<p>The following methods provided in <code>GlobalHookBase</code> are actually provided in <code>BasicGlobalHookBase</code> which <code>GlobalHookBase</code>
+itself extends: <code>HandleHookEvent</code>, <code>BeforeRun</code>, <code>AfterStop</code>, and <code>Dispose</code>.</p>
+<p>As an example, here's a global hook which raises a single event for all hook events instead of different events for each
+event type:</p>
+<pre><code class="lang-c#">public sealed class StraightforwardGlobalHook : BasicGlobalHookBase
+{
+    protected override void HandleHookEvent(ref UioHookEvent e) =&gt;
+        this.HookEvent?.Invoke(this, e);
+
+    public event EventHandler&lt;UioHookEvent&gt;? HookEvent;
+}
+</code></pre>
+<h2 id="using-low-level-functionality-directly">Using Low-Level Functionality Directly</h2>
+<p>As mentioned above, it's highly recommended to extend <code>BasicGlobalHookBase</code> if you want to implement a custom global
+hook, but you may nonetheless want to implement everything from scratch. You can read more about that in the article on
+<a href="native.html">low-level functionality</a>.</p>
+<p>When calling <code>SetDispatchProc</code>, the function must be wrapped into a delegate reference and the reference must be stored
+to prevent garbage collection. This is because the following code:</p>
+<pre><code class="lang-c#">provider.SetDispatchProc(someObj.SomeMethod, IntPtr.Zero);
+</code></pre>
+<p>is actually transformed into this code by the C# compiler:</p>
+<pre><code class="lang-c#">provider.SetDispatchProc(new DispatchProc(someObj.SomeMethod), IntPtr.Zero);
+</code></pre>
+<p>The CLR protects the <code>DispatchProc</code> reference from being garbage-collected only until the <code>SetDispatchProc</code> methods
+exits (which happens almost instantly). The CLR does not and cannot know that the reference will be used later and so it
+will happily collect this reference thinking it's not needed anymore. Instead, the following should be done:</p>
+<pre><code class="lang-c#">DispatchProc dispatchProc = someObj.SomeMethod; // This reference should be stored, e.g., as a field of the object
+provider.SetDispatchProc(dispatchProc, IntPtr.Zero);
+</code></pre>
+<p>Additionally, if you need to support Mac Catalyst, there are two conditions that the event callback must satisfy:</p>
+<ul>
+<li>The method must be <code>static</code></li>
+<li>The method must be decorated with the <code>[ObjCRuntime.MonoPInvokeCallback(typeof(DispatchProc))]</code> attribute</li>
+</ul>
+<p><code>BasicGlobalHookBase</code> does all this for you so that you don't have to.</p>
+<p>If you look through the source code of <code>BasicGlobalHookBase</code>, you will notice that even though running multiple global
+hooks at the same time is expressly forbidden and this is emphasized in multiple places in the docs, the class itself
+still supports running multiple global hooks at the same time. Even though the event callback is static, the class has
+a dictionary of running global hooks where the key is the object's index (that's incremented in the constructor), and
+this index is passed as the second parameter of <code>SetDispatchProc</code> (and this behaviour is also discouraged). So why do
+that? The answer is simple – <code>BasicGlobalHookBase</code> itself just doesn't care that there is such a limitation in place.
+This is a limitation of libuiohook, and in theory, you could implement a custom <code>IGlobalHookProvider</code> which supports
+multiple running global hooks, and <code>BasicGlobalHookBase</code> will work without problems with such a provider. Or you could
+instantiate multiple global hooks with a different provider each, and they will also work without problems.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/main/docs/articles/custom.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Created by <a href="https://tolik.io">Tolik Pylypchuk</a>. Docs made with <a href="https://dotnet.github.io/docfx">docfx</a></span>.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

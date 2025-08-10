@@ -134,11 +134,46 @@ reactiveLogSource.MessageLogged.Subscribe(this.OnMessageLogged);
 <p><code>IReactiveLogSource</code> is basically the same as <code>ILogSource</code>, but <code>MessageLogged</code> is an observable of <code>LogEntry</code> instead
 of an event. <code>ReactiveLogSourceAdapter</code> adapts an <code>ILogSource</code> to the <code>IReactiveLogSource</code> interface. A default
 scheduler can be set for the <code>MessageLogged</code> observable.</p>
+<p>SharpHook.R3 contains the <code>IR3LogSource</code> and its implementation – <code>R3LogSourceAdapter</code>. Here's a usage example:</p>
+<pre><code class="lang-c#">using SharpHook.Logging;
+using SharpHook.Native;
+using SharpHook.R3.Logging;
+
+// ...
+
+var logSource = LogSource.RegisterOrGet(minLevel: LogLevel.Info);
+var reactiveLogSource = new R3LogSourceAdapter(logSource);
+reactiveLogSource.MessageLogged.Subscribe(this.OnMessageLogged);
+</code></pre>
+<p><code>IR3LogSource</code> is basically the same as <code>ILogSource</code>, but <code>MessageLogged</code> is an observable of <code>LogEntry</code> instead of an
+event. <code>R3LogSourceAdapter</code> adapts an <code>ILogSource</code> to the <code>IR3LogSource</code> interface. A default time provider can be set
+for the <code>MessageLogged</code> observable.</p>
 <h2 id="using-the-low-level-functionality">Using the Low-Level Functionality</h2>
-<p>The logging functionality works by using <code>UioHook.SetLoggerProc</code>. This method sets the log callback – a delegate of
-type <code>LoggerProc</code>, which will be called to log the messages of libuiohook. <code>LoggerProc</code> receives the log level, a
-pointer to the message format, and a pointer to the message arguments. It also receives a pointer to user-supplied data
-(which is set in the <code>UioHook.SetLoggerProc</code>), but you usually shouldn't use it.</p>
+<h3 id="calling-the-setloggerproc-method">Calling the <code>SetLoggerProc</code> Method</h3>
+<p>The logging functionality works by using <code>ILoggingProvider.SetLoggerProc</code> (which in turn uses <code>UioHook.SetLoggerProc</code> by
+default). This method sets the log callback – a delegate of type <code>LoggerProc</code> which will be called to log the messages
+of libuiohook. <code>LoggerProc</code> receives the log level, a pointer to the message format, and a pointer to the message
+arguments. It also receives user-supplied data as an <code>IntPtr</code> (which is set in the <code>UioHook.SetLoggerProc</code>), but you
+usually shouldn't use it.</p>
+<p>When calling <code>SetLoggerProc</code>, the function must be wrapped into a delegate reference and the reference must be stored
+to prevent garbage collection. This is because the following code:</p>
+<pre><code class="lang-c#">provider.SetLoggerProc(someObj.SomeMethod, IntPtr.Zero);
+</code></pre>
+<p>is actually transformed into this code by the C# compiler:</p>
+<pre><code class="lang-c#">provider.SetLoggerProc(new LoggerProc(someObj.SomeMethod), IntPtr.Zero);
+</code></pre>
+<p>The CLR protects the <code>LoggerProc</code> reference from being garbage-collected only until the <code>SetLoggerProc</code> methods exits
+(which happens almost instantly). The CLR does not and cannot know that the reference will be used later and so it will
+happily collect this reference thinking it's not needed anymore. Instead, the following should be done:</p>
+<pre><code class="lang-c#">LoggerProc loggerProc = someObj.SomeMethod; // This reference should be stored, e.g., as a field of the object
+provider.SetLoggerProc(loggerProc, IntPtr.Zero);
+</code></pre>
+<p>Additionally, if you need to support Mac Catalyst, there are two conditions that the logger callback must satisfy:</p>
+<ul>
+<li>The method must be <code>static</code></li>
+<li>The method must be decorated with the <code>[ObjCRuntime.MonoPInvokeCallback(typeof(LoggerProc))]</code> attribute</li>
+</ul>
+<h3 id="using-logentryparser">Using <code>LogEntryParser</code></h3>
 <p>It is highly recommended to use <code>LogEntryParser</code> in order to create a log entry out of the pointers to the message
 format and arguments. This way you won't have to handle these pointers directly. The problem with handling them directly
 is that the log callback receives a variable number of arguments. In C# you can use the <code>params</code> keyword for that, but

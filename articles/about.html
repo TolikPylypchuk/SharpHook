@@ -130,9 +130,44 @@ this repository uses anyway).</p>
     <td>lib/linux-&lt;platform&gt;</td>
   </tr>
 </table>
-<p>With libuiohook in place you can build SharpHook using your usual methods, e.g. with Visual Studio or the <code>dotnet</code> CLI.
+<p>With libuiohook in place, you can build SharpHook using your usual methods, e.g. with Visual Studio or the <code>dotnet</code> CLI.
 You need .NET 9 to build SharpHook.</p>
 <h2 id="changelog">Changelog</h2>
+<h3 id="v700-august-10-2025"><a href="https://github.com/TolikPylypchuk/SharpHook/releases/tag/v7.0.0">v7.0.0</a> (August 10, 2025)</h3>
+<h4 id="breaking-changes">Breaking Changes</h4>
+<ul>
+<li><p><code>SimpleReactiveGlobalHook</code> was renamed to <code>ReactiveGlobalHook</code>.</p>
+</li>
+<li><p>The <code>Run</code>, <code>RunAsync</code>, and <code>Stop</code> methods were moved from <code>IGlobalHook</code> and <code>IReactiveGlobalHook</code> into
+<code>IBasicGlobalHook</code> which both <code>IGlobalHook</code> and <code>IReactiveGlobalHook</code> now extend.</p>
+</li>
+<li><p>Because of the previous change, <code>RunAsync</code> for reactive global hooks now returns a <code>Task</code> instead of an
+<code>IObservable&lt;Unit&gt;</code>.</p>
+</li>
+<li><p><code>ReactiveLogSourceAdapter</code> now contains a single constructor with a default parameter instead of two constructors.</p>
+</li>
+</ul>
+<h4 id="new-features">New Features</h4>
+<ul>
+<li><p>SharpHook.R3 – a new package for integration with R3 was added.</p>
+</li>
+<li><p><code>EventLoopGlobalHook</code> – a new implementation of <code>IGlobalHook</code> – was added.</p>
+</li>
+<li><p><code>IBasicGlobalHook</code> and <code>BasicGlobalHookBase</code> were added for easier creation of custom global hooks with different
+event forms.</p>
+</li>
+<li><p><code>ReactiveLogSourceAdapter</code> now implements <code>ILogSource</code> in addition to <code>IReactiveLogSource</code>.</p>
+</li>
+</ul>
+<h4 id="bug-fixes">Bug Fixes</h4>
+<ul>
+<li>On Windows, global hooks now correctly report the key that was pressed or released on non-QWERTY layouts.</li>
+</ul>
+<h4 id="other-changes">Other Changes</h4>
+<ul>
+<li>libuiohook was updated to commit
+<a href="https://github.com/TolikPylypchuk/libuiohook/tree/a2cba5f125072dad8683e812027a561e598c7a37">a2cba5f</a>.</li>
+</ul>
 <h3 id="v620-july-19-2025"><a href="https://github.com/TolikPylypchuk/SharpHook/releases/tag/v6.2.0">v6.2.0</a> (July 19, 2025)</h3>
 <ul>
 <li><p>The ability to disable events of type <code>KeyTyped</code> was added.</p>
@@ -176,7 +211,7 @@ event loop from version 6) was added. The simple behaviour from version 5 is the
 available through .NET Standard.</p>
 </li>
 </ul>
-<h4 id="breaking-changes">Breaking Changes</h4>
+<h4 id="breaking-changes-1">Breaking Changes</h4>
 <ul>
 <li><p>All structs and enums were moved from <code>SharpHook.Native</code> to <code>SharpHook.Data</code>.</p>
 </li>
@@ -201,7 +236,7 @@ that simulates them, they now instead add events into an event loop running on a
 <li><p><code>TestProvider</code> now throws an exception if <code>Run</code> or <code>RunAsync</code> is called and it's already running.</p>
 </li>
 </ul>
-<h4 id="new-features">New Features</h4>
+<h4 id="new-features-1">New Features</h4>
 <ul>
 <li><p>The ability to stop global hooks without disposing of them was added.</p>
 </li>
@@ -213,7 +248,7 @@ that simulates them, they now instead add events into an event loop running on a
 <li><p>Running global hooks won't be garbage-collected.</p>
 </li>
 </ul>
-<h4 id="bug-fixes">Bug Fixes</h4>
+<h4 id="bug-fixes-1">Bug Fixes</h4>
 <ul>
 <li><p>Getting libuiohook logs on Mac Catalyst applications was fixed.</p>
 </li>
@@ -226,7 +261,7 @@ that simulates them, they now instead add events into an event loop running on a
 <li><p>Disposing a <code>TaskPoolGlobalHook</code> inside an event handler doesn't throw an exception anymore.</p>
 </li>
 </ul>
-<h4 id="other-changes">Other Changes</h4>
+<h4 id="other-changes-1">Other Changes</h4>
 <ul>
 <li><p>libuiohook was updated to commit
 <a href="https://github.com/TolikPylypchuk/libuiohook/tree/c61b4863caa7def54349d1426ef431414466f8b9">c61b486</a>.</p>
@@ -391,7 +426,7 @@ which fixes a CPU usage issue on Linux.</li>
 <li><p>Support for Windows on Arm32 was removed.</p>
 </li>
 </ul>
-<h4 id="breaking-changes-1">Breaking Changes</h4>
+<h4 id="breaking-changes-2">Breaking Changes</h4>
 <ul>
 <li><p>Almost all <code>KeyCode</code> values were changed. New codes were added and some were removed. The actual enum values are
 meaningless and may be changed again in the future.</p>
@@ -413,7 +448,7 @@ was added.</p>
 <code>HorizontalDirection</code> to <code>Horizontal</code>.</p>
 </li>
 </ul>
-<h4 id="new-features-1">New Features</h4>
+<h4 id="new-features-2">New Features</h4>
 <ul>
 <li><p>Text entry simulation was added.</p>
 </li>
@@ -428,7 +463,7 @@ was added.</p>
 <li><p>Extension methods for <code>SharpHook.Native.ModifierMask</code> were added.</p>
 </li>
 </ul>
-<h4 id="bug-fixes-1">Bug Fixes</h4>
+<h4 id="bug-fixes-2">Bug Fixes</h4>
 <ul>
 <li><p>Global hooks can now be created and disposed multiple times on Windows without problems.</p>
 </li>
@@ -437,7 +472,7 @@ was added.</p>
 <li><p><code>KeyTyped</code> events are now better at determining which characters should be produced by key presses on Windows.</p>
 </li>
 </ul>
-<h4 id="other-changes-1">Other Changes</h4>
+<h4 id="other-changes-2">Other Changes</h4>
 <ul>
 <li><p>libuiohook was updated to commit
 <a href="https://github.com/TolikPylypchuk/libuiohook/tree/6f42599e28099406d279146de4720110d40be047">6f42599</a>.</p>

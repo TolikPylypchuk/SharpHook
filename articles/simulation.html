@@ -136,11 +136,11 @@ simulator.SimulateMouseWheel(
 </code></pre>
 <p>Mouse wheel simulation is a little more complex than other events.</p>
 <p>A positive <code>rotation</code> value indicates scrolling up or left, and a negative value indicates scrolling down or right.</p>
-<p>On Windows the value 120 represents the default wheel step. As such, multiples of 120 can be used as the rotation value,
+<p>On Windows, the value 120 represents the default wheel step. As such, multiples of 120 can be used as the rotation value,
 but it's not required. The value of <code>type</code> is ignored.</p>
-<p>On macOS it's recommended to use values between -10 and 10. This will result in quite a small scroll amount with pixel
+<p>On macOS, it's recommended to use values between -10 and 10. This will result in quite a small scroll amount with pixel
 scrolling, so <code>MouseWheelScrollType.BlockScroll</code> is recommended for line scrolling instead of pixel scrolling.</p>
-<p>On Linux there is no fixed recommendation, but multiples of 100 can be used. The value of <code>type</code> is ignored.</p>
+<p>On Linux, there is no fixed recommendation, but multiples of 100 can be used. The value of <code>type</code> is ignored.</p>
 <h2 id="text-entry-simulation">Text Entry Simulation</h2>
 <p>SharpHook also provides text entry simulation. <code>IEventSimulator</code> contains the <code>SimulateTextEntry</code> method which accepts
 a <code>string</code>. The text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16 (including
@@ -150,8 +150,8 @@ character, and then key press/release is simulated. Since the receiving applicat
 may not do so instantaneously, a delay is needed for accurate simulation. This means that text simulation on Linux works
 slowly and is not guaranteed to be correct.</p>
 <p><code>IEventSimulator</code> contains the <code>TextSimulationDelayOnX11</code> property to get or set the delay if needed – longer delays add
-consistency but may be more jarring to end users – the default is 50 milliseconds. Delays are configurable on a
-nanosecond level. On Windows and macOS, setting this property does nothing, and it always returns <code>0</code>.</p>
+consistency but may be more jarring to end users. The default is 50 milliseconds. Delays are configurable on a
+nanosecond level. On Windows and macOS, setting this property does nothing, and it always returns 0.</p>
 
 </article>
 

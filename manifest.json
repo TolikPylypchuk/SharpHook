@@ -1000,6 +1000,16 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/custom.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/custom.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "articles/hooks.md",
       "output": {
         ".html": {
