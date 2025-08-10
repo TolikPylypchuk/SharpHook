@@ -9,6 +9,24 @@ low-level functionality providers, these interfaces need to be changed. Technica
 would require bumping the major version. Instead, changes to these interfaces are usually treated as minor version
 updates since they are not expected to break client code.
 
+## Version 6 to 7
+
+Version 7 contains only a couple breaking changes and most of them are in SharpHook.Reactive.
+
+`SimpleReactiveGlobalHook` was renamed to `ReactiveGlobalHook`.
+
+`RunAsync` in `IReactiveGlobalHook` now returns a `Task` instead of an `IObservable<Unit>`. If you want to have
+`IObservable<Unit>` instead, you should wrap the returned task.
+
+Other breaking changes only require recompilation and don't require changing any code (unless reflection is used).
+
+The `Run`, `RunAsync`, and `Stop` methods as well as the `IsRunning` and `IsDisposed` properties were moved from
+`IGlobalHook` and `IReactiveGlobalHook` into `IBasicGlobalHook` which both `IGlobalHook` and `IReactiveGlobalHook` now
+extend.
+
+`ReactiveLogSourceAdapter` now contains a single constructor with a default second parameter instead of two
+constructors.
+
 ## Version 5 to 6
 
 Version 6 contains multiple breaking changes, so you will most probably need to change your code to upgrade.
@@ -81,9 +99,9 @@ actually always required by libuiohook, so previously the buttons were always pr
 `HookEventArgs` doesn't contain the `Reserved` property anymore as its purpose wasn't really clear. Now `HookEventArgs`
 contains the `SuppressEvent` property – set it to `true` inside an event handler to suppress the event.
 
-On .NET 7 `[LibraryImport]` is now used instead of `[DllImport]`. This change required making `UioHookEvent` a blittable
-type, and as a result, the type of `KeyboardEventData.KeyChar` was changed from `char` to `ushort`. The field should
-still be used as a `char`.
+On .NET 7 and later, `[LibraryImport]` is now used instead of `[DllImport]`. This change required making `UioHookEvent`
+a blittable type, and as a result, the type of `KeyboardEventData.KeyChar` was changed from `char` to `ushort`. The
+field should still be used as a `char`.
 
 Explicit targets for .NET 5 and .NET Core 3.1 were removed, though the library can be used on those platforms through
 .NET Standard.

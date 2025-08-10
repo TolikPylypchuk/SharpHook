@@ -61,10 +61,11 @@ You need .NET 9 to build SharpHook.
 
 - `SimpleReactiveGlobalHook` was renamed to `ReactiveGlobalHook`.
 
-- The `Run`, `RunAsync`, and `Stop` methods were moved from `IGlobalHook` and `IReactiveGlobalHook` into
-`IBasicGlobalHook` which both `IGlobalHook` and `IReactiveGlobalHook` now extend.
+- The `Run`, `RunAsync`, and `Stop` methods as well as the `IsRunning` and `IsDisposed` properties were moved from
+`IGlobalHook` and `IReactiveGlobalHook` into `IBasicGlobalHook` which both `IGlobalHook` and `IReactiveGlobalHook` now
+extend.
 
-- Because of the previous change, `RunAsync` for reactive global hooks now returns a `Task` instead of an
+- Because of the above change, `RunAsync` for reactive global hooks now returns a `Task` instead of an
 `IObservable<Unit>`.
 
 - `ReactiveLogSourceAdapter` now contains a single constructor with a default parameter instead of two constructors.
