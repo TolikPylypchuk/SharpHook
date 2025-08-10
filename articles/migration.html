@@ -150,9 +150,9 @@ actually always required by libuiohook, so previously the buttons were always pr
 <code>short x, short y, MouseButton button</code>.</p>
 <p><code>HookEventArgs</code> doesn't contain the <code>Reserved</code> property anymore as its purpose wasn't really clear. Now <code>HookEventArgs</code>
 contains the <code>SuppressEvent</code> property – set it to <code>true</code> inside an event handler to suppress the event.</p>
-<p>On .NET 7 <code>[LibraryImport]</code> is now used instead of <code>[DllImport]</code>. This change required making <code>UioHookEvent</code> a blittable
-type, and as a result, the type of <code>KeyboardEventData.KeyChar</code> was changed from <code>char</code> to <code>ushort</code>. The field should
-still be used as a <code>char</code>.</p>
+<p>On .NET 7 and later, <code>[LibraryImport]</code> is now used instead of <code>[DllImport]</code>. This change required making <code>UioHookEvent</code>
+a blittable type, and as a result, the type of <code>KeyboardEventData.KeyChar</code> was changed from <code>char</code> to <code>ushort</code>. The
+field should still be used as a <code>char</code>.</p>
 <p>Explicit targets for .NET 5 and .NET Core 3.1 were removed, though the library can be used on those platforms through
 .NET Standard.</p>
 <p><code>KeyCode.VcPrintscreen</code> was renamed to <code>KeyCode.VcPrintScreen</code>.</p>
