@@ -120,8 +120,9 @@ await hook.RunAsync();
 events is the <code>IGlobalHook</code> itself.</p>
 <p>It also contains the <code>Run</code> and <code>RunAsync</code> methods which run the global hook. <code>Run</code> runs it on the current thread,
 blocking it until the global hook is disposed. <code>RunAsync</code> runs the global hook in a non-blocking way and returns a
-<code>Task</code> – this task is finished when the hook is destroyed. Since the underlying native API is blocking, the only way to
-run the hook in a non-blocking way is to run it on a separate thread, and all default implementations do just that.</p>
+<code>Task</code> – this task is finished when the hook is stopped or disposed. Since the underlying native API is blocking, the
+only way to run the hook in a non-blocking way is to run it on a separate thread, and all default implementations do
+just that.</p>
 <p>You can specify in the hook constructors whether <code>RunAsync</code> should create a background thread or not. Background threads
 don't block the application from exiting if all other threads have finished executing. By default the created thread
 will not be a background thread.</p>

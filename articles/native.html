@@ -107,7 +107,7 @@ called.</li>
 <li><code>RunKeyboard</code> – creates a keyboard-only global hook and runs it on the current thread, blocking it until <code>Stop</code> is
 called.</li>
 <li><code>RunMouse</code> – creates a mouse-only global hook and runs it on the current thread, blocking it until <code>Stop</code> is called.</li>
-<li><code>Stop</code> – destroys the global hook.</li>
+<li><code>Stop</code> – stops the global hook.</li>
 </ul>
 <p>You have to remember that only one global hook can exist at a time since calling <code>SetDispatchProc</code> will override the
 previously set one. Also, running a global hook when another global hook is already running will corrupt the internal
