@@ -113,7 +113,7 @@ public abstract class BasicGlobalHookBase : IBasicGlobalHook
     /// Runs the global hook without blocking the current thread. The hook can be stopped temporarily by calling the
     /// <see cref="Stop" /> method or stopped permanently by calling the <see cref="Dispose()" /> method.
     /// </summary>
-    /// <returns>A <see cref="Task" /> which finishes when the hook is destroyed.</returns>
+    /// <returns>A <see cref="Task" /> which finishes when the hook is stopped or disposed.</returns>
     /// <exception cref="HookException">Starting the global hook has failed.</exception>
     /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
     /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>

@@ -1,5 +1,12 @@
 # SharpHook Changelog
 
+## [v7.0.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v7.0.1) (August 17, 2025)
+
+- The global hook correctly discerns right and left modifier keys again on Windows.
+
+- libuiohook was updated to commit
+[e8b4814](https://github.com/TolikPylypchuk/libuiohook/tree/e8b48146042607570237df006b07d75c6e49c3f8).
+
 ## [v7.0.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v7.0.0) (August 10, 2025)
 
 ### Breaking Changes

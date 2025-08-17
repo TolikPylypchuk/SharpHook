@@ -26,7 +26,7 @@ called.
 - `RunKeyboard` – creates a keyboard-only global hook and runs it on the current thread, blocking it until `Stop` is
 called.
 - `RunMouse` – creates a mouse-only global hook and runs it on the current thread, blocking it until `Stop` is called.
-- `Stop` – destroys the global hook.
+- `Stop` – stops the global hook.
 
 You have to remember that only one global hook can exist at a time since calling `SetDispatchProc` will override the
 previously set one. Also, running a global hook when another global hook is already running will corrupt the internal

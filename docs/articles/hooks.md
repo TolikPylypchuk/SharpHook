@@ -38,8 +38,9 @@ events is the `IGlobalHook` itself.
 
 It also contains the `Run` and `RunAsync` methods which run the global hook. `Run` runs it on the current thread,
 blocking it until the global hook is disposed. `RunAsync` runs the global hook in a non-blocking way and returns a
-`Task` – this task is finished when the hook is destroyed. Since the underlying native API is blocking, the only way to
-run the hook in a non-blocking way is to run it on a separate thread, and all default implementations do just that.
+`Task` – this task is finished when the hook is stopped or disposed. Since the underlying native API is blocking, the
+only way to run the hook in a non-blocking way is to run it on a separate thread, and all default implementations do
+just that.
 
 You can specify in the hook constructors whether `RunAsync` should create a background thread or not. Background threads
 don't block the application from exiting if all other threads have finished executing. By default the created thread
