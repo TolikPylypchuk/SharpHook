@@ -13,6 +13,7 @@ features as well as higher-level types to work with it.
 ```
 dotnet add package SharpHook
 dotnet add package SharpHook.Reactive
+dotnet add package SharpHook.R3
 ```
 
 ## Upgrading
@@ -378,8 +379,8 @@ private void OnMessageLogged(object? sender, LogEventArgs e) =>
     this.logger.Log(this.AdaptLogLevel(e.LogEntry.Level), e.LogEntry.FullText);
 ```
 
-As with global hooks, you should use only one `LogSource` object at a time. `ILogSource` extends `IDisposable` – you
-can dispose of a log source to stop receiving libuiohook messages.
+You can use only one `LogSource` object at a time. `ILogSource` extends `IDisposable` – you can dispose of a log source
+to stop receiving libuiohook messages.
 
 An `EmptyLogSource` class is also available – this class doesn't listen to the libuiohook logs and can be used instead
 of `LogSource` in release builds.

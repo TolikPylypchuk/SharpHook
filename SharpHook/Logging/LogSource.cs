@@ -8,12 +8,7 @@ namespace SharpHook.Logging;
 /// Represents a source of libuiohook logs.
 /// </summary>
 /// <remarks>
-/// <para>
-/// Only a single <see cref="LogSource" /> instance must be used at a time.
-/// </para>
-/// <para>
 /// On Windows, this class requires the Visual C++ Redistributable package to be installed as it uses the C runtime.
-/// </para>
 /// </remarks>
 /// <seealso cref="ILogSource" />
 /// <seealso cref="EmptyLogSource" />

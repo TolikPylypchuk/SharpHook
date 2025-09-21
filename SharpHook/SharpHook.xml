@@ -3005,12 +3005,7 @@
             Represents a source of libuiohook logs.
             </summary>
             <remarks>
-            <para>
-            Only a single <see cref="T:SharpHook.Logging.LogSource" /> instance must be used at a time.
-            </para>
-            <para>
             On Windows, this class requires the Visual C++ Redistributable package to be installed as it uses the C runtime.
-            </para>
             </remarks>
             <seealso cref="T:SharpHook.Logging.ILogSource" />
             <seealso cref="T:SharpHook.Logging.EmptyLogSource" />

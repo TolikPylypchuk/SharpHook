@@ -1,5 +1,14 @@
 # SharpHook Changelog
 
+## [v7.0.2](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v7.0.2) (September 21, 2025)
+
+- Mouse move events are not dropped based on previous click positions on Windows anymore.
+
+- Simulating text entry with characters like `\n` or `\t` now works correctly on Linux.
+
+- libuiohook was updated to commit
+[feafae0](https://github.com/TolikPylypchuk/libuiohook/tree/feafae0be8bcf539cb792bb16cd8a1434f437866).
+
 ## [v7.0.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v7.0.1) (August 17, 2025)
 
 - The global hook correctly discerns right and left modifier keys again on Windows.
