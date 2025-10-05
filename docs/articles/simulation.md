@@ -12,7 +12,7 @@ property.
 
 Input event simulation is quite straightforward. Here's a quick example:
 
-```c#
+```csharp
 using SharpHook;
 using SharpHook.Data;
 

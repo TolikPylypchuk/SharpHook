@@ -46,7 +46,7 @@ libuiohook also provides functions to get various system properties. The corresp
 SharpHook provides the `IGlobalHook` interface along with three default implementations which you can use to control the
 hook and subscribe to its events. Here's a basic usage example:
 
-```c#
+```csharp
 using SharpHook;
 
 // ...
@@ -133,7 +133,7 @@ Use the [SharpHook.R3](https://www.nuget.org/packages/SharpHook.R3) package for 
 SharpHook provides the ability to simulate keyboard and mouse events in a cross-platform way as well. Here's a quick
 example:
 
-```c#
+```csharp
 using SharpHook;
 using SharpHook.Data;
 
@@ -188,7 +188,7 @@ surrogate pairs, e.g., emojis) is supported.
 libuiohook can log messages throughout its execution. By default the messages are not logged anywhere, but you can get
 these logs by using the `ILogSource` interface and its default implementation, `LogSource`:
 
-```c#
+```csharp
 using SharpHook.Logging;
 
 // ...

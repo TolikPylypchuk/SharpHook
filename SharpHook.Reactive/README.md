@@ -18,7 +18,7 @@ Refer to the [SharpHook](https://www.nuget.org/packages/SharpHook) package for t
 SharpHook.Reactive provides the `IReactiveGlobalHook` interface along with a default implementation and an adapter
 which you can use to use to control the global hook and subscribe to its observables. Here's a basic example:
 
-```c#
+```csharp
 using SharpHook.Reactive;
 
 // ...
@@ -67,7 +67,7 @@ to `IGlobalHook`. A default scheduler can be specified for all observables.
 SharpHook.Reactive contains `IReactiveLogSource` and `ReactiveLogSourceAdapter` so you can use them in a more reactive
 way:
 
-```c#
+```csharp
 using SharpHook.Logging;
 using SharpHook.Reactive.Logging;
 

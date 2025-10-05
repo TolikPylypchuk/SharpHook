@@ -18,7 +18,7 @@ Refer to the [SharpHook](https://www.nuget.org/packages/SharpHook) package for t
 SharpHook.R3 provides the `IR3GlobalHook` interface along with a default implementation and an adapter which you can use
 to use to control the global hook and subscribe to its observables. Here's a basic example:
 
-```c#
+```csharp
 using SharpHook.R3;
 
 // ...
@@ -66,7 +66,7 @@ provider can be specified for all observables.
 
 SharpHook.R3 contains `IR3LogSource` and `R3LogSourceAdapter` so you can use them in a more reactive way:
 
-```c#
+```csharp
 using SharpHook.Logging;
 using SharpHook.R3.Logging;
 

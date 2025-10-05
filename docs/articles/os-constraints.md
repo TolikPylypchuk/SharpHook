@@ -78,7 +78,7 @@ other than the main one then you should take care of it yourself. You can do tha
 `CFRunLoopRun` function on the main thread:
 
 
-```c#
+```csharp
 internal static partial class CoreFoundation
 {
     private const string CoreFoundationLib = "/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation";

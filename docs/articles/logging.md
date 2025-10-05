@@ -24,7 +24,7 @@ to use the debug level for long periods of time since a debug message is logged 
 
 Here's a usage example:
 
-```c#
+```csharp
 using SharpHook.Data;
 using SharpHook.Logging;
 
@@ -50,7 +50,7 @@ message format and arguments so you don't have to do it yourself.
 SharpHook.Reactive contains the `IReactiveLogSource` and its implementation – `ReactiveLogSourceAdapter`. Here's a
 usage example:
 
-```c#
+```csharp
 using SharpHook.Logging;
 using SharpHook.Native;
 using SharpHook.Reactive.Logging;
@@ -68,7 +68,7 @@ scheduler can be set for the `MessageLogged` observable.
 
 SharpHook.R3 contains the `IR3LogSource` and its implementation – `R3LogSourceAdapter`. Here's a usage example:
 
-```c#
+```csharp
 using SharpHook.Logging;
 using SharpHook.Native;
 using SharpHook.R3.Logging;
@@ -97,13 +97,13 @@ usually shouldn't use it.
 When calling `SetLoggerProc`, the function must be wrapped into a delegate reference and the reference must be stored
 to prevent garbage collection. This is because the following code:
 
-```c#
+```csharp
 provider.SetLoggerProc(someObj.SomeMethod, IntPtr.Zero);
 ```
 
 is actually transformed into this code by the C# compiler:
 
-```c#
+```csharp
 provider.SetLoggerProc(new LoggerProc(someObj.SomeMethod), IntPtr.Zero);
 ```
 
@@ -111,7 +111,7 @@ The CLR protects the `LoggerProc` reference from being garbage-collected only un
 (which happens almost instantly). The CLR does not and cannot know that the reference will be used later and so it will
 happily collect this reference thinking it's not needed anymore. Instead, the following should be done:
 
-```c#
+```csharp
 LoggerProc loggerProc = someObj.SomeMethod; // This reference should be stored, e.g., as a field of the object
 provider.SetLoggerProc(loggerProc, IntPtr.Zero);
 ```
@@ -134,7 +134,7 @@ arguments. It then parses the log message and the log format and extracts the ar
 
 If you want to use your own callback, then its form should be the following:
 
-```c#
+```csharp
 private void OnLog(LogLevel level, IntPtr userData, IntPtr format, IntPtr args)
 {
     // Filter by log level if needed

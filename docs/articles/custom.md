@@ -11,7 +11,7 @@ subscribers).
 
 As an example, here's the implementation of `SimpleGlobalHook` (with XML comments removed):
 
-```c#
+```csharp
 namespace SharpHook;
 
 public sealed class SimpleGlobalHook : GlobalHookBase
@@ -59,7 +59,7 @@ itself extends: `HandleHookEvent`, `BeforeRun`, `AfterStop`, and `Dispose`.
 As an example, here's a global hook which raises a single event for all hook events instead of different events for each
 event type:
 
-```c#
+```csharp
 public sealed class StraightforwardGlobalHook : BasicGlobalHookBase
 {
     protected override void HandleHookEvent(ref UioHookEvent e) =>
@@ -78,13 +78,13 @@ hook, but you may nonetheless want to implement everything from scratch. You can
 When calling `SetDispatchProc`, the function must be wrapped into a delegate reference and the reference must be stored
 to prevent garbage collection. This is because the following code:
 
-```c#
+```csharp
 provider.SetDispatchProc(someObj.SomeMethod, IntPtr.Zero);
 ```
 
 is actually transformed into this code by the C# compiler:
 
-```c#
+```csharp
 provider.SetDispatchProc(new DispatchProc(someObj.SomeMethod), IntPtr.Zero);
 ```
 
@@ -92,7 +92,7 @@ The CLR protects the `DispatchProc` reference from being garbage-collected only 
 exits (which happens almost instantly). The CLR does not and cannot know that the reference will be used later and so it
 will happily collect this reference thinking it's not needed anymore. Instead, the following should be done:
 
-```c#
+```csharp
 DispatchProc dispatchProc = someObj.SomeMethod; // This reference should be stored, e.g., as a field of the object
 provider.SetDispatchProc(dispatchProc, IntPtr.Zero);
 ```

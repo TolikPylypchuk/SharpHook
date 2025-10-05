@@ -15,7 +15,7 @@ from `IEventSimulator`.
 
 Here's a very simple example of a test which utilizes `TestGlobalHook`:
 
-```c#
+```csharp
 [Fact]
 public async Task TestLastPressedKey()
 {
@@ -84,7 +84,7 @@ dispatched.
 All classes in SharpHook use providers instead of directly using the `UioHook` class for low-level functionality.
 The providers are selectable, so e.g., the following global hook can be used for testing:
 
-```c#
+```csharp
 var testProvider = new TestProvider();
 
 // Calls to methods in testProvider will be reflected in the hook

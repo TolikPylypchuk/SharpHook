@@ -123,7 +123,7 @@ libuiohook also provides functions to get various system properties. The corresp
 SharpHook provides the `IGlobalHook` interface along with three default implementations which you can use to control the
 hook and subscribe to its events. Here's a basic usage example:
 
-```c#
+```csharp
 using SharpHook;
 
 // ...
@@ -211,7 +211,7 @@ SharpHook with Rx.NET.
 SharpHook.Reactive provides the `SharpHook.Reactive.IReactiveGlobalHook` interface along with a default implementation
 which you can use to use to control the hook and subscribe to its observables. Here's a basic example:
 
-```c#
+```csharp
 using SharpHook.Reactive;
 
 // ...
@@ -263,7 +263,7 @@ R3.
 SharpHook.R3 provides the `SharpHook.R3.IR3GlobalHook` interface along with a default implementation which you can use
 to use to control the hook and subscribe to its observables. Here's a basic example:
 
-```c#
+```csharp
 using SharpHook.R3;
 
 // ...
@@ -312,7 +312,7 @@ provider can be specified for all observables.
 SharpHook provides the ability to simulate keyboard and mouse events in a cross-platform way as well. Here's a quick
 example:
 
-```c#
+```csharp
 using SharpHook;
 using SharpHook.Native;
 
@@ -367,7 +367,7 @@ surrogate pairs, e.g., emojis) is supported.
 libuiohook can log messages throughout its execution. By default the messages are not logged anywhere, but you can get
 these logs by using the `ILogSource` interface and its default implementation, `LogSource`:
 
-```c#
+```csharp
 using SharpHook.Logging;
 
 // ...
@@ -388,7 +388,7 @@ of `LogSource` in release builds.
 SharpHook.Reactive contains the `IReactiveLogSource` and `ReactiveLogSourceAdapter` so you can use them in a more
 reactive way:
 
-```C#
+```csharp
 using SharpHook.Logging;
 using SharpHook.Reactive.Logging;
 
@@ -401,7 +401,7 @@ reactiveLogSource.MessageLogged.Subscribe(this.OnMessageLogged);
 
 SharpHook.R3 contains the `IR3LogSource` and `R3LogSourceAdapter` so you can use them in a more reactive way as well:
 
-```C#
+```csharp
 using SharpHook.Logging;
 using SharpHook.R3.Logging;
 

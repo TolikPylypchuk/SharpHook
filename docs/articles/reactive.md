@@ -8,7 +8,7 @@ SharpHook with Rx.NET.
 SharpHook.Reactive provides the `SharpHook.Reactive.IReactiveGlobalHook` interface along with a default implementation
 which you can use to use to control the hook and subscribe to its observables. Here's a basic example:
 
-```c#
+```csharp
 using SharpHook.Reactive;
 
 // ...
@@ -79,7 +79,7 @@ R3.
 SharpHook.R3 provides the `SharpHook.R3.IR3GlobalHook` interface along with a default implementation which you can use
 to use to control the hook and subscribe to its observables. Here's a basic example:
 
-```c#
+```csharp
 using SharpHook.R3;
 
 // ...
