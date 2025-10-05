@@ -140,7 +140,7 @@ is run on the main thread. It's also taken care of by UI frameworks since they n
 to run. But if you're using a global hook in a console app or a background service and want to run it on some thread
 other than the main one then you should take care of it yourself. You can do that by P/Invoking the native
 <code>CFRunLoopRun</code> function on the main thread:</p>
-<pre><code class="lang-c#">internal static partial class CoreFoundation
+<pre><code class="lang-csharp">internal static partial class CoreFoundation
 {
     private const string CoreFoundationLib = &quot;/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation&quot;;
 

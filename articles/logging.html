@@ -101,7 +101,7 @@ source from receiving the logs. The <code>IsDisposed</code> property is also ava
 <p><code>LogSource</code> also contains the <code>MinLevel</code> property which can be set to filter log messages by level. It's not recommended
 to use the debug level for long periods of time since a debug message is logged for every single input event.</p>
 <p>Here's a usage example:</p>
-<pre><code class="lang-c#">using SharpHook.Data;
+<pre><code class="lang-csharp">using SharpHook.Data;
 using SharpHook.Logging;
 
 // ...
@@ -121,7 +121,7 @@ calling <code>RegisterOrGet</code> will register a new instance.</p>
 message format and arguments so you don't have to do it yourself.</p>
 <p>SharpHook.Reactive contains the <code>IReactiveLogSource</code> and its implementation – <code>ReactiveLogSourceAdapter</code>. Here's a
 usage example:</p>
-<pre><code class="lang-c#">using SharpHook.Logging;
+<pre><code class="lang-csharp">using SharpHook.Logging;
 using SharpHook.Native;
 using SharpHook.Reactive.Logging;
 
@@ -135,7 +135,7 @@ reactiveLogSource.MessageLogged.Subscribe(this.OnMessageLogged);
 of an event. <code>ReactiveLogSourceAdapter</code> adapts an <code>ILogSource</code> to the <code>IReactiveLogSource</code> interface. A default
 scheduler can be set for the <code>MessageLogged</code> observable.</p>
 <p>SharpHook.R3 contains the <code>IR3LogSource</code> and its implementation – <code>R3LogSourceAdapter</code>. Here's a usage example:</p>
-<pre><code class="lang-c#">using SharpHook.Logging;
+<pre><code class="lang-csharp">using SharpHook.Logging;
 using SharpHook.Native;
 using SharpHook.R3.Logging;
 
@@ -157,15 +157,15 @@ arguments. It also receives user-supplied data as an <code>IntPtr</code> (which 
 usually shouldn't use it.</p>
 <p>When calling <code>SetLoggerProc</code>, the function must be wrapped into a delegate reference and the reference must be stored
 to prevent garbage collection. This is because the following code:</p>
-<pre><code class="lang-c#">provider.SetLoggerProc(someObj.SomeMethod, IntPtr.Zero);
+<pre><code class="lang-csharp">provider.SetLoggerProc(someObj.SomeMethod, IntPtr.Zero);
 </code></pre>
 <p>is actually transformed into this code by the C# compiler:</p>
-<pre><code class="lang-c#">provider.SetLoggerProc(new LoggerProc(someObj.SomeMethod), IntPtr.Zero);
+<pre><code class="lang-csharp">provider.SetLoggerProc(new LoggerProc(someObj.SomeMethod), IntPtr.Zero);
 </code></pre>
 <p>The CLR protects the <code>LoggerProc</code> reference from being garbage-collected only until the <code>SetLoggerProc</code> methods exits
 (which happens almost instantly). The CLR does not and cannot know that the reference will be used later and so it will
 happily collect this reference thinking it's not needed anymore. Instead, the following should be done:</p>
-<pre><code class="lang-c#">LoggerProc loggerProc = someObj.SomeMethod; // This reference should be stored, e.g., as a field of the object
+<pre><code class="lang-csharp">LoggerProc loggerProc = someObj.SomeMethod; // This reference should be stored, e.g., as a field of the object
 provider.SetLoggerProc(loggerProc, IntPtr.Zero);
 </code></pre>
 <p>Additionally, if you need to support Mac Catalyst, there are two conditions that the logger callback must satisfy:</p>
@@ -183,7 +183,7 @@ its code is based on the log handling code of <a href="https://github.com/videol
 the native <code>vsprintf</code> function from the C runtime and lets it deal with formatting the log message with native variable
 arguments. It then parses the log message and the log format and extracts the arguments.</p>
 <p>If you want to use your own callback, then its form should be the following:</p>
-<pre><code class="lang-c#">private void OnLog(LogLevel level, IntPtr userData, IntPtr format, IntPtr args)
+<pre><code class="lang-csharp">private void OnLog(LogLevel level, IntPtr userData, IntPtr format, IntPtr args)
 {
     // Filter by log level if needed
 

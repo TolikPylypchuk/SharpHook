@@ -99,7 +99,7 @@ will be removed if trimming is enabled.</p>
 for testing. When the <code>Run</code> or <code>RunAsync</code> method is called, it will dispatch events using the various <code>Simulate</code> methods
 from <code>IEventSimulator</code>.</p>
 <p>Here's a very simple example of a test which utilizes <code>TestGlobalHook</code>:</p>
-<pre><code class="lang-c#">[Fact]
+<pre><code class="lang-csharp">[Fact]
 public async Task TestLastPressedKey()
 {
     var hook = new TestGlobalHook();
@@ -152,7 +152,7 @@ immediately after it is simulated. <code>Run</code> and the task returned by <co
 dispatched.</p>
 <p>All classes in SharpHook use providers instead of directly using the <code>UioHook</code> class for low-level functionality.
 The providers are selectable, so e.g., the following global hook can be used for testing:</p>
-<pre><code class="lang-c#">var testProvider = new TestProvider();
+<pre><code class="lang-csharp">var testProvider = new TestProvider();
 
 // Calls to methods in testProvider will be reflected in the hook
 var hook = new SimpleGlobalHook(globalHookProvider: testProvider);
