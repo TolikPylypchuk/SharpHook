@@ -75,7 +75,46 @@ On macOS running the global hook requires that the main run-loop be present. lib
 is run on the main thread. It's also taken care of by UI frameworks since they need an event loop on the main thread
 to run. But if you're using a global hook in a console app or a background service and want to run it on some thread
 other than the main one then you should take care of it yourself. You can do that by P/Invoking the native
-`CFRunLoopRun` function on the main thread.
+`CFRunLoopRun` function on the main thread:
+
+
+```c#
+internal static partial class CoreFoundation
+{
+    private const string CoreFoundationLib = "/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation";
+
+    [LibraryImport(CoreFoundationLib)]
+    public static partial void CFRelease(IntPtr @ref);
+
+    // It's better to use a type derived from SafeHandle as the return type, but it's omitted for brevity
+    [LibraryImport(CoreFoundationLib)]
+    public static partial IntPtr CFRunLoopGetCurrent();
+
+    [LibraryImport(CoreFoundationLib)]
+    public static partial void CFRunLoopRun();
+
+    [LibraryImport(CoreFoundationLib)]
+    public static partial void CFRunLoopStop(IntPtr rl);
+}
+
+// ...
+
+// This method must be called on the main thread
+public static void RunMainLoop(CancellationToken token)
+{
+    var loop = CoreFoundation.CFRunLoopGetCurrent();
+    token.Register(() => CoreFoundation.CFRunLoopStop(loop));
+    CoreFoundation.CFRunLoopRun(); // This method will block the current thread until CFRunLoopStop is called
+    CoreFoundation.CFRelease(loop); // Ideally, this method should be called when a SafeHandle is released instead
+}
+
+// ...
+
+var tokenSource = new CancellationTokenSource();
+hook.HookDisabled += (sender, e) => tokenSource.Cancel();
+_ = hook.RunAsync(); // Ignore the result of RunAsync, do not await it
+RunMainLoop(tokenSource.Token);
+```
 
 ### Simulating Multiple Mouse Clicks
 

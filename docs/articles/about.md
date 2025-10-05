@@ -55,6 +55,13 @@ You need .NET 9 to build SharpHook.
 
 ## Changelog
 
+### [v7.0.3](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v7.0.3) (October 5, 2025)
+
+- Mouse button release events for button 4 and 5 are now correctly dispatched on macOS.
+
+- libuiohook was updated to commit
+[b1888a6](https://github.com/TolikPylypchuk/libuiohook/tree/b1888a65ebe1705d92e9c1916e81b52083876007).
+
 ### [v7.0.2](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v7.0.2) (September 21, 2025)
 
 - Mouse move events are not dropped based on previous click positions on Windows anymore.
