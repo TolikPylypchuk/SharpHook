@@ -74,17 +74,13 @@ side effects on macOS.
 On macOS running the global hook requires that the main run-loop be present. libuiohook takes care of it if the hook
 is run on the main thread. It's also taken care of by UI frameworks since they need an event loop on the main thread
 to run. But if you're using a global hook in a console app or a background service and want to run it on some thread
-other than the main one then you should take care of it yourself. You can do that by P/Invoking the native
-`CFRunLoopRun` function on the main thread:
-
+other than the main one (e.g., `hook.RunAsync()` will run the hook on a different thread), then you should take care of
+it yourself. You can do that by P/Invoking the native `CFRunLoopRun` function on the main thread:
 
 ```csharp
 internal static partial class CoreFoundation
 {
     private const string CoreFoundationLib = "/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation";
-
-    [LibraryImport(CoreFoundationLib)]
-    public static partial void CFRelease(IntPtr @ref);
 
     // It's better to use a type derived from SafeHandle as the return type, but it's omitted for brevity
     [LibraryImport(CoreFoundationLib)]
@@ -105,7 +101,6 @@ public static void RunMainLoop(CancellationToken token)
     var loop = CoreFoundation.CFRunLoopGetCurrent();
     token.Register(() => CoreFoundation.CFRunLoopStop(loop));
     CoreFoundation.CFRunLoopRun(); // This method will block the current thread until CFRunLoopStop is called
-    CoreFoundation.CFRelease(loop); // Ideally, this method should be called when a SafeHandle is released instead
 }
 
 // ...
