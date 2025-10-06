@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/TolikPylypchuk/SharpHook/blob/v7.0.3/docs/articles/os-constraints.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/TolikPylypchuk/SharpHook/blob/main/docs/articles/os-constraints.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -138,14 +138,11 @@ side effects on macOS.</p>
 <p>On macOS running the global hook requires that the main run-loop be present. libuiohook takes care of it if the hook
 is run on the main thread. It's also taken care of by UI frameworks since they need an event loop on the main thread
 to run. But if you're using a global hook in a console app or a background service and want to run it on some thread
-other than the main one then you should take care of it yourself. You can do that by P/Invoking the native
-<code>CFRunLoopRun</code> function on the main thread:</p>
+other than the main one (e.g., <code>hook.RunAsync()</code> will run the hook on a different thread), then you should take care of
+it yourself. You can do that by P/Invoking the native <code>CFRunLoopRun</code> function on the main thread:</p>
 <pre><code class="lang-csharp">internal static partial class CoreFoundation
 {
     private const string CoreFoundationLib = &quot;/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation&quot;;
-
-    [LibraryImport(CoreFoundationLib)]
-    public static partial void CFRelease(IntPtr @ref);
 
     // It's better to use a type derived from SafeHandle as the return type, but it's omitted for brevity
     [LibraryImport(CoreFoundationLib)]
@@ -166,7 +163,6 @@ public static void RunMainLoop(CancellationToken token)
     var loop = CoreFoundation.CFRunLoopGetCurrent();
     token.Register(() =&gt; CoreFoundation.CFRunLoopStop(loop));
     CoreFoundation.CFRunLoopRun(); // This method will block the current thread until CFRunLoopStop is called
-    CoreFoundation.CFRelease(loop); // Ideally, this method should be called when a SafeHandle is released instead
 }
 
 // ...
@@ -204,7 +200,7 @@ slowly and is not guaranteed to be correct. More info can be found in the
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.0.3/docs/articles/os-constraints.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/main/docs/articles/os-constraints.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>
