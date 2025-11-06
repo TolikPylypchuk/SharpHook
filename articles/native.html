@@ -267,11 +267,11 @@ all its fields. Only <code>Type</code> and <code>Keyboard</code>/<code>Mouse</co
 <p>Mouse wheel simulation is a little more complex than other events.</p>
 <p>A positive <code>MouseWheelEventData.Rotation</code> value indicates scrolling up or left, and a negative value indicates scrolling
 down or right.</p>
-<p>On Windows the value 120 represents the default wheel step. As such, multiples of 120 can be used as the
+<p>On Windows, the value 120 represents the default wheel step. As such, multiples of 120 can be used as the
 rotation value, but it's not required. The value of <code>MouseWheelEventData.Type</code> is ignored.</p>
-<p>On macOS it's recommended to use values between -10 and 10. This will result in quite a small scroll amount with pixel
+<p>On macOS, it's recommended to use values between -10 and 10. This will result in quite a small scroll amount with pixel
 scrolling, so <code>MouseWheelScrollType.BlockScroll</code> is recommended for line scrolling instead of pixel scrolling.</p>
-<p>On Linux there is no fixed recommendation, but multiples of 100 can be used. The value of <code>MouseWheelEventData.Type</code>
+<p>On Linux, there is no fixed recommendation, but multiples of 100 can be used. The value of <code>MouseWheelEventData.Type</code>
 is ignored.</p>
 <h2 id="simulating-text-entry">Simulating Text Entry</h2>
 <p>SharpHook also provides text entry simulation. <code>UioHook</code> contains the <code>PostText</code> method which accepts a <code>string</code>. The
@@ -284,7 +284,7 @@ slowly and is not guaranteed to be correct.</p>
 <p><code>UioHook</code> contains the <code>SetPostTextDelayX11</code> method which can be used to increase (or decrease) the delay if needed -
 longer delays add consistency but may be more jarring to end users. <code>UioHook</code> also contains the <code>GetPostTextDelayX11</code>
 which can be used to get the currently configured delay – the default is 50 milliseconds. Delays are configurable on a
-nanosecond level. On Windows and macOS <code>SetPostTextDelayX11</code> does nothing, and <code>GetPostTextDelayX11</code> always returns 0.
+nanosecond level. On Windows and macOS, <code>SetPostTextDelayX11</code> does nothing, and <code>GetPostTextDelayX11</code> always returns 0.
 <code>IEventSimulator</code> contains the <code>TextSimulationDelayOnX11</code> property which is wrapper arount the aforementioned methods.</p>
 <p>The methods described above are also defined in the <code>SharpHook.Providers.IEventSimulationProvider</code> interface.</p>
 <h2 id="macos-accessibility-api">macOS Accessibility API</h2>

@@ -164,7 +164,7 @@ simulation.
 The default delay is 50 milliseconds.
 </p>
 <p>
-On Windows and macOS this property is ignored.
+On Windows and macOS, this property is ignored.
 </p>
 </div>
 
@@ -735,16 +735,16 @@ and a negative value indicates that the wheel will be rotated down or right.</p>
 
   <h4 class="section" id="SharpHook_IEventSimulator_SimulateMouseWheel_System_Int16_SharpHook_Data_MouseWheelScrollDirection_SharpHook_Data_MouseWheelScrollType__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-On Windows the value <code>120</code> represents the default wheel step. As such, multiples of <code>120</code> can be used,
+On Windows, the value <code>120</code> represents the default wheel step. As such, multiples of <code>120</code> can be used,
 but it's not required. The value of <code class="paramref">type</code> is ignored.
 </p>
 <p>
-On macOS it's recommended to use values between <code>-10</code> and <code>10</code>. This will result in quite a small
+On macOS, it's recommended to use values between <code>-10</code> and <code>10</code>. This will result in quite a small
 scroll amount with pixel scrolling, so <a class="xref" href="SharpHook.Data.MouseWheelScrollType.html#SharpHook_Data_MouseWheelScrollType_BlockScroll">BlockScroll</a> is recommended for line
 scrolling instead of pixel scrolling.
 </p>
 <p>
-On Linux there is no fixed recommendation, but multiples of <code>100</code> can be used. The value of
+On Linux, there is no fixed recommendation, but multiples of <code>100</code> can be used. The value of
 <code class="paramref">type</code> is ignored.
 </p>
 </div>
@@ -793,10 +793,10 @@ The text to simulate doesn't depend on the current keyboard layout. The full ran
 surrogate pairs, e.g. emojis) is supported.
 </p>
 <p>
-On Windows text simulation should work correctly and consistently.
+On Windows, text simulation should work correctly and consistently.
 </p>
 <p>
-On macOS applications are not required to process text simulation, but most of them should handle it correctly.
+On macOS, applications are not required to process text simulation, but most of them should handle it correctly.
 </p>
 <p>
 X11 doesn't support text simulation directly. Instead, for each character, an unused key code is remapped to
