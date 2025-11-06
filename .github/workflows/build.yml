@@ -405,7 +405,7 @@ jobs:
           cmake --install ${{github.workspace}}\build --config RelWithDebInfo
 
       - name: Test
-        shell: bash
+        shell: pwsh
         run: |
           ${{github.workspace}}\build\RelWithDebInfo\uiohook_tests.exe
 
@@ -450,7 +450,7 @@ jobs:
           cmake --install ${{github.workspace}}\build --config RelWithDebInfo
 
       - name: Test
-        shell: bash
+        shell: pwsh
         run: |
           ${{github.workspace}}\build\RelWithDebInfo\uiohook_tests.exe
 
@@ -495,7 +495,7 @@ jobs:
           cmake --install ${{github.workspace}}\build --config RelWithDebInfo
 
       - name: Test
-        shell: bash
+        shell: pwsh
         run: |
           ${{github.workspace}}\build\RelWithDebInfo\uiohook_tests.exe
 
