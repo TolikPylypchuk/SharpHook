@@ -49,6 +49,11 @@ jobs:
 
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
 
+      - name: Test
+        shell: bash
+        run: |
+          ${{github.workspace}}/build/uiohook_tests
+
       - name: Upload
         uses: actions/upload-artifact@v5
         with:
@@ -132,6 +137,11 @@ jobs:
             --clean-first
 
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
+
+      - name: Test
+        shell: bash
+        run: |
+          ${{github.workspace}}/build/uiohook_tests
 
       - name: Upload
         uses: actions/upload-artifact@v5
@@ -247,6 +257,11 @@ jobs:
 
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
 
+      - name: Test
+        shell: bash
+        run: |
+          ${{github.workspace}}/build/uiohook_tests
+
       - name: Upload
         uses: actions/upload-artifact@v5
         with:
@@ -299,6 +314,11 @@ jobs:
             --clean-first
 
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
+
+      - name: Test
+        shell: bash
+        run: |
+          ${{github.workspace}}/build/uiohook_tests
 
       - name: Upload
         uses: actions/upload-artifact@v5
@@ -354,6 +374,11 @@ jobs:
 
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
 
+      - name: Test
+        shell: bash
+        run: |
+          ${{github.workspace}}/build/uiohook_tests
+
       - name: Upload
         uses: actions/upload-artifact@v5
         with:
@@ -393,6 +418,11 @@ jobs:
             --clean-first
 
           cmake --install ${{github.workspace}}\build --config RelWithDebInfo
+
+      - name: Test
+        shell: bash
+        run: |
+          ${{github.workspace}}\build\RelWithDebInfo\uiohook_tests
 
       - name: Upload
         uses: actions/upload-artifact@v5
@@ -434,6 +464,11 @@ jobs:
 
           cmake --install ${{github.workspace}}\build --config RelWithDebInfo
 
+      - name: Test
+        shell: bash
+        run: |
+          ${{github.workspace}}\build\RelWithDebInfo\uiohook_tests
+
       - name: Upload
         uses: actions/upload-artifact@v5
         with:
@@ -473,6 +508,11 @@ jobs:
             --clean-first
 
           cmake --install ${{github.workspace}}\build --config RelWithDebInfo
+
+      - name: Test
+        shell: bash
+        run: |
+          ${{github.workspace}}\build\RelWithDebInfo\uiohook_tests
 
       - name: Upload
         uses: actions/upload-artifact@v5
