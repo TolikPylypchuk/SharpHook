@@ -183,7 +183,7 @@ jobs:
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-linux-arm:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-arm
 
     steps:
       - name: Checkout
@@ -254,7 +254,7 @@ jobs:
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-linux-arm64:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-arm
 
     steps:
       - name: Checkout
@@ -265,24 +265,6 @@ jobs:
       - name: Setup
         shell: bash
         run: |
-          sudo rm -Rf /etc/apt/sources.list.d/*
-          sudo bash -c 'source /etc/lsb-release && echo "
-          deb [arch=amd64,i386] https://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME} main universe
-          deb [arch=amd64,i386] https://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME}-updates main universe
-          deb [arch=amd64,i386] https://us.archive.ubuntu.com/ubuntu ${DISTRIB_CODENAME}-backports main universe
-
-          deb [arch=arm64,armhf] https://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME} main universe
-          deb [arch=arm64,armhf] https://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME}-updates main universe
-          deb [arch=arm64,armhf] https://ports.ubuntu.com/ubuntu-ports ${DISTRIB_CODENAME}-backports main universe
-          " > /etc/apt/sources.list'
-
-          sudo dpkg --add-architecture arm64
-          sudo apt update -m
-
-          sudo apt install -qy \
-            binutils-aarch64-linux-gnu \
-            gcc-aarch64-linux-gnu
-
           sudo apt install -qy \
             libx11-dev:arm64 \
             libxtst-dev:arm64 \
@@ -379,7 +361,7 @@ jobs:
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-windows-arm64:
-    runs-on: windows-latest
+    runs-on: windows-latest-arm
 
     steps:
       - uses: actions/checkout@v5
@@ -389,7 +371,7 @@ jobs:
       - name: Setup
         uses: ilammy/msvc-dev-cmd@v1
         with:
-          arch: amd64_arm64
+          arch: arm64
 
       - name: Compile
         shell: pwsh
