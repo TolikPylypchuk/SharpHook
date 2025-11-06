@@ -39,7 +39,8 @@ jobs:
             -D CMAKE_OSX_ARCHITECTURES='arm64' \
             -D BUILD_SHARED_LIBS=ON \
             -D USE_APPKIT=OFF \
-            -D USE_EPOCH_TIME=ON
+            -D USE_EPOCH_TIME=ON \
+            -D ENABLE_TEST=ON
 
           cmake --build ${{github.workspace}}/build \
             --parallel 2 \
@@ -79,7 +80,8 @@ jobs:
             -D CMAKE_OSX_ARCHITECTURES='x86_64' \
             -D BUILD_SHARED_LIBS=ON \
             -D USE_APPKIT=OFF \
-            -D USE_EPOCH_TIME=ON
+            -D USE_EPOCH_TIME=ON \
+            -D ENABLE_TEST=ON
 
           cmake --build ${{github.workspace}}/build \
             --parallel 2 \
@@ -121,7 +123,8 @@ jobs:
             -D USE_APPLICATION_SERVICES=OFF \
             -D USE_IOKIT=ON \
             -D USE_APPKIT=OFF \
-            -D USE_EPOCH_TIME=ON
+            -D USE_EPOCH_TIME=ON \
+            -D ENABLE_TEST=ON
 
           cmake --build ${{github.workspace}}/build \
             --parallel 2 \
@@ -163,7 +166,8 @@ jobs:
             -D USE_APPLICATION_SERVICES=OFF \
             -D USE_IOKIT=ON \
             -D USE_APPKIT=OFF \
-            -D USE_EPOCH_TIME=ON
+            -D USE_EPOCH_TIME=ON \
+            -D ENABLE_TEST=ON
 
           cmake --build ${{github.workspace}}/build \
             --parallel 2 \
@@ -233,7 +237,8 @@ jobs:
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/linux/arm \
             -D CMAKE_VERBOSE_MAKEFILE=true \
             -D BUILD_SHARED_LIBS=ON \
-            -D USE_EPOCH_TIME=ON
+            -D USE_EPOCH_TIME=ON \
+            -D ENABLE_TEST=ON
 
           cmake --build ${{github.workspace}}/build \
             --parallel 2 \
@@ -303,7 +308,8 @@ jobs:
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/linux/arm64 \
             -D CMAKE_VERBOSE_MAKEFILE=true \
             -D BUILD_SHARED_LIBS=ON \
-            -D USE_EPOCH_TIME=ON
+            -D USE_EPOCH_TIME=ON \
+            -D ENABLE_TEST=ON
 
           cmake --build ${{github.workspace}}/build \
             --parallel 2 \
@@ -356,7 +362,8 @@ jobs:
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/linux/x86_64 \
             -D CMAKE_VERBOSE_MAKEFILE=true \
             -D BUILD_SHARED_LIBS=ON \
-            -D USE_EPOCH_TIME=ON
+            -D USE_EPOCH_TIME=ON \
+            -D ENABLE_TEST=ON
 
           cmake --build ${{github.workspace}}/build \
             --parallel 2 \
@@ -394,9 +401,9 @@ jobs:
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\arm64 `
             -D CMAKE_VERBOSE_MAKEFILE=true `
             -D BUILD_SHARED_LIBS=ON `
-            -D CMAKE_POLICY_DEFAULT_CMP0091=NEW `
             -D CMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded `
-            -D USE_EPOCH_TIME=ON
+            -D USE_EPOCH_TIME=ON `
+            -D ENABLE_TEST=ON
 
           cmake --build ${{github.workspace}}\build `
             --parallel 2 `
@@ -434,9 +441,9 @@ jobs:
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\x86 `
             -D CMAKE_VERBOSE_MAKEFILE=true `
             -D BUILD_SHARED_LIBS=ON `
-            -D CMAKE_POLICY_DEFAULT_CMP0091=NEW `
             -D CMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded `
-            -D USE_EPOCH_TIME=ON
+            -D USE_EPOCH_TIME=ON `
+            -D ENABLE_TEST=ON
 
           cmake --build ${{github.workspace}}\build `
             --parallel 2 `
@@ -474,9 +481,9 @@ jobs:
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\x86_64 `
             -D CMAKE_VERBOSE_MAKEFILE=true `
             -D BUILD_SHARED_LIBS=ON `
-            -D CMAKE_POLICY_DEFAULT_CMP0091=NEW `
             -D CMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded `
-            -D USE_EPOCH_TIME=ON
+            -D USE_EPOCH_TIME=ON `
+            -D ENABLE_TEST=ON
 
           cmake --build ${{github.workspace}}\build `
             --parallel 2 `
