@@ -644,10 +644,12 @@ public enum KeyCode : ushort
 
     /// <summary>IME Kanji mode</summary>
     /// <remarks>Available on: Windows</remarks>
+    [Obsolete("VcHanja should be used instead")]
     VcKanji = 0x0019,
 
     /// <summary>IME Hangul mode</summary>
     /// <remarks>Available on: Windows, Linux</remarks>
+    [Obsolete("VcKana should be used instead")]
     VcHangul = 0x00E9,
 
     /// <summary>IME Junja mode</summary>

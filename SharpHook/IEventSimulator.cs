@@ -23,7 +23,7 @@ public interface IEventSimulator
     /// The default delay is 50 milliseconds.
     /// </para>
     /// <para>
-    /// On Windows and macOS this property is ignored.
+    /// On Windows and macOS, this property is ignored.
     /// </para>
     /// </remarks>
     /// <exception cref="ArgumentOutOfRangeException">
@@ -56,10 +56,10 @@ public interface IEventSimulator
     /// surrogate pairs, e.g. emojis) is supported.
     /// </para>
     /// <para>
-    /// On Windows text simulation should work correctly and consistently.
+    /// On Windows, text simulation should work correctly and consistently.
     /// </para>
     /// <para>
-    /// On macOS applications are not required to process text simulation, but most of them should handle it correctly.
+    /// On macOS, applications are not required to process text simulation, but most of them should handle it correctly.
     /// </para>
     /// <para>
     /// X11 doesn't support text simulation directly. Instead, for each character, an unused key code is remapped to
@@ -170,16 +170,16 @@ public interface IEventSimulator
     /// <returns>The result of the operation.</returns>
     /// <remarks>
     /// <para>
-    /// On Windows the value <c>120</c> represents the default wheel step. As such, multiples of <c>120</c> can be used,
+    /// On Windows, the value <c>120</c> represents the default wheel step. As such, multiples of <c>120</c> can be used,
     /// but it's not required. The value of <paramref name="type" /> is ignored.
     /// </para>
     /// <para>
-    /// On macOS it's recommended to use values between <c>-10</c> and <c>10</c>. This will result in quite a small
+    /// On macOS, it's recommended to use values between <c>-10</c> and <c>10</c>. This will result in quite a small
     /// scroll amount with pixel scrolling, so <see cref="MouseWheelScrollType.BlockScroll" /> is recommended for line
     /// scrolling instead of pixel scrolling.
     /// </para>
     /// <para>
-    /// On Linux there is no fixed recommendation, but multiples of <c>100</c> can be used. The value of
+    /// On Linux, there is no fixed recommendation, but multiples of <c>100</c> can be used. The value of
     /// <paramref name="type" /> is ignored.
     /// </para>
     /// </remarks>

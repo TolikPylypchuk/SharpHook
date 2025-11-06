@@ -44,13 +44,13 @@ public struct MouseWheelEventData : IEquatable<MouseWheelEventData>
     /// <value>The wheel delta.</value>
     /// <remarks>
     /// <para>
-    /// On Windows this value is equal to the <c>WHEEL_DELTA</c> constant (<c>120</c>).
+    /// On Windows, this value is equal to the <c>WHEEL_DELTA</c> constant (<c>120</c>).
     /// </para>
     /// <para>
-    /// On macOS this value is the number of pixels per line.
+    /// On macOS, this value is the number of pixels per line.
     /// </para>
     /// <para>
-    /// On Linux this value is always equal to <c>100</c>.
+    /// On Linux, this value is always equal to <c>100</c>.
     /// </para>
     /// </remarks>
     public ushort Delta;

@@ -201,13 +201,13 @@ Mouse wheel simulation is a little more complex than other events.
 A positive `MouseWheelEventData.Rotation` value indicates scrolling up or left, and a negative value indicates scrolling
 down or right.
 
-On Windows the value 120 represents the default wheel step. As such, multiples of 120 can be used as the
+On Windows, the value 120 represents the default wheel step. As such, multiples of 120 can be used as the
 rotation value, but it's not required. The value of `MouseWheelEventData.Type` is ignored.
 
-On macOS it's recommended to use values between -10 and 10. This will result in quite a small scroll amount with pixel
+On macOS, it's recommended to use values between -10 and 10. This will result in quite a small scroll amount with pixel
 scrolling, so `MouseWheelScrollType.BlockScroll` is recommended for line scrolling instead of pixel scrolling.
 
-On Linux there is no fixed recommendation, but multiples of 100 can be used. The value of `MouseWheelEventData.Type`
+On Linux, there is no fixed recommendation, but multiples of 100 can be used. The value of `MouseWheelEventData.Type`
 is ignored.
 
 ## Simulating Text Entry
@@ -224,7 +224,7 @@ slowly and is not guaranteed to be correct.
 `UioHook` contains the `SetPostTextDelayX11` method which can be used to increase (or decrease) the delay if needed -
 longer delays add consistency but may be more jarring to end users. `UioHook` also contains the `GetPostTextDelayX11`
 which can be used to get the currently configured delay – the default is 50 milliseconds. Delays are configurable on a
-nanosecond level. On Windows and macOS `SetPostTextDelayX11` does nothing, and `GetPostTextDelayX11` always returns 0.
+nanosecond level. On Windows and macOS, `SetPostTextDelayX11` does nothing, and `GetPostTextDelayX11` always returns 0.
 `IEventSimulator` contains the `TextSimulationDelayOnX11` property which is wrapper arount the aforementioned methods.
 
 The methods described above are also defined in the `SharpHook.Providers.IEventSimulationProvider` interface.
