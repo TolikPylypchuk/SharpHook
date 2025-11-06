@@ -183,7 +183,7 @@ jobs:
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-linux-arm:
-    runs-on: ubuntu-latest-arm
+    runs-on: ubuntu-24.04-arm
 
     steps:
       - name: Checkout
@@ -254,7 +254,7 @@ jobs:
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-linux-arm64:
-    runs-on: ubuntu-latest-arm
+    runs-on: ubuntu-24.04-arm
 
     steps:
       - name: Checkout
@@ -361,7 +361,7 @@ jobs:
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-windows-arm64:
-    runs-on: windows-latest-arm
+    runs-on: windows-11-arm
 
     steps:
       - uses: actions/checkout@v5
