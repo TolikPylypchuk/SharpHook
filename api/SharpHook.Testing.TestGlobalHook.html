@@ -150,6 +150,16 @@ Class TestGlobalHook  <a class="header-action link-secondary" title="View source
     </div>
   </dd></dl>
 
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="SharpHook.EventSimulationExtensions.html#SharpHook_EventSimulationExtensions_SimulateKeyStroke_SharpHook_IEventSimulator_SharpHook_Data_KeyCode___">EventSimulationExtensions.SimulateKeyStroke(IEventSimulator, params KeyCode[])</a>
+  </div>
+  <div>
+      <a class="xref" href="SharpHook.EventSimulationExtensions.html#SharpHook_EventSimulationExtensions_SimulateKeyStroke_SharpHook_IEventSimulator_System_Collections_Generic_IEnumerable_SharpHook_Data_KeyCode__">EventSimulationExtensions.SimulateKeyStroke(IEventSimulator, IEnumerable&lt;KeyCode&gt;)</a>
+  </div>
+  </dd></dl>
 
 
 
@@ -1229,6 +1239,43 @@ to be stopped.</p>
     <dd><p>The global hook has been disposed.</p>
 </dd>
   </dl>
+
+
+
+  <a id="SharpHook_Testing_TestGlobalHook_Sequence_" data-uid="SharpHook.Testing.TestGlobalHook.Sequence*"></a>
+
+  <h3 id="SharpHook_Testing_TestGlobalHook_Sequence" data-uid="SharpHook.Testing.TestGlobalHook.Sequence">
+  Sequence()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Testing/TestGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initializes a builder for a sequence of events that can be simulated together.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEventSimulationSequenceBuilder Sequence()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
+    <dd><p>A builder for a sequence of events that can be simulated together.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_Testing_TestGlobalHook_Sequence_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>All events simulated by the builder or the corresponding template will be added to
+<a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulatedEvents">SimulatedEvents</a>.</p>
+</div>
+
 
 
 

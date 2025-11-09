@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <title>Class EventSimulationExtensions | SharpHook </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class EventSimulationExtensions | SharpHook ">
+      
+      <meta name="description" content="Contains extension methods for  and .">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.png" alt="SharpHook">
+            SharpHook
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="SharpHook.EventSimulationExtensions">
+
+
+
+  <h1 id="SharpHook_EventSimulationExtensions" data-uid="SharpHook.EventSimulationExtensions" class="text-break">
+Class EventSimulationExtensions  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/EventSimulationExtensions.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SharpHook.html">SharpHook</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Contains extension methods for <a class="xref" href="SharpHook.IEventSimulator.html">IEventSimulator</a> and <a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class EventSimulationExtensions</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">EventSimulationExtensions</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="SharpHook_EventSimulationExtensions_AddKeyStroke_" data-uid="SharpHook.EventSimulationExtensions.AddKeyStroke*"></a>
+
+  <h3 id="SharpHook_EventSimulationExtensions_AddKeyStroke_SharpHook_IEventSimulationSequenceBuilder_SharpHook_Data_KeyCode___" data-uid="SharpHook.EventSimulationExtensions.AddKeyStroke(SharpHook.IEventSimulationSequenceBuilder,SharpHook.Data.KeyCode[])">
+  AddKeyStroke(IEventSimulationSequenceBuilder, params KeyCode[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/EventSimulationExtensions.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a sequecne of key press and release events which represent a single key stroke to the sequence of events to
+simulate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEventSimulationSequenceBuilder AddKeyStroke(this IEventSimulationSequenceBuilder builder, params KeyCode[] keyCodes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
+    <dd><p>The event simulation sequence builder.</p>
+</dd>
+    <dt><code>keyCodes</code> <a class="xref" href="SharpHook.Data.KeyCode.html">KeyCode</a>[]</dt>
+    <dd><p>The codes of the keys to press and release.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_EventSimulationExtensions_AddKeyStroke_SharpHook_IEventSimulationSequenceBuilder_SharpHook_Data_KeyCode____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>As an example, if the method is called with the following parameters:</p>
+<pre><code class="lang-csharp">builder.AddKeyStroke(KeyCode.VcLeftControl, KeyCode.VcC);</code></pre>
+<p>then this will be equivalent to calling the following method sequence:</p>
+<pre><code class="lang-csharp">builder
+    .AddKeyPress(KeyCode.VcLeftControl)
+    .AddKeyPress(KeyCode.VcC)
+    .AddKeyRelease(KeyCode.VcC)
+    .AddKeyRelease(KeyCode.VcLeftControl);</code></pre>
+<p>which means that this method will add pressing the left control, then pressing C, then releasing C, then
+releasing the left control.</p>
+</div>
+
+
+
+
+  <a id="SharpHook_EventSimulationExtensions_AddKeyStroke_" data-uid="SharpHook.EventSimulationExtensions.AddKeyStroke*"></a>
+
+  <h3 id="SharpHook_EventSimulationExtensions_AddKeyStroke_SharpHook_IEventSimulationSequenceBuilder_System_Collections_Generic_IEnumerable_SharpHook_Data_KeyCode__" data-uid="SharpHook.EventSimulationExtensions.AddKeyStroke(SharpHook.IEventSimulationSequenceBuilder,System.Collections.Generic.IEnumerable{SharpHook.Data.KeyCode})">
+  AddKeyStroke(IEventSimulationSequenceBuilder, IEnumerable&lt;KeyCode&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/EventSimulationExtensions.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Adds a sequence of key press and release events which represent a single key stroke to the sequence of events to
+simulate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEventSimulationSequenceBuilder AddKeyStroke(this IEventSimulationSequenceBuilder builder, IEnumerable&lt;KeyCode&gt; keyCodes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>builder</code> <a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
+    <dd><p>The event simulation sequence builder.</p>
+</dd>
+    <dt><code>keyCodes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="SharpHook.Data.KeyCode.html">KeyCode</a>&gt;</dt>
+    <dd><p>The codes of the keys to press and release.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
+    <dd><p>The builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_EventSimulationExtensions_AddKeyStroke_SharpHook_IEventSimulationSequenceBuilder_System_Collections_Generic_IEnumerable_SharpHook_Data_KeyCode___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>As an example, if the method is called with the following parameters:</p>
+<pre><code class="lang-csharp">builder.AddKeyStroke(KeyCode.VcLeftControl, KeyCode.VcC);</code></pre>
+<p>then this will be equivalent to calling the following method sequence:</p>
+<pre><code class="lang-csharp">builder
+    .AddKeyPress(KeyCode.VcLeftControl)
+    .AddKeyPress(KeyCode.VcC)
+    .AddKeyRelease(KeyCode.VcC)
+    .AddKeyRelease(KeyCode.VcLeftControl);</code></pre>
+<p>which means that this method will add pressing the left control, then pressing C, then releasing C, then
+releasing the left control.</p>
+</div>
+
+
+
+
+  <a id="SharpHook_EventSimulationExtensions_SimulateKeyStroke_" data-uid="SharpHook.EventSimulationExtensions.SimulateKeyStroke*"></a>
+
+  <h3 id="SharpHook_EventSimulationExtensions_SimulateKeyStroke_SharpHook_IEventSimulator_SharpHook_Data_KeyCode___" data-uid="SharpHook.EventSimulationExtensions.SimulateKeyStroke(SharpHook.IEventSimulator,SharpHook.Data.KeyCode[])">
+  SimulateKeyStroke(IEventSimulator, params KeyCode[])
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/EventSimulationExtensions.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Simulates a sequence of key press and release events which represent a single key stroke.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UioHookResult SimulateKeyStroke(this IEventSimulator simulator, params KeyCode[] keyCodes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>simulator</code> <a class="xref" href="SharpHook.IEventSimulator.html">IEventSimulator</a></dt>
+    <dd><p>The event simulator.</p>
+</dd>
+    <dt><code>keyCodes</code> <a class="xref" href="SharpHook.Data.KeyCode.html">KeyCode</a>[]</dt>
+    <dd><p>The codes of the keys to press and release.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
+    <dd><p>The result of the operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_EventSimulationExtensions_SimulateKeyStroke_SharpHook_IEventSimulator_SharpHook_Data_KeyCode____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>As an example, if the method is called with the following parameters:</p>
+<pre><code class="lang-csharp">simulator.SimulateKeyStroke(KeyCode.VcLeftControl, KeyCode.VcC);</code></pre>
+<p>then this will be equivalent to calling the following method sequence:</p>
+<pre><code class="lang-csharp">simulator.Sequence()
+    .AddKeyPress(KeyCode.VcLeftControl)
+    .AddKeyPress(KeyCode.VcC)
+    .AddKeyRelease(KeyCode.VcC)
+    .AddKeyRelease(KeyCode.VcLeftControl)
+    .Simulate();</code></pre>
+<p>which means that this method will simualte pressing the left control, then pressing C, then releasing C, then
+releasing the left control.</p>
+</div>
+
+
+
+
+  <a id="SharpHook_EventSimulationExtensions_SimulateKeyStroke_" data-uid="SharpHook.EventSimulationExtensions.SimulateKeyStroke*"></a>
+
+  <h3 id="SharpHook_EventSimulationExtensions_SimulateKeyStroke_SharpHook_IEventSimulator_System_Collections_Generic_IEnumerable_SharpHook_Data_KeyCode__" data-uid="SharpHook.EventSimulationExtensions.SimulateKeyStroke(SharpHook.IEventSimulator,System.Collections.Generic.IEnumerable{SharpHook.Data.KeyCode})">
+  SimulateKeyStroke(IEventSimulator, IEnumerable&lt;KeyCode&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/EventSimulationExtensions.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Simulates a sequence of key press and release events which represent a single key stroke.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UioHookResult SimulateKeyStroke(this IEventSimulator simulator, IEnumerable&lt;KeyCode&gt; keyCodes)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>simulator</code> <a class="xref" href="SharpHook.IEventSimulator.html">IEventSimulator</a></dt>
+    <dd><p>The event simulator.</p>
+</dd>
+    <dt><code>keyCodes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="SharpHook.Data.KeyCode.html">KeyCode</a>&gt;</dt>
+    <dd><p>The codes of the keys to press and release.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
+    <dd><p>The result of the operation.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_EventSimulationExtensions_SimulateKeyStroke_SharpHook_IEventSimulator_System_Collections_Generic_IEnumerable_SharpHook_Data_KeyCode___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>As an example, if the method is called with the following parameters:</p>
+<pre><code class="lang-csharp">simulator.SimulateKeyStroke(KeyCode.VcLeftControl, KeyCode.VcC);</code></pre>
+<p>then this will be equivalent to calling the following method sequence:</p>
+<pre><code class="lang-csharp">simulator.Sequence()
+    .AddKeyPress(KeyCode.VcLeftControl)
+    .AddKeyPress(KeyCode.VcC)
+    .AddKeyRelease(KeyCode.VcC)
+    .AddKeyRelease(KeyCode.VcLeftControl)
+    .Simulate();</code></pre>
+<p>which means that this method will simualte pressing the left control, then pressing C, then releasing C, then
+releasing the left control.</p>
+</div>
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/EventSimulationExtensions.cs" class="edit-link">Edit this page</a>
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Created by <a href="https://tolik.io">Tolik Pylypchuk</a>. Docs made with <a href="https://dotnet.github.io/docfx">docfx</a></span>.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

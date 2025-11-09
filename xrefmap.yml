@@ -2479,6 +2479,354 @@ references:
   commentId: Overload:SharpHook.EventLoopGlobalHook.HandleHookEvent
   fullName: SharpHook.EventLoopGlobalHook.HandleHookEvent
   nameWithType: EventLoopGlobalHook.HandleHookEvent
+- uid: SharpHook.EventSimulationExtensions
+  name: EventSimulationExtensions
+  href: api/SharpHook.EventSimulationExtensions.html
+  commentId: T:SharpHook.EventSimulationExtensions
+  fullName: SharpHook.EventSimulationExtensions
+  nameWithType: EventSimulationExtensions
+- uid: SharpHook.EventSimulationExtensions.AddKeyStroke(SharpHook.IEventSimulationSequenceBuilder,SharpHook.Data.KeyCode[])
+  name: AddKeyStroke(IEventSimulationSequenceBuilder, params KeyCode[])
+  href: api/SharpHook.EventSimulationExtensions.html#SharpHook_EventSimulationExtensions_AddKeyStroke_SharpHook_IEventSimulationSequenceBuilder_SharpHook_Data_KeyCode___
+  commentId: M:SharpHook.EventSimulationExtensions.AddKeyStroke(SharpHook.IEventSimulationSequenceBuilder,SharpHook.Data.KeyCode[])
+  name.vb: AddKeyStroke(IEventSimulationSequenceBuilder, ParamArray KeyCode())
+  fullName: SharpHook.EventSimulationExtensions.AddKeyStroke(SharpHook.IEventSimulationSequenceBuilder, params SharpHook.Data.KeyCode[])
+  fullName.vb: SharpHook.EventSimulationExtensions.AddKeyStroke(SharpHook.IEventSimulationSequenceBuilder, ParamArray SharpHook.Data.KeyCode())
+  nameWithType: EventSimulationExtensions.AddKeyStroke(IEventSimulationSequenceBuilder, params KeyCode[])
+  nameWithType.vb: EventSimulationExtensions.AddKeyStroke(IEventSimulationSequenceBuilder, ParamArray KeyCode())
+- uid: SharpHook.EventSimulationExtensions.AddKeyStroke(SharpHook.IEventSimulationSequenceBuilder,System.Collections.Generic.IEnumerable{SharpHook.Data.KeyCode})
+  name: AddKeyStroke(IEventSimulationSequenceBuilder, IEnumerable<KeyCode>)
+  href: api/SharpHook.EventSimulationExtensions.html#SharpHook_EventSimulationExtensions_AddKeyStroke_SharpHook_IEventSimulationSequenceBuilder_System_Collections_Generic_IEnumerable_SharpHook_Data_KeyCode__
+  commentId: M:SharpHook.EventSimulationExtensions.AddKeyStroke(SharpHook.IEventSimulationSequenceBuilder,System.Collections.Generic.IEnumerable{SharpHook.Data.KeyCode})
+  name.vb: AddKeyStroke(IEventSimulationSequenceBuilder, IEnumerable(Of KeyCode))
+  fullName: SharpHook.EventSimulationExtensions.AddKeyStroke(SharpHook.IEventSimulationSequenceBuilder, System.Collections.Generic.IEnumerable<SharpHook.Data.KeyCode>)
+  fullName.vb: SharpHook.EventSimulationExtensions.AddKeyStroke(SharpHook.IEventSimulationSequenceBuilder, System.Collections.Generic.IEnumerable(Of SharpHook.Data.KeyCode))
+  nameWithType: EventSimulationExtensions.AddKeyStroke(IEventSimulationSequenceBuilder, IEnumerable<KeyCode>)
+  nameWithType.vb: EventSimulationExtensions.AddKeyStroke(IEventSimulationSequenceBuilder, IEnumerable(Of KeyCode))
+- uid: SharpHook.EventSimulationExtensions.AddKeyStroke*
+  name: AddKeyStroke
+  href: api/SharpHook.EventSimulationExtensions.html#SharpHook_EventSimulationExtensions_AddKeyStroke_
+  commentId: Overload:SharpHook.EventSimulationExtensions.AddKeyStroke
+  fullName: SharpHook.EventSimulationExtensions.AddKeyStroke
+  nameWithType: EventSimulationExtensions.AddKeyStroke
+- uid: SharpHook.EventSimulationExtensions.SimulateKeyStroke(SharpHook.IEventSimulator,SharpHook.Data.KeyCode[])
+  name: SimulateKeyStroke(IEventSimulator, params KeyCode[])
+  href: api/SharpHook.EventSimulationExtensions.html#SharpHook_EventSimulationExtensions_SimulateKeyStroke_SharpHook_IEventSimulator_SharpHook_Data_KeyCode___
+  commentId: M:SharpHook.EventSimulationExtensions.SimulateKeyStroke(SharpHook.IEventSimulator,SharpHook.Data.KeyCode[])
+  name.vb: SimulateKeyStroke(IEventSimulator, ParamArray KeyCode())
+  fullName: SharpHook.EventSimulationExtensions.SimulateKeyStroke(SharpHook.IEventSimulator, params SharpHook.Data.KeyCode[])
+  fullName.vb: SharpHook.EventSimulationExtensions.SimulateKeyStroke(SharpHook.IEventSimulator, ParamArray SharpHook.Data.KeyCode())
+  nameWithType: EventSimulationExtensions.SimulateKeyStroke(IEventSimulator, params KeyCode[])
+  nameWithType.vb: EventSimulationExtensions.SimulateKeyStroke(IEventSimulator, ParamArray KeyCode())
+- uid: SharpHook.EventSimulationExtensions.SimulateKeyStroke(SharpHook.IEventSimulator,System.Collections.Generic.IEnumerable{SharpHook.Data.KeyCode})
+  name: SimulateKeyStroke(IEventSimulator, IEnumerable<KeyCode>)
+  href: api/SharpHook.EventSimulationExtensions.html#SharpHook_EventSimulationExtensions_SimulateKeyStroke_SharpHook_IEventSimulator_System_Collections_Generic_IEnumerable_SharpHook_Data_KeyCode__
+  commentId: M:SharpHook.EventSimulationExtensions.SimulateKeyStroke(SharpHook.IEventSimulator,System.Collections.Generic.IEnumerable{SharpHook.Data.KeyCode})
+  name.vb: SimulateKeyStroke(IEventSimulator, IEnumerable(Of KeyCode))
+  fullName: SharpHook.EventSimulationExtensions.SimulateKeyStroke(SharpHook.IEventSimulator, System.Collections.Generic.IEnumerable<SharpHook.Data.KeyCode>)
+  fullName.vb: SharpHook.EventSimulationExtensions.SimulateKeyStroke(SharpHook.IEventSimulator, System.Collections.Generic.IEnumerable(Of SharpHook.Data.KeyCode))
+  nameWithType: EventSimulationExtensions.SimulateKeyStroke(IEventSimulator, IEnumerable<KeyCode>)
+  nameWithType.vb: EventSimulationExtensions.SimulateKeyStroke(IEventSimulator, IEnumerable(Of KeyCode))
+- uid: SharpHook.EventSimulationExtensions.SimulateKeyStroke*
+  name: SimulateKeyStroke
+  href: api/SharpHook.EventSimulationExtensions.html#SharpHook_EventSimulationExtensions_SimulateKeyStroke_
+  commentId: Overload:SharpHook.EventSimulationExtensions.SimulateKeyStroke
+  fullName: SharpHook.EventSimulationExtensions.SimulateKeyStroke
+  nameWithType: EventSimulationExtensions.SimulateKeyStroke
+- uid: SharpHook.EventSimulationSequenceBuilder
+  name: EventSimulationSequenceBuilder
+  href: api/SharpHook.EventSimulationSequenceBuilder.html
+  commentId: T:SharpHook.EventSimulationSequenceBuilder
+  fullName: SharpHook.EventSimulationSequenceBuilder
+  nameWithType: EventSimulationSequenceBuilder
+- uid: SharpHook.EventSimulationSequenceBuilder.#ctor(SharpHook.Providers.IEventSimulationProvider)
+  name: EventSimulationSequenceBuilder(IEventSimulationProvider?)
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder__ctor_SharpHook_Providers_IEventSimulationProvider_
+  commentId: M:SharpHook.EventSimulationSequenceBuilder.#ctor(SharpHook.Providers.IEventSimulationProvider)
+  name.vb: New(IEventSimulationProvider)
+  fullName: SharpHook.EventSimulationSequenceBuilder.EventSimulationSequenceBuilder(SharpHook.Providers.IEventSimulationProvider?)
+  fullName.vb: SharpHook.EventSimulationSequenceBuilder.New(SharpHook.Providers.IEventSimulationProvider)
+  nameWithType: EventSimulationSequenceBuilder.EventSimulationSequenceBuilder(IEventSimulationProvider?)
+  nameWithType.vb: EventSimulationSequenceBuilder.New(IEventSimulationProvider)
+- uid: SharpHook.EventSimulationSequenceBuilder.#ctor*
+  name: EventSimulationSequenceBuilder
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder__ctor_
+  commentId: Overload:SharpHook.EventSimulationSequenceBuilder.#ctor
+  name.vb: New
+  fullName: SharpHook.EventSimulationSequenceBuilder.EventSimulationSequenceBuilder
+  fullName.vb: SharpHook.EventSimulationSequenceBuilder.New
+  nameWithType: EventSimulationSequenceBuilder.EventSimulationSequenceBuilder
+  nameWithType.vb: EventSimulationSequenceBuilder.New
+- uid: SharpHook.EventSimulationSequenceBuilder.AddEvent(SharpHook.Data.UioHookEvent)
+  name: AddEvent(UioHookEvent)
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_AddEvent_SharpHook_Data_UioHookEvent_
+  commentId: M:SharpHook.EventSimulationSequenceBuilder.AddEvent(SharpHook.Data.UioHookEvent)
+  fullName: SharpHook.EventSimulationSequenceBuilder.AddEvent(SharpHook.Data.UioHookEvent)
+  nameWithType: EventSimulationSequenceBuilder.AddEvent(UioHookEvent)
+- uid: SharpHook.EventSimulationSequenceBuilder.AddEvent*
+  name: AddEvent
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_AddEvent_
+  commentId: Overload:SharpHook.EventSimulationSequenceBuilder.AddEvent
+  fullName: SharpHook.EventSimulationSequenceBuilder.AddEvent
+  nameWithType: EventSimulationSequenceBuilder.AddEvent
+- uid: SharpHook.EventSimulationSequenceBuilder.AddEvents(SharpHook.Data.UioHookEvent[])
+  name: AddEvents(params UioHookEvent[])
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_AddEvents_SharpHook_Data_UioHookEvent___
+  commentId: M:SharpHook.EventSimulationSequenceBuilder.AddEvents(SharpHook.Data.UioHookEvent[])
+  name.vb: AddEvents(ParamArray UioHookEvent())
+  fullName: SharpHook.EventSimulationSequenceBuilder.AddEvents(params SharpHook.Data.UioHookEvent[])
+  fullName.vb: SharpHook.EventSimulationSequenceBuilder.AddEvents(ParamArray SharpHook.Data.UioHookEvent())
+  nameWithType: EventSimulationSequenceBuilder.AddEvents(params UioHookEvent[])
+  nameWithType.vb: EventSimulationSequenceBuilder.AddEvents(ParamArray UioHookEvent())
+- uid: SharpHook.EventSimulationSequenceBuilder.AddEvents(System.Collections.Generic.IEnumerable{SharpHook.Data.UioHookEvent})
+  name: AddEvents(IEnumerable<UioHookEvent>)
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_AddEvents_System_Collections_Generic_IEnumerable_SharpHook_Data_UioHookEvent__
+  commentId: M:SharpHook.EventSimulationSequenceBuilder.AddEvents(System.Collections.Generic.IEnumerable{SharpHook.Data.UioHookEvent})
+  name.vb: AddEvents(IEnumerable(Of UioHookEvent))
+  fullName: SharpHook.EventSimulationSequenceBuilder.AddEvents(System.Collections.Generic.IEnumerable<SharpHook.Data.UioHookEvent>)
+  fullName.vb: SharpHook.EventSimulationSequenceBuilder.AddEvents(System.Collections.Generic.IEnumerable(Of SharpHook.Data.UioHookEvent))
+  nameWithType: EventSimulationSequenceBuilder.AddEvents(IEnumerable<UioHookEvent>)
+  nameWithType.vb: EventSimulationSequenceBuilder.AddEvents(IEnumerable(Of UioHookEvent))
+- uid: SharpHook.EventSimulationSequenceBuilder.AddEvents*
+  name: AddEvents
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_AddEvents_
+  commentId: Overload:SharpHook.EventSimulationSequenceBuilder.AddEvents
+  fullName: SharpHook.EventSimulationSequenceBuilder.AddEvents
+  nameWithType: EventSimulationSequenceBuilder.AddEvents
+- uid: SharpHook.EventSimulationSequenceBuilder.AddKeyPress(SharpHook.Data.KeyCode)
+  name: AddKeyPress(KeyCode)
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_AddKeyPress_SharpHook_Data_KeyCode_
+  commentId: M:SharpHook.EventSimulationSequenceBuilder.AddKeyPress(SharpHook.Data.KeyCode)
+  fullName: SharpHook.EventSimulationSequenceBuilder.AddKeyPress(SharpHook.Data.KeyCode)
+  nameWithType: EventSimulationSequenceBuilder.AddKeyPress(KeyCode)
+- uid: SharpHook.EventSimulationSequenceBuilder.AddKeyPress*
+  name: AddKeyPress
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_AddKeyPress_
+  commentId: Overload:SharpHook.EventSimulationSequenceBuilder.AddKeyPress
+  fullName: SharpHook.EventSimulationSequenceBuilder.AddKeyPress
+  nameWithType: EventSimulationSequenceBuilder.AddKeyPress
+- uid: SharpHook.EventSimulationSequenceBuilder.AddKeyRelease(SharpHook.Data.KeyCode)
+  name: AddKeyRelease(KeyCode)
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_AddKeyRelease_SharpHook_Data_KeyCode_
+  commentId: M:SharpHook.EventSimulationSequenceBuilder.AddKeyRelease(SharpHook.Data.KeyCode)
+  fullName: SharpHook.EventSimulationSequenceBuilder.AddKeyRelease(SharpHook.Data.KeyCode)
+  nameWithType: EventSimulationSequenceBuilder.AddKeyRelease(KeyCode)
+- uid: SharpHook.EventSimulationSequenceBuilder.AddKeyRelease*
+  name: AddKeyRelease
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_AddKeyRelease_
+  commentId: Overload:SharpHook.EventSimulationSequenceBuilder.AddKeyRelease
+  fullName: SharpHook.EventSimulationSequenceBuilder.AddKeyRelease
+  nameWithType: EventSimulationSequenceBuilder.AddKeyRelease
+- uid: SharpHook.EventSimulationSequenceBuilder.AddMouseMovement(System.Int16,System.Int16)
+  name: AddMouseMovement(short, short)
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_AddMouseMovement_System_Int16_System_Int16_
+  commentId: M:SharpHook.EventSimulationSequenceBuilder.AddMouseMovement(System.Int16,System.Int16)
+  name.vb: AddMouseMovement(Short, Short)
+  fullName: SharpHook.EventSimulationSequenceBuilder.AddMouseMovement(short, short)
+  fullName.vb: SharpHook.EventSimulationSequenceBuilder.AddMouseMovement(Short, Short)
+  nameWithType: EventSimulationSequenceBuilder.AddMouseMovement(short, short)
+  nameWithType.vb: EventSimulationSequenceBuilder.AddMouseMovement(Short, Short)
+- uid: SharpHook.EventSimulationSequenceBuilder.AddMouseMovement*
+  name: AddMouseMovement
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_AddMouseMovement_
+  commentId: Overload:SharpHook.EventSimulationSequenceBuilder.AddMouseMovement
+  fullName: SharpHook.EventSimulationSequenceBuilder.AddMouseMovement
+  nameWithType: EventSimulationSequenceBuilder.AddMouseMovement
+- uid: SharpHook.EventSimulationSequenceBuilder.AddMouseMovementRelative(System.Int16,System.Int16)
+  name: AddMouseMovementRelative(short, short)
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_AddMouseMovementRelative_System_Int16_System_Int16_
+  commentId: M:SharpHook.EventSimulationSequenceBuilder.AddMouseMovementRelative(System.Int16,System.Int16)
+  name.vb: AddMouseMovementRelative(Short, Short)
+  fullName: SharpHook.EventSimulationSequenceBuilder.AddMouseMovementRelative(short, short)
+  fullName.vb: SharpHook.EventSimulationSequenceBuilder.AddMouseMovementRelative(Short, Short)
+  nameWithType: EventSimulationSequenceBuilder.AddMouseMovementRelative(short, short)
+  nameWithType.vb: EventSimulationSequenceBuilder.AddMouseMovementRelative(Short, Short)
+- uid: SharpHook.EventSimulationSequenceBuilder.AddMouseMovementRelative*
+  name: AddMouseMovementRelative
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_AddMouseMovementRelative_
+  commentId: Overload:SharpHook.EventSimulationSequenceBuilder.AddMouseMovementRelative
+  fullName: SharpHook.EventSimulationSequenceBuilder.AddMouseMovementRelative
+  nameWithType: EventSimulationSequenceBuilder.AddMouseMovementRelative
+- uid: SharpHook.EventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton)
+  name: AddMousePress(MouseButton)
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_AddMousePress_SharpHook_Data_MouseButton_
+  commentId: M:SharpHook.EventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton)
+  fullName: SharpHook.EventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton)
+  nameWithType: EventSimulationSequenceBuilder.AddMousePress(MouseButton)
+- uid: SharpHook.EventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton,System.UInt16)
+  name: AddMousePress(MouseButton, ushort)
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_AddMousePress_SharpHook_Data_MouseButton_System_UInt16_
+  commentId: M:SharpHook.EventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton,System.UInt16)
+  name.vb: AddMousePress(MouseButton, UShort)
+  fullName: SharpHook.EventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton, ushort)
+  fullName.vb: SharpHook.EventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton, UShort)
+  nameWithType: EventSimulationSequenceBuilder.AddMousePress(MouseButton, ushort)
+  nameWithType.vb: EventSimulationSequenceBuilder.AddMousePress(MouseButton, UShort)
+- uid: SharpHook.EventSimulationSequenceBuilder.AddMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton)
+  name: AddMousePress(short, short, MouseButton)
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_AddMousePress_System_Int16_System_Int16_SharpHook_Data_MouseButton_
+  commentId: M:SharpHook.EventSimulationSequenceBuilder.AddMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton)
+  name.vb: AddMousePress(Short, Short, MouseButton)
+  fullName: SharpHook.EventSimulationSequenceBuilder.AddMousePress(short, short, SharpHook.Data.MouseButton)
+  fullName.vb: SharpHook.EventSimulationSequenceBuilder.AddMousePress(Short, Short, SharpHook.Data.MouseButton)
+  nameWithType: EventSimulationSequenceBuilder.AddMousePress(short, short, MouseButton)
+  nameWithType.vb: EventSimulationSequenceBuilder.AddMousePress(Short, Short, MouseButton)
+- uid: SharpHook.EventSimulationSequenceBuilder.AddMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)
+  name: AddMousePress(short, short, MouseButton, ushort)
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_AddMousePress_System_Int16_System_Int16_SharpHook_Data_MouseButton_System_UInt16_
+  commentId: M:SharpHook.EventSimulationSequenceBuilder.AddMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)
+  name.vb: AddMousePress(Short, Short, MouseButton, UShort)
+  fullName: SharpHook.EventSimulationSequenceBuilder.AddMousePress(short, short, SharpHook.Data.MouseButton, ushort)
+  fullName.vb: SharpHook.EventSimulationSequenceBuilder.AddMousePress(Short, Short, SharpHook.Data.MouseButton, UShort)
+  nameWithType: EventSimulationSequenceBuilder.AddMousePress(short, short, MouseButton, ushort)
+  nameWithType.vb: EventSimulationSequenceBuilder.AddMousePress(Short, Short, MouseButton, UShort)
+- uid: SharpHook.EventSimulationSequenceBuilder.AddMousePress*
+  name: AddMousePress
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_AddMousePress_
+  commentId: Overload:SharpHook.EventSimulationSequenceBuilder.AddMousePress
+  fullName: SharpHook.EventSimulationSequenceBuilder.AddMousePress
+  nameWithType: EventSimulationSequenceBuilder.AddMousePress
+- uid: SharpHook.EventSimulationSequenceBuilder.AddMouseRelease(SharpHook.Data.MouseButton)
+  name: AddMouseRelease(MouseButton)
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_AddMouseRelease_SharpHook_Data_MouseButton_
+  commentId: M:SharpHook.EventSimulationSequenceBuilder.AddMouseRelease(SharpHook.Data.MouseButton)
+  fullName: SharpHook.EventSimulationSequenceBuilder.AddMouseRelease(SharpHook.Data.MouseButton)
+  nameWithType: EventSimulationSequenceBuilder.AddMouseRelease(MouseButton)
+- uid: SharpHook.EventSimulationSequenceBuilder.AddMouseRelease(SharpHook.Data.MouseButton,System.UInt16)
+  name: AddMouseRelease(MouseButton, ushort)
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_AddMouseRelease_SharpHook_Data_MouseButton_System_UInt16_
+  commentId: M:SharpHook.EventSimulationSequenceBuilder.AddMouseRelease(SharpHook.Data.MouseButton,System.UInt16)
+  name.vb: AddMouseRelease(MouseButton, UShort)
+  fullName: SharpHook.EventSimulationSequenceBuilder.AddMouseRelease(SharpHook.Data.MouseButton, ushort)
+  fullName.vb: SharpHook.EventSimulationSequenceBuilder.AddMouseRelease(SharpHook.Data.MouseButton, UShort)
+  nameWithType: EventSimulationSequenceBuilder.AddMouseRelease(MouseButton, ushort)
+  nameWithType.vb: EventSimulationSequenceBuilder.AddMouseRelease(MouseButton, UShort)
+- uid: SharpHook.EventSimulationSequenceBuilder.AddMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton)
+  name: AddMouseRelease(short, short, MouseButton)
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_AddMouseRelease_System_Int16_System_Int16_SharpHook_Data_MouseButton_
+  commentId: M:SharpHook.EventSimulationSequenceBuilder.AddMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton)
+  name.vb: AddMouseRelease(Short, Short, MouseButton)
+  fullName: SharpHook.EventSimulationSequenceBuilder.AddMouseRelease(short, short, SharpHook.Data.MouseButton)
+  fullName.vb: SharpHook.EventSimulationSequenceBuilder.AddMouseRelease(Short, Short, SharpHook.Data.MouseButton)
+  nameWithType: EventSimulationSequenceBuilder.AddMouseRelease(short, short, MouseButton)
+  nameWithType.vb: EventSimulationSequenceBuilder.AddMouseRelease(Short, Short, MouseButton)
+- uid: SharpHook.EventSimulationSequenceBuilder.AddMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)
+  name: AddMouseRelease(short, short, MouseButton, ushort)
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_AddMouseRelease_System_Int16_System_Int16_SharpHook_Data_MouseButton_System_UInt16_
+  commentId: M:SharpHook.EventSimulationSequenceBuilder.AddMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)
+  name.vb: AddMouseRelease(Short, Short, MouseButton, UShort)
+  fullName: SharpHook.EventSimulationSequenceBuilder.AddMouseRelease(short, short, SharpHook.Data.MouseButton, ushort)
+  fullName.vb: SharpHook.EventSimulationSequenceBuilder.AddMouseRelease(Short, Short, SharpHook.Data.MouseButton, UShort)
+  nameWithType: EventSimulationSequenceBuilder.AddMouseRelease(short, short, MouseButton, ushort)
+  nameWithType.vb: EventSimulationSequenceBuilder.AddMouseRelease(Short, Short, MouseButton, UShort)
+- uid: SharpHook.EventSimulationSequenceBuilder.AddMouseRelease*
+  name: AddMouseRelease
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_AddMouseRelease_
+  commentId: Overload:SharpHook.EventSimulationSequenceBuilder.AddMouseRelease
+  fullName: SharpHook.EventSimulationSequenceBuilder.AddMouseRelease
+  nameWithType: EventSimulationSequenceBuilder.AddMouseRelease
+- uid: SharpHook.EventSimulationSequenceBuilder.AddMouseWheel(System.Int16,SharpHook.Data.MouseWheelScrollDirection,SharpHook.Data.MouseWheelScrollType)
+  name: AddMouseWheel(short, MouseWheelScrollDirection, MouseWheelScrollType)
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_AddMouseWheel_System_Int16_SharpHook_Data_MouseWheelScrollDirection_SharpHook_Data_MouseWheelScrollType_
+  commentId: M:SharpHook.EventSimulationSequenceBuilder.AddMouseWheel(System.Int16,SharpHook.Data.MouseWheelScrollDirection,SharpHook.Data.MouseWheelScrollType)
+  name.vb: AddMouseWheel(Short, MouseWheelScrollDirection, MouseWheelScrollType)
+  fullName: SharpHook.EventSimulationSequenceBuilder.AddMouseWheel(short, SharpHook.Data.MouseWheelScrollDirection, SharpHook.Data.MouseWheelScrollType)
+  fullName.vb: SharpHook.EventSimulationSequenceBuilder.AddMouseWheel(Short, SharpHook.Data.MouseWheelScrollDirection, SharpHook.Data.MouseWheelScrollType)
+  nameWithType: EventSimulationSequenceBuilder.AddMouseWheel(short, MouseWheelScrollDirection, MouseWheelScrollType)
+  nameWithType.vb: EventSimulationSequenceBuilder.AddMouseWheel(Short, MouseWheelScrollDirection, MouseWheelScrollType)
+- uid: SharpHook.EventSimulationSequenceBuilder.AddMouseWheel*
+  name: AddMouseWheel
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_AddMouseWheel_
+  commentId: Overload:SharpHook.EventSimulationSequenceBuilder.AddMouseWheel
+  fullName: SharpHook.EventSimulationSequenceBuilder.AddMouseWheel
+  nameWithType: EventSimulationSequenceBuilder.AddMouseWheel
+- uid: SharpHook.EventSimulationSequenceBuilder.CreateTemplate
+  name: CreateTemplate()
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_CreateTemplate
+  commentId: M:SharpHook.EventSimulationSequenceBuilder.CreateTemplate
+  fullName: SharpHook.EventSimulationSequenceBuilder.CreateTemplate()
+  nameWithType: EventSimulationSequenceBuilder.CreateTemplate()
+- uid: SharpHook.EventSimulationSequenceBuilder.CreateTemplate*
+  name: CreateTemplate
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_CreateTemplate_
+  commentId: Overload:SharpHook.EventSimulationSequenceBuilder.CreateTemplate
+  fullName: SharpHook.EventSimulationSequenceBuilder.CreateTemplate
+  nameWithType: EventSimulationSequenceBuilder.CreateTemplate
+- uid: SharpHook.EventSimulationSequenceBuilder.RemoveEvent(SharpHook.Data.UioHookEvent)
+  name: RemoveEvent(UioHookEvent)
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_RemoveEvent_SharpHook_Data_UioHookEvent_
+  commentId: M:SharpHook.EventSimulationSequenceBuilder.RemoveEvent(SharpHook.Data.UioHookEvent)
+  fullName: SharpHook.EventSimulationSequenceBuilder.RemoveEvent(SharpHook.Data.UioHookEvent)
+  nameWithType: EventSimulationSequenceBuilder.RemoveEvent(UioHookEvent)
+- uid: SharpHook.EventSimulationSequenceBuilder.RemoveEvent*
+  name: RemoveEvent
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_RemoveEvent_
+  commentId: Overload:SharpHook.EventSimulationSequenceBuilder.RemoveEvent
+  fullName: SharpHook.EventSimulationSequenceBuilder.RemoveEvent
+  nameWithType: EventSimulationSequenceBuilder.RemoveEvent
+- uid: SharpHook.EventSimulationSequenceBuilder.RemoveEvents(System.Func{SharpHook.Data.UioHookEvent,System.Boolean})
+  name: RemoveEvents(Func<UioHookEvent, bool>)
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_RemoveEvents_System_Func_SharpHook_Data_UioHookEvent_System_Boolean__
+  commentId: M:SharpHook.EventSimulationSequenceBuilder.RemoveEvents(System.Func{SharpHook.Data.UioHookEvent,System.Boolean})
+  name.vb: RemoveEvents(Func(Of UioHookEvent, Boolean))
+  fullName: SharpHook.EventSimulationSequenceBuilder.RemoveEvents(System.Func<SharpHook.Data.UioHookEvent, bool>)
+  fullName.vb: SharpHook.EventSimulationSequenceBuilder.RemoveEvents(System.Func(Of SharpHook.Data.UioHookEvent, Boolean))
+  nameWithType: EventSimulationSequenceBuilder.RemoveEvents(Func<UioHookEvent, bool>)
+  nameWithType.vb: EventSimulationSequenceBuilder.RemoveEvents(Func(Of UioHookEvent, Boolean))
+- uid: SharpHook.EventSimulationSequenceBuilder.RemoveEvents*
+  name: RemoveEvents
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_RemoveEvents_
+  commentId: Overload:SharpHook.EventSimulationSequenceBuilder.RemoveEvents
+  fullName: SharpHook.EventSimulationSequenceBuilder.RemoveEvents
+  nameWithType: EventSimulationSequenceBuilder.RemoveEvents
+- uid: SharpHook.EventSimulationSequenceBuilder.Simulate
+  name: Simulate()
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_Simulate
+  commentId: M:SharpHook.EventSimulationSequenceBuilder.Simulate
+  fullName: SharpHook.EventSimulationSequenceBuilder.Simulate()
+  nameWithType: EventSimulationSequenceBuilder.Simulate()
+- uid: SharpHook.EventSimulationSequenceBuilder.Simulate*
+  name: Simulate
+  href: api/SharpHook.EventSimulationSequenceBuilder.html#SharpHook_EventSimulationSequenceBuilder_Simulate_
+  commentId: Overload:SharpHook.EventSimulationSequenceBuilder.Simulate
+  fullName: SharpHook.EventSimulationSequenceBuilder.Simulate
+  nameWithType: EventSimulationSequenceBuilder.Simulate
+- uid: SharpHook.EventSimulationSequenceTemplate
+  name: EventSimulationSequenceTemplate
+  href: api/SharpHook.EventSimulationSequenceTemplate.html
+  commentId: T:SharpHook.EventSimulationSequenceTemplate
+  fullName: SharpHook.EventSimulationSequenceTemplate
+  nameWithType: EventSimulationSequenceTemplate
+- uid: SharpHook.EventSimulationSequenceTemplate.#ctor(System.Collections.Generic.IEnumerable{SharpHook.Data.UioHookEvent},SharpHook.Providers.IEventSimulationProvider)
+  name: EventSimulationSequenceTemplate(IEnumerable<UioHookEvent>, IEventSimulationProvider?)
+  href: api/SharpHook.EventSimulationSequenceTemplate.html#SharpHook_EventSimulationSequenceTemplate__ctor_System_Collections_Generic_IEnumerable_SharpHook_Data_UioHookEvent__SharpHook_Providers_IEventSimulationProvider_
+  commentId: M:SharpHook.EventSimulationSequenceTemplate.#ctor(System.Collections.Generic.IEnumerable{SharpHook.Data.UioHookEvent},SharpHook.Providers.IEventSimulationProvider)
+  name.vb: New(IEnumerable(Of UioHookEvent), IEventSimulationProvider)
+  fullName: SharpHook.EventSimulationSequenceTemplate.EventSimulationSequenceTemplate(System.Collections.Generic.IEnumerable<SharpHook.Data.UioHookEvent>, SharpHook.Providers.IEventSimulationProvider?)
+  fullName.vb: SharpHook.EventSimulationSequenceTemplate.New(System.Collections.Generic.IEnumerable(Of SharpHook.Data.UioHookEvent), SharpHook.Providers.IEventSimulationProvider)
+  nameWithType: EventSimulationSequenceTemplate.EventSimulationSequenceTemplate(IEnumerable<UioHookEvent>, IEventSimulationProvider?)
+  nameWithType.vb: EventSimulationSequenceTemplate.New(IEnumerable(Of UioHookEvent), IEventSimulationProvider)
+- uid: SharpHook.EventSimulationSequenceTemplate.#ctor*
+  name: EventSimulationSequenceTemplate
+  href: api/SharpHook.EventSimulationSequenceTemplate.html#SharpHook_EventSimulationSequenceTemplate__ctor_
+  commentId: Overload:SharpHook.EventSimulationSequenceTemplate.#ctor
+  name.vb: New
+  fullName: SharpHook.EventSimulationSequenceTemplate.EventSimulationSequenceTemplate
+  fullName.vb: SharpHook.EventSimulationSequenceTemplate.New
+  nameWithType: EventSimulationSequenceTemplate.EventSimulationSequenceTemplate
+  nameWithType.vb: EventSimulationSequenceTemplate.New
+- uid: SharpHook.EventSimulationSequenceTemplate.Simulate
+  name: Simulate()
+  href: api/SharpHook.EventSimulationSequenceTemplate.html#SharpHook_EventSimulationSequenceTemplate_Simulate
+  commentId: M:SharpHook.EventSimulationSequenceTemplate.Simulate
+  fullName: SharpHook.EventSimulationSequenceTemplate.Simulate()
+  nameWithType: EventSimulationSequenceTemplate.Simulate()
+- uid: SharpHook.EventSimulationSequenceTemplate.Simulate*
+  name: Simulate
+  href: api/SharpHook.EventSimulationSequenceTemplate.html#SharpHook_EventSimulationSequenceTemplate_Simulate_
+  commentId: Overload:SharpHook.EventSimulationSequenceTemplate.Simulate
+  fullName: SharpHook.EventSimulationSequenceTemplate.Simulate
+  nameWithType: EventSimulationSequenceTemplate.Simulate
 - uid: SharpHook.EventSimulator
   name: EventSimulator
   href: api/SharpHook.EventSimulator.html
@@ -2512,6 +2860,18 @@ references:
   fullName.vb: SharpHook.EventSimulator.New
   nameWithType: EventSimulator.EventSimulator
   nameWithType.vb: EventSimulator.New
+- uid: SharpHook.EventSimulator.Sequence
+  name: Sequence()
+  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_Sequence
+  commentId: M:SharpHook.EventSimulator.Sequence
+  fullName: SharpHook.EventSimulator.Sequence()
+  nameWithType: EventSimulator.Sequence()
+- uid: SharpHook.EventSimulator.Sequence*
+  name: Sequence
+  href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_Sequence_
+  commentId: Overload:SharpHook.EventSimulator.Sequence
+  fullName: SharpHook.EventSimulator.Sequence
+  nameWithType: EventSimulator.Sequence
 - uid: SharpHook.EventSimulator.SimulateKeyPress(SharpHook.Data.KeyCode)
   name: SimulateKeyPress(KeyCode)
   href: api/SharpHook.EventSimulator.html#SharpHook_EventSimulator_SimulateKeyPress_SharpHook_Data_KeyCode_
@@ -3193,12 +3553,255 @@ references:
   commentId: Overload:SharpHook.IBasicGlobalHook.Stop
   fullName: SharpHook.IBasicGlobalHook.Stop
   nameWithType: IBasicGlobalHook.Stop
+- uid: SharpHook.IEventSimulationSequenceBuilder
+  name: IEventSimulationSequenceBuilder
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html
+  commentId: T:SharpHook.IEventSimulationSequenceBuilder
+  fullName: SharpHook.IEventSimulationSequenceBuilder
+  nameWithType: IEventSimulationSequenceBuilder
+- uid: SharpHook.IEventSimulationSequenceBuilder.AddEvent(SharpHook.Data.UioHookEvent)
+  name: AddEvent(UioHookEvent)
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_AddEvent_SharpHook_Data_UioHookEvent_
+  commentId: M:SharpHook.IEventSimulationSequenceBuilder.AddEvent(SharpHook.Data.UioHookEvent)
+  fullName: SharpHook.IEventSimulationSequenceBuilder.AddEvent(SharpHook.Data.UioHookEvent)
+  nameWithType: IEventSimulationSequenceBuilder.AddEvent(UioHookEvent)
+- uid: SharpHook.IEventSimulationSequenceBuilder.AddEvent*
+  name: AddEvent
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_AddEvent_
+  commentId: Overload:SharpHook.IEventSimulationSequenceBuilder.AddEvent
+  fullName: SharpHook.IEventSimulationSequenceBuilder.AddEvent
+  nameWithType: IEventSimulationSequenceBuilder.AddEvent
+- uid: SharpHook.IEventSimulationSequenceBuilder.AddEvents(SharpHook.Data.UioHookEvent[])
+  name: AddEvents(params UioHookEvent[])
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_AddEvents_SharpHook_Data_UioHookEvent___
+  commentId: M:SharpHook.IEventSimulationSequenceBuilder.AddEvents(SharpHook.Data.UioHookEvent[])
+  name.vb: AddEvents(ParamArray UioHookEvent())
+  fullName: SharpHook.IEventSimulationSequenceBuilder.AddEvents(params SharpHook.Data.UioHookEvent[])
+  fullName.vb: SharpHook.IEventSimulationSequenceBuilder.AddEvents(ParamArray SharpHook.Data.UioHookEvent())
+  nameWithType: IEventSimulationSequenceBuilder.AddEvents(params UioHookEvent[])
+  nameWithType.vb: IEventSimulationSequenceBuilder.AddEvents(ParamArray UioHookEvent())
+- uid: SharpHook.IEventSimulationSequenceBuilder.AddEvents(System.Collections.Generic.IEnumerable{SharpHook.Data.UioHookEvent})
+  name: AddEvents(IEnumerable<UioHookEvent>)
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_AddEvents_System_Collections_Generic_IEnumerable_SharpHook_Data_UioHookEvent__
+  commentId: M:SharpHook.IEventSimulationSequenceBuilder.AddEvents(System.Collections.Generic.IEnumerable{SharpHook.Data.UioHookEvent})
+  name.vb: AddEvents(IEnumerable(Of UioHookEvent))
+  fullName: SharpHook.IEventSimulationSequenceBuilder.AddEvents(System.Collections.Generic.IEnumerable<SharpHook.Data.UioHookEvent>)
+  fullName.vb: SharpHook.IEventSimulationSequenceBuilder.AddEvents(System.Collections.Generic.IEnumerable(Of SharpHook.Data.UioHookEvent))
+  nameWithType: IEventSimulationSequenceBuilder.AddEvents(IEnumerable<UioHookEvent>)
+  nameWithType.vb: IEventSimulationSequenceBuilder.AddEvents(IEnumerable(Of UioHookEvent))
+- uid: SharpHook.IEventSimulationSequenceBuilder.AddEvents*
+  name: AddEvents
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_AddEvents_
+  commentId: Overload:SharpHook.IEventSimulationSequenceBuilder.AddEvents
+  fullName: SharpHook.IEventSimulationSequenceBuilder.AddEvents
+  nameWithType: IEventSimulationSequenceBuilder.AddEvents
+- uid: SharpHook.IEventSimulationSequenceBuilder.AddKeyPress(SharpHook.Data.KeyCode)
+  name: AddKeyPress(KeyCode)
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_AddKeyPress_SharpHook_Data_KeyCode_
+  commentId: M:SharpHook.IEventSimulationSequenceBuilder.AddKeyPress(SharpHook.Data.KeyCode)
+  fullName: SharpHook.IEventSimulationSequenceBuilder.AddKeyPress(SharpHook.Data.KeyCode)
+  nameWithType: IEventSimulationSequenceBuilder.AddKeyPress(KeyCode)
+- uid: SharpHook.IEventSimulationSequenceBuilder.AddKeyPress*
+  name: AddKeyPress
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_AddKeyPress_
+  commentId: Overload:SharpHook.IEventSimulationSequenceBuilder.AddKeyPress
+  fullName: SharpHook.IEventSimulationSequenceBuilder.AddKeyPress
+  nameWithType: IEventSimulationSequenceBuilder.AddKeyPress
+- uid: SharpHook.IEventSimulationSequenceBuilder.AddKeyRelease(SharpHook.Data.KeyCode)
+  name: AddKeyRelease(KeyCode)
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_AddKeyRelease_SharpHook_Data_KeyCode_
+  commentId: M:SharpHook.IEventSimulationSequenceBuilder.AddKeyRelease(SharpHook.Data.KeyCode)
+  fullName: SharpHook.IEventSimulationSequenceBuilder.AddKeyRelease(SharpHook.Data.KeyCode)
+  nameWithType: IEventSimulationSequenceBuilder.AddKeyRelease(KeyCode)
+- uid: SharpHook.IEventSimulationSequenceBuilder.AddKeyRelease*
+  name: AddKeyRelease
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_AddKeyRelease_
+  commentId: Overload:SharpHook.IEventSimulationSequenceBuilder.AddKeyRelease
+  fullName: SharpHook.IEventSimulationSequenceBuilder.AddKeyRelease
+  nameWithType: IEventSimulationSequenceBuilder.AddKeyRelease
+- uid: SharpHook.IEventSimulationSequenceBuilder.AddMouseMovement(System.Int16,System.Int16)
+  name: AddMouseMovement(short, short)
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_AddMouseMovement_System_Int16_System_Int16_
+  commentId: M:SharpHook.IEventSimulationSequenceBuilder.AddMouseMovement(System.Int16,System.Int16)
+  name.vb: AddMouseMovement(Short, Short)
+  fullName: SharpHook.IEventSimulationSequenceBuilder.AddMouseMovement(short, short)
+  fullName.vb: SharpHook.IEventSimulationSequenceBuilder.AddMouseMovement(Short, Short)
+  nameWithType: IEventSimulationSequenceBuilder.AddMouseMovement(short, short)
+  nameWithType.vb: IEventSimulationSequenceBuilder.AddMouseMovement(Short, Short)
+- uid: SharpHook.IEventSimulationSequenceBuilder.AddMouseMovement*
+  name: AddMouseMovement
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_AddMouseMovement_
+  commentId: Overload:SharpHook.IEventSimulationSequenceBuilder.AddMouseMovement
+  fullName: SharpHook.IEventSimulationSequenceBuilder.AddMouseMovement
+  nameWithType: IEventSimulationSequenceBuilder.AddMouseMovement
+- uid: SharpHook.IEventSimulationSequenceBuilder.AddMouseMovementRelative(System.Int16,System.Int16)
+  name: AddMouseMovementRelative(short, short)
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_AddMouseMovementRelative_System_Int16_System_Int16_
+  commentId: M:SharpHook.IEventSimulationSequenceBuilder.AddMouseMovementRelative(System.Int16,System.Int16)
+  name.vb: AddMouseMovementRelative(Short, Short)
+  fullName: SharpHook.IEventSimulationSequenceBuilder.AddMouseMovementRelative(short, short)
+  fullName.vb: SharpHook.IEventSimulationSequenceBuilder.AddMouseMovementRelative(Short, Short)
+  nameWithType: IEventSimulationSequenceBuilder.AddMouseMovementRelative(short, short)
+  nameWithType.vb: IEventSimulationSequenceBuilder.AddMouseMovementRelative(Short, Short)
+- uid: SharpHook.IEventSimulationSequenceBuilder.AddMouseMovementRelative*
+  name: AddMouseMovementRelative
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_AddMouseMovementRelative_
+  commentId: Overload:SharpHook.IEventSimulationSequenceBuilder.AddMouseMovementRelative
+  fullName: SharpHook.IEventSimulationSequenceBuilder.AddMouseMovementRelative
+  nameWithType: IEventSimulationSequenceBuilder.AddMouseMovementRelative
+- uid: SharpHook.IEventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton)
+  name: AddMousePress(MouseButton)
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_AddMousePress_SharpHook_Data_MouseButton_
+  commentId: M:SharpHook.IEventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton)
+  fullName: SharpHook.IEventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton)
+  nameWithType: IEventSimulationSequenceBuilder.AddMousePress(MouseButton)
+- uid: SharpHook.IEventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton,System.UInt16)
+  name: AddMousePress(MouseButton, ushort)
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_AddMousePress_SharpHook_Data_MouseButton_System_UInt16_
+  commentId: M:SharpHook.IEventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton,System.UInt16)
+  name.vb: AddMousePress(MouseButton, UShort)
+  fullName: SharpHook.IEventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton, ushort)
+  fullName.vb: SharpHook.IEventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton, UShort)
+  nameWithType: IEventSimulationSequenceBuilder.AddMousePress(MouseButton, ushort)
+  nameWithType.vb: IEventSimulationSequenceBuilder.AddMousePress(MouseButton, UShort)
+- uid: SharpHook.IEventSimulationSequenceBuilder.AddMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton)
+  name: AddMousePress(short, short, MouseButton)
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_AddMousePress_System_Int16_System_Int16_SharpHook_Data_MouseButton_
+  commentId: M:SharpHook.IEventSimulationSequenceBuilder.AddMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton)
+  name.vb: AddMousePress(Short, Short, MouseButton)
+  fullName: SharpHook.IEventSimulationSequenceBuilder.AddMousePress(short, short, SharpHook.Data.MouseButton)
+  fullName.vb: SharpHook.IEventSimulationSequenceBuilder.AddMousePress(Short, Short, SharpHook.Data.MouseButton)
+  nameWithType: IEventSimulationSequenceBuilder.AddMousePress(short, short, MouseButton)
+  nameWithType.vb: IEventSimulationSequenceBuilder.AddMousePress(Short, Short, MouseButton)
+- uid: SharpHook.IEventSimulationSequenceBuilder.AddMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)
+  name: AddMousePress(short, short, MouseButton, ushort)
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_AddMousePress_System_Int16_System_Int16_SharpHook_Data_MouseButton_System_UInt16_
+  commentId: M:SharpHook.IEventSimulationSequenceBuilder.AddMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)
+  name.vb: AddMousePress(Short, Short, MouseButton, UShort)
+  fullName: SharpHook.IEventSimulationSequenceBuilder.AddMousePress(short, short, SharpHook.Data.MouseButton, ushort)
+  fullName.vb: SharpHook.IEventSimulationSequenceBuilder.AddMousePress(Short, Short, SharpHook.Data.MouseButton, UShort)
+  nameWithType: IEventSimulationSequenceBuilder.AddMousePress(short, short, MouseButton, ushort)
+  nameWithType.vb: IEventSimulationSequenceBuilder.AddMousePress(Short, Short, MouseButton, UShort)
+- uid: SharpHook.IEventSimulationSequenceBuilder.AddMousePress*
+  name: AddMousePress
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_AddMousePress_
+  commentId: Overload:SharpHook.IEventSimulationSequenceBuilder.AddMousePress
+  fullName: SharpHook.IEventSimulationSequenceBuilder.AddMousePress
+  nameWithType: IEventSimulationSequenceBuilder.AddMousePress
+- uid: SharpHook.IEventSimulationSequenceBuilder.AddMouseRelease(SharpHook.Data.MouseButton)
+  name: AddMouseRelease(MouseButton)
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_AddMouseRelease_SharpHook_Data_MouseButton_
+  commentId: M:SharpHook.IEventSimulationSequenceBuilder.AddMouseRelease(SharpHook.Data.MouseButton)
+  fullName: SharpHook.IEventSimulationSequenceBuilder.AddMouseRelease(SharpHook.Data.MouseButton)
+  nameWithType: IEventSimulationSequenceBuilder.AddMouseRelease(MouseButton)
+- uid: SharpHook.IEventSimulationSequenceBuilder.AddMouseRelease(SharpHook.Data.MouseButton,System.UInt16)
+  name: AddMouseRelease(MouseButton, ushort)
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_AddMouseRelease_SharpHook_Data_MouseButton_System_UInt16_
+  commentId: M:SharpHook.IEventSimulationSequenceBuilder.AddMouseRelease(SharpHook.Data.MouseButton,System.UInt16)
+  name.vb: AddMouseRelease(MouseButton, UShort)
+  fullName: SharpHook.IEventSimulationSequenceBuilder.AddMouseRelease(SharpHook.Data.MouseButton, ushort)
+  fullName.vb: SharpHook.IEventSimulationSequenceBuilder.AddMouseRelease(SharpHook.Data.MouseButton, UShort)
+  nameWithType: IEventSimulationSequenceBuilder.AddMouseRelease(MouseButton, ushort)
+  nameWithType.vb: IEventSimulationSequenceBuilder.AddMouseRelease(MouseButton, UShort)
+- uid: SharpHook.IEventSimulationSequenceBuilder.AddMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton)
+  name: AddMouseRelease(short, short, MouseButton)
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_AddMouseRelease_System_Int16_System_Int16_SharpHook_Data_MouseButton_
+  commentId: M:SharpHook.IEventSimulationSequenceBuilder.AddMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton)
+  name.vb: AddMouseRelease(Short, Short, MouseButton)
+  fullName: SharpHook.IEventSimulationSequenceBuilder.AddMouseRelease(short, short, SharpHook.Data.MouseButton)
+  fullName.vb: SharpHook.IEventSimulationSequenceBuilder.AddMouseRelease(Short, Short, SharpHook.Data.MouseButton)
+  nameWithType: IEventSimulationSequenceBuilder.AddMouseRelease(short, short, MouseButton)
+  nameWithType.vb: IEventSimulationSequenceBuilder.AddMouseRelease(Short, Short, MouseButton)
+- uid: SharpHook.IEventSimulationSequenceBuilder.AddMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)
+  name: AddMouseRelease(short, short, MouseButton, ushort)
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_AddMouseRelease_System_Int16_System_Int16_SharpHook_Data_MouseButton_System_UInt16_
+  commentId: M:SharpHook.IEventSimulationSequenceBuilder.AddMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)
+  name.vb: AddMouseRelease(Short, Short, MouseButton, UShort)
+  fullName: SharpHook.IEventSimulationSequenceBuilder.AddMouseRelease(short, short, SharpHook.Data.MouseButton, ushort)
+  fullName.vb: SharpHook.IEventSimulationSequenceBuilder.AddMouseRelease(Short, Short, SharpHook.Data.MouseButton, UShort)
+  nameWithType: IEventSimulationSequenceBuilder.AddMouseRelease(short, short, MouseButton, ushort)
+  nameWithType.vb: IEventSimulationSequenceBuilder.AddMouseRelease(Short, Short, MouseButton, UShort)
+- uid: SharpHook.IEventSimulationSequenceBuilder.AddMouseRelease*
+  name: AddMouseRelease
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_AddMouseRelease_
+  commentId: Overload:SharpHook.IEventSimulationSequenceBuilder.AddMouseRelease
+  fullName: SharpHook.IEventSimulationSequenceBuilder.AddMouseRelease
+  nameWithType: IEventSimulationSequenceBuilder.AddMouseRelease
+- uid: SharpHook.IEventSimulationSequenceBuilder.AddMouseWheel(System.Int16,SharpHook.Data.MouseWheelScrollDirection,SharpHook.Data.MouseWheelScrollType)
+  name: AddMouseWheel(short, MouseWheelScrollDirection, MouseWheelScrollType)
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_AddMouseWheel_System_Int16_SharpHook_Data_MouseWheelScrollDirection_SharpHook_Data_MouseWheelScrollType_
+  commentId: M:SharpHook.IEventSimulationSequenceBuilder.AddMouseWheel(System.Int16,SharpHook.Data.MouseWheelScrollDirection,SharpHook.Data.MouseWheelScrollType)
+  name.vb: AddMouseWheel(Short, MouseWheelScrollDirection, MouseWheelScrollType)
+  fullName: SharpHook.IEventSimulationSequenceBuilder.AddMouseWheel(short, SharpHook.Data.MouseWheelScrollDirection, SharpHook.Data.MouseWheelScrollType)
+  fullName.vb: SharpHook.IEventSimulationSequenceBuilder.AddMouseWheel(Short, SharpHook.Data.MouseWheelScrollDirection, SharpHook.Data.MouseWheelScrollType)
+  nameWithType: IEventSimulationSequenceBuilder.AddMouseWheel(short, MouseWheelScrollDirection, MouseWheelScrollType)
+  nameWithType.vb: IEventSimulationSequenceBuilder.AddMouseWheel(Short, MouseWheelScrollDirection, MouseWheelScrollType)
+- uid: SharpHook.IEventSimulationSequenceBuilder.AddMouseWheel*
+  name: AddMouseWheel
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_AddMouseWheel_
+  commentId: Overload:SharpHook.IEventSimulationSequenceBuilder.AddMouseWheel
+  fullName: SharpHook.IEventSimulationSequenceBuilder.AddMouseWheel
+  nameWithType: IEventSimulationSequenceBuilder.AddMouseWheel
+- uid: SharpHook.IEventSimulationSequenceBuilder.CreateTemplate
+  name: CreateTemplate()
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_CreateTemplate
+  commentId: M:SharpHook.IEventSimulationSequenceBuilder.CreateTemplate
+  fullName: SharpHook.IEventSimulationSequenceBuilder.CreateTemplate()
+  nameWithType: IEventSimulationSequenceBuilder.CreateTemplate()
+- uid: SharpHook.IEventSimulationSequenceBuilder.CreateTemplate*
+  name: CreateTemplate
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_CreateTemplate_
+  commentId: Overload:SharpHook.IEventSimulationSequenceBuilder.CreateTemplate
+  fullName: SharpHook.IEventSimulationSequenceBuilder.CreateTemplate
+  nameWithType: IEventSimulationSequenceBuilder.CreateTemplate
+- uid: SharpHook.IEventSimulationSequenceBuilder.Simulate
+  name: Simulate()
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_Simulate
+  commentId: M:SharpHook.IEventSimulationSequenceBuilder.Simulate
+  fullName: SharpHook.IEventSimulationSequenceBuilder.Simulate()
+  nameWithType: IEventSimulationSequenceBuilder.Simulate()
+- uid: SharpHook.IEventSimulationSequenceBuilder.Simulate*
+  name: Simulate
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_Simulate_
+  commentId: Overload:SharpHook.IEventSimulationSequenceBuilder.Simulate
+  fullName: SharpHook.IEventSimulationSequenceBuilder.Simulate
+  nameWithType: IEventSimulationSequenceBuilder.Simulate
+- uid: SharpHook.IEventSimulationSequenceTemplate
+  name: IEventSimulationSequenceTemplate
+  href: api/SharpHook.IEventSimulationSequenceTemplate.html
+  commentId: T:SharpHook.IEventSimulationSequenceTemplate
+  fullName: SharpHook.IEventSimulationSequenceTemplate
+  nameWithType: IEventSimulationSequenceTemplate
+- uid: SharpHook.IEventSimulationSequenceTemplate.Simulate
+  name: Simulate()
+  href: api/SharpHook.IEventSimulationSequenceTemplate.html#SharpHook_IEventSimulationSequenceTemplate_Simulate
+  commentId: M:SharpHook.IEventSimulationSequenceTemplate.Simulate
+  fullName: SharpHook.IEventSimulationSequenceTemplate.Simulate()
+  nameWithType: IEventSimulationSequenceTemplate.Simulate()
+- uid: SharpHook.IEventSimulationSequenceTemplate.Simulate*
+  name: Simulate
+  href: api/SharpHook.IEventSimulationSequenceTemplate.html#SharpHook_IEventSimulationSequenceTemplate_Simulate_
+  commentId: Overload:SharpHook.IEventSimulationSequenceTemplate.Simulate
+  fullName: SharpHook.IEventSimulationSequenceTemplate.Simulate
+  nameWithType: IEventSimulationSequenceTemplate.Simulate
 - uid: SharpHook.IEventSimulator
   name: IEventSimulator
   href: api/SharpHook.IEventSimulator.html
   commentId: T:SharpHook.IEventSimulator
   fullName: SharpHook.IEventSimulator
   nameWithType: IEventSimulator
+- uid: SharpHook.IEventSimulator.Sequence
+  name: Sequence()
+  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_Sequence
+  commentId: M:SharpHook.IEventSimulator.Sequence
+  fullName: SharpHook.IEventSimulator.Sequence()
+  nameWithType: IEventSimulator.Sequence()
+- uid: SharpHook.IEventSimulator.Sequence*
+  name: Sequence
+  href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_Sequence_
+  commentId: Overload:SharpHook.IEventSimulator.Sequence
+  fullName: SharpHook.IEventSimulator.Sequence
+  nameWithType: IEventSimulator.Sequence
 - uid: SharpHook.IEventSimulator.SimulateKeyPress(SharpHook.Data.KeyCode)
   name: SimulateKeyPress(KeyCode)
   href: api/SharpHook.IEventSimulator.html#SharpHook_IEventSimulator_SimulateKeyPress_SharpHook_Data_KeyCode_
@@ -4315,6 +4918,21 @@ references:
   commentId: Overload:SharpHook.Native.UioHook.PostEvent
   fullName: SharpHook.Native.UioHook.PostEvent
   nameWithType: UioHook.PostEvent
+- uid: SharpHook.Native.UioHook.PostEvents(SharpHook.Data.UioHookEvent[],System.UInt32)
+  name: PostEvents(UioHookEvent[], uint)
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_PostEvents_SharpHook_Data_UioHookEvent___System_UInt32_
+  commentId: M:SharpHook.Native.UioHook.PostEvents(SharpHook.Data.UioHookEvent[],System.UInt32)
+  name.vb: PostEvents(UioHookEvent(), UInteger)
+  fullName: SharpHook.Native.UioHook.PostEvents(SharpHook.Data.UioHookEvent[], uint)
+  fullName.vb: SharpHook.Native.UioHook.PostEvents(SharpHook.Data.UioHookEvent(), UInteger)
+  nameWithType: UioHook.PostEvents(UioHookEvent[], uint)
+  nameWithType.vb: UioHook.PostEvents(UioHookEvent(), UInteger)
+- uid: SharpHook.Native.UioHook.PostEvents*
+  name: PostEvents
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_PostEvents_
+  commentId: Overload:SharpHook.Native.UioHook.PostEvents
+  fullName: SharpHook.Native.UioHook.PostEvents
+  nameWithType: UioHook.PostEvents
 - uid: SharpHook.Native.UioHook.PostText(System.String)
   name: PostText(string)
   href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_PostText_System_String_
@@ -4540,6 +5158,21 @@ references:
   commentId: Overload:SharpHook.Providers.IEventSimulationProvider.PostEvent
   fullName: SharpHook.Providers.IEventSimulationProvider.PostEvent
   nameWithType: IEventSimulationProvider.PostEvent
+- uid: SharpHook.Providers.IEventSimulationProvider.PostEvents(SharpHook.Data.UioHookEvent[],System.UInt32)
+  name: PostEvents(UioHookEvent[], uint)
+  href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_PostEvents_SharpHook_Data_UioHookEvent___System_UInt32_
+  commentId: M:SharpHook.Providers.IEventSimulationProvider.PostEvents(SharpHook.Data.UioHookEvent[],System.UInt32)
+  name.vb: PostEvents(UioHookEvent(), UInteger)
+  fullName: SharpHook.Providers.IEventSimulationProvider.PostEvents(SharpHook.Data.UioHookEvent[], uint)
+  fullName.vb: SharpHook.Providers.IEventSimulationProvider.PostEvents(SharpHook.Data.UioHookEvent(), UInteger)
+  nameWithType: IEventSimulationProvider.PostEvents(UioHookEvent[], uint)
+  nameWithType.vb: IEventSimulationProvider.PostEvents(UioHookEvent(), UInteger)
+- uid: SharpHook.Providers.IEventSimulationProvider.PostEvents*
+  name: PostEvents
+  href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_PostEvents_
+  commentId: Overload:SharpHook.Providers.IEventSimulationProvider.PostEvents
+  fullName: SharpHook.Providers.IEventSimulationProvider.PostEvents
+  nameWithType: IEventSimulationProvider.PostEvents
 - uid: SharpHook.Providers.IEventSimulationProvider.PostText(System.String)
   name: PostText(string)
   href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_PostText_System_String_
@@ -4921,6 +5554,21 @@ references:
   commentId: Overload:SharpHook.Providers.UioHookProvider.PostEvent
   fullName: SharpHook.Providers.UioHookProvider.PostEvent
   nameWithType: UioHookProvider.PostEvent
+- uid: SharpHook.Providers.UioHookProvider.PostEvents(SharpHook.Data.UioHookEvent[],System.UInt32)
+  name: PostEvents(UioHookEvent[], uint)
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_PostEvents_SharpHook_Data_UioHookEvent___System_UInt32_
+  commentId: M:SharpHook.Providers.UioHookProvider.PostEvents(SharpHook.Data.UioHookEvent[],System.UInt32)
+  name.vb: PostEvents(UioHookEvent(), UInteger)
+  fullName: SharpHook.Providers.UioHookProvider.PostEvents(SharpHook.Data.UioHookEvent[], uint)
+  fullName.vb: SharpHook.Providers.UioHookProvider.PostEvents(SharpHook.Data.UioHookEvent(), UInteger)
+  nameWithType: UioHookProvider.PostEvents(UioHookEvent[], uint)
+  nameWithType.vb: UioHookProvider.PostEvents(UioHookEvent(), UInteger)
+- uid: SharpHook.Providers.UioHookProvider.PostEvents*
+  name: PostEvents
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_PostEvents_
+  commentId: Overload:SharpHook.Providers.UioHookProvider.PostEvents
+  fullName: SharpHook.Providers.UioHookProvider.PostEvents
+  nameWithType: UioHookProvider.PostEvents
 - uid: SharpHook.Providers.UioHookProvider.PostText(System.String)
   name: PostText(string)
   href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_PostText_System_String_
@@ -6766,6 +7414,18 @@ references:
   commentId: Overload:SharpHook.Testing.TestGlobalHook.RunResult
   fullName: SharpHook.Testing.TestGlobalHook.RunResult
   nameWithType: TestGlobalHook.RunResult
+- uid: SharpHook.Testing.TestGlobalHook.Sequence
+  name: Sequence()
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_Sequence
+  commentId: M:SharpHook.Testing.TestGlobalHook.Sequence
+  fullName: SharpHook.Testing.TestGlobalHook.Sequence()
+  nameWithType: TestGlobalHook.Sequence()
+- uid: SharpHook.Testing.TestGlobalHook.Sequence*
+  name: Sequence
+  href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_Sequence_
+  commentId: Overload:SharpHook.Testing.TestGlobalHook.Sequence
+  fullName: SharpHook.Testing.TestGlobalHook.Sequence
+  nameWithType: TestGlobalHook.Sequence
 - uid: SharpHook.Testing.TestGlobalHook.SimulateKeyPress(SharpHook.Data.KeyCode)
   name: SimulateKeyPress(KeyCode)
   href: api/SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulateKeyPress_SharpHook_Data_KeyCode_
@@ -7279,6 +7939,21 @@ references:
   commentId: Overload:SharpHook.Testing.TestProvider.PostEventResult
   fullName: SharpHook.Testing.TestProvider.PostEventResult
   nameWithType: TestProvider.PostEventResult
+- uid: SharpHook.Testing.TestProvider.PostEvents(SharpHook.Data.UioHookEvent[],System.UInt32)
+  name: PostEvents(UioHookEvent[], uint)
+  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvents_SharpHook_Data_UioHookEvent___System_UInt32_
+  commentId: M:SharpHook.Testing.TestProvider.PostEvents(SharpHook.Data.UioHookEvent[],System.UInt32)
+  name.vb: PostEvents(UioHookEvent(), UInteger)
+  fullName: SharpHook.Testing.TestProvider.PostEvents(SharpHook.Data.UioHookEvent[], uint)
+  fullName.vb: SharpHook.Testing.TestProvider.PostEvents(SharpHook.Data.UioHookEvent(), UInteger)
+  nameWithType: TestProvider.PostEvents(UioHookEvent[], uint)
+  nameWithType.vb: TestProvider.PostEvents(UioHookEvent(), UInteger)
+- uid: SharpHook.Testing.TestProvider.PostEvents*
+  name: PostEvents
+  href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvents_
+  commentId: Overload:SharpHook.Testing.TestProvider.PostEvents
+  fullName: SharpHook.Testing.TestProvider.PostEvents
+  nameWithType: TestProvider.PostEvents
 - uid: SharpHook.Testing.TestProvider.PostText(System.String)
   name: PostText(string)
   href: api/SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostText_System_String_

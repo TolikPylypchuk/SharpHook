@@ -967,6 +967,63 @@ there.</p>
 
 
 
+  <a id="SharpHook_Testing_TestProvider_PostEvents_" data-uid="SharpHook.Testing.TestProvider.PostEvents*"></a>
+
+  <h3 id="SharpHook_Testing_TestProvider_PostEvents_SharpHook_Data_UioHookEvent___System_UInt32_" data-uid="SharpHook.Testing.TestProvider.PostEvents(SharpHook.Data.UioHookEvent[],System.UInt32)">
+  PostEvents(UioHookEvent[], uint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Testing/TestProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Calls <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEvent_SharpHook_Data_UioHookEvent__">PostEvent(ref UioHookEvent)</a> for each event in the <code class="paramref">events</code> array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UioHookResult PostEvents(UioHookEvent[] events, uint size)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>events</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a>[]</dt>
+    <dd><p>The events to post.</p>
+</dd>
+    <dt><code>size</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
+    <dd><p>The number of events to post.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
+    <dd><p>The value of <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEventResult">PostEventResult</a>.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_Testing_TestProvider_PostEvents_SharpHook_Data_UioHookEvent___System_UInt32__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>If the provider's threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_Simple">Simple</a> then this method will immediately
+dispatch each event. If the threading mode is <a class="xref" href="SharpHook.Testing.TestThreadingMode.html#SharpHook_Testing_TestThreadingMode_EventLoop">EventLoop</a> then the events will be
+posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+there.</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">events</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">size</code> is larger than length of <code class="paramref">events</code>.</p>
+</dd>
+  </dl>
+
+
+
   <a id="SharpHook_Testing_TestProvider_PostText_" data-uid="SharpHook.Testing.TestProvider.PostText*"></a>
 
   <h3 id="SharpHook_Testing_TestProvider_PostText_System_String_" data-uid="SharpHook.Testing.TestProvider.PostText(System.String)">

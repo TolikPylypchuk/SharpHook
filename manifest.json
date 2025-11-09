@@ -267,6 +267,48 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.EventSimulationExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.EventSimulationExtensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.EventSimulationExtensions",
+      "Summary": "<p sourcefile=\"api/SharpHook.EventSimulationExtensions.yml\" sourcestartlinenumber=\"1\">Contains extension methods for <xref href=\"SharpHook.IEventSimulator\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"SharpHook.IEventSimulationSequenceBuilder\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.EventSimulationSequenceBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.EventSimulationSequenceBuilder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.EventSimulationSequenceBuilder",
+      "Summary": "<p sourcefile=\"api/SharpHook.EventSimulationSequenceBuilder.yml\" sourcestartlinenumber=\"1\">Represents a builder for a sequence of events that can be simulated together.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.EventSimulationSequenceTemplate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.EventSimulationSequenceTemplate.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.EventSimulationSequenceTemplate",
+      "Summary": "<p sourcefile=\"api/SharpHook.EventSimulationSequenceTemplate.yml\" sourcestartlinenumber=\"1\">Represents an object that can simulate a predetermined sequence of events.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SharpHook.EventSimulator.yml",
       "output": {
         ".html": {
@@ -334,6 +376,34 @@
       "IsMRef": true,
       "Title": "SharpHook.IBasicGlobalHook",
       "Summary": "<p sourcefile=\"api/SharpHook.IBasicGlobalHook.yml\" sourcestartlinenumber=\"1\">Represents basic operations for a global keyboard and mouse hook regardless of the form of its events.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.IEventSimulationSequenceBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.IEventSimulationSequenceBuilder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.IEventSimulationSequenceBuilder",
+      "Summary": "<p sourcefile=\"api/SharpHook.IEventSimulationSequenceBuilder.yml\" sourcestartlinenumber=\"1\">Represents a builder for a sequence of events that can be simulated together.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.IEventSimulationSequenceTemplate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.IEventSimulationSequenceTemplate.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.IEventSimulationSequenceTemplate",
+      "Summary": "<p sourcefile=\"api/SharpHook.IEventSimulationSequenceTemplate.yml\" sourcestartlinenumber=\"1\">Represents an object that can simulate a predetermined sequence of events.</p>\n"
     },
     {
       "type": "ManagedReference",
