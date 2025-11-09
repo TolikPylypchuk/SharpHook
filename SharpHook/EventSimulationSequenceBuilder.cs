@@ -61,7 +61,7 @@ public sealed class EventSimulationSequenceBuilder : IEventSimulationSequenceBui
     {
         this.events.Add(new()
         {
-            Type = EventType.KeyReleased,
+            Type = EventType.KeyPressed,
             Keyboard = new() { KeyCode = keyCode }
         });
 
