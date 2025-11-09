@@ -354,16 +354,16 @@ public sealed class TestProvider :
     /// </summary>
     /// <param name="events">The events to post.</param>
     /// <param name="size">The number of events to post.</param>
-    /// <returns>The value of <see cref="PostEventResult" />.</returns>
+    /// <returns>
+    /// The value of <see cref="PostEventResult" />, or <see cref="UioHookResult.ErrorNull"/> if
+    /// <paramref name="events" /> is <see langword="null" />.
+    /// </returns>
     /// <remarks>
     /// If the provider's threading mode is <see cref="TestThreadingMode.Simple" /> then this method will immediately
     /// dispatch each event. If the threading mode is <see cref="TestThreadingMode.EventLoop" /> then the events will be
     /// posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
     /// there.
     /// </remarks>
-    /// <exception cref="ArgumentNullException">
-    /// <paramref name="events" /> is <see langword="null" />.
-    /// </exception>
     /// <exception cref="ArgumentOutOfRangeException">
     /// <paramref name="size" /> is larger than length of <paramref name="events" />.
     /// </exception>
@@ -371,7 +371,7 @@ public sealed class TestProvider :
     {
         if (events is null)
         {
-            throw new ArgumentNullException(nameof(events));
+            return UioHookResult.ErrorNull;
         }
 
         if (size > events.Length)
@@ -397,7 +397,7 @@ public sealed class TestProvider :
     /// </summary>
     /// <param name="text">The text to simulate.</param>
     /// <returns>
-    /// The value of <see cref="PostTextResult" />, or <see cref="UioHookResult.ErrorPostTextNull" /> if
+    /// The value of <see cref="PostTextResult" />, or <see cref="UioHookResult.ErrorNull" /> if
     /// <paramref name="text" /> is <see langword="null" />.
     /// </returns>
     /// <remarks>This method doesn't cause any input events to be created, unlike real text entry simulation.</remarks>
@@ -405,7 +405,7 @@ public sealed class TestProvider :
     {
         if (text is null)
         {
-            return UioHookResult.ErrorPostTextNull;
+            return UioHookResult.ErrorNull;
         }
 
         var result = this.PostTextResult;

@@ -565,7 +565,7 @@ public sealed class TestProviderTests
 
         // Assert
 
-        Assert.Equal(UioHookResult.ErrorPostTextNull, actualResult);
+        Assert.Equal(UioHookResult.ErrorNull, actualResult);
         Assert.Empty(provider.PostedText);
     }
 

@@ -546,7 +546,7 @@ public sealed class TestProviderWithEventLoopTests
 
         // Assert
 
-        Assert.Equal(UioHookResult.ErrorPostTextNull, actualResult);
+        Assert.Equal(UioHookResult.ErrorNull, actualResult);
         Assert.Empty(provider.PostedText);
     }
 

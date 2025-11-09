@@ -22,8 +22,16 @@ public enum UioHookResult
     ErrorOutOfMemory = 0x02,
 
     /// <summary>
-    /// A <see langword="null" /> string was passed to <see cref="UioHook.PostText(string)" />
+    /// <see langword="null" /> was passed to <see cref="UioHook.PostText(string)" /> or
+    /// <see cref="UioHook.PostEvents(UioHookEvent[], uint)"/>
     /// </summary>
+    ErrorNull = 0x03,
+
+    /// <summary>
+    /// <see langword="null" /> was passed to <see cref="UioHook.PostText(string)" /> or
+    /// <see cref="UioHook.PostEvents(UioHookEvent[], uint)"/>
+    /// </summary>
+    [Obsolete("Use ErrorNull instead")]
     ErrorPostTextNull = 0x03,
 
     /// <summary>

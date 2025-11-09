@@ -1116,7 +1116,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
         {
             if (events is null)
             {
-                throw new ArgumentNullException(nameof(events));
+                return UioHookResult.ErrorNull;
             }
 
             if (size > events.Length)
