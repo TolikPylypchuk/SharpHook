@@ -2347,6 +2347,12 @@ references:
   commentId: F:SharpHook.Data.UioHookResult.ErrorGetRunLoop
   fullName: SharpHook.Data.UioHookResult.ErrorGetRunLoop
   nameWithType: UioHookResult.ErrorGetRunLoop
+- uid: SharpHook.Data.UioHookResult.ErrorNull
+  name: ErrorNull
+  href: api/SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_ErrorNull
+  commentId: F:SharpHook.Data.UioHookResult.ErrorNull
+  fullName: SharpHook.Data.UioHookResult.ErrorNull
+  nameWithType: UioHookResult.ErrorNull
 - uid: SharpHook.Data.UioHookResult.ErrorOutOfMemory
   name: ErrorOutOfMemory
   href: api/SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_ErrorOutOfMemory

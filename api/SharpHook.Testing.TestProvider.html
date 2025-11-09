@@ -995,7 +995,8 @@ there.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
-    <dd><p>The value of <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEventResult">PostEventResult</a>.</p>
+    <dd><p>The value of <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostEventResult">PostEventResult</a>, or <a class="xref" href="SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_ErrorNull">ErrorNull</a> if
+<code class="paramref">events</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
 </dd>
   </dl>
 
@@ -1014,9 +1015,6 @@ there.</p>
 
   <h4 class="section">Exceptions</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
-    <dd><p><code class="paramref">events</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
-</dd>
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
     <dd><p><code class="paramref">size</code> is larger than length of <code class="paramref">events</code>.</p>
 </dd>
@@ -1050,7 +1048,7 @@ there.</p>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
-    <dd><p>The value of <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostTextResult">PostTextResult</a>, or <a class="xref" href="SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_ErrorPostTextNull">ErrorPostTextNull</a> if
+    <dd><p>The value of <a class="xref" href="SharpHook.Testing.TestProvider.html#SharpHook_Testing_TestProvider_PostTextResult">PostTextResult</a>, or <a class="xref" href="SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_ErrorNull">ErrorNull</a> if
 <code class="paramref">text</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
 </dd>
   </dl>

@@ -149,13 +149,20 @@ Enum UioHookResult  <a class="header-action link-secondary" title="View source" 
   
   <dd><p><code>CFRunLoopGetCurrent</code> has failed (macOS)</p>
 </dd>
+    <dt id="SharpHook_Data_UioHookResult_ErrorNull"><code>ErrorNull = 3</code></dt>
+  
+  <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> was passed to <a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_PostText_System_String_">PostText(string)</a> or
+<a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_PostEvents_SharpHook_Data_UioHookEvent___System_UInt32_">PostEvents(UioHookEvent[], uint)</a></p>
+</dd>
     <dt id="SharpHook_Data_UioHookResult_ErrorOutOfMemory"><code>ErrorOutOfMemory = 2</code></dt>
   
   <dd><p>Out of memory</p>
 </dd>
-    <dt id="SharpHook_Data_UioHookResult_ErrorPostTextNull"><code>ErrorPostTextNull = 3</code></dt>
+    <dt id="SharpHook_Data_UioHookResult_ErrorPostTextNull"><code>[Obsolete(&quot;Use ErrorNull instead&quot;)]
+ErrorPostTextNull = 3</code></dt>
   
-  <dd><p>A <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> string was passed to <a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_PostText_System_String_">PostText(string)</a></p>
+  <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> was passed to <a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_PostText_System_String_">PostText(string)</a> or
+<a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_PostEvents_SharpHook_Data_UioHookEvent___System_UInt32_">PostEvents(UioHookEvent[], uint)</a></p>
 </dd>
     <dt id="SharpHook_Data_UioHookResult_ErrorSetWindowsHookEx"><code>ErrorSetWindowsHookEx = 48</code></dt>
   
