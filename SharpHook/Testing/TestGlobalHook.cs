@@ -466,31 +466,6 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     }
 
     /// <summary>
-    /// Simulates the input of arbitrary Unicode characters if <see cref="SimulateTextEntryResult" /> is
-    /// <see cref="UioHookResult.Success" />. Otherwise, does nothing.
-    /// </summary>
-    /// <param name="text">The text to simulate.</param>
-    /// <returns>The value of <see cref="SimulateTextEntryResult" />.</returns>
-    /// <remarks>This method doesn't cause any input events to be created, unlike real text entry simulation.</remarks>
-    /// <exception cref="ArgumentNullException"><paramref name="text" /> is <see langword="null" />.</exception>
-    public UioHookResult SimulateTextEntry(string text)
-    {
-        if (text is null)
-        {
-            throw new ArgumentNullException(nameof(text));
-        }
-
-        var result = this.SimulateTextEntryResult;
-
-        if (result == UioHookResult.Success)
-        {
-            this.simulatedText.Add(text);
-        }
-
-        return result;
-    }
-
-    /// <summary>
     /// Simulates pressing a mouse button at the current coordinates if <see cref="SimulateMousePressResult" /> is
     /// <see cref="UioHookResult.Success" />. Otherwise, does nothing.
     /// </summary>
@@ -785,6 +760,42 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
 
         return this.SimulateEvent(this.SimulateMouseWheelResult, ref mouseWheelEvent);
     }
+
+    /// <summary>
+    /// Simulates the input of arbitrary Unicode characters if <see cref="SimulateTextEntryResult" /> is
+    /// <see cref="UioHookResult.Success" />. Otherwise, does nothing.
+    /// </summary>
+    /// <param name="text">The text to simulate.</param>
+    /// <returns>The value of <see cref="SimulateTextEntryResult" />.</returns>
+    /// <remarks>This method doesn't cause any input events to be created, unlike real text entry simulation.</remarks>
+    /// <exception cref="ArgumentNullException"><paramref name="text" /> is <see langword="null" />.</exception>
+    public UioHookResult SimulateTextEntry(string text)
+    {
+        if (text is null)
+        {
+            throw new ArgumentNullException(nameof(text));
+        }
+
+        var result = this.SimulateTextEntryResult;
+
+        if (result == UioHookResult.Success)
+        {
+            this.simulatedText.Add(text);
+        }
+
+        return result;
+    }
+
+    /// <summary>
+    /// Initializes a builder for a sequence of events that can be simulated together.
+    /// </summary>
+    /// <returns>A builder for a sequence of events that can be simulated together.</returns>
+    /// <remarks>
+    /// All events simulated by the builder or the corresponding template will be added to
+    /// <see cref="SimulatedEvents" />.
+    /// </remarks>
+    public IEventSimulationSequenceBuilder Sequence() =>
+        new EventSimulationSequenceBuilder(new EventSimulationProviderBridge(this));
 
     private void RunSimple()
     {
@@ -1091,4 +1102,66 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     public event EventHandler<MouseWheelHookEventArgs>? MouseWheel;
 
     TimeSpan IEventSimulator.TextSimulationDelayOnX11 { get; set; }
+
+    private sealed class EventSimulationProviderBridge(TestGlobalHook globalHook) : IEventSimulationProvider
+    {
+        private readonly TestGlobalHook globalHook = globalHook;
+
+        ulong IEventSimulationProvider.PostTextDelayX11 { get; set; }
+
+        UioHookResult IEventSimulationProvider.PostEvent(ref UioHookEvent e) =>
+            this.globalHook.SimulateEvent(this.GetResult(ref e), ref e);
+
+        UioHookResult IEventSimulationProvider.PostEvents(UioHookEvent[] events, uint size)
+        {
+            if (events is null)
+            {
+                throw new ArgumentNullException(nameof(events));
+            }
+
+            if (size > events.Length)
+            {
+                throw new ArgumentOutOfRangeException(nameof(size));
+            }
+
+            for (int i = 0; i < size; i++)
+            {
+                var e = events[i];
+                var result = this.globalHook.SimulateEvent(this.GetResult(ref e), ref e);
+
+                if (result != UioHookResult.Success)
+                {
+                    return result;
+                }
+            }
+
+            return UioHookResult.Success;
+        }
+
+        UioHookResult IEventSimulationProvider.PostText(string text) =>
+            this.globalHook.SimulateTextEntry(text);
+
+        private UioHookResult GetResult(ref UioHookEvent e) =>
+            e.Type switch
+            {
+                EventType.KeyPressed =>
+                    this.globalHook.SimulateKeyPressResult,
+
+                EventType.KeyReleased =>
+                    this.globalHook.SimulateKeyReleaseResult,
+
+                EventType.MousePressed or EventType.MousePressedIgnoreCoordinates =>
+                    this.globalHook.SimulateMousePressResult,
+
+                EventType.MouseReleased or EventType.MouseReleasedIgnoreCoordinates =>
+                    this.globalHook.SimulateMouseReleaseResult,
+
+                EventType.MouseMoved or EventType.MouseMovedRelativeToCursor =>
+                    this.globalHook.SimulateMouseMovementResult,
+
+                EventType.MouseWheel => this.globalHook.SimulateMouseWheelResult,
+
+                _ => UioHookResult.Failure
+            };
+    }
 }

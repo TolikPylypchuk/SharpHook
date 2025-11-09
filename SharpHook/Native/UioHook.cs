@@ -227,6 +227,7 @@ public static partial class UioHook
     /// </list>
     /// </para>
     /// </remarks>
+    /// <seealso cref="PostEvents" />
     /// <seealso cref="EventSimulator" />
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_post_event")]
@@ -235,6 +236,26 @@ public static partial class UioHook
 #else
     [DllImport(LibUioHook, EntryPoint = "hook_post_event", CallingConvention = CallingConvention.Cdecl)]
     public static extern UioHookResult PostEvent(ref UioHookEvent e);
+#endif
+
+    /// <summary>
+    /// Posts a sequence of fake input events.
+    /// </summary>
+    /// <param name="events">The events to post.</param>
+    /// <param name="size">The number of events to post.</param>
+    /// <returns>The result of the operation.</returns>
+    /// <remarks>
+    /// All the same rules apply as to <see cref="PostEvent" />.
+    /// </remarks>
+    /// <seealso cref="PostEvent" />
+    /// <seealso cref="EventSimulator" />
+#if NET7_0_OR_GREATER
+    [LibraryImport(LibUioHook, EntryPoint = "hook_post_events")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial UioHookResult PostEvents(UioHookEvent[] events, uint size);
+#else
+    [DllImport(LibUioHook, EntryPoint = "hook_post_events", CallingConvention = CallingConvention.Cdecl)]
+    public static extern UioHookResult PostEvents(UioHookEvent[] events, uint size);
 #endif
 
     /// <summary>

@@ -46,35 +46,6 @@ public interface IEventSimulator
     UioHookResult SimulateKeyRelease(KeyCode keyCode);
 
     /// <summary>
-    /// Simulates the input of arbitrary Unicode characters.
-    /// </summary>
-    /// <param name="text">The text to simulate.</param>
-    /// <returns>The result of the operation.</returns>
-    /// <remarks>
-    /// <para>
-    /// The text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16 (including
-    /// surrogate pairs, e.g. emojis) is supported.
-    /// </para>
-    /// <para>
-    /// On Windows, text simulation should work correctly and consistently.
-    /// </para>
-    /// <para>
-    /// On macOS, applications are not required to process text simulation, but most of them should handle it correctly.
-    /// </para>
-    /// <para>
-    /// X11 doesn't support text simulation directly. Instead, for each character, an unused key code is remapped to
-    /// that character, and then key press/release is simulated. Since the receiving application must react to the
-    /// remapping, and may not do so instantaneously, a delay is needed for accurate simulation. This means that text
-    /// simulation on Linux works slowly and is not guaranteed to be correct. <see cref="TextSimulationDelayOnX11" />
-    /// can be used to increase (or decrease) the delay if needed – longer delays add consistency but may be more
-    /// jarring to end users. <see cref="TextSimulationDelayOnX11" /> can also be used to get the currently configured
-    /// delay – the default is 50 milliseconds.
-    /// </para>
-    /// </remarks>
-    /// <exception cref="ArgumentNullException"><paramref name="text" /> is <see langword="null" />.</exception>
-    UioHookResult SimulateTextEntry(string text);
-
-    /// <summary>
     /// Simulates pressing a mouse button at the current coordinates.
     /// </summary>
     /// <param name="button">The mouse button to press.</param>
@@ -187,4 +158,39 @@ public interface IEventSimulator
         short rotation,
         MouseWheelScrollDirection direction = MouseWheelScrollDirection.Vertical,
         MouseWheelScrollType type = MouseWheelScrollType.UnitScroll);
+
+    /// <summary>
+    /// Simulates the input of arbitrary Unicode characters.
+    /// </summary>
+    /// <param name="text">The text to simulate.</param>
+    /// <returns>The result of the operation.</returns>
+    /// <remarks>
+    /// <para>
+    /// The text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16 (including
+    /// surrogate pairs, e.g. emojis) is supported.
+    /// </para>
+    /// <para>
+    /// On Windows, text simulation should work correctly and consistently.
+    /// </para>
+    /// <para>
+    /// On macOS, applications are not required to process text simulation, but most of them should handle it correctly.
+    /// </para>
+    /// <para>
+    /// X11 doesn't support text simulation directly. Instead, for each character, an unused key code is remapped to
+    /// that character, and then key press/release is simulated. Since the receiving application must react to the
+    /// remapping, and may not do so instantaneously, a delay is needed for accurate simulation. This means that text
+    /// simulation on Linux works slowly and is not guaranteed to be correct. <see cref="TextSimulationDelayOnX11" />
+    /// can be used to increase (or decrease) the delay if needed – longer delays add consistency but may be more
+    /// jarring to end users. <see cref="TextSimulationDelayOnX11" /> can also be used to get the currently configured
+    /// delay – the default is 50 milliseconds.
+    /// </para>
+    /// </remarks>
+    /// <exception cref="ArgumentNullException"><paramref name="text" /> is <see langword="null" />.</exception>
+    UioHookResult SimulateTextEntry(string text);
+
+    /// <summary>
+    /// Initializes a builder for a sequence of events that can be simulated together.
+    /// </summary>
+    /// <returns>A builder for a sequence of events that can be simulated together.</returns>
+    IEventSimulationSequenceBuilder Sequence();
 }

@@ -101,7 +101,20 @@ public interface IEventSimulationProvider
     /// </list>
     /// </para>
     /// </remarks>
+    /// <seealso cref="PostEvents" />
     UioHookResult PostEvent(ref UioHookEvent e);
+
+    /// <summary>
+    /// Posts a sequence of fake input events.
+    /// </summary>
+    /// <param name="events">The events to post.</param>
+    /// <param name="size">The number of events to post.</param>
+    /// <returns>The result of the operation.</returns>
+    /// <remarks>
+    /// All the same rules apply as to <see cref="PostEvent" />.
+    /// </remarks>
+    /// <seealso cref="PostEvent" />
+    UioHookResult PostEvents(UioHookEvent[] events, uint size);
 
     /// <summary>
     /// Simulates the input of arbitrary Unicode characters.

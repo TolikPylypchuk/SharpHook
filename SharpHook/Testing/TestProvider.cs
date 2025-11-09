@@ -350,6 +350,48 @@ public sealed class TestProvider :
     }
 
     /// <summary>
+    /// Calls <see cref="PostEvent" /> for each event in the <paramref name="events" /> array.
+    /// </summary>
+    /// <param name="events">The events to post.</param>
+    /// <param name="size">The number of events to post.</param>
+    /// <returns>The value of <see cref="PostEventResult" />.</returns>
+    /// <remarks>
+    /// If the provider's threading mode is <see cref="TestThreadingMode.Simple" /> then this method will immediately
+    /// dispatch each event. If the threading mode is <see cref="TestThreadingMode.EventLoop" /> then the events will be
+    /// posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
+    /// there.
+    /// </remarks>
+    /// <exception cref="ArgumentNullException">
+    /// <paramref name="events" /> is <see langword="null" />.
+    /// </exception>
+    /// <exception cref="ArgumentOutOfRangeException">
+    /// <paramref name="size" /> is larger than length of <paramref name="events" />.
+    /// </exception>
+    public UioHookResult PostEvents(UioHookEvent[] events, uint size)
+    {
+        if (events is null)
+        {
+            throw new ArgumentNullException(nameof(events));
+        }
+
+        if (size > events.Length)
+        {
+            throw new ArgumentOutOfRangeException(nameof(size));
+        }
+
+        for (int i = 0; i < size; i++)
+        {
+            var result = this.PostEvent(ref events[i]);
+            if (result != UioHookResult.Success)
+            {
+                return result;
+            }
+        }
+
+        return this.PostEventResult;
+    }
+
+    /// <summary>
     /// Simulates the input of arbitrary Unicode characters if <see cref="PostTextResult" /> is set to
     /// <see cref="UioHookResult.Success" />. Otherwise, does nothing.
     /// </summary>

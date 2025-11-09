@@ -233,8 +233,22 @@ public sealed class UioHookProvider :
     /// </list>
     /// </para>
     /// </remarks>
+    /// <seealso cref="PostEvents" />
     public UioHookResult PostEvent(ref UioHookEvent e) =>
         UioHook.PostEvent(ref e);
+
+    /// <summary>
+    /// Posts a sequence of fake input events.
+    /// </summary>
+    /// <param name="events">The events to post.</param>
+    /// <param name="size">The number of events to post.</param>
+    /// <returns>The result of the operation.</returns>
+    /// <remarks>
+    /// All the same rules apply as to <see cref="PostEvent" />.
+    /// </remarks>
+    /// <seealso cref="PostEvent" />
+    public UioHookResult PostEvents(UioHookEvent[] events, uint size) =>
+        UioHook.PostEvents(events, size);
 
     /// <summary>
     /// Simulates input of arbitrary Unicode characters.
