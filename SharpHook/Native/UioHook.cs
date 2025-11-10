@@ -252,10 +252,10 @@ public static partial class UioHook
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_post_events")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial UioHookResult PostEvents(UioHookEvent[] events, uint size);
+    public static partial UioHookResult PostEvents([In] UioHookEvent[] events, uint size);
 #else
     [DllImport(LibUioHook, EntryPoint = "hook_post_events", CallingConvention = CallingConvention.Cdecl)]
-    public static extern UioHookResult PostEvents(UioHookEvent[] events, uint size);
+    public static extern UioHookResult PostEvents([In] UioHookEvent[] events, uint size);
 #endif
 
     /// <summary>
