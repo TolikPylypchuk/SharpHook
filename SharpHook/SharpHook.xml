@@ -1918,8 +1918,8 @@
                 .AddKeyRelease(KeyCode.VcC)
                 .AddKeyRelease(KeyCode.VcLeftControl);
             </code>
-            which means that this method will add pressing the left control, then pressing C, then releasing C, then
-            releasing the left control.
+            which means that this method will add pressing Left Control, then pressing C, then releasing C, then releasing
+            Left Control.
             </remarks>
         </member>
         <member name="M:SharpHook.EventSimulationExtensions.AddKeyStroke(SharpHook.IEventSimulationSequenceBuilder,System.Collections.Generic.IEnumerable{SharpHook.Data.KeyCode})">
@@ -1943,8 +1943,8 @@
                 .AddKeyRelease(KeyCode.VcC)
                 .AddKeyRelease(KeyCode.VcLeftControl);
             </code>
-            which means that this method will add pressing the left control, then pressing C, then releasing C, then
-            releasing the left control.
+            which means that this method will add pressing Left Control, then pressing C, then releasing C, then releasing
+            Left Control.
             </remarks>
         </member>
         <member name="M:SharpHook.EventSimulationExtensions.SimulateKeyStroke(SharpHook.IEventSimulator,SharpHook.Data.KeyCode[])">
@@ -1968,8 +1968,8 @@
                 .AddKeyRelease(KeyCode.VcLeftControl)
                 .Simulate();
             </code>
-            which means that this method will simualte pressing the left control, then pressing C, then releasing C, then
-            releasing the left control.
+            which means that this method will simualte pressing Left Control, then pressing C, then releasing C, then
+            releasing Left Control.
             </remarks>
         </member>
         <member name="M:SharpHook.EventSimulationExtensions.SimulateKeyStroke(SharpHook.IEventSimulator,System.Collections.Generic.IEnumerable{SharpHook.Data.KeyCode})">
@@ -1993,8 +1993,8 @@
                 .AddKeyRelease(KeyCode.VcLeftControl)
                 .Simulate();
             </code>
-            which means that this method will simualte pressing the left control, then pressing C, then releasing C, then
-            releasing the left control.
+            which means that this method will simualte pressing Left Control, then pressing C, then releasing C, then
+            releasing Left Control.
             </remarks>
         </member>
         <member name="T:SharpHook.EventSimulationSequenceBuilder">
@@ -2195,9 +2195,7 @@
             <param name="simulationProvider">
             The simulation functionality provider (or <see cref="P:SharpHook.Providers.UioHookProvider.Instance" /> if <see langword="null" />).
             </param>
-            <exception cref="T:System.ArgumentNullException">
-            <paramref name="events" /> is <see langword="null" />.
-            </exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="events" /> is <see langword="null" />.</exception>
         </member>
         <member name="M:SharpHook.EventSimulationSequenceTemplate.Simulate">
             <summary>

@@ -2,6 +2,8 @@ namespace SharpHook.Testing;
 
 public sealed class TestProviderTests
 {
+    private static readonly Random random = new();
+
     [Property(DisplayName = "SetDispatchProc, Run, and PostEvent should work together")]
     public void Run(UioHookEvent eventToPost, IntPtr userData)
     {
@@ -47,7 +49,7 @@ public sealed class TestProviderTests
         provider.Stop();
     }
 
-    [Property(DisplayName = "RunAsync, SetDispatchProc, and PostEvent should work together")]
+    [Property(DisplayName = "SetDispatchProc, RunAsync, and PostEvent should work together")]
     public async Task RunAsync(UioHookEvent eventToPost, nint userData)
     {
         // Arrange
@@ -512,6 +514,84 @@ public sealed class TestProviderTests
 
         Assert.Empty(provider.PostedEvents);
         Assert.Equal(result.Value, actualResult);
+    }
+
+    [Property(DisplayName = "PostEvents should work the same as multiple PostEvent calls")]
+    public void PostEvents(NonEmptyArray<UioHookEvent> events)
+    {
+        // Arrange
+
+        var eventsToPost = events.Get;
+        int size = random.Next(eventsToPost.Length);
+
+        var provider = new TestProvider();
+
+        // Act
+
+        var result = provider.PostEvents(eventsToPost, (uint)size);
+
+        // Assert
+
+        Assert.Equal(UioHookResult.Success, result);
+        Assert.Equal(size, provider.PostedEvents.Count);
+
+        foreach (var (expected, actual) in eventsToPost.Zip(provider.PostedEvents))
+        {
+            Assert.Equal(expected, actual);
+        }
+    }
+
+    [Property(DisplayName = "PostEvents should return an error result if configured to do so")]
+    public void PostEventsError(NonEmptyArray<UioHookEvent> events, FailedUioHookResult result)
+    {
+        // Arrange
+
+        var eventsToPost = events.Get;
+
+        var provider = new TestProvider
+        {
+            PostEventResult = result.Value
+        };
+
+        // Act
+
+        var actualResult = provider.PostEvents(eventsToPost, (uint)eventsToPost.Length);
+
+        // Assert
+
+        Assert.Equal(actualResult, result.Value);
+        Assert.Empty(provider.PostedEvents);
+    }
+
+    [Property(DisplayName = "PostEvents should return an error result when the events array is null")]
+    public void PostEventsNull()
+    {
+        // Arrange
+
+        var provider = new TestProvider();
+
+        // Act
+
+        var result = provider.PostEvents(null!, 1);
+
+        // Assert
+
+        Assert.Equal(UioHookResult.ErrorNull, result);
+    }
+
+    [Property(DisplayName = "PostEvents should throw when the size is larger than the length of the array")]
+    public void PostEventsInvalidSize(NonEmptyArray<UioHookEvent> events)
+    {
+        // Arrange
+
+        var eventsToPost = events.Get;
+        int size = random.Next(eventsToPost.Length) + eventsToPost.Length + 1;
+
+        var provider = new TestProvider();
+
+        // Act + Assert
+
+        Assert.Throws<ArgumentOutOfRangeException>(() => provider.PostEvents(eventsToPost, (uint)size));
     }
 
     [Property(DisplayName = "PostText should post text")]

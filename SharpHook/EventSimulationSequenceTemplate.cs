@@ -15,9 +15,7 @@ public sealed class EventSimulationSequenceTemplate : IEventSimulationSequenceTe
     /// <param name="simulationProvider">
     /// The simulation functionality provider (or <see cref="UioHookProvider.Instance" /> if <see langword="null" />).
     /// </param>
-    /// <exception cref="ArgumentNullException">
-    /// <paramref name="events" /> is <see langword="null" />.
-    /// </exception>
+    /// <exception cref="ArgumentNullException"><paramref name="events" /> is <see langword="null" />.</exception>
     [SuppressMessage(
         "Style", "IDE0290:Use primary constructor", Justification = "Primary constructors don't support XML comments")]
     public EventSimulationSequenceTemplate(

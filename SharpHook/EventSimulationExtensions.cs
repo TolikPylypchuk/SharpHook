@@ -25,8 +25,8 @@ public static class EventSimulationExtensions
     ///     .AddKeyRelease(KeyCode.VcC)
     ///     .AddKeyRelease(KeyCode.VcLeftControl);
     /// </code>
-    /// which means that this method will add pressing the left control, then pressing C, then releasing C, then
-    /// releasing the left control.
+    /// which means that this method will add pressing Left Control, then pressing C, then releasing C, then releasing
+    /// Left Control.
     /// </remarks>
     public static IEventSimulationSequenceBuilder AddKeyStroke(
         this IEventSimulationSequenceBuilder builder,
@@ -65,8 +65,8 @@ public static class EventSimulationExtensions
     ///     .AddKeyRelease(KeyCode.VcC)
     ///     .AddKeyRelease(KeyCode.VcLeftControl);
     /// </code>
-    /// which means that this method will add pressing the left control, then pressing C, then releasing C, then
-    /// releasing the left control.
+    /// which means that this method will add pressing Left Control, then pressing C, then releasing C, then releasing
+    /// Left Control.
     /// </remarks>
     public static IEventSimulationSequenceBuilder AddKeyStroke(
         this IEventSimulationSequenceBuilder builder,
@@ -93,8 +93,8 @@ public static class EventSimulationExtensions
     ///     .AddKeyRelease(KeyCode.VcLeftControl)
     ///     .Simulate();
     /// </code>
-    /// which means that this method will simualte pressing the left control, then pressing C, then releasing C, then
-    /// releasing the left control.
+    /// which means that this method will simualte pressing Left Control, then pressing C, then releasing C, then
+    /// releasing Left Control.
     /// </remarks>
     public static UioHookResult SimulateKeyStroke(this IEventSimulator simulator, params KeyCode[] keyCodes) =>
         simulator.Sequence()
@@ -121,8 +121,8 @@ public static class EventSimulationExtensions
     ///     .AddKeyRelease(KeyCode.VcLeftControl)
     ///     .Simulate();
     /// </code>
-    /// which means that this method will simualte pressing the left control, then pressing C, then releasing C, then
-    /// releasing the left control.
+    /// which means that this method will simualte pressing Left Control, then pressing C, then releasing C, then
+    /// releasing Left Control.
     /// </remarks>
     public static UioHookResult SimulateKeyStroke(this IEventSimulator simulator, IEnumerable<KeyCode> keyCodes) =>
         simulator.Sequence()
