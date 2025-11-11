@@ -37,7 +37,7 @@ public static class EventSimulationExtensions
             builder.AddKeyPress(keyCode);
         }
 
-        foreach (var keyCode in keyCodes.Reverse())
+        foreach (var keyCode in Enumerable.Reverse(keyCodes))
         {
             builder.AddKeyRelease(keyCode);
         }

@@ -4,16 +4,16 @@
       "src": [
         {
           "files": [
-            "artifacts/bin/SharpHook/release_net9.0/SharpHook.dll",
-            "artifacts/bin/SharpHook.R3/release_net9.0/SharpHook.R3.dll",
-            "artifacts/bin/SharpHook.Reactive/release_net9.0/SharpHook.Reactive.dll"
+            "artifacts/bin/SharpHook/release_net10.0/SharpHook.dll",
+            "artifacts/bin/SharpHook.R3/release_net10.0/SharpHook.R3.dll",
+            "artifacts/bin/SharpHook.Reactive/release_net10.0/SharpHook.Reactive.dll"
           ],
           "src": "../"
         }
       ],
       "dest": "api",
       "properties": {
-        "TargetFramework": "net9.0"
+        "TargetFramework": "net10.0"
       },
       "disableGitFeatures": false,
       "disableDefaultFilter": false
