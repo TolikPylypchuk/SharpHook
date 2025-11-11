@@ -542,6 +542,10 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
+      - name: Setup .NET workloads
+        shell: pwsh
+        run: dotnet workload restore
+
       - name: Setup docfx
         shell: pwsh
         run: dotnet tool update --global docfx
