@@ -791,8 +791,16 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// </summary>
     /// <returns>A builder for a sequence of events that can be simulated together.</returns>
     /// <remarks>
+    /// <para>
     /// All events simulated by the builder or the corresponding template will be added to
-    /// <see cref="SimulatedEvents" />.
+    /// <see cref="SimulatedEvents" />, except for the following types: <see cref="EventType.HookEnabled" />,
+    /// <see cref="EventType.HookDisabled" />, <see cref="EventType.KeyTyped" />, and
+    /// <see cref="EventType.MouseClicked" />. Events of these types will be ignored.
+    /// </para>
+    /// <para>
+    /// Events in the sequence will be simulated one-by-one, and if any simulation results in an error, furhter events
+    /// in the sequence will not be simulated. This is the same behavior as on macOS and Linux.
+    /// </para>
     /// </remarks>
     public IEventSimulationSequenceBuilder Sequence() =>
         new EventSimulationSequenceBuilder(new EventSimulationProviderBridge(this));
@@ -1107,12 +1115,12 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     {
         private readonly TestGlobalHook globalHook = globalHook;
 
-        ulong IEventSimulationProvider.PostTextDelayX11 { get; set; }
+        public UioHookResult PostEvent(ref UioHookEvent e) =>
+            this.GetResult(ref e) is UioHookResult expectedResult
+                ? this.globalHook.SimulateEvent(expectedResult, ref e)
+                : UioHookResult.Success;
 
-        UioHookResult IEventSimulationProvider.PostEvent(ref UioHookEvent e) =>
-            this.globalHook.SimulateEvent(this.GetResult(ref e), ref e);
-
-        UioHookResult IEventSimulationProvider.PostEvents(UioHookEvent[] events, uint size)
+        public UioHookResult PostEvents(UioHookEvent[] events, uint size)
         {
             if (events is null)
             {
@@ -1126,8 +1134,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
 
             for (int i = 0; i < size; i++)
             {
-                var e = events[i];
-                var result = this.globalHook.SimulateEvent(this.GetResult(ref e), ref e);
+                var result = this.PostEvent(ref events[i]);
 
                 if (result != UioHookResult.Success)
                 {
@@ -1138,10 +1145,10 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
             return UioHookResult.Success;
         }
 
-        UioHookResult IEventSimulationProvider.PostText(string text) =>
+        public UioHookResult PostText(string text) =>
             this.globalHook.SimulateTextEntry(text);
 
-        private UioHookResult GetResult(ref UioHookEvent e) =>
+        private UioHookResult? GetResult(ref UioHookEvent e) =>
             e.Type switch
             {
                 EventType.KeyPressed =>
@@ -1156,12 +1163,14 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
                 EventType.MouseReleased or EventType.MouseReleasedIgnoreCoordinates =>
                     this.globalHook.SimulateMouseReleaseResult,
 
-                EventType.MouseMoved or EventType.MouseMovedRelativeToCursor =>
+                EventType.MouseMoved or EventType.MouseDragged or EventType.MouseMovedRelativeToCursor =>
                     this.globalHook.SimulateMouseMovementResult,
 
                 EventType.MouseWheel => this.globalHook.SimulateMouseWheelResult,
 
-                _ => UioHookResult.Failure
+                _ => null
             };
+
+        ulong IEventSimulationProvider.PostTextDelayX11 { get; set; }
     }
 }

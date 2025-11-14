@@ -141,8 +141,8 @@ public interface IEventSimulator
     /// <returns>The result of the operation.</returns>
     /// <remarks>
     /// <para>
-    /// On Windows, the value <c>120</c> represents the default wheel step. As such, multiples of <c>120</c> can be used,
-    /// but it's not required. The value of <paramref name="type" /> is ignored.
+    /// On Windows, the value <c>120</c> represents the default wheel step. As such, multiples of <c>120</c> can be
+    /// used, but it's not required. The value of <paramref name="type" /> is ignored.
     /// </para>
     /// <para>
     /// On macOS, it's recommended to use values between <c>-10</c> and <c>10</c>. This will result in quite a small

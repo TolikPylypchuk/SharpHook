@@ -2023,6 +2023,7 @@
             </summary>
             <param name="events">The events to add to the sequence.</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="events" /> is <see langword="null" />.</exception>
         </member>
         <member name="M:SharpHook.EventSimulationSequenceBuilder.AddEvents(System.Collections.Generic.IEnumerable{SharpHook.Data.UioHookEvent})">
             <summary>
@@ -2030,6 +2031,7 @@
             </summary>
             <param name="events">The events to add to the sequence.</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="events" /> is <see langword="null" />.</exception>
         </member>
         <member name="M:SharpHook.EventSimulationSequenceBuilder.AddKeyPress(SharpHook.Data.KeyCode)">
             <summary>
@@ -2146,12 +2148,12 @@
             used, but it's not required. The value of <paramref name="type" /> is ignored.
             </para>
             <para>
-            On macOS it's recommended to use values between <c>-10</c> and <c>10</c>. This will result in quite a small
+            On macOS, it's recommended to use values between <c>-10</c> and <c>10</c>. This will result in quite a small
             scroll amount with pixel scrolling, so <see cref="F:SharpHook.Data.MouseWheelScrollType.BlockScroll" /> is recommended for line
             scrolling instead of pixel scrolling.
             </para>
             <para>
-            On Linux there is no fixed recommendation, but multiples of <c>100</c> can be used. The value of
+            On Linux, there is no fixed recommendation, but multiples of <c>100</c> can be used. The value of
             <paramref name="type" /> is ignored.
             </para>
             </remarks>
@@ -2167,7 +2169,7 @@
             <summary>
             Removes the specified events from the sequence of events to simulate.
             </summary>
-            <param name="predicate">The predicate to check if the event should be removed from the sequence or not.</param>
+            <param name="predicate">The predicate to check if the event should be removed from the sequence.</param>
             <returns>The current builder.</returns>
         </member>
         <member name="M:SharpHook.EventSimulationSequenceBuilder.Simulate">
@@ -2361,12 +2363,12 @@
             used, but it's not required. The value of <paramref name="type" /> is ignored.
             </para>
             <para>
-            On macOS it's recommended to use values between <c>-10</c> and <c>10</c>. This will result in quite a small
+            On macOS, it's recommended to use values between <c>-10</c> and <c>10</c>. This will result in quite a small
             scroll amount with pixel scrolling, so <see cref="F:SharpHook.Data.MouseWheelScrollType.BlockScroll" /> is recommended for line
             scrolling instead of pixel scrolling.
             </para>
             <para>
-            On Linux there is no fixed recommendation, but multiples of <c>100</c> can be used. The value of
+            On Linux, there is no fixed recommendation, but multiples of <c>100</c> can be used. The value of
             <paramref name="type" /> is ignored.
             </para>
             </remarks>
@@ -2773,6 +2775,7 @@
             </summary>
             <param name="events">The events to add to the sequence.</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="events" /> is <see langword="null" />.</exception>
         </member>
         <member name="M:SharpHook.IEventSimulationSequenceBuilder.AddEvents(System.Collections.Generic.IEnumerable{SharpHook.Data.UioHookEvent})">
             <summary>
@@ -2780,6 +2783,7 @@
             </summary>
             <param name="events">The events to add to the sequence.</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="events" /> is <see langword="null" />.</exception>
         </member>
         <member name="M:SharpHook.IEventSimulationSequenceBuilder.AddKeyPress(SharpHook.Data.KeyCode)">
             <summary>
@@ -2896,15 +2900,29 @@
             used, but it's not required. The value of <paramref name="type" /> is ignored.
             </para>
             <para>
-            On macOS it's recommended to use values between <c>-10</c> and <c>10</c>. This will result in quite a small
+            On macOS, it's recommended to use values between <c>-10</c> and <c>10</c>. This will result in quite a small
             scroll amount with pixel scrolling, so <see cref="F:SharpHook.Data.MouseWheelScrollType.BlockScroll" /> is recommended for line
             scrolling instead of pixel scrolling.
             </para>
             <para>
-            On Linux there is no fixed recommendation, but multiples of <c>100</c> can be used. The value of
+            On Linux, there is no fixed recommendation, but multiples of <c>100</c> can be used. The value of
             <paramref name="type" /> is ignored.
             </para>
             </remarks>
+        </member>
+        <member name="M:SharpHook.IEventSimulationSequenceBuilder.RemoveEvent(SharpHook.Data.UioHookEvent)">
+            <summary>
+            Removes the specified event from the sequence of events to simulate.
+            </summary>
+            <param name="e">The event to remove from the sequence.</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.IEventSimulationSequenceBuilder.RemoveEvents(System.Func{SharpHook.Data.UioHookEvent,System.Boolean})">
+            <summary>
+            Removes the specified events from the sequence of events to simulate.
+            </summary>
+            <param name="predicate">The predicate to check if the event should be removed from the sequence.</param>
+            <returns>The current builder.</returns>
         </member>
         <member name="M:SharpHook.IEventSimulationSequenceBuilder.Simulate">
             <summary>
@@ -3071,8 +3089,8 @@
             <returns>The result of the operation.</returns>
             <remarks>
             <para>
-            On Windows, the value <c>120</c> represents the default wheel step. As such, multiples of <c>120</c> can be used,
-            but it's not required. The value of <paramref name="type" /> is ignored.
+            On Windows, the value <c>120</c> represents the default wheel step. As such, multiples of <c>120</c> can be
+            used, but it's not required. The value of <paramref name="type" /> is ignored.
             </para>
             <para>
             On macOS, it's recommended to use values between <c>-10</c> and <c>10</c>. This will result in quite a small
@@ -5245,8 +5263,16 @@
             </summary>
             <returns>A builder for a sequence of events that can be simulated together.</returns>
             <remarks>
+            <para>
             All events simulated by the builder or the corresponding template will be added to
-            <see cref="P:SharpHook.Testing.TestGlobalHook.SimulatedEvents" />.
+            <see cref="P:SharpHook.Testing.TestGlobalHook.SimulatedEvents" />, except for the following types: <see cref="F:SharpHook.Data.EventType.HookEnabled" />,
+            <see cref="F:SharpHook.Data.EventType.HookDisabled" />, <see cref="F:SharpHook.Data.EventType.KeyTyped" />, and
+            <see cref="F:SharpHook.Data.EventType.MouseClicked" />. Events of these types will be ignored.
+            </para>
+            <para>
+            Events in the sequence will be simulated one-by-one, and if any simulation results in an error, furhter events
+            in the sequence will not be simulated. This is the same behavior as on macOS and Linux.
+            </para>
             </remarks>
         </member>
         <member name="E:SharpHook.Testing.TestGlobalHook.HookEnabled">

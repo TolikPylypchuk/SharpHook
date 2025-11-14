@@ -35,9 +35,10 @@ public sealed class EventSimulationSequenceBuilder : IEventSimulationSequenceBui
     /// </summary>
     /// <param name="events">The events to add to the sequence.</param>
     /// <returns>The current builder.</returns>
+    /// <exception cref="ArgumentNullException"><paramref name="events" /> is <see langword="null" />.</exception>
     public IEventSimulationSequenceBuilder AddEvents(params UioHookEvent[] events)
     {
-        this.events.AddRange(events);
+        this.events.AddRange(events ?? throw new ArgumentNullException(nameof(events)));
         return this;
     }
 
@@ -46,9 +47,10 @@ public sealed class EventSimulationSequenceBuilder : IEventSimulationSequenceBui
     /// </summary>
     /// <param name="events">The events to add to the sequence.</param>
     /// <returns>The current builder.</returns>
+    /// <exception cref="ArgumentNullException"><paramref name="events" /> is <see langword="null" />.</exception>
     public IEventSimulationSequenceBuilder AddEvents(IEnumerable<UioHookEvent> events)
     {
-        this.events.AddRange(events);
+        this.events.AddRange(events ?? throw new ArgumentNullException(nameof(events)));
         return this;
     }
 
@@ -242,12 +244,12 @@ public sealed class EventSimulationSequenceBuilder : IEventSimulationSequenceBui
     /// used, but it's not required. The value of <paramref name="type" /> is ignored.
     /// </para>
     /// <para>
-    /// On macOS it's recommended to use values between <c>-10</c> and <c>10</c>. This will result in quite a small
+    /// On macOS, it's recommended to use values between <c>-10</c> and <c>10</c>. This will result in quite a small
     /// scroll amount with pixel scrolling, so <see cref="MouseWheelScrollType.BlockScroll" /> is recommended for line
     /// scrolling instead of pixel scrolling.
     /// </para>
     /// <para>
-    /// On Linux there is no fixed recommendation, but multiples of <c>100</c> can be used. The value of
+    /// On Linux, there is no fixed recommendation, but multiples of <c>100</c> can be used. The value of
     /// <paramref name="type" /> is ignored.
     /// </para>
     /// </remarks>
@@ -279,7 +281,7 @@ public sealed class EventSimulationSequenceBuilder : IEventSimulationSequenceBui
     /// <summary>
     /// Removes the specified events from the sequence of events to simulate.
     /// </summary>
-    /// <param name="predicate">The predicate to check if the event should be removed from the sequence or not.</param>
+    /// <param name="predicate">The predicate to check if the event should be removed from the sequence.</param>
     /// <returns>The current builder.</returns>
     public IEventSimulationSequenceBuilder RemoveEvents(Func<UioHookEvent, bool> predicate)
     {

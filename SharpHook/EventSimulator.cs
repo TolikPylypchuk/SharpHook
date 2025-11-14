@@ -221,12 +221,12 @@ public class EventSimulator : IEventSimulator
     /// used, but it's not required. The value of <paramref name="type" /> is ignored.
     /// </para>
     /// <para>
-    /// On macOS it's recommended to use values between <c>-10</c> and <c>10</c>. This will result in quite a small
+    /// On macOS, it's recommended to use values between <c>-10</c> and <c>10</c>. This will result in quite a small
     /// scroll amount with pixel scrolling, so <see cref="MouseWheelScrollType.BlockScroll" /> is recommended for line
     /// scrolling instead of pixel scrolling.
     /// </para>
     /// <para>
-    /// On Linux there is no fixed recommendation, but multiples of <c>100</c> can be used. The value of
+    /// On Linux, there is no fixed recommendation, but multiples of <c>100</c> can be used. The value of
     /// <paramref name="type" /> is ignored.
     /// </para>
     /// </remarks>

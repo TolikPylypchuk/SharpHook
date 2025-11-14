@@ -526,6 +526,27 @@ public sealed class TestProviderWithEventLoopTests
         }
     }
 
+    [Property(DisplayName = "PostEvents should do nothing if the array is empty")]
+    public void PostEventsEmptyArray()
+    {
+        // Arrange
+
+        var provider = new TestProvider(TestThreadingMode.EventLoop);
+
+        // Act
+
+        this.RunAndWaitForStart(provider);
+
+        var result = provider.PostEvents([], 0);
+
+        this.StopAndWaitForStop(provider);
+
+        // Assert
+
+        Assert.Equal(UioHookResult.Success, result);
+        Assert.Empty(provider.PostedEvents);
+    }
+
     [Property(DisplayName = "PostEvents should return an error result if configured to do so")]
     public void PostEventsError(NonEmptyArray<UioHookEvent> events, FailedUioHookResult result)
     {

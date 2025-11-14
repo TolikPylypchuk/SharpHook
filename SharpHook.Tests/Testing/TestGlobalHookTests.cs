@@ -1300,6 +1300,85 @@ public sealed class TestGlobalHookTests
         Assert.Throws<ArgumentNullException>(() => hook.SimulateTextEntry(null!));
     }
 
+    [Property(DisplayName = "Sequence should return an instance of type EventSimulationSequenceBuilder")]
+    public void SequenceBuilderType()
+    {
+        // Arrange
+
+        var hook = new TestGlobalHook();
+
+        // Act
+
+        var builder = hook.Sequence();
+
+        // Assert
+
+        Assert.IsType<EventSimulationSequenceBuilder>(builder);
+    }
+
+    [Property(DisplayName = "Sequence builder should post an event back to the test global hook")]
+    public void SequenceBuilder(UioHookEvent @event)
+    {
+        // Arrange
+
+        var hook = new TestGlobalHook();
+
+        // Act
+
+        var result = hook.Sequence()
+            .AddEvent(@event)
+            .Simulate();
+
+        // Assert
+
+        if (@event.Type is EventType.HookEnabled or
+            EventType.HookDisabled or
+            EventType.KeyTyped or
+            EventType.MouseClicked)
+        {
+            Assert.Empty(hook.SimulatedEvents);
+        } else
+        {
+            Assert.Single(hook.SimulatedEvents);
+            Assert.Equal(@event, hook.SimulatedEvents[0]);
+        }
+
+        Assert.Equal(UioHookResult.Success, result);
+    }
+
+    [Property(DisplayName = "Event sequence simulation should be stopped on failure")]
+    public void SequenceFailure(KeyboardEvent keyboardEvent, MouseEvent mouseEvent, FailedUioHookResult result)
+    {
+        // Arrange
+
+        if (keyboardEvent.Value.Type == EventType.KeyTyped || mouseEvent.Value.Type == EventType.MouseClicked)
+        {
+            return;
+        }
+
+        var expectedResult = result.Value;
+
+        var hook = new TestGlobalHook
+        {
+            SimulateMousePressResult = expectedResult,
+            SimulateMouseReleaseResult = expectedResult,
+            SimulateMouseMovementResult = expectedResult
+        };
+
+        // Act
+
+        var actualResult = hook.Sequence()
+            .AddEvents(keyboardEvent.Value, mouseEvent.Value)
+            .Simulate();
+
+        // Assert
+
+        Assert.Single(hook.SimulatedEvents);
+        Assert.Equal(keyboardEvent.Value, hook.SimulatedEvents[0]);
+
+        Assert.Equal(expectedResult, actualResult);
+    }
+
     [Fact(DisplayName = "EventDateTime should throw on null")]
     public void EventDateTimeNull()
     {
