@@ -1272,8 +1272,16 @@ to be stopped.</p>
 
 
   <h4 class="section" id="SharpHook_Testing_TestGlobalHook_Sequence_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>All events simulated by the builder or the corresponding template will be added to
-<a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulatedEvents">SimulatedEvents</a>.</p>
+  <div class="markdown level1 remarks"><p>
+All events simulated by the builder or the corresponding template will be added to
+<a class="xref" href="SharpHook.Testing.TestGlobalHook.html#SharpHook_Testing_TestGlobalHook_SimulatedEvents">SimulatedEvents</a>, except for the following types: <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_HookEnabled">HookEnabled</a>,
+<a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_HookDisabled">HookDisabled</a>, <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a>, and
+<a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseClicked">MouseClicked</a>. Events of these types will be ignored.
+</p>
+<p>
+Events in the sequence will be simulated one-by-one, and if any simulation results in an error, furhter events
+in the sequence will not be simulated. This is the same behavior as on macOS and Linux.
+</p>
 </div>
 
 

@@ -206,6 +206,12 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">events</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
 
 
 
@@ -245,6 +251,12 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">events</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
 
 
 
@@ -806,12 +818,12 @@ On Windows, the value <code>120</code> represents the default wheel step. As suc
 used, but it's not required. The value of <code class="paramref">type</code> is ignored.
 </p>
 <p>
-On macOS it's recommended to use values between <code>-10</code> and <code>10</code>. This will result in quite a small
+On macOS, it's recommended to use values between <code>-10</code> and <code>10</code>. This will result in quite a small
 scroll amount with pixel scrolling, so <a class="xref" href="SharpHook.Data.MouseWheelScrollType.html#SharpHook_Data_MouseWheelScrollType_BlockScroll">BlockScroll</a> is recommended for line
 scrolling instead of pixel scrolling.
 </p>
 <p>
-On Linux there is no fixed recommendation, but multiples of <code>100</code> can be used. The value of
+On Linux, there is no fixed recommendation, but multiples of <code>100</code> can be used. The value of
 <code class="paramref">type</code> is ignored.
 </p>
 </div>
@@ -839,6 +851,84 @@ On Linux there is no fixed recommendation, but multiples of <code>100</code> can
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.IEventSimulationSequenceTemplate.html">IEventSimulationSequenceTemplate</a></dt>
     <dd><p>A template based on the events in this sequence.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpHook_IEventSimulationSequenceBuilder_RemoveEvent_" data-uid="SharpHook.IEventSimulationSequenceBuilder.RemoveEvent*"></a>
+
+  <h3 id="SharpHook_IEventSimulationSequenceBuilder_RemoveEvent_SharpHook_Data_UioHookEvent_" data-uid="SharpHook.IEventSimulationSequenceBuilder.RemoveEvent(SharpHook.Data.UioHookEvent)">
+  RemoveEvent(UioHookEvent)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the specified event from the sequence of events to simulate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEventSimulationSequenceBuilder RemoveEvent(UioHookEvent e)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>e</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></dt>
+    <dd><p>The event to remove from the sequence.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
+    <dd><p>The current builder.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpHook_IEventSimulationSequenceBuilder_RemoveEvents_" data-uid="SharpHook.IEventSimulationSequenceBuilder.RemoveEvents*"></a>
+
+  <h3 id="SharpHook_IEventSimulationSequenceBuilder_RemoveEvents_System_Func_SharpHook_Data_UioHookEvent_System_Boolean__" data-uid="SharpHook.IEventSimulationSequenceBuilder.RemoveEvents(System.Func{SharpHook.Data.UioHookEvent,System.Boolean})">
+  RemoveEvents(Func&lt;UioHookEvent, bool&gt;)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes the specified events from the sequence of events to simulate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEventSimulationSequenceBuilder RemoveEvents(Func&lt;UioHookEvent, bool&gt; predicate)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
+    <dd><p>The predicate to check if the event should be removed from the sequence.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
+    <dd><p>The current builder.</p>
 </dd>
   </dl>
 

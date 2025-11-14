@@ -3760,6 +3760,33 @@ references:
   commentId: Overload:SharpHook.IEventSimulationSequenceBuilder.CreateTemplate
   fullName: SharpHook.IEventSimulationSequenceBuilder.CreateTemplate
   nameWithType: IEventSimulationSequenceBuilder.CreateTemplate
+- uid: SharpHook.IEventSimulationSequenceBuilder.RemoveEvent(SharpHook.Data.UioHookEvent)
+  name: RemoveEvent(UioHookEvent)
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_RemoveEvent_SharpHook_Data_UioHookEvent_
+  commentId: M:SharpHook.IEventSimulationSequenceBuilder.RemoveEvent(SharpHook.Data.UioHookEvent)
+  fullName: SharpHook.IEventSimulationSequenceBuilder.RemoveEvent(SharpHook.Data.UioHookEvent)
+  nameWithType: IEventSimulationSequenceBuilder.RemoveEvent(UioHookEvent)
+- uid: SharpHook.IEventSimulationSequenceBuilder.RemoveEvent*
+  name: RemoveEvent
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_RemoveEvent_
+  commentId: Overload:SharpHook.IEventSimulationSequenceBuilder.RemoveEvent
+  fullName: SharpHook.IEventSimulationSequenceBuilder.RemoveEvent
+  nameWithType: IEventSimulationSequenceBuilder.RemoveEvent
+- uid: SharpHook.IEventSimulationSequenceBuilder.RemoveEvents(System.Func{SharpHook.Data.UioHookEvent,System.Boolean})
+  name: RemoveEvents(Func<UioHookEvent, bool>)
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_RemoveEvents_System_Func_SharpHook_Data_UioHookEvent_System_Boolean__
+  commentId: M:SharpHook.IEventSimulationSequenceBuilder.RemoveEvents(System.Func{SharpHook.Data.UioHookEvent,System.Boolean})
+  name.vb: RemoveEvents(Func(Of UioHookEvent, Boolean))
+  fullName: SharpHook.IEventSimulationSequenceBuilder.RemoveEvents(System.Func<SharpHook.Data.UioHookEvent, bool>)
+  fullName.vb: SharpHook.IEventSimulationSequenceBuilder.RemoveEvents(System.Func(Of SharpHook.Data.UioHookEvent, Boolean))
+  nameWithType: IEventSimulationSequenceBuilder.RemoveEvents(Func<UioHookEvent, bool>)
+  nameWithType.vb: IEventSimulationSequenceBuilder.RemoveEvents(Func(Of UioHookEvent, Boolean))
+- uid: SharpHook.IEventSimulationSequenceBuilder.RemoveEvents*
+  name: RemoveEvents
+  href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_RemoveEvents_
+  commentId: Overload:SharpHook.IEventSimulationSequenceBuilder.RemoveEvents
+  fullName: SharpHook.IEventSimulationSequenceBuilder.RemoveEvents
+  nameWithType: IEventSimulationSequenceBuilder.RemoveEvents
 - uid: SharpHook.IEventSimulationSequenceBuilder.Simulate
   name: Simulate()
   href: api/SharpHook.IEventSimulationSequenceBuilder.html#SharpHook_IEventSimulationSequenceBuilder_Simulate

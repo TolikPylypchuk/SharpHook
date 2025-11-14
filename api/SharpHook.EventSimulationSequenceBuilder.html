@@ -278,6 +278,12 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">events</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
 
 
 
@@ -317,6 +323,12 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">events</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
 
 
 
@@ -878,12 +890,12 @@ On Windows, the value <code>120</code> represents the default wheel step. As suc
 used, but it's not required. The value of <code class="paramref">type</code> is ignored.
 </p>
 <p>
-On macOS it's recommended to use values between <code>-10</code> and <code>10</code>. This will result in quite a small
+On macOS, it's recommended to use values between <code>-10</code> and <code>10</code>. This will result in quite a small
 scroll amount with pixel scrolling, so <a class="xref" href="SharpHook.Data.MouseWheelScrollType.html#SharpHook_Data_MouseWheelScrollType_BlockScroll">BlockScroll</a> is recommended for line
 scrolling instead of pixel scrolling.
 </p>
 <p>
-On Linux there is no fixed recommendation, but multiples of <code>100</code> can be used. The value of
+On Linux, there is no fixed recommendation, but multiples of <code>100</code> can be used. The value of
 <code class="paramref">type</code> is ignored.
 </p>
 </div>
@@ -981,7 +993,7 @@ On Linux there is no fixed recommendation, but multiples of <code>100</code> can
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
-    <dd><p>The predicate to check if the event should be removed from the sequence or not.</p>
+    <dd><p>The predicate to check if the event should be removed from the sequence.</p>
 </dd>
   </dl>
 
