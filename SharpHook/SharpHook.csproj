@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <None Include="SharpHook.targets">
-      <PackagePath>build/net462/SharpHook.targets</PackagePath>
+      <PackagePath>build/net472/SharpHook.targets</PackagePath>
       <Pack>True</Pack>
     </None>
     <None Include="..\icon.png">
