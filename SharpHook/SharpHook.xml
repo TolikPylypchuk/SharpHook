@@ -221,55 +221,74 @@
             </summary>
         </member>
         <member name="M:SharpHook.Data.EventMaskExtensions.HasShift(SharpHook.Data.EventMask)">
+            <inheritdoc cref="M:SharpHook.Data.EventMaskExtensions.&lt;G&gt;$11AF3377953F271E00CC9C61CD964F8C.HasShift"/>
+        </member>
+        <member name="M:SharpHook.Data.EventMaskExtensions.HasCtrl(SharpHook.Data.EventMask)">
+            <inheritdoc cref="M:SharpHook.Data.EventMaskExtensions.&lt;G&gt;$11AF3377953F271E00CC9C61CD964F8C.HasCtrl"/>
+        </member>
+        <member name="M:SharpHook.Data.EventMaskExtensions.HasAlt(SharpHook.Data.EventMask)">
+            <inheritdoc cref="M:SharpHook.Data.EventMaskExtensions.&lt;G&gt;$11AF3377953F271E00CC9C61CD964F8C.HasAlt"/>
+        </member>
+        <member name="M:SharpHook.Data.EventMaskExtensions.HasMeta(SharpHook.Data.EventMask)">
+            <inheritdoc cref="M:SharpHook.Data.EventMaskExtensions.&lt;G&gt;$11AF3377953F271E00CC9C61CD964F8C.HasMeta"/>
+        </member>
+        <member name="M:SharpHook.Data.EventMaskExtensions.HasAny(SharpHook.Data.EventMask,SharpHook.Data.EventMask)">
+            <inheritdoc cref="M:SharpHook.Data.EventMaskExtensions.&lt;G&gt;$11AF3377953F271E00CC9C61CD964F8C.HasAny(SharpHook.Data.EventMask)"/>
+        </member>
+        <member name="M:SharpHook.Data.EventMaskExtensions.HasAll(SharpHook.Data.EventMask,SharpHook.Data.EventMask)">
+            <inheritdoc cref="M:SharpHook.Data.EventMaskExtensions.&lt;G&gt;$11AF3377953F271E00CC9C61CD964F8C.HasAll(SharpHook.Data.EventMask)"/>
+        </member>
+        <member name="M:SharpHook.Data.EventMaskExtensions.Split(SharpHook.Data.EventMask)">
+            <inheritdoc cref="M:SharpHook.Data.EventMaskExtensions.&lt;G&gt;$11AF3377953F271E00CC9C61CD964F8C.Split"/>
+        </member>
+        <member name="M:SharpHook.Data.EventMaskExtensions.Merge(SharpHook.Data.EventMask[])">
+            <inheritdoc cref="M:SharpHook.Data.EventMaskExtensions.&lt;G&gt;$3792A10E5F69FE72BC23927078519AD3.Merge"/>
+        </member>
+        <member name="M:SharpHook.Data.EventMaskExtensions.&lt;G&gt;$11AF3377953F271E00CC9C61CD964F8C.HasShift">
             <summary>
             Returns <see langword="true" /> if the event mask contains either <see cref="F:SharpHook.Data.EventMask.LeftShift" /> or
             <see cref="F:SharpHook.Data.EventMask.RightShift"/>. Otherwise, returns <see langword="false" />.
             </summary>
-            <param name="mask">The event mask to check.</param>
             <returns>
             <see langword="true" /> if the event mask contains either <see cref="F:SharpHook.Data.EventMask.LeftShift" /> or
             <see cref="F:SharpHook.Data.EventMask.RightShift"/>. Otherwise, <see langword="false" />.
             </returns>
         </member>
-        <member name="M:SharpHook.Data.EventMaskExtensions.HasCtrl(SharpHook.Data.EventMask)">
+        <member name="M:SharpHook.Data.EventMaskExtensions.&lt;G&gt;$11AF3377953F271E00CC9C61CD964F8C.HasCtrl">
             <summary>
             Returns <see langword="true" /> if the event mask contains either <see cref="F:SharpHook.Data.EventMask.LeftCtrl" /> or
             <see cref="F:SharpHook.Data.EventMask.RightCtrl"/>. Otherwise, returns <see langword="false" />.
             </summary>
-            <param name="mask">The event mask to check.</param>
             <returns>
             <see langword="true" /> if the event mask contains either <see cref="F:SharpHook.Data.EventMask.LeftCtrl" /> or
             <see cref="F:SharpHook.Data.EventMask.RightCtrl"/>. Otherwise, <see langword="false" />.
             </returns>
         </member>
-        <member name="M:SharpHook.Data.EventMaskExtensions.HasAlt(SharpHook.Data.EventMask)">
+        <member name="M:SharpHook.Data.EventMaskExtensions.&lt;G&gt;$11AF3377953F271E00CC9C61CD964F8C.HasAlt">
             <summary>
             Returns <see langword="true" /> if the event mask contains either <see cref="F:SharpHook.Data.EventMask.LeftAlt" /> or
             <see cref="F:SharpHook.Data.EventMask.RightAlt"/>. Otherwise, returns <see langword="false" />.
             </summary>
-            <param name="mask">The event mask to check.</param>
             <returns>
             <see langword="true" /> if the event mask contains either <see cref="F:SharpHook.Data.EventMask.LeftAlt" /> or
             <see cref="F:SharpHook.Data.EventMask.RightAlt"/>. Otherwise, <see langword="false" />.
             </returns>
         </member>
-        <member name="M:SharpHook.Data.EventMaskExtensions.HasMeta(SharpHook.Data.EventMask)">
+        <member name="M:SharpHook.Data.EventMaskExtensions.&lt;G&gt;$11AF3377953F271E00CC9C61CD964F8C.HasMeta">
             <summary>
             Returns <see langword="true" /> if the event mask contains either <see cref="F:SharpHook.Data.EventMask.LeftMeta" /> or
             <see cref="F:SharpHook.Data.EventMask.RightMeta"/>. Otherwise, returns <see langword="false" />.
             </summary>
-            <param name="mask">The event mask to check.</param>
             <returns>
             <see langword="true" /> if the event mask contains either <see cref="F:SharpHook.Data.EventMask.LeftMeta" /> or
             <see cref="F:SharpHook.Data.EventMask.RightMeta"/>. Otherwise, <see langword="false" />.
             </returns>
         </member>
-        <member name="M:SharpHook.Data.EventMaskExtensions.HasAny(SharpHook.Data.EventMask,SharpHook.Data.EventMask)">
+        <member name="M:SharpHook.Data.EventMaskExtensions.&lt;G&gt;$11AF3377953F271E00CC9C61CD964F8C.HasAny(SharpHook.Data.EventMask)">
             <summary>
             Returns <see langword="true" /> if the event mask contains any of the specified flags.
             Otherwise, returns <see langword="false" />.
             </summary>
-            <param name="mask">The event mask to check.</param>
             <param name="flagsToCheck">The mask flags to check against.</param>
             <returns>
             <see langword="true" /> if the event mask contains any of the specified flags.
@@ -280,12 +299,11 @@
             <see cref="F:SharpHook.Data.EventMask.None" />.
             </remarks>
         </member>
-        <member name="M:SharpHook.Data.EventMaskExtensions.HasAll(SharpHook.Data.EventMask,SharpHook.Data.EventMask)">
+        <member name="M:SharpHook.Data.EventMaskExtensions.&lt;G&gt;$11AF3377953F271E00CC9C61CD964F8C.HasAll(SharpHook.Data.EventMask)">
             <summary>
             Returns <see langword="true" /> if the event mask contains all of the specified flags.
             Otherwise, returns <see langword="false" />.
             </summary>
-            <param name="mask">The event mask to check.</param>
             <param name="flagsToCheck">The mask flags to check against.</param>
             <returns>
             <see langword="true" /> if the event mask contains all of the specified flags.
@@ -296,24 +314,22 @@
             <see cref="F:SharpHook.Data.EventMask.None" />.
             </remarks>
         </member>
-        <member name="M:SharpHook.Data.EventMaskExtensions.Split(SharpHook.Data.EventMask)">
+        <member name="M:SharpHook.Data.EventMaskExtensions.&lt;G&gt;$11AF3377953F271E00CC9C61CD964F8C.Split">
             <summary>
             Splits an event mask into an array of individual flags.
             </summary>
-            <param name="mask">The event mask to split.</param>
             <returns>
-            An array of individual flags contained in <paramref name="mask" />,
-            or an empty array if <paramref name="mask" /> is <see cref="F:SharpHook.Data.EventMask.None" />.
+            An array of individual flags contained in the mask, or an empty array if the mask is
+            <see cref="F:SharpHook.Data.EventMask.None" />.
             </returns>
         </member>
-        <member name="M:SharpHook.Data.EventMaskExtensions.Merge(SharpHook.Data.EventMask[])">
+        <member name="M:SharpHook.Data.EventMaskExtensions.&lt;G&gt;$3792A10E5F69FE72BC23927078519AD3.Merge">
             <summary>
             Merges an array of event mask flags into a single event mask.
             </summary>
-            <param name="flags">The event mask flags to merge.</param>
             <returns>An event mask which contains the specified mask flags.</returns>
             <exception cref="T:System.ArgumentNullException">
-            <paramref name="flags" /> is <see langword="null" />.
+            The flags array is <see langword="null" />.
             </exception>
         </member>
         <member name="T:SharpHook.Data.EventType">
@@ -1898,36 +1914,22 @@
             </summary>
         </member>
         <member name="M:SharpHook.EventSimulationExtensions.AddKeyStroke(SharpHook.IEventSimulationSequenceBuilder,SharpHook.Data.KeyCode[])">
-            <summary>
-            Adds a sequecne of key press and release events which represent a single key stroke to the sequence of events to
-            simulate.
-            </summary>
-            <param name="builder">The event simulation sequence builder.</param>
-            <param name="keyCodes">The codes of the keys to press and release.</param>
-            <returns>The builder.</returns>
-            <remarks>
-            As an example, if the method is called with the following parameters:
-            <code>
-            builder.AddKeyStroke(KeyCode.VcLeftControl, KeyCode.VcC);
-            </code>
-            then this will be equivalent to calling the following method sequence:
-            <code>
-            builder
-                .AddKeyPress(KeyCode.VcLeftControl)
-                .AddKeyPress(KeyCode.VcC)
-                .AddKeyRelease(KeyCode.VcC)
-                .AddKeyRelease(KeyCode.VcLeftControl);
-            </code>
-            which means that this method will add pressing Left Control, then pressing C, then releasing C, then releasing
-            Left Control.
-            </remarks>
+            <inheritdoc cref="M:SharpHook.EventSimulationExtensions.&lt;G&gt;$9780AC0AF75CCB5A305132DFDBE666BB.AddKeyStroke(SharpHook.Data.KeyCode[])"/>
         </member>
         <member name="M:SharpHook.EventSimulationExtensions.AddKeyStroke(SharpHook.IEventSimulationSequenceBuilder,System.Collections.Generic.IEnumerable{SharpHook.Data.KeyCode})">
+            <inheritdoc cref="M:SharpHook.EventSimulationExtensions.&lt;G&gt;$9780AC0AF75CCB5A305132DFDBE666BB.AddKeyStroke(System.Collections.Generic.IEnumerable{SharpHook.Data.KeyCode})"/>
+        </member>
+        <member name="M:SharpHook.EventSimulationExtensions.SimulateKeyStroke(SharpHook.IEventSimulator,SharpHook.Data.KeyCode[])">
+            <inheritdoc cref="M:SharpHook.EventSimulationExtensions.&lt;G&gt;$8C0C4809C841289DDD3FF71E471E05EE.SimulateKeyStroke(SharpHook.Data.KeyCode[])"/>
+        </member>
+        <member name="M:SharpHook.EventSimulationExtensions.SimulateKeyStroke(SharpHook.IEventSimulator,System.Collections.Generic.IEnumerable{SharpHook.Data.KeyCode})">
+            <inheritdoc cref="M:SharpHook.EventSimulationExtensions.&lt;G&gt;$8C0C4809C841289DDD3FF71E471E05EE.SimulateKeyStroke(System.Collections.Generic.IEnumerable{SharpHook.Data.KeyCode})"/>
+        </member>
+        <member name="M:SharpHook.EventSimulationExtensions.&lt;G&gt;$9780AC0AF75CCB5A305132DFDBE666BB.AddKeyStroke(SharpHook.Data.KeyCode[])">
             <summary>
-            Adds a sequence of key press and release events which represent a single key stroke to the sequence of events to
-            simulate.
+            Adds a sequecne of key press and release events which represent a single key stroke to the sequence of
+            events to simulate.
             </summary>
-            <param name="builder">The event simulation sequence builder.</param>
             <param name="keyCodes">The codes of the keys to press and release.</param>
             <returns>The builder.</returns>
             <remarks>
@@ -1943,15 +1945,38 @@
                 .AddKeyRelease(KeyCode.VcC)
                 .AddKeyRelease(KeyCode.VcLeftControl);
             </code>
-            which means that this method will add pressing Left Control, then pressing C, then releasing C, then releasing
-            Left Control.
+            which means that this method will add pressing Left Control, then pressing C, then releasing C, then
+            releasing Left Control.
             </remarks>
         </member>
-        <member name="M:SharpHook.EventSimulationExtensions.SimulateKeyStroke(SharpHook.IEventSimulator,SharpHook.Data.KeyCode[])">
+        <member name="M:SharpHook.EventSimulationExtensions.&lt;G&gt;$9780AC0AF75CCB5A305132DFDBE666BB.AddKeyStroke(System.Collections.Generic.IEnumerable{SharpHook.Data.KeyCode})">
+            <summary>
+            Adds a sequence of key press and release events which represent a single key stroke to the sequence of
+            events to simulate.
+            </summary>
+            <param name="keyCodes">The codes of the keys to press and release.</param>
+            <returns>The builder.</returns>
+            <remarks>
+            As an example, if the method is called with the following parameters:
+            <code>
+            builder.AddKeyStroke(KeyCode.VcLeftControl, KeyCode.VcC);
+            </code>
+            then this will be equivalent to calling the following method sequence:
+            <code>
+            builder
+                .AddKeyPress(KeyCode.VcLeftControl)
+                .AddKeyPress(KeyCode.VcC)
+                .AddKeyRelease(KeyCode.VcC)
+                .AddKeyRelease(KeyCode.VcLeftControl);
+            </code>
+            which means that this method will add pressing Left Control, then pressing C, then releasing C, then
+            releasing Left Control.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.EventSimulationExtensions.&lt;G&gt;$8C0C4809C841289DDD3FF71E471E05EE.SimulateKeyStroke(SharpHook.Data.KeyCode[])">
             <summary>
             Simulates a sequence of key press and release events which represent a single key stroke.
             </summary>
-            <param name="simulator">The event simulator.</param>
             <param name="keyCodes">The codes of the keys to press and release.</param>
             <returns>The result of the operation.</returns>
             <remarks>
@@ -1972,11 +1997,10 @@
             releasing Left Control.
             </remarks>
         </member>
-        <member name="M:SharpHook.EventSimulationExtensions.SimulateKeyStroke(SharpHook.IEventSimulator,System.Collections.Generic.IEnumerable{SharpHook.Data.KeyCode})">
+        <member name="M:SharpHook.EventSimulationExtensions.&lt;G&gt;$8C0C4809C841289DDD3FF71E471E05EE.SimulateKeyStroke(System.Collections.Generic.IEnumerable{SharpHook.Data.KeyCode})">
             <summary>
             Simulates a sequence of key press and release events which represent a single key stroke.
             </summary>
-            <param name="simulator">The event simulator.</param>
             <param name="keyCodes">The codes of the keys to press and release.</param>
             <returns>The result of the operation.</returns>
             <remarks>
