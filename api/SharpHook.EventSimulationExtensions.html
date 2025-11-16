@@ -247,7 +247,7 @@ events to simulate.</p>
 
   <h4 class="section" id="SharpHook_EventSimulationExtensions_AddKeyStroke_SharpHook_IEventSimulationSequenceBuilder_System_Collections_Generic_IEnumerable_SharpHook_Data_KeyCode___remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>As an example, if the method is called with the following parameters:</p>
-<pre><code class="lang-csharp">builder.AddKeyStroke(KeyCode.VcLeftControl, KeyCode.VcC);</code></pre>
+<pre><code class="lang-csharp">builder.AddKeyStroke([KeyCode.VcLeftControl, KeyCode.VcC]);</code></pre>
 <p>then this will be equivalent to calling the following method sequence:</p>
 <pre><code class="lang-csharp">builder
     .AddKeyPress(KeyCode.VcLeftControl)
@@ -354,7 +354,7 @@ releasing Left Control.</p>
 
   <h4 class="section" id="SharpHook_EventSimulationExtensions_SimulateKeyStroke_SharpHook_IEventSimulator_System_Collections_Generic_IEnumerable_SharpHook_Data_KeyCode___remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>As an example, if the method is called with the following parameters:</p>
-<pre><code class="lang-csharp">simulator.SimulateKeyStroke(KeyCode.VcLeftControl, KeyCode.VcC);</code></pre>
+<pre><code class="lang-csharp">simulator.SimulateKeyStroke([KeyCode.VcLeftControl, KeyCode.VcC]);</code></pre>
 <p>then this will be equivalent to calling the following method sequence:</p>
 <pre><code class="lang-csharp">simulator.Sequence()
     .AddKeyPress(KeyCode.VcLeftControl)
