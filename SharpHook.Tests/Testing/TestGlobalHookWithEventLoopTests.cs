@@ -1013,7 +1013,7 @@ public sealed class TestGlobalHookWithEventLoopTests
     }
 
     [Property(DisplayName = "Stop should throw an exception if configured to do so")]
-    public void StopFail(FailedUioHookResult result)
+    public async Task StopFail(FailedUioHookResult result)
     {
         // Arrange
 
@@ -1029,6 +1029,13 @@ public sealed class TestGlobalHookWithEventLoopTests
         var exception = Assert.Throws<HookException>(hook.Stop);
 
         Assert.Equal(result.Value, exception.Result);
+
+        // Clean up
+
+        hook.DisposeResult = UioHookResult.Success;
+        hook.Dispose();
+
+        await task;
     }
 
     [Fact(DisplayName = "Stop should throw an exception if the hook is disposed")]
@@ -1045,7 +1052,7 @@ public sealed class TestGlobalHookWithEventLoopTests
     }
 
     [Property(DisplayName = "Dispose should throw an exception if configured to do so")]
-    public void DisposeFail(FailedUioHookResult result)
+    public async Task DisposeFail(FailedUioHookResult result)
     {
         // Arrange
 
@@ -1059,8 +1066,14 @@ public sealed class TestGlobalHookWithEventLoopTests
         var task = hook.RunAsync();
 
         var exception = Assert.Throws<HookException>(hook.Dispose);
-
         Assert.Equal(result.Value, exception.Result);
+
+        // Clean up
+
+        hook.DisposeResult = UioHookResult.Success;
+        hook.Dispose();
+
+        await task;
     }
 
     [Fact(DisplayName = "Dispose should not throw an exception if the hook is disposed")]

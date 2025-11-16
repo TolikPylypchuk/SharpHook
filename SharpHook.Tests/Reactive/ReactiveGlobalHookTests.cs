@@ -8,7 +8,8 @@ public sealed class ReactiveGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new ReactiveGlobalHook(globalHookType, globalHookProvider: provider);
+        var hook = new ReactiveGlobalHook(
+            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
 
         // Act + Assert
 
@@ -33,7 +34,8 @@ public sealed class ReactiveGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new ReactiveGlobalHook(globalHookType, globalHookProvider: provider);
+        var hook = new ReactiveGlobalHook(
+            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
 
         // Act + Assert
 
@@ -55,7 +57,8 @@ public sealed class ReactiveGlobalHookTests
             EventMask = t => mask
         };
 
-        var hook = new ReactiveGlobalHook(globalHookType, globalHookProvider: provider);
+        var hook = new ReactiveGlobalHook(
+            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
 
         HookEventArgs? actualEventArgs = null;
 
@@ -91,7 +94,8 @@ public sealed class ReactiveGlobalHookTests
             EventMask = t => mask
         };
 
-        var hook = new ReactiveGlobalHook(globalHookType, globalHookProvider: provider);
+        var hook = new ReactiveGlobalHook(
+            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
 
         HookEventArgs? actualEventArgs = null;
 
@@ -124,7 +128,8 @@ public sealed class ReactiveGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHook(globalHookType, globalHookProvider: provider);
+        using var hook = new ReactiveGlobalHook(
+            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
 
         var e = new UioHookEvent
         {
@@ -178,7 +183,8 @@ public sealed class ReactiveGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHook(globalHookType, globalHookProvider: provider);
+        using var hook = new ReactiveGlobalHook(
+            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
 
         var e = new UioHookEvent
         {
@@ -233,7 +239,8 @@ public sealed class ReactiveGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHook(globalHookType, globalHookProvider: provider);
+        using var hook = new ReactiveGlobalHook(
+            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
 
         var e = new UioHookEvent
         {
@@ -289,7 +296,8 @@ public sealed class ReactiveGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHook(globalHookType, globalHookProvider: provider);
+        using var hook = new ReactiveGlobalHook(
+            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
 
         var e = new UioHookEvent
         {
@@ -347,7 +355,8 @@ public sealed class ReactiveGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHook(globalHookType, globalHookProvider: provider);
+        using var hook = new ReactiveGlobalHook(
+            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
 
         var e = new UioHookEvent
         {
@@ -405,7 +414,8 @@ public sealed class ReactiveGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHook(globalHookType, globalHookProvider: provider);
+        using var hook = new ReactiveGlobalHook(
+            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
 
         var e = new UioHookEvent
         {
@@ -461,7 +471,8 @@ public sealed class ReactiveGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHook(globalHookType, globalHookProvider: provider);
+        using var hook = new ReactiveGlobalHook(
+            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
 
         var e = new UioHookEvent
         {
@@ -513,7 +524,8 @@ public sealed class ReactiveGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHook(globalHookType, globalHookProvider: provider);
+        using var hook = new ReactiveGlobalHook(
+            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
 
         var e = new UioHookEvent
         {
@@ -569,7 +581,8 @@ public sealed class ReactiveGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHook(globalHookType, globalHookProvider: provider);
+        using var hook = new ReactiveGlobalHook(
+            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
 
         var e = new UioHookEvent
         {
@@ -628,7 +641,8 @@ public sealed class ReactiveGlobalHookTests
             RunResult = result.Value
         };
 
-        var hook = new ReactiveGlobalHook(globalHookType, globalHookProvider: provider);
+        using var hook = new ReactiveGlobalHook(
+            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
 
         // Act + Assert
 
@@ -646,7 +660,8 @@ public sealed class ReactiveGlobalHookTests
             RunResult = result.Value
         };
 
-        var hook = new ReactiveGlobalHook(globalHookType, globalHookProvider: provider);
+        using var hook = new ReactiveGlobalHook(
+            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
 
         // Act + Assert
 
@@ -660,7 +675,8 @@ public sealed class ReactiveGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHook(globalHookType, globalHookProvider: provider);
+        using var hook = new ReactiveGlobalHook(
+            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
 
         this.RunHookAndWaitForStart(hook, provider);
 
@@ -675,7 +691,8 @@ public sealed class ReactiveGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHook(globalHookType, globalHookProvider: provider);
+        using var hook = new ReactiveGlobalHook(
+            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
 
         this.RunHookAndWaitForStart(hook, provider);
 
@@ -728,6 +745,11 @@ public sealed class ReactiveGlobalHookTests
 
         var exception = Assert.Throws<HookException>(hook.Stop);
         Assert.Equal(result.Value, exception.Result);
+
+        // Clean up
+
+        provider.StopResult = UioHookResult.Success;
+        this.DisposeHookAndWaitForStop(hook);
     }
 
     [Property(DisplayName = "Stop should throw if the hook is disposed")]
@@ -753,7 +775,8 @@ public sealed class ReactiveGlobalHookTests
             StopResult = result.Value
         };
 
-        var hook = new ReactiveGlobalHook(globalHookType, globalHookProvider: provider);
+        var hook = new ReactiveGlobalHook(
+            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
 
         this.RunHookAndWaitForStart(hook, provider);
 

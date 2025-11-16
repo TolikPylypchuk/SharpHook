@@ -169,8 +169,8 @@
             </summary>
             <param name="globalHookType">The global hook type.</param>
             <param name="defaultTimeProvider">
-            The default time provider for observables, or <see langword="null" /> to use the default one (as defined in
-            <see cref="P:R3.ObservableSystem.DefaultTimeProvider" />).
+            The default time provider for observables, or <see langword="null" /> to use the default one as defined in
+            <see cref="P:R3.ObservableSystem.DefaultTimeProvider" />.
             </param>
             <param name="globalHookProvider">
             The underlying global hook provider, or <see langword="null" /> to use the default one.
@@ -283,8 +283,8 @@
             </summary>
             <param name="hook">The hook to adapt.</param>
             <param name="defaultTimeProvider">
-            The default time provider for observables, or <see langword="null" /> to use the default one
-            (as defined in <see cref="P:R3.ObservableSystem.DefaultTimeProvider" />).
+            The default time provider for observables, or <see langword="null" /> to use the default one as defined in
+            <see cref="P:R3.ObservableSystem.DefaultTimeProvider" />.
             </param>
         </member>
         <member name="P:SharpHook.R3.R3GlobalHookAdapter.IsRunning">

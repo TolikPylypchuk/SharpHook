@@ -47,8 +47,8 @@
         </member>
         <member name="M:SharpHook.BasicGlobalHookBase.Run">
             <summary>
-            Runs the global hook on the current thread, blocking it. The hook can be stopped temporarily by calling the
-            <see cref="M:SharpHook.BasicGlobalHookBase.Stop" /> method or stopped permanently by calling the <see cref="M:SharpHook.BasicGlobalHookBase.Dispose" /> method.
+            Runs the global hook on the current thread, blocking it. The hook can be stopped temporarily by calling
+            <see cref="M:SharpHook.BasicGlobalHookBase.Stop" /> or stopped permanently by calling <see cref="M:SharpHook.BasicGlobalHookBase.Dispose" />.
             </summary>
             <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
             <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
@@ -56,8 +56,8 @@
         </member>
         <member name="M:SharpHook.BasicGlobalHookBase.RunAsync">
             <summary>
-            Runs the global hook without blocking the current thread. The hook can be stopped temporarily by calling the
-            <see cref="M:SharpHook.BasicGlobalHookBase.Stop" /> method or stopped permanently by calling the <see cref="M:SharpHook.BasicGlobalHookBase.Dispose" /> method.
+            Runs the global hook without blocking the current thread. The hook can be stopped temporarily by calling
+            <see cref="M:SharpHook.BasicGlobalHookBase.Stop" /> or stopped permanently by calling <see cref="M:SharpHook.BasicGlobalHookBase.Dispose" />.
             </summary>
             <returns>A <see cref="T:System.Threading.Tasks.Task" /> which finishes when the hook is stopped or disposed.</returns>
             <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
@@ -2751,8 +2751,8 @@
         </member>
         <member name="M:SharpHook.IBasicGlobalHook.Run">
             <summary>
-            Runs the global hook on the current thread, blocking it. The hook can be stopped by calling the
-            <see cref="M:SharpHook.IBasicGlobalHook.Stop" /> or the <see cref="M:System.IDisposable.Dispose" /> methods.
+            Runs the global hook on the current thread, blocking it. The hook can be stopped temporarily by calling
+            <see cref="M:SharpHook.IBasicGlobalHook.Stop" /> or stopped permanently by calling <see cref="M:System.IDisposable.Dispose" />.
             </summary>
             <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
             <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
@@ -2760,8 +2760,8 @@
         </member>
         <member name="M:SharpHook.IBasicGlobalHook.RunAsync">
             <summary>
-            Runs the global hook without blocking the current thread. The hook can be stopped by calling the
-            <see cref="M:SharpHook.IBasicGlobalHook.Stop" /> or the <see cref="M:System.IDisposable.Dispose" /> methods.
+            Runs the global hook without blocking the current thread. The hook can be stopped temporarily by calling
+            <see cref="M:SharpHook.IBasicGlobalHook.Stop" /> or stopped permanently by calling <see cref="M:System.IDisposable.Dispose" />.
             </summary>
             <returns>A <see cref="T:System.Threading.Tasks.Task" /> which finishes when the hook is stopped.</returns>
             <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>

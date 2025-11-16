@@ -26,8 +26,8 @@ public interface IBasicGlobalHook : IDisposable
     bool IsDisposed { get; }
 
     /// <summary>
-    /// Runs the global hook on the current thread, blocking it. The hook can be stopped by calling the
-    /// <see cref="Stop" /> or the <see cref="IDisposable.Dispose" /> methods.
+    /// Runs the global hook on the current thread, blocking it. The hook can be stopped temporarily by calling
+    /// <see cref="Stop" /> or stopped permanently by calling <see cref="IDisposable.Dispose" />.
     /// </summary>
     /// <exception cref="HookException">Starting the global hook has failed.</exception>
     /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
@@ -35,8 +35,8 @@ public interface IBasicGlobalHook : IDisposable
     void Run();
 
     /// <summary>
-    /// Runs the global hook without blocking the current thread. The hook can be stopped by calling the
-    /// <see cref="Stop" /> or the <see cref="IDisposable.Dispose" /> methods.
+    /// Runs the global hook without blocking the current thread. The hook can be stopped temporarily by calling
+    /// <see cref="Stop" /> or stopped permanently by calling <see cref="IDisposable.Dispose" />.
     /// </summary>
     /// <returns>A <see cref="Task" /> which finishes when the hook is stopped.</returns>
     /// <exception cref="HookException">Starting the global hook has failed.</exception>
@@ -56,5 +56,4 @@ public interface IBasicGlobalHook : IDisposable
     /// After stopping, the global hook can run again.
     /// </remarks>
     void Stop();
-
 }

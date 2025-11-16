@@ -10,7 +10,9 @@ public sealed class R3GlobalHookAdapterTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider), timeProvider);
+        var hook = new R3GlobalHookAdapter(
+            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
+            timeProvider);
 
         // Act + Assert
 
@@ -37,7 +39,9 @@ public sealed class R3GlobalHookAdapterTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider), timeProvider);
+        var hook = new R3GlobalHookAdapter(
+            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
+            timeProvider);
 
         // Act + Assert
 
@@ -61,7 +65,9 @@ public sealed class R3GlobalHookAdapterTests
 
         var timeProvider = new FakeTimeProvider();
 
-        var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider), timeProvider);
+        var hook = new R3GlobalHookAdapter(
+            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
+            timeProvider);
 
         HookEventArgs? actualEventArgs = null;
 
@@ -99,7 +105,9 @@ public sealed class R3GlobalHookAdapterTests
 
         var timeProvider = new FakeTimeProvider();
 
-        var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider), timeProvider);
+        var hook = new R3GlobalHookAdapter(
+            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
+            timeProvider);
 
         HookEventArgs? actualEventArgs = null;
 
@@ -134,7 +142,9 @@ public sealed class R3GlobalHookAdapterTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider), timeProvider);
+        using var hook = new R3GlobalHookAdapter(
+            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
+            timeProvider);
 
         var e = new UioHookEvent
         {
@@ -190,7 +200,9 @@ public sealed class R3GlobalHookAdapterTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider), timeProvider);
+        using var hook = new R3GlobalHookAdapter(
+            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
+            timeProvider);
 
         var e = new UioHookEvent
         {
@@ -247,7 +259,9 @@ public sealed class R3GlobalHookAdapterTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider), timeProvider);
+        using var hook = new R3GlobalHookAdapter(
+            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
+            timeProvider);
 
         var e = new UioHookEvent
         {
@@ -305,7 +319,9 @@ public sealed class R3GlobalHookAdapterTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider), timeProvider);
+        using var hook = new R3GlobalHookAdapter(
+            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
+            timeProvider);
 
         var e = new UioHookEvent
         {
@@ -365,7 +381,9 @@ public sealed class R3GlobalHookAdapterTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider), timeProvider);
+        using var hook = new R3GlobalHookAdapter(
+            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
+            timeProvider);
 
         var e = new UioHookEvent
         {
@@ -425,7 +443,9 @@ public sealed class R3GlobalHookAdapterTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider), timeProvider);
+        using var hook = new R3GlobalHookAdapter(
+            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
+            timeProvider);
 
         var e = new UioHookEvent
         {
@@ -483,7 +503,9 @@ public sealed class R3GlobalHookAdapterTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider), timeProvider);
+        using var hook = new R3GlobalHookAdapter(
+            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
+            timeProvider);
 
         var e = new UioHookEvent
         {
@@ -537,7 +559,9 @@ public sealed class R3GlobalHookAdapterTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider), timeProvider);
+        using var hook = new R3GlobalHookAdapter(
+            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
+            timeProvider);
 
         var e = new UioHookEvent
         {
@@ -595,7 +619,9 @@ public sealed class R3GlobalHookAdapterTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider), timeProvider);
+        using var hook = new R3GlobalHookAdapter(
+            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
+            timeProvider);
 
         var e = new UioHookEvent
         {
@@ -656,7 +682,9 @@ public sealed class R3GlobalHookAdapterTests
 
         var timeProvider = new FakeTimeProvider();
 
-        var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider), timeProvider);
+        using var hook = new R3GlobalHookAdapter(
+            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
+            timeProvider);
 
         // Act + Assert
 
@@ -676,7 +704,9 @@ public sealed class R3GlobalHookAdapterTests
 
         var timeProvider = new FakeTimeProvider();
 
-        var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider), timeProvider);
+        using var hook = new R3GlobalHookAdapter(
+            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
+            timeProvider);
 
         // Act + Assert
 
@@ -692,7 +722,9 @@ public sealed class R3GlobalHookAdapterTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider), timeProvider);
+        using var hook = new R3GlobalHookAdapter(
+            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
+            timeProvider);
 
         this.RunHookAndWaitForStart(hook, provider);
 
@@ -709,7 +741,9 @@ public sealed class R3GlobalHookAdapterTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider), timeProvider);
+        using var hook = new R3GlobalHookAdapter(
+            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
+            timeProvider);
 
         this.RunHookAndWaitForStart(hook, provider);
 
@@ -756,13 +790,21 @@ public sealed class R3GlobalHookAdapterTests
 
         var timeProvider = new FakeTimeProvider();
 
-        var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider), timeProvider);
+        var hook = new R3GlobalHookAdapter(
+            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
+            timeProvider);
+
         this.RunHookAndWaitForStart(hook, provider);
 
         // Act + Assert
 
         var exception = Assert.Throws<HookException>(hook.Stop);
         Assert.Equal(result.Value, exception.Result);
+
+        // Clean up
+
+        provider.StopResult = UioHookResult.Success;
+        this.DisposeHookAndWaitForStop(hook);
     }
 
     [Property(DisplayName = "Stop should throw if the hook is disposed")]
@@ -790,7 +832,9 @@ public sealed class R3GlobalHookAdapterTests
 
         var timeProvider = new FakeTimeProvider();
 
-        var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(globalHookType, provider), timeProvider);
+        var hook = new R3GlobalHookAdapter(
+            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
+            timeProvider);
 
         this.RunHookAndWaitForStart(hook, provider);
 

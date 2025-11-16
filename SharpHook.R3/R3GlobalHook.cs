@@ -26,8 +26,8 @@ public sealed class R3GlobalHook : BasicGlobalHookBase, IR3GlobalHook
     /// </summary>
     /// <param name="globalHookType">The global hook type.</param>
     /// <param name="defaultTimeProvider">
-    /// The default time provider for observables, or <see langword="null" /> to use the default one (as defined in
-    /// <see cref="ObservableSystem.DefaultTimeProvider" />).
+    /// The default time provider for observables, or <see langword="null" /> to use the default one as defined in
+    /// <see cref="ObservableSystem.DefaultTimeProvider" />.
     /// </param>
     /// <param name="globalHookProvider">
     /// The underlying global hook provider, or <see langword="null" /> to use the default one.

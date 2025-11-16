@@ -33,8 +33,8 @@ public sealed class R3GlobalHookAdapter : IGlobalHook, IR3GlobalHook
     /// </summary>
     /// <param name="hook">The hook to adapt.</param>
     /// <param name="defaultTimeProvider">
-    /// The default time provider for observables, or <see langword="null" /> to use the default one
-    /// (as defined in <see cref="ObservableSystem.DefaultTimeProvider" />).
+    /// The default time provider for observables, or <see langword="null" /> to use the default one as defined in
+    /// <see cref="ObservableSystem.DefaultTimeProvider" />.
     /// </param>
     public R3GlobalHookAdapter(IGlobalHook hook, TimeProvider? defaultTimeProvider = null)
     {

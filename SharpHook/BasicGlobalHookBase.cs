@@ -71,8 +71,8 @@ public abstract class BasicGlobalHookBase : IBasicGlobalHook
     public bool IsDisposed { get; private set; }
 
     /// <summary>
-    /// Runs the global hook on the current thread, blocking it. The hook can be stopped temporarily by calling the
-    /// <see cref="Stop" /> method or stopped permanently by calling the <see cref="Dispose()" /> method.
+    /// Runs the global hook on the current thread, blocking it. The hook can be stopped temporarily by calling
+    /// <see cref="Stop" /> or stopped permanently by calling <see cref="Dispose()" />.
     /// </summary>
     /// <exception cref="HookException">Starting the global hook has failed.</exception>
     /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
@@ -110,8 +110,8 @@ public abstract class BasicGlobalHookBase : IBasicGlobalHook
     }
 
     /// <summary>
-    /// Runs the global hook without blocking the current thread. The hook can be stopped temporarily by calling the
-    /// <see cref="Stop" /> method or stopped permanently by calling the <see cref="Dispose()" /> method.
+    /// Runs the global hook without blocking the current thread. The hook can be stopped temporarily by calling
+    /// <see cref="Stop" /> or stopped permanently by calling <see cref="Dispose()" />.
     /// </summary>
     /// <returns>A <see cref="Task" /> which finishes when the hook is stopped or disposed.</returns>
     /// <exception cref="HookException">Starting the global hook has failed.</exception>

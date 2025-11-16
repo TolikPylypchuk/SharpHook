@@ -8,7 +8,7 @@ public sealed class EventLoopGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new EventLoopGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        var hook = new EventLoopGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         // Act + Assert
 
@@ -33,7 +33,7 @@ public sealed class EventLoopGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new EventLoopGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        var hook = new EventLoopGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         // Act + Assert
 
@@ -55,7 +55,7 @@ public sealed class EventLoopGlobalHookTests
             EventMask = t => mask
         };
 
-        var hook = new EventLoopGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        var hook = new EventLoopGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         object? actualSender = null;
         HookEventArgs? actualEventArgs = null;
@@ -95,7 +95,7 @@ public sealed class EventLoopGlobalHookTests
             EventMask = t => mask
         };
 
-        var hook = new EventLoopGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        var hook = new EventLoopGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         object? actualSender = null;
         HookEventArgs? actualEventArgs = null;
@@ -136,7 +136,7 @@ public sealed class EventLoopGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new EventLoopGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        using var hook = new EventLoopGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         var e = new UioHookEvent
         {
@@ -206,7 +206,7 @@ public sealed class EventLoopGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new EventLoopGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        using var hook = new EventLoopGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         var e = new UioHookEvent
         {
@@ -277,7 +277,7 @@ public sealed class EventLoopGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new EventLoopGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        using var hook = new EventLoopGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         var e = new UioHookEvent
         {
@@ -349,7 +349,7 @@ public sealed class EventLoopGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new EventLoopGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        using var hook = new EventLoopGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         var e = new UioHookEvent
         {
@@ -423,7 +423,7 @@ public sealed class EventLoopGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new EventLoopGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        using var hook = new EventLoopGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         var e = new UioHookEvent
         {
@@ -497,7 +497,7 @@ public sealed class EventLoopGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new EventLoopGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        using var hook = new EventLoopGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         var e = new UioHookEvent
         {
@@ -569,7 +569,7 @@ public sealed class EventLoopGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new EventLoopGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        using var hook = new EventLoopGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         var e = new UioHookEvent
         {
@@ -637,7 +637,7 @@ public sealed class EventLoopGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new EventLoopGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        using var hook = new EventLoopGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         var e = new UioHookEvent
         {
@@ -709,7 +709,7 @@ public sealed class EventLoopGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new EventLoopGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        using var hook = new EventLoopGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         var e = new UioHookEvent
         {
@@ -784,7 +784,7 @@ public sealed class EventLoopGlobalHookTests
             RunResult = result.Value
         };
 
-        var hook = new EventLoopGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        using var hook = new EventLoopGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         // Act + Assert
 
@@ -802,7 +802,7 @@ public sealed class EventLoopGlobalHookTests
             RunResult = result.Value
         };
 
-        var hook = new EventLoopGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        using var hook = new EventLoopGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         // Act + Assert
 
@@ -816,7 +816,7 @@ public sealed class EventLoopGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new EventLoopGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        using var hook = new EventLoopGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         this.RunHookAndWaitForStart(hook, provider);
 
@@ -831,7 +831,7 @@ public sealed class EventLoopGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new EventLoopGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        using var hook = new EventLoopGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         this.RunHookAndWaitForStart(hook, provider);
 
@@ -845,7 +845,7 @@ public sealed class EventLoopGlobalHookTests
     {
         // Arrange
 
-        var hook = new SimpleGlobalHook(globalHookType);
+        var hook = new EventLoopGlobalHook(globalHookType);
         hook.Dispose();
 
         // Act + Assert
@@ -858,7 +858,7 @@ public sealed class EventLoopGlobalHookTests
     {
         // Arrange
 
-        var hook = new SimpleGlobalHook(globalHookType);
+        var hook = new EventLoopGlobalHook(globalHookType);
         hook.Dispose();
 
         // Act + Assert
@@ -876,7 +876,7 @@ public sealed class EventLoopGlobalHookTests
             StopResult = result.Value
         };
 
-        var hook = new EventLoopGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        var hook = new EventLoopGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         this.RunHookAndWaitForStart(hook, provider);
 
@@ -884,6 +884,11 @@ public sealed class EventLoopGlobalHookTests
 
         var exception = Assert.Throws<HookException>(hook.Stop);
         Assert.Equal(result.Value, exception.Result);
+
+        // Clean up
+
+        provider.StopResult = UioHookResult.Success;
+        this.DisposeHookAndWaitForStop(hook);
     }
 
     [Property(DisplayName = "Stop should throw if the hook is disposed")]
@@ -891,7 +896,7 @@ public sealed class EventLoopGlobalHookTests
     {
         // Arrange
 
-        var hook = new EventLoopGlobalHook(globalHookType: globalHookType);
+        var hook = new EventLoopGlobalHook(globalHookType);
         hook.Dispose();
 
         // Act + Assert
@@ -909,7 +914,7 @@ public sealed class EventLoopGlobalHookTests
             StopResult = result.Value
         };
 
-        var hook = new EventLoopGlobalHook(globalHookType: globalHookType, globalHookProvider: provider);
+        var hook = new EventLoopGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         this.RunHookAndWaitForStart(hook, provider);
 
@@ -939,8 +944,7 @@ public sealed class EventLoopGlobalHookTests
     [Property(DisplayName = "EventLoopGlobalHook should not throw if the provider is null")]
     public void ProviderNull(GlobalHookType globalHookType)
     {
-        var exception = Record.Exception(() =>
-            new EventLoopGlobalHook(globalHookType: globalHookType, globalHookProvider: null));
+        var exception = Record.Exception(() => new EventLoopGlobalHook(globalHookType, globalHookProvider: null));
 
         Assert.Null(exception);
     }

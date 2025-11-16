@@ -8,7 +8,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new SimpleGlobalHook(globalHookType, provider);
+        var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         // Act + Assert
 
@@ -33,7 +33,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new SimpleGlobalHook(globalHookType, provider);
+        var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         // Act + Assert
 
@@ -55,7 +55,7 @@ public sealed class SimpleGlobalHookTests
             EventMask = t => mask
         };
 
-        var hook = new SimpleGlobalHook(globalHookType, provider);
+        var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         object? actualSender = null;
         HookEventArgs? actualEventArgs = null;
@@ -95,7 +95,7 @@ public sealed class SimpleGlobalHookTests
             EventMask = t => mask
         };
 
-        var hook = new SimpleGlobalHook(globalHookType, provider);
+        var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         object? actualSender = null;
         HookEventArgs? actualEventArgs = null;
@@ -136,7 +136,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(globalHookType, provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         var e = new UioHookEvent
         {
@@ -198,7 +198,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(globalHookType, provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         var e = new UioHookEvent
         {
@@ -261,7 +261,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(globalHookType, provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         var e = new UioHookEvent
         {
@@ -325,7 +325,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(globalHookType, provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         var e = new UioHookEvent
         {
@@ -391,7 +391,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(globalHookType, provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         var e = new UioHookEvent
         {
@@ -457,7 +457,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(globalHookType, provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         var e = new UioHookEvent
         {
@@ -521,7 +521,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(globalHookType, provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         var e = new UioHookEvent
         {
@@ -581,7 +581,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(globalHookType, provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         var e = new UioHookEvent
         {
@@ -645,7 +645,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(globalHookType, provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         var e = new UioHookEvent
         {
@@ -712,7 +712,7 @@ public sealed class SimpleGlobalHookTests
             RunResult = result.Value
         };
 
-        var hook = new SimpleGlobalHook(globalHookType, provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         // Act + Assert
 
@@ -730,7 +730,7 @@ public sealed class SimpleGlobalHookTests
             RunResult = result.Value
         };
 
-        var hook = new SimpleGlobalHook(globalHookType, provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         // Act + Assert
 
@@ -744,7 +744,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(globalHookType, provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         this.RunHookAndWaitForStart(hook, provider);
 
@@ -759,7 +759,7 @@ public sealed class SimpleGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new SimpleGlobalHook(globalHookType, provider);
+        using var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         this.RunHookAndWaitForStart(hook, provider);
 
@@ -804,7 +804,7 @@ public sealed class SimpleGlobalHookTests
             StopResult = result.Value
         };
 
-        var hook = new SimpleGlobalHook(globalHookType, provider);
+        var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         this.RunHookAndWaitForStart(hook, provider);
 
@@ -812,6 +812,11 @@ public sealed class SimpleGlobalHookTests
 
         var exception = Assert.Throws<HookException>(hook.Stop);
         Assert.Equal(result.Value, exception.Result);
+
+        // Clean up
+
+        provider.StopResult = UioHookResult.Success;
+        this.DisposeHookAndWaitForStop(hook);
     }
 
     [Property(DisplayName = "Stop should throw if the hook is disposed")]
@@ -837,7 +842,7 @@ public sealed class SimpleGlobalHookTests
             StopResult = result.Value
         };
 
-        var hook = new SimpleGlobalHook(globalHookType, provider);
+        var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
         this.RunHookAndWaitForStart(hook, provider);
 
