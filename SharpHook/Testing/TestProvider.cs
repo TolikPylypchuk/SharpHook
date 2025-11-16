@@ -55,7 +55,7 @@ public sealed class TestProvider :
     public TestThreadingMode ThreadingMode { get; }
 
     /// <summary>
-    /// Gets the events that have been posted using <see cref="PostEvent(ref UioHookEvent)" />.
+    /// Gets the events that have been posted using <see cref="PostEvent" /> or <see cref="PostEvents" />.
     /// </summary>
     public IReadOnlyList<UioHookEvent> PostedEvents =>
         this.postedEvents.AsReadOnly();

@@ -53,7 +53,7 @@ public static class EventSimulationExtensions
         /// <remarks>
         /// As an example, if the method is called with the following parameters:
         /// <code>
-        /// builder.AddKeyStroke(KeyCode.VcLeftControl, KeyCode.VcC);
+        /// builder.AddKeyStroke([KeyCode.VcLeftControl, KeyCode.VcC]);
         /// </code>
         /// then this will be equivalent to calling the following method sequence:
         /// <code>
@@ -107,7 +107,7 @@ public static class EventSimulationExtensions
         /// <remarks>
         /// As an example, if the method is called with the following parameters:
         /// <code>
-        /// simulator.SimulateKeyStroke(KeyCode.VcLeftControl, KeyCode.VcC);
+        /// simulator.SimulateKeyStroke([KeyCode.VcLeftControl, KeyCode.VcC]);
         /// </code>
         /// then this will be equivalent to calling the following method sequence:
         /// <code>

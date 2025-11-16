@@ -1959,7 +1959,7 @@
             <remarks>
             As an example, if the method is called with the following parameters:
             <code>
-            builder.AddKeyStroke(KeyCode.VcLeftControl, KeyCode.VcC);
+            builder.AddKeyStroke([KeyCode.VcLeftControl, KeyCode.VcC]);
             </code>
             then this will be equivalent to calling the following method sequence:
             <code>
@@ -2006,7 +2006,7 @@
             <remarks>
             As an example, if the method is called with the following parameters:
             <code>
-            simulator.SimulateKeyStroke(KeyCode.VcLeftControl, KeyCode.VcC);
+            simulator.SimulateKeyStroke([KeyCode.VcLeftControl, KeyCode.VcC]);
             </code>
             then this will be equivalent to calling the following method sequence:
             <code>
@@ -5379,7 +5379,7 @@
         </member>
         <member name="P:SharpHook.Testing.TestProvider.PostedEvents">
             <summary>
-            Gets the events that have been posted using <see cref="M:SharpHook.Testing.TestProvider.PostEvent(SharpHook.Data.UioHookEvent@)" />.
+            Gets the events that have been posted using <see cref="M:SharpHook.Testing.TestProvider.PostEvent(SharpHook.Data.UioHookEvent@)" /> or <see cref="M:SharpHook.Testing.TestProvider.PostEvents(SharpHook.Data.UioHookEvent[],System.UInt32)" />.
             </summary>
         </member>
         <member name="P:SharpHook.Testing.TestProvider.SuppressedEvents">
