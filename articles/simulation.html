@@ -90,10 +90,11 @@
 <p>SharpHook provides the ability to simulate keyboard and mouse events, as well as text entry, in a cross-platform way as
 well. It provides the <code>IEventSimulator</code> interface, and the default implementation, <code>EventSimulator</code>, which calls
 <code>UioHook.PostEvent</code> to simulate the events by default (though it's configurable). The methods in this interface return
-a <code>UioHookResult</code> to specify whether the event was simulated successfully, or not.</p>
+a <code>UioHookResult</code> to specify whether the events were simulated successfully or not.</p>
 <p>Simulated events can be distinguished from real ones in a global hook handler with the <code>HookEventArgs.IsEventSimulated</code>
 property.</p>
 <h2 id="event-simulation">Event Simulation</h2>
+<h3 id="example">Example</h3>
 <p>Input event simulation is quite straightforward. Here's a quick example:</p>
 <pre><code class="lang-csharp">using SharpHook;
 using SharpHook.Data;
@@ -109,6 +110,9 @@ simulator.SimulateKeyPress(KeyCode.VcC);
 // Release Ctrl+C
 simulator.SimulateKeyRelease(KeyCode.VcC);
 simulator.SimulateKeyRelease(KeyCode.VcLeftControl);
+
+// Simulate pressing Ctrl, then pressing C, then releasing C, then releasing Ctrl
+simulator.SimulateKeyStroke(KeyCode.VcLeftControl, KeyCode.VcC);
 
 // Press the left mouse button
 simulator.SimulateMousePress(MouseButton.Button1);
@@ -134,6 +138,7 @@ simulator.SimulateMouseWheel(
     direction: MouseWheelScrollDirection.Vertical, // Vertical by default
     type: MouseWheelScrollType.UnitScroll); // UnitScroll by default
 </code></pre>
+<h3 id="mouse-wheel-simulation">Mouse Wheel Simulation</h3>
 <p>Mouse wheel simulation is a little more complex than other events.</p>
 <p>A positive <code>rotation</code> value indicates scrolling up or left, and a negative value indicates scrolling down or right.</p>
 <p>On Windows, the value 120 represents the default wheel step. As such, multiples of 120 can be used as the rotation value,
@@ -141,6 +146,49 @@ but it's not required. The value of <code>type</code> is ignored.</p>
 <p>On macOS, it's recommended to use values between -10 and 10. This will result in quite a small scroll amount with pixel
 scrolling, so <code>MouseWheelScrollType.BlockScroll</code> is recommended for line scrolling instead of pixel scrolling.</p>
 <p>On Linux, there is no fixed recommendation, but multiples of 100 can be used. The value of <code>type</code> is ignored.</p>
+<h3 id="simulating-a-sequence-of-events">Simulating a Sequence of Events</h3>
+<p><code>IEventSimulator</code> contains the <code>Sequence</code> method which returns an <code>IEventSimulationSequenceBuilder</code>. This object can be
+used to build a sequence of events that will be simulated together. If contains several methods like <code>AddKeyPress</code> and
+<code>AddMouseMovement</code> which add specific events to the sequence. It also contains general-purpose methods: <code>AddEvent</code> and
+<code>AddEvents</code> which can add any event, as well as <code>RemoveEvent</code> and <code>RemoveEvents</code> which remove specific events from the
+sequence. The events can be simulated using the <code>Simulate</code> method. For example:</p>
+<pre><code class="lang-csharp">simulator.Sequence()
+    .AddMouseMovementRelative(20, 20)
+    .AddMousePress(MouseButton.Button1)
+    .AddMouseRelease(MouseButton.Button1)
+    .AddMouseMovementRelative(-20, -20)
+    .Simulate();
+</code></pre>
+<p>Using <code>Sequence</code> should be preferred to multiple calls to various <code>SimulateXXX</code> when simulating multiple events. On
+Windows, all events will be simulated using a single Windows API call. On macOS and Linux, each event will be simulated
+one-by-one, but it's still slightly more efficient than multiple <code>PostEvent</code> calls as some structures will only be
+initialized once for all events. <code>IEventSimulationSequenceBuilder.Simulate</code> also returns <code>UioHookResult</code> to indicate
+whether it was successful or not. On Windows, either all events are simulated, or none are. On macOS and Linux, if a
+failure occurs in the middle of the simulation sequence, then further events will not be simulated.</p>
+<p><code>IEventSimulationSequenceBuilder</code> also contains the <code>CreateTemplate</code> method which returns an
+<code>IEventSimulationSequenceTemplate</code>. This object represents an immutable template for simulating a predetermined sequence
+of events and contains only a single method - <code>Simulate</code>. For example:</p>
+<pre><code class="lang-csharp">var diagonalScrollTemplate = simulator.Sequence()
+    .AddMouseWheel(rotation: -120, direction: MouseWheelScrollDirection.Vertical)
+    .AddMouseWheel(rotation: -120, direction: MouseWheelScrollDirection.Horizontal)
+    .CreateTemplate();
+
+diagonalScrollTemplate.Simulate();
+diagonalScrollTemplate.Simulate();
+diagonalScrollTemplate.Simulate();
+</code></pre>
+<p><code>IEventSimulationSequenceBuilder</code> has the <code>AddKeyStroke</code> extension method which adds a sequence of key presses and a
+reversed sequence of key releases. For example, these two snippets will have equivalent results:</p>
+<pre><code class="lang-csharp">builder.AddKeyStroke(KeyCode.VcLeftControl, KeyCode.VcC);
+</code></pre>
+<pre><code class="lang-csharp">builder
+    .AddKeyPress(KeyCode.VcLeftControl)
+    .AddKeyPress(KeyCode.VcC)
+    .AddKeyRelease(KeyCode.VcC)
+    .AddKeyRelease(KeyCode.VcLeftControl);
+</code></pre>
+<p><code>IEventSimulator</code> has the <code>SimulateKeyStroke</code> extension method which creates a sequence builder, calls <code>AddKeyStroke</code>
+for it, and simulates this sequence of events.</p>
 <h2 id="text-entry-simulation">Text Entry Simulation</h2>
 <p>SharpHook also provides text entry simulation. <code>IEventSimulator</code> contains the <code>SimulateTextEntry</code> method which accepts
 a <code>string</code>. The text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16 (including

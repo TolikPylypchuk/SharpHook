@@ -95,7 +95,7 @@ I'm not giving up on this library any time soon.</p>
 <p>In order to build this library, you'll first need to get libuiohook binaries. You you can get a
 <a href="https://github.com/TolikPylypchuk/SharpHook/actions/workflows/build.yml">nightly build from this repository</a>, or you
 can build them yourself as instructed in the <a href="https://github.com/TolikPylypchuk/libuiohook">libuiohook fork</a> that
-SharpHook uses (not recommended as it's non-trivial, and you should most probably use the same options that the build in
+SharpHook uses (not recommended as it's non-trivial and you should most probably use the same options that the build in
 this repository uses anyway).</p>
 <p>Place the binaries into the appropriate directories in the <code>SharpHook</code> project, as described in the following table:</p>
 <table>
@@ -131,8 +131,35 @@ this repository uses anyway).</p>
   </tr>
 </table>
 <p>With libuiohook in place, you can build SharpHook using your usual methods, e.g. with Visual Studio or the <code>dotnet</code> CLI.
-You need .NET 9 to build SharpHook.</p>
+You need .NET 10 with the <code>maccatalyst</code> workload to build SharpHook. If you are building on Linux where the
+<code>maccatalyst</code> workload is not supported, or if you don't want to install this workload, you can set the
+<code>SHARPHOOK_SKIP_MACCATALYST</code> environment variable to anything other than <code>false</code> (case-insensitive), and the Mac
+Catalyst targets will be skipped.</p>
 <h2 id="changelog">Changelog</h2>
+<h3 id="v710-november-16-2025"><a href="https://github.com/TolikPylypchuk/SharpHook/releases/tag/v7.1.0">v7.1.0</a> (November 16, 2025)</h3>
+<ul>
+<li><p>A sequence of events can now be simulated together using <code>IEventSimulator.Sequence</code>,
+<code>IEventSimulationSequenceBuilder</code>, and <code>IEventSimulationSequenceTemplate</code>.</p>
+</li>
+<li><p>When simulating mouse wheel events on Windows, the rotation value is not flipped anymore if the scrolling direction is
+reversed in settings.</p>
+</li>
+<li><p><code>KeyCode.VcKanji</code> and <code>KeyCode.VcHangul</code> were marked as obsolete - instead, <code>KeyCode.VcHanja</code> and <code>KeyCode.VcKana</code>
+should be used respectively.</p>
+</li>
+<li><p>.NET 10 was added as a target.</p>
+</li>
+<li><p><code>net8.0-maccatalyst</code> was removed as a target since .NET refuses to compile the project if it's present.</p>
+</li>
+<li><p>SharpHook.Reactive now depends on Rx.NET 6.1.0.</p>
+</li>
+<li><p>The Mac Catalyst targets can now be conditionally skipped when building SharpHook which makes it possible to build it
+on Linux.</p>
+</li>
+<li><p>libuiohook was updated to commit
+<a href="https://github.com/TolikPylypchuk/libuiohook/tree/57a8f17cb4ec78bb6a33ea1668fa87ebedcefac7">57a8f17</a>.</p>
+</li>
+</ul>
 <h3 id="v703-october-5-2025"><a href="https://github.com/TolikPylypchuk/SharpHook/releases/tag/v7.0.3">v7.0.3</a> (October 5, 2025)</h3>
 <ul>
 <li><p>Mouse button release events for button 4 and 5 are now correctly dispatched on macOS.</p>
