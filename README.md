@@ -328,6 +328,9 @@ simulator.SimulateKeyPress(KeyCode.VcC);
 simulator.SimulateKeyRelease(KeyCode.VcC);
 simulator.SimulateKeyRelease(KeyCode.VcLeftControl);
 
+// Simulate pressing Ctrl, then pressing C, then releasing C, then releasing Ctrl
+simulator.SimulateKeyStroke(KeyCode.VcLeftControl, KeyCode.VcC);
+
 // Press the left mouse button
 simulator.SimulateMousePress(MouseButton.Button1);
 

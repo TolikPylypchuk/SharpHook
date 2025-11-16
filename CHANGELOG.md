@@ -1,5 +1,28 @@
 # SharpHook Changelog
 
+## [v7.1.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v7.1.0) (November 16, 2025)
+
+- A sequence of events can now be simulated together using `IEventSimulator.Sequence`,
+`IEventSimulationSequenceBuilder`, and `IEventSimulationSequenceTemplate`.
+
+- When simulating mouse wheel events on Windows, the rotation value is not flipped anymore if the scrolling direction is
+reversed in settings.
+
+- `KeyCode.VcKanji` and `KeyCode.VcHangul` were marked as obsolete - instead, `KeyCode.VcHanja` and `KeyCode.VcKana`
+should be used respectively.
+
+- .NET 10 was added as a target.
+
+- `net8.0-maccatalyst` was removed as a target since .NET refuses to compile the project if it's present.
+
+- SharpHook.Reactive now depends on Rx.NET 6.1.0.
+
+- The Mac Catalyst targets can now be conditionally skipped when building SharpHook which makes it possible to build it
+on Linux.
+
+- libuiohook was updated to commit
+[57a8f17](https://github.com/TolikPylypchuk/libuiohook/tree/57a8f17cb4ec78bb6a33ea1668fa87ebedcefac7).
+
 ## [v7.0.3](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v7.0.3) (October 5, 2025)
 
 - Mouse button release events for button 4 and 5 are now correctly dispatched on macOS.

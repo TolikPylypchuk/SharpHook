@@ -108,11 +108,18 @@ contains the `KeyTypedEnabled` property which can also be used to control this b
 ## Simulating Input Events
 
 `UioHook` contains the `PostEvent` method for simulating input events. It accepts a `UioHookEvent`, but it doesn't need
-all its fields. Only `Type` and `Keyboard`/`Mouse`/`Wheel` should be present.
+all its fields. Only `Type` and `Keyboard`/`Mouse`/`Wheel` should be present. `PostEvent` returns `UioHookResult` to
+indicate whether it was successful or not.
 
-`PostEvent` returns `UioHookResult` to indicate whether it was successful or not.
+`UioHook` also contains the `PostEvents` method for simulating sequences of input events. It accepts an array of
+`UioHookEvent` and its size. This method should be preferred to multiple calls to `PostEvent` when simulating multiple
+events. On Windows, it simulates all events using a single Windows API call. On macOS and Linux, it simulates each event
+one-by-one, but it's still slightly more efficient than multiple `PostEvent` calls as some structures are only
+initialized once for all events. `PostEvent` also returns `UioHookResult` to indicate whether it was successful or not.
+On Windows, either all events are simulated, or none are. On macOS and Linux, if a failure occurs in the middle of the
+simulation sequence, then further events will not be simulated.
 
-This method is also defined in the `SharpHook.Providers.IEventSimulationProvider` interface.
+These methods are also defined in the `SharpHook.Providers.IEventSimulationProvider` interface.
 
 The following table describes the specifics of simulating each event type.
 
