@@ -589,7 +589,7 @@ jobs:
         shell: pwsh
         run: |
           cd SharpHook.Tests
-          dotnet test --no-build --nologo -c Release
+          dotnet test --no-build -c Release
 
       - name: Pack SharpHook
         shell: pwsh
