@@ -573,41 +573,23 @@ jobs:
       - name: Build SharpHook
         shell: pwsh
         run: |
-          cd SharpHook
-          dotnet build --nologo -c Release /p:ContinuousIntegrationBuild=true
-
-          cd ..\SharpHook.R3
-          dotnet build --nologo -c Release /p:ContinuousIntegrationBuild=true
-
-          cd ..\SharpHook.Reactive
-          dotnet build --nologo -c Release /p:ContinuousIntegrationBuild=true
-
-          cd ..\SharpHook.Tests
           dotnet build --nologo -c Release /p:ContinuousIntegrationBuild=true
 
       - name: Test SharpHook
         shell: pwsh
         run: |
-          cd SharpHook.Tests
           dotnet test --no-build -c Release
 
       - name: Pack SharpHook
         shell: pwsh
         run: |
-          cd SharpHook
-          dotnet pack --no-build --nologo -c Release -o ${{github.workspace}}\build\
-
-          cd ..\SharpHook.R3
-          dotnet pack --no-build --nologo -c Release -o ${{github.workspace}}\build\
-
-          cd ..\SharpHook.Reactive
-          dotnet pack --no-build --nologo -c Release -o ${{github.workspace}}\build\
+          dotnet pack --no-build --nologo -c Release -o ${{github.workspace}}\artifacts\packages\
 
       - name: Upload SharpHook
         uses: actions/upload-artifact@v6
         with:
           name: sharphook-build
-          path: ${{github.workspace}}\build\*
+          path: ${{github.workspace}}\artifacts\packages\*
 
       - name: Build Docs
         shell: pwsh

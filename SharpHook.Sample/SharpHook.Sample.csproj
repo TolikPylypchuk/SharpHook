@@ -4,6 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFrameworks></TargetFrameworks>
     <TargetFramework>net10.0</TargetFramework>
+    <IsPackable>false</IsPackable>
     <PublishTrimmed>true</PublishTrimmed>
     <TrimmerDefaultAction>link</TrimmerDefaultAction>
     <ApplicationManifest>app.manifest</ApplicationManifest>
