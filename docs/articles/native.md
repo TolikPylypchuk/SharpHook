@@ -102,8 +102,9 @@ thread which handles the event. Supressing events works only on Windows and macO
 Events of type `KeyTyped` can be disabled using the `UioHook.SetKeyTypedEnabled` method. It is recommended to disable
 them if your application doesn't use them as these events may cause slight system-wide side effects. More information
 can be found in [an article on OS-specific constraints](os-constraints.md). `UioHook.IsKeyTypedEnabled` can be used to
-query whether `KeyTyped` events are enabled. By default they are enabled. `SharpHook.Providers.IGlobalHookProvider`
-contains the `KeyTypedEnabled` property which can also be used to control this behaviour.
+query whether `KeyTyped` events are enabled. By default they are enabled, but will be disabled in a future version.
+`SharpHook.Providers.IGlobalHookProvider` contains the `KeyTypedEnabled` property which can also be used to control this
+behaviour.
 
 ## Simulating Input Events
 

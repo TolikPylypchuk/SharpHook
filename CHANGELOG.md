@@ -1,5 +1,12 @@
 # SharpHook Changelog
 
+## [v7.1.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v7.1.1) (December 30, 2025)
+
+- On Linux, event time is now a UNIX timestamp, as it was supposed to be.
+
+- libuiohook was updated to commit
+[9a521b3](https://github.com/TolikPylypchuk/libuiohook/tree/9a521b350aa447e3849178a9cd1d1c04d8a3843b).
+
 ## [v7.1.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v7.1.0) (November 16, 2025)
 
 - A sequence of events can now be simulated together using `IEventSimulator.Sequence`,

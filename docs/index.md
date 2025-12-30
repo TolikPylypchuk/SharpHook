@@ -9,6 +9,7 @@ features as well as higher-level types to work with it.
 ```
 dotnet add package SharpHook
 dotnet add package SharpHook.Reactive
+dotnet add package SharpHook.R3
 ```
 
 ## Supported Platforms

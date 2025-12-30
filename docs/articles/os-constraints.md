@@ -2,6 +2,10 @@
 
 This article describes OS-specific constrains and other things that should be noted about OS support.
 
+> [!NOTE]
+> Support for versions of the OSes that are out of official support will be provided on a best-effort basis only and
+> some issues that only affect older versions might not be fixed.
+
 ## Windows
 
 ### Supported Versions

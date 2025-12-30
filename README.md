@@ -76,6 +76,10 @@ API be enabled for the application if it wants to create a global hook or simula
 [not supported](https://github.com/dotnet/runtime/issues/7335) by .NET itself. Only X11 is supported – Wayland support
 [may be coming](https://github.com/kwhat/libuiohook/issues/196), but it's not yet here.
 
+> [!NOTE]
+> Support for versions of the OSes that are out of official support will be provided on a best-effort basis only and
+> some issues that only affect older versions might not be fixed.
+
 More info on OS support can be found in
 [an article on OS-specific constraints](https://sharphook.tolik.io/articles/os-constraints.html).
 
@@ -125,8 +129,10 @@ hook and subscribe to its events. Here's a basic usage example:
 
 ```csharp
 using SharpHook;
+using SharpHook.Providers;
 
-// ...
+// KeyTyped events may cause system-wide side effects, so they should be disabled if unused.
+UioHookProvider.Instance.KeyTypedEnabled = false; // or true
 
 var hook = new EventLoopGlobalHook();
 

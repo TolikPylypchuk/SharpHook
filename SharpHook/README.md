@@ -48,8 +48,10 @@ hook and subscribe to its events. Here's a basic usage example:
 
 ```csharp
 using SharpHook;
+using SharpHook.Providers;
 
-// ...
+// KeyTyped events may cause system-wide side effects, so they should be disabled if unused.
+UioHookProvider.Instance.KeyTypedEnabled = false; // or true
 
 var hook = new EventLoopGlobalHook();
 
