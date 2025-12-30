@@ -851,7 +851,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Reactive.IReactiveGlobalHook",
-      "Summary": "<p sourcefile=\"api/SharpHook.Reactive.IReactiveGlobalHook.yml\" sourcestartlinenumber=\"1\">Represents a reactive global keyboard and mouse hook.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -865,7 +865,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Reactive.Logging.IReactiveLogSource",
-      "Summary": "<p sourcefile=\"api/SharpHook.Reactive.Logging.IReactiveLogSource.yml\" sourcestartlinenumber=\"1\">Represents a reactive source of libuiohook logs.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -879,7 +879,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Reactive.Logging.ReactiveLogSourceAdapter",
-      "Summary": "<p sourcefile=\"api/SharpHook.Reactive.Logging.ReactiveLogSourceAdapter.yml\" sourcestartlinenumber=\"1\">Adapts an <xref href=\"SharpHook.Logging.ILogSource\" data-throw-if-not-resolved=\"false\"></xref> to the <xref href=\"SharpHook.Reactive.Logging.IReactiveLogSource\" data-throw-if-not-resolved=\"false\"></xref> interface.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -907,7 +907,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Reactive.ReactiveGlobalHook",
-      "Summary": "<p sourcefile=\"api/SharpHook.Reactive.ReactiveGlobalHook.yml\" sourcestartlinenumber=\"1\">Represents a reactive global keyboard and mouse hook.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -921,7 +921,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Reactive.ReactiveGlobalHookAdapter",
-      "Summary": "<p sourcefile=\"api/SharpHook.Reactive.ReactiveGlobalHookAdapter.yml\" sourcestartlinenumber=\"1\">Adapts an <xref href=\"SharpHook.IGlobalHook\" data-throw-if-not-resolved=\"false\"></xref> to the <xref href=\"SharpHook.Reactive.IReactiveGlobalHook\" data-throw-if-not-resolved=\"false\"></xref> interface.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
