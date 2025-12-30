@@ -177,8 +177,9 @@ suppressing them has no effect.</p>
 <p>Events of type <code>KeyTyped</code> can be disabled using the <code>UioHook.SetKeyTypedEnabled</code> method. It is recommended to disable
 them if your application doesn't use them as these events may cause slight system-wide side effects. More information
 can be found in <a href="os-constraints.html">an article on OS-specific constraints</a>. <code>UioHook.IsKeyTypedEnabled</code> can be used to
-query whether <code>KeyTyped</code> events are enabled. By default they are enabled. <code>SharpHook.Providers.IGlobalHookProvider</code>
-contains the <code>KeyTypedEnabled</code> property which can also be used to control this behaviour.</p>
+query whether <code>KeyTyped</code> events are enabled. By default they are enabled, but will be disabled in a future version.
+<code>SharpHook.Providers.IGlobalHookProvider</code> contains the <code>KeyTypedEnabled</code> property which can also be used to control this
+behaviour.</p>
 <h2 id="simulating-input-events">Simulating Input Events</h2>
 <p><code>UioHook</code> contains the <code>PostEvent</code> method for simulating input events. It accepts a <code>UioHookEvent</code>, but it doesn't need
 all its fields. Only <code>Type</code> and <code>Keyboard</code>/<code>Mouse</code>/<code>Wheel</code> should be present. <code>PostEvent</code> returns <code>UioHookResult</code> to

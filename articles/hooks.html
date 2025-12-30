@@ -92,8 +92,10 @@
 control the hook and subscribe to its events. This way is preferred to using native functions since it's more
 convenient. Here's a basic usage example:</p>
 <pre><code class="lang-csharp">using SharpHook;
+using SharpHook.Providers;
 
-// ...
+// KeyTyped events may cause system-wide side effects, so they should be disabled if unused.
+UioHookProvider.Instance.KeyTypedEnabled = false; // or true
 
 var hook = new EventLoopGlobalHook();
 

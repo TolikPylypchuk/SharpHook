@@ -136,6 +136,14 @@ You need .NET 10 with the <code>maccatalyst</code> workload to build SharpHook. 
 <code>SHARPHOOK_SKIP_MACCATALYST</code> environment variable to anything other than <code>false</code> (case-insensitive), and the Mac
 Catalyst targets will be skipped.</p>
 <h2 id="changelog">Changelog</h2>
+<h3 id="v711-december-30-2025"><a href="https://github.com/TolikPylypchuk/SharpHook/releases/tag/v7.1.1">v7.1.1</a> (December 30, 2025)</h3>
+<ul>
+<li><p>On Linux, event time is now a UNIX timestamp, as it was supposed to be.</p>
+</li>
+<li><p>libuiohook was updated to commit
+<a href="https://github.com/TolikPylypchuk/libuiohook/tree/9a521b350aa447e3849178a9cd1d1c04d8a3843b">9a521b3</a>.</p>
+</li>
+</ul>
 <h3 id="v710-november-16-2025"><a href="https://github.com/TolikPylypchuk/SharpHook/releases/tag/v7.1.0">v7.1.0</a> (November 16, 2025)</h3>
 <ul>
 <li><p>A sequence of events can now be simulated together using <code>IEventSimulator.Sequence</code>,
