@@ -22,7 +22,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Version>7.1.0</Version>
+    <Version>7.1.1</Version>
     <Authors>Tolik Pylypchuk</Authors>
     <Company>Tolik Pylypchuk</Company>
     <Product>SharpHook</Product>
