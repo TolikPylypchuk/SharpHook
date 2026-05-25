@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class ReactiveGlobalHookAdapter | SharpHook ">
       
-      
+      <meta name="description" content="Adapts an  to the  interface.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="SharpHook_Reactive_ReactiveGlobalHookAdapter" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter" class="text-break">
-Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
+Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,8 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
   <dl><dt>Assembly</dt><dd>SharpHook.Reactive.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Adapts an <a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a> to the <a class="xref" href="SharpHook.Reactive.IReactiveGlobalHook.html">IReactiveGlobalHook</a> interface.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -162,10 +163,11 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h3 id="SharpHook_Reactive_ReactiveGlobalHookAdapter__ctor_SharpHook_IGlobalHook_System_Reactive_Concurrency_IScheduler_" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.#ctor(SharpHook.IGlobalHook,System.Reactive.Concurrency.IScheduler)">
   ReactiveGlobalHookAdapter(IGlobalHook, IScheduler?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.Reactive.ReactiveGlobalHookAdapter.html">ReactiveGlobalHookAdapter</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -175,9 +177,12 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>hook</code> <a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a></dt>
-    <dd></dd>
+    <dd><p>The hook to adapt.</p>
+</dd>
     <dt><code>defaultScheduler</code> <span class="xref">IScheduler</span></dt>
-    <dd></dd>
+    <dd><p>The default scheduler for observables, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to use the default one
+(<span class="xref">System.Reactive.Concurrency.Scheduler.Immediate</span>).</p>
+</dd>
   </dl>
 
 
@@ -199,10 +204,11 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h3 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_HookDisabled" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.HookDisabled">
   HookDisabled
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets an observable which emits a value when the global hook is disabled.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -215,13 +221,18 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook/HookEventArgs.cs">HookEventArgs</a>&gt;</dt>
-    <dd></dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/HookEventArgs.cs">HookEventArgs</a>&gt;</dt>
+    <dd><p>An observable which emits a value when the global hook is disabled.</p>
+</dd>
   </dl>
 
 
 
 
+  <h4 class="section" id="SharpHook_Reactive_ReactiveGlobalHookAdapter_HookDisabled_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The observable emits a value when the <a class="xref" href="SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_Stop">Stop()</a> or <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">Dispose()</a>
+method is called.</p>
+</div>
 
 
 
@@ -230,10 +241,11 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h3 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_HookEnabled" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.HookEnabled">
   HookEnabled
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets an observable which emits a value when the global hook is enabled.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -246,13 +258,18 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook/HookEventArgs.cs">HookEventArgs</a>&gt;</dt>
-    <dd></dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/HookEventArgs.cs">HookEventArgs</a>&gt;</dt>
+    <dd><p>An observable which emits a value when the global hook is enabled.</p>
+</dd>
   </dl>
 
 
 
 
+  <h4 class="section" id="SharpHook_Reactive_ReactiveGlobalHookAdapter_HookEnabled_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The observable emits a value when the <a class="xref" href="SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_Run">Run()</a> or
+<a class="xref" href="SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_RunAsync">RunAsync()</a> method is called.</p>
+</div>
 
 
 
@@ -261,10 +278,10 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h3 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_IsDisposed" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.IsDisposed">
   IsDisposed
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets the value which indicates whether the global hook has been disposed.</p>
+  <div class="markdown level1 summary"><p>Gets the value which indicates whether the global hook is disposed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -279,7 +296,7 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the global hook has been disposed. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the global hook is disposed. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </dd>
   </dl>
 
@@ -297,7 +314,7 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h3 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_IsRunning" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.IsRunning">
   IsRunning
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the value which indicates whether the global hook is running.</p>
@@ -330,10 +347,11 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h3 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_KeyPressed" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.KeyPressed">
   KeyPressed
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets an observable which emits a value when a key is pressed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -346,8 +364,9 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook/KeyboardHookEventArgs.cs">KeyboardHookEventArgs</a>&gt;</dt>
-    <dd></dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/KeyboardHookEventArgs.cs">KeyboardHookEventArgs</a>&gt;</dt>
+    <dd><p>An observable which emits a value when a key is pressed.</p>
+</dd>
   </dl>
 
 
@@ -361,10 +380,11 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h3 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_KeyReleased" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.KeyReleased">
   KeyReleased
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets an observable which emits a value when a key is released.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -377,8 +397,9 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook/KeyboardHookEventArgs.cs">KeyboardHookEventArgs</a>&gt;</dt>
-    <dd></dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/KeyboardHookEventArgs.cs">KeyboardHookEventArgs</a>&gt;</dt>
+    <dd><p>An observable which emits a value when a key is released.</p>
+</dd>
   </dl>
 
 
@@ -392,10 +413,11 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h3 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_KeyTyped" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.KeyTyped">
   KeyTyped
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets an observable which emits a value when a key is typed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -408,8 +430,9 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook/KeyboardHookEventArgs.cs">KeyboardHookEventArgs</a>&gt;</dt>
-    <dd></dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/KeyboardHookEventArgs.cs">KeyboardHookEventArgs</a>&gt;</dt>
+    <dd><p>An observable which emits a value when a key is typed.</p>
+</dd>
   </dl>
 
 
@@ -423,10 +446,11 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h3 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_MouseClicked" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseClicked">
   MouseClicked
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets an observable which emits a value when a mouse button is clicked.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -439,8 +463,9 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook/MouseHookEventArgs.cs">MouseHookEventArgs</a>&gt;</dt>
-    <dd></dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/MouseHookEventArgs.cs">MouseHookEventArgs</a>&gt;</dt>
+    <dd><p>An observable which emits a value when a mouse button is clicked.</p>
+</dd>
   </dl>
 
 
@@ -454,10 +479,11 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h3 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_MouseDragged" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseDragged">
   MouseDragged
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets an observable which emits a value when the mouse cursor is dragged.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -470,8 +496,9 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook/MouseHookEventArgs.cs">MouseHookEventArgs</a>&gt;</dt>
-    <dd></dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/MouseHookEventArgs.cs">MouseHookEventArgs</a>&gt;</dt>
+    <dd><p>An observable which emits a value when the mouse cursor is dragged.</p>
+</dd>
   </dl>
 
 
@@ -485,10 +512,11 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h3 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_MouseMoved" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseMoved">
   MouseMoved
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets an observable which emits a value when the mouse cursor is moved.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -501,8 +529,9 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook/MouseHookEventArgs.cs">MouseHookEventArgs</a>&gt;</dt>
-    <dd></dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/MouseHookEventArgs.cs">MouseHookEventArgs</a>&gt;</dt>
+    <dd><p>An observable which emits a value when the mouse cursor is moved.</p>
+</dd>
   </dl>
 
 
@@ -516,10 +545,11 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h3 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_MousePressed" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.MousePressed">
   MousePressed
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets an observable which emits a value when a mouse button is pressed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -532,8 +562,9 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook/MouseHookEventArgs.cs">MouseHookEventArgs</a>&gt;</dt>
-    <dd></dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/MouseHookEventArgs.cs">MouseHookEventArgs</a>&gt;</dt>
+    <dd><p>An observable which emits a value when a mouse button is pressed.</p>
+</dd>
   </dl>
 
 
@@ -547,10 +578,11 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h3 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_MouseReleased" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseReleased">
   MouseReleased
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets an observable which emits a value when a mouse button is released.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -563,8 +595,9 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook/MouseHookEventArgs.cs">MouseHookEventArgs</a>&gt;</dt>
-    <dd></dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/MouseHookEventArgs.cs">MouseHookEventArgs</a>&gt;</dt>
+    <dd><p>An observable which emits a value when a mouse button is released.</p>
+</dd>
   </dl>
 
 
@@ -578,10 +611,11 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h3 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_MouseWheel" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseWheel">
   MouseWheel
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets an observable which emits a value when the mouse wheel is scrolled.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -594,8 +628,9 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook/MouseWheelHookEventArgs.cs">MouseWheelHookEventArgs</a>&gt;</dt>
-    <dd></dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iobservable-1">IObservable</a>&lt;<a class="xref" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/MouseWheelHookEventArgs.cs">MouseWheelHookEventArgs</a>&gt;</dt>
+    <dd><p>An observable which emits a value when the mouse wheel is scrolled.</p>
+</dd>
   </dl>
 
 
@@ -613,10 +648,11 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h3 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_Dispose" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Disposes of the global hook, stopping it if it is running.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -631,7 +667,17 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
 
 
+  <h4 class="section" id="SharpHook_Reactive_ReactiveGlobalHookAdapter_Dispose_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>After calling this method, the hook cannot run again. If you want to stop the global hook with the ability to
+run it again, call the <a class="xref" href="SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_Stop">Stop()</a> method instead.</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.HookException.html">HookException</a></dt>
+    <dd><p>Stopping the hook has failed.</p>
+</dd>
+  </dl>
 
 
 
@@ -639,11 +685,11 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h3 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_Run" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.Run">
   Run()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Runs the global hook on the current thread, blocking it. The hook can be stopped temporarily by calling
-<a class="xref" href="SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_Stop">Stop()</a> or stopped permanently by calling <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">Dispose()</a>.</p>
+  <div class="markdown level1 summary"><p>Runs the global hook on the current thread, blocking it. The hook can be stopped by calling the
+<a class="xref" href="SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_Stop">Stop()</a> or the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">Dispose()</a> methods.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -679,11 +725,11 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
   <h3 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_RunAsync" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.RunAsync">
   RunAsync()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Runs the global hook without blocking the current thread. The hook can be stopped temporarily by calling
-<a class="xref" href="SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_Stop">Stop()</a> or stopped permanently by calling <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">Dispose()</a>.</p>
+  <div class="markdown level1 summary"><p>Runs the global hook without blocking the current thread. The hook can be stopped by calling the
+<a class="xref" href="SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_Stop">Stop()</a> or the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">Dispose()</a> methods.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -695,7 +741,7 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
-    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the hook is stopped.</p>
+    <dd><p>A task which is completed when the hook is stopped.</p>
 </dd>
   </dl>
 
@@ -706,8 +752,7 @@ Class ReactiveGlobalHookAdapter  <a class="header-action link-secondary" title="
 
 
   <h4 class="section" id="SharpHook_Reactive_ReactiveGlobalHookAdapter_RunAsync_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>Since the underlying native API for running a global hook is blocking, the only way to run it without blocking
-the current thread is to run it on a separate thread.</p>
+  <div class="markdown level1 remarks"><p>The hook is started on a separate thread.</p>
 </div>
 
   <h4 class="section">Exceptions</h4>
@@ -729,7 +774,7 @@ the current thread is to run it on a separate thread.</p>
 
   <h3 id="SharpHook_Reactive_ReactiveGlobalHookAdapter_Stop" data-uid="SharpHook.Reactive.ReactiveGlobalHookAdapter.Stop">
   Stop()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Stops the global hook.</p>
@@ -761,11 +806,16 @@ the current thread is to run it on a separate thread.</p>
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a></div>
+      <div><a class="xref" href="SharpHook.Reactive.IReactiveGlobalHook.html">IReactiveGlobalHook</a></div>
+  </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.1/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook.Reactive/ReactiveGlobalHookAdapter.cs" class="edit-link">Edit this page</a>
         </div>
 
 
