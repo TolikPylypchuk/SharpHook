@@ -55,7 +55,7 @@ jobs:
           ${{github.workspace}}/build/uiohook_tests
 
       - name: Upload
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: libuiohook-macos-arm64
           path: ${{github.workspace}}/dist/**/*
@@ -96,7 +96,7 @@ jobs:
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
 
       - name: Upload
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: libuiohook-macos-x64
           path: ${{github.workspace}}/dist/**/*
@@ -144,7 +144,7 @@ jobs:
           ${{github.workspace}}/build/uiohook_tests
 
       - name: Upload
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: libuiohook-mac-catalyst-arm64
           path: ${{github.workspace}}/dist/**/*
@@ -187,7 +187,7 @@ jobs:
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
 
       - name: Upload
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: libuiohook-mac-catalyst-x64
           path: ${{github.workspace}}/dist/**/*
@@ -258,7 +258,7 @@ jobs:
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
 
       - name: Upload
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: libuiohook-linux-arm
           path: ${{github.workspace}}/dist/**/*
@@ -311,7 +311,7 @@ jobs:
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
 
       - name: Upload
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: libuiohook-linux-arm64
           path: ${{github.workspace}}/dist/**/*
@@ -365,7 +365,7 @@ jobs:
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
 
       - name: Upload
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: libuiohook-linux-x64
           path: ${{github.workspace}}/dist/**/*
@@ -410,7 +410,7 @@ jobs:
           ${{github.workspace}}\build\RelWithDebInfo\uiohook_tests.exe
 
       - name: Upload
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: libuiohook-windows-arm64
           path: ${{github.workspace}}/dist/**/*
@@ -455,7 +455,7 @@ jobs:
           ${{github.workspace}}\build\RelWithDebInfo\uiohook_tests.exe
 
       - name: Upload
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: libuiohook-windows-x86
           path: ${{github.workspace}}/dist/**/*
@@ -500,7 +500,7 @@ jobs:
           ${{github.workspace}}\build\RelWithDebInfo\uiohook_tests.exe
 
       - name: Upload
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: libuiohook-windows-x64
           path: ${{github.workspace}}/dist/**/*
@@ -521,7 +521,7 @@ jobs:
       - libuiohook-windows-x64
 
     steps:
-      - uses: actions/upload-artifact/merge@v6
+      - uses: actions/upload-artifact/merge@v7
         with:
           name: libuiohook-build
           pattern: libuiohook-*
@@ -551,7 +551,7 @@ jobs:
         run: dotnet tool update --global docfx
 
       - name: Fetch libuiohook
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: libuiohook-build
           path: libuiohook-build
@@ -586,7 +586,7 @@ jobs:
           dotnet pack --no-build --nologo -c Release -o ${{github.workspace}}\artifacts\packages\
 
       - name: Upload SharpHook
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: sharphook-build
           path: ${{github.workspace}}\artifacts\packages\*
@@ -628,7 +628,7 @@ jobs:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
       - name: Fetch Packages
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: sharphook-build
           path: sharphook-build
