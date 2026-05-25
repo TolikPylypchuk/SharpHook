@@ -58,6 +58,13 @@ Catalyst targets will be skipped.
 
 ## Changelog
 
+### [v7.1.2](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v7.1.2) (May 25, 2026)
+
+- On Linux, simulating key events now works correctly.
+
+- libuiohook was updated to commit
+[8a1cfa8](https://github.com/TolikPylypchuk/libuiohook/tree/8a1cfa8e840b853d2be73423870a855ca57e27d1).
+
 ### [v7.1.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v7.1.1) (December 30, 2025)
 
 - On Linux, event time is now a UNIX timestamp, as it was supposed to be.
