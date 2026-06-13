@@ -38,6 +38,7 @@
     <File Path="icon.png" />
     <File Path="LICENSE" />
     <File Path="README.md" />
+    <File Path="README.zh-Hans.md" />
   </Folder>
   <Project Path="SharpHook.R3/SharpHook.R3.csproj" Id="2d4e4ce3-36c6-4b74-97fd-4b28bc1ec8bf">
     <Platform Solution="*|ARM32" Project="ARM32" />
