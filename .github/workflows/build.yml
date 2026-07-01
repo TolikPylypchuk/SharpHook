@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           submodules: recursive
 
@@ -65,7 +65,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           submodules: recursive
 
@@ -106,7 +106,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           submodules: recursive
 
@@ -154,7 +154,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           submodules: recursive
 
@@ -197,7 +197,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           submodules: recursive
 
@@ -268,7 +268,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           submodules: recursive
 
@@ -321,7 +321,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           submodules: recursive
 
@@ -371,15 +371,15 @@ jobs:
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-windows-arm64:
-    runs-on: windows-11-arm
+    runs-on: windows-11-vs2026-arm
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           submodules: recursive
 
       - name: Setup
-        uses: ilammy/msvc-dev-cmd@v1
+        uses: TheMrMilchmann/setup-msvc-dev@v4
         with:
           arch: arm64
 
@@ -389,7 +389,7 @@ jobs:
           cd libuiohook
 
           cmake -B ${{github.workspace}}\build `
-            -G "Visual Studio 17 2022" -A ARM64 `
+            -G "Visual Studio 18 2026" -A ARM64 `
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\arm64 `
             -D CMAKE_VERBOSE_MAKEFILE=true `
             -D BUILD_SHARED_LIBS=ON `
@@ -419,12 +419,12 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           submodules: recursive
 
       - name: Setup
-        uses: ilammy/msvc-dev-cmd@v1
+        uses: TheMrMilchmann/setup-msvc-dev@v4
         with:
           arch: amd64_x86
 
@@ -434,7 +434,7 @@ jobs:
           cd libuiohook
 
           cmake -B ${{github.workspace}}\build `
-            -G "Visual Studio 17 2022" -A Win32 `
+            -G "Visual Studio 18 2026" -A Win32 `
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\x86 `
             -D CMAKE_VERBOSE_MAKEFILE=true `
             -D BUILD_SHARED_LIBS=ON `
@@ -464,12 +464,12 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           submodules: recursive
 
       - name: Setup
-        uses: ilammy/msvc-dev-cmd@v1
+        uses: TheMrMilchmann/setup-msvc-dev@v4
         with:
           arch: amd64
 
@@ -479,7 +479,7 @@ jobs:
           cd libuiohook
 
           cmake -B ${{github.workspace}}\build `
-            -G "Visual Studio 17 2022" -A x64 `
+            -G "Visual Studio 18 2026" -A x64 `
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\x86_64 `
             -D CMAKE_VERBOSE_MAKEFILE=true `
             -D BUILD_SHARED_LIBS=ON `
@@ -533,7 +533,7 @@ jobs:
       - merge-libuiohook-artifacts
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           submodules: recursive
 
@@ -618,7 +618,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           submodules: recursive
 
