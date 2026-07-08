@@ -1,5 +1,14 @@
 # SharpHook Changelog
 
+## [v7.1.3](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v7.1.3) (July 8, 2026)
+
+- On macOS, simulating key events now takes physically pressed modifiers into account.
+
+- A race condition in `TaskPoolGlobalHook.Dispose` which could cause an exception was fixed.
+
+- libuiohook was updated to commit
+[104624b](https://github.com/TolikPylypchuk/libuiohook/tree/104624bfd3c69e558e56fd8aff11ea61bc24b224).
+
 ## [v7.1.2](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v7.1.2) (May 25, 2026)
 
 - On Linux, simulating key events now works correctly.
