@@ -136,6 +136,16 @@ You need .NET 10 with the <code>maccatalyst</code> workload to build SharpHook. 
 <code>SHARPHOOK_SKIP_MACCATALYST</code> environment variable to anything other than <code>false</code> (case-insensitive), and the Mac
 Catalyst targets will be skipped.</p>
 <h2 id="changelog">Changelog</h2>
+<h3 id="v713-july-8-2026"><a href="https://github.com/TolikPylypchuk/SharpHook/releases/tag/v7.1.3">v7.1.3</a> (July 8, 2026)</h3>
+<ul>
+<li><p>On macOS, simulating key events now takes physically pressed modifiers into account.</p>
+</li>
+<li><p>A race condition in <code>TaskPoolGlobalHook.Dispose</code> which could cause an exception was fixed.</p>
+</li>
+<li><p>libuiohook was updated to commit
+<a href="https://github.com/TolikPylypchuk/libuiohook/tree/104624bfd3c69e558e56fd8aff11ea61bc24b224">104624b</a>.</p>
+</li>
+</ul>
 <h3 id="v712-may-25-2026"><a href="https://github.com/TolikPylypchuk/SharpHook/releases/tag/v7.1.2">v7.1.2</a> (May 25, 2026)</h3>
 <ul>
 <li><p>On Linux, simulating key events now works correctly.</p>
