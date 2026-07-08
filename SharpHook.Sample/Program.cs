@@ -3,7 +3,7 @@ Directory.SetCurrentDirectory(AppContext.BaseDirectory);
 Console.WriteLine("---------- SharpHook Sample ----------\n");
 
 using var logSource = LogSource.RegisterOrGet(minLevel: LogLevel.Debug);
-using var reactiveLogSource = new ReactiveLogSourceAdapter(logSource, TaskPoolScheduler.Default);
+using var reactiveLogSource = new ReactiveLogSourceAdapter(logSource, ImmediateScheduler.Instance);
 
 reactiveLogSource.MessageLogged.Subscribe(OnMessageLogged);
 
@@ -67,9 +67,6 @@ while (!hook.IsDisposed)
 static void OnHookEvent(HookEventArgs e) =>
     Console.WriteLine($"{e.EventTime.ToLocalTime()}: {e.RawEvent}");
 
-static void OnMessageLogged(LogEntry logEntry) =>
-    Console.WriteLine($"{Enum.GetName(logEntry.Level)?.ToUpper()}: {logEntry.FullText}");
-
 static void OnKeyReleased(KeyboardHookEventArgs e, IReactiveGlobalHook hook)
 {
     if (e.Data.KeyCode == KeyCode.VcQ)
@@ -80,3 +77,6 @@ static void OnKeyReleased(KeyboardHookEventArgs e, IReactiveGlobalHook hook)
         hook.Stop();
     }
 }
+
+static void OnMessageLogged(LogEntry logEntry) =>
+    Console.WriteLine($"{Enum.GetName(logEntry.Level)?.ToUpper()}: {logEntry.FullText}");
