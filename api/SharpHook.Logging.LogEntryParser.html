@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class LogEntryParser | SharpHook ">
       
-      
+      <meta name="description" content="Creates log entries from native log formats and arguments.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,8 @@ Class LogEntryParser  <a class="header-action link-secondary" title="View source
   <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Creates log entries from native log formats and arguments.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -144,6 +145,11 @@ public sealed class LogEntryParser</code></pre>
 
 
 
+  <h2 id="SharpHook_Logging_LogEntryParser_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>The log text is formatted using the <code>vsprintf</code> function from the C runtime and then the result is parsed to
+extract the arguments. This means that on Windows, this class requires the Visual C++ Redistributable package to be
+installed.</p>
+</div>
 
 
   <h2 class="section" id="properties">Properties
@@ -157,7 +163,8 @@ public sealed class LogEntryParser</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/LogEntryParser.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the single instance of <a class="xref" href="SharpHook.Logging.LogEntryParser.html">LogEntryParser</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -192,7 +199,8 @@ public sealed class LogEntryParser</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/LogEntryParser.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Parses a native log format and arguments to create a log entry.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -202,17 +210,21 @@ public sealed class LogEntryParser</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>level</code> <a class="xref" href="SharpHook.Data.LogLevel.html">LogLevel</a></dt>
-    <dd></dd>
+    <dd><p>The log level.</p>
+</dd>
     <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd></dd>
+    <dd><p>A pointer to the native format of the log message.</p>
+</dd>
     <dt><code>args</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd></dd>
+    <dd><p>A pointer to the native arguments of the log message.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Logging.LogEntry.html">LogEntry</a></dt>
-    <dd></dd>
+    <dd><p>A log entry represented by the level, format, and argumets.</p>
+</dd>
   </dl>
 
 

@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class EventSimulationExtensions | SharpHook ">
       
-      
+      <meta name="description" content="Contains extension methods for  and .">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,8 @@ Class EventSimulationExtensions  <a class="header-action link-secondary" title="
   <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Contains extension methods for <a class="xref" href="SharpHook.IEventSimulator.html">IEventSimulator</a> and <a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a>.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -159,7 +160,9 @@ Class EventSimulationExtensions  <a class="header-action link-secondary" title="
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/EventSimulationExtensions.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Adds a sequecne of key press and release events which represent a single key stroke to the sequence of
+events to simulate.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -171,13 +174,15 @@ Class EventSimulationExtensions  <a class="header-action link-secondary" title="
     <dt><code>builder</code> <a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
     <dd></dd>
     <dt><code>keyCodes</code> <a class="xref" href="SharpHook.Data.KeyCode.html">KeyCode</a>[]</dt>
-    <dd></dd>
+    <dd><p>The codes of the keys to press and release.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd></dd>
+    <dd><p>The builder.</p>
+</dd>
   </dl>
 
 
@@ -186,6 +191,18 @@ Class EventSimulationExtensions  <a class="header-action link-secondary" title="
 
 
 
+  <h4 class="section" id="SharpHook_EventSimulationExtensions_AddKeyStroke_SharpHook_IEventSimulationSequenceBuilder_SharpHook_Data_KeyCode____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>As an example, if the method is called with the following parameters:</p>
+<pre><code class="lang-csharp">builder.AddKeyStroke(KeyCode.VcLeftControl, KeyCode.VcC);</code></pre>
+<p>then this will be equivalent to calling the following method sequence:</p>
+<pre><code class="lang-csharp">builder
+    .AddKeyPress(KeyCode.VcLeftControl)
+    .AddKeyPress(KeyCode.VcC)
+    .AddKeyRelease(KeyCode.VcC)
+    .AddKeyRelease(KeyCode.VcLeftControl);</code></pre>
+<p>which means that this method will add pressing Left Control, then pressing C, then releasing C, then
+releasing Left Control.</p>
+</div>
 
 
 
@@ -197,7 +214,9 @@ Class EventSimulationExtensions  <a class="header-action link-secondary" title="
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/EventSimulationExtensions.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Adds a sequence of key press and release events which represent a single key stroke to the sequence of
+events to simulate.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -209,13 +228,15 @@ Class EventSimulationExtensions  <a class="header-action link-secondary" title="
     <dt><code>builder</code> <a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
     <dd></dd>
     <dt><code>keyCodes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="SharpHook.Data.KeyCode.html">KeyCode</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>The codes of the keys to press and release.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd></dd>
+    <dd><p>The builder.</p>
+</dd>
   </dl>
 
 
@@ -224,6 +245,18 @@ Class EventSimulationExtensions  <a class="header-action link-secondary" title="
 
 
 
+  <h4 class="section" id="SharpHook_EventSimulationExtensions_AddKeyStroke_SharpHook_IEventSimulationSequenceBuilder_System_Collections_Generic_IEnumerable_SharpHook_Data_KeyCode___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>As an example, if the method is called with the following parameters:</p>
+<pre><code class="lang-csharp">builder.AddKeyStroke([KeyCode.VcLeftControl, KeyCode.VcC]);</code></pre>
+<p>then this will be equivalent to calling the following method sequence:</p>
+<pre><code class="lang-csharp">builder
+    .AddKeyPress(KeyCode.VcLeftControl)
+    .AddKeyPress(KeyCode.VcC)
+    .AddKeyRelease(KeyCode.VcC)
+    .AddKeyRelease(KeyCode.VcLeftControl);</code></pre>
+<p>which means that this method will add pressing Left Control, then pressing C, then releasing C, then
+releasing Left Control.</p>
+</div>
 
 
 
@@ -235,7 +268,8 @@ Class EventSimulationExtensions  <a class="header-action link-secondary" title="
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/EventSimulationExtensions.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Simulates a sequence of key press and release events which represent a single key stroke.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -247,13 +281,15 @@ Class EventSimulationExtensions  <a class="header-action link-secondary" title="
     <dt><code>simulator</code> <a class="xref" href="SharpHook.IEventSimulator.html">IEventSimulator</a></dt>
     <dd></dd>
     <dt><code>keyCodes</code> <a class="xref" href="SharpHook.Data.KeyCode.html">KeyCode</a>[]</dt>
-    <dd></dd>
+    <dd><p>The codes of the keys to press and release.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
-    <dd></dd>
+    <dd><p>The result of the operation.</p>
+</dd>
   </dl>
 
 
@@ -262,6 +298,19 @@ Class EventSimulationExtensions  <a class="header-action link-secondary" title="
 
 
 
+  <h4 class="section" id="SharpHook_EventSimulationExtensions_SimulateKeyStroke_SharpHook_IEventSimulator_SharpHook_Data_KeyCode____remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>As an example, if the method is called with the following parameters:</p>
+<pre><code class="lang-csharp">simulator.SimulateKeyStroke(KeyCode.VcLeftControl, KeyCode.VcC);</code></pre>
+<p>then this will be equivalent to calling the following method sequence:</p>
+<pre><code class="lang-csharp">simulator.Sequence()
+    .AddKeyPress(KeyCode.VcLeftControl)
+    .AddKeyPress(KeyCode.VcC)
+    .AddKeyRelease(KeyCode.VcC)
+    .AddKeyRelease(KeyCode.VcLeftControl)
+    .Simulate();</code></pre>
+<p>which means that this method will simualte pressing Left Control, then pressing C, then releasing C, then
+releasing Left Control.</p>
+</div>
 
 
 
@@ -273,7 +322,8 @@ Class EventSimulationExtensions  <a class="header-action link-secondary" title="
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/EventSimulationExtensions.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Simulates a sequence of key press and release events which represent a single key stroke.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -285,13 +335,15 @@ Class EventSimulationExtensions  <a class="header-action link-secondary" title="
     <dt><code>simulator</code> <a class="xref" href="SharpHook.IEventSimulator.html">IEventSimulator</a></dt>
     <dd></dd>
     <dt><code>keyCodes</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="SharpHook.Data.KeyCode.html">KeyCode</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>The codes of the keys to press and release.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
-    <dd></dd>
+    <dd><p>The result of the operation.</p>
+</dd>
   </dl>
 
 
@@ -300,6 +352,19 @@ Class EventSimulationExtensions  <a class="header-action link-secondary" title="
 
 
 
+  <h4 class="section" id="SharpHook_EventSimulationExtensions_SimulateKeyStroke_SharpHook_IEventSimulator_System_Collections_Generic_IEnumerable_SharpHook_Data_KeyCode___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>As an example, if the method is called with the following parameters:</p>
+<pre><code class="lang-csharp">simulator.SimulateKeyStroke([KeyCode.VcLeftControl, KeyCode.VcC]);</code></pre>
+<p>then this will be equivalent to calling the following method sequence:</p>
+<pre><code class="lang-csharp">simulator.Sequence()
+    .AddKeyPress(KeyCode.VcLeftControl)
+    .AddKeyPress(KeyCode.VcC)
+    .AddKeyRelease(KeyCode.VcC)
+    .AddKeyRelease(KeyCode.VcLeftControl)
+    .Simulate();</code></pre>
+<p>which means that this method will simualte pressing Left Control, then pressing C, then releasing C, then
+releasing Left Control.</p>
+</div>
 
 
 

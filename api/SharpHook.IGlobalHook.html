@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface IGlobalHook | SharpHook ">
       
-      
+      <meta name="description" content="Represents a global keyboard and mouse hook.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,8 @@ Interface IGlobalHook  <a class="header-action link-secondary" title="View sourc
   <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Represents a global keyboard and mouse hook.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -136,6 +137,11 @@ Interface IGlobalHook  <a class="header-action link-secondary" title="View sourc
 
 
 
+  <h2 id="SharpHook_IGlobalHook_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>It is highly recommended not to implement this interface directly. If you want to create a custom global hook, you
+should instead extend the <a class="xref" href="SharpHook.GlobalHookBase.html">GlobalHookBase</a> class as it correctly implements the invariants required for
+advanced scenarios.</p>
+</div>
 
 
   <h2 class="section" id="events">Events
@@ -148,7 +154,8 @@ Interface IGlobalHook  <a class="header-action link-secondary" title="View sourc
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An event which is raised when the global hook is disabled.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -168,6 +175,9 @@ Interface IGlobalHook  <a class="header-action link-secondary" title="View sourc
 
 
 
+  <h4 class="section" id="SharpHook_IGlobalHook_HookDisabled_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This event is raised when the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">Dispose()</a> method is called.</p>
+</div>
 
 
 
@@ -178,7 +188,8 @@ Interface IGlobalHook  <a class="header-action link-secondary" title="View sourc
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An event which is raised when the global hook is enabled.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -198,6 +209,10 @@ Interface IGlobalHook  <a class="header-action link-secondary" title="View sourc
 
 
 
+  <h4 class="section" id="SharpHook_IGlobalHook_HookEnabled_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This event is raised when the <a class="xref" href="SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_Run">Run()</a> or <a class="xref" href="SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_RunAsync">RunAsync()</a>
+method is called.</p>
+</div>
 
 
 
@@ -208,7 +223,8 @@ Interface IGlobalHook  <a class="header-action link-secondary" title="View sourc
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An event which is raised when a key is pressed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -238,7 +254,8 @@ Interface IGlobalHook  <a class="header-action link-secondary" title="View sourc
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An event which is raised when a key is released.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -268,7 +285,8 @@ Interface IGlobalHook  <a class="header-action link-secondary" title="View sourc
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An event which is raised when a key is typed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -298,7 +316,8 @@ Interface IGlobalHook  <a class="header-action link-secondary" title="View sourc
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An event which is raised when a mouse button is clicked.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -328,7 +347,8 @@ Interface IGlobalHook  <a class="header-action link-secondary" title="View sourc
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An event which is raised when the mouse cursor is dragged.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -358,7 +378,8 @@ Interface IGlobalHook  <a class="header-action link-secondary" title="View sourc
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An event which is raised when the mouse cursor is moved.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -388,7 +409,8 @@ Interface IGlobalHook  <a class="header-action link-secondary" title="View sourc
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An event which is raised when a mouse button is pressed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -418,7 +440,8 @@ Interface IGlobalHook  <a class="header-action link-secondary" title="View sourc
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An event which is raised when a mouse button is released.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -448,7 +471,8 @@ Interface IGlobalHook  <a class="header-action link-secondary" title="View sourc
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An event which is raised when the mouse wheel is scrolled.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -472,6 +496,12 @@ Interface IGlobalHook  <a class="header-action link-secondary" title="View sourc
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="SharpHook.GlobalHookBase.html">GlobalHookBase</a></div>
+      <div><a class="xref" href="SharpHook.SimpleGlobalHook.html">SimpleGlobalHook</a></div>
+      <div><a class="xref" href="SharpHook.TaskPoolGlobalHook.html">TaskPoolGlobalHook</a></div>
+  </div>
 
 </article>
 

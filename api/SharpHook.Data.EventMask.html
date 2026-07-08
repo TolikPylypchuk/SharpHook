@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Enum EventMask | SharpHook ">
       
-      
+      <meta name="description" content="Represents the mask of a  and contains modifiers and other information.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -98,7 +98,8 @@ Enum EventMask  <a class="header-action link-secondary" title="View source" href
   <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Represents the mask of a <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a> and contains modifiers and other information.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -144,77 +145,105 @@ public enum EventMask : uint</code></pre>
   <dl class="parameters">
     <dt id="SharpHook_Data_EventMask_Alt"><code>Alt = LeftAlt | RightAlt</code></dt>
   
-  <dd></dd>
+  <dd><p>Left or right Alt (on Windows and Linux) or Option (on macOS) is pressed.</p>
+</dd>
     <dt id="SharpHook_Data_EventMask_Button1"><code>Button1 = 256</code></dt>
   
-  <dd></dd>
+  <dd><p>Mouse button 1 (usually the left mouse button) is pressed.</p>
+</dd>
     <dt id="SharpHook_Data_EventMask_Button2"><code>Button2 = 512</code></dt>
   
-  <dd></dd>
+  <dd><p>Mouse button 2 (usually the right mouse button) is pressed.</p>
+</dd>
     <dt id="SharpHook_Data_EventMask_Button3"><code>Button3 = 1024</code></dt>
   
-  <dd></dd>
+  <dd><p>Mouse button 3 is pressed.</p>
+</dd>
     <dt id="SharpHook_Data_EventMask_Button4"><code>Button4 = 2048</code></dt>
   
-  <dd></dd>
+  <dd><p>Mouse button 4 is pressed.</p>
+</dd>
     <dt id="SharpHook_Data_EventMask_Button5"><code>Button5 = 4096</code></dt>
   
-  <dd></dd>
+  <dd><p>Mouse button 5 is pressed.</p>
+</dd>
     <dt id="SharpHook_Data_EventMask_CapsLock"><code>CapsLock = 16384</code></dt>
   
-  <dd></dd>
+  <dd><p>Caps Lock is locked.</p>
+</dd>
     <dt id="SharpHook_Data_EventMask_Ctrl"><code>Ctrl = LeftCtrl | RightCtrl</code></dt>
   
-  <dd></dd>
+  <dd><p>Left or right Control is pressed.</p>
+</dd>
     <dt id="SharpHook_Data_EventMask_LeftAlt"><code>LeftAlt = 8</code></dt>
   
-  <dd></dd>
+  <dd><p>Left Alt (on Windows and Linux) or Option (on macOS) is pressed.</p>
+</dd>
     <dt id="SharpHook_Data_EventMask_LeftCtrl"><code>LeftCtrl = 2</code></dt>
   
-  <dd></dd>
+  <dd><p>Left Control is pressed.</p>
+</dd>
     <dt id="SharpHook_Data_EventMask_LeftMeta"><code>LeftMeta = 4</code></dt>
   
-  <dd></dd>
+  <dd><p>Left Win (on Windows), Command (on macOS), or Super/Meta (on Linux) is pressed.</p>
+</dd>
     <dt id="SharpHook_Data_EventMask_LeftShift"><code>LeftShift = 1</code></dt>
   
-  <dd></dd>
+  <dd><p>Left Shift is pressed.</p>
+</dd>
     <dt id="SharpHook_Data_EventMask_Meta"><code>Meta = LeftMeta | RightMeta</code></dt>
   
-  <dd></dd>
+  <dd><p>Left or right Win (on Windows), Command (on macOS), or Super/Meta (on Linux) is pressed.</p>
+</dd>
     <dt id="SharpHook_Data_EventMask_None"><code>None = 0</code></dt>
   
-  <dd></dd>
+  <dd><p>No mask.</p>
+</dd>
     <dt id="SharpHook_Data_EventMask_NumLock"><code>NumLock = 8192</code></dt>
   
-  <dd></dd>
+  <dd><p>Num Lock is locked.</p>
+</dd>
     <dt id="SharpHook_Data_EventMask_RightAlt"><code>RightAlt = 128</code></dt>
   
-  <dd></dd>
+  <dd><p>Right Alt (on Windows and Linux) or Option (on macOS) is pressed.</p>
+</dd>
     <dt id="SharpHook_Data_EventMask_RightCtrl"><code>RightCtrl = 32</code></dt>
   
-  <dd></dd>
+  <dd><p>Right Control is pressed.</p>
+</dd>
     <dt id="SharpHook_Data_EventMask_RightMeta"><code>RightMeta = 64</code></dt>
   
-  <dd></dd>
+  <dd><p>Right Win (on Windows), Command (on macOS), or Super/Meta (on Linux) is pressed.</p>
+</dd>
     <dt id="SharpHook_Data_EventMask_RightShift"><code>RightShift = 16</code></dt>
   
-  <dd></dd>
+  <dd><p>Right Shift is pressed.</p>
+</dd>
     <dt id="SharpHook_Data_EventMask_ScrollLock"><code>ScrollLock = 32768</code></dt>
   
-  <dd></dd>
+  <dd><p>Scroll Lock is locked.</p>
+</dd>
     <dt id="SharpHook_Data_EventMask_Shift"><code>Shift = LeftShift | RightShift</code></dt>
   
-  <dd></dd>
+  <dd><p>Left or right Shift is pressed.</p>
+</dd>
     <dt id="SharpHook_Data_EventMask_SimulatedEvent"><code>SimulatedEvent = 1073741824</code></dt>
   
-  <dd></dd>
+  <dd><p>The event is simulated.</p>
+</dd>
     <dt id="SharpHook_Data_EventMask_SuppressEvent"><code>SuppressEvent = 2147483648</code></dt>
+  <dd><p>If this flag is set in the event handler then the event will be suppressed from further propagation.</p>
+<p>Suppressing events works only on Windows and macOS.</p>
+</dd>
   
-  <dd></dd>
   </dl>
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></div>
+  </div>
 </article>
 
         <div class="contribution d-print-none">
