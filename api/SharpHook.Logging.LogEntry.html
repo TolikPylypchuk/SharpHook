@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class LogEntry | SharpHook ">
       
-      
+      <meta name="description" content="Represents a log entry from libuiohook.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,8 @@ Class LogEntry  <a class="header-action link-secondary" title="View source" href
   <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Represents a log entry from libuiohook.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -141,6 +142,25 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
 
 
 
+  <h2 id="SharpHook_Logging_LogEntry_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+For simple handling the <a class="xref" href="SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_Level">Level</a> and <a class="xref" href="SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_FullText">FullText</a> properties are anough. For more advanced
+handling you can use the entries' formats and arguments.
+</p>
+<p>
+Each log entry from libuiohook has the following format:
+<pre><code class="lang-csharp">function [line]: message</code></pre>
+
+<p>
+The function and line reference the source code of libuiohook itself, and can be retrieved using the
+<a class="xref" href="SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_Function">Function</a> and <a class="xref" href="SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_SourceLine">SourceLine</a> properties. The message can be retrieved by splitting the text
+by <code>:</code> and getting the trimmed second part.
+</p>
+<p>
+You shouldn't create <a class="xref" href="SharpHook.Logging.LogEntry.html">LogEntry</a> instances yourself. Instead, use the <a class="xref" href="SharpHook.Logging.LogEntryParser.html">LogEntryParser</a>
+class to create them in the logging callback.
+</p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -154,7 +174,8 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Represents a log entry from libuiohook.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -164,19 +185,26 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>level</code> <a class="xref" href="SharpHook.Data.LogLevel.html">LogLevel</a></dt>
-    <dd></dd>
+    <dd><p>The log level.</p>
+</dd>
     <dt><code>fullText</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The full text of the log entry.</p>
+</dd>
     <dt><code>format</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The format of the log entry which can be used in <code>String.Format</code>.</p>
+</dd>
     <dt><code>nativeFormat</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The native format of the log entry.</p>
+</dd>
     <dt><code>arguments</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>The arguments of the log entry which can be used in <code>String.Format</code>.</p>
+</dd>
     <dt><code>rawArguments</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>The arguments as they appear in the entry's full text.</p>
+</dd>
     <dt><code>argumentPlaceholders</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>The argument placeholders from the native format.</p>
+</dd>
   </dl>
 
 
@@ -186,8 +214,36 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
 
 
 
+  <h4 class="section" id="SharpHook_Logging_LogEntry__ctor_SharpHook_Data_LogLevel_System_String_System_String_System_String_System_Collections_Generic_IReadOnlyList_System_Object__System_Collections_Generic_IReadOnlyList_System_String__System_Collections_Generic_IReadOnlyList_System_String___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+For simple handling the <a class="xref" href="SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_Level">Level</a> and <a class="xref" href="SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_FullText">FullText</a> properties are anough. For more advanced
+handling you can use the entries' formats and arguments.
+</p>
+<p>
+Each log entry from libuiohook has the following format:
+<pre><code class="lang-csharp">function [line]: message</code></pre>
+
+<p>
+The function and line reference the source code of libuiohook itself, and can be retrieved using the
+<a class="xref" href="SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_Function">Function</a> and <a class="xref" href="SharpHook.Logging.LogEntry.html#SharpHook_Logging_LogEntry_SourceLine">SourceLine</a> properties. The message can be retrieved by splitting the text
+by <code>:</code> and getting the trimmed second part.
+</p>
+<p>
+You shouldn't create <a class="xref" href="SharpHook.Logging.LogEntry.html">LogEntry</a> instances yourself. Instead, use the <a class="xref" href="SharpHook.Logging.LogEntryParser.html">LogEntryParser</a>
+class to create them in the logging callback.
+</p>
+</div>
 
 
+  <dl class="typelist seealso">
+    <dt>See Also</dt>
+    <dd>
+    <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEventArgs.html">LogEventArgs</a></div>
+    <div><a class="xref" href="SharpHook.Logging.LogEntryParser.html">LogEntryParser</a></div>
+    </dd>
+  </dl>
 
 
   <h2 class="section" id="fields">Fields
@@ -200,7 +256,8 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the level of the current log entry.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -213,7 +270,8 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.LogLevel.html">LogLevel</a></dt>
-    <dd></dd>
+    <dd><p>The level of the current log entry.</p>
+</dd>
   </dl>
 
 
@@ -235,7 +293,8 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the argument placeholders from the native format.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -249,7 +308,8 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>The argument placeholders from the native format.</p>
+</dd>
   </dl>
 
 
@@ -266,7 +326,8 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the arguments of the current log entry.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -280,12 +341,16 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>The arguments of the current log entry.</p>
+</dd>
   </dl>
 
 
 
 
+  <h4 class="section" id="SharpHook_Logging_LogEntry_Arguments_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The function and line are the first two arguments of the log entry.</p>
+</div>
 
 
 
@@ -297,7 +362,8 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the format of the current log entry.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -311,7 +377,8 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The format of the current log entry.</p>
+</dd>
   </dl>
 
 
@@ -328,7 +395,8 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the full text of the current log entry.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -342,7 +410,8 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The full text of the current log entry.</p>
+</dd>
   </dl>
 
 
@@ -359,7 +428,8 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the libuiohook function which called the logger.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -373,12 +443,16 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The function which called the logger.</p>
+</dd>
   </dl>
 
 
 
 
+  <h4 class="section" id="SharpHook_Logging_LogEntry_Function_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The function is the first argument of the log entry.</p>
+</div>
 
 
 
@@ -390,7 +464,8 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the native format of the current log entry, as defined in libuiohook.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -404,7 +479,8 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The native format of the current log entry.</p>
+</dd>
   </dl>
 
 
@@ -421,7 +497,8 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the arguments of the current log entry as they appear in entry's full text.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -435,12 +512,16 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlylist-1">IReadOnlyList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</dt>
-    <dd></dd>
+    <dd><p>The arguments of the current log entry as they appear in entry's full text.</p>
+</dd>
   </dl>
 
 
 
 
+  <h4 class="section" id="SharpHook_Logging_LogEntry_RawArguments_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The function and line are the first two arguments of the log entry.</p>
+</div>
 
 
 
@@ -452,7 +533,8 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the source code line in libuiohook where the logger was called.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -466,12 +548,16 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint32">uint</a></dt>
-    <dd></dd>
+    <dd><p>The source code line in libuiohook where the logger was called.</p>
+</dd>
   </dl>
 
 
 
 
+  <h4 class="section" id="SharpHook_Logging_LogEntry_SourceLine_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The source code line is the second argument of the log entry.</p>
+</div>
 
 
 
@@ -487,7 +573,8 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Compares this object to another object for equality.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -497,13 +584,15 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>entry</code> <a class="xref" href="SharpHook.Logging.LogEntry.html">LogEntry</a></dt>
-    <dd></dd>
+    <dd><p>The object to compare</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the objects are equal. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
   </dl>
 
 
@@ -523,7 +612,8 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Compares this object to another object for equality.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -533,13 +623,15 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The object to compare</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the objects are equal. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
   </dl>
 
 
@@ -559,7 +651,8 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the hash code of this object.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -570,7 +663,8 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>The hash code of this object.</p>
+</dd>
   </dl>
 
 
@@ -590,7 +684,8 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the string representation of the log entry i.e. its full text.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -601,7 +696,8 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The full text of the log entry.</p>
+</dd>
   </dl>
 
 
@@ -625,7 +721,8 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Compares two objects for equality.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -635,15 +732,18 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>left</code> <a class="xref" href="SharpHook.Logging.LogEntry.html">LogEntry</a></dt>
-    <dd></dd>
+    <dd><p>The first object to compare</p>
+</dd>
     <dt><code>right</code> <a class="xref" href="SharpHook.Logging.LogEntry.html">LogEntry</a></dt>
-    <dd></dd>
+    <dd><p>The second object to compare</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the objects are equal. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
   </dl>
 
 
@@ -663,7 +763,8 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/LogEntry.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Compares two objects for inequality.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -673,15 +774,18 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>left</code> <a class="xref" href="SharpHook.Logging.LogEntry.html">LogEntry</a></dt>
-    <dd></dd>
+    <dd><p>The first object to compare</p>
+</dd>
     <dt><code>right</code> <a class="xref" href="SharpHook.Logging.LogEntry.html">LogEntry</a></dt>
-    <dd></dd>
+    <dd><p>The second object to compare</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the objects are not equal. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
   </dl>
 
 
@@ -694,6 +798,13 @@ public sealed class LogEntry : IEquatable&lt;LogEntry&gt;</code></pre>
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+      <div><a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a></div>
+      <div><a class="xref" href="SharpHook.Logging.LogEventArgs.html">LogEventArgs</a></div>
+      <div><a class="xref" href="SharpHook.Logging.LogEntryParser.html">LogEntryParser</a></div>
+  </div>
 
 </article>
 

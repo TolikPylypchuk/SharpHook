@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class GlobalHookBase | SharpHook ">
       
-      
+      <meta name="description" content="Represents an abstract implementation of  which defines everything needed except for a strategy for dispatching events and uses a global hook provider (libuiohook by default).">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,9 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Represents an abstract implementation of <a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a> which defines everything needed except for
+a strategy for dispatching events and uses a global hook provider (libuiohook by default).</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -206,7 +208,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.GlobalHookBase.html">GlobalHookBase</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -216,11 +219,15 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>globalHookType</code> <a class="xref" href="SharpHook.Data.GlobalHookType.html">GlobalHookType</a></dt>
-    <dd></dd>
+    <dd><p>The global hook type.</p>
+</dd>
     <dt><code>globalHookProvider</code> <a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html">IGlobalHookProvider</a></dt>
-    <dd></dd>
+    <dd><p>The underlying global hook provider, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to use the default one.</p>
+</dd>
     <dt><code>runAsyncOnBackgroundThread</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <a class="xref" href="SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_RunAsync">RunAsync()</a> should run the hook on a background thread.
+Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
   </dl>
 
 
@@ -245,7 +252,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Dispatches an event from libuiohook, i.e. raises the appropriate event.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -255,7 +263,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>e</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></dt>
-    <dd></dd>
+    <dd><p>The event to dispatch.</p>
+</dd>
   </dl>
 
 
@@ -276,7 +285,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>When implemented in a derived class, represents a strategy for handling a hook event.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -286,7 +296,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>e</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></dt>
-    <dd></dd>
+    <dd><p>The event to handle.</p>
+</dd>
   </dl>
 
 
@@ -296,6 +307,11 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
 
 
 
+  <h4 class="section" id="SharpHook_GlobalHookBase_HandleHookEvent_SharpHook_Data_UioHookEvent___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Derived classes should call <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_DispatchEvent_SharpHook_Data_UioHookEvent__">DispatchEvent(ref UioHookEvent)</a> inside this method to raise the
+appropriate event. They can also call <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_ShouldDispatchEvent_SharpHook_Data_UioHookEvent__">ShouldDispatchEvent(ref UioHookEvent)</a> to determine whether
+to attempt dispatching the event at all.</p>
+</div>
 
 
 
@@ -307,7 +323,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_HookDisabled">HookDisabled</a> event with this object as the sender.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -317,7 +334,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="SharpHook.HookEventArgs.html">HookEventArgs</a></dt>
-    <dd></dd>
+    <dd><p>The arguments of the event.</p>
+</dd>
   </dl>
 
 
@@ -338,7 +356,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_HookEnabled">HookEnabled</a> event with this object as the sender.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -348,7 +367,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="SharpHook.HookEventArgs.html">HookEventArgs</a></dt>
-    <dd></dd>
+    <dd><p>The arguments of the event.</p>
+</dd>
   </dl>
 
 
@@ -369,7 +389,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_KeyPressed">KeyPressed</a> event with this object as the sender.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -379,7 +400,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a></dt>
-    <dd></dd>
+    <dd><p>The arguments of the event.</p>
+</dd>
   </dl>
 
 
@@ -400,7 +422,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_KeyReleased">KeyReleased</a> event with this object as the sender.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -410,7 +433,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a></dt>
-    <dd></dd>
+    <dd><p>The arguments of the event.</p>
+</dd>
   </dl>
 
 
@@ -431,7 +455,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_KeyTyped">KeyTyped</a> event with this object as the sender.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -441,7 +466,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a></dt>
-    <dd></dd>
+    <dd><p>The arguments of the event.</p>
+</dd>
   </dl>
 
 
@@ -462,7 +488,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MouseClicked">MouseClicked</a> event with this object as the sender.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -472,7 +499,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a></dt>
-    <dd></dd>
+    <dd><p>The arguments of the event.</p>
+</dd>
   </dl>
 
 
@@ -493,7 +521,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MouseDragged">MouseDragged</a> event with this object as the sender.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -503,7 +532,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a></dt>
-    <dd></dd>
+    <dd><p>The arguments of the event.</p>
+</dd>
   </dl>
 
 
@@ -524,7 +554,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MouseMoved">MouseMoved</a> event with this object as the sender.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -534,7 +565,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a></dt>
-    <dd></dd>
+    <dd><p>The arguments of the event.</p>
+</dd>
   </dl>
 
 
@@ -555,7 +587,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MousePressed">MousePressed</a> event with this object as the sender.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -565,7 +598,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a></dt>
-    <dd></dd>
+    <dd><p>The arguments of the event.</p>
+</dd>
   </dl>
 
 
@@ -586,7 +620,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MouseReleased">MouseReleased</a> event with this object as the sender.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -596,7 +631,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a></dt>
-    <dd></dd>
+    <dd><p>The arguments of the event.</p>
+</dd>
   </dl>
 
 
@@ -617,7 +653,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MouseWheel">MouseWheel</a> event with this object as the sender.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -627,7 +664,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="SharpHook.MouseWheelHookEventArgs.html">MouseWheelHookEventArgs</a></dt>
-    <dd></dd>
+    <dd><p>The arguments of the event.</p>
+</dd>
   </dl>
 
 
@@ -648,7 +686,9 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a value which indicates whether there are any subscribers to an event which corresponds to the hook
+event type.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -658,13 +698,16 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>e</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></dt>
-    <dd></dd>
+    <dd><p>The event to check.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if there are any subscribers to an event which corresponds to the hook event type.
+Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
   </dl>
 
 
@@ -673,6 +716,9 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
 
 
 
+  <h4 class="section" id="SharpHook_GlobalHookBase_ShouldDispatchEvent_SharpHook_Data_UioHookEvent___remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Derived classes may call this method as an optimization before attempting to dispatch the hook event.</p>
+</div>
 
 
 
@@ -687,7 +733,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An event which is raised when the global hook is disabled.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -707,6 +754,9 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
 
 
 
+  <h4 class="section" id="SharpHook_GlobalHookBase_HookDisabled_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This event is raised when the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">Dispose()</a> method is called.</p>
+</div>
 
 
 
@@ -717,7 +767,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An event which is raised when the global hook is enabled.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -737,6 +788,10 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
 
 
 
+  <h4 class="section" id="SharpHook_GlobalHookBase_HookEnabled_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This event is raised when the <a class="xref" href="SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_Run">Run()</a> or <a class="xref" href="SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_RunAsync">RunAsync()</a>
+method is called.</p>
+</div>
 
 
 
@@ -747,7 +802,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An event which is raised when a key is pressed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -777,7 +833,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An event which is raised when a key is released.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -807,7 +864,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An event which is raised when a key is typed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -837,7 +895,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An event which is raised when a mouse button is clicked.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -867,7 +926,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An event which is raised when the mouse cursor is dragged.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -897,7 +957,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An event which is raised when the mouse cursor is moved.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -927,7 +988,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An event which is raised when a mouse button is pressed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -957,7 +1019,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An event which is raised when a mouse button is released.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -987,7 +1050,8 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An event which is raised when the mouse wheel is turned.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1011,6 +1075,14 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a></div>
+      <div><a class="xref" href="SharpHook.SimpleGlobalHook.html">SimpleGlobalHook</a></div>
+      <div><a class="xref" href="SharpHook.EventLoopGlobalHook.html">EventLoopGlobalHook</a></div>
+      <div><a class="xref" href="SharpHook.TaskPoolGlobalHook.html">TaskPoolGlobalHook</a></div>
+      <div><a class="xref" href="SharpHook.BasicGlobalHookBase.html">BasicGlobalHookBase</a></div>
+  </div>
 
 </article>
 
