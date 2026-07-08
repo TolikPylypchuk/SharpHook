@@ -82,11 +82,15 @@ public sealed class TaskPoolGlobalHook : GlobalHookBase
     /// </remarks>
     protected override void Dispose(bool disposing)
     {
-        if (disposing)
+        try
         {
-            this.taskQueue.Dispose();
+            base.Dispose(disposing);
+        } finally
+        {
+            if (disposing)
+            {
+                this.taskQueue.Dispose();
+            }
         }
-
-        base.Dispose(disposing);
     }
 }
