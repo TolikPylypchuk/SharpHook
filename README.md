@@ -74,7 +74,11 @@ API be enabled for the application if it wants to create a global hook or simula
 
 - Linux distributions supported by .NET are supported by SharpHook. Linux on x86 is
 [not supported](https://github.com/dotnet/runtime/issues/7335) by .NET itself. Only X11 is supported – Wayland support
-[may be coming](https://github.com/kwhat/libuiohook/issues/196), but it's not yet here.
+[is coming](https://github.com/TolikPylypchuk/SharpHook/discussions/175), but it's not yet here.
+
+> [!IMPORTANT]
+> The next major version of SharpHook will most probably require elevated privileges on Linux. Read more in the Wayland
+> discussion linked above.
 
 > [!NOTE]
 > Support for versions of the OSes that are out of official support will be provided on a best-effort basis only and
