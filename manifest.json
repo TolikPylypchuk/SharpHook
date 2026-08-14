@@ -25,7 +25,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.BasicGlobalHookBase",
-      "Summary": "<p sourcefile=\"api/SharpHook.BasicGlobalHookBase.yml\" sourcestartlinenumber=\"1\">Represents an abstract implementation of <xref href=\"SharpHook.IBasicGlobalHook\" data-throw-if-not-resolved=\"false\"></xref> which defines everything needed except for\na strategy for handling events and uses a global hook provider (libuiohook by default).</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -39,7 +39,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Data.EventMask",
-      "Summary": "<p sourcefile=\"api/SharpHook.Data.EventMask.yml\" sourcestartlinenumber=\"1\">Represents the mask of a <xref href=\"SharpHook.Data.UioHookEvent\" data-throw-if-not-resolved=\"false\"></xref> and contains modifiers and other information.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -53,7 +53,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Data.EventMaskExtensions",
-      "Summary": "<p sourcefile=\"api/SharpHook.Data.EventMaskExtensions.yml\" sourcestartlinenumber=\"1\">Contains extension methods for <xref href=\"SharpHook.Data.EventMask\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -67,7 +67,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Data.EventType",
-      "Summary": "<p sourcefile=\"api/SharpHook.Data.EventType.yml\" sourcestartlinenumber=\"1\">Represents the type of an input event which can be raised from a global hook or posted as a fake event.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -81,7 +81,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Data.GlobalHookType",
-      "Summary": "<p sourcefile=\"api/SharpHook.Data.GlobalHookType.yml\" sourcestartlinenumber=\"1\">Represents a global hook type – keyboard hook, mouse hook, or both.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -95,7 +95,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Data.KeyCode",
-      "Summary": "<p sourcefile=\"api/SharpHook.Data.KeyCode.yml\" sourcestartlinenumber=\"1\">Represents a virtual key code.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -109,7 +109,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Data.KeyboardEventData",
-      "Summary": "<p sourcefile=\"api/SharpHook.Data.KeyboardEventData.yml\" sourcestartlinenumber=\"1\">Represents the data of a keyboard-related event.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -123,7 +123,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Data.LogLevel",
-      "Summary": "<p sourcefile=\"api/SharpHook.Data.LogLevel.yml\" sourcestartlinenumber=\"1\">Represents a log level.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -137,7 +137,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Data.MouseButton",
-      "Summary": "<p sourcefile=\"api/SharpHook.Data.MouseButton.yml\" sourcestartlinenumber=\"1\">Represents a mouse button.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -151,7 +151,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Data.MouseEventData",
-      "Summary": "<p sourcefile=\"api/SharpHook.Data.MouseEventData.yml\" sourcestartlinenumber=\"1\">Represents the data of a mouse-related event.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -165,7 +165,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Data.MouseWheelEventData",
-      "Summary": "<p sourcefile=\"api/SharpHook.Data.MouseWheelEventData.yml\" sourcestartlinenumber=\"1\">Represents the data of a mouse wheel-related event.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -179,7 +179,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Data.MouseWheelScrollDirection",
-      "Summary": "<p sourcefile=\"api/SharpHook.Data.MouseWheelScrollDirection.yml\" sourcestartlinenumber=\"1\">Represents a mouse wheel scroll direction.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -193,7 +193,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Data.MouseWheelScrollType",
-      "Summary": "<p sourcefile=\"api/SharpHook.Data.MouseWheelScrollType.yml\" sourcestartlinenumber=\"1\">Represents a mouse wheel scroll type.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -207,7 +207,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Data.ScreenData",
-      "Summary": "<p sourcefile=\"api/SharpHook.Data.ScreenData.yml\" sourcestartlinenumber=\"1\">Represents screen-related data.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -221,7 +221,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Data.UioHookEvent",
-      "Summary": "<p sourcefile=\"api/SharpHook.Data.UioHookEvent.yml\" sourcestartlinenumber=\"1\">Represents an event which can be raised by libuiohook.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -235,7 +235,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Data.UioHookResult",
-      "Summary": "<p sourcefile=\"api/SharpHook.Data.UioHookResult.yml\" sourcestartlinenumber=\"1\">Represents a result of an operation of libuiohook.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -263,7 +263,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.EventLoopGlobalHook",
-      "Summary": "<p sourcefile=\"api/SharpHook.EventLoopGlobalHook.yml\" sourcestartlinenumber=\"1\">Represents an implementation of <xref href=\"SharpHook.IGlobalHook\" data-throw-if-not-resolved=\"false\"></xref> which dispatches events to an event loop running on a\nseparate dedicated thread.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -277,7 +277,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.EventSimulationExtensions",
-      "Summary": "<p sourcefile=\"api/SharpHook.EventSimulationExtensions.yml\" sourcestartlinenumber=\"1\">Contains extension methods for <xref href=\"SharpHook.IEventSimulator\" data-throw-if-not-resolved=\"false\"></xref> and <xref href=\"SharpHook.IEventSimulationSequenceBuilder\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -291,7 +291,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.EventSimulationSequenceBuilder",
-      "Summary": "<p sourcefile=\"api/SharpHook.EventSimulationSequenceBuilder.yml\" sourcestartlinenumber=\"1\">Represents a builder for a sequence of events that can be simulated together.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -305,7 +305,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.EventSimulationSequenceTemplate",
-      "Summary": "<p sourcefile=\"api/SharpHook.EventSimulationSequenceTemplate.yml\" sourcestartlinenumber=\"1\">Represents an object that can simulate a predetermined sequence of events.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -319,7 +319,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.EventSimulator",
-      "Summary": "<p sourcefile=\"api/SharpHook.EventSimulator.yml\" sourcestartlinenumber=\"1\">A keyboard and mouse event simulator which posts events to a simulation provider (libuiohook by default).</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -333,7 +333,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.GlobalHookBase",
-      "Summary": "<p sourcefile=\"api/SharpHook.GlobalHookBase.yml\" sourcestartlinenumber=\"1\">Represents an abstract implementation of <xref href=\"SharpHook.IGlobalHook\" data-throw-if-not-resolved=\"false\"></xref> which defines everything needed except for\na strategy for dispatching events and uses a global hook provider (libuiohook by default).</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -347,7 +347,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.HookEventArgs",
-      "Summary": "<p sourcefile=\"api/SharpHook.HookEventArgs.yml\" sourcestartlinenumber=\"1\">A base class for event args related to the global hook.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -361,7 +361,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.HookException",
-      "Summary": "<p sourcefile=\"api/SharpHook.HookException.yml\" sourcestartlinenumber=\"1\">Represents an exception related to global hooks.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -375,7 +375,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.IBasicGlobalHook",
-      "Summary": "<p sourcefile=\"api/SharpHook.IBasicGlobalHook.yml\" sourcestartlinenumber=\"1\">Represents basic operations for a global keyboard and mouse hook regardless of the form of its events.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -389,7 +389,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.IEventSimulationSequenceBuilder",
-      "Summary": "<p sourcefile=\"api/SharpHook.IEventSimulationSequenceBuilder.yml\" sourcestartlinenumber=\"1\">Represents a builder for a sequence of events that can be simulated together.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -403,7 +403,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.IEventSimulationSequenceTemplate",
-      "Summary": "<p sourcefile=\"api/SharpHook.IEventSimulationSequenceTemplate.yml\" sourcestartlinenumber=\"1\">Represents an object that can simulate a predetermined sequence of events.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -417,7 +417,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.IEventSimulator",
-      "Summary": "<p sourcefile=\"api/SharpHook.IEventSimulator.yml\" sourcestartlinenumber=\"1\">Represents an object which can simulate keyboard and mouse events.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -431,7 +431,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.IGlobalHook",
-      "Summary": "<p sourcefile=\"api/SharpHook.IGlobalHook.yml\" sourcestartlinenumber=\"1\">Represents a global keyboard and mouse hook.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -445,7 +445,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.KeyboardHookEventArgs",
-      "Summary": "<p sourcefile=\"api/SharpHook.KeyboardHookEventArgs.yml\" sourcestartlinenumber=\"1\">Event args for keyboard-related hook events.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -459,7 +459,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Logging.EmptyLogSource",
-      "Summary": "<p sourcefile=\"api/SharpHook.Logging.EmptyLogSource.yml\" sourcestartlinenumber=\"1\">Represents a souce of libuiohook logs which never raises any events.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -473,7 +473,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Logging.ILogSource",
-      "Summary": "<p sourcefile=\"api/SharpHook.Logging.ILogSource.yml\" sourcestartlinenumber=\"1\">Represents a source of libuiohook logs.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -487,7 +487,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Logging.LogEntry",
-      "Summary": "<p sourcefile=\"api/SharpHook.Logging.LogEntry.yml\" sourcestartlinenumber=\"1\">Represents a log entry from libuiohook.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -501,7 +501,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Logging.LogEntryParser",
-      "Summary": "<p sourcefile=\"api/SharpHook.Logging.LogEntryParser.yml\" sourcestartlinenumber=\"1\">Creates log entries from native log formats and arguments.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -515,7 +515,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Logging.LogEventArgs",
-      "Summary": "<p sourcefile=\"api/SharpHook.Logging.LogEventArgs.yml\" sourcestartlinenumber=\"1\">Event args for logging events.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -529,7 +529,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Logging.LogSource",
-      "Summary": "<p sourcefile=\"api/SharpHook.Logging.LogSource.yml\" sourcestartlinenumber=\"1\">Represents a source of libuiohook logs.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -557,7 +557,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.MouseHookEventArgs",
-      "Summary": "<p sourcefile=\"api/SharpHook.MouseHookEventArgs.yml\" sourcestartlinenumber=\"1\">Event args for mouse-related hook events.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -571,7 +571,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.MouseWheelHookEventArgs",
-      "Summary": "<p sourcefile=\"api/SharpHook.MouseWheelHookEventArgs.yml\" sourcestartlinenumber=\"1\">Event args for mouse wheel-related hook events.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -585,7 +585,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Native.DispatchProc",
-      "Summary": "<p sourcefile=\"api/SharpHook.Native.DispatchProc.yml\" sourcestartlinenumber=\"1\">Represents a function which is called when an event occurs.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -599,7 +599,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Native.LoggerProc",
-      "Summary": "<p sourcefile=\"api/SharpHook.Native.LoggerProc.yml\" sourcestartlinenumber=\"1\">Represents a function which is called when a logging event occurs.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -613,7 +613,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Native.UioHook",
-      "Summary": "<p sourcefile=\"api/SharpHook.Native.UioHook.yml\" sourcestartlinenumber=\"1\">Contains native methods of libuiohook.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -641,7 +641,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Providers.IAccessibilityProvider",
-      "Summary": "<p sourcefile=\"api/SharpHook.Providers.IAccessibilityProvider.yml\" sourcestartlinenumber=\"1\">Represents a provider of low-level macOS Accessibility API functionality.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -655,7 +655,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Providers.IEventSimulationProvider",
-      "Summary": "<p sourcefile=\"api/SharpHook.Providers.IEventSimulationProvider.yml\" sourcestartlinenumber=\"1\">Represents a provider of low-level event simulation functionality.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -669,7 +669,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Providers.IGlobalHookProvider",
-      "Summary": "<p sourcefile=\"api/SharpHook.Providers.IGlobalHookProvider.yml\" sourcestartlinenumber=\"1\">Represents a provider of low-level global hook functionality.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -683,7 +683,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Providers.ILoggingProvider",
-      "Summary": "<p sourcefile=\"api/SharpHook.Providers.ILoggingProvider.yml\" sourcestartlinenumber=\"1\">Represents a provider of low-level logging functionality.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -697,7 +697,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Providers.IMouseInfoProvider",
-      "Summary": "<p sourcefile=\"api/SharpHook.Providers.IMouseInfoProvider.yml\" sourcestartlinenumber=\"1\">Represents a provider of low-level mouse info functionality.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -711,7 +711,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Providers.IScreenInfoProvider",
-      "Summary": "<p sourcefile=\"api/SharpHook.Providers.IScreenInfoProvider.yml\" sourcestartlinenumber=\"1\">Represents a provider of low-level screen info functionality.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -725,7 +725,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Providers.UioHookProvider",
-      "Summary": "<p sourcefile=\"api/SharpHook.Providers.UioHookProvider.yml\" sourcestartlinenumber=\"1\">A provider of low-level functionality which delegates it to the <xref href=\"SharpHook.Native.UioHook\" data-throw-if-not-resolved=\"false\"></xref> class.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -949,7 +949,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.SimpleGlobalHook",
-      "Summary": "<p sourcefile=\"api/SharpHook.SimpleGlobalHook.yml\" sourcestartlinenumber=\"1\">Represents an implementation of <xref href=\"SharpHook.IGlobalHook\" data-throw-if-not-resolved=\"false\"></xref> which raises events on the same thread on which\nthe hook itself runs.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -963,7 +963,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.TaskPoolGlobalHook",
-      "Summary": "<p sourcefile=\"api/SharpHook.TaskPoolGlobalHook.yml\" sourcestartlinenumber=\"1\">Represents a task pool-based implementation of <xref href=\"SharpHook.IGlobalHook\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -977,7 +977,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Testing.TestGlobalHook",
-      "Summary": "<p sourcefile=\"api/SharpHook.Testing.TestGlobalHook.yml\" sourcestartlinenumber=\"1\">A global hook and event simulator which can be used in tests.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -991,7 +991,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Testing.TestProvider",
-      "Summary": "<p sourcefile=\"api/SharpHook.Testing.TestProvider.yml\" sourcestartlinenumber=\"1\">A provider of low-level functionality which can be used in tests.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -1005,7 +1005,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Testing.TestThreadingMode",
-      "Summary": "<p sourcefile=\"api/SharpHook.Testing.TestThreadingMode.yml\" sourcestartlinenumber=\"1\">Represents the mode of dispatching simulated events in testing hooks – either on the same thread which simulates\nthem, or on the thread which runs the testing hook.</p>\n"
+      "Summary": null
     },
     {
       "type": "ManagedReference",

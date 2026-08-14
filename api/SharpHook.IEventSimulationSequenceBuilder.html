@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface IEventSimulationSequenceBuilder | SharpHook ">
       
-      <meta name="description" content="Represents a builder for a sequence of events that can be simulated together.">
+      
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="SharpHook_IEventSimulationSequenceBuilder" data-uid="SharpHook.IEventSimulationSequenceBuilder" class="text-break">
-Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.3/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
+Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,8 +97,7 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
   <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Represents a builder for a sequence of events that can be simulated together.</p>
-</div>
+  <div class="markdown summary"></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -135,11 +134,10 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
   <h3 id="SharpHook_IEventSimulationSequenceBuilder_AddEvent_SharpHook_Data_UioHookEvent_" data-uid="SharpHook.IEventSimulationSequenceBuilder.AddEvent(SharpHook.Data.UioHookEvent)">
   AddEvent(UioHookEvent)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.3/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds the specified event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -149,15 +147,13 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>e</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></dt>
-    <dd><p>The event to add to the sequence.</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -174,11 +170,10 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
   <h3 id="SharpHook_IEventSimulationSequenceBuilder_AddEvents_SharpHook_Data_UioHookEvent___" data-uid="SharpHook.IEventSimulationSequenceBuilder.AddEvents(SharpHook.Data.UioHookEvent[])">
   AddEvents(params UioHookEvent[])
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.3/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds the specified events to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -188,15 +183,13 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>events</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a>[]</dt>
-    <dd><p>The events to add to the sequence.</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -206,12 +199,6 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
 
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
-    <dd><p><code class="paramref">events</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
-</dd>
-  </dl>
 
 
 
@@ -219,11 +206,10 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
   <h3 id="SharpHook_IEventSimulationSequenceBuilder_AddEvents_System_Collections_Generic_IEnumerable_SharpHook_Data_UioHookEvent__" data-uid="SharpHook.IEventSimulationSequenceBuilder.AddEvents(System.Collections.Generic.IEnumerable{SharpHook.Data.UioHookEvent})">
   AddEvents(IEnumerable&lt;UioHookEvent&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.3/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds the specified events to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -233,15 +219,13 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>events</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a>&gt;</dt>
-    <dd><p>The events to add to the sequence.</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -251,12 +235,6 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
 
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
-    <dd><p><code class="paramref">events</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
-</dd>
-  </dl>
 
 
 
@@ -264,11 +242,10 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
   <h3 id="SharpHook_IEventSimulationSequenceBuilder_AddKeyPress_SharpHook_Data_KeyCode_" data-uid="SharpHook.IEventSimulationSequenceBuilder.AddKeyPress(SharpHook.Data.KeyCode)">
   AddKeyPress(KeyCode)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.3/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a key press event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -278,15 +255,13 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>keyCode</code> <a class="xref" href="SharpHook.Data.KeyCode.html">KeyCode</a></dt>
-    <dd><p>The code of the key to press.</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -303,11 +278,10 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
   <h3 id="SharpHook_IEventSimulationSequenceBuilder_AddKeyRelease_SharpHook_Data_KeyCode_" data-uid="SharpHook.IEventSimulationSequenceBuilder.AddKeyRelease(SharpHook.Data.KeyCode)">
   AddKeyRelease(KeyCode)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.3/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a key release event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -317,15 +291,13 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>keyCode</code> <a class="xref" href="SharpHook.Data.KeyCode.html">KeyCode</a></dt>
-    <dd><p>The code of the key to press.</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -342,11 +314,10 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
   <h3 id="SharpHook_IEventSimulationSequenceBuilder_AddMouseMovement_System_Int16_System_Int16_" data-uid="SharpHook.IEventSimulationSequenceBuilder.AddMouseMovement(System.Int16,System.Int16)">
   AddMouseMovement(short, short)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.3/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a mouse movement event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -356,18 +327,15 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The target X-coordinate of the mouse pointer.</p>
-</dd>
+    <dd></dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The target Y-coordinate of the mouse pointer.</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -384,11 +352,10 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
   <h3 id="SharpHook_IEventSimulationSequenceBuilder_AddMouseMovementRelative_System_Int16_System_Int16_" data-uid="SharpHook.IEventSimulationSequenceBuilder.AddMouseMovementRelative(System.Int16,System.Int16)">
   AddMouseMovementRelative(short, short)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.3/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a relative mouse movement event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -398,18 +365,15 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The X-coordinate offset.</p>
-</dd>
+    <dd></dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The Y-coordinate offset.</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -426,11 +390,10 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
   <h3 id="SharpHook_IEventSimulationSequenceBuilder_AddMousePress_SharpHook_Data_MouseButton_" data-uid="SharpHook.IEventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton)">
   AddMousePress(MouseButton)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.3/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a mouse button press event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -440,15 +403,13 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>button</code> <a class="xref" href="SharpHook.Data.MouseButton.html">MouseButton</a></dt>
-    <dd><p>The mouse button to press.</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -465,11 +426,10 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
   <h3 id="SharpHook_IEventSimulationSequenceBuilder_AddMousePress_SharpHook_Data_MouseButton_System_UInt16_" data-uid="SharpHook.IEventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton,System.UInt16)">
   AddMousePress(MouseButton, ushort)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.3/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a mouse button press event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -479,18 +439,15 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>button</code> <a class="xref" href="SharpHook.Data.MouseButton.html">MouseButton</a></dt>
-    <dd><p>The mouse button to press.</p>
-</dd>
+    <dd></dd>
     <dt><code>clicks</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
-    <dd><p>The click count (used only on macOS).</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -507,11 +464,10 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
   <h3 id="SharpHook_IEventSimulationSequenceBuilder_AddMousePress_System_Int16_System_Int16_SharpHook_Data_MouseButton_" data-uid="SharpHook.IEventSimulationSequenceBuilder.AddMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton)">
   AddMousePress(short, short, MouseButton)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.3/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a mouse button press event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -521,21 +477,17 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The target X-coordinate of the mouse pointer.</p>
-</dd>
+    <dd></dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The target Y-coordinate of the mouse pointer.</p>
-</dd>
+    <dd></dd>
     <dt><code>button</code> <a class="xref" href="SharpHook.Data.MouseButton.html">MouseButton</a></dt>
-    <dd><p>The mouse button to press.</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -552,11 +504,10 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
   <h3 id="SharpHook_IEventSimulationSequenceBuilder_AddMousePress_System_Int16_System_Int16_SharpHook_Data_MouseButton_System_UInt16_" data-uid="SharpHook.IEventSimulationSequenceBuilder.AddMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)">
   AddMousePress(short, short, MouseButton, ushort)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.3/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a mouse button press event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -566,24 +517,19 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The target X-coordinate of the mouse pointer.</p>
-</dd>
+    <dd></dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The target Y-coordinate of the mouse pointer.</p>
-</dd>
+    <dd></dd>
     <dt><code>button</code> <a class="xref" href="SharpHook.Data.MouseButton.html">MouseButton</a></dt>
-    <dd><p>The mouse button to press.</p>
-</dd>
+    <dd></dd>
     <dt><code>clicks</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
-    <dd><p>The click count (used only on macOS).</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -600,11 +546,10 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
   <h3 id="SharpHook_IEventSimulationSequenceBuilder_AddMouseRelease_SharpHook_Data_MouseButton_" data-uid="SharpHook.IEventSimulationSequenceBuilder.AddMouseRelease(SharpHook.Data.MouseButton)">
   AddMouseRelease(MouseButton)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.3/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a mouse button release event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -614,15 +559,13 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>button</code> <a class="xref" href="SharpHook.Data.MouseButton.html">MouseButton</a></dt>
-    <dd><p>The mouse button to release.</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -639,11 +582,10 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
   <h3 id="SharpHook_IEventSimulationSequenceBuilder_AddMouseRelease_SharpHook_Data_MouseButton_System_UInt16_" data-uid="SharpHook.IEventSimulationSequenceBuilder.AddMouseRelease(SharpHook.Data.MouseButton,System.UInt16)">
   AddMouseRelease(MouseButton, ushort)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.3/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a mouse button release event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -653,18 +595,15 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>button</code> <a class="xref" href="SharpHook.Data.MouseButton.html">MouseButton</a></dt>
-    <dd><p>The mouse button to release.</p>
-</dd>
+    <dd></dd>
     <dt><code>clicks</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
-    <dd><p>The click count (used only on macOS).</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -681,11 +620,10 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
   <h3 id="SharpHook_IEventSimulationSequenceBuilder_AddMouseRelease_System_Int16_System_Int16_SharpHook_Data_MouseButton_" data-uid="SharpHook.IEventSimulationSequenceBuilder.AddMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton)">
   AddMouseRelease(short, short, MouseButton)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.3/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a mouse button release event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -695,21 +633,17 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The target X-coordinate of the mouse pointer.</p>
-</dd>
+    <dd></dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The target Y-coordinate of the mouse pointer.</p>
-</dd>
+    <dd></dd>
     <dt><code>button</code> <a class="xref" href="SharpHook.Data.MouseButton.html">MouseButton</a></dt>
-    <dd><p>The mouse button to release.</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -726,11 +660,10 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
   <h3 id="SharpHook_IEventSimulationSequenceBuilder_AddMouseRelease_System_Int16_System_Int16_SharpHook_Data_MouseButton_System_UInt16_" data-uid="SharpHook.IEventSimulationSequenceBuilder.AddMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)">
   AddMouseRelease(short, short, MouseButton, ushort)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.3/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a mouse button release event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -740,24 +673,19 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The target X-coordinate of the mouse pointer.</p>
-</dd>
+    <dd></dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The target Y-coordinate of the mouse pointer.</p>
-</dd>
+    <dd></dd>
     <dt><code>button</code> <a class="xref" href="SharpHook.Data.MouseButton.html">MouseButton</a></dt>
-    <dd><p>The mouse button to release.</p>
-</dd>
+    <dd></dd>
     <dt><code>clicks</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
-    <dd><p>The click count (used only on macOS).</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -774,11 +702,10 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
   <h3 id="SharpHook_IEventSimulationSequenceBuilder_AddMouseWheel_System_Int16_SharpHook_Data_MouseWheelScrollDirection_SharpHook_Data_MouseWheelScrollType_" data-uid="SharpHook.IEventSimulationSequenceBuilder.AddMouseWheel(System.Int16,SharpHook.Data.MouseWheelScrollDirection,SharpHook.Data.MouseWheelScrollType)">
   AddMouseWheel(short, MouseWheelScrollDirection, MouseWheelScrollType)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.3/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a mouse wheel scroll event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -788,22 +715,17 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>rotation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The wheel rotation. A positive value indicates that the wheel will be rotated up or left,
-and a negative value indicates that the wheel will be rotated down or right.</p>
-</dd>
+    <dd></dd>
     <dt><code>direction</code> <a class="xref" href="SharpHook.Data.MouseWheelScrollDirection.html">MouseWheelScrollDirection</a></dt>
-    <dd><p>The scroll direction.</p>
-</dd>
+    <dd></dd>
     <dt><code>type</code> <a class="xref" href="SharpHook.Data.MouseWheelScrollType.html">MouseWheelScrollType</a></dt>
-    <dd><p>The scroll type (considered only on macOS).</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -812,21 +734,6 @@ and a negative value indicates that the wheel will be rotated down or right.</p>
 
 
 
-  <h4 class="section" id="SharpHook_IEventSimulationSequenceBuilder_AddMouseWheel_System_Int16_SharpHook_Data_MouseWheelScrollDirection_SharpHook_Data_MouseWheelScrollType__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>
-On Windows, the value <code>120</code> represents the default wheel step. As such, multiples of <code>120</code> can be
-used, but it's not required. The value of <code class="paramref">type</code> is ignored.
-</p>
-<p>
-On macOS, it's recommended to use values between <code>-10</code> and <code>10</code>. This will result in quite a small
-scroll amount with pixel scrolling, so <a class="xref" href="SharpHook.Data.MouseWheelScrollType.html#SharpHook_Data_MouseWheelScrollType_BlockScroll">BlockScroll</a> is recommended for line
-scrolling instead of pixel scrolling.
-</p>
-<p>
-On Linux, there is no fixed recommendation, but multiples of <code>100</code> can be used. The value of
-<code class="paramref">type</code> is ignored.
-</p>
-</div>
 
 
 
@@ -835,11 +742,10 @@ On Linux, there is no fixed recommendation, but multiples of <code>100</code> ca
 
   <h3 id="SharpHook_IEventSimulationSequenceBuilder_CreateTemplate" data-uid="SharpHook.IEventSimulationSequenceBuilder.CreateTemplate">
   CreateTemplate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.3/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Creates a template based on the events in this sequence.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -850,8 +756,7 @@ On Linux, there is no fixed recommendation, but multiples of <code>100</code> ca
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.IEventSimulationSequenceTemplate.html">IEventSimulationSequenceTemplate</a></dt>
-    <dd><p>A template based on the events in this sequence.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -868,11 +773,10 @@ On Linux, there is no fixed recommendation, but multiples of <code>100</code> ca
 
   <h3 id="SharpHook_IEventSimulationSequenceBuilder_RemoveEvent_SharpHook_Data_UioHookEvent_" data-uid="SharpHook.IEventSimulationSequenceBuilder.RemoveEvent(SharpHook.Data.UioHookEvent)">
   RemoveEvent(UioHookEvent)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.3/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Removes the specified event from the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -882,15 +786,13 @@ On Linux, there is no fixed recommendation, but multiples of <code>100</code> ca
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>e</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></dt>
-    <dd><p>The event to remove from the sequence.</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -907,11 +809,10 @@ On Linux, there is no fixed recommendation, but multiples of <code>100</code> ca
 
   <h3 id="SharpHook_IEventSimulationSequenceBuilder_RemoveEvents_System_Func_SharpHook_Data_UioHookEvent_System_Boolean__" data-uid="SharpHook.IEventSimulationSequenceBuilder.RemoveEvents(System.Func{SharpHook.Data.UioHookEvent,System.Boolean})">
   RemoveEvents(Func&lt;UioHookEvent, bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.3/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Removes the specified events from the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -921,15 +822,13 @@ On Linux, there is no fixed recommendation, but multiples of <code>100</code> ca
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
-    <dd><p>The predicate to check if the event should be removed from the sequence.</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -946,11 +845,10 @@ On Linux, there is no fixed recommendation, but multiples of <code>100</code> ca
 
   <h3 id="SharpHook_IEventSimulationSequenceBuilder_Simulate" data-uid="SharpHook.IEventSimulationSequenceBuilder.Simulate">
   Simulate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.3/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IEventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Simulates the events in this sequence.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -961,8 +859,7 @@ On Linux, there is no fixed recommendation, but multiples of <code>100</code> ca
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
-    <dd><p>The result of the operation.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -979,7 +876,7 @@ On Linux, there is no fixed recommendation, but multiples of <code>100</code> ca
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/v7.1.3/SharpHook/IEventSimulationSequenceBuilder.cs" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IEventSimulationSequenceBuilder.cs" class="edit-link">Edit this page</a>
         </div>
 
 
