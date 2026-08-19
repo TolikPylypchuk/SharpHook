@@ -1705,6 +1705,72 @@ references:
   fullName.vb: SharpHook.Data.KeyboardEventData.<>
   nameWithType: KeyboardEventData.operator !=
   nameWithType.vb: KeyboardEventData.<>
+- uid: SharpHook.Data.LinuxBackend
+  name: LinuxBackend
+  href: api/SharpHook.Data.LinuxBackend.html
+  commentId: T:SharpHook.Data.LinuxBackend
+  fullName: SharpHook.Data.LinuxBackend
+  nameWithType: LinuxBackend
+- uid: SharpHook.Data.LinuxBackend.None
+  name: None
+  href: api/SharpHook.Data.LinuxBackend.html#SharpHook_Data_LinuxBackend_None
+  commentId: F:SharpHook.Data.LinuxBackend.None
+  fullName: SharpHook.Data.LinuxBackend.None
+  nameWithType: LinuxBackend.None
+- uid: SharpHook.Data.LinuxBackend.Wayland
+  name: Wayland
+  href: api/SharpHook.Data.LinuxBackend.html#SharpHook_Data_LinuxBackend_Wayland
+  commentId: F:SharpHook.Data.LinuxBackend.Wayland
+  fullName: SharpHook.Data.LinuxBackend.Wayland
+  nameWithType: LinuxBackend.Wayland
+- uid: SharpHook.Data.LinuxBackend.X11
+  name: X11
+  href: api/SharpHook.Data.LinuxBackend.html#SharpHook_Data_LinuxBackend_X11
+  commentId: F:SharpHook.Data.LinuxBackend.X11
+  fullName: SharpHook.Data.LinuxBackend.X11
+  nameWithType: LinuxBackend.X11
+- uid: SharpHook.Data.LinuxBackend.XRecord
+  name: XRecord
+  href: api/SharpHook.Data.LinuxBackend.html#SharpHook_Data_LinuxBackend_XRecord
+  commentId: F:SharpHook.Data.LinuxBackend.XRecord
+  fullName: SharpHook.Data.LinuxBackend.XRecord
+  nameWithType: LinuxBackend.XRecord
+- uid: SharpHook.Data.LinuxMode
+  name: LinuxMode
+  href: api/SharpHook.Data.LinuxMode.html
+  commentId: T:SharpHook.Data.LinuxMode
+  fullName: SharpHook.Data.LinuxMode
+  nameWithType: LinuxMode
+- uid: SharpHook.Data.LinuxMode.AutoLowLevel
+  name: AutoLowLevel
+  href: api/SharpHook.Data.LinuxMode.html#SharpHook_Data_LinuxMode_AutoLowLevel
+  commentId: F:SharpHook.Data.LinuxMode.AutoLowLevel
+  fullName: SharpHook.Data.LinuxMode.AutoLowLevel
+  nameWithType: LinuxMode.AutoLowLevel
+- uid: SharpHook.Data.LinuxMode.AutoXRecord
+  name: AutoXRecord
+  href: api/SharpHook.Data.LinuxMode.html#SharpHook_Data_LinuxMode_AutoXRecord
+  commentId: F:SharpHook.Data.LinuxMode.AutoXRecord
+  fullName: SharpHook.Data.LinuxMode.AutoXRecord
+  nameWithType: LinuxMode.AutoXRecord
+- uid: SharpHook.Data.LinuxMode.Wayland
+  name: Wayland
+  href: api/SharpHook.Data.LinuxMode.html#SharpHook_Data_LinuxMode_Wayland
+  commentId: F:SharpHook.Data.LinuxMode.Wayland
+  fullName: SharpHook.Data.LinuxMode.Wayland
+  nameWithType: LinuxMode.Wayland
+- uid: SharpHook.Data.LinuxMode.X11
+  name: X11
+  href: api/SharpHook.Data.LinuxMode.html#SharpHook_Data_LinuxMode_X11
+  commentId: F:SharpHook.Data.LinuxMode.X11
+  fullName: SharpHook.Data.LinuxMode.X11
+  nameWithType: LinuxMode.X11
+- uid: SharpHook.Data.LinuxMode.XRecord
+  name: XRecord
+  href: api/SharpHook.Data.LinuxMode.html#SharpHook_Data_LinuxMode_XRecord
+  commentId: F:SharpHook.Data.LinuxMode.XRecord
+  fullName: SharpHook.Data.LinuxMode.XRecord
+  nameWithType: LinuxMode.XRecord
 - uid: SharpHook.Data.LogLevel
   name: LogLevel
   href: api/SharpHook.Data.LogLevel.html
@@ -2287,6 +2353,54 @@ references:
   fullName.vb: SharpHook.Data.UioHookEvent.<>
   nameWithType: UioHookEvent.operator !=
   nameWithType.vb: UioHookEvent.<>
+- uid: SharpHook.Data.UioHookFeature
+  name: UioHookFeature
+  href: api/SharpHook.Data.UioHookFeature.html
+  commentId: T:SharpHook.Data.UioHookFeature
+  fullName: SharpHook.Data.UioHookFeature
+  nameWithType: UioHookFeature
+- uid: SharpHook.Data.UioHookFeature.AbsoluteMouseButtonCoordinates
+  name: AbsoluteMouseButtonCoordinates
+  href: api/SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_AbsoluteMouseButtonCoordinates
+  commentId: F:SharpHook.Data.UioHookFeature.AbsoluteMouseButtonCoordinates
+  fullName: SharpHook.Data.UioHookFeature.AbsoluteMouseButtonCoordinates
+  nameWithType: UioHookFeature.AbsoluteMouseButtonCoordinates
+- uid: SharpHook.Data.UioHookFeature.AbsoluteMouseMovement
+  name: AbsoluteMouseMovement
+  href: api/SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_AbsoluteMouseMovement
+  commentId: F:SharpHook.Data.UioHookFeature.AbsoluteMouseMovement
+  fullName: SharpHook.Data.UioHookFeature.AbsoluteMouseMovement
+  nameWithType: UioHookFeature.AbsoluteMouseMovement
+- uid: SharpHook.Data.UioHookFeature.EventSuppression
+  name: EventSuppression
+  href: api/SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_EventSuppression
+  commentId: F:SharpHook.Data.UioHookFeature.EventSuppression
+  fullName: SharpHook.Data.UioHookFeature.EventSuppression
+  nameWithType: UioHookFeature.EventSuppression
+- uid: SharpHook.Data.UioHookFeature.KeyAutoRepeat
+  name: KeyAutoRepeat
+  href: api/SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_KeyAutoRepeat
+  commentId: F:SharpHook.Data.UioHookFeature.KeyAutoRepeat
+  fullName: SharpHook.Data.UioHookFeature.KeyAutoRepeat
+  nameWithType: UioHookFeature.KeyAutoRepeat
+- uid: SharpHook.Data.UioHookFeature.KeyTypedEvents
+  name: KeyTypedEvents
+  href: api/SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_KeyTypedEvents
+  commentId: F:SharpHook.Data.UioHookFeature.KeyTypedEvents
+  fullName: SharpHook.Data.UioHookFeature.KeyTypedEvents
+  nameWithType: UioHookFeature.KeyTypedEvents
+- uid: SharpHook.Data.UioHookFeature.PointerProperties
+  name: PointerProperties
+  href: api/SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_PointerProperties
+  commentId: F:SharpHook.Data.UioHookFeature.PointerProperties
+  fullName: SharpHook.Data.UioHookFeature.PointerProperties
+  nameWithType: UioHookFeature.PointerProperties
+- uid: SharpHook.Data.UioHookFeature.PostText
+  name: PostText
+  href: api/SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_PostText
+  commentId: F:SharpHook.Data.UioHookFeature.PostText
+  fullName: SharpHook.Data.UioHookFeature.PostText
+  nameWithType: UioHookFeature.PostText
 - uid: SharpHook.Data.UioHookResult
   name: UioHookResult
   href: api/SharpHook.Data.UioHookResult.html
@@ -3688,6 +3802,72 @@ references:
   commentId: N:SharpHook.Native
   fullName: SharpHook.Native
   nameWithType: SharpHook.Native
+- uid: SharpHook.Native.CloseDeviceProc
+  name: CloseDeviceProc
+  href: api/SharpHook.Native.CloseDeviceProc.html
+  commentId: T:SharpHook.Native.CloseDeviceProc
+  fullName: SharpHook.Native.CloseDeviceProc
+  nameWithType: CloseDeviceProc
+- uid: SharpHook.Native.CloseDeviceProc.#ctor(System.Object,System.IntPtr)
+  name: CloseDeviceProc(object, nint)
+  href: api/SharpHook.Native.CloseDeviceProc.html#SharpHook_Native_CloseDeviceProc__ctor_System_Object_System_IntPtr_
+  commentId: M:SharpHook.Native.CloseDeviceProc.#ctor(System.Object,System.IntPtr)
+  name.vb: New(Object, IntPtr)
+  fullName: SharpHook.Native.CloseDeviceProc.CloseDeviceProc(object, nint)
+  fullName.vb: SharpHook.Native.CloseDeviceProc.New(Object, System.IntPtr)
+  nameWithType: CloseDeviceProc.CloseDeviceProc(object, nint)
+  nameWithType.vb: CloseDeviceProc.New(Object, IntPtr)
+- uid: SharpHook.Native.CloseDeviceProc.#ctor*
+  name: CloseDeviceProc
+  href: api/SharpHook.Native.CloseDeviceProc.html#SharpHook_Native_CloseDeviceProc__ctor_
+  commentId: Overload:SharpHook.Native.CloseDeviceProc.#ctor
+  name.vb: New
+  fullName: SharpHook.Native.CloseDeviceProc.CloseDeviceProc
+  fullName.vb: SharpHook.Native.CloseDeviceProc.New
+  nameWithType: CloseDeviceProc.CloseDeviceProc
+  nameWithType.vb: CloseDeviceProc.New
+- uid: SharpHook.Native.CloseDeviceProc.BeginInvoke(System.Int32,System.IntPtr,System.AsyncCallback,System.Object)
+  name: BeginInvoke(int, nint, AsyncCallback, object)
+  href: api/SharpHook.Native.CloseDeviceProc.html#SharpHook_Native_CloseDeviceProc_BeginInvoke_System_Int32_System_IntPtr_System_AsyncCallback_System_Object_
+  commentId: M:SharpHook.Native.CloseDeviceProc.BeginInvoke(System.Int32,System.IntPtr,System.AsyncCallback,System.Object)
+  name.vb: BeginInvoke(Integer, IntPtr, AsyncCallback, Object)
+  fullName: SharpHook.Native.CloseDeviceProc.BeginInvoke(int, nint, System.AsyncCallback, object)
+  fullName.vb: SharpHook.Native.CloseDeviceProc.BeginInvoke(Integer, System.IntPtr, System.AsyncCallback, Object)
+  nameWithType: CloseDeviceProc.BeginInvoke(int, nint, AsyncCallback, object)
+  nameWithType.vb: CloseDeviceProc.BeginInvoke(Integer, IntPtr, AsyncCallback, Object)
+- uid: SharpHook.Native.CloseDeviceProc.BeginInvoke*
+  name: BeginInvoke
+  href: api/SharpHook.Native.CloseDeviceProc.html#SharpHook_Native_CloseDeviceProc_BeginInvoke_
+  commentId: Overload:SharpHook.Native.CloseDeviceProc.BeginInvoke
+  fullName: SharpHook.Native.CloseDeviceProc.BeginInvoke
+  nameWithType: CloseDeviceProc.BeginInvoke
+- uid: SharpHook.Native.CloseDeviceProc.EndInvoke(System.IAsyncResult)
+  name: EndInvoke(IAsyncResult)
+  href: api/SharpHook.Native.CloseDeviceProc.html#SharpHook_Native_CloseDeviceProc_EndInvoke_System_IAsyncResult_
+  commentId: M:SharpHook.Native.CloseDeviceProc.EndInvoke(System.IAsyncResult)
+  fullName: SharpHook.Native.CloseDeviceProc.EndInvoke(System.IAsyncResult)
+  nameWithType: CloseDeviceProc.EndInvoke(IAsyncResult)
+- uid: SharpHook.Native.CloseDeviceProc.EndInvoke*
+  name: EndInvoke
+  href: api/SharpHook.Native.CloseDeviceProc.html#SharpHook_Native_CloseDeviceProc_EndInvoke_
+  commentId: Overload:SharpHook.Native.CloseDeviceProc.EndInvoke
+  fullName: SharpHook.Native.CloseDeviceProc.EndInvoke
+  nameWithType: CloseDeviceProc.EndInvoke
+- uid: SharpHook.Native.CloseDeviceProc.Invoke(System.Int32,System.IntPtr)
+  name: Invoke(int, nint)
+  href: api/SharpHook.Native.CloseDeviceProc.html#SharpHook_Native_CloseDeviceProc_Invoke_System_Int32_System_IntPtr_
+  commentId: M:SharpHook.Native.CloseDeviceProc.Invoke(System.Int32,System.IntPtr)
+  name.vb: Invoke(Integer, IntPtr)
+  fullName: SharpHook.Native.CloseDeviceProc.Invoke(int, nint)
+  fullName.vb: SharpHook.Native.CloseDeviceProc.Invoke(Integer, System.IntPtr)
+  nameWithType: CloseDeviceProc.Invoke(int, nint)
+  nameWithType.vb: CloseDeviceProc.Invoke(Integer, IntPtr)
+- uid: SharpHook.Native.CloseDeviceProc.Invoke*
+  name: Invoke
+  href: api/SharpHook.Native.CloseDeviceProc.html#SharpHook_Native_CloseDeviceProc_Invoke_
+  commentId: Overload:SharpHook.Native.CloseDeviceProc.Invoke
+  fullName: SharpHook.Native.CloseDeviceProc.Invoke
+  nameWithType: CloseDeviceProc.Invoke
 - uid: SharpHook.Native.DispatchProc
   name: DispatchProc
   href: api/SharpHook.Native.DispatchProc.html
@@ -3823,6 +4003,72 @@ references:
   commentId: Overload:SharpHook.Native.LoggerProc.Invoke
   fullName: SharpHook.Native.LoggerProc.Invoke
   nameWithType: LoggerProc.Invoke
+- uid: SharpHook.Native.OpenDeviceProc
+  name: OpenDeviceProc
+  href: api/SharpHook.Native.OpenDeviceProc.html
+  commentId: T:SharpHook.Native.OpenDeviceProc
+  fullName: SharpHook.Native.OpenDeviceProc
+  nameWithType: OpenDeviceProc
+- uid: SharpHook.Native.OpenDeviceProc.#ctor(System.Object,System.IntPtr)
+  name: OpenDeviceProc(object, nint)
+  href: api/SharpHook.Native.OpenDeviceProc.html#SharpHook_Native_OpenDeviceProc__ctor_System_Object_System_IntPtr_
+  commentId: M:SharpHook.Native.OpenDeviceProc.#ctor(System.Object,System.IntPtr)
+  name.vb: New(Object, IntPtr)
+  fullName: SharpHook.Native.OpenDeviceProc.OpenDeviceProc(object, nint)
+  fullName.vb: SharpHook.Native.OpenDeviceProc.New(Object, System.IntPtr)
+  nameWithType: OpenDeviceProc.OpenDeviceProc(object, nint)
+  nameWithType.vb: OpenDeviceProc.New(Object, IntPtr)
+- uid: SharpHook.Native.OpenDeviceProc.#ctor*
+  name: OpenDeviceProc
+  href: api/SharpHook.Native.OpenDeviceProc.html#SharpHook_Native_OpenDeviceProc__ctor_
+  commentId: Overload:SharpHook.Native.OpenDeviceProc.#ctor
+  name.vb: New
+  fullName: SharpHook.Native.OpenDeviceProc.OpenDeviceProc
+  fullName.vb: SharpHook.Native.OpenDeviceProc.New
+  nameWithType: OpenDeviceProc.OpenDeviceProc
+  nameWithType.vb: OpenDeviceProc.New
+- uid: SharpHook.Native.OpenDeviceProc.BeginInvoke(System.String,System.IntPtr,System.IntPtr,System.AsyncCallback,System.Object)
+  name: BeginInvoke(string, nint, nint, AsyncCallback, object)
+  href: api/SharpHook.Native.OpenDeviceProc.html#SharpHook_Native_OpenDeviceProc_BeginInvoke_System_String_System_IntPtr_System_IntPtr_System_AsyncCallback_System_Object_
+  commentId: M:SharpHook.Native.OpenDeviceProc.BeginInvoke(System.String,System.IntPtr,System.IntPtr,System.AsyncCallback,System.Object)
+  name.vb: BeginInvoke(String, IntPtr, IntPtr, AsyncCallback, Object)
+  fullName: SharpHook.Native.OpenDeviceProc.BeginInvoke(string, nint, nint, System.AsyncCallback, object)
+  fullName.vb: SharpHook.Native.OpenDeviceProc.BeginInvoke(String, System.IntPtr, System.IntPtr, System.AsyncCallback, Object)
+  nameWithType: OpenDeviceProc.BeginInvoke(string, nint, nint, AsyncCallback, object)
+  nameWithType.vb: OpenDeviceProc.BeginInvoke(String, IntPtr, IntPtr, AsyncCallback, Object)
+- uid: SharpHook.Native.OpenDeviceProc.BeginInvoke*
+  name: BeginInvoke
+  href: api/SharpHook.Native.OpenDeviceProc.html#SharpHook_Native_OpenDeviceProc_BeginInvoke_
+  commentId: Overload:SharpHook.Native.OpenDeviceProc.BeginInvoke
+  fullName: SharpHook.Native.OpenDeviceProc.BeginInvoke
+  nameWithType: OpenDeviceProc.BeginInvoke
+- uid: SharpHook.Native.OpenDeviceProc.EndInvoke(System.IAsyncResult)
+  name: EndInvoke(IAsyncResult)
+  href: api/SharpHook.Native.OpenDeviceProc.html#SharpHook_Native_OpenDeviceProc_EndInvoke_System_IAsyncResult_
+  commentId: M:SharpHook.Native.OpenDeviceProc.EndInvoke(System.IAsyncResult)
+  fullName: SharpHook.Native.OpenDeviceProc.EndInvoke(System.IAsyncResult)
+  nameWithType: OpenDeviceProc.EndInvoke(IAsyncResult)
+- uid: SharpHook.Native.OpenDeviceProc.EndInvoke*
+  name: EndInvoke
+  href: api/SharpHook.Native.OpenDeviceProc.html#SharpHook_Native_OpenDeviceProc_EndInvoke_
+  commentId: Overload:SharpHook.Native.OpenDeviceProc.EndInvoke
+  fullName: SharpHook.Native.OpenDeviceProc.EndInvoke
+  nameWithType: OpenDeviceProc.EndInvoke
+- uid: SharpHook.Native.OpenDeviceProc.Invoke(System.String,System.IntPtr,System.IntPtr)
+  name: Invoke(string, nint, nint)
+  href: api/SharpHook.Native.OpenDeviceProc.html#SharpHook_Native_OpenDeviceProc_Invoke_System_String_System_IntPtr_System_IntPtr_
+  commentId: M:SharpHook.Native.OpenDeviceProc.Invoke(System.String,System.IntPtr,System.IntPtr)
+  name.vb: Invoke(String, IntPtr, IntPtr)
+  fullName: SharpHook.Native.OpenDeviceProc.Invoke(string, nint, nint)
+  fullName.vb: SharpHook.Native.OpenDeviceProc.Invoke(String, System.IntPtr, System.IntPtr)
+  nameWithType: OpenDeviceProc.Invoke(string, nint, nint)
+  nameWithType.vb: OpenDeviceProc.Invoke(String, IntPtr, IntPtr)
+- uid: SharpHook.Native.OpenDeviceProc.Invoke*
+  name: Invoke
+  href: api/SharpHook.Native.OpenDeviceProc.html#SharpHook_Native_OpenDeviceProc_Invoke_
+  commentId: Overload:SharpHook.Native.OpenDeviceProc.Invoke
+  fullName: SharpHook.Native.OpenDeviceProc.Invoke
+  nameWithType: OpenDeviceProc.Invoke
 - uid: SharpHook.Native.UioHook
   name: UioHook
   href: api/SharpHook.Native.UioHook.html
@@ -3835,15 +4081,6 @@ references:
   commentId: M:SharpHook.Native.UioHook.CreateScreenInfo
   fullName: SharpHook.Native.UioHook.CreateScreenInfo()
   nameWithType: UioHook.CreateScreenInfo()
-- uid: SharpHook.Native.UioHook.CreateScreenInfo(System.Byte@)
-  name: CreateScreenInfo(out byte)
-  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_CreateScreenInfo_System_Byte__
-  commentId: M:SharpHook.Native.UioHook.CreateScreenInfo(System.Byte@)
-  name.vb: CreateScreenInfo(Byte)
-  fullName: SharpHook.Native.UioHook.CreateScreenInfo(out byte)
-  fullName.vb: SharpHook.Native.UioHook.CreateScreenInfo(Byte)
-  nameWithType: UioHook.CreateScreenInfo(out byte)
-  nameWithType.vb: UioHook.CreateScreenInfo(Byte)
 - uid: SharpHook.Native.UioHook.CreateScreenInfo*
   name: CreateScreenInfo
   href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_CreateScreenInfo_
@@ -3886,6 +4123,30 @@ references:
   commentId: Overload:SharpHook.Native.UioHook.GetAxPollFrequency
   fullName: SharpHook.Native.UioHook.GetAxPollFrequency
   nameWithType: UioHook.GetAxPollFrequency
+- uid: SharpHook.Native.UioHook.GetLinuxMode
+  name: GetLinuxMode()
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetLinuxMode
+  commentId: M:SharpHook.Native.UioHook.GetLinuxMode
+  fullName: SharpHook.Native.UioHook.GetLinuxMode()
+  nameWithType: UioHook.GetLinuxMode()
+- uid: SharpHook.Native.UioHook.GetLinuxMode*
+  name: GetLinuxMode
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetLinuxMode_
+  commentId: Overload:SharpHook.Native.UioHook.GetLinuxMode
+  fullName: SharpHook.Native.UioHook.GetLinuxMode
+  nameWithType: UioHook.GetLinuxMode
+- uid: SharpHook.Native.UioHook.GetLoadedLinuxBackend
+  name: GetLoadedLinuxBackend()
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetLoadedLinuxBackend
+  commentId: M:SharpHook.Native.UioHook.GetLoadedLinuxBackend
+  fullName: SharpHook.Native.UioHook.GetLoadedLinuxBackend()
+  nameWithType: UioHook.GetLoadedLinuxBackend()
+- uid: SharpHook.Native.UioHook.GetLoadedLinuxBackend*
+  name: GetLoadedLinuxBackend
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetLoadedLinuxBackend_
+  commentId: Overload:SharpHook.Native.UioHook.GetLoadedLinuxBackend
+  fullName: SharpHook.Native.UioHook.GetLoadedLinuxBackend
+  nameWithType: UioHook.GetLoadedLinuxBackend
 - uid: SharpHook.Native.UioHook.GetMultiClickTime
   name: GetMultiClickTime()
   href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetMultiClickTime
@@ -3898,6 +4159,18 @@ references:
   commentId: Overload:SharpHook.Native.UioHook.GetMultiClickTime
   fullName: SharpHook.Native.UioHook.GetMultiClickTime
   nameWithType: UioHook.GetMultiClickTime
+- uid: SharpHook.Native.UioHook.GetOptionalFeatureSupport
+  name: GetOptionalFeatureSupport()
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetOptionalFeatureSupport
+  commentId: M:SharpHook.Native.UioHook.GetOptionalFeatureSupport
+  fullName: SharpHook.Native.UioHook.GetOptionalFeatureSupport()
+  nameWithType: UioHook.GetOptionalFeatureSupport()
+- uid: SharpHook.Native.UioHook.GetOptionalFeatureSupport*
+  name: GetOptionalFeatureSupport
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetOptionalFeatureSupport_
+  commentId: Overload:SharpHook.Native.UioHook.GetOptionalFeatureSupport
+  fullName: SharpHook.Native.UioHook.GetOptionalFeatureSupport
+  nameWithType: UioHook.GetOptionalFeatureSupport
 - uid: SharpHook.Native.UioHook.GetPointerAccelerationMultiplier
   name: GetPointerAccelerationMultiplier()
   href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetPointerAccelerationMultiplier
@@ -3934,18 +4207,18 @@ references:
   commentId: Overload:SharpHook.Native.UioHook.GetPointerSensitivity
   fullName: SharpHook.Native.UioHook.GetPointerSensitivity
   nameWithType: UioHook.GetPointerSensitivity
-- uid: SharpHook.Native.UioHook.GetPostTextDelayX11
-  name: GetPostTextDelayX11()
-  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetPostTextDelayX11
-  commentId: M:SharpHook.Native.UioHook.GetPostTextDelayX11
-  fullName: SharpHook.Native.UioHook.GetPostTextDelayX11()
-  nameWithType: UioHook.GetPostTextDelayX11()
-- uid: SharpHook.Native.UioHook.GetPostTextDelayX11*
-  name: GetPostTextDelayX11
-  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetPostTextDelayX11_
-  commentId: Overload:SharpHook.Native.UioHook.GetPostTextDelayX11
-  fullName: SharpHook.Native.UioHook.GetPostTextDelayX11
-  nameWithType: UioHook.GetPostTextDelayX11
+- uid: SharpHook.Native.UioHook.GetPostTextDelayLinux
+  name: GetPostTextDelayLinux()
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetPostTextDelayLinux
+  commentId: M:SharpHook.Native.UioHook.GetPostTextDelayLinux
+  fullName: SharpHook.Native.UioHook.GetPostTextDelayLinux()
+  nameWithType: UioHook.GetPostTextDelayLinux()
+- uid: SharpHook.Native.UioHook.GetPostTextDelayLinux*
+  name: GetPostTextDelayLinux
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetPostTextDelayLinux_
+  commentId: Overload:SharpHook.Native.UioHook.GetPostTextDelayLinux
+  fullName: SharpHook.Native.UioHook.GetPostTextDelayLinux
+  nameWithType: UioHook.GetPostTextDelayLinux
 - uid: SharpHook.Native.UioHook.GetPromptUserIfAxApiDisabled
   name: GetPromptUserIfAxApiDisabled()
   href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetPromptUserIfAxApiDisabled
@@ -4081,6 +4354,21 @@ references:
   commentId: Overload:SharpHook.Native.UioHook.SetAxPollFrequency
   fullName: SharpHook.Native.UioHook.SetAxPollFrequency
   nameWithType: UioHook.SetAxPollFrequency
+- uid: SharpHook.Native.UioHook.SetDeviceProcs(SharpHook.Native.OpenDeviceProc,SharpHook.Native.CloseDeviceProc,System.IntPtr)
+  name: SetDeviceProcs(OpenDeviceProc?, CloseDeviceProc?, nint)
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetDeviceProcs_SharpHook_Native_OpenDeviceProc_SharpHook_Native_CloseDeviceProc_System_IntPtr_
+  commentId: M:SharpHook.Native.UioHook.SetDeviceProcs(SharpHook.Native.OpenDeviceProc,SharpHook.Native.CloseDeviceProc,System.IntPtr)
+  name.vb: SetDeviceProcs(OpenDeviceProc, CloseDeviceProc, IntPtr)
+  fullName: SharpHook.Native.UioHook.SetDeviceProcs(SharpHook.Native.OpenDeviceProc?, SharpHook.Native.CloseDeviceProc?, nint)
+  fullName.vb: SharpHook.Native.UioHook.SetDeviceProcs(SharpHook.Native.OpenDeviceProc, SharpHook.Native.CloseDeviceProc, System.IntPtr)
+  nameWithType: UioHook.SetDeviceProcs(OpenDeviceProc?, CloseDeviceProc?, nint)
+  nameWithType.vb: UioHook.SetDeviceProcs(OpenDeviceProc, CloseDeviceProc, IntPtr)
+- uid: SharpHook.Native.UioHook.SetDeviceProcs*
+  name: SetDeviceProcs
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetDeviceProcs_
+  commentId: Overload:SharpHook.Native.UioHook.SetDeviceProcs
+  fullName: SharpHook.Native.UioHook.SetDeviceProcs
+  nameWithType: UioHook.SetDeviceProcs
 - uid: SharpHook.Native.UioHook.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)
   name: SetDispatchProc(DispatchProc?, nint)
   href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetDispatchProc_SharpHook_Native_DispatchProc_System_IntPtr_
@@ -4111,6 +4399,18 @@ references:
   commentId: Overload:SharpHook.Native.UioHook.SetKeyTypedEnabled
   fullName: SharpHook.Native.UioHook.SetKeyTypedEnabled
   nameWithType: UioHook.SetKeyTypedEnabled
+- uid: SharpHook.Native.UioHook.SetLinuxMode(SharpHook.Data.LinuxMode)
+  name: SetLinuxMode(LinuxMode)
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetLinuxMode_SharpHook_Data_LinuxMode_
+  commentId: M:SharpHook.Native.UioHook.SetLinuxMode(SharpHook.Data.LinuxMode)
+  fullName: SharpHook.Native.UioHook.SetLinuxMode(SharpHook.Data.LinuxMode)
+  nameWithType: UioHook.SetLinuxMode(LinuxMode)
+- uid: SharpHook.Native.UioHook.SetLinuxMode*
+  name: SetLinuxMode
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetLinuxMode_
+  commentId: Overload:SharpHook.Native.UioHook.SetLinuxMode
+  fullName: SharpHook.Native.UioHook.SetLinuxMode
+  nameWithType: UioHook.SetLinuxMode
 - uid: SharpHook.Native.UioHook.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)
   name: SetLoggerProc(LoggerProc?, nint)
   href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetLoggerProc_SharpHook_Native_LoggerProc_System_IntPtr_
@@ -4126,21 +4426,21 @@ references:
   commentId: Overload:SharpHook.Native.UioHook.SetLoggerProc
   fullName: SharpHook.Native.UioHook.SetLoggerProc
   nameWithType: UioHook.SetLoggerProc
-- uid: SharpHook.Native.UioHook.SetPostTextDelayX11(System.UInt64)
-  name: SetPostTextDelayX11(ulong)
-  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetPostTextDelayX11_System_UInt64_
-  commentId: M:SharpHook.Native.UioHook.SetPostTextDelayX11(System.UInt64)
-  name.vb: SetPostTextDelayX11(ULong)
-  fullName: SharpHook.Native.UioHook.SetPostTextDelayX11(ulong)
-  fullName.vb: SharpHook.Native.UioHook.SetPostTextDelayX11(ULong)
-  nameWithType: UioHook.SetPostTextDelayX11(ulong)
-  nameWithType.vb: UioHook.SetPostTextDelayX11(ULong)
-- uid: SharpHook.Native.UioHook.SetPostTextDelayX11*
-  name: SetPostTextDelayX11
-  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetPostTextDelayX11_
-  commentId: Overload:SharpHook.Native.UioHook.SetPostTextDelayX11
-  fullName: SharpHook.Native.UioHook.SetPostTextDelayX11
-  nameWithType: UioHook.SetPostTextDelayX11
+- uid: SharpHook.Native.UioHook.SetPostTextDelayLinux(System.UInt64)
+  name: SetPostTextDelayLinux(ulong)
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetPostTextDelayLinux_System_UInt64_
+  commentId: M:SharpHook.Native.UioHook.SetPostTextDelayLinux(System.UInt64)
+  name.vb: SetPostTextDelayLinux(ULong)
+  fullName: SharpHook.Native.UioHook.SetPostTextDelayLinux(ulong)
+  fullName.vb: SharpHook.Native.UioHook.SetPostTextDelayLinux(ULong)
+  nameWithType: UioHook.SetPostTextDelayLinux(ulong)
+  nameWithType.vb: UioHook.SetPostTextDelayLinux(ULong)
+- uid: SharpHook.Native.UioHook.SetPostTextDelayLinux*
+  name: SetPostTextDelayLinux
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetPostTextDelayLinux_
+  commentId: Overload:SharpHook.Native.UioHook.SetPostTextDelayLinux
+  fullName: SharpHook.Native.UioHook.SetPostTextDelayLinux
+  nameWithType: UioHook.SetPostTextDelayLinux
 - uid: SharpHook.Native.UioHook.SetPromptUserIfAxApiDisabled(System.Boolean)
   name: SetPromptUserIfAxApiDisabled(bool)
   href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetPromptUserIfAxApiDisabled_System_Boolean_

@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-      <title>Namespace SharpHook.Native | SharpHook </title>
+      <title>Enum LinuxMode | SharpHook </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Namespace SharpHook.Native | SharpHook ">
+      <meta name="title" content="Enum LinuxMode | SharpHook ">
       
-      
+      <meta name="description" content="Represents the mode of loading the Linux backend of libuiohook – the XRecord-based X11 backend, or the libinput/uinput backend for X11 or Wayland.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -84,49 +84,76 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="SharpHook.Native">
-
-  <h1 id="SharpHook_Native" data-uid="SharpHook.Native" class="text-break">Namespace SharpHook.Native</h1>
-  <div class="markdown level0 summary"></div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="markdown level0 remarks"></div>
-
-    <h3 id="classes">
-Classes
-</h3>
-    <dl class="jumplist">
-      <dt><a class="xref" href="SharpHook.Native.UioHook.html">UioHook</a></dt>
-      <dd><p>Contains native methods of libuiohook.</p>
-</dd>
-    </dl>
-    <h3 id="delegates">
-Delegates
-</h3>
-    <dl class="jumplist">
-      <dt><a class="xref" href="SharpHook.Native.CloseDeviceProc.html">CloseDeviceProc</a></dt>
-      <dd><p>Represents a function which closes a privileged device using a provided file descriptor.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="SharpHook.Native.DispatchProc.html">DispatchProc</a></dt>
-      <dd><p>Represents a function which is called when an event occurs.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="SharpHook.Native.LoggerProc.html">LoggerProc</a></dt>
-      <dd><p>Represents a function which is called when a logging event occurs.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="SharpHook.Native.OpenDeviceProc.html">OpenDeviceProc</a></dt>
-      <dd><p>Represents a function which opens a privileged device and provides a file descriptor.</p>
-</dd>
-    </dl>
+        <article data-uid="SharpHook.Data.LinuxMode">
 
 
+
+
+  <h1 id="SharpHook_Data_LinuxMode" data-uid="SharpHook.Data.LinuxMode" class="text-break">
+Enum LinuxMode  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/LinuxMode.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SharpHook.html">SharpHook</a>.<a class="xref" href="SharpHook.Data.html">Data</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents the mode of loading the Linux backend of libuiohook – the XRecord-based X11 backend, or the
+libinput/uinput backend for X11 or Wayland.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public enum LinuxMode</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h2 id="fields">Fields
+</h2>
+  <dl class="parameters">
+    <dt id="SharpHook_Data_LinuxMode_AutoLowLevel"><code>AutoLowLevel = 1</code></dt>
+  
+  <dd><p>If this mode is selected, then libuiohook will load the Wayland backend if the current session is Wayland, and
+the libinput/uinput-based X11 backend otherwise. In both session types, libinput and uinput will be used.</p>
+</dd>
+    <dt id="SharpHook_Data_LinuxMode_AutoXRecord"><code>AutoXRecord = 0</code></dt>
+  
+  <dd><p>If this mode is selected, then libuiohook will load the Wayland backend if the current session is Wayland, and
+the XRecord-based X11 backend otherwise. This is the default mode.</p>
+</dd>
+    <dt id="SharpHook_Data_LinuxMode_Wayland"><code>Wayland = 4</code></dt>
+  
+  <dd><p>If this mode is selected, the libuiohook will load the Wayland backend, even if the current session is X11.</p>
+</dd>
+    <dt id="SharpHook_Data_LinuxMode_X11"><code>X11 = 3</code></dt>
+  
+  <dd><p>If this mode is selected, the libuiohook will load the libinput/uinput-based X11 backend, even if the current
+session is Wayland.</p>
+</dd>
+    <dt id="SharpHook_Data_LinuxMode_XRecord"><code>XRecord = 2</code></dt>
+  
+  <dd><p>If this mode is selected, the libuiohook will load the XRecord-based X11 backend, even if the current session is
+Wayland. This is the behaviour of SharpHook prior to version 8.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="SharpHook.Data.LinuxBackend.html">LinuxBackend</a></div>
+  </div>
 </article>
 
         <div class="contribution d-print-none">
+          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/LinuxMode.cs" class="edit-link">Edit this page</a>
         </div>
 
 

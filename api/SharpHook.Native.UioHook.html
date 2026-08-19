@@ -184,65 +184,10 @@ public static class UioHook</code></pre>
 
 
   <h4 class="section" id="SharpHook_Native_UioHook_CreateScreenInfo_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>This is the safe version of <a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_CreateScreenInfo_System_Byte__">CreateScreenInfo(out byte)</a> as it returns a managed array.</p>
+  <div class="markdown level1 remarks"><p>This is the safe version of <span class="xref">SharpHook.Native.UioHook.CreateScreenInfo(System.Byte@)</span> as it returns a managed array.</p>
 </div>
 
 
-  <dl class="typelist seealso">
-    <dt>See Also</dt>
-    <dd>
-    <div><a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_CreateScreenInfo_System_Byte__">CreateScreenInfo(out byte)</a></div>
-    </dd>
-  </dl>
-
-
-  <a id="SharpHook_Native_UioHook_CreateScreenInfo_" data-uid="SharpHook.Native.UioHook.CreateScreenInfo*"></a>
-
-  <h3 id="SharpHook_Native_UioHook_CreateScreenInfo_System_Byte__" data-uid="SharpHook.Native.UioHook.CreateScreenInfo(System.Byte@)">
-  CreateScreenInfo(out byte)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/artifacts/obj/SharpHook/release_net10.0/Microsoft.Interop.LibraryImportGenerator/Microsoft.Interop.LibraryImportGenerator/LibraryImports.g.cs"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Gets the information about screens.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static nint CreateScreenInfo(out byte count)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>count</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">byte</a></dt>
-    <dd><p>The number of screens.</p>
-</dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd><p>The information about screens as an unmanaged array of <a class="xref" href="SharpHook.Data.ScreenData.html">ScreenData</a> whose length is returned
-as <code class="paramref">count</code>. The memory used by the array must be freed manually.</p>
-</dd>
-  </dl>
-
-
-
-
-
-
-
-  <h4 class="section" id="SharpHook_Native_UioHook_CreateScreenInfo_System_Byte___remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>You should use <a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_CreateScreenInfo">CreateScreenInfo()</a> instead as it returns a managed array.</p>
-</div>
-
-
-  <dl class="typelist seealso">
-    <dt>See Also</dt>
-    <dd>
-    <div><a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_CreateScreenInfo">CreateScreenInfo()</a></div>
-    </dd>
-  </dl>
 
 
   <a id="SharpHook_Native_UioHook_GetAutoRepeatDelay_" data-uid="SharpHook.Native.UioHook.GetAutoRepeatDelay*"></a>
@@ -252,7 +197,7 @@ as <code class="paramref">count</code>. The memory used by the array must be fre
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Native/UioHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets the auto-repeat delay.</p>
+  <div class="markdown level1 summary"><p>Gets the key auto-repeat delay.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -264,7 +209,7 @@ as <code class="paramref">count</code>. The memory used by the array must be fre
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The auto-repeat delay.</p>
+    <dd><p>The key auto-repeat delay.</p>
 </dd>
   </dl>
 
@@ -285,7 +230,7 @@ as <code class="paramref">count</code>. The memory used by the array must be fre
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Native/UioHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets the auto-repeat rate.</p>
+  <div class="markdown level1 summary"><p>Gets the key auto-repeat rate.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -297,7 +242,7 @@ as <code class="paramref">count</code>. The memory used by the array must be fre
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The auto-repeat rate.</p>
+    <dd><p>The key auto-repeat rate.</p>
 </dd>
   </dl>
 
@@ -348,6 +293,83 @@ running. The default value is 1 second.</p>
 
 
 
+  <a id="SharpHook_Native_UioHook_GetLinuxMode_" data-uid="SharpHook.Native.UioHook.GetLinuxMode*"></a>
+
+  <h3 id="SharpHook_Native_UioHook_GetLinuxMode" data-uid="SharpHook.Native.UioHook.GetLinuxMode">
+  GetLinuxMode()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Native/UioHook.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the mode for selecting which Linux backend to load.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern LinuxMode GetLinuxMode()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.Data.LinuxMode.html">LinuxMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_Native_UioHook_GetLinuxMode_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+This method returns only the selection mode. If you need to get the Linux backend that was actually loaded, then
+use <a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetLoadedLinuxBackend">GetLoadedLinuxBackend()</a>.
+</p>
+<p>
+On Windows and macOS, this method always returns <a class="xref" href="SharpHook.Data.LinuxMode.html#SharpHook_Data_LinuxMode_AutoXRecord">AutoXRecord</a> which is the default
+value.
+</p>
+</div>
+
+
+
+
+  <a id="SharpHook_Native_UioHook_GetLoadedLinuxBackend_" data-uid="SharpHook.Native.UioHook.GetLoadedLinuxBackend*"></a>
+
+  <h3 id="SharpHook_Native_UioHook_GetLoadedLinuxBackend" data-uid="SharpHook.Native.UioHook.GetLoadedLinuxBackend">
+  GetLoadedLinuxBackend()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Native/UioHook.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the loaded Linux backend.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern LinuxBackend GetLoadedLinuxBackend()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.Data.LinuxBackend.html">LinuxBackend</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_Native_UioHook_GetLoadedLinuxBackend_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>On Windows and macOS, this method always returns <a class="xref" href="SharpHook.Data.LinuxBackend.html#SharpHook_Data_LinuxBackend_None">None</a>.</p>
+</div>
+
+
+
+
   <a id="SharpHook_Native_UioHook_GetMultiClickTime_" data-uid="SharpHook.Native.UioHook.GetMultiClickTime*"></a>
 
   <h3 id="SharpHook_Native_UioHook_GetMultiClickTime" data-uid="SharpHook.Native.UioHook.GetMultiClickTime">
@@ -368,6 +390,39 @@ running. The default value is 1 second.</p>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
     <dd><p>The multi-click time.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="SharpHook_Native_UioHook_GetOptionalFeatureSupport_" data-uid="SharpHook.Native.UioHook.GetOptionalFeatureSupport*"></a>
+
+  <h3 id="SharpHook_Native_UioHook_GetOptionalFeatureSupport" data-uid="SharpHook.Native.UioHook.GetOptionalFeatureSupport">
+  GetOptionalFeatureSupport()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Native/UioHook.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Returns optional features of libuiohook that are supported on the current platform.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern UioHookFeature GetOptionalFeatureSupport()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.Data.UioHookFeature.html">UioHookFeature</a></dt>
+    <dd><p>Flags which indicate which optional features are supported on the current platform.</p>
 </dd>
   </dl>
 
@@ -480,10 +535,10 @@ running. The default value is 1 second.</p>
 
 
 
-  <a id="SharpHook_Native_UioHook_GetPostTextDelayX11_" data-uid="SharpHook.Native.UioHook.GetPostTextDelayX11*"></a>
+  <a id="SharpHook_Native_UioHook_GetPostTextDelayLinux_" data-uid="SharpHook.Native.UioHook.GetPostTextDelayLinux*"></a>
 
-  <h3 id="SharpHook_Native_UioHook_GetPostTextDelayX11" data-uid="SharpHook.Native.UioHook.GetPostTextDelayX11">
-  GetPostTextDelayX11()
+  <h3 id="SharpHook_Native_UioHook_GetPostTextDelayLinux" data-uid="SharpHook.Native.UioHook.GetPostTextDelayLinux">
+  GetPostTextDelayLinux()
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Native/UioHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -492,7 +547,7 @@ running. The default value is 1 second.</p>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static extern ulong GetPostTextDelayX11()</code></pre>
+    <pre><code class="lang-csharp hljs">public static extern ulong GetPostTextDelayLinux()</code></pre>
   </div>
 
 
@@ -509,18 +564,17 @@ running. The default value is 1 second.</p>
 
 
 
-  <h4 class="section" id="SharpHook_Native_UioHook_GetPostTextDelayX11_remarks">Remarks</h4>
+  <h4 class="section" id="SharpHook_Native_UioHook_GetPostTextDelayLinux_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-X11 doesn't support posting arbitrary Unicode characters directly. Instead, for each character,
-an unused key code is remapped to that character, and then key press/release is simulated. Since the receiving
-application must react to the remapping, and may not do so instantaneously, a delay is needed for accurate
-simulation.
+X11 doesn't support posting arbitrary Unicode characters directly. Instead, for each character, an unused key
+code is remapped to that character, and then key press/release is simulated. Since the receiving application
+must react to the remapping, and may not do so instantaneously, a delay is needed for accurate simulation.
 </p>
 <p>
 The default delay is 50 milliseconds.
 </p>
 <p>
-On Windows and macOS, this method always returns <code>0</code>.
+On Windows and macOS, as well as Wayland, this method always returns <code>0</code>.
 </p>
 </div>
 
@@ -622,7 +676,8 @@ global hooks and event simulation can be used. Otherwise, <a href="https://learn
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/artifacts/obj/SharpHook/release_net10.0/Microsoft.Interop.LibraryImportGenerator/Microsoft.Interop.LibraryImportGenerator/LibraryImports.g.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Checks whether events of type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a> are enabled.</p>
+  <div class="markdown level1 summary"><p>Checks whether events of type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a> are enabled. The default value is
+<a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -646,8 +701,14 @@ global hooks and event simulation can be used. Otherwise, <a href="https://learn
 
 
   <h4 class="section" id="SharpHook_Native_UioHook_IsKeyTypedEnabled_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>If the application doesn't use events of type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a>, then they should be disabled
-so that there is no performance penalty and no subtle system-wide side effects.</p>
+  <div class="markdown level1 remarks"><p>
+If the application doesn't use events of type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a>, then they should be disabled
+so that there is no performance penalty and no subtle system-wide side effects.
+</p>
+<p>
+On Wayland, this method always returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> since events of type
+<a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a> are not supported.
+</p>
 </div>
 
 
@@ -701,10 +762,14 @@ Events of this type are ignored. <a class="xref" href="SharpHook.Native.UioHook.
 </td></tr><tr><td class="term"><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MousePressed">MousePressed</a></td><td class="term">
 Only <a class="xref" href="SharpHook.Data.MouseWheelEventData.html#SharpHook_Data_MouseWheelEventData_X">X</a>, <a class="xref" href="SharpHook.Data.MouseWheelEventData.html#SharpHook_Data_MouseWheelEventData_Y">Y</a>,
 and <a class="xref" href="SharpHook.Data.MouseEventData.html#SharpHook_Data_MouseEventData_Button">Button</a> are considered.
+</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MousePressedIgnoreCoordinates">MousePressedIgnoreCoordinates</a></td><td class="term">
+Only <a class="xref" href="SharpHook.Data.MouseEventData.html#SharpHook_Data_MouseEventData_Button">Button</a> is considered.
 </td></tr><tr><td class="term"><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseReleased">MouseReleased</a></td><td class="term">
 Only <a class="xref" href="SharpHook.Data.MouseWheelEventData.html#SharpHook_Data_MouseWheelEventData_X">X</a>, <a class="xref" href="SharpHook.Data.MouseWheelEventData.html#SharpHook_Data_MouseWheelEventData_Y">Y</a>,
 and <a class="xref" href="SharpHook.Data.MouseEventData.html#SharpHook_Data_MouseEventData_Button">Button</a> are considered.
-</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseClicked">MouseClicked</a></td><td class="term">Events of this type are ignored.</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseMoved">MouseMoved</a></td><td class="term">Only <a class="xref" href="SharpHook.Data.MouseEventData.html#SharpHook_Data_MouseEventData_X">X</a> and <a class="xref" href="SharpHook.Data.MouseEventData.html#SharpHook_Data_MouseEventData_Y">Y</a> are considered.</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseDragged">MouseDragged</a></td><td class="term">Not recommended to use; same as <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseMoved">MouseMoved</a>.</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseWheel">MouseWheel</a></td><td class="term">
+</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseReleasedIgnoreCoordinates">MouseReleasedIgnoreCoordinates</a></td><td class="term">
+Only <a class="xref" href="SharpHook.Data.MouseEventData.html#SharpHook_Data_MouseEventData_Button">Button</a> is considered.
+</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseClicked">MouseClicked</a></td><td class="term">Events of this type are ignored.</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseMoved">MouseMoved</a></td><td class="term">Only <a class="xref" href="SharpHook.Data.MouseEventData.html#SharpHook_Data_MouseEventData_X">X</a> and <a class="xref" href="SharpHook.Data.MouseEventData.html#SharpHook_Data_MouseEventData_Y">Y</a> are considered.</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseMovedRelative">MouseMovedRelative</a></td><td class="term">Only <a class="xref" href="SharpHook.Data.MouseEventData.html#SharpHook_Data_MouseEventData_X">X</a> and <a class="xref" href="SharpHook.Data.MouseEventData.html#SharpHook_Data_MouseEventData_Y">Y</a> are considered.</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseDragged">MouseDragged</a></td><td class="term">Not recommended to use; same as <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseMoved">MouseMoved</a>.</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseDraggedRelative">MouseDraggedRelative</a></td><td class="term">Not recommended to use; same as <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseMovedRelative">MouseMovedRelative</a>.</td></tr><tr><td class="term"><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseWheel">MouseWheel</a></td><td class="term">
 Only <a class="xref" href="SharpHook.Data.MouseWheelEventData.html#SharpHook_Data_MouseWheelEventData_Rotation">Rotation</a>, <a class="xref" href="SharpHook.Data.MouseWheelEventData.html#SharpHook_Data_MouseWheelEventData_Direction">Direction</a>, and
 <a class="xref" href="SharpHook.Data.MouseWheelEventData.html#SharpHook_Data_MouseWheelEventData_Type">Type</a> are considered.
 </td></tr></tbody></table>
@@ -760,7 +825,9 @@ Only <a class="xref" href="SharpHook.Data.MouseWheelEventData.html#SharpHook_Dat
 
 
   <h4 class="section" id="SharpHook_Native_UioHook_PostEvents_SharpHook_Data_UioHookEvent___System_UInt32__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>All the same rules apply as to <a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_PostEvent_SharpHook_Data_UioHookEvent__">PostEvent(ref UioHookEvent)</a>.</p>
+  <div class="markdown level1 remarks"><p>All the same rules apply as to <a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_PostEvent_SharpHook_Data_UioHookEvent__">PostEvent(ref UioHookEvent)</a>. The sequence of events must not contain events of types
+<a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a> or <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseClicked">MouseClicked</a>, or the method will fail, potentially
+in the middle of the simulation sequence.</p>
 </div>
 
 
@@ -823,10 +890,13 @@ On macOS, applications are not required to process text simulation, but most of 
 X11 doesn't support text simulation directly. Instead, for each character, an unused key code is remapped to
 that character, and then key press/release is simulated. Since the receiving application must react to the
 remapping, and may not do so instantaneously, a delay is needed for accurate simulation. This means that text
-simulation on Linux works slowly and is not guaranteed to be correct. <a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetPostTextDelayX11_System_UInt64_">SetPostTextDelayX11(ulong)</a> can be
+simulation on Linux works slowly and is not guaranteed to be correct. <a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetPostTextDelayLinux_System_UInt64_">SetPostTextDelayLinux(ulong)</a> can be
 used to increase (or decrease) the delay if needed – longer dealys add consistency but may be more jarring to
-end users. <a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetPostTextDelayX11">GetPostTextDelayX11()</a> can be used to get the currently configured delay – the default is
+end users. <a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetPostTextDelayLinux">GetPostTextDelayLinux()</a> can be used to get the currently configured delay – the default is
 50 milliseconds.
+</p>
+<p>
+On Wayland, text simulation is currently not supported.
 </p>
 </div>
 
@@ -908,7 +978,7 @@ libuiohook.</p>
   <h4 class="section" id="SharpHook_Native_UioHook_RunKeyboard_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 This method makes a difference only on Windows where there are two different global hooks – a keyboard hook and
-a mouse hook. On macOS and Linux there is one hook for all events, and this method simply enables filtering
+a mouse hook. On macOS and Linux, there is one hook for all events, and this method simply enables filtering
 mouse events out on these OSes.
 </p>
 <p>
@@ -956,7 +1026,7 @@ libuiohook.
   <h4 class="section" id="SharpHook_Native_UioHook_RunMouse_remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
 This method makes a difference only on Windows where there are two different global hooks – a keyboard hook and
-a mouse hook. On macOS and Linux there is one hook for all events, and this method simply enables filtering
+a mouse hook. On macOS and Linux, there is one hook for all events, and this method simply enables filtering
 keyboard events out on these OSes.
 </p>
 <p>
@@ -1004,6 +1074,50 @@ running. The default value is 1 second.</p>
 
   <h4 class="section" id="SharpHook_Native_UioHook_SetAxPollFrequency_System_UInt32__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>On Windows and Linux, this method does nothing.</p>
+</div>
+
+
+
+
+  <a id="SharpHook_Native_UioHook_SetDeviceProcs_" data-uid="SharpHook.Native.UioHook.SetDeviceProcs*"></a>
+
+  <h3 id="SharpHook_Native_UioHook_SetDeviceProcs_SharpHook_Native_OpenDeviceProc_SharpHook_Native_CloseDeviceProc_System_IntPtr_" data-uid="SharpHook.Native.UioHook.SetDeviceProcs(SharpHook.Native.OpenDeviceProc,SharpHook.Native.CloseDeviceProc,System.IntPtr)">
+  SetDeviceProcs(OpenDeviceProc?, CloseDeviceProc?, nint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/artifacts/obj/SharpHook/release_net10.0/Microsoft.Interop.LibraryImportGenerator/Microsoft.Interop.LibraryImportGenerator/LibraryImports.g.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the functions to open and close privieged devices. This can be used to provide a custom way of opening and
+closing devices on Linux without requiring direct file access to them. This is an advanced scenario and should
+generally be avoided.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetDeviceProcs(OpenDeviceProc? openProc, CloseDeviceProc? closeProc, nint userData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>openProc</code> <a class="xref" href="SharpHook.Native.OpenDeviceProc.html">OpenDeviceProc</a></dt>
+    <dd><p>The function to use when opening a privileged device, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to use the default method.</p>
+</dd>
+    <dt><code>closeProc</code> <a class="xref" href="SharpHook.Native.CloseDeviceProc.html">CloseDeviceProc</a></dt>
+    <dd><p>The function to use when closing a privileged device, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to use the default method.</p>
+</dd>
+    <dt><code>userData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd><p>The data to pass to the device functions.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_Native_UioHook_SetDeviceProcs_SharpHook_Native_OpenDeviceProc_SharpHook_Native_CloseDeviceProc_System_IntPtr__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>These functions are used only on Linux, and only when the loaded backend uses libinput and uinput.</p>
 </div>
 
 
@@ -1059,8 +1173,7 @@ and <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr.z
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/artifacts/obj/SharpHook/release_net10.0/Microsoft.Interop.LibraryImportGenerator/Microsoft.Interop.LibraryImportGenerator/LibraryImports.g.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Sets the value which indicates whether events of type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a> are enabled. The default
-value is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+  <div class="markdown level1 summary"><p>Sets the value which indicates whether events of type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a> are enabled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -1084,8 +1197,57 @@ value is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/b
 
 
   <h4 class="section" id="SharpHook_Native_UioHook_SetKeyTypedEnabled_System_Boolean__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>If the application doesn't use events of type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a>, then they should be disabled
-so that there is no performance penalty and no subtle system-wide side effects.</p>
+  <div class="markdown level1 remarks"><p>
+If the application doesn't use events of type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a>, then they should be disabled
+so that there is no performance penalty and no subtle system-wide side effects.
+</p>
+<p>
+On Wayland, this method does nothing since events of type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a> are not supported.
+</p>
+</div>
+
+
+
+
+  <a id="SharpHook_Native_UioHook_SetLinuxMode_" data-uid="SharpHook.Native.UioHook.SetLinuxMode*"></a>
+
+  <h3 id="SharpHook_Native_UioHook_SetLinuxMode_SharpHook_Data_LinuxMode_" data-uid="SharpHook.Native.UioHook.SetLinuxMode(SharpHook.Data.LinuxMode)">
+  SetLinuxMode(LinuxMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Native/UioHook.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the mode for selecting which Linux backend to load.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static extern UioHookResult SetLinuxMode(LinuxMode mode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>mode</code> <a class="xref" href="SharpHook.Data.LinuxMode.html">LinuxMode</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_Native_UioHook_SetLinuxMode_SharpHook_Data_LinuxMode__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This method returns one of three possible values:</p>
+<ul><li><a class="xref" href="SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_Success">Success</a> if the Linux mode was successfully set.</li><li><a class="xref" href="SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_Failure">Failure</a> if the provided mode is an invalid enum value.</li><li>
+<a class="xref" href="SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_ErrorLinuxLoadBackend">ErrorLinuxLoadBackend</a> if a Linux backend has already been loaded and changing it is
+not allowed.
+</li></ul>
 </div>
 
 
@@ -1134,10 +1296,10 @@ and <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr.z
   </dl>
 
 
-  <a id="SharpHook_Native_UioHook_SetPostTextDelayX11_" data-uid="SharpHook.Native.UioHook.SetPostTextDelayX11*"></a>
+  <a id="SharpHook_Native_UioHook_SetPostTextDelayLinux_" data-uid="SharpHook.Native.UioHook.SetPostTextDelayLinux*"></a>
 
-  <h3 id="SharpHook_Native_UioHook_SetPostTextDelayX11_System_UInt64_" data-uid="SharpHook.Native.UioHook.SetPostTextDelayX11(System.UInt64)">
-  SetPostTextDelayX11(ulong)
+  <h3 id="SharpHook_Native_UioHook_SetPostTextDelayLinux_System_UInt64_" data-uid="SharpHook.Native.UioHook.SetPostTextDelayLinux(System.UInt64)">
+  SetPostTextDelayLinux(ulong)
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Native/UioHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
@@ -1146,7 +1308,7 @@ and <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr.z
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static extern void SetPostTextDelayX11(ulong delayNanoseconds)</code></pre>
+    <pre><code class="lang-csharp hljs">public static extern void SetPostTextDelayLinux(ulong delayNanoseconds)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -1163,18 +1325,17 @@ and <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr.z
 
 
 
-  <h4 class="section" id="SharpHook_Native_UioHook_SetPostTextDelayX11_System_UInt64__remarks">Remarks</h4>
+  <h4 class="section" id="SharpHook_Native_UioHook_SetPostTextDelayLinux_System_UInt64__remarks">Remarks</h4>
   <div class="markdown level1 remarks"><p>
-X11 doesn't support posting arbitrary Unicode characters directly. Instead, for each character,
-an unused key code is remapped to that character, and then key press/release is simulated. Since the receiving
-application must react to the remapping, and may not do so instantaneously, a delay is needed for accurate
-simulation.
+X11 doesn't support posting arbitrary Unicode characters directly. Instead, for each character, an unused key
+code is remapped to that character, and then key press/release is simulated. Since the receiving application
+must react to the remapping, and may not do so instantaneously, a delay is needed for accurate simulation.
 </p>
 <p>
 The default delay is 50 milliseconds.
 </p>
 <p>
-On Windows and macOS, this method does nothing.
+On Windows and macOS, as well as Wayland, this method does nothing.
 </p>
 </div>
 

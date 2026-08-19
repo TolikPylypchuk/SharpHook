@@ -113,6 +113,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Data.LinuxBackend.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Data.LinuxBackend.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Data.LinuxBackend",
+      "Summary": "<p sourcefile=\"api/SharpHook.Data.LinuxBackend.yml\" sourcestartlinenumber=\"1\">Represents a libuiohook backend that can be loaded on Linux.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Data.LinuxMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Data.LinuxMode.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Data.LinuxMode",
+      "Summary": "<p sourcefile=\"api/SharpHook.Data.LinuxMode.yml\" sourcestartlinenumber=\"1\">Represents the mode of loading the Linux backend of libuiohook – the XRecord-based X11 backend, or the\nlibinput/uinput backend for X11 or Wayland.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SharpHook.Data.LogLevel.yml",
       "output": {
         ".html": {
@@ -222,6 +250,20 @@
       "IsMRef": true,
       "Title": "SharpHook.Data.UioHookEvent",
       "Summary": "<p sourcefile=\"api/SharpHook.Data.UioHookEvent.yml\" sourcestartlinenumber=\"1\">Represents an event that can be raised by libuiohook.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Data.UioHookFeature.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Data.UioHookFeature.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Data.UioHookFeature",
+      "Summary": "<p sourcefile=\"api/SharpHook.Data.UioHookFeature.yml\" sourcestartlinenumber=\"1\">Represents an optional feature of libuiohook that is not supported on all platforms.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -477,6 +519,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Native.CloseDeviceProc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Native.CloseDeviceProc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Native.CloseDeviceProc",
+      "Summary": "<p sourcefile=\"api/SharpHook.Native.CloseDeviceProc.yml\" sourcestartlinenumber=\"1\">Represents a function which closes a privileged device using a provided file descriptor.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SharpHook.Native.DispatchProc.yml",
       "output": {
         ".html": {
@@ -502,6 +558,20 @@
       "IsMRef": true,
       "Title": "SharpHook.Native.LoggerProc",
       "Summary": "<p sourcefile=\"api/SharpHook.Native.LoggerProc.yml\" sourcestartlinenumber=\"1\">Represents a function which is called when a logging event occurs.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Native.OpenDeviceProc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Native.OpenDeviceProc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Native.OpenDeviceProc",
+      "Summary": "<p sourcefile=\"api/SharpHook.Native.OpenDeviceProc.yml\" sourcestartlinenumber=\"1\">Represents a function which opens a privileged device and provides a file descriptor.</p>\n"
     },
     {
       "type": "ManagedReference",

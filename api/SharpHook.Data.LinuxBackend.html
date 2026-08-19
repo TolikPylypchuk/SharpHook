@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-      <title>Namespace SharpHook.Native | SharpHook </title>
+      <title>Enum LinuxBackend | SharpHook </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Namespace SharpHook.Native | SharpHook ">
+      <meta name="title" content="Enum LinuxBackend | SharpHook ">
       
-      
+      <meta name="description" content="Represents a libuiohook backend that can be loaded on Linux.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -84,49 +84,70 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="SharpHook.Native">
-
-  <h1 id="SharpHook_Native" data-uid="SharpHook.Native" class="text-break">Namespace SharpHook.Native</h1>
-  <div class="markdown level0 summary"></div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="markdown level0 remarks"></div>
-
-    <h3 id="classes">
-Classes
-</h3>
-    <dl class="jumplist">
-      <dt><a class="xref" href="SharpHook.Native.UioHook.html">UioHook</a></dt>
-      <dd><p>Contains native methods of libuiohook.</p>
-</dd>
-    </dl>
-    <h3 id="delegates">
-Delegates
-</h3>
-    <dl class="jumplist">
-      <dt><a class="xref" href="SharpHook.Native.CloseDeviceProc.html">CloseDeviceProc</a></dt>
-      <dd><p>Represents a function which closes a privileged device using a provided file descriptor.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="SharpHook.Native.DispatchProc.html">DispatchProc</a></dt>
-      <dd><p>Represents a function which is called when an event occurs.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="SharpHook.Native.LoggerProc.html">LoggerProc</a></dt>
-      <dd><p>Represents a function which is called when a logging event occurs.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="SharpHook.Native.OpenDeviceProc.html">OpenDeviceProc</a></dt>
-      <dd><p>Represents a function which opens a privileged device and provides a file descriptor.</p>
-</dd>
-    </dl>
+        <article data-uid="SharpHook.Data.LinuxBackend">
 
 
+
+
+  <h1 id="SharpHook_Data_LinuxBackend" data-uid="SharpHook.Data.LinuxBackend" class="text-break">
+Enum LinuxBackend  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/LinuxBackend.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SharpHook.html">SharpHook</a>.<a class="xref" href="SharpHook.Data.html">Data</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a libuiohook backend that can be loaded on Linux.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public enum LinuxBackend</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h2 id="fields">Fields
+</h2>
+  <dl class="parameters">
+    <dt id="SharpHook_Data_LinuxBackend_None"><code>None = 0</code></dt>
+  
+  <dd><p>No backend has been loaded yet, and changing the backend mode is possible.</p>
+</dd>
+    <dt id="SharpHook_Data_LinuxBackend_Wayland"><code>Wayland = 3</code></dt>
+  
+  <dd><p>The Wayland backend which uses libinput to listen to events and uinput to post events. This backend requires
+elevated privileges to work.</p>
+</dd>
+    <dt id="SharpHook_Data_LinuxBackend_X11"><code>X11 = 2</code></dt>
+  
+  <dd><p>The X11 backend which uses libinput to listen to events and uinput to post events. This backend requires
+elevated privileges to work.</p>
+</dd>
+    <dt id="SharpHook_Data_LinuxBackend_XRecord"><code>XRecord = 1</code></dt>
+  
+  <dd><p>The X11 backend which uses XRecord to listen to events and XTest to post events. This backend represents the
+behaviour of SharpHook prior to version 8, and is the default backend on X11.</p>
+</dd>
+  </dl>
+
+
+
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="SharpHook.Data.LinuxMode.html">LinuxMode</a></div>
+  </div>
 </article>
 
         <div class="contribution d-print-none">
+          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/LinuxBackend.cs" class="edit-link">Edit this page</a>
         </div>
 
 

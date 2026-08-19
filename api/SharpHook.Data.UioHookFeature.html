@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-      <title>Namespace SharpHook.Native | SharpHook </title>
+      <title>Enum UioHookFeature | SharpHook </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Namespace SharpHook.Native | SharpHook ">
+      <meta name="title" content="Enum UioHookFeature | SharpHook ">
       
-      
+      <meta name="description" content="Represents an optional feature of libuiohook that is not supported on all platforms.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -84,49 +84,83 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="SharpHook.Native">
+        <article data-uid="SharpHook.Data.UioHookFeature">
 
-  <h1 id="SharpHook_Native" data-uid="SharpHook.Native" class="text-break">Namespace SharpHook.Native</h1>
-  <div class="markdown level0 summary"></div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="markdown level0 remarks"></div>
 
-    <h3 id="classes">
-Classes
-</h3>
-    <dl class="jumplist">
-      <dt><a class="xref" href="SharpHook.Native.UioHook.html">UioHook</a></dt>
-      <dd><p>Contains native methods of libuiohook.</p>
+
+
+  <h1 id="SharpHook_Data_UioHookFeature" data-uid="SharpHook.Data.UioHookFeature" class="text-break">
+Enum UioHookFeature  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/UioHookFeature.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SharpHook.html">SharpHook</a>.<a class="xref" href="SharpHook.Data.html">Data</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents an optional feature of libuiohook that is not supported on all platforms.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Flags]
+public enum UioHookFeature : uint</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+  <h2 id="fields">Fields
+</h2>
+  <dl class="parameters">
+    <dt id="SharpHook_Data_UioHookFeature_AbsoluteMouseButtonCoordinates"><code>AbsoluteMouseButtonCoordinates = 32</code></dt>
+  
+  <dd><p>If this feature is enabled, then mouse button and wheel events report their absolute coordinates. Supported on
+Windows, macOS, and X11. Not supported on Wayland.</p>
 </dd>
-    </dl>
-    <h3 id="delegates">
-Delegates
-</h3>
-    <dl class="jumplist">
-      <dt><a class="xref" href="SharpHook.Native.CloseDeviceProc.html">CloseDeviceProc</a></dt>
-      <dd><p>Represents a function which closes a privileged device using a provided file descriptor.</p>
+    <dt id="SharpHook_Data_UioHookFeature_AbsoluteMouseMovement"><code>AbsoluteMouseMovement = 16</code></dt>
+  
+  <dd><p>If this feature is enabled, then mouse movement events always report absolute coordinates. Supported on Windows,
+macOS, and X11. Not supported on Wayland.</p>
 </dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="SharpHook.Native.DispatchProc.html">DispatchProc</a></dt>
-      <dd><p>Represents a function which is called when an event occurs.</p>
+    <dt id="SharpHook_Data_UioHookFeature_EventSuppression"><code>EventSuppression = 1</code></dt>
+  
+  <dd><p>Event suppression. Supported on Windows and macOS. Not supported on Linux – neither on X11 nor on Wayland.</p>
 </dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="SharpHook.Native.LoggerProc.html">LoggerProc</a></dt>
-      <dd><p>Represents a function which is called when a logging event occurs.</p>
+    <dt id="SharpHook_Data_UioHookFeature_KeyAutoRepeat"><code>KeyAutoRepeat = 8</code></dt>
+  
+  <dd><p>If this feature is enabled, then auto-repeated key-down events are raised by global hooks. Supported on Windows,
+macOS, and the XRecord-based X11 backend. Not supported on the libinput/uinput Linux backends.</p>
 </dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="SharpHook.Native.OpenDeviceProc.html">OpenDeviceProc</a></dt>
-      <dd><p>Represents a function which opens a privileged device and provides a file descriptor.</p>
+    <dt id="SharpHook_Data_UioHookFeature_KeyTypedEvents"><code>KeyTypedEvents = 2</code></dt>
+  
+  <dd><p>Events of type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a>. Supported on Windows, macOS, and X11. Not supported on
+Wayland.</p>
 </dd>
-    </dl>
+    <dt id="SharpHook_Data_UioHookFeature_PointerProperties"><code>PointerProperties = 64</code></dt>
+  
+  <dd><p>If this feature is enabled, then <a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetPointerAccelerationMultiplier">GetPointerAccelerationMultiplier()</a>,
+<a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetPointerAccelerationThreshold">GetPointerAccelerationThreshold()</a>, and <a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetPointerSensitivity">GetPointerSensitivity()</a> are
+supported. Supported on Windows, macOS, and X11. Not supported on Wayland.</p>
+</dd>
+    <dt id="SharpHook_Data_UioHookFeature_PostText"><code>PostText = 4</code></dt>
+  
+  <dd><p>Posting text via <a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_PostText_System_String_">PostText(string)</a>. Supported on Windows, macOS, and X11. Not supported on
+Wayland.</p>
+</dd>
+  </dl>
+
 
 
 </article>
 
         <div class="contribution d-print-none">
+          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/UioHookFeature.cs" class="edit-link">Edit this page</a>
         </div>
 
 
