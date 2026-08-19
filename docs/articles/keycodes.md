@@ -9,12 +9,9 @@ OS-specific key code definitions. Note that several key codes are not available 
 
 Sources:
 - Windows: [Microsoft Docs](https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes).
-- macOS: `HIToolbox/Events.h` as defined in macOS 13.5 with some additional key codes included in libuiohook.
-- X11: `/usr/share/X11/xkb/keycodes/evdev` as defined in Kubuntu 22.04
+- macOS: `HIToolbox/Events.h` as defined in macOS 26.6 with some additional key codes included in libuiohook.
+- X11: `/usr/share/X11/xkb/keycodes/evdev` as defined in Kubuntu 26.04
 - Evdev: `input-event-codes.h` from the Linux source code.
-
-> [!NOTE]
-> Key codes marked with <sup>O</sup> are obsolete.
 
 <table>
   <thead>
@@ -1111,20 +1108,6 @@ Sources:
       <td><code>kVK_JIS_Kana</code></td>
       <td><code>HNGL</code></td>
       <td><code>KEY_HANGEUL</code></td>
-    </tr>
-    <tr>
-      <td><code>VcKanji</code><sup>O</sup></td>
-      <td><code>VK_KANJI</code> and <code>VK_HANJA</code></td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
-    </tr>
-    <tr>
-      <td><code>VcHangul</code><sup>O</sup></td>
-      <td><code>VK_HANGUL</code> and <code>VK_KANA</code></td>
-      <td>-</td>
-      <td>-</td>
-      <td>-</td>
     </tr>
     <tr>
       <td><code>VcJunja</code></td>
