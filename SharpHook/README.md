@@ -209,22 +209,8 @@ of `LogSource` in release builds.
 
 ### Testing
 
-SharpHook provides two classes which make testing easier. They aren't required since mocks can be used instead, but
-unlike mocks, no setup is required to use these classes.
-
-`SharpHook.Testing.TestGlobalHook` provides an implementation of `IGlobalHook` and `IEventSimulator` which can be used
-for testing. When the `Run` or `RunAsync` method is called, it will dispatch events using the various `Simulate` methods
-from `IEventSimulator`.
-
-If this class is used as an `IEventSimulator` in the tested code, then the `SimulatedEvents` property can be checked to
-see which events were simulated using the test instance.
-
-If the low-level functionality of SharpHook should be mocked, or mocking should be pushed as far away as possible,
-then `SharpHook.Testing.TestProvider` can be used. It implements every interface in the `SharpHook.Providers` namespace
-and as such it can be used instead of a normal low-level functionality provider.
-
-Like `TestGlobalHook`, this class can post events using the `PostEvent` method and dispatch them if `Run` was called.
-It also contains the `PostedEvents` property.
+You can use the [SharpHook.Testing](https://www.nuget.org/packages/SharpHook.Testing) package to simplify testing as it
+provides test utility classes.
 
 ## Icon
 
