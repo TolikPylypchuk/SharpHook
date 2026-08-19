@@ -49,7 +49,7 @@ jobs:
       - name: Test
         shell: bash
         run: |
-          ${{github.workspace}}/build/uiohook_tests
+          ${{github.workspace}}/build/uiohook_tests --headless
 
       - name: Upload
         uses: actions/upload-artifact@v7
@@ -88,6 +88,11 @@ jobs:
             --clean-first
 
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
+          
+      - name: Test
+        shell: bash
+        run: |
+          ${{github.workspace}}/build/uiohook_tests --headless
 
       - name: Upload
         uses: actions/upload-artifact@v7
@@ -127,11 +132,11 @@ jobs:
             --clean-first
 
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
-
+          
       - name: Test
         shell: bash
         run: |
-          ${{github.workspace}}/build/uiohook_tests
+          ${{github.workspace}}/build/uiohook_tests --headless
 
       - name: Upload
         uses: actions/upload-artifact@v7
@@ -171,6 +176,11 @@ jobs:
             --clean-first
 
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
+          
+      - name: Test
+        shell: bash
+        run: |
+          ${{github.workspace}}/build/uiohook_tests --headless
 
       - name: Upload
         uses: actions/upload-artifact@v7
@@ -246,6 +256,11 @@ jobs:
 
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
 
+      - name: Test
+        shell: bash
+        run: |
+          ${{github.workspace}}/build/uiohook_tests --headless
+
       - name: Upload
         uses: actions/upload-artifact@v7
         with:
@@ -301,6 +316,11 @@ jobs:
             --clean-first
 
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
+
+      - name: Test
+        shell: bash
+        run: |
+          ${{github.workspace}}/build/uiohook_tests --headless
 
       - name: Upload
         uses: actions/upload-artifact@v7
@@ -359,6 +379,11 @@ jobs:
 
           cmake --install ${{github.workspace}}/build --config RelWithDebInfo
 
+      - name: Test
+        shell: bash
+        run: |
+          ${{github.workspace}}/build/uiohook_tests --headless
+
       - name: Upload
         uses: actions/upload-artifact@v7
         with:
@@ -400,7 +425,7 @@ jobs:
       - name: Test
         shell: pwsh
         run: |
-          ${{github.workspace}}\build\RelWithDebInfo\uiohook_tests.exe
+          ${{github.workspace}}\build\RelWithDebInfo\uiohook_tests.exe --headless
 
       - name: Upload
         uses: actions/upload-artifact@v7
@@ -443,7 +468,7 @@ jobs:
       - name: Test
         shell: pwsh
         run: |
-          ${{github.workspace}}\build\RelWithDebInfo\uiohook_tests.exe
+          ${{github.workspace}}\build\RelWithDebInfo\uiohook_tests.exe --headless
 
       - name: Upload
         uses: actions/upload-artifact@v7
@@ -486,7 +511,7 @@ jobs:
       - name: Test
         shell: pwsh
         run: |
-          ${{github.workspace}}\build\RelWithDebInfo\uiohook_tests.exe
+          ${{github.workspace}}\build\RelWithDebInfo\uiohook_tests.exe --headless
 
       - name: Upload
         uses: actions/upload-artifact@v7
