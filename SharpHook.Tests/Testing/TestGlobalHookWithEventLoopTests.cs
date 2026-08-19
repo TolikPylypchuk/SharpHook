@@ -1479,11 +1479,11 @@ public sealed class TestGlobalHookWithEventLoopTests
 
         // Act
 
-        hook.TextSimulationDelayOnX11 = delay;
+        hook.TextSimulationDelayOnLinux = delay;
 
         // Assert
 
-        Assert.Equal(delay, hook.TextSimulationDelayOnX11);
+        Assert.Equal(delay, hook.TextSimulationDelayOnLinux);
     }
 
     private async Task WithRunningHook(TestGlobalHook hook, bool runAsync, Action action)

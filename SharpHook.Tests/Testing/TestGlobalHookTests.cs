@@ -1452,7 +1452,7 @@ public sealed class TestGlobalHookTests
     }
 
     [Property(DisplayName = "Text simulation delay should be settable through the property")]
-    public void TextSimulationDelayOnX11(TimeSpan delay)
+    public void TextSimulationDelayOnLinux(TimeSpan delay)
     {
         // Arrange
 
@@ -1460,11 +1460,11 @@ public sealed class TestGlobalHookTests
 
         // Act
 
-        hook.TextSimulationDelayOnX11 = delay;
+        hook.TextSimulationDelayOnLinux = delay;
 
         // Assert
 
-        Assert.Equal(delay, hook.TextSimulationDelayOnX11);
+        Assert.Equal(delay, hook.TextSimulationDelayOnLinux);
     }
 
     private void WithRunningHook(TestGlobalHook hook, bool runAsync, Action action)

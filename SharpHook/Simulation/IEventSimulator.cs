@@ -23,13 +23,13 @@ public interface IEventSimulator
     /// The default delay is 50 milliseconds.
     /// </para>
     /// <para>
-    /// On Windows and macOS, this property is ignored.
+    /// On Windows and macOS, as well as Wayland, this property is ignored.
     /// </para>
     /// </remarks>
     /// <exception cref="ArgumentOutOfRangeException">
     /// <paramref name="value" /> represents a negative time span.
     /// </exception>
-    TimeSpan TextSimulationDelayOnX11 { get; set; }
+    TimeSpan TextSimulationDelayOnLinux { get; set; }
 
     /// <summary>
     /// Simulates pressing a key.
@@ -179,9 +179,9 @@ public interface IEventSimulator
     /// X11 doesn't support text simulation directly. Instead, for each character, an unused key code is remapped to
     /// that character, and then key press/release is simulated. Since the receiving application must react to the
     /// remapping, and may not do so instantaneously, a delay is needed for accurate simulation. This means that text
-    /// simulation on Linux works slowly and is not guaranteed to be correct. <see cref="TextSimulationDelayOnX11" />
+    /// simulation on Linux works slowly and is not guaranteed to be correct. <see cref="TextSimulationDelayOnLinux" />
     /// can be used to increase (or decrease) the delay if needed – longer delays add consistency but may be more
-    /// jarring to end users. <see cref="TextSimulationDelayOnX11" /> can also be used to get the currently configured
+    /// jarring to end users. <see cref="TextSimulationDelayOnLinux" /> can also be used to get the currently configured
     /// delay – the default is 50 milliseconds.
     /// </para>
     /// </remarks>

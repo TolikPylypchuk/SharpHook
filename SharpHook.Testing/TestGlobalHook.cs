@@ -1102,7 +1102,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// </summary>
     public event EventHandler<MouseWheelHookEventArgs>? MouseWheel;
 
-    TimeSpan IEventSimulator.TextSimulationDelayOnX11 { get; set; }
+    TimeSpan IEventSimulator.TextSimulationDelayOnLinux { get; set; }
 
     private sealed class EventSimulationProviderBridge(TestGlobalHook globalHook) : IEventSimulationProvider
     {
@@ -1164,6 +1164,12 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
                 _ => null
             };
 
-        ulong IEventSimulationProvider.PostTextDelayX11 { get; set; }
+        ulong IEventSimulationProvider.PostTextDelayLinux { get; set; }
+
+        UioHookResult IEventSimulationProvider.InitializeVirtualDevices(string applicationName) =>
+            UioHookResult.Success;
+
+        UioHookResult IEventSimulationProvider.DestroyVirtualDevices() =>
+            UioHookResult.Success;
     }
 }

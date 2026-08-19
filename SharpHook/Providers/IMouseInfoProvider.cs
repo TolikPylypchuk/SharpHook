@@ -6,18 +6,6 @@ namespace SharpHook.Providers;
 public interface IMouseInfoProvider
 {
     /// <summary>
-    /// Gets the auto-repeat rate.
-    /// </summary>
-    /// <returns>The auto-repeat rate.</returns>
-    int GetAutoRepeatRate();
-
-    /// <summary>
-    /// Gets the auto-repeat delay.
-    /// </summary>
-    /// <returns>The auto-repeat delay.</returns>
-    int GetAutoRepeatDelay();
-
-    /// <summary>
     /// Gets the pointer acceleration multiplier.
     /// </summary>
     /// <returns>The pointer acceleration multiplier.</returns>

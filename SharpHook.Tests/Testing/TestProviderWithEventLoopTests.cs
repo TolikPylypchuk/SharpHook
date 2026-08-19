@@ -688,7 +688,7 @@ public sealed class TestProviderWithEventLoopTests
     }
 
     [Property(DisplayName = "Post text delay should be gettable and settable through the property")]
-    public void PostTextDelayX11(ulong postTextDelay)
+    public void PostTextDelayLinux(ulong postTextDelay)
     {
         // Arrange
 
@@ -696,11 +696,43 @@ public sealed class TestProviderWithEventLoopTests
 
         // Act
 
-        ((IEventSimulationProvider)provider).PostTextDelayX11 = postTextDelay;
+        ((IEventSimulationProvider)provider).PostTextDelayLinux = postTextDelay;
 
         // Assert
 
-        Assert.Equal(postTextDelay, ((IEventSimulationProvider)provider).PostTextDelayX11);
+        Assert.Equal(postTextDelay, ((IEventSimulationProvider)provider).PostTextDelayLinux);
+    }
+
+    [Fact(DisplayName = "Initializing virtual input devices should do nothing")]
+    public void InitializingVirtualInputDevicesShouldDoNothing()
+    {
+        // Arrange
+
+        var provider = new TestProvider(TestThreadingMode.EventLoop);
+
+        // Act
+
+        var result = ((IEventSimulationProvider)provider).InitializeVirtualDevices("TestApp");
+
+        // Assert
+
+        Assert.Equal(UioHookResult.Success, result);
+    }
+
+    [Fact(DisplayName = "Destroying virtual input devices should do nothing")]
+    public void DestroyingVirtualInputDevicesShouldDoNothing()
+    {
+        // Arrange
+
+        var provider = new TestProvider(TestThreadingMode.EventLoop);
+
+        // Act
+
+        var result = ((IEventSimulationProvider)provider).DestroyVirtualDevices();
+
+        // Assert
+
+        Assert.Equal(UioHookResult.Success, result);
     }
 
     [Property(DisplayName = "Checking if Accessibility API is disabled should depend on operation results")]
@@ -824,7 +856,7 @@ public sealed class TestProviderWithEventLoopTests
         // Assert
 
         Assert.Equal(autoRepeatRate, provider.AutoRepeatRate);
-        Assert.Equal(autoRepeatRate, ((IMouseInfoProvider)provider).GetAutoRepeatRate());
+        Assert.Equal(autoRepeatRate, ((IKeyboardInfoProvider)provider).GetAutoRepeatRate());
     }
 
     [Property(DisplayName = "Auto-repeat delay should be settable")]
@@ -840,7 +872,7 @@ public sealed class TestProviderWithEventLoopTests
         // Assert
 
         Assert.Equal(autoRepeatDelay, provider.AutoRepeatDelay);
-        Assert.Equal(autoRepeatDelay, ((IMouseInfoProvider)provider).GetAutoRepeatDelay());
+        Assert.Equal(autoRepeatDelay, ((IKeyboardInfoProvider)provider).GetAutoRepeatDelay());
     }
 
     [Property(DisplayName = "Pointer acceleration multiplier should be settable")]

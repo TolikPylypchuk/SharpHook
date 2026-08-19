@@ -41,9 +41,9 @@ public class EventSimulator : IEventSimulator
     /// <exception cref="ArgumentOutOfRangeException">
     /// <paramref name="value" /> represents a negative time span.
     /// </exception>
-    public TimeSpan TextSimulationDelayOnX11
+    public TimeSpan TextSimulationDelayOnLinux
     {
-        get => TimeSpan.FromTicks((long)this.simulationProvider.PostTextDelayX11 / 100);
+        get => TimeSpan.FromTicks((long)this.simulationProvider.PostTextDelayLinux / 100);
         set
         {
             if (value.Ticks < 0)
@@ -51,7 +51,7 @@ public class EventSimulator : IEventSimulator
                 throw new ArgumentOutOfRangeException(nameof(value));
             }
 
-            this.simulationProvider.PostTextDelayX11 = (ulong)(value.Ticks * 100);
+            this.simulationProvider.PostTextDelayLinux = (ulong)(value.Ticks * 100);
         }
     }
 
@@ -252,9 +252,9 @@ public class EventSimulator : IEventSimulator
     /// X11 doesn't support text simulation directly. Instead, for each character, an unused key code is remapped to
     /// that character, and then key press/release is simulated. Since the receiving application must react to the
     /// remapping, and may not do so instantaneously, a delay is needed for accurate simulation. This means that text
-    /// simulation on Linux works slowly and is not guaranteed to be correct. <see cref="TextSimulationDelayOnX11" />
+    /// simulation on Linux works slowly and is not guaranteed to be correct. <see cref="TextSimulationDelayOnLinux" />
     /// can be used to increase (or decrease) the delay if needed – longer delays add consistency but may be more
-    /// jarring to end users. <see cref="TextSimulationDelayOnX11" /> can also be used to get the currently configured
+    /// jarring to end users. <see cref="TextSimulationDelayOnLinux" /> can also be used to get the currently configured
     /// delay – the default is 50 milliseconds.
     /// </para>
     /// </remarks>

@@ -11,6 +11,7 @@ public sealed class UioHookProvider :
     IEventSimulationProvider,
     IAccessibilityProvider,
     IScreenInfoProvider,
+    IKeyboardInfoProvider,
     IMouseInfoProvider
 {
     private UioHookProvider()
@@ -50,10 +51,10 @@ public sealed class UioHookProvider :
     /// The default delay is 50 milliseconds.
     /// </para>
     /// <para>
-    /// On Windows and macOS, this property does nothing and always returns <c>0</c>.
+    /// On Windows and macOS, as well as Wayland, this property does nothing and always returns <c>0</c>.
     /// </para>
     /// </remarks>
-    public ulong PostTextDelayX11
+    public ulong PostTextDelayLinux
     {
         get => UioHook.GetPostTextDelayLinux();
         set => UioHook.SetPostTextDelayLinux(value);
@@ -195,7 +196,9 @@ public sealed class UioHookProvider :
     /// </item>
     /// <item>
     /// <term><see cref="EventType.KeyTyped" /></term>
-    /// <term>Events of this type are ignored.</term>
+    /// <term>
+    /// Events of this type are ignored. <see cref="PostText(string)" /> should be used to post Unicode characters.
+    /// </term>
     /// </item>
     /// <item>
     /// <term><see cref="EventType.MousePressed" /></term>
@@ -205,10 +208,22 @@ public sealed class UioHookProvider :
     /// </term>
     /// </item>
     /// <item>
+    /// <term><see cref="EventType.MousePressedIgnoreCoordinates" /></term>
+    /// <term>
+    /// Only <see cref="MouseEventData.Button" /> is considered.
+    /// </term>
+    /// </item>
+    /// <item>
     /// <term><see cref="EventType.MouseReleased" /></term>
     /// <term>
     /// Only <see cref="MouseWheelEventData.X" />, <see cref="MouseWheelEventData.Y" />,
     /// and <see cref="MouseEventData.Button" /> are considered.
+    /// </term>
+    /// </item>
+    /// <item>
+    /// <term><see cref="EventType.MouseReleasedIgnoreCoordinates" /></term>
+    /// <term>
+    /// Only <see cref="MouseEventData.Button" /> is considered.
     /// </term>
     /// </item>
     /// <item>
@@ -220,8 +235,16 @@ public sealed class UioHookProvider :
     /// <term>Only <see cref="MouseEventData.X" /> and <see cref="MouseEventData.Y" /> are considered.</term>
     /// </item>
     /// <item>
+    /// <term><see cref="EventType.MouseMovedRelative" /></term>
+    /// <term>Only <see cref="MouseEventData.X" /> and <see cref="MouseEventData.Y" /> are considered.</term>
+    /// </item>
+    /// <item>
     /// <term><see cref="EventType.MouseDragged" /></term>
     /// <term>Not recommended to use; same as <see cref="EventType.MouseMoved" />.</term>
+    /// </item>
+    /// <item>
+    /// <term><see cref="EventType.MouseDraggedRelative" /></term>
+    /// <term>Not recommended to use; same as <see cref="EventType.MouseMovedRelative" />.</term>
     /// </item>
     /// <item>
     /// <term><see cref="EventType.MouseWheel" /></term>
@@ -244,7 +267,9 @@ public sealed class UioHookProvider :
     /// <param name="size">The number of events to post.</param>
     /// <returns>The result of the operation.</returns>
     /// <remarks>
-    /// All the same rules apply as to <see cref="PostEvent" />.
+    /// All the same rules apply as to <see cref="PostEvent" />. The sequence of events must not contain events of types
+    /// <see cref="EventType.KeyTyped" /> or <see cref="EventType.MouseClicked" />, or the method will fail, potentially
+    /// in the middle of the simulation sequence.
     /// </remarks>
     /// <seealso cref="PostEvent" />
     public UioHookResult PostEvents(UioHookEvent[] events, uint size) =>
@@ -270,13 +295,55 @@ public sealed class UioHookProvider :
     /// X11 doesn't support text simulation directly. Instead, for each character, an unused key code is remapped to
     /// that character, and then key press/release is simulated. Since the receiving application must react to the
     /// remapping, and may not do so instantaneously, a delay is needed for accurate simulation. This means that text
-    /// entry on Linux works slowly and is not guaranteed to be correct. <see cref="PostTextDelayX11" /> can be used
+    /// entry on Linux works slowly and is not guaranteed to be correct. <see cref="PostTextDelayLinux" /> can be used
     /// to get or set the delay if needed – longer delays add consistency but may be more jarring to end
     /// users – the default is 50 milliseconds.
     /// </para>
     /// </remarks>
     public UioHookResult PostText(string text) =>
         UioHook.PostText(text);
+
+    /// <summary>
+    /// Initializes virtual input devices used for event simulation.
+    /// </summary>
+    /// <param name="applicationName">The application name which is used to identify the virtual devices.</param>
+    /// <returns>The result of the operation.</returns>
+    /// <remarks>
+    /// <para>
+    /// Virtual input devices are required on Linux when using a uinput-based backend. On Windows, macOS, and the
+    /// XRecord-based X11 backend, this method does nothing and always returns <see cref="UioHookResult.Success" />.
+    /// </para>
+    /// <para>
+    /// Initializing virtual input devices is expensive, so it should generally be done once early in the application's
+    /// lifetime. If virtual devices are initialzed, then calling this method again will increase the reference counter
+    /// – the devices will be destroyed only when the reference counter reaches zero, i.e., when the same number of
+    /// calls to <see cref="DestroyVirtualDevices" /> are made.
+    /// </para>
+    /// </remarks>
+    /// <seealso cref="DestroyVirtualDevices" />
+    public UioHookResult InitializeVirtualDevices(string applicationName) =>
+        UioHook.InitializeVirtualDevices(applicationName);
+
+    /// <summary>
+    /// Destroys virtual input devices used for event simulation.
+    /// </summary>
+    /// <returns>The result of the operation.</returns>
+    /// <remarks>
+    /// <para>
+    /// Virtual input devices are required on Linux when using a uinput-based backend. On Windows, macOS, and the
+    /// XRecord-based X11 backend, this method does nothing and always returns <see cref="UioHookResult.Success" />.
+    /// </para>
+    /// <para>
+    /// If multiple calls to <see cref="InitializeVirtualDevices" /> were made, then this method must be called the same
+    /// number of times, and will actually destroy the virtual devices only when the reference counter reaches zero.
+    /// </para>
+    /// <para>
+    /// When virtual devices are not initialized, this method does nothing.
+    /// </para>
+    /// </remarks>
+    /// <seealso cref="DestroyVirtualDevices" />
+    public UioHookResult DestroyVirtualDevices() =>
+        UioHook.DestroyVirtualDevices();
 
     /// <summary>
     /// Checks whether access to macOS Accessibility API is enabled for the process, optionally prompting the user
@@ -301,16 +368,16 @@ public sealed class UioHookProvider :
         UioHook.CreateScreenInfo();
 
     /// <summary>
-    /// Gets the auto-repeat rate.
+    /// Gets the key auto-repeat rate.
     /// </summary>
-    /// <returns>The auto-repeat rate.</returns>
+    /// <returns>The key auto-repeat rate.</returns>
     public int GetAutoRepeatRate() =>
         UioHook.GetAutoRepeatRate();
 
     /// <summary>
-    /// Gets the auto-repeat delay.
+    /// Gets the key auto-repeat delay.
     /// </summary>
-    /// <returns>The auto-repeat delay.</returns>
+    /// <returns>The key auto-repeat delay.</returns>
     public int GetAutoRepeatDelay() =>
         UioHook.GetAutoRepeatDelay();
 

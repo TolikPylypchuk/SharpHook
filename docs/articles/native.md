@@ -229,11 +229,12 @@ character, and then key press/release is simulated. Since the receiving applicat
 may not do so instantaneously, a delay is needed for accurate simulation. This means that text simulation on Linux works
 slowly and is not guaranteed to be correct.
 
-`UioHook` contains the `SetPostTextDelayX11` method which can be used to increase (or decrease) the delay if needed -
-longer delays add consistency but may be more jarring to end users. `UioHook` also contains the `GetPostTextDelayX11`
+`UioHook` contains the `SetPostTextDelayLinux` method which can be used to increase (or decrease) the delay if needed -
+longer delays add consistency but may be more jarring to end users. `UioHook` also contains the `GetPostTextDelayLinux`
 which can be used to get the currently configured delay – the default is 50 milliseconds. Delays are configurable on a
-nanosecond level. On Windows and macOS, `SetPostTextDelayX11` does nothing, and `GetPostTextDelayX11` always returns 0.
-`IEventSimulator` contains the `TextSimulationDelayOnX11` property which is wrapper arount the aforementioned methods.
+nanosecond level. On Windows and macOS, `SetPostTextDelayLinux` does nothing, and `GetPostTextDelayLinux` always returns
+0. `IEventSimulator` contains the `TextSimulationDelayOnLinux` property which is wrapper arount the aforementioned
+0. methods.
 
 The methods described above are also defined in the `SharpHook.Providers.IEventSimulationProvider` interface.
 

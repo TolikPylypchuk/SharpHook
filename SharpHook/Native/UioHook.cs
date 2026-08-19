@@ -320,6 +320,62 @@ public static partial class UioHook
 #endif
 
     /// <summary>
+    /// Initializes virtual input devices used for event simulation.
+    /// </summary>
+    /// <param name="applicationName">The application name which is used to identify the virtual devices.</param>
+    /// <returns>The result of the operation.</returns>
+    /// <remarks>
+    /// <para>
+    /// Virtual input devices are required on Linux when using a uinput-based backend. On Windows, macOS, and the
+    /// XRecord-based X11 backend, this method does nothing and always returns <see cref="UioHookResult.Success" />.
+    /// </para>
+    /// <para>
+    /// Initializing virtual input devices is expensive, so it should generally be done once early in the application's
+    /// lifetime. If virtual devices are initialzed, then calling this method again will increase the reference counter
+    /// – the devices will be destroyed only when the reference counter reaches zero, i.e., when the same number of
+    /// calls to <see cref="DestroyVirtualDevices" /> are made.
+    /// </para>
+    /// </remarks>
+    /// <seealso cref="DestroyVirtualDevices" />
+#if NET7_0_OR_GREATER
+    [LibraryImport(LibUioHook, EntryPoint = "hook_init_virtual_devices")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial UioHookResult InitializeVirtualDevices(
+        [MarshalAs(UnmanagedType.LPStr)] string applicationName);
+#else
+    [DllImport(LibUioHook, EntryPoint = "hook_init_virtual_devices", CallingConvention = CallingConvention.Cdecl)]
+    public static extern UioHookResult InitializeVirtualDevices(
+        [MarshalAs(UnmanagedType.LPStr)] string applicationName);
+#endif
+
+    /// <summary>
+    /// Destroys virtual input devices used for event simulation.
+    /// </summary>
+    /// <returns>The result of the operation.</returns>
+    /// <remarks>
+    /// <para>
+    /// Virtual input devices are required on Linux when using a uinput-based backend. On Windows, macOS, and the
+    /// XRecord-based X11 backend, this method does nothing and always returns <see cref="UioHookResult.Success" />.
+    /// </para>
+    /// <para>
+    /// If multiple calls to <see cref="InitializeVirtualDevices" /> were made, then this method must be called the same
+    /// number of times, and will actually destroy the virtual devices only when the reference counter reaches zero.
+    /// </para>
+    /// <para>
+    /// When virtual devices are not initialized, this method does nothing.
+    /// </para>
+    /// </remarks>
+    /// <seealso cref="InitializeVirtualDevices(string)" />
+#if NET7_0_OR_GREATER
+    [LibraryImport(LibUioHook, EntryPoint = "hook_destroy_virtual_devices")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial UioHookResult DestroyVirtualDevices();
+#else
+    [DllImport(LibUioHook, EntryPoint = "hook_destroy_virtual_devices", CallingConvention = CallingConvention.Cdecl)]
+    public static extern UioHookResult DestroyVirtualDevices();
+#endif
+
+    /// <summary>
     /// Returns optional features of libuiohook that are supported on the current platform.
     /// </summary>
     /// <returns>

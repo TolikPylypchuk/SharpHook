@@ -11,6 +11,7 @@ public sealed class TestProvider :
     IEventSimulationProvider,
     IAccessibilityProvider,
     IScreenInfoProvider,
+    IKeyboardInfoProvider,
     IMouseInfoProvider
 {
 #if NET9_0_OR_GREATER
@@ -601,7 +602,13 @@ public sealed class TestProvider :
 
     bool IGlobalHookProvider.KeyTypedEnabled { get; set; }
 
-    ulong IEventSimulationProvider.PostTextDelayX11 { get; set; }
+    ulong IEventSimulationProvider.PostTextDelayLinux { get; set; }
+
+    UioHookResult IEventSimulationProvider.InitializeVirtualDevices(string applicationName) =>
+        UioHookResult.Success;
+
+    UioHookResult IEventSimulationProvider.DestroyVirtualDevices() =>
+        UioHookResult.Success;
 
     bool IAccessibilityProvider.PromptUserIfAxApiDisabled { get; set; } = true;
 
@@ -613,10 +620,10 @@ public sealed class TestProvider :
     ScreenData[] IScreenInfoProvider.CreateScreenInfo() =>
         this.ScreenInfo;
 
-    int IMouseInfoProvider.GetAutoRepeatRate() =>
+    int IKeyboardInfoProvider.GetAutoRepeatRate() =>
         this.AutoRepeatRate;
 
-    int IMouseInfoProvider.GetAutoRepeatDelay() =>
+    int IKeyboardInfoProvider.GetAutoRepeatDelay() =>
         this.AutoRepeatDelay;
 
     int IMouseInfoProvider.GetPointerAccelerationMultiplier() =>

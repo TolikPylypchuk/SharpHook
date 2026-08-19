@@ -670,7 +670,7 @@ public sealed class EventSimulatorTests
         // Arrange
 
         var provider = new TestProvider();
-        ((IEventSimulationProvider)provider).PostTextDelayX11 = delay;
+        ((IEventSimulationProvider)provider).PostTextDelayLinux = delay;
 
         var simulator = new EventSimulator(provider);
 
@@ -678,7 +678,7 @@ public sealed class EventSimulatorTests
 
         Assert.Equal(
             delay / NanosecondsPerTick * NanosecondsPerTick,
-            (ulong)(simulator.TextSimulationDelayOnX11.Ticks * NanosecondsPerTick));
+            (ulong)(simulator.TextSimulationDelayOnLinux.Ticks * NanosecondsPerTick));
     }
 
     [Property(DisplayName = "EventSimulator should set a correct text simulation delay on X11 or throw an exception")]
@@ -693,13 +693,13 @@ public sealed class EventSimulatorTests
 
         if (timeSpan >= TimeSpan.Zero)
         {
-            simulator.TextSimulationDelayOnX11 = timeSpan;
+            simulator.TextSimulationDelayOnLinux = timeSpan;
             Assert.Equal(
                 (ulong)(timeSpan.Ticks * NanosecondsPerTick),
-                ((IEventSimulationProvider)provider).PostTextDelayX11);
+                ((IEventSimulationProvider)provider).PostTextDelayLinux);
         } else
         {
-            Assert.Throws<ArgumentOutOfRangeException>(() => simulator.TextSimulationDelayOnX11 = timeSpan);
+            Assert.Throws<ArgumentOutOfRangeException>(() => simulator.TextSimulationDelayOnLinux = timeSpan);
         }
     }
 
