@@ -227,7 +227,7 @@ jobs:
         env:
           CC: arm-linux-gnueabihf-gcc
           CFLAGS: '-Os -march=armv7ve -mfpu=vfp -mfloat-abi=hard -g -flto -fomit-frame-pointer -fno-stack-protector -pipe'
-          LDFLAGS: '-fuse-ld=gold -Wl,-O1 -Wl,--as-needed'
+          LDFLAGS: '-Wl,-O1 -Wl,--as-needed'
           PKG_CONFIG_PATH: '/usr/lib/arm-linux-gnueabihf/pkgconfig'
         shell: bash
         run: |
@@ -283,7 +283,7 @@ jobs:
         env:
           CC: aarch64-linux-gnu-gcc
           CFLAGS: '-Os -march=armv8-a+crc -mtune=cortex-a53 -g -flto -fomit-frame-pointer -fno-stack-protector -pipe'
-          LDFLAGS: '-fuse-ld=gold -Wl,-O1 -Wl,--as-needed'
+          LDFLAGS: '-Wl,-O1 -Wl,--as-needed'
           PKG_CONFIG_PATH: '/usr/lib/aarch64-linux-gnu/pkgconfig'
         shell: bash
         run: |
@@ -309,7 +309,7 @@ jobs:
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-linux-x64:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
 
     steps:
       - name: Checkout
@@ -340,7 +340,7 @@ jobs:
         env:
           CC: x86_64-linux-gnu-gcc
           CFLAGS: '-O2 -march=x86-64 -mtune=generic -g -fomit-frame-pointer -flto -fno-stack-protector -pipe'
-          LDFLAGS: '-fuse-ld=gold -Wl,-O1 -Wl,--as-needed'
+          LDFLAGS: '-Wl,-O1 -Wl,--as-needed'
           PKG_CONFIG_PATH: '/usr/lib/x86_64-linux-gnu/pkgconfig'
         shell: bash
         run: |
