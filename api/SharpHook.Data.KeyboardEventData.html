@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Struct KeyboardEventData | SharpHook ">
       
-      
+      <meta name="description" content="Represents the data of a keyboard-related event.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,8 @@ Struct KeyboardEventData  <a class="header-action link-secondary" title="View so
   <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Represents the data of a keyboard-related event.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -146,7 +147,8 @@ public struct KeyboardEventData : IEquatable&lt;KeyboardEventData&gt;</code></pr
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/KeyboardEventData.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The key code.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -159,7 +161,8 @@ public struct KeyboardEventData : IEquatable&lt;KeyboardEventData&gt;</code></pr
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.KeyCode.html">KeyCode</a></dt>
-    <dd></dd>
+    <dd><p>The key code.</p>
+</dd>
   </dl>
 
 
@@ -176,7 +179,8 @@ public struct KeyboardEventData : IEquatable&lt;KeyboardEventData&gt;</code></pr
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/KeyboardEventData.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The OS-specific key code.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -189,7 +193,8 @@ public struct KeyboardEventData : IEquatable&lt;KeyboardEventData&gt;</code></pr
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
-    <dd></dd>
+    <dd><p>The OS-specific key code.</p>
+</dd>
   </dl>
 
 
@@ -206,7 +211,8 @@ public struct KeyboardEventData : IEquatable&lt;KeyboardEventData&gt;</code></pr
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/KeyboardEventData.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The character of the key.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -219,13 +225,21 @@ public struct KeyboardEventData : IEquatable&lt;KeyboardEventData&gt;</code></pr
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
-    <dd></dd>
+    <dd><p>The character of the key.</p>
+</dd>
   </dl>
 
 
 
 
 
+  <h4 class="section" id="SharpHook_Data_KeyboardEventData_RawKeyChar_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This field is available only for the <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a> event.</p>
+<p>
+In general <a class="xref" href="SharpHook.Data.KeyboardEventData.html#SharpHook_Data_KeyboardEventData_KeyChar">KeyChar</a> should be used instead of this field. This field is of type
+<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a> purely for marshalling reasons. It should be used as a <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a>.
+</p>
+</div>
 
 
 
@@ -236,7 +250,9 @@ public struct KeyboardEventData : IEquatable&lt;KeyboardEventData&gt;</code></pr
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/KeyboardEventData.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The value of <a class="xref" href="SharpHook.Data.KeyboardEventData.html#SharpHook_Data_KeyboardEventData_RawKeyChar">RawKeyChar</a> in events of type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyPressed">KeyPressed</a> and
+<a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyReleased">KeyReleased</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -266,7 +282,9 @@ public struct KeyboardEventData : IEquatable&lt;KeyboardEventData&gt;</code></pr
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/KeyboardEventData.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The value of <a class="xref" href="SharpHook.Data.KeyboardEventData.html#SharpHook_Data_KeyboardEventData_KeyChar">KeyChar</a> in events of type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyPressed">KeyPressed</a> and
+<a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyReleased">KeyReleased</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -301,7 +319,8 @@ public struct KeyboardEventData : IEquatable&lt;KeyboardEventData&gt;</code></pr
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/KeyboardEventData.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The character of the key.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -315,12 +334,16 @@ public struct KeyboardEventData : IEquatable&lt;KeyboardEventData&gt;</code></pr
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.char">char</a></dt>
-    <dd></dd>
+    <dd><p>The character of the key.</p>
+</dd>
   </dl>
 
 
 
 
+  <h4 class="section" id="SharpHook_Data_KeyboardEventData_KeyChar_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>This property is available only for the <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a> event.</p>
+</div>
 
 
 
@@ -336,7 +359,8 @@ public struct KeyboardEventData : IEquatable&lt;KeyboardEventData&gt;</code></pr
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/KeyboardEventData.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Compares this object to another object for equality.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -346,13 +370,15 @@ public struct KeyboardEventData : IEquatable&lt;KeyboardEventData&gt;</code></pr
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>data</code> <a class="xref" href="SharpHook.Data.KeyboardEventData.html">KeyboardEventData</a></dt>
-    <dd></dd>
+    <dd><p>The object to compare</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the objects are equal. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
   </dl>
 
 
@@ -372,7 +398,8 @@ public struct KeyboardEventData : IEquatable&lt;KeyboardEventData&gt;</code></pr
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/KeyboardEventData.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Compares this object to another object for equality.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -382,13 +409,15 @@ public struct KeyboardEventData : IEquatable&lt;KeyboardEventData&gt;</code></pr
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The object to compare</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the objects are equal. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
   </dl>
 
 
@@ -408,7 +437,8 @@ public struct KeyboardEventData : IEquatable&lt;KeyboardEventData&gt;</code></pr
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/KeyboardEventData.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the hash code of this object.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -419,7 +449,8 @@ public struct KeyboardEventData : IEquatable&lt;KeyboardEventData&gt;</code></pr
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>The hash code of this object.</p>
+</dd>
   </dl>
 
 
@@ -439,7 +470,8 @@ public struct KeyboardEventData : IEquatable&lt;KeyboardEventData&gt;</code></pr
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/KeyboardEventData.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the string representation of this object.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -450,7 +482,8 @@ public struct KeyboardEventData : IEquatable&lt;KeyboardEventData&gt;</code></pr
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The string representation of this object.</p>
+</dd>
   </dl>
 
 
@@ -474,7 +507,8 @@ public struct KeyboardEventData : IEquatable&lt;KeyboardEventData&gt;</code></pr
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/KeyboardEventData.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Compares two objects for equality.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -484,15 +518,18 @@ public struct KeyboardEventData : IEquatable&lt;KeyboardEventData&gt;</code></pr
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>left</code> <a class="xref" href="SharpHook.Data.KeyboardEventData.html">KeyboardEventData</a></dt>
-    <dd></dd>
+    <dd><p>The first object to compare</p>
+</dd>
     <dt><code>right</code> <a class="xref" href="SharpHook.Data.KeyboardEventData.html">KeyboardEventData</a></dt>
-    <dd></dd>
+    <dd><p>The second object to compare</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the objects are equal. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
   </dl>
 
 
@@ -512,7 +549,8 @@ public struct KeyboardEventData : IEquatable&lt;KeyboardEventData&gt;</code></pr
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/KeyboardEventData.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Compares two objects for inequality.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -522,15 +560,18 @@ public struct KeyboardEventData : IEquatable&lt;KeyboardEventData&gt;</code></pr
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>left</code> <a class="xref" href="SharpHook.Data.KeyboardEventData.html">KeyboardEventData</a></dt>
-    <dd></dd>
+    <dd><p>The first object to compare</p>
+</dd>
     <dt><code>right</code> <a class="xref" href="SharpHook.Data.KeyboardEventData.html">KeyboardEventData</a></dt>
-    <dd></dd>
+    <dd><p>The second object to compare</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the objects are not equal. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
   </dl>
 
 
@@ -543,6 +584,11 @@ public struct KeyboardEventData : IEquatable&lt;KeyboardEventData&gt;</code></pr
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a></div>
+      <div><a class="xref" href="SharpHook.Data.KeyCode.html">KeyCode</a></div>
+  </div>
 
 </article>
 

@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class BasicGlobalHookBase | SharpHook ">
       
-      
+      <meta name="description" content="Represents an abstract implementation of  which defines everything needed except for a strategy for handling events and uses a global hook provider (libuiohook by default).">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,9 @@ Class BasicGlobalHookBase  <a class="header-action link-secondary" title="View s
   <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Represents an abstract implementation of <a class="xref" href="SharpHook.IBasicGlobalHook.html">IBasicGlobalHook</a> which defines everything needed except for
+a strategy for handling events and uses a global hook provider (libuiohook by default).</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -174,7 +176,8 @@ Class BasicGlobalHookBase  <a class="header-action link-secondary" title="View s
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/BasicGlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.BasicGlobalHookBase.html">BasicGlobalHookBase</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -184,11 +187,15 @@ Class BasicGlobalHookBase  <a class="header-action link-secondary" title="View s
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>globalHookType</code> <a class="xref" href="SharpHook.Data.GlobalHookType.html">GlobalHookType</a></dt>
-    <dd></dd>
+    <dd><p>The global hook type.</p>
+</dd>
     <dt><code>globalHookProvider</code> <a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html">IGlobalHookProvider</a></dt>
-    <dd></dd>
+    <dd><p>The underlying global hook provider, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to use the default one.</p>
+</dd>
     <dt><code>runAsyncOnBackgroundThread</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_RunAsync">RunAsync()</a> should run the hook on a background thread.
+Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
   </dl>
 
 
@@ -213,7 +220,8 @@ Class BasicGlobalHookBase  <a class="header-action link-secondary" title="View s
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/BasicGlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the value which indicates whether the global hook has been disposed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -227,12 +235,16 @@ Class BasicGlobalHookBase  <a class="header-action link-secondary" title="View s
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the global hook has been disposed. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
   </dl>
 
 
 
 
+  <h4 class="section" id="SharpHook_BasicGlobalHookBase_IsDisposed_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A disposed global hook cannot be started again.</p>
+</div>
 
 
 
@@ -244,7 +256,8 @@ Class BasicGlobalHookBase  <a class="header-action link-secondary" title="View s
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/BasicGlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the value which indicates whether the global hook is running.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -258,7 +271,8 @@ Class BasicGlobalHookBase  <a class="header-action link-secondary" title="View s
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the global hook is running. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
   </dl>
 
 
@@ -279,7 +293,10 @@ Class BasicGlobalHookBase  <a class="header-action link-secondary" title="View s
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/BasicGlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Defines actions to be done after the global hook is stopped. The default implementation does nothing, but
+it may change in a future version, so calling <a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_BeforeRun">BeforeRun()</a> in an overriden
+method is recommended.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -305,7 +322,10 @@ Class BasicGlobalHookBase  <a class="header-action link-secondary" title="View s
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/BasicGlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Defines actions to be done before the global hook is started. The default implementation does nothing, but
+it may change in a future version, so calling <a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_BeforeRun">BeforeRun()</a> in an overriden
+method is recommended.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -331,7 +351,8 @@ Class BasicGlobalHookBase  <a class="header-action link-secondary" title="View s
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/BasicGlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Disposes of the global hook, stopping it if it is running.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -346,7 +367,17 @@ Class BasicGlobalHookBase  <a class="header-action link-secondary" title="View s
 
 
 
+  <h4 class="section" id="SharpHook_BasicGlobalHookBase_Dispose_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>After calling this method, the hook cannot run again. If you want to stop the global hook with the ability to
+run it again, call the <a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_Stop">Stop()</a> method instead.</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.HookException.html">HookException</a></dt>
+    <dd><p>Stopping the hook has failed.</p>
+</dd>
+  </dl>
 
 
 
@@ -357,7 +388,9 @@ Class BasicGlobalHookBase  <a class="header-action link-secondary" title="View s
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/BasicGlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Disposes of the global hook, stopping it if it is running. This method will not be called if the global hook is
+already disposed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -367,7 +400,9 @@ Class BasicGlobalHookBase  <a class="header-action link-secondary" title="View s
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>disposing</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the method is called from the <a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_Dispose">Dispose()</a> method.
+Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
   </dl>
 
 
@@ -378,6 +413,12 @@ Class BasicGlobalHookBase  <a class="header-action link-secondary" title="View s
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.HookException.html">HookException</a></dt>
+    <dd><p>Stopping the hook has failed.</p>
+</dd>
+  </dl>
 
 
 
@@ -388,7 +429,8 @@ Class BasicGlobalHookBase  <a class="header-action link-secondary" title="View s
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/BasicGlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Stops the global hook if it's running.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -415,7 +457,8 @@ protected ~BasicGlobalHookBase()</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/BasicGlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>When implemented in a derived class, represents a strategy for handling a hook event.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -425,7 +468,8 @@ protected ~BasicGlobalHookBase()</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>e</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></dt>
-    <dd></dd>
+    <dd><p>The event to handle.</p>
+</dd>
   </dl>
 
 
@@ -446,7 +490,9 @@ protected ~BasicGlobalHookBase()</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/BasicGlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Runs the global hook on the current thread, blocking it. The hook can be stopped temporarily by calling
+<a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_Stop">Stop()</a> or stopped permanently by calling <a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_Dispose">Dispose()</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -462,6 +508,18 @@ protected ~BasicGlobalHookBase()</code></pre>
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.HookException.html">HookException</a></dt>
+    <dd><p>Starting the global hook has failed.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The global hook is already running.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>The global hook has been disposed.</p>
+</dd>
+  </dl>
 
 
 
@@ -472,7 +530,9 @@ protected ~BasicGlobalHookBase()</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/BasicGlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Runs the global hook without blocking the current thread. The hook can be stopped temporarily by calling
+<a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_Stop">Stop()</a> or stopped permanently by calling <a class="xref" href="SharpHook.BasicGlobalHookBase.html#SharpHook_BasicGlobalHookBase_Dispose">Dispose()</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -483,7 +543,8 @@ protected ~BasicGlobalHookBase()</code></pre>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></dt>
-    <dd></dd>
+    <dd><p>A <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a> which finishes when the hook is stopped or disposed.</p>
+</dd>
   </dl>
 
 
@@ -492,7 +553,22 @@ protected ~BasicGlobalHookBase()</code></pre>
 
 
 
+  <h4 class="section" id="SharpHook_BasicGlobalHookBase_RunAsync_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>The hook is started on a separate thread.</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="SharpHook.HookException.html">HookException</a></dt>
+    <dd><p>Starting the global hook has failed.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+    <dd><p>The global hook is already running.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>The global hook has been disposed.</p>
+</dd>
+  </dl>
 
 
 
@@ -503,7 +579,8 @@ protected ~BasicGlobalHookBase()</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/BasicGlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Stops the global hook.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -518,7 +595,16 @@ protected ~BasicGlobalHookBase()</code></pre>
 
 
 
+  <h4 class="section" id="SharpHook_BasicGlobalHookBase_Stop_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>After stopping, the global hook can run again.</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>The global hook has been disposed.</p>
+</dd>
+  </dl>
 
 
 
@@ -529,7 +615,8 @@ protected ~BasicGlobalHookBase()</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/BasicGlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Throws an <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a> if this object is disposed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -539,7 +626,8 @@ protected ~BasicGlobalHookBase()</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>method</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The method which calls this method.</p>
+</dd>
   </dl>
 
 
@@ -553,6 +641,11 @@ protected ~BasicGlobalHookBase()</code></pre>
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a></div>
+      <div><a class="xref" href="SharpHook.GlobalHookBase.html">GlobalHookBase</a></div>
+  </div>
 
 </article>
 

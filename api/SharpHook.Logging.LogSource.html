@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class LogSource | SharpHook ">
       
-      
+      <meta name="description" content="Represents a source of libuiohook logs.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,8 @@ Class LogSource  <a class="header-action link-secondary" title="View source" hre
   <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Represents a source of libuiohook logs.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -151,6 +152,9 @@ public sealed class LogSource : ILogSource, IDisposable</code></pre>
 
 
 
+  <h2 id="SharpHook_Logging_LogSource_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>On Windows, this class requires the Visual C++ Redistributable package to be installed as it uses the C runtime.</p>
+</div>
 
 
   <h2 class="section" id="properties">Properties
@@ -164,7 +168,8 @@ public sealed class LogSource : ILogSource, IDisposable</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/LogSource.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the value which indicates whether the log source is disposed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -178,12 +183,16 @@ public sealed class LogSource : ILogSource, IDisposable</code></pre>
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the log source is disposed. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
   </dl>
 
 
 
 
+  <h4 class="section" id="SharpHook_Logging_LogSource_IsDisposed_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A disposed log source doesn't raise the <a class="xref" href="SharpHook.Logging.LogSource.html#SharpHook_Logging_LogSource_MessageLogged">MessageLogged</a> event and cannot be registered again.</p>
+</div>
 
 
 
@@ -195,7 +204,8 @@ public sealed class LogSource : ILogSource, IDisposable</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/LogSource.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets the minimum log level.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -209,7 +219,8 @@ public sealed class LogSource : ILogSource, IDisposable</code></pre>
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.LogLevel.html">LogLevel</a></dt>
-    <dd></dd>
+    <dd><p>The minimum log level.</p>
+</dd>
   </dl>
 
 
@@ -230,7 +241,8 @@ public sealed class LogSource : ILogSource, IDisposable</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/LogSource.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Stops the currently registered <a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a> instance from receiving libuiohook logs.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -256,7 +268,8 @@ public sealed class LogSource : ILogSource, IDisposable</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/LogSource.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Unregisters the current <a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a> instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -282,7 +295,8 @@ public sealed class LogSource : ILogSource, IDisposable</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/LogSource.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates and registers a source of libuiohook logs or returns the registered instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -292,13 +306,15 @@ public sealed class LogSource : ILogSource, IDisposable</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>minLevel</code> <a class="xref" href="SharpHook.Data.LogLevel.html">LogLevel</a></dt>
-    <dd></dd>
+    <dd><p>The minimum log level.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a></dt>
-    <dd></dd>
+    <dd><p>A source of libuiohook logs.</p>
+</dd>
   </dl>
 
 
@@ -318,7 +334,8 @@ public sealed class LogSource : ILogSource, IDisposable</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/LogSource.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Creates and registers a source of libuiohook logs or returns the registered instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -328,15 +345,18 @@ public sealed class LogSource : ILogSource, IDisposable</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>loggingProvider</code> <a class="xref" href="SharpHook.Providers.ILoggingProvider.html">ILoggingProvider</a></dt>
-    <dd></dd>
+    <dd><p>The logging provider used to register the log source.</p>
+</dd>
     <dt><code>minLevel</code> <a class="xref" href="SharpHook.Data.LogLevel.html">LogLevel</a></dt>
-    <dd></dd>
+    <dd><p>The minimum log level.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a></dt>
-    <dd></dd>
+    <dd><p>A source of libuiohook logs.</p>
+</dd>
   </dl>
 
 
@@ -345,7 +365,17 @@ public sealed class LogSource : ILogSource, IDisposable</code></pre>
 
 
 
+  <h4 class="section" id="SharpHook_Logging_LogSource_RegisterOrGet_SharpHook_Providers_ILoggingProvider_SharpHook_Data_LogLevel__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>A single instance of <a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a> can be registered using this method, irrespective of the logging
+provider used.</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">loggingProvider</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
 
 
 
@@ -359,7 +389,8 @@ public sealed class LogSource : ILogSource, IDisposable</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/LogSource.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An event which is raised when libuiohook logs a message.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -383,6 +414,14 @@ public sealed class LogSource : ILogSource, IDisposable</code></pre>
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+      <div><a class="xref" href="SharpHook.Logging.EmptyLogSource.html">EmptyLogSource</a></div>
+      <div><a class="xref" href="SharpHook.Logging.LogEventArgs.html">LogEventArgs</a></div>
+      <div><a class="xref" href="SharpHook.Logging.LogEntry.html">LogEntry</a></div>
+      <div><a class="xref" href="SharpHook.Logging.LogEntryParser.html">LogEntryParser</a></div>
+  </div>
 
 </article>
 

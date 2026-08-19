@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class EmptyLogSource | SharpHook ">
       
-      
+      <meta name="description" content="Represents a souce of libuiohook logs which never raises any events.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,8 @@ Class EmptyLogSource  <a class="header-action link-secondary" title="View source
   <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Represents a souce of libuiohook logs which never raises any events.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -151,6 +152,11 @@ public sealed class EmptyLogSource : ILogSource, IDisposable</code></pre>
 
 
 
+  <h2 id="SharpHook_Logging_EmptyLogSource_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>This class exists primarily to be used instead of <a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a> in release builds of client apps as they
+will most probably not need any logs from libuiohook. Also, unlike <a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a> this class doesn't need
+the Visual C++ Redistributable package to be installed on Windows.</p>
+</div>
 
 
   <h2 class="section" id="constructors">Constructors
@@ -194,7 +200,8 @@ public sealed class EmptyLogSource : ILogSource, IDisposable</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/EmptyLogSource.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the value which indicates whether the log source is disposed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -208,12 +215,16 @@ public sealed class EmptyLogSource : ILogSource, IDisposable</code></pre>
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the log source is disposed. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
   </dl>
 
 
 
 
+  <h4 class="section" id="SharpHook_Logging_EmptyLogSource_IsDisposed_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Since empty log sources don't do anything, it doesn't matter whether they are disposed.</p>
+</div>
 
 
 
@@ -229,7 +240,8 @@ public sealed class EmptyLogSource : ILogSource, IDisposable</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/EmptyLogSource.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Marks this object as disposed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -244,6 +256,9 @@ public sealed class EmptyLogSource : ILogSource, IDisposable</code></pre>
 
 
 
+  <h4 class="section" id="SharpHook_Logging_EmptyLogSource_Dispose_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Since empty log sources don't do anything, it doesn't matter whether they are disposed.</p>
+</div>
 
 
 
@@ -258,7 +273,8 @@ public sealed class EmptyLogSource : ILogSource, IDisposable</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/EmptyLogSource.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>An event which is never raised.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -282,6 +298,11 @@ public sealed class EmptyLogSource : ILogSource, IDisposable</code></pre>
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+      <div><a class="xref" href="SharpHook.Logging.LogSource.html">LogSource</a></div>
+  </div>
 
 </article>
 

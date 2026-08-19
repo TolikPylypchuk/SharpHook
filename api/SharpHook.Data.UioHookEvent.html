@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Struct UioHookEvent | SharpHook ">
       
-      
+      <meta name="description" content="Represents an event which can be raised by libuiohook.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,8 @@ Struct UioHookEvent  <a class="header-action link-secondary" title="View source"
   <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Represents an event which can be raised by libuiohook.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -134,6 +135,23 @@ public struct UioHookEvent : IEquatable&lt;UioHookEvent&gt;</code></pre>
 
 
 
+  <h2 id="SharpHook_Data_UioHookEvent_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>
+This is a union-like struct and the data it contains depends on the type of the event.
+</p>
+<p>
+The <a class="xref" href="SharpHook.Data.UioHookEvent.html#SharpHook_Data_UioHookEvent_Keyboard">Keyboard</a> field is available for the events of the following types:
+<ul><li><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a></li><li><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyPressed">KeyPressed</a></li><li><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyReleased">KeyReleased</a></li></ul>
+
+<p>
+The <a class="xref" href="SharpHook.Data.UioHookEvent.html#SharpHook_Data_UioHookEvent_Mouse">Mouse</a> field is available for the events of the following types:
+<ul><li><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseClicked">MouseClicked</a></li><li><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MousePressed">MousePressed</a></li><li><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseReleased">MouseReleased</a></li><li><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseMoved">MouseMoved</a></li><li><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseDragged">MouseDragged</a></li></ul>
+
+<p>
+The <a class="xref" href="SharpHook.Data.UioHookEvent.html#SharpHook_Data_UioHookEvent_Wheel">Wheel</a> field is available for the events of the following type:
+<ul><li><a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseWheel">MouseWheel</a></li></ul>
+
+</div>
 
 
   <h2 class="section" id="fields">Fields
@@ -146,7 +164,8 @@ public struct UioHookEvent : IEquatable&lt;UioHookEvent&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/UioHookEvent.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The event data if this event is keyboard-related.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -159,7 +178,8 @@ public struct UioHookEvent : IEquatable&lt;UioHookEvent&gt;</code></pre>
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.KeyboardEventData.html">KeyboardEventData</a></dt>
-    <dd></dd>
+    <dd><p>The event data if this event is keyboard-related.</p>
+</dd>
   </dl>
 
 
@@ -176,7 +196,8 @@ public struct UioHookEvent : IEquatable&lt;UioHookEvent&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/UioHookEvent.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The mask of the event.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -189,7 +210,8 @@ public struct UioHookEvent : IEquatable&lt;UioHookEvent&gt;</code></pre>
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.EventMask.html">EventMask</a></dt>
-    <dd></dd>
+    <dd><p>The mask of the event.</p>
+</dd>
   </dl>
 
 
@@ -206,7 +228,8 @@ public struct UioHookEvent : IEquatable&lt;UioHookEvent&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/UioHookEvent.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The event data if this event is mouse-related.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -219,7 +242,8 @@ public struct UioHookEvent : IEquatable&lt;UioHookEvent&gt;</code></pre>
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.MouseEventData.html">MouseEventData</a></dt>
-    <dd></dd>
+    <dd><p>The event data if this event is mouse-related.</p>
+</dd>
   </dl>
 
 
@@ -236,7 +260,8 @@ public struct UioHookEvent : IEquatable&lt;UioHookEvent&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/UioHookEvent.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The UNIX timestamp of the event.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -249,7 +274,8 @@ public struct UioHookEvent : IEquatable&lt;UioHookEvent&gt;</code></pre>
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint64">ulong</a></dt>
-    <dd></dd>
+    <dd><p>The UNIX timestamp of the event.</p>
+</dd>
   </dl>
 
 
@@ -266,7 +292,8 @@ public struct UioHookEvent : IEquatable&lt;UioHookEvent&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/UioHookEvent.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The type of the event.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -279,7 +306,8 @@ public struct UioHookEvent : IEquatable&lt;UioHookEvent&gt;</code></pre>
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.EventType.html">EventType</a></dt>
-    <dd></dd>
+    <dd><p>The type of the event.</p>
+</dd>
   </dl>
 
 
@@ -296,7 +324,8 @@ public struct UioHookEvent : IEquatable&lt;UioHookEvent&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/UioHookEvent.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The event data if this event is mouse wheel-related.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -309,7 +338,8 @@ public struct UioHookEvent : IEquatable&lt;UioHookEvent&gt;</code></pre>
   <h4 class="section">Field Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.MouseWheelEventData.html">MouseWheelEventData</a></dt>
-    <dd></dd>
+    <dd><p>The event data if this event is mouse wheel-related.</p>
+</dd>
   </dl>
 
 
@@ -331,7 +361,8 @@ public struct UioHookEvent : IEquatable&lt;UioHookEvent&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/UioHookEvent.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Compares this object to another object for equality.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -341,13 +372,15 @@ public struct UioHookEvent : IEquatable&lt;UioHookEvent&gt;</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>e</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></dt>
-    <dd></dd>
+    <dd><p>The object to compare</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the objects are equal. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
   </dl>
 
 
@@ -367,7 +400,8 @@ public struct UioHookEvent : IEquatable&lt;UioHookEvent&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/UioHookEvent.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Compares this object to another object for equality.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -377,13 +411,15 @@ public struct UioHookEvent : IEquatable&lt;UioHookEvent&gt;</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>obj</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
-    <dd></dd>
+    <dd><p>The object to compare</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the objects are equal. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
   </dl>
 
 
@@ -403,7 +439,8 @@ public struct UioHookEvent : IEquatable&lt;UioHookEvent&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/UioHookEvent.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the hash code of this object.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -414,7 +451,8 @@ public struct UioHookEvent : IEquatable&lt;UioHookEvent&gt;</code></pre>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd><p>The hash code of this object.</p>
+</dd>
   </dl>
 
 
@@ -434,7 +472,8 @@ public struct UioHookEvent : IEquatable&lt;UioHookEvent&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/UioHookEvent.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the string representation of this object.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -445,7 +484,8 @@ public struct UioHookEvent : IEquatable&lt;UioHookEvent&gt;</code></pre>
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The string representation of this object.</p>
+</dd>
   </dl>
 
 
@@ -469,7 +509,8 @@ public struct UioHookEvent : IEquatable&lt;UioHookEvent&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/UioHookEvent.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Compares two objects for equality.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -479,15 +520,18 @@ public struct UioHookEvent : IEquatable&lt;UioHookEvent&gt;</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>left</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></dt>
-    <dd></dd>
+    <dd><p>The first object to compare</p>
+</dd>
     <dt><code>right</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></dt>
-    <dd></dd>
+    <dd><p>The second object to compare</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the objects are equal. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
   </dl>
 
 
@@ -507,7 +551,8 @@ public struct UioHookEvent : IEquatable&lt;UioHookEvent&gt;</code></pre>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Data/UioHookEvent.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Compares two objects for inequality.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -517,15 +562,18 @@ public struct UioHookEvent : IEquatable&lt;UioHookEvent&gt;</code></pre>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>left</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></dt>
-    <dd></dd>
+    <dd><p>The first object to compare</p>
+</dd>
     <dt><code>right</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></dt>
-    <dd></dd>
+    <dd><p>The second object to compare</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the objects are not equal. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
   </dl>
 
 
@@ -538,6 +586,14 @@ public struct UioHookEvent : IEquatable&lt;UioHookEvent&gt;</code></pre>
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="SharpHook.Data.EventType.html">EventType</a></div>
+      <div><a class="xref" href="SharpHook.Data.EventMask.html">EventMask</a></div>
+      <div><a class="xref" href="SharpHook.Data.KeyboardEventData.html">KeyboardEventData</a></div>
+      <div><a class="xref" href="SharpHook.Data.MouseEventData.html">MouseEventData</a></div>
+      <div><a class="xref" href="SharpHook.Data.MouseWheelEventData.html">MouseWheelEventData</a></div>
+  </div>
 
 </article>
 
