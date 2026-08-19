@@ -214,17 +214,13 @@ public abstract class BasicGlobalHookBase : IBasicGlobalHook
     protected abstract void HandleHookEvent(ref UioHookEvent @event);
 
     /// <summary>
-    /// Defines actions to be done before the global hook is started. The default implementation does nothing, but
-    /// it may change in a future version, so calling <see cref="BasicGlobalHookBase.BeforeRun" /> in an overriden
-    /// method is recommended.
+    /// Defines actions to be done before the global hook is started. The default implementation does nothing.
     /// </summary>
     protected virtual void BeforeRun()
     { }
 
     /// <summary>
-    /// Defines actions to be done after the global hook is stopped. The default implementation does nothing, but
-    /// it may change in a future version, so calling <see cref="BasicGlobalHookBase.BeforeRun" /> in an overriden
-    /// method is recommended.
+    /// Defines actions to be done after the global hook is stopped. The default implementation does nothing.
     /// </summary>
     protected virtual void AfterStop()
     { }
