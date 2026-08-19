@@ -533,7 +533,7 @@ public sealed class EventSimulatorTests
         Assert.Single(provider.PostedEvents);
 
         var postedEvent = provider.PostedEvents[0];
-        Assert.Equal(EventType.MouseMovedRelativeToCursor, postedEvent.Type);
+        Assert.Equal(EventType.MouseMovedRelative, postedEvent.Type);
         Assert.Equal(x, postedEvent.Mouse.X);
         Assert.Equal(y, postedEvent.Mouse.Y);
     }

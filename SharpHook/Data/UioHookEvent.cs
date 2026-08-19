@@ -1,7 +1,7 @@
 namespace SharpHook.Data;
 
 /// <summary>
-/// Represents an event which can be raised by libuiohook.
+/// Represents an event that can be raised by libuiohook.
 /// </summary>
 /// <remarks>
 /// <para>
@@ -20,9 +20,13 @@ namespace SharpHook.Data;
 /// <list type="bullet">
 /// <item><description><see cref="EventType.MouseClicked" /></description></item>
 /// <item><description><see cref="EventType.MousePressed" /></description></item>
+/// <item><description><see cref="EventType.MousePressedIgnoreCoordinates" /></description></item>
 /// <item><description><see cref="EventType.MouseReleased" /></description></item>
+/// <item><description><see cref="EventType.MouseReleasedIgnoreCoordinates" /></description></item>
 /// <item><description><see cref="EventType.MouseMoved" /></description></item>
+/// <item><description><see cref="EventType.MouseMovedRelative" /></description></item>
 /// <item><description><see cref="EventType.MouseDragged" /></description></item>
+/// <item><description><see cref="EventType.MouseDraggedRelative" /></description></item>
 /// </list>
 /// </para>
 /// <para>
@@ -42,45 +46,45 @@ namespace SharpHook.Data;
 public struct UioHookEvent : IEquatable<UioHookEvent>
 {
     /// <summary>
-    /// The type of the event.
-    /// </summary>
-    /// <value>The type of the event.</value>
-    [FieldOffset(0)]
-    public EventType Type;
-
-    /// <summary>
     /// The UNIX timestamp of the event.
     /// </summary>
     /// <value>The UNIX timestamp of the event.</value>
-    [FieldOffset(8)]
+    [FieldOffset(0)]
     public ulong Time;
 
     /// <summary>
     /// The mask of the event.
     /// </summary>
     /// <value>The mask of the event.</value>
-    [FieldOffset(16)]
+    [FieldOffset(8)]
     public EventMask Mask;
+
+    /// <summary>
+    /// The type of the event.
+    /// </summary>
+    /// <value>The type of the event.</value>
+    [FieldOffset(12)]
+    public EventType Type;
 
     /// <summary>
     /// The event data if this event is keyboard-related.
     /// </summary>
     /// <value>The event data if this event is keyboard-related.</value>
-    [FieldOffset(20)]
+    [FieldOffset(14)]
     public KeyboardEventData Keyboard;
 
     /// <summary>
     /// The event data if this event is mouse-related.
     /// </summary>
     /// <value>The event data if this event is mouse-related.</value>
-    [FieldOffset(20)]
+    [FieldOffset(14)]
     public MouseEventData Mouse;
 
     /// <summary>
     /// The event data if this event is mouse wheel-related.
     /// </summary>
     /// <value>The event data if this event is mouse wheel-related.</value>
-    [FieldOffset(20)]
+    [FieldOffset(14)]
     public MouseWheelEventData Wheel;
 
     /// <summary>
@@ -154,7 +158,7 @@ public struct UioHookEvent : IEquatable<UioHookEvent>
             EventType.MouseReleasedIgnoreCoordinates => $"; {nameof(this.Mouse)} = {this.Mouse}",
             EventType.MouseMoved => $"; {nameof(this.Mouse)} = {this.Mouse}",
             EventType.MouseDragged => $"; {nameof(this.Mouse)} = {this.Mouse}",
-            EventType.MouseMovedRelativeToCursor => $"; {nameof(this.Mouse)} = {this.Mouse}",
+            EventType.MouseMovedRelative => $"; {nameof(this.Mouse)} = {this.Mouse}",
             EventType.MouseWheel => $"; {nameof(this.Wheel)} = {this.Wheel}",
             _ => String.Empty
         };

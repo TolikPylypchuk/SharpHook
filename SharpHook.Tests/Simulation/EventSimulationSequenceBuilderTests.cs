@@ -406,7 +406,7 @@ public sealed class EventSimulationSequenceBuilderTests
         Assert.Single(provider.PostedEvents);
 
         var actualEvent = provider.PostedEvents[0];
-        Assert.Equal(EventType.MouseMovedRelativeToCursor, actualEvent.Type);
+        Assert.Equal(EventType.MouseMovedRelative, actualEvent.Type);
         Assert.Equal(x, actualEvent.Mouse.X);
         Assert.Equal(y, actualEvent.Mouse.Y);
 

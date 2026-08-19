@@ -1156,7 +1156,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
                 EventType.MouseReleased or EventType.MouseReleasedIgnoreCoordinates =>
                     this.globalHook.SimulateMouseReleaseResult,
 
-                EventType.MouseMoved or EventType.MouseDragged or EventType.MouseMovedRelativeToCursor =>
+                EventType.MouseMoved or EventType.MouseDragged or EventType.MouseMovedRelative =>
                     this.globalHook.SimulateMouseMovementResult,
 
                 EventType.MouseWheel => this.globalHook.SimulateMouseWheelResult,

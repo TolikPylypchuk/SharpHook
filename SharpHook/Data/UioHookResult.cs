@@ -22,17 +22,74 @@ public enum UioHookResult
     ErrorOutOfMemory = 0x02,
 
     /// <summary>
-    /// <see langword="null" /> was passed to <see cref="UioHook.PostText(string)" /> or
-    /// <see cref="UioHook.PostEvents(UioHookEvent[], uint)"/>
+    /// <see langword="null" /> was passed to a function that does not accept it
     /// </summary>
     ErrorNull = 0x03,
 
     /// <summary>
-    /// <see langword="null" /> was passed to <see cref="UioHook.PostText(string)" /> or
-    /// <see cref="UioHook.PostEvents(UioHookEvent[], uint)"/>
+    /// The feature is not supported by the current platform
     /// </summary>
-    [Obsolete("Use ErrorNull instead")]
-    ErrorPostTextNull = 0x03,
+    ErrorUnsupportedFeature = 0x04,
+
+    /// <summary>
+    /// Failed to load the Linux backend, or the Linux backend has already been loaded and cannot be changed (Linux)
+    /// </summary>
+    ErrorLinuxLoadBackend = 0x10,
+
+    /// <summary>
+    /// Cannot initialize the udev context (Linux)
+    /// </summary>
+    ErrorLinuxInitUdev = 0x11,
+
+    /// <summary>
+    /// Cannot initialize libinput (Linux)
+    /// </summary>
+    ErrorLinuxInitLibinput = 0x12,
+
+    /// <summary>
+    /// Cannot assign a seat to libinput (Linux)
+    /// </summary>
+    ErrorLinuxAssignSeat = 0x13,
+
+    /// <summary>
+    /// Cannot initialize a stop notification (Linux)
+    /// </summary>
+    ErrorLinuxInitStopNotification = 0x14,
+
+    /// <summary>
+    /// Cannot execute a stop notification (Linux)
+    /// </summary>
+    ErrorLinuxExecStopNotification = 0x15,
+
+    /// <summary>
+    /// No input devices are available to listen to (Linux)
+    /// </summary>
+    ErrorLinuxNoInputDevices = 0x16,
+
+    /// <summary>
+    /// Cannot open /dev/uinput (Linux)
+    /// </summary>
+    ErrorLinuxOpenUinput = 0x17,
+
+    /// <summary>
+    /// Cannot create a uinput device (Linux)
+    /// </summary>
+    ErrorLinuxCreateUinputDevice = 0x18,
+
+    /// <summary>
+    /// Cannot write to uinput (Linux)
+    /// </summary>
+    ErrorLinuxWriteUinput = 0x19,
+
+    /// <summary>
+    /// Cannot open a Wayland display connection (Linux)
+    /// </summary>
+    ErrorLinuxOpenWaylandDisplay = 0x1A,
+
+    /// <summary>
+    /// Cannot open a Wayland display connection (Linux)
+    /// </summary>
+    ErrorLinuxVirtualDevicesNoInitialized = 0x1B,
 
     /// <summary>
     /// <c>XOpenDisplay</c> has failed (X11)
@@ -85,27 +142,27 @@ public enum UioHookResult
     ErrorAxApiDisabled = 0x40,
 
     /// <summary>
+    /// Accessibility API access has been revoked for the process (macOS)
+    /// </summary>
+    ErrorAxApiRevoked = 0x41,
+
+    /// <summary>
     /// Failed to create an event port (macOS)
     /// </summary>
-    ErrorCreateEventPort = 0x41,
+    ErrorCreateEventPort = 0x42,
 
     /// <summary>
     /// <c>CFRunLoopSourceCreate</c> or <c>CFMachPortCreateRunLoopSource</c> has failed (macOS)
     /// </summary>
-    ErrorCreateRunLoopSource = 0x42,
+    ErrorCreateRunLoopSource = 0x43,
 
     /// <summary>
     /// <c>CFRunLoopGetCurrent</c> has failed (macOS)
     /// </summary>
-    ErrorGetRunLoop = 0x43,
+    ErrorGetRunLoop = 0x44,
 
     /// <summary>
     /// <c>CFRunLoopObserverCreate</c> has failed (macOS)
     /// </summary>
-    ErrorCreateObserver = 0x44,
-
-    /// <summary>
-    /// Accessibility API access has been revoked for the process (macOS)
-    /// </summary>
-    ErrorAxApiRevoked = 0x45
+    ErrorCreateObserver = 0x45
 }

@@ -50,7 +50,7 @@ public class HookEventArgs(UioHookEvent rawEvent) : EventArgs
             EventType.MousePressed or EventType.MouseReleased or EventType.MouseClicked or
                 EventType.MousePressedIgnoreCoordinates or EventType.MouseReleasedIgnoreCoordinates or
                 EventType.MouseMoved or EventType.MouseDragged or
-                EventType.MouseMovedRelativeToCursor => new MouseHookEventArgs(rawEvent),
+                EventType.MouseMovedRelative => new MouseHookEventArgs(rawEvent),
             EventType.MouseWheel => new MouseWheelHookEventArgs(rawEvent),
             _ => new HookEventArgs(rawEvent)
         };

@@ -221,7 +221,7 @@ public sealed class EventSimulationSequenceBuilder : IEventSimulationSequenceBui
     {
         this.events.Add(new()
         {
-            Type = EventType.MouseMovedRelativeToCursor,
+            Type = EventType.MouseMovedRelative,
             Mouse = new() { X = x, Y = y }
         });
 

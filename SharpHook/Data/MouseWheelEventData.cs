@@ -23,12 +23,6 @@ public struct MouseWheelEventData : IEquatable<MouseWheelEventData>
     public short Y;
 
     /// <summary>
-    /// The wheel scroll type.
-    /// </summary>
-    /// <value>The wheel scroll type.</value>
-    public MouseWheelScrollType Type;
-
-    /// <summary>
     /// The wheel rotation.
     /// </summary>
     /// <value>The wheel rotation.</value>
@@ -50,10 +44,16 @@ public struct MouseWheelEventData : IEquatable<MouseWheelEventData>
     /// On macOS, this value is the number of pixels per line.
     /// </para>
     /// <para>
-    /// On Linux, this value is always equal to <c>100</c>.
+    /// On Linux, this value is also always equal to <c>120</c>.
     /// </para>
     /// </remarks>
     public ushort Delta;
+
+    /// <summary>
+    /// The wheel scroll type.
+    /// </summary>
+    /// <value>The wheel scroll type.</value>
+    public MouseWheelScrollType Type;
 
     /// <summary>
     /// The wheel scroll direction.

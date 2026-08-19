@@ -352,7 +352,7 @@
         <member name="F:SharpHook.Data.EventType.KeyTyped">
             <summary>
             Raised when a key press may have caused a character to be typed regardless of whether a character was actually
-            typed. Ignored when posted.
+            typed. Cannot and should not be posted.
             </summary>
             <remarks>
             <para>
@@ -363,6 +363,9 @@
             </para>
             <para>
             Since events of this type are not raised by the OS, suppressing them has no effect.
+            </para>
+            <para>
+            Events of this type are not supported on Wayland.
             </para>
             </remarks>
         </member>
@@ -378,7 +381,7 @@
         </member>
         <member name="F:SharpHook.Data.EventType.MouseClicked">
             <summary>
-            Raised when a mouse button is clicked. Ignored when posted.
+            Raised when a mouse button is clicked. Cannot and should not be posted.
             </summary>
             <remarks>
             <para>
@@ -394,29 +397,14 @@
             Raised when a mouse button is pressed (its state changed from up to down) or posted to press a mouse button.
             </summary>
         </member>
-        <member name="F:SharpHook.Data.EventType.MouseReleased">
-            <summary>
-            Raised when a mouse button is released (its state changed from down to up) or posted to release a mouse button.
-            </summary>
-        </member>
-        <member name="F:SharpHook.Data.EventType.MouseMoved">
-            <summary>
-            Raised when the mouse is moved or posted to move the mouse.
-            </summary>
-        </member>
-        <member name="F:SharpHook.Data.EventType.MouseDragged">
-            <summary>
-            Raised when the mouse is dragged. Not recommended to post as it will be the same as <see cref="F:SharpHook.Data.EventType.MouseMoved" />.
-            </summary>
-        </member>
-        <member name="F:SharpHook.Data.EventType.MouseWheel">
-            <summary>
-            Raised when the mouse wheel is scrolled or posted to scroll the mouse wheel.
-            </summary>
-        </member>
         <member name="F:SharpHook.Data.EventType.MousePressedIgnoreCoordinates">
             <summary>
             Posted to press a mouse button at the current coordinates. Never raised.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.EventType.MouseReleased">
+            <summary>
+            Raised when a mouse button is released (its state changed from down to up) or posted to release a mouse button.
             </summary>
         </member>
         <member name="F:SharpHook.Data.EventType.MouseReleasedIgnoreCoordinates">
@@ -424,9 +412,31 @@
             Posted to release a mouse button at the current coordinates. Never raised.
             </summary>
         </member>
-        <member name="F:SharpHook.Data.EventType.MouseMovedRelativeToCursor">
+        <member name="F:SharpHook.Data.EventType.MouseMoved">
             <summary>
-            Posted to move the mouse relative to the current cursor position. Never raised.
+            Raised when the mouse is moved or posted to move the mouse.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.EventType.MouseMovedRelative">
+            <summary>
+            Raised on Wayland when the mouse is moved, but its absolute position is not available. Posted to move the mouse
+            relative to the current cursor position.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.EventType.MouseDragged">
+            <summary>
+            Raised when the mouse is dragged. Not recommended to post as it will be the same as <see cref="F:SharpHook.Data.EventType.MouseMoved" />.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.EventType.MouseDraggedRelative">
+            <summary>
+            Raised on Wayland when the mouse is dragged, but its absolute position is not available. Not recommended to post
+            as it will be the same as <see cref="F:SharpHook.Data.EventType.MouseMovedRelative" />.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.EventType.MouseWheel">
+            <summary>
+            Raised when the mouse wheel is scrolled or posted to scroll the mouse wheel.
             </summary>
         </member>
         <member name="T:SharpHook.Data.GlobalHookType">
@@ -659,10 +669,6 @@
             <summary>`</summary>
             <remarks>Available on: Windows, macOS, Linux</remarks>
         </member>
-        <member name="F:SharpHook.Data.KeyCode.Vc0">
-            <summary>0</summary>
-            <remarks>Available on: Windows, macOS, Linux</remarks>
-        </member>
         <member name="F:SharpHook.Data.KeyCode.Vc1">
             <summary>1</summary>
             <remarks>Available on: Windows, macOS, Linux</remarks>
@@ -697,6 +703,10 @@
         </member>
         <member name="F:SharpHook.Data.KeyCode.Vc9">
             <summary>9</summary>
+            <remarks>Available on: Windows, macOS, Linux</remarks>
+        </member>
+        <member name="F:SharpHook.Data.KeyCode.Vc0">
+            <summary>0</summary>
             <remarks>Available on: Windows, macOS, Linux</remarks>
         </member>
         <member name="F:SharpHook.Data.KeyCode.VcMinus">
@@ -865,7 +875,7 @@
             <summary>Space</summary>
             <remarks>Available on: Windows, macOS, Linux</remarks>
         </member>
-        <member name="F:SharpHook.Data.KeyCode.Vc102">
+        <member name="F:SharpHook.Data.KeyCode.VcSection">
             <summary>
             The &lt;&gt; key on the US standard keyboard, or the \| key on the non-US 102-key keyboard,
             or the Section key (§) on the macOS ISO keyboard
@@ -942,46 +952,6 @@
             <summary>Num Lock</summary>
             <remarks>Available on: Windows, Linux</remarks>
         </member>
-        <member name="F:SharpHook.Data.KeyCode.VcNumPadClear">
-            <summary>Num-Pad Clear</summary>
-            <remarks>Available on: Windows, macOS</remarks>
-        </member>
-        <member name="F:SharpHook.Data.KeyCode.VcNumPadDivide">
-            <summary>Num-Pad /</summary>
-            <remarks>Available on: Windows, macOS, Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Data.KeyCode.VcNumPadMultiply">
-            <summary>Num-Pad *</summary>
-            <remarks>Available on: Windows, macOS, Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Data.KeyCode.VcNumPadSubtract">
-            <summary>Num-Pad -</summary>
-            <remarks>Available on: Windows, macOS, Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Data.KeyCode.VcNumPadEquals">
-            <summary>Num-Pad =</summary>
-            <remarks>Available on: Windows, macOS, Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Data.KeyCode.VcNumPadAdd">
-            <summary>Num-Pad +</summary>
-            <remarks>Available on: Windows, macOS, Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Data.KeyCode.VcNumPadEnter">
-            <summary>Num-Pad Enter</summary>
-            <remarks>Available on: Windows, macOS, Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Data.KeyCode.VcNumPadDecimal">
-            <summary>Num-Pad Decimal</summary>
-            <remarks>Available on: Windows, macOS, Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Data.KeyCode.VcNumPadSeparator">
-            <summary>Num-Pad Separator</summary>
-            <remarks>Available on: Windows, Linux</remarks>
-        </member>
-        <member name="F:SharpHook.Data.KeyCode.VcNumPad0">
-            <summary>Num-Pad 0</summary>
-            <remarks>Available on: Windows, macOS, Linux</remarks>
-        </member>
         <member name="F:SharpHook.Data.KeyCode.VcNumPad1">
             <summary>Num-Pad 1</summary>
             <remarks>Available on: Windows, macOS, Linux</remarks>
@@ -1017,6 +987,46 @@
         <member name="F:SharpHook.Data.KeyCode.VcNumPad9">
             <summary>Num-Pad 9</summary>
             <remarks>Available on: Windows, macOS, Linux</remarks>
+        </member>
+        <member name="F:SharpHook.Data.KeyCode.VcNumPad0">
+            <summary>Num-Pad 0</summary>
+            <remarks>Available on: Windows, macOS, Linux</remarks>
+        </member>
+        <member name="F:SharpHook.Data.KeyCode.VcNumPadClear">
+            <summary>Num-Pad Clear</summary>
+            <remarks>Available on: Windows, macOS</remarks>
+        </member>
+        <member name="F:SharpHook.Data.KeyCode.VcNumPadDivide">
+            <summary>Num-Pad /</summary>
+            <remarks>Available on: Windows, macOS, Linux</remarks>
+        </member>
+        <member name="F:SharpHook.Data.KeyCode.VcNumPadMultiply">
+            <summary>Num-Pad *</summary>
+            <remarks>Available on: Windows, macOS, Linux</remarks>
+        </member>
+        <member name="F:SharpHook.Data.KeyCode.VcNumPadSubtract">
+            <summary>Num-Pad -</summary>
+            <remarks>Available on: Windows, macOS, Linux</remarks>
+        </member>
+        <member name="F:SharpHook.Data.KeyCode.VcNumPadEquals">
+            <summary>Num-Pad =</summary>
+            <remarks>Available on: Windows, macOS, Linux</remarks>
+        </member>
+        <member name="F:SharpHook.Data.KeyCode.VcNumPadAdd">
+            <summary>Num-Pad +</summary>
+            <remarks>Available on: Windows, macOS, Linux</remarks>
+        </member>
+        <member name="F:SharpHook.Data.KeyCode.VcNumPadEnter">
+            <summary>Num-Pad Enter</summary>
+            <remarks>Available on: Windows, macOS, Linux</remarks>
+        </member>
+        <member name="F:SharpHook.Data.KeyCode.VcNumPadDecimal">
+            <summary>Num-Pad Decimal</summary>
+            <remarks>Available on: Windows, macOS, Linux</remarks>
+        </member>
+        <member name="F:SharpHook.Data.KeyCode.VcNumPadSeparator">
+            <summary>Num-Pad Separator</summary>
+            <remarks>Available on: Windows, Linux</remarks>
         </member>
         <member name="F:SharpHook.Data.KeyCode.VcLeftShift">
             <summary>Left Shift</summary>
@@ -1406,12 +1416,6 @@
             </summary>
             <value>The Y-coordinate of the mouse cursor.</value>
         </member>
-        <member name="F:SharpHook.Data.MouseWheelEventData.Type">
-            <summary>
-            The wheel scroll type.
-            </summary>
-            <value>The wheel scroll type.</value>
-        </member>
         <member name="F:SharpHook.Data.MouseWheelEventData.Rotation">
             <summary>
             The wheel rotation.
@@ -1435,9 +1439,15 @@
             On macOS, this value is the number of pixels per line.
             </para>
             <para>
-            On Linux, this value is always equal to <c>100</c>.
+            On Linux, this value is also always equal to <c>120</c>.
             </para>
             </remarks>
+        </member>
+        <member name="F:SharpHook.Data.MouseWheelEventData.Type">
+            <summary>
+            The wheel scroll type.
+            </summary>
+            <value>The wheel scroll type.</value>
         </member>
         <member name="F:SharpHook.Data.MouseWheelEventData.Direction">
             <summary>
@@ -1614,7 +1624,7 @@
         </member>
         <member name="T:SharpHook.Data.UioHookEvent">
             <summary>
-            Represents an event which can be raised by libuiohook.
+            Represents an event that can be raised by libuiohook.
             </summary>
             <remarks>
             <para>
@@ -1633,9 +1643,13 @@
             <list type="bullet">
             <item><description><see cref="F:SharpHook.Data.EventType.MouseClicked" /></description></item>
             <item><description><see cref="F:SharpHook.Data.EventType.MousePressed" /></description></item>
+            <item><description><see cref="F:SharpHook.Data.EventType.MousePressedIgnoreCoordinates" /></description></item>
             <item><description><see cref="F:SharpHook.Data.EventType.MouseReleased" /></description></item>
+            <item><description><see cref="F:SharpHook.Data.EventType.MouseReleasedIgnoreCoordinates" /></description></item>
             <item><description><see cref="F:SharpHook.Data.EventType.MouseMoved" /></description></item>
+            <item><description><see cref="F:SharpHook.Data.EventType.MouseMovedRelative" /></description></item>
             <item><description><see cref="F:SharpHook.Data.EventType.MouseDragged" /></description></item>
+            <item><description><see cref="F:SharpHook.Data.EventType.MouseDraggedRelative" /></description></item>
             </list>
             </para>
             <para>
@@ -1651,12 +1665,6 @@
             <seealso cref="T:SharpHook.Data.MouseEventData" />
             <seealso cref="T:SharpHook.Data.MouseWheelEventData" />
         </member>
-        <member name="F:SharpHook.Data.UioHookEvent.Type">
-            <summary>
-            The type of the event.
-            </summary>
-            <value>The type of the event.</value>
-        </member>
         <member name="F:SharpHook.Data.UioHookEvent.Time">
             <summary>
             The UNIX timestamp of the event.
@@ -1668,6 +1676,12 @@
             The mask of the event.
             </summary>
             <value>The mask of the event.</value>
+        </member>
+        <member name="F:SharpHook.Data.UioHookEvent.Type">
+            <summary>
+            The type of the event.
+            </summary>
+            <value>The type of the event.</value>
         </member>
         <member name="F:SharpHook.Data.UioHookEvent.Keyboard">
             <summary>
@@ -1760,14 +1774,72 @@
         </member>
         <member name="F:SharpHook.Data.UioHookResult.ErrorNull">
             <summary>
-            <see langword="null" /> was passed to <see cref="M:SharpHook.Native.UioHook.PostText(System.String)" /> or
-            <see cref="M:SharpHook.Native.UioHook.PostEvents(SharpHook.Data.UioHookEvent[],System.UInt32)"/>
+            <see langword="null" /> was passed to a function that does not accept it
             </summary>
         </member>
-        <member name="F:SharpHook.Data.UioHookResult.ErrorPostTextNull">
+        <member name="F:SharpHook.Data.UioHookResult.ErrorUnsupportedFeature">
             <summary>
-            <see langword="null" /> was passed to <see cref="M:SharpHook.Native.UioHook.PostText(System.String)" /> or
-            <see cref="M:SharpHook.Native.UioHook.PostEvents(SharpHook.Data.UioHookEvent[],System.UInt32)"/>
+            The feature is not supported by the current platform
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.UioHookResult.ErrorLinuxLoadBackend">
+            <summary>
+            Failed to load the Linux backend, or the Linux backend has already been loaded and cannot be changed (Linux)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.UioHookResult.ErrorLinuxInitUdev">
+            <summary>
+            Cannot initialize the udev context (Linux)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.UioHookResult.ErrorLinuxInitLibinput">
+            <summary>
+            Cannot initialize libinput (Linux)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.UioHookResult.ErrorLinuxAssignSeat">
+            <summary>
+            Cannot assign a seat to libinput (Linux)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.UioHookResult.ErrorLinuxInitStopNotification">
+            <summary>
+            Cannot initialize a stop notification (Linux)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.UioHookResult.ErrorLinuxExecStopNotification">
+            <summary>
+            Cannot execute a stop notification (Linux)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.UioHookResult.ErrorLinuxNoInputDevices">
+            <summary>
+            No input devices are available to listen to (Linux)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.UioHookResult.ErrorLinuxOpenUinput">
+            <summary>
+            Cannot open /dev/uinput (Linux)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.UioHookResult.ErrorLinuxCreateUinputDevice">
+            <summary>
+            Cannot create a uinput device (Linux)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.UioHookResult.ErrorLinuxWriteUinput">
+            <summary>
+            Cannot write to uinput (Linux)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.UioHookResult.ErrorLinuxOpenWaylandDisplay">
+            <summary>
+            Cannot open a Wayland display connection (Linux)
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.UioHookResult.ErrorLinuxVirtualDevicesNoInitialized">
+            <summary>
+            Cannot open a Wayland display connection (Linux)
             </summary>
         </member>
         <member name="F:SharpHook.Data.UioHookResult.ErrorXOpenDisplay">
@@ -1820,6 +1892,11 @@
             Accessibility API access is disabled for the process (macOS)
             </summary>
         </member>
+        <member name="F:SharpHook.Data.UioHookResult.ErrorAxApiRevoked">
+            <summary>
+            Accessibility API access has been revoked for the process (macOS)
+            </summary>
+        </member>
         <member name="F:SharpHook.Data.UioHookResult.ErrorCreateEventPort">
             <summary>
             Failed to create an event port (macOS)
@@ -1838,11 +1915,6 @@
         <member name="F:SharpHook.Data.UioHookResult.ErrorCreateObserver">
             <summary>
             <c>CFRunLoopObserverCreate</c> has failed (macOS)
-            </summary>
-        </member>
-        <member name="F:SharpHook.Data.UioHookResult.ErrorAxApiRevoked">
-            <summary>
-            Accessibility API access has been revoked for the process (macOS)
             </summary>
         </member>
         <member name="T:SharpHook.EventLoopGlobalHook">

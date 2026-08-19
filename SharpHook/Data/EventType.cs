@@ -5,7 +5,7 @@ namespace SharpHook.Data;
 /// </summary>
 /// <seealso cref="UioHookEvent" />
 /// <seealso cref="UioHook.PostEvent" />
-public enum EventType
+public enum EventType : ushort
 {
     /// <summary>
     /// Raised when the global hook is started. Ignored when posted.
@@ -19,7 +19,7 @@ public enum EventType
 
     /// <summary>
     /// Raised when a key press may have caused a character to be typed regardless of whether a character was actually
-    /// typed. Ignored when posted.
+    /// typed. Cannot and should not be posted.
     /// </summary>
     /// <remarks>
     /// <para>
@@ -30,6 +30,9 @@ public enum EventType
     /// </para>
     /// <para>
     /// Since events of this type are not raised by the OS, suppressing them has no effect.
+    /// </para>
+    /// <para>
+    /// Events of this type are not supported on Wayland.
     /// </para>
     /// </remarks>
     KeyTyped,
@@ -45,7 +48,7 @@ public enum EventType
     KeyReleased,
 
     /// <summary>
-    /// Raised when a mouse button is clicked. Ignored when posted.
+    /// Raised when a mouse button is clicked. Cannot and should not be posted.
     /// </summary>
     /// <remarks>
     /// <para>
@@ -63,29 +66,14 @@ public enum EventType
     MousePressed,
 
     /// <summary>
-    /// Raised when a mouse button is released (its state changed from down to up) or posted to release a mouse button.
-    /// </summary>
-    MouseReleased,
-
-    /// <summary>
-    /// Raised when the mouse is moved or posted to move the mouse.
-    /// </summary>
-    MouseMoved,
-
-    /// <summary>
-    /// Raised when the mouse is dragged. Not recommended to post as it will be the same as <see cref="MouseMoved" />.
-    /// </summary>
-    MouseDragged,
-
-    /// <summary>
-    /// Raised when the mouse wheel is scrolled or posted to scroll the mouse wheel.
-    /// </summary>
-    MouseWheel,
-
-    /// <summary>
     /// Posted to press a mouse button at the current coordinates. Never raised.
     /// </summary>
     MousePressedIgnoreCoordinates,
+
+    /// <summary>
+    /// Raised when a mouse button is released (its state changed from down to up) or posted to release a mouse button.
+    /// </summary>
+    MouseReleased,
 
     /// <summary>
     /// Posted to release a mouse button at the current coordinates. Never raised.
@@ -93,7 +81,29 @@ public enum EventType
     MouseReleasedIgnoreCoordinates,
 
     /// <summary>
-    /// Posted to move the mouse relative to the current cursor position. Never raised.
+    /// Raised when the mouse is moved or posted to move the mouse.
     /// </summary>
-    MouseMovedRelativeToCursor
+    MouseMoved,
+
+    /// <summary>
+    /// Raised on Wayland when the mouse is moved, but its absolute position is not available. Posted to move the mouse
+    /// relative to the current cursor position.
+    /// </summary>
+    MouseMovedRelative,
+
+    /// <summary>
+    /// Raised when the mouse is dragged. Not recommended to post as it will be the same as <see cref="MouseMoved" />.
+    /// </summary>
+    MouseDragged,
+
+    /// <summary>
+    /// Raised on Wayland when the mouse is dragged, but its absolute position is not available. Not recommended to post
+    /// as it will be the same as <see cref="MouseMovedRelative" />.
+    /// </summary>
+    MouseDraggedRelative,
+
+    /// <summary>
+    /// Raised when the mouse wheel is scrolled or posted to scroll the mouse wheel.
+    /// </summary>
+    MouseWheel
 }

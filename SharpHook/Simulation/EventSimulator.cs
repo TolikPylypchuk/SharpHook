@@ -193,7 +193,7 @@ public class EventSimulator : IEventSimulator
     public UioHookResult SimulateMouseMovementRelative(short x, short y) =>
         this.PostEvent(new()
         {
-            Type = EventType.MouseMovedRelativeToCursor,
+            Type = EventType.MouseMovedRelative,
             Mouse = new() { X = x, Y = y }
         });
 
