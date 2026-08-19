@@ -32,17 +32,10 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <summary>
     /// Initializes a new instance of <see cref="TestGlobalHook" />.
     /// </summary>
-    public TestGlobalHook()
-        : this(TestThreadingMode.Simple)
-    { }
-
-    /// <summary>
-    /// Initializes a new instance of <see cref="TestGlobalHook" />.
-    /// </summary>
     /// <param name="threadingMode">The threading mode to use.</param>
     [SuppressMessage(
         "Style", "IDE0290:Use primary constructor", Justification = "Primary constructors don't support XML comments")]
-    public TestGlobalHook(TestThreadingMode threadingMode) =>
+    public TestGlobalHook(TestThreadingMode threadingMode = TestThreadingMode.Simple) =>
         this.ThreadingMode = threadingMode;
 
     /// <summary>

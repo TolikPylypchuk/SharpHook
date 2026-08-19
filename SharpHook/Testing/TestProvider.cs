@@ -36,17 +36,10 @@ public sealed class TestProvider :
     /// <summary>
     /// Initializes a new instance of <see cref="TestProvider" />.
     /// </summary>
-    public TestProvider()
-        : this(TestThreadingMode.Simple)
-    { }
-
-    /// <summary>
-    /// Initializes a new instance of <see cref="TestProvider" />.
-    /// </summary>
     /// <param name="threadingMode">The threading mode to use.</param>
     [SuppressMessage(
         "Style", "IDE0290:Use primary constructor", Justification = "Primary constructors don't support XML comments")]
-    public TestProvider(TestThreadingMode threadingMode) =>
+    public TestProvider(TestThreadingMode threadingMode = TestThreadingMode.Simple) =>
         this.ThreadingMode = threadingMode;
 
     /// <summary>

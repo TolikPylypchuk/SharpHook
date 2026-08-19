@@ -12,20 +12,12 @@ public class EventSimulator : IEventSimulator
     /// <summary>
     /// Initializes a new instance of the <see cref="EventSimulator" /> class.
     /// </summary>
-    [ExcludeFromCodeCoverage]
-    public EventSimulator()
-        : this(null)
-    { }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="EventSimulator" /> class.
-    /// </summary>
     /// <param name="simulationProvider">
-    /// The simulation functionality provider (or <see cref="UioHookProvider.Instance" /> if <see langword="null" />).
+    /// The simulation functionality provider, or <see cref="UioHookProvider.Instance" /> if <see langword="null" />.
     /// </param>
     [SuppressMessage(
         "Style", "IDE0290:Use primary constructor", Justification = "Primary constructors don't support XML comments")]
-    public EventSimulator(IEventSimulationProvider? simulationProvider) =>
+    public EventSimulator(IEventSimulationProvider? simulationProvider = null) =>
         this.simulationProvider = simulationProvider ?? UioHookProvider.Instance;
 
     /// <summary>
