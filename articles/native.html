@@ -289,11 +289,12 @@ e.g., emojis) is supported.</p>
 character, and then key press/release is simulated. Since the receiving application must react to the remapping, and
 may not do so instantaneously, a delay is needed for accurate simulation. This means that text simulation on Linux works
 slowly and is not guaranteed to be correct.</p>
-<p><code>UioHook</code> contains the <code>SetPostTextDelayX11</code> method which can be used to increase (or decrease) the delay if needed -
-longer delays add consistency but may be more jarring to end users. <code>UioHook</code> also contains the <code>GetPostTextDelayX11</code>
+<p><code>UioHook</code> contains the <code>SetPostTextDelayLinux</code> method which can be used to increase (or decrease) the delay if needed -
+longer delays add consistency but may be more jarring to end users. <code>UioHook</code> also contains the <code>GetPostTextDelayLinux</code>
 which can be used to get the currently configured delay – the default is 50 milliseconds. Delays are configurable on a
-nanosecond level. On Windows and macOS, <code>SetPostTextDelayX11</code> does nothing, and <code>GetPostTextDelayX11</code> always returns 0.
-<code>IEventSimulator</code> contains the <code>TextSimulationDelayOnX11</code> property which is wrapper arount the aforementioned methods.</p>
+nanosecond level. On Windows and macOS, <code>SetPostTextDelayLinux</code> does nothing, and <code>GetPostTextDelayLinux</code> always returns
+0. <code>IEventSimulator</code> contains the <code>TextSimulationDelayOnLinux</code> property which is wrapper arount the aforementioned
+0. methods.</p>
 <p>The methods described above are also defined in the <code>SharpHook.Providers.IEventSimulationProvider</code> interface.</p>
 <h2 id="macos-accessibility-api">macOS Accessibility API</h2>
 <p>macOS requires that the processes that use global hooks or event simulation have access to its Accessibility API. When

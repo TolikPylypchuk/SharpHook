@@ -4087,6 +4087,18 @@ references:
   commentId: Overload:SharpHook.Native.UioHook.CreateScreenInfo
   fullName: SharpHook.Native.UioHook.CreateScreenInfo
   nameWithType: UioHook.CreateScreenInfo
+- uid: SharpHook.Native.UioHook.DestroyVirtualDevices
+  name: DestroyVirtualDevices()
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_DestroyVirtualDevices
+  commentId: M:SharpHook.Native.UioHook.DestroyVirtualDevices
+  fullName: SharpHook.Native.UioHook.DestroyVirtualDevices()
+  nameWithType: UioHook.DestroyVirtualDevices()
+- uid: SharpHook.Native.UioHook.DestroyVirtualDevices*
+  name: DestroyVirtualDevices
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_DestroyVirtualDevices_
+  commentId: Overload:SharpHook.Native.UioHook.DestroyVirtualDevices
+  fullName: SharpHook.Native.UioHook.DestroyVirtualDevices
+  nameWithType: UioHook.DestroyVirtualDevices
 - uid: SharpHook.Native.UioHook.GetAutoRepeatDelay
   name: GetAutoRepeatDelay()
   href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetAutoRepeatDelay
@@ -4231,6 +4243,21 @@ references:
   commentId: Overload:SharpHook.Native.UioHook.GetPromptUserIfAxApiDisabled
   fullName: SharpHook.Native.UioHook.GetPromptUserIfAxApiDisabled
   nameWithType: UioHook.GetPromptUserIfAxApiDisabled
+- uid: SharpHook.Native.UioHook.InitializeVirtualDevices(System.String)
+  name: InitializeVirtualDevices(string)
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_InitializeVirtualDevices_System_String_
+  commentId: M:SharpHook.Native.UioHook.InitializeVirtualDevices(System.String)
+  name.vb: InitializeVirtualDevices(String)
+  fullName: SharpHook.Native.UioHook.InitializeVirtualDevices(string)
+  fullName.vb: SharpHook.Native.UioHook.InitializeVirtualDevices(String)
+  nameWithType: UioHook.InitializeVirtualDevices(string)
+  nameWithType.vb: UioHook.InitializeVirtualDevices(String)
+- uid: SharpHook.Native.UioHook.InitializeVirtualDevices*
+  name: InitializeVirtualDevices
+  href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_InitializeVirtualDevices_
+  commentId: Overload:SharpHook.Native.UioHook.InitializeVirtualDevices
+  fullName: SharpHook.Native.UioHook.InitializeVirtualDevices
+  nameWithType: UioHook.InitializeVirtualDevices
 - uid: SharpHook.Native.UioHook.IsAxApiEnabled(System.Boolean)
   name: IsAxApiEnabled(bool)
   href: api/SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_IsAxApiEnabled_System_Boolean_
@@ -4525,6 +4552,33 @@ references:
   commentId: T:SharpHook.Providers.IEventSimulationProvider
   fullName: SharpHook.Providers.IEventSimulationProvider
   nameWithType: IEventSimulationProvider
+- uid: SharpHook.Providers.IEventSimulationProvider.DestroyVirtualDevices
+  name: DestroyVirtualDevices()
+  href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_DestroyVirtualDevices
+  commentId: M:SharpHook.Providers.IEventSimulationProvider.DestroyVirtualDevices
+  fullName: SharpHook.Providers.IEventSimulationProvider.DestroyVirtualDevices()
+  nameWithType: IEventSimulationProvider.DestroyVirtualDevices()
+- uid: SharpHook.Providers.IEventSimulationProvider.DestroyVirtualDevices*
+  name: DestroyVirtualDevices
+  href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_DestroyVirtualDevices_
+  commentId: Overload:SharpHook.Providers.IEventSimulationProvider.DestroyVirtualDevices
+  fullName: SharpHook.Providers.IEventSimulationProvider.DestroyVirtualDevices
+  nameWithType: IEventSimulationProvider.DestroyVirtualDevices
+- uid: SharpHook.Providers.IEventSimulationProvider.InitializeVirtualDevices(System.String)
+  name: InitializeVirtualDevices(string)
+  href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_InitializeVirtualDevices_System_String_
+  commentId: M:SharpHook.Providers.IEventSimulationProvider.InitializeVirtualDevices(System.String)
+  name.vb: InitializeVirtualDevices(String)
+  fullName: SharpHook.Providers.IEventSimulationProvider.InitializeVirtualDevices(string)
+  fullName.vb: SharpHook.Providers.IEventSimulationProvider.InitializeVirtualDevices(String)
+  nameWithType: IEventSimulationProvider.InitializeVirtualDevices(string)
+  nameWithType.vb: IEventSimulationProvider.InitializeVirtualDevices(String)
+- uid: SharpHook.Providers.IEventSimulationProvider.InitializeVirtualDevices*
+  name: InitializeVirtualDevices
+  href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_InitializeVirtualDevices_
+  commentId: Overload:SharpHook.Providers.IEventSimulationProvider.InitializeVirtualDevices
+  fullName: SharpHook.Providers.IEventSimulationProvider.InitializeVirtualDevices
+  nameWithType: IEventSimulationProvider.InitializeVirtualDevices
 - uid: SharpHook.Providers.IEventSimulationProvider.PostEvent(SharpHook.Data.UioHookEvent@)
   name: PostEvent(ref UioHookEvent)
   href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_PostEvent_SharpHook_Data_UioHookEvent__
@@ -4570,18 +4624,18 @@ references:
   commentId: Overload:SharpHook.Providers.IEventSimulationProvider.PostText
   fullName: SharpHook.Providers.IEventSimulationProvider.PostText
   nameWithType: IEventSimulationProvider.PostText
-- uid: SharpHook.Providers.IEventSimulationProvider.PostTextDelayX11
-  name: PostTextDelayX11
-  href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_PostTextDelayX11
-  commentId: P:SharpHook.Providers.IEventSimulationProvider.PostTextDelayX11
-  fullName: SharpHook.Providers.IEventSimulationProvider.PostTextDelayX11
-  nameWithType: IEventSimulationProvider.PostTextDelayX11
-- uid: SharpHook.Providers.IEventSimulationProvider.PostTextDelayX11*
-  name: PostTextDelayX11
-  href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_PostTextDelayX11_
-  commentId: Overload:SharpHook.Providers.IEventSimulationProvider.PostTextDelayX11
-  fullName: SharpHook.Providers.IEventSimulationProvider.PostTextDelayX11
-  nameWithType: IEventSimulationProvider.PostTextDelayX11
+- uid: SharpHook.Providers.IEventSimulationProvider.PostTextDelayLinux
+  name: PostTextDelayLinux
+  href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_PostTextDelayLinux
+  commentId: P:SharpHook.Providers.IEventSimulationProvider.PostTextDelayLinux
+  fullName: SharpHook.Providers.IEventSimulationProvider.PostTextDelayLinux
+  nameWithType: IEventSimulationProvider.PostTextDelayLinux
+- uid: SharpHook.Providers.IEventSimulationProvider.PostTextDelayLinux*
+  name: PostTextDelayLinux
+  href: api/SharpHook.Providers.IEventSimulationProvider.html#SharpHook_Providers_IEventSimulationProvider_PostTextDelayLinux_
+  commentId: Overload:SharpHook.Providers.IEventSimulationProvider.PostTextDelayLinux
+  fullName: SharpHook.Providers.IEventSimulationProvider.PostTextDelayLinux
+  nameWithType: IEventSimulationProvider.PostTextDelayLinux
 - uid: SharpHook.Providers.IGlobalHookProvider
   name: IGlobalHookProvider
   href: api/SharpHook.Providers.IGlobalHookProvider.html
@@ -4663,6 +4717,36 @@ references:
   commentId: Overload:SharpHook.Providers.IGlobalHookProvider.Stop
   fullName: SharpHook.Providers.IGlobalHookProvider.Stop
   nameWithType: IGlobalHookProvider.Stop
+- uid: SharpHook.Providers.IKeyboardInfoProvider
+  name: IKeyboardInfoProvider
+  href: api/SharpHook.Providers.IKeyboardInfoProvider.html
+  commentId: T:SharpHook.Providers.IKeyboardInfoProvider
+  fullName: SharpHook.Providers.IKeyboardInfoProvider
+  nameWithType: IKeyboardInfoProvider
+- uid: SharpHook.Providers.IKeyboardInfoProvider.GetAutoRepeatDelay
+  name: GetAutoRepeatDelay()
+  href: api/SharpHook.Providers.IKeyboardInfoProvider.html#SharpHook_Providers_IKeyboardInfoProvider_GetAutoRepeatDelay
+  commentId: M:SharpHook.Providers.IKeyboardInfoProvider.GetAutoRepeatDelay
+  fullName: SharpHook.Providers.IKeyboardInfoProvider.GetAutoRepeatDelay()
+  nameWithType: IKeyboardInfoProvider.GetAutoRepeatDelay()
+- uid: SharpHook.Providers.IKeyboardInfoProvider.GetAutoRepeatDelay*
+  name: GetAutoRepeatDelay
+  href: api/SharpHook.Providers.IKeyboardInfoProvider.html#SharpHook_Providers_IKeyboardInfoProvider_GetAutoRepeatDelay_
+  commentId: Overload:SharpHook.Providers.IKeyboardInfoProvider.GetAutoRepeatDelay
+  fullName: SharpHook.Providers.IKeyboardInfoProvider.GetAutoRepeatDelay
+  nameWithType: IKeyboardInfoProvider.GetAutoRepeatDelay
+- uid: SharpHook.Providers.IKeyboardInfoProvider.GetAutoRepeatRate
+  name: GetAutoRepeatRate()
+  href: api/SharpHook.Providers.IKeyboardInfoProvider.html#SharpHook_Providers_IKeyboardInfoProvider_GetAutoRepeatRate
+  commentId: M:SharpHook.Providers.IKeyboardInfoProvider.GetAutoRepeatRate
+  fullName: SharpHook.Providers.IKeyboardInfoProvider.GetAutoRepeatRate()
+  nameWithType: IKeyboardInfoProvider.GetAutoRepeatRate()
+- uid: SharpHook.Providers.IKeyboardInfoProvider.GetAutoRepeatRate*
+  name: GetAutoRepeatRate
+  href: api/SharpHook.Providers.IKeyboardInfoProvider.html#SharpHook_Providers_IKeyboardInfoProvider_GetAutoRepeatRate_
+  commentId: Overload:SharpHook.Providers.IKeyboardInfoProvider.GetAutoRepeatRate
+  fullName: SharpHook.Providers.IKeyboardInfoProvider.GetAutoRepeatRate
+  nameWithType: IKeyboardInfoProvider.GetAutoRepeatRate
 - uid: SharpHook.Providers.ILoggingProvider
   name: ILoggingProvider
   href: api/SharpHook.Providers.ILoggingProvider.html
@@ -4690,30 +4774,6 @@ references:
   commentId: T:SharpHook.Providers.IMouseInfoProvider
   fullName: SharpHook.Providers.IMouseInfoProvider
   nameWithType: IMouseInfoProvider
-- uid: SharpHook.Providers.IMouseInfoProvider.GetAutoRepeatDelay
-  name: GetAutoRepeatDelay()
-  href: api/SharpHook.Providers.IMouseInfoProvider.html#SharpHook_Providers_IMouseInfoProvider_GetAutoRepeatDelay
-  commentId: M:SharpHook.Providers.IMouseInfoProvider.GetAutoRepeatDelay
-  fullName: SharpHook.Providers.IMouseInfoProvider.GetAutoRepeatDelay()
-  nameWithType: IMouseInfoProvider.GetAutoRepeatDelay()
-- uid: SharpHook.Providers.IMouseInfoProvider.GetAutoRepeatDelay*
-  name: GetAutoRepeatDelay
-  href: api/SharpHook.Providers.IMouseInfoProvider.html#SharpHook_Providers_IMouseInfoProvider_GetAutoRepeatDelay_
-  commentId: Overload:SharpHook.Providers.IMouseInfoProvider.GetAutoRepeatDelay
-  fullName: SharpHook.Providers.IMouseInfoProvider.GetAutoRepeatDelay
-  nameWithType: IMouseInfoProvider.GetAutoRepeatDelay
-- uid: SharpHook.Providers.IMouseInfoProvider.GetAutoRepeatRate
-  name: GetAutoRepeatRate()
-  href: api/SharpHook.Providers.IMouseInfoProvider.html#SharpHook_Providers_IMouseInfoProvider_GetAutoRepeatRate
-  commentId: M:SharpHook.Providers.IMouseInfoProvider.GetAutoRepeatRate
-  fullName: SharpHook.Providers.IMouseInfoProvider.GetAutoRepeatRate()
-  nameWithType: IMouseInfoProvider.GetAutoRepeatRate()
-- uid: SharpHook.Providers.IMouseInfoProvider.GetAutoRepeatRate*
-  name: GetAutoRepeatRate
-  href: api/SharpHook.Providers.IMouseInfoProvider.html#SharpHook_Providers_IMouseInfoProvider_GetAutoRepeatRate_
-  commentId: Overload:SharpHook.Providers.IMouseInfoProvider.GetAutoRepeatRate
-  fullName: SharpHook.Providers.IMouseInfoProvider.GetAutoRepeatRate
-  nameWithType: IMouseInfoProvider.GetAutoRepeatRate
 - uid: SharpHook.Providers.IMouseInfoProvider.GetMultiClickTime
   name: GetMultiClickTime()
   href: api/SharpHook.Providers.IMouseInfoProvider.html#SharpHook_Providers_IMouseInfoProvider_GetMultiClickTime
@@ -4810,6 +4870,18 @@ references:
   commentId: Overload:SharpHook.Providers.UioHookProvider.CreateScreenInfo
   fullName: SharpHook.Providers.UioHookProvider.CreateScreenInfo
   nameWithType: UioHookProvider.CreateScreenInfo
+- uid: SharpHook.Providers.UioHookProvider.DestroyVirtualDevices
+  name: DestroyVirtualDevices()
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_DestroyVirtualDevices
+  commentId: M:SharpHook.Providers.UioHookProvider.DestroyVirtualDevices
+  fullName: SharpHook.Providers.UioHookProvider.DestroyVirtualDevices()
+  nameWithType: UioHookProvider.DestroyVirtualDevices()
+- uid: SharpHook.Providers.UioHookProvider.DestroyVirtualDevices*
+  name: DestroyVirtualDevices
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_DestroyVirtualDevices_
+  commentId: Overload:SharpHook.Providers.UioHookProvider.DestroyVirtualDevices
+  fullName: SharpHook.Providers.UioHookProvider.DestroyVirtualDevices
+  nameWithType: UioHookProvider.DestroyVirtualDevices
 - uid: SharpHook.Providers.UioHookProvider.GetAutoRepeatDelay
   name: GetAutoRepeatDelay()
   href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_GetAutoRepeatDelay
@@ -4882,6 +4954,21 @@ references:
   commentId: Overload:SharpHook.Providers.UioHookProvider.GetPointerSensitivity
   fullName: SharpHook.Providers.UioHookProvider.GetPointerSensitivity
   nameWithType: UioHookProvider.GetPointerSensitivity
+- uid: SharpHook.Providers.UioHookProvider.InitializeVirtualDevices(System.String)
+  name: InitializeVirtualDevices(string)
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_InitializeVirtualDevices_System_String_
+  commentId: M:SharpHook.Providers.UioHookProvider.InitializeVirtualDevices(System.String)
+  name.vb: InitializeVirtualDevices(String)
+  fullName: SharpHook.Providers.UioHookProvider.InitializeVirtualDevices(string)
+  fullName.vb: SharpHook.Providers.UioHookProvider.InitializeVirtualDevices(String)
+  nameWithType: UioHookProvider.InitializeVirtualDevices(string)
+  nameWithType.vb: UioHookProvider.InitializeVirtualDevices(String)
+- uid: SharpHook.Providers.UioHookProvider.InitializeVirtualDevices*
+  name: InitializeVirtualDevices
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_InitializeVirtualDevices_
+  commentId: Overload:SharpHook.Providers.UioHookProvider.InitializeVirtualDevices
+  fullName: SharpHook.Providers.UioHookProvider.InitializeVirtualDevices
+  nameWithType: UioHookProvider.InitializeVirtualDevices
 - uid: SharpHook.Providers.UioHookProvider.Instance
   name: Instance
   href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_Instance
@@ -4966,18 +5053,18 @@ references:
   commentId: Overload:SharpHook.Providers.UioHookProvider.PostText
   fullName: SharpHook.Providers.UioHookProvider.PostText
   nameWithType: UioHookProvider.PostText
-- uid: SharpHook.Providers.UioHookProvider.PostTextDelayX11
-  name: PostTextDelayX11
-  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_PostTextDelayX11
-  commentId: P:SharpHook.Providers.UioHookProvider.PostTextDelayX11
-  fullName: SharpHook.Providers.UioHookProvider.PostTextDelayX11
-  nameWithType: UioHookProvider.PostTextDelayX11
-- uid: SharpHook.Providers.UioHookProvider.PostTextDelayX11*
-  name: PostTextDelayX11
-  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_PostTextDelayX11_
-  commentId: Overload:SharpHook.Providers.UioHookProvider.PostTextDelayX11
-  fullName: SharpHook.Providers.UioHookProvider.PostTextDelayX11
-  nameWithType: UioHookProvider.PostTextDelayX11
+- uid: SharpHook.Providers.UioHookProvider.PostTextDelayLinux
+  name: PostTextDelayLinux
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_PostTextDelayLinux
+  commentId: P:SharpHook.Providers.UioHookProvider.PostTextDelayLinux
+  fullName: SharpHook.Providers.UioHookProvider.PostTextDelayLinux
+  nameWithType: UioHookProvider.PostTextDelayLinux
+- uid: SharpHook.Providers.UioHookProvider.PostTextDelayLinux*
+  name: PostTextDelayLinux
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_PostTextDelayLinux_
+  commentId: Overload:SharpHook.Providers.UioHookProvider.PostTextDelayLinux
+  fullName: SharpHook.Providers.UioHookProvider.PostTextDelayLinux
+  nameWithType: UioHookProvider.PostTextDelayLinux
 - uid: SharpHook.Providers.UioHookProvider.PromptUserIfAxApiDisabled
   name: PromptUserIfAxApiDisabled
   href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_PromptUserIfAxApiDisabled
@@ -6997,18 +7084,18 @@ references:
   commentId: Overload:SharpHook.Simulation.EventSimulator.SimulateTextEntry
   fullName: SharpHook.Simulation.EventSimulator.SimulateTextEntry
   nameWithType: EventSimulator.SimulateTextEntry
-- uid: SharpHook.Simulation.EventSimulator.TextSimulationDelayOnX11
-  name: TextSimulationDelayOnX11
-  href: api/SharpHook.Simulation.EventSimulator.html#SharpHook_Simulation_EventSimulator_TextSimulationDelayOnX11
-  commentId: P:SharpHook.Simulation.EventSimulator.TextSimulationDelayOnX11
-  fullName: SharpHook.Simulation.EventSimulator.TextSimulationDelayOnX11
-  nameWithType: EventSimulator.TextSimulationDelayOnX11
-- uid: SharpHook.Simulation.EventSimulator.TextSimulationDelayOnX11*
-  name: TextSimulationDelayOnX11
-  href: api/SharpHook.Simulation.EventSimulator.html#SharpHook_Simulation_EventSimulator_TextSimulationDelayOnX11_
-  commentId: Overload:SharpHook.Simulation.EventSimulator.TextSimulationDelayOnX11
-  fullName: SharpHook.Simulation.EventSimulator.TextSimulationDelayOnX11
-  nameWithType: EventSimulator.TextSimulationDelayOnX11
+- uid: SharpHook.Simulation.EventSimulator.TextSimulationDelayOnLinux
+  name: TextSimulationDelayOnLinux
+  href: api/SharpHook.Simulation.EventSimulator.html#SharpHook_Simulation_EventSimulator_TextSimulationDelayOnLinux
+  commentId: P:SharpHook.Simulation.EventSimulator.TextSimulationDelayOnLinux
+  fullName: SharpHook.Simulation.EventSimulator.TextSimulationDelayOnLinux
+  nameWithType: EventSimulator.TextSimulationDelayOnLinux
+- uid: SharpHook.Simulation.EventSimulator.TextSimulationDelayOnLinux*
+  name: TextSimulationDelayOnLinux
+  href: api/SharpHook.Simulation.EventSimulator.html#SharpHook_Simulation_EventSimulator_TextSimulationDelayOnLinux_
+  commentId: Overload:SharpHook.Simulation.EventSimulator.TextSimulationDelayOnLinux
+  fullName: SharpHook.Simulation.EventSimulator.TextSimulationDelayOnLinux
+  nameWithType: EventSimulator.TextSimulationDelayOnLinux
 - uid: SharpHook.Simulation.IEventSimulationSequenceBuilder
   name: IEventSimulationSequenceBuilder
   href: api/SharpHook.Simulation.IEventSimulationSequenceBuilder.html
@@ -7447,18 +7534,18 @@ references:
   commentId: Overload:SharpHook.Simulation.IEventSimulator.SimulateTextEntry
   fullName: SharpHook.Simulation.IEventSimulator.SimulateTextEntry
   nameWithType: IEventSimulator.SimulateTextEntry
-- uid: SharpHook.Simulation.IEventSimulator.TextSimulationDelayOnX11
-  name: TextSimulationDelayOnX11
-  href: api/SharpHook.Simulation.IEventSimulator.html#SharpHook_Simulation_IEventSimulator_TextSimulationDelayOnX11
-  commentId: P:SharpHook.Simulation.IEventSimulator.TextSimulationDelayOnX11
-  fullName: SharpHook.Simulation.IEventSimulator.TextSimulationDelayOnX11
-  nameWithType: IEventSimulator.TextSimulationDelayOnX11
-- uid: SharpHook.Simulation.IEventSimulator.TextSimulationDelayOnX11*
-  name: TextSimulationDelayOnX11
-  href: api/SharpHook.Simulation.IEventSimulator.html#SharpHook_Simulation_IEventSimulator_TextSimulationDelayOnX11_
-  commentId: Overload:SharpHook.Simulation.IEventSimulator.TextSimulationDelayOnX11
-  fullName: SharpHook.Simulation.IEventSimulator.TextSimulationDelayOnX11
-  nameWithType: IEventSimulator.TextSimulationDelayOnX11
+- uid: SharpHook.Simulation.IEventSimulator.TextSimulationDelayOnLinux
+  name: TextSimulationDelayOnLinux
+  href: api/SharpHook.Simulation.IEventSimulator.html#SharpHook_Simulation_IEventSimulator_TextSimulationDelayOnLinux
+  commentId: P:SharpHook.Simulation.IEventSimulator.TextSimulationDelayOnLinux
+  fullName: SharpHook.Simulation.IEventSimulator.TextSimulationDelayOnLinux
+  nameWithType: IEventSimulator.TextSimulationDelayOnLinux
+- uid: SharpHook.Simulation.IEventSimulator.TextSimulationDelayOnLinux*
+  name: TextSimulationDelayOnLinux
+  href: api/SharpHook.Simulation.IEventSimulator.html#SharpHook_Simulation_IEventSimulator_TextSimulationDelayOnLinux_
+  commentId: Overload:SharpHook.Simulation.IEventSimulator.TextSimulationDelayOnLinux
+  fullName: SharpHook.Simulation.IEventSimulator.TextSimulationDelayOnLinux
+  nameWithType: IEventSimulator.TextSimulationDelayOnLinux
 - uid: SharpHook.TaskPoolGlobalHook
   name: TaskPoolGlobalHook
   href: api/SharpHook.TaskPoolGlobalHook.html
