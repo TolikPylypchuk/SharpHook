@@ -1018,12 +1018,6 @@ references:
   commentId: F:SharpHook.Data.KeyCode.VcH
   fullName: SharpHook.Data.KeyCode.VcH
   nameWithType: KeyCode.VcH
-- uid: SharpHook.Data.KeyCode.VcHangul
-  name: VcHangul
-  href: api/SharpHook.Data.KeyCode.html#SharpHook_Data_KeyCode_VcHangul
-  commentId: F:SharpHook.Data.KeyCode.VcHangul
-  fullName: SharpHook.Data.KeyCode.VcHangul
-  nameWithType: KeyCode.VcHangul
 - uid: SharpHook.Data.KeyCode.VcHanja
   name: VcHanja
   href: api/SharpHook.Data.KeyCode.html#SharpHook_Data_KeyCode_VcHanja
@@ -1102,12 +1096,6 @@ references:
   commentId: F:SharpHook.Data.KeyCode.VcKana
   fullName: SharpHook.Data.KeyCode.VcKana
   nameWithType: KeyCode.VcKana
-- uid: SharpHook.Data.KeyCode.VcKanji
-  name: VcKanji
-  href: api/SharpHook.Data.KeyCode.html#SharpHook_Data_KeyCode_VcKanji
-  commentId: F:SharpHook.Data.KeyCode.VcKanji
-  fullName: SharpHook.Data.KeyCode.VcKanji
-  nameWithType: KeyCode.VcKanji
 - uid: SharpHook.Data.KeyCode.VcKatakana
   name: VcKatakana
   href: api/SharpHook.Data.KeyCode.html#SharpHook_Data_KeyCode_VcKatakana
