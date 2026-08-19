@@ -122,7 +122,7 @@ Class TestGlobalHook  <a class="header-action link-secondary" title="View source
       <div><a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a></div>
       <div><a class="xref" href="SharpHook.IBasicGlobalHook.html">IBasicGlobalHook</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
-      <div><a class="xref" href="SharpHook.IEventSimulator.html">IEventSimulator</a></div>
+      <div><a class="xref" href="SharpHook.Simulation.IEventSimulator.html">IEventSimulator</a></div>
     </dd>
   </dl>
 
@@ -154,10 +154,10 @@ Class TestGlobalHook  <a class="header-action link-secondary" title="View source
     <dt>Extension Methods</dt>
     <dd>
   <div>
-      <a class="xref" href="SharpHook.EventSimulationExtensions.html#SharpHook_EventSimulationExtensions_SimulateKeyStroke_SharpHook_IEventSimulator_SharpHook_Data_KeyCode___">EventSimulationExtensions.SimulateKeyStroke(IEventSimulator, params KeyCode[])</a>
+      <a class="xref" href="SharpHook.Simulation.EventSimulationExtensions.html#SharpHook_Simulation_EventSimulationExtensions_SimulateKeyStroke_SharpHook_Simulation_IEventSimulator_SharpHook_Data_KeyCode___">EventSimulationExtensions.SimulateKeyStroke(IEventSimulator, params KeyCode[])</a>
   </div>
   <div>
-      <a class="xref" href="SharpHook.EventSimulationExtensions.html#SharpHook_EventSimulationExtensions_SimulateKeyStroke_SharpHook_IEventSimulator_System_Collections_Generic_IEnumerable_SharpHook_Data_KeyCode__">EventSimulationExtensions.SimulateKeyStroke(IEventSimulator, IEnumerable&lt;KeyCode&gt;)</a>
+      <a class="xref" href="SharpHook.Simulation.EventSimulationExtensions.html#SharpHook_Simulation_EventSimulationExtensions_SimulateKeyStroke_SharpHook_Simulation_IEventSimulator_System_Collections_Generic_IEnumerable_SharpHook_Data_KeyCode__">EventSimulationExtensions.SimulateKeyStroke(IEventSimulator, IEnumerable&lt;KeyCode&gt;)</a>
   </div>
   </dd></dl>
 
@@ -167,33 +167,6 @@ Class TestGlobalHook  <a class="header-action link-secondary" title="View source
 
   <h2 class="section" id="constructors">Constructors
 </h2>
-
-
-  <a id="SharpHook_Testing_TestGlobalHook__ctor_" data-uid="SharpHook.Testing.TestGlobalHook.#ctor*"></a>
-
-  <h3 id="SharpHook_Testing_TestGlobalHook__ctor" data-uid="SharpHook.Testing.TestGlobalHook.#ctor">
-  TestGlobalHook()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Testing/TestGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.Testing.TestGlobalHook.html">TestGlobalHook</a>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TestGlobalHook()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
   <a id="SharpHook_Testing_TestGlobalHook__ctor_" data-uid="SharpHook.Testing.TestGlobalHook.#ctor*"></a>
@@ -208,7 +181,7 @@ Class TestGlobalHook  <a class="header-action link-secondary" title="View source
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TestGlobalHook(TestThreadingMode threadingMode)</code></pre>
+    <pre><code class="lang-csharp hljs">public TestGlobalHook(TestThreadingMode threadingMode = TestThreadingMode.Simple)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -1260,7 +1233,7 @@ to be stopped.</p>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="SharpHook.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
+    <dt><a class="xref" href="SharpHook.Simulation.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
     <dd><p>A builder for a sequence of events that can be simulated together.</p>
 </dd>
   </dl>
