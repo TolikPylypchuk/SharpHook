@@ -138,61 +138,61 @@ public sealed class R3GlobalHook : BasicGlobalHookBase, IR3GlobalHook
     /// <summary>
     /// Handles the hook event.
     /// </summary>
-    /// <param name="e">The event to handle.</param>
-    protected override void HandleHookEvent(ref UioHookEvent e)
+    /// <param name="event">The event to handle.</param>
+    protected override void HandleHookEvent(ref UioHookEvent @event)
     {
         HookEventArgs? args = null;
 
-        switch (e.Type)
+        switch (@event.Type)
         {
             case EventType.HookEnabled:
-                this.hookEnabledSubject.OnNext(args = new(e));
+                this.hookEnabledSubject.OnNext(args = new(@event));
                 break;
             case EventType.HookDisabled:
-                this.hookDisabledSubject.OnNext(args = new(e));
+                this.hookDisabledSubject.OnNext(args = new(@event));
                 break;
             case EventType.KeyTyped:
-                var keyTypedArgs = new KeyboardHookEventArgs(e);
+                var keyTypedArgs = new KeyboardHookEventArgs(@event);
                 args = keyTypedArgs;
                 this.keyTypedSubject.OnNext(keyTypedArgs);
                 break;
             case EventType.KeyPressed:
-                var keyPressedArgs = new KeyboardHookEventArgs(e);
+                var keyPressedArgs = new KeyboardHookEventArgs(@event);
                 args = keyPressedArgs;
                 this.keyPressedSubject.OnNext(keyPressedArgs);
                 break;
             case EventType.KeyReleased:
-                var keyReleasedArgs = new KeyboardHookEventArgs(e);
+                var keyReleasedArgs = new KeyboardHookEventArgs(@event);
                 args = keyReleasedArgs;
                 this.keyReleasedSubject.OnNext(keyReleasedArgs);
                 break;
             case EventType.MouseClicked:
-                var mouseClickedArgs = new MouseHookEventArgs(e);
+                var mouseClickedArgs = new MouseHookEventArgs(@event);
                 args = mouseClickedArgs;
                 this.mouseClickedSubject.OnNext(mouseClickedArgs);
                 break;
             case EventType.MousePressed:
-                var mousePressedArgs = new MouseHookEventArgs(e);
+                var mousePressedArgs = new MouseHookEventArgs(@event);
                 args = mousePressedArgs;
                 this.mousePressedSubject.OnNext(mousePressedArgs);
                 break;
             case EventType.MouseReleased:
-                var mouseReleasedArgs = new MouseHookEventArgs(e);
+                var mouseReleasedArgs = new MouseHookEventArgs(@event);
                 args = mouseReleasedArgs;
                 this.mouseReleasedSubject.OnNext(mouseReleasedArgs);
                 break;
             case EventType.MouseMoved:
-                var mouseMovedArgs = new MouseHookEventArgs(e);
+                var mouseMovedArgs = new MouseHookEventArgs(@event);
                 args = mouseMovedArgs;
                 this.mouseMovedSubject.OnNext(mouseMovedArgs);
                 break;
             case EventType.MouseDragged:
-                var mouseDraggedArgs = new MouseHookEventArgs(e);
+                var mouseDraggedArgs = new MouseHookEventArgs(@event);
                 args = mouseDraggedArgs;
                 this.mouseDraggedSubject.OnNext(mouseDraggedArgs);
                 break;
             case EventType.MouseWheel:
-                var mouseWheelArgs = new MouseWheelHookEventArgs(e);
+                var mouseWheelArgs = new MouseWheelHookEventArgs(@event);
                 args = mouseWheelArgs;
                 this.mouseWheelSubject.OnNext(mouseWheelArgs);
                 break;
@@ -200,7 +200,7 @@ public sealed class R3GlobalHook : BasicGlobalHookBase, IR3GlobalHook
 
         if (args is not null && args.SuppressEvent)
         {
-            e.Mask |= EventMask.SuppressEvent;
+            @event.Mask |= EventMask.SuppressEvent;
         }
     }
 

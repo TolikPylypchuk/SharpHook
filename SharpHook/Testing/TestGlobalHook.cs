@@ -905,7 +905,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
         }
     }
 
-    private UioHookResult SimulateEvent(UioHookResult result, ref UioHookEvent e)
+    private UioHookResult SimulateEvent(UioHookResult result, ref UioHookEvent @event)
     {
         if (result != UioHookResult.Success)
         {
@@ -915,19 +915,19 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
         switch (this.ThreadingMode)
         {
             case TestThreadingMode.Simple:
-                this.DispatchEvent(ref e);
+                this.DispatchEvent(ref @event);
 
-                if (e.Mask.HasFlag(Data.EventMask.SuppressEvent))
+                if (@event.Mask.HasFlag(Data.EventMask.SuppressEvent))
                 {
-                    this.suppressedEvents.Add(e);
+                    this.suppressedEvents.Add(@event);
                 }
                 break;
             case TestThreadingMode.EventLoop:
-                this.eventLoop?.Add(e);
+                this.eventLoop?.Add(@event);
                 break;
         }
 
-        this.simulatedEvents.Add(e);
+        this.simulatedEvents.Add(@event);
 
         return result;
     }
@@ -944,60 +944,60 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
         this.DispatchEvent(ref hookEvent);
     }
 
-    private void DispatchEvent(ref UioHookEvent e)
+    private void DispatchEvent(ref UioHookEvent @event)
     {
         HookEventArgs? args = null;
 
-        switch (e.Type)
+        switch (@event.Type)
         {
             case EventType.HookEnabled:
-                this.HookEnabled?.Invoke(this, args = new HookEventArgs(e));
+                this.HookEnabled?.Invoke(this, args = new HookEventArgs(@event));
                 break;
             case EventType.HookDisabled:
-                this.HookDisabled?.Invoke(this, args = new HookEventArgs(e));
+                this.HookDisabled?.Invoke(this, args = new HookEventArgs(@event));
                 break;
             case EventType.KeyTyped:
-                var keyTypedArgs = new KeyboardHookEventArgs(e);
+                var keyTypedArgs = new KeyboardHookEventArgs(@event);
                 args = keyTypedArgs;
                 this.KeyTyped?.Invoke(this, keyTypedArgs);
                 break;
             case EventType.KeyPressed:
-                var keyPressedArgs = new KeyboardHookEventArgs(e);
+                var keyPressedArgs = new KeyboardHookEventArgs(@event);
                 args = keyPressedArgs;
                 this.KeyPressed?.Invoke(this, keyPressedArgs);
                 break;
             case EventType.KeyReleased:
-                var keyReleasedArgs = new KeyboardHookEventArgs(e);
+                var keyReleasedArgs = new KeyboardHookEventArgs(@event);
                 args = keyReleasedArgs;
                 this.KeyReleased?.Invoke(this, keyReleasedArgs);
                 break;
             case EventType.MouseClicked:
-                var mouseClickedArgs = new MouseHookEventArgs(e);
+                var mouseClickedArgs = new MouseHookEventArgs(@event);
                 args = mouseClickedArgs;
                 this.MouseClicked?.Invoke(this, mouseClickedArgs);
                 break;
             case EventType.MousePressed:
-                var mousePressedArgs = new MouseHookEventArgs(e);
+                var mousePressedArgs = new MouseHookEventArgs(@event);
                 args = mousePressedArgs;
                 this.MousePressed?.Invoke(this, mousePressedArgs);
                 break;
             case EventType.MouseReleased:
-                var mouseReleasedArgs = new MouseHookEventArgs(e);
+                var mouseReleasedArgs = new MouseHookEventArgs(@event);
                 args = mouseReleasedArgs;
                 this.MouseReleased?.Invoke(this, mouseReleasedArgs);
                 break;
             case EventType.MouseMoved:
-                var mouseMovedArgs = new MouseHookEventArgs(e);
+                var mouseMovedArgs = new MouseHookEventArgs(@event);
                 args = mouseMovedArgs;
                 this.MouseMoved?.Invoke(this, mouseMovedArgs);
                 break;
             case EventType.MouseDragged:
-                var mouseDraggedArgs = new MouseHookEventArgs(e);
+                var mouseDraggedArgs = new MouseHookEventArgs(@event);
                 args = mouseDraggedArgs;
                 this.MouseDragged?.Invoke(this, mouseDraggedArgs);
                 break;
             case EventType.MouseWheel:
-                var mouseWheelArgs = new MouseWheelHookEventArgs(e);
+                var mouseWheelArgs = new MouseWheelHookEventArgs(@event);
                 args = mouseWheelArgs;
                 this.MouseWheel?.Invoke(this, mouseWheelArgs);
                 break;
@@ -1007,7 +1007,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
         {
             if (args.SuppressEvent)
             {
-                e.Mask |= Data.EventMask.SuppressEvent;
+                @event.Mask |= Data.EventMask.SuppressEvent;
             }
         }
     }
@@ -1108,9 +1108,9 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     {
         private readonly TestGlobalHook globalHook = globalHook;
 
-        public UioHookResult PostEvent(ref UioHookEvent e) =>
-            this.GetResult(ref e) is UioHookResult expectedResult
-                ? this.globalHook.SimulateEvent(expectedResult, ref e)
+        public UioHookResult PostEvent(ref UioHookEvent @event) =>
+            this.GetResult(ref @event) is UioHookResult expectedResult
+                ? this.globalHook.SimulateEvent(expectedResult, ref @event)
                 : UioHookResult.Success;
 
         public UioHookResult PostEvents(UioHookEvent[] events, uint size)
@@ -1141,8 +1141,8 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
         public UioHookResult PostText(string text) =>
             this.globalHook.SimulateTextEntry(text);
 
-        private UioHookResult? GetResult(ref UioHookEvent e) =>
-            e.Type switch
+        private UioHookResult? GetResult(ref UioHookEvent @event) =>
+            @event.Type switch
             {
                 EventType.KeyPressed =>
                     this.globalHook.SimulateKeyPressResult,

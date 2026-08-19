@@ -8,9 +8,9 @@ public interface IEventSimulationSequenceBuilder
     /// <summary>
     /// Adds the specified event to the sequence of events to simulate.
     /// </summary>
-    /// <param name="e">The event to add to the sequence.</param>
+    /// <param name="event">The event to add to the sequence.</param>
     /// <returns>The current builder.</returns>
-    IEventSimulationSequenceBuilder AddEvent(UioHookEvent e);
+    IEventSimulationSequenceBuilder AddEvent(UioHookEvent @event);
 
     /// <summary>
     /// Adds the specified events to the sequence of events to simulate.
@@ -159,9 +159,9 @@ public interface IEventSimulationSequenceBuilder
     /// <summary>
     /// Removes the specified event from the sequence of events to simulate.
     /// </summary>
-    /// <param name="e">The event to remove from the sequence.</param>
+    /// <param name="event">The event to remove from the sequence.</param>
     /// <returns>The current builder.</returns>
-    IEventSimulationSequenceBuilder RemoveEvent(UioHookEvent e);
+    IEventSimulationSequenceBuilder RemoveEvent(UioHookEvent @event);
 
     /// <summary>
     /// Removes the specified events from the sequence of events to simulate.

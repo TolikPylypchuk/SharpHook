@@ -261,7 +261,7 @@
             <summary>
             Handles the hook event.
             </summary>
-            <param name="e">The event to handle.</param>
+            <param name="event">The event to handle.</param>
         </member>
         <member name="M:SharpHook.Reactive.ReactiveGlobalHook.Dispose(System.Boolean)">
             <summary>

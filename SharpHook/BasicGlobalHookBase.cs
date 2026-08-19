@@ -210,8 +210,8 @@ public abstract class BasicGlobalHookBase : IBasicGlobalHook
     /// <summary>
     /// When implemented in a derived class, represents a strategy for handling a hook event.
     /// </summary>
-    /// <param name="e">The event to handle.</param>
-    protected abstract void HandleHookEvent(ref UioHookEvent e);
+    /// <param name="event">The event to handle.</param>
+    protected abstract void HandleHookEvent(ref UioHookEvent @event);
 
     /// <summary>
     /// Defines actions to be done before the global hook is started. The default implementation does nothing, but
@@ -269,11 +269,11 @@ public abstract class BasicGlobalHookBase : IBasicGlobalHook
 #if MACCATALYST
     [MonoPInvokeCallback(typeof(DispatchProc))]
 #endif
-    private static void HandleHookEvent(ref UioHookEvent e, nint hookIndex)
+    private static void HandleHookEvent(ref UioHookEvent @event, nint hookIndex)
     {
         if (runningGlobalHooks.TryGetValue(hookIndex, out var hook))
         {
-            hook.HandleHookEvent(ref e);
+            hook.HandleHookEvent(ref @event);
         }
     }
 

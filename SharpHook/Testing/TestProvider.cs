@@ -302,7 +302,7 @@ public sealed class TestProvider :
     /// Posts an input event if <see cref="PostEventResult" /> is set to <see cref="UioHookResult.Success" /> -
     /// this event will be dispatched if the provider is running. Otherwise, does nothing.
     /// </summary>
-    /// <param name="e">The event to post.</param>
+    /// <param name="event">The event to post.</param>
     /// <returns>The value of <see cref="PostEventResult" />.</returns>
     /// <remarks>
     /// If the provider's threading mode is <see cref="TestThreadingMode.Simple" /> then this method will immediately
@@ -310,7 +310,7 @@ public sealed class TestProvider :
     /// posted to an event loop which runs on the same thread on which the testing hook itself runs, and then dispatched
     /// there.
     /// </remarks>
-    public UioHookResult PostEvent(ref UioHookEvent e)
+    public UioHookResult PostEvent(ref UioHookEvent @event)
     {
         var result = this.PostEventResult;
 
@@ -319,25 +319,25 @@ public sealed class TestProvider :
             return result;
         }
 
-        if (this.IsRunning && this.ShouldDispatchEvent(e.Type))
+        if (this.IsRunning && this.ShouldDispatchEvent(@event.Type))
         {
             switch (this.ThreadingMode)
             {
                 case TestThreadingMode.Simple:
-                    this.dispatchProc?.Invoke(ref e, this.userData);
+                    this.dispatchProc?.Invoke(ref @event, this.userData);
 
-                    if (e.Mask.HasFlag(Data.EventMask.SuppressEvent))
+                    if (@event.Mask.HasFlag(Data.EventMask.SuppressEvent))
                     {
-                        this.suppressedEvents.Add(e);
+                        this.suppressedEvents.Add(@event);
                     }
                     break;
                 case TestThreadingMode.EventLoop:
-                    this.eventLoop?.Add(e);
+                    this.eventLoop?.Add(@event);
                     break;
             }
         }
 
-        this.postedEvents.Add(e);
+        this.postedEvents.Add(@event);
 
         return result;
     }

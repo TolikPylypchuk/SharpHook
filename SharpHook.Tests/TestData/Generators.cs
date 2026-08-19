@@ -9,13 +9,13 @@ public sealed class Generators
         Gen.OneOf(HookEvents, KeyboardEvents, MouseEvents, WheelEvents).ToArbitrary();
 
     public static Arbitrary<KeyboardEvent> KeyboardUioHookEvents =>
-        (from e in KeyboardEvents
-         select new KeyboardEvent(e))
+        (from @event in KeyboardEvents
+         select new KeyboardEvent(@event))
         .ToArbitrary();
 
     public static Arbitrary<MouseEvent> MouseUioHookEvents =>
-        (from e in MouseEvents
-         select new MouseEvent(e))
+        (from @event in MouseEvents
+         select new MouseEvent(@event))
         .ToArbitrary();
 
     public static Arbitrary<DateTimeAfterEpoch> DateTimesAfterEpoch =>

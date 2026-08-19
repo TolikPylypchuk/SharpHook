@@ -73,20 +73,20 @@ public sealed class EventLoopGlobalHook : GlobalHookBase
     /// <summary>
     /// Handles the hook event.
     /// </summary>
-    /// <param name="e">The event to handle.</param>
-    protected override void HandleHookEvent(ref UioHookEvent e)
+    /// <param name="event">The event to handle.</param>
+    protected override void HandleHookEvent(ref UioHookEvent @event)
     {
-        if (!this.ShouldDispatchEvent(ref e))
+        if (!this.ShouldDispatchEvent(ref @event))
         {
             return;
         }
 
-        if (e.Type != EventType.HookDisabled)
+        if (@event.Type != EventType.HookDisabled)
         {
-            this.eventLoop.Add(e);
+            this.eventLoop.Add(@event);
         } else
         {
-            this.DispatchEvent(ref e);
+            this.DispatchEvent(ref @event);
         }
     }
 

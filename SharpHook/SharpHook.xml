@@ -88,7 +88,7 @@
             <summary>
             When implemented in a derived class, represents a strategy for handling a hook event.
             </summary>
-            <param name="e">The event to handle.</param>
+            <param name="event">The event to handle.</param>
         </member>
         <member name="M:SharpHook.BasicGlobalHookBase.BeforeRun">
             <summary>
@@ -1700,7 +1700,7 @@
             <summary>
             Compares this object to another object for equality.
             </summary>
-            <param name="e">The object to compare</param>
+            <param name="event">The object to compare</param>
             <returns>
             <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
             </returns>
@@ -1888,7 +1888,7 @@
             <summary>
             Handles the hook event.
             </summary>
-            <param name="e">The event to handle.</param>
+            <param name="event">The event to handle.</param>
         </member>
         <member name="M:SharpHook.EventLoopGlobalHook.Dispose(System.Boolean)">
             <summary>
@@ -1928,7 +1928,7 @@
             <summary>
             When implemented in a derived class, represents a strategy for handling a hook event.
             </summary>
-            <param name="e">The event to handle.</param>
+            <param name="event">The event to handle.</param>
             <remarks>
             Derived classes should call <see cref="M:SharpHook.GlobalHookBase.DispatchEvent(SharpHook.Data.UioHookEvent@)" /> inside this method to raise the
             appropriate event. They can also call <see cref="M:SharpHook.GlobalHookBase.ShouldDispatchEvent(SharpHook.Data.UioHookEvent@)" /> to determine whether
@@ -1940,7 +1940,7 @@
             Returns a value which indicates whether there are any subscribers to an event which corresponds to the hook
             event type.
             </summary>
-            <param name="e">The event to check.</param>
+            <param name="event">The event to check.</param>
             <returns>
             <see langword="true" /> if there are any subscribers to an event which corresponds to the hook event type.
             Otherwise, <see langword="false" />.
@@ -1953,7 +1953,7 @@
             <summary>
             Dispatches an event from libuiohook, i.e. raises the appropriate event.
             </summary>
-            <param name="e">The event to dispatch.</param>
+            <param name="event">The event to dispatch.</param>
         </member>
         <member name="M:SharpHook.GlobalHookBase.OnHookEnabled(SharpHook.HookEventArgs)">
             <summary>
@@ -2754,7 +2754,7 @@
             <summary>
             Represents a function which is called when an event occurs.
             </summary>
-            <param name="e">The event that has occured.</param>
+            <param name="event">The event that has occured.</param>
             <param name="userData">
             The data that was passed to <see cref="M:SharpHook.Native.UioHook.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)" />.
             Usually should not be used.
@@ -2873,7 +2873,7 @@
             <summary>
             Posts a fake input event.
             </summary>
-            <param name="e">The event to post.</param>
+            <param name="event">The event to post.</param>
             <returns>The result of the operation.</returns>
             <remarks>
             <para>
@@ -3260,7 +3260,7 @@
             <summary>
             Posts a fake input event.
             </summary>
-            <param name="e">The event to post.</param>
+            <param name="event">The event to post.</param>
             <returns>The result of the operation.</returns>
             <remarks>
             <para>
@@ -3625,7 +3625,7 @@
             <summary>
             Posts a fake input event.
             </summary>
-            <param name="e">The event to post.</param>
+            <param name="event">The event to post.</param>
             <returns>The result of the operation.</returns>
             <remarks>
             <para>
@@ -3825,7 +3825,7 @@
             <summary>
             Handles the hook event.
             </summary>
-            <param name="e">The event to handle.</param>
+            <param name="event">The event to handle.</param>
         </member>
         <member name="T:SharpHook.Simulation.EventSimulationExtensions">
             <summary>
@@ -3957,7 +3957,7 @@
             <summary>
             Adds the specified event to the sequence of events to simulate.
             </summary>
-            <param name="e">The event to add to the sequence.</param>
+            <param name="event">The event to add to the sequence.</param>
             <returns>The current builder.</returns>
         </member>
         <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddEvents(SharpHook.Data.UioHookEvent[])">
@@ -4105,7 +4105,7 @@
             <summary>
             Removes the specified event from the sequence of events to simulate.
             </summary>
-            <param name="e">The event to remove from the sequence.</param>
+            <param name="event">The event to remove from the sequence.</param>
             <returns>The current builder.</returns>
         </member>
         <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.RemoveEvents(System.Func{SharpHook.Data.UioHookEvent,System.Boolean})">
@@ -4355,7 +4355,7 @@
             <summary>
             Adds the specified event to the sequence of events to simulate.
             </summary>
-            <param name="e">The event to add to the sequence.</param>
+            <param name="event">The event to add to the sequence.</param>
             <returns>The current builder.</returns>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddEvents(SharpHook.Data.UioHookEvent[])">
@@ -4503,7 +4503,7 @@
             <summary>
             Removes the specified event from the sequence of events to simulate.
             </summary>
-            <param name="e">The event to remove from the sequence.</param>
+            <param name="event">The event to remove from the sequence.</param>
             <returns>The current builder.</returns>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.RemoveEvents(System.Func{SharpHook.Data.UioHookEvent,System.Boolean})">
@@ -4766,7 +4766,7 @@
             <summary>
             Handles the hook event.
             </summary>
-            <param name="e">The event to handle.</param>
+            <param name="event">The event to handle.</param>
         </member>
         <member name="M:SharpHook.TaskPoolGlobalHook.Dispose(System.Boolean)">
             <summary>
@@ -5561,7 +5561,7 @@
             Posts an input event if <see cref="P:SharpHook.Testing.TestProvider.PostEventResult" /> is set to <see cref="F:SharpHook.Data.UioHookResult.Success" /> -
             this event will be dispatched if the provider is running. Otherwise, does nothing.
             </summary>
-            <param name="e">The event to post.</param>
+            <param name="event">The event to post.</param>
             <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.PostEventResult" />.</returns>
             <remarks>
             If the provider's threading mode is <see cref="F:SharpHook.Testing.TestThreadingMode.Simple" /> then this method will immediately

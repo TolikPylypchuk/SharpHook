@@ -38,7 +38,7 @@ public sealed class SimpleGlobalHook : GlobalHookBase
     /// <summary>
     /// Handles the hook event.
     /// </summary>
-    /// <param name="e">The event to handle.</param>
-    protected override void HandleHookEvent(ref UioHookEvent e) =>
-        this.DispatchEvent(ref e);
+    /// <param name="event">The event to handle.</param>
+    protected override void HandleHookEvent(ref UioHookEvent @event) =>
+        this.DispatchEvent(ref @event);
 }

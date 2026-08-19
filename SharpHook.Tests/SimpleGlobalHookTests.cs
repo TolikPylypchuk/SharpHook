@@ -138,7 +138,7 @@ public sealed class SimpleGlobalHookTests
         var provider = new TestProvider();
         using var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
-        var e = new UioHookEvent
+        var @event = new UioHookEvent
         {
             Type = EventType.KeyPressed,
             Time = (ulong)dateTime.Value.ToUnixTimeMilliseconds(),
@@ -164,7 +164,7 @@ public sealed class SimpleGlobalHookTests
 
         this.RunHookAndWaitForStart(hook, provider);
 
-        provider.PostEvent(ref e);
+        provider.PostEvent(ref @event);
 
         // Assert
 
@@ -174,7 +174,7 @@ public sealed class SimpleGlobalHookTests
 
             Assert.NotNull(actualArgs);
 
-            Assert.Equal(e, actualArgs.RawEvent);
+            Assert.Equal(@event, actualArgs.RawEvent);
             Assert.Equal(dateTime.Value, actualArgs.EventTime);
 
             Assert.Equal(keyCode, actualArgs.Data.KeyCode);
@@ -200,7 +200,7 @@ public sealed class SimpleGlobalHookTests
         var provider = new TestProvider();
         using var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
-        var e = new UioHookEvent
+        var @event = new UioHookEvent
         {
             Type = EventType.KeyReleased,
             Time = (ulong)dateTime.Value.ToUnixTimeMilliseconds(),
@@ -226,7 +226,7 @@ public sealed class SimpleGlobalHookTests
 
         this.RunHookAndWaitForStart(hook, provider);
 
-        provider.PostEvent(ref e);
+        provider.PostEvent(ref @event);
 
         // Assert
 
@@ -236,7 +236,7 @@ public sealed class SimpleGlobalHookTests
 
             Assert.NotNull(actualArgs);
 
-            Assert.Equal(e, actualArgs.RawEvent);
+            Assert.Equal(@event, actualArgs.RawEvent);
             Assert.Equal(dateTime.Value, actualArgs.EventTime);
 
             Assert.Equal(keyCode, actualArgs.Data.KeyCode);
@@ -263,7 +263,7 @@ public sealed class SimpleGlobalHookTests
         var provider = new TestProvider();
         using var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
-        var e = new UioHookEvent
+        var @event = new UioHookEvent
         {
             Type = EventType.KeyTyped,
             Time = (ulong)dateTime.Value.ToUnixTimeMilliseconds(),
@@ -289,7 +289,7 @@ public sealed class SimpleGlobalHookTests
 
         this.RunHookAndWaitForStart(hook, provider);
 
-        provider.PostEvent(ref e);
+        provider.PostEvent(ref @event);
 
         // Assert
 
@@ -299,7 +299,7 @@ public sealed class SimpleGlobalHookTests
 
             Assert.NotNull(actualArgs);
 
-            Assert.Equal(e, actualArgs.RawEvent);
+            Assert.Equal(@event, actualArgs.RawEvent);
             Assert.Equal(dateTime.Value, actualArgs.EventTime);
 
             Assert.Equal(keyCode, actualArgs.Data.KeyCode);
@@ -327,7 +327,7 @@ public sealed class SimpleGlobalHookTests
         var provider = new TestProvider();
         using var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
-        var e = new UioHookEvent
+        var @event = new UioHookEvent
         {
             Type = EventType.MousePressed,
             Time = (ulong)dateTime.Value.ToUnixTimeMilliseconds(),
@@ -354,7 +354,7 @@ public sealed class SimpleGlobalHookTests
 
         this.RunHookAndWaitForStart(hook, provider);
 
-        provider.PostEvent(ref e);
+        provider.PostEvent(ref @event);
 
         // Assert
 
@@ -364,7 +364,7 @@ public sealed class SimpleGlobalHookTests
 
             Assert.NotNull(actualArgs);
 
-            Assert.Equal(e, actualArgs.RawEvent);
+            Assert.Equal(@event, actualArgs.RawEvent);
             Assert.Equal(dateTime.Value, actualArgs.EventTime);
 
             Assert.Equal(button, actualArgs.Data.Button);
@@ -393,7 +393,7 @@ public sealed class SimpleGlobalHookTests
         var provider = new TestProvider();
         using var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
-        var e = new UioHookEvent
+        var @event = new UioHookEvent
         {
             Type = EventType.MouseReleased,
             Time = (ulong)dateTime.Value.ToUnixTimeMilliseconds(),
@@ -420,7 +420,7 @@ public sealed class SimpleGlobalHookTests
 
         this.RunHookAndWaitForStart(hook, provider);
 
-        provider.PostEvent(ref e);
+        provider.PostEvent(ref @event);
 
         // Assert
 
@@ -430,7 +430,7 @@ public sealed class SimpleGlobalHookTests
 
             Assert.NotNull(actualArgs);
 
-            Assert.Equal(e, actualArgs.RawEvent);
+            Assert.Equal(@event, actualArgs.RawEvent);
             Assert.Equal(dateTime.Value, actualArgs.EventTime);
 
             Assert.Equal(button, actualArgs.Data.Button);
@@ -459,7 +459,7 @@ public sealed class SimpleGlobalHookTests
         var provider = new TestProvider();
         using var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
-        var e = new UioHookEvent
+        var @event = new UioHookEvent
         {
             Type = EventType.MouseClicked,
             Time = (ulong)dateTime.Value.ToUnixTimeMilliseconds(),
@@ -486,7 +486,7 @@ public sealed class SimpleGlobalHookTests
 
         this.RunHookAndWaitForStart(hook, provider);
 
-        provider.PostEvent(ref e);
+        provider.PostEvent(ref @event);
 
         // Assert
 
@@ -496,7 +496,7 @@ public sealed class SimpleGlobalHookTests
 
             Assert.NotNull(actualArgs);
 
-            Assert.Equal(e, actualArgs.RawEvent);
+            Assert.Equal(@event, actualArgs.RawEvent);
             Assert.Equal(dateTime.Value, actualArgs.EventTime);
 
             Assert.Equal(button, actualArgs.Data.Button);
@@ -523,7 +523,7 @@ public sealed class SimpleGlobalHookTests
         var provider = new TestProvider();
         using var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
-        var e = new UioHookEvent
+        var @event = new UioHookEvent
         {
             Type = EventType.MouseMoved,
             Time = (ulong)dateTime.Value.ToUnixTimeMilliseconds(),
@@ -548,7 +548,7 @@ public sealed class SimpleGlobalHookTests
 
         this.RunHookAndWaitForStart(hook, provider);
 
-        provider.PostEvent(ref e);
+        provider.PostEvent(ref @event);
 
         // Assert
 
@@ -558,7 +558,7 @@ public sealed class SimpleGlobalHookTests
 
             Assert.NotNull(actualArgs);
 
-            Assert.Equal(e, actualArgs.RawEvent);
+            Assert.Equal(@event, actualArgs.RawEvent);
             Assert.Equal(dateTime.Value, actualArgs.EventTime);
 
             Assert.Equal(x, actualArgs.Data.X);
@@ -583,7 +583,7 @@ public sealed class SimpleGlobalHookTests
         var provider = new TestProvider();
         using var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
-        var e = new UioHookEvent
+        var @event = new UioHookEvent
         {
             Type = EventType.MouseDragged,
             Time = (ulong)dateTime.Value.ToUnixTimeMilliseconds(),
@@ -608,7 +608,7 @@ public sealed class SimpleGlobalHookTests
 
         this.RunHookAndWaitForStart(hook, provider);
 
-        provider.PostEvent(ref e);
+        provider.PostEvent(ref @event);
 
         // Assert
 
@@ -618,7 +618,7 @@ public sealed class SimpleGlobalHookTests
 
             Assert.NotNull(actualArgs);
 
-            Assert.Equal(e, actualArgs.RawEvent);
+            Assert.Equal(@event, actualArgs.RawEvent);
             Assert.Equal(dateTime.Value, actualArgs.EventTime);
 
             Assert.Equal(x, actualArgs.Data.X);
@@ -647,7 +647,7 @@ public sealed class SimpleGlobalHookTests
         var provider = new TestProvider();
         using var hook = new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true);
 
-        var e = new UioHookEvent
+        var @event = new UioHookEvent
         {
             Type = EventType.MouseWheel,
             Time = (ulong)dateTime.Value.ToUnixTimeMilliseconds(),
@@ -676,7 +676,7 @@ public sealed class SimpleGlobalHookTests
 
         this.RunHookAndWaitForStart(hook, provider);
 
-        provider.PostEvent(ref e);
+        provider.PostEvent(ref @event);
 
         // Assert
 
@@ -686,7 +686,7 @@ public sealed class SimpleGlobalHookTests
 
             Assert.NotNull(actualArgs);
 
-            Assert.Equal(e, actualArgs.RawEvent);
+            Assert.Equal(@event, actualArgs.RawEvent);
             Assert.Equal(dateTime.Value, actualArgs.EventTime);
 
             Assert.Equal(x, actualArgs.Data.X);

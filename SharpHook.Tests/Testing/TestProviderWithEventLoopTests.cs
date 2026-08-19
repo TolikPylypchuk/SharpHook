@@ -22,11 +22,11 @@ public sealed class TestProviderWithEventLoopTests
         // Act
 
         provider.SetDispatchProc(
-            (ref UioHookEvent e, nint data) =>
+            (ref @event, data) =>
             {
-                if (e.Type != EventType.HookEnabled && e.Type != EventType.HookDisabled)
+                if (@event.Type != EventType.HookEnabled && @event.Type != EventType.HookDisabled)
                 {
-                    actualEvent = e;
+                    actualEvent = @event;
                     actualUserData = data;
                 }
             },
@@ -65,11 +65,11 @@ public sealed class TestProviderWithEventLoopTests
         // Act
 
         provider.SetDispatchProc(
-            (ref UioHookEvent e, nint data) =>
+            (ref @event, data) =>
             {
-                if (e.Type != EventType.HookEnabled && e.Type != EventType.HookDisabled)
+                if (@event.Type != EventType.HookEnabled && @event.Type != EventType.HookDisabled)
                 {
-                    actualEvent = e;
+                    actualEvent = @event;
                     actualUserData = data;
                 }
             },
@@ -147,11 +147,11 @@ public sealed class TestProviderWithEventLoopTests
         // Act
 
         provider.SetDispatchProc(
-            (ref UioHookEvent e, nint data) =>
+            (ref @event, data) =>
             {
-                if (e.Type != EventType.HookEnabled && e.Type != EventType.HookDisabled)
+                if (@event.Type != EventType.HookEnabled && @event.Type != EventType.HookDisabled)
                 {
-                    actualEvent = e;
+                    actualEvent = @event;
                     actualUserData = data;
                 }
             },
@@ -159,8 +159,8 @@ public sealed class TestProviderWithEventLoopTests
 
         var task = provider.RunKeyboardAsync();
 
-        var e = eventToPost.Value;
-        provider.PostEvent(ref e);
+        var @event = eventToPost.Value;
+        provider.PostEvent(ref @event);
 
         provider.Stop();
         await task;
@@ -184,11 +184,11 @@ public sealed class TestProviderWithEventLoopTests
         // Act
 
         provider.SetDispatchProc(
-            (ref UioHookEvent e, nint data) =>
+            (ref @event, data) =>
             {
-                if (e.Type != EventType.HookEnabled && e.Type != EventType.HookDisabled)
+                if (@event.Type != EventType.HookEnabled && @event.Type != EventType.HookDisabled)
                 {
-                    actualEvent = e;
+                    actualEvent = @event;
                     actualUserData = data;
                 }
             },
@@ -196,8 +196,8 @@ public sealed class TestProviderWithEventLoopTests
 
         var task = provider.RunMouseAsync();
 
-        var e = eventToPost.Value;
-        provider.PostEvent(ref e);
+        var @event = eventToPost.Value;
+        provider.PostEvent(ref @event);
 
         provider.Stop();
         await task;
@@ -217,7 +217,7 @@ public sealed class TestProviderWithEventLoopTests
 
         // Act
 
-        provider.SetDispatchProc((ref UioHookEvent e, nint data) => e.Mask |= EventMask.SuppressEvent, IntPtr.Zero);
+        provider.SetDispatchProc((ref @event, data) => @event.Mask |= EventMask.SuppressEvent, IntPtr.Zero);
 
         var task = provider.RunAsync();
 
@@ -405,11 +405,11 @@ public sealed class TestProviderWithEventLoopTests
         UioHookEvent actualEvent = default;
 
         provider.SetDispatchProc(
-            (ref UioHookEvent e, nint userData) =>
+            (ref @event, userData) =>
             {
-                if (e.Type == EventType.HookEnabled)
+                if (@event.Type == EventType.HookEnabled)
                 {
-                    actualEvent = e;
+                    actualEvent = @event;
                 }
             },
             IntPtr.Zero);
@@ -439,11 +439,11 @@ public sealed class TestProviderWithEventLoopTests
         UioHookEvent actualEvent = default;
 
         provider.SetDispatchProc(
-            (ref UioHookEvent e, nint userData) =>
+            (ref @event, userData) =>
             {
-                if (e.Type == EventType.HookDisabled)
+                if (@event.Type == EventType.HookDisabled)
                 {
-                    actualEvent = e;
+                    actualEvent = @event;
                 }
             },
             IntPtr.Zero);

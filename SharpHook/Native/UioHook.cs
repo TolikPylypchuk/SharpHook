@@ -154,7 +154,7 @@ public static partial class UioHook
     /// <summary>
     /// Posts a fake input event.
     /// </summary>
-    /// <param name="e">The event to post.</param>
+    /// <param name="event">The event to post.</param>
     /// <returns>The result of the operation.</returns>
     /// <remarks>
     /// <para>
@@ -232,10 +232,10 @@ public static partial class UioHook
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_post_event")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial UioHookResult PostEvent(ref UioHookEvent e);
+    public static partial UioHookResult PostEvent(ref UioHookEvent @event);
 #else
     [DllImport(LibUioHook, EntryPoint = "hook_post_event", CallingConvention = CallingConvention.Cdecl)]
-    public static extern UioHookResult PostEvent(ref UioHookEvent e);
+    public static extern UioHookResult PostEvent(ref UioHookEvent @event);
 #endif
 
     /// <summary>

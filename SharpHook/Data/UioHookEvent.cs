@@ -91,29 +91,29 @@ public struct UioHookEvent : IEquatable<UioHookEvent>
     /// <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
     /// </returns>
     public readonly override bool Equals(object? obj) =>
-        obj is UioHookEvent e && this.Equals(e);
+        obj is UioHookEvent @event && this.Equals(@event);
 
     /// <summary>
     /// Compares this object to another object for equality.
     /// </summary>
-    /// <param name="e">The object to compare</param>
+    /// <param name="event">The object to compare</param>
     /// <returns>
     /// <see langword="true" /> if the objects are equal. Otherwise, <see langword="false" />.
     /// </returns>
-    public readonly bool Equals(UioHookEvent e) =>
-        this.Type == e.Type &&
-            this.Time == e.Time &&
-            this.Mask == e.Mask &&
+    public readonly bool Equals(UioHookEvent @event) =>
+        this.Type == @event.Type &&
+            this.Time == @event.Time &&
+            this.Mask == @event.Mask &&
             this.Type switch
             {
                 EventType.KeyTyped or
                 EventType.KeyPressed or
-                EventType.KeyReleased => this.Keyboard == e.Keyboard,
+                EventType.KeyReleased => this.Keyboard == @event.Keyboard,
                 EventType.MouseClicked or
                 EventType.MousePressed or
                 EventType.MouseReleased or
-                EventType.MouseMoved => this.Mouse == e.Mouse,
-                EventType.MouseWheel => this.Wheel == e.Wheel,
+                EventType.MouseMoved => this.Mouse == @event.Mouse,
+                EventType.MouseWheel => this.Wheel == @event.Wheel,
                 _ => true
             };
 

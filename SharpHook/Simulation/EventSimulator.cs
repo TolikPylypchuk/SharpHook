@@ -269,6 +269,6 @@ public class EventSimulator : IEventSimulator
     public IEventSimulationSequenceBuilder Sequence() =>
         new EventSimulationSequenceBuilder(this.simulationProvider);
 
-    private UioHookResult PostEvent(UioHookEvent e) =>
-        this.simulationProvider.PostEvent(ref e);
+    private UioHookResult PostEvent(UioHookEvent @event) =>
+        this.simulationProvider.PostEvent(ref @event);
 }

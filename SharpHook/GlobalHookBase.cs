@@ -34,19 +34,19 @@ public abstract class GlobalHookBase : BasicGlobalHookBase, IGlobalHook
     /// <summary>
     /// When implemented in a derived class, represents a strategy for handling a hook event.
     /// </summary>
-    /// <param name="e">The event to handle.</param>
+    /// <param name="event">The event to handle.</param>
     /// <remarks>
     /// Derived classes should call <see cref="DispatchEvent(ref UioHookEvent)" /> inside this method to raise the
     /// appropriate event. They can also call <see cref="ShouldDispatchEvent(ref UioHookEvent)" /> to determine whether
     /// to attempt dispatching the event at all.
     /// </remarks>
-    protected override abstract void HandleHookEvent(ref UioHookEvent e);
+    protected override abstract void HandleHookEvent(ref UioHookEvent @event);
 
     /// <summary>
     /// Returns a value which indicates whether there are any subscribers to an event which corresponds to the hook
     /// event type.
     /// </summary>
-    /// <param name="e">The event to check.</param>
+    /// <param name="event">The event to check.</param>
     /// <returns>
     /// <see langword="true" /> if there are any subscribers to an event which corresponds to the hook event type.
     /// Otherwise, <see langword="false" />.
@@ -54,8 +54,8 @@ public abstract class GlobalHookBase : BasicGlobalHookBase, IGlobalHook
     /// <remarks>
     /// Derived classes may call this method as an optimization before attempting to dispatch the hook event.
     /// </remarks>
-    protected bool ShouldDispatchEvent(ref UioHookEvent e) =>
-        e.Type switch
+    protected bool ShouldDispatchEvent(ref UioHookEvent @event) =>
+        @event.Type switch
         {
             EventType.HookEnabled => this.HookEnabled != null,
             EventType.HookDisabled => this.HookDisabled != null,
@@ -74,61 +74,61 @@ public abstract class GlobalHookBase : BasicGlobalHookBase, IGlobalHook
     /// <summary>
     /// Dispatches an event from libuiohook, i.e. raises the appropriate event.
     /// </summary>
-    /// <param name="e">The event to dispatch.</param>
-    protected void DispatchEvent(ref UioHookEvent e)
+    /// <param name="event">The event to dispatch.</param>
+    protected void DispatchEvent(ref UioHookEvent @event)
     {
         HookEventArgs? args = null;
 
-        switch (e.Type)
+        switch (@event.Type)
         {
             case EventType.HookEnabled:
-                this.OnHookEnabled(args = new HookEventArgs(e));
+                this.OnHookEnabled(args = new HookEventArgs(@event));
                 break;
             case EventType.HookDisabled:
-                this.OnHookDisabled(args = new HookEventArgs(e));
+                this.OnHookDisabled(args = new HookEventArgs(@event));
                 break;
             case EventType.KeyTyped:
-                var keyTypedArgs = new KeyboardHookEventArgs(e);
+                var keyTypedArgs = new KeyboardHookEventArgs(@event);
                 args = keyTypedArgs;
                 this.OnKeyTyped(keyTypedArgs);
                 break;
             case EventType.KeyPressed:
-                var keyPressedArgs = new KeyboardHookEventArgs(e);
+                var keyPressedArgs = new KeyboardHookEventArgs(@event);
                 args = keyPressedArgs;
                 this.OnKeyPressed(keyPressedArgs);
                 break;
             case EventType.KeyReleased:
-                var keyReleasedArgs = new KeyboardHookEventArgs(e);
+                var keyReleasedArgs = new KeyboardHookEventArgs(@event);
                 args = keyReleasedArgs;
                 this.OnKeyReleased(keyReleasedArgs);
                 break;
             case EventType.MouseClicked:
-                var mouseClickedArgs = new MouseHookEventArgs(e);
+                var mouseClickedArgs = new MouseHookEventArgs(@event);
                 args = mouseClickedArgs;
                 this.OnMouseClicked(mouseClickedArgs);
                 break;
             case EventType.MousePressed:
-                var mousePressedArgs = new MouseHookEventArgs(e);
+                var mousePressedArgs = new MouseHookEventArgs(@event);
                 args = mousePressedArgs;
                 this.OnMousePressed(mousePressedArgs);
                 break;
             case EventType.MouseReleased:
-                var mouseReleasedArgs = new MouseHookEventArgs(e);
+                var mouseReleasedArgs = new MouseHookEventArgs(@event);
                 args = mouseReleasedArgs;
                 this.OnMouseReleased(mouseReleasedArgs);
                 break;
             case EventType.MouseMoved:
-                var mouseMovedArgs = new MouseHookEventArgs(e);
+                var mouseMovedArgs = new MouseHookEventArgs(@event);
                 args = mouseMovedArgs;
                 this.OnMouseMoved(mouseMovedArgs);
                 break;
             case EventType.MouseDragged:
-                var mouseDraggedArgs = new MouseHookEventArgs(e);
+                var mouseDraggedArgs = new MouseHookEventArgs(@event);
                 args = mouseDraggedArgs;
                 this.OnMouseDragged(mouseDraggedArgs);
                 break;
             case EventType.MouseWheel:
-                var mouseWheelArgs = new MouseWheelHookEventArgs(e);
+                var mouseWheelArgs = new MouseWheelHookEventArgs(@event);
                 args = mouseWheelArgs;
                 this.OnMouseWheel(mouseWheelArgs);
                 break;
@@ -136,7 +136,7 @@ public abstract class GlobalHookBase : BasicGlobalHookBase, IGlobalHook
 
         if (args is not null && args.SuppressEvent)
         {
-            e.Mask |= EventMask.SuppressEvent;
+            @event.Mask |= EventMask.SuppressEvent;
         }
     }
 

@@ -162,7 +162,7 @@ public sealed class UioHookProvider :
     /// <summary>
     /// Posts a fake input event.
     /// </summary>
-    /// <param name="e">The event to post.</param>
+    /// <param name="event">The event to post.</param>
     /// <returns>The result of the operation.</returns>
     /// <remarks>
     /// <para>
@@ -234,8 +234,8 @@ public sealed class UioHookProvider :
     /// </para>
     /// </remarks>
     /// <seealso cref="PostEvents" />
-    public UioHookResult PostEvent(ref UioHookEvent e) =>
-        UioHook.PostEvent(ref e);
+    public UioHookResult PostEvent(ref UioHookEvent @event) =>
+        UioHook.PostEvent(ref @event);
 
     /// <summary>
     /// Posts a sequence of fake input events.

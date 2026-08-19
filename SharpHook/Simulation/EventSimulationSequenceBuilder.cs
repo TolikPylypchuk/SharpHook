@@ -22,11 +22,11 @@ public sealed class EventSimulationSequenceBuilder : IEventSimulationSequenceBui
     /// <summary>
     /// Adds the specified event to the sequence of events to simulate.
     /// </summary>
-    /// <param name="e">The event to add to the sequence.</param>
+    /// <param name="event">The event to add to the sequence.</param>
     /// <returns>The current builder.</returns>
-    public IEventSimulationSequenceBuilder AddEvent(UioHookEvent e)
+    public IEventSimulationSequenceBuilder AddEvent(UioHookEvent @event)
     {
-        this.events.Add(e);
+        this.events.Add(@event);
         return this;
     }
 
@@ -270,11 +270,11 @@ public sealed class EventSimulationSequenceBuilder : IEventSimulationSequenceBui
     /// <summary>
     /// Removes the specified event from the sequence of events to simulate.
     /// </summary>
-    /// <param name="e">The event to remove from the sequence.</param>
+    /// <param name="event">The event to remove from the sequence.</param>
     /// <returns>The current builder.</returns>
-    public IEventSimulationSequenceBuilder RemoveEvent(UioHookEvent e)
+    public IEventSimulationSequenceBuilder RemoveEvent(UioHookEvent @event)
     {
-        this.events.Remove(e);
+        this.events.Remove(@event);
         return this;
     }
 
