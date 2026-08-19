@@ -1254,6 +1254,71 @@
             <summary>JP Comma</summary>
             <remarks>Available on: macOS, Linux</remarks>
         </member>
+        <member name="T:SharpHook.Data.LinuxBackend">
+            <summary>
+            Represents a libuiohook backend that can be loaded on Linux.
+            </summary>
+            <seealso cref="T:SharpHook.Data.LinuxMode" />
+        </member>
+        <member name="F:SharpHook.Data.LinuxBackend.None">
+            <summary>
+            No backend has been loaded yet, and changing the backend mode is possible.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.LinuxBackend.XRecord">
+            <summary>
+            The X11 backend which uses XRecord to listen to events and XTest to post events. This backend represents the
+            behaviour of SharpHook prior to version 8, and is the default backend on X11.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.LinuxBackend.X11">
+            <summary>
+            The X11 backend which uses libinput to listen to events and uinput to post events. This backend requires
+            elevated privileges to work.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.LinuxBackend.Wayland">
+            <summary>
+            The Wayland backend which uses libinput to listen to events and uinput to post events. This backend requires
+            elevated privileges to work.
+            </summary>
+        </member>
+        <member name="T:SharpHook.Data.LinuxMode">
+            <summary>
+            Represents the mode of loading the Linux backend of libuiohook – the XRecord-based X11 backend, or the
+            libinput/uinput backend for X11 or Wayland.
+            </summary>
+            <seealso cref="T:SharpHook.Data.LinuxBackend" />
+        </member>
+        <member name="F:SharpHook.Data.LinuxMode.AutoXRecord">
+            <summary>
+            If this mode is selected, then libuiohook will load the Wayland backend if the current session is Wayland, and
+            the XRecord-based X11 backend otherwise. This is the default mode.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.LinuxMode.AutoLowLevel">
+            <summary>
+            If this mode is selected, then libuiohook will load the Wayland backend if the current session is Wayland, and
+            the libinput/uinput-based X11 backend otherwise. In both session types, libinput and uinput will be used.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.LinuxMode.XRecord">
+            <summary>
+            If this mode is selected, the libuiohook will load the XRecord-based X11 backend, even if the current session is
+            Wayland. This is the behaviour of SharpHook prior to version 8.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.LinuxMode.X11">
+            <summary>
+            If this mode is selected, the libuiohook will load the libinput/uinput-based X11 backend, even if the current
+            session is Wayland.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.LinuxMode.Wayland">
+            <summary>
+            If this mode is selected, the libuiohook will load the Wayland backend, even if the current session is X11.
+            </summary>
+        </member>
         <member name="T:SharpHook.Data.LogLevel">
             <summary>
             Represents a log level.
@@ -1750,6 +1815,53 @@
             <returns>
             <see langword="true" /> if the objects are not equal. Otherwise, <see langword="false" />.
             </returns>
+        </member>
+        <member name="T:SharpHook.Data.UioHookFeature">
+            <summary>
+            Represents an optional feature of libuiohook that is not supported on all platforms.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.UioHookFeature.EventSuppression">
+            <summary>
+            Event suppression. Supported on Windows and macOS. Not supported on Linux – neither on X11 nor on Wayland.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.UioHookFeature.KeyTypedEvents">
+            <summary>
+            Events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" />. Supported on Windows, macOS, and X11. Not supported on
+            Wayland.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.UioHookFeature.PostText">
+            <summary>
+            Posting text via <see cref="M:SharpHook.Native.UioHook.PostText(System.String)" />. Supported on Windows, macOS, and X11. Not supported on
+            Wayland.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.UioHookFeature.KeyAutoRepeat">
+            <summary>
+            If this feature is enabled, then auto-repeated key-down events are raised by global hooks. Supported on Windows,
+            macOS, and the XRecord-based X11 backend. Not supported on the libinput/uinput Linux backends.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.UioHookFeature.AbsoluteMouseMovement">
+            <summary>
+            If this feature is enabled, then mouse movement events always report absolute coordinates. Supported on Windows,
+            macOS, and X11. Not supported on Wayland.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.UioHookFeature.AbsoluteMouseButtonCoordinates">
+            <summary>
+            If this feature is enabled, then mouse button and wheel events report their absolute coordinates. Supported on
+            Windows, macOS, and X11. Not supported on Wayland.
+            </summary>
+        </member>
+        <member name="F:SharpHook.Data.UioHookFeature.PointerProperties">
+            <summary>
+            If this feature is enabled, then <see cref="M:SharpHook.Native.UioHook.GetPointerAccelerationMultiplier" />,
+            <see cref="M:SharpHook.Native.UioHook.GetPointerAccelerationThreshold" />, and <see cref="M:SharpHook.Native.UioHook.GetPointerSensitivity" /> are
+            supported. Supported on Windows, macOS, and X11. Not supported on Wayland.
+            </summary>
         </member>
         <member name="T:SharpHook.Data.UioHookResult">
             <summary>
@@ -2822,6 +2934,16 @@
             </summary>
             <value>The event data.</value>
         </member>
+        <member name="T:SharpHook.Native.CloseDeviceProc">
+            <summary>
+            Represents a function which closes a privileged device using a provided file descriptor.
+            </summary>
+            <param name="fd">The file descriptor of the device to close.</param>
+            <param name="userData">
+            The data that was passed to <see cref="M:SharpHook.Native.UioHook.SetDeviceProcs(SharpHook.Native.OpenDeviceProc,SharpHook.Native.CloseDeviceProc,System.IntPtr)" />.
+            </param>
+            <seealso cref="M:SharpHook.Native.UioHook.SetDeviceProcs(SharpHook.Native.OpenDeviceProc,SharpHook.Native.CloseDeviceProc,System.IntPtr)" />
+        </member>
         <member name="T:SharpHook.Native.DispatchProc">
             <summary>
             Represents a function which is called when an event occurs.
@@ -2844,6 +2966,17 @@
             <param name="format">The format of the log message.</param>
             <param name="args">The arguments of the log message.</param>
             <seealso cref="M:SharpHook.Native.UioHook.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)" />
+        </member>
+        <member name="T:SharpHook.Native.OpenDeviceProc">
+            <summary>
+            Represents a function which opens a privileged device and provides a file descriptor.
+            </summary>
+            <param name="path">The path to the device to open.</param>
+            <param name="flags">The flags to use when opening the device.</param>
+            <param name="userData">
+            The data that was passed to <see cref="M:SharpHook.Native.UioHook.SetDeviceProcs(SharpHook.Native.OpenDeviceProc,SharpHook.Native.CloseDeviceProc,System.IntPtr)" />.
+            </param>
+            <seealso cref="M:SharpHook.Native.UioHook.SetDeviceProcs(SharpHook.Native.OpenDeviceProc,SharpHook.Native.CloseDeviceProc,System.IntPtr)" />
         </member>
         <member name="T:SharpHook.Native.UioHook">
             <summary>
@@ -2901,7 +3034,7 @@
             <remarks>
             <para>
             This method makes a difference only on Windows where there are two different global hooks – a keyboard hook and
-            a mouse hook. On macOS and Linux there is one hook for all events, and this method simply enables filtering
+            a mouse hook. On macOS and Linux, there is one hook for all events, and this method simply enables filtering
             mouse events out on these OSes.
             </para>
             <para>
@@ -2922,7 +3055,7 @@
             <remarks>
             <para>
             This method makes a difference only on Windows where there are two different global hooks – a keyboard hook and
-            a mouse hook. On macOS and Linux there is one hook for all events, and this method simply enables filtering
+            a mouse hook. On macOS and Linux, there is one hook for all events, and this method simply enables filtering
             keyboard events out on these OSes.
             </para>
             <para>
@@ -2990,10 +3123,22 @@
             </term>
             </item>
             <item>
+            <term><see cref="F:SharpHook.Data.EventType.MousePressedIgnoreCoordinates" /></term>
+            <term>
+            Only <see cref="F:SharpHook.Data.MouseEventData.Button" /> is considered.
+            </term>
+            </item>
+            <item>
             <term><see cref="F:SharpHook.Data.EventType.MouseReleased" /></term>
             <term>
             Only <see cref="F:SharpHook.Data.MouseWheelEventData.X" />, <see cref="F:SharpHook.Data.MouseWheelEventData.Y" />,
             and <see cref="F:SharpHook.Data.MouseEventData.Button" /> are considered.
+            </term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Data.EventType.MouseReleasedIgnoreCoordinates" /></term>
+            <term>
+            Only <see cref="F:SharpHook.Data.MouseEventData.Button" /> is considered.
             </term>
             </item>
             <item>
@@ -3005,8 +3150,16 @@
             <term>Only <see cref="F:SharpHook.Data.MouseEventData.X" /> and <see cref="F:SharpHook.Data.MouseEventData.Y" /> are considered.</term>
             </item>
             <item>
+            <term><see cref="F:SharpHook.Data.EventType.MouseMovedRelative" /></term>
+            <term>Only <see cref="F:SharpHook.Data.MouseEventData.X" /> and <see cref="F:SharpHook.Data.MouseEventData.Y" /> are considered.</term>
+            </item>
+            <item>
             <term><see cref="F:SharpHook.Data.EventType.MouseDragged" /></term>
             <term>Not recommended to use; same as <see cref="F:SharpHook.Data.EventType.MouseMoved" />.</term>
+            </item>
+            <item>
+            <term><see cref="F:SharpHook.Data.EventType.MouseDraggedRelative" /></term>
+            <term>Not recommended to use; same as <see cref="F:SharpHook.Data.EventType.MouseMovedRelative" />.</term>
             </item>
             <item>
             <term><see cref="F:SharpHook.Data.EventType.MouseWheel" /></term>
@@ -3029,7 +3182,9 @@
             <param name="size">The number of events to post.</param>
             <returns>The result of the operation.</returns>
             <remarks>
-            All the same rules apply as to <see cref="M:SharpHook.Native.UioHook.PostEvent(SharpHook.Data.UioHookEvent@)" />.
+            All the same rules apply as to <see cref="M:SharpHook.Native.UioHook.PostEvent(SharpHook.Data.UioHookEvent@)" />. The sequence of events must not contain events of types
+            <see cref="F:SharpHook.Data.EventType.KeyTyped" /> or <see cref="F:SharpHook.Data.EventType.MouseClicked" />, or the method will fail, potentially
+            in the middle of the simulation sequence.
             </remarks>
             <seealso cref="M:SharpHook.Native.UioHook.PostEvent(SharpHook.Data.UioHookEvent@)" />
             <seealso cref="T:SharpHook.Simulation.EventSimulator" />
@@ -3055,83 +3210,61 @@
             X11 doesn't support text simulation directly. Instead, for each character, an unused key code is remapped to
             that character, and then key press/release is simulated. Since the receiving application must react to the
             remapping, and may not do so instantaneously, a delay is needed for accurate simulation. This means that text
-            simulation on Linux works slowly and is not guaranteed to be correct. <see cref="M:SharpHook.Native.UioHook.SetPostTextDelayX11(System.UInt64)" /> can be
+            simulation on Linux works slowly and is not guaranteed to be correct. <see cref="M:SharpHook.Native.UioHook.SetPostTextDelayLinux(System.UInt64)" /> can be
             used to increase (or decrease) the delay if needed – longer dealys add consistency but may be more jarring to
-            end users. <see cref="M:SharpHook.Native.UioHook.GetPostTextDelayX11" /> can be used to get the currently configured delay – the default is
+            end users. <see cref="M:SharpHook.Native.UioHook.GetPostTextDelayLinux" /> can be used to get the currently configured delay – the default is
             50 milliseconds.
             </para>
-            </remarks>
-            <seealso cref="T:SharpHook.Simulation.EventSimulator" />
-        </member>
-        <member name="M:SharpHook.Native.UioHook.GetPostTextDelayX11">
-            <summary>
-            Gets the delay (in nanoseconds) between posting individual characters when posting text on Linux.
-            </summary>
-            <returns>The delay (in nanoseconds) between posting individual characters when posting text on Linux.</returns>
-            <remarks>
             <para>
-            X11 doesn't support posting arbitrary Unicode characters directly. Instead, for each character,
-            an unused key code is remapped to that character, and then key press/release is simulated. Since the receiving
-            application must react to the remapping, and may not do so instantaneously, a delay is needed for accurate
-            simulation.
-            </para>
-            <para>
-            The default delay is 50 milliseconds.
-            </para>
-            <para>
-            On Windows and macOS, this method always returns <c>0</c>.
+            On Wayland, text simulation is currently not supported.
             </para>
             </remarks>
             <seealso cref="T:SharpHook.Simulation.EventSimulator" />
         </member>
-        <member name="M:SharpHook.Native.UioHook.SetPostTextDelayX11(System.UInt64)">
+        <member name="M:SharpHook.Native.UioHook.GetOptionalFeatureSupport">
             <summary>
-            Sets the delay (in nanoseconds) between posting individual characters when posting text on Linux.
+            Returns optional features of libuiohook that are supported on the current platform.
             </summary>
-            <param name="delayNanoseconds">
-            The delay (in nanoseconds) between posting individual characters when posting text on Linux.
-            </param>
-            <remarks>
-            <para>
-            X11 doesn't support posting arbitrary Unicode characters directly. Instead, for each character,
-            an unused key code is remapped to that character, and then key press/release is simulated. Since the receiving
-            application must react to the remapping, and may not do so instantaneously, a delay is needed for accurate
-            simulation.
-            </para>
-            <para>
-            The default delay is 50 milliseconds.
-            </para>
-            <para>
-            On Windows and macOS, this method does nothing.
-            </para>
-            </remarks>
-            <seealso cref="T:SharpHook.Simulation.EventSimulator" />
+            <returns>
+            Flags which indicate which optional features are supported on the current platform.
+            </returns>
         </member>
         <member name="M:SharpHook.Native.UioHook.IsKeyTypedEnabled">
             <summary>
-            Checks whether events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> are enabled.
+            Checks whether events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> are enabled. The default value is
+            <see langword="false" />.
             </summary>
             <returns>
             <see langword="true" /> if events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> are enabled. Otherwise,
             <see langword="false" />.
             </returns>
             <remarks>
+            <para>
             If the application doesn't use events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" />, then they should be disabled
             so that there is no performance penalty and no subtle system-wide side effects.
+            </para>
+            <para>
+            On Wayland, this method always returns <see langword="false" /> since events of type
+            <see cref="F:SharpHook.Data.EventType.KeyTyped" /> are not supported.
+            </para>
             </remarks>
         </member>
         <member name="M:SharpHook.Native.UioHook.SetKeyTypedEnabled(System.Boolean)">
             <summary>
-            Sets the value which indicates whether events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> are enabled. The default
-            value is <see langword="true" />.
+            Sets the value which indicates whether events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> are enabled.
             </summary>
             <param name="enabled">
             <see langword="true" /> if events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> should be enabled. Otherwise,
             <see langword="false" />.
             </param>
             <remarks>
+            <para>
             If the application doesn't use events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" />, then they should be disabled
             so that there is no performance penalty and no subtle system-wide side effects.
+            </para>
+            <para>
+            On Wayland, this method does nothing since events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> are not supported.
+            </para>
             </remarks>
         </member>
         <member name="M:SharpHook.Native.UioHook.IsAxApiEnabled(System.Boolean)">
@@ -3198,41 +3331,117 @@
             On Windows and Linux, this method does nothing.
             </remarks>
         </member>
-        <member name="M:SharpHook.Native.UioHook.CreateScreenInfo(System.Byte@)">
+        <member name="M:SharpHook.Native.UioHook.GetPostTextDelayLinux">
             <summary>
-            Gets the information about screens.
+            Gets the delay (in nanoseconds) between posting individual characters when posting text on Linux.
             </summary>
-            <param name="count">The number of screens.</param>
-            <returns>
-            The information about screens as an unmanaged array of <see cref="T:SharpHook.Data.ScreenData" /> whose length is returned
-            as <paramref name="count" />. The memory used by the array must be freed manually.
-            </returns>
+            <returns>The delay (in nanoseconds) between posting individual characters when posting text on Linux.</returns>
             <remarks>
-            You should use <see cref="M:SharpHook.Native.UioHook.CreateScreenInfo" /> instead as it returns a managed array.
+            <para>
+            X11 doesn't support posting arbitrary Unicode characters directly. Instead, for each character, an unused key
+            code is remapped to that character, and then key press/release is simulated. Since the receiving application
+            must react to the remapping, and may not do so instantaneously, a delay is needed for accurate simulation.
+            </para>
+            <para>
+            The default delay is 50 milliseconds.
+            </para>
+            <para>
+            On Windows and macOS, as well as Wayland, this method always returns <c>0</c>.
+            </para>
             </remarks>
-            <seealso cref="M:SharpHook.Native.UioHook.CreateScreenInfo" />
+            <seealso cref="T:SharpHook.Simulation.EventSimulator" />
         </member>
-        <member name="M:SharpHook.Native.UioHook.CreateScreenInfo">
+        <member name="M:SharpHook.Native.UioHook.SetPostTextDelayLinux(System.UInt64)">
             <summary>
-            Gets the information about screens.
+            Sets the delay (in nanoseconds) between posting individual characters when posting text on Linux.
             </summary>
-            <returns>The information about screens.</returns>
+            <param name="delayNanoseconds">
+            The delay (in nanoseconds) between posting individual characters when posting text on Linux.
+            </param>
             <remarks>
-            This is the safe version of <see cref="M:SharpHook.Native.UioHook.CreateScreenInfo(System.Byte@)" /> as it returns a managed array.
+            <para>
+            X11 doesn't support posting arbitrary Unicode characters directly. Instead, for each character, an unused key
+            code is remapped to that character, and then key press/release is simulated. Since the receiving application
+            must react to the remapping, and may not do so instantaneously, a delay is needed for accurate simulation.
+            </para>
+            <para>
+            The default delay is 50 milliseconds.
+            </para>
+            <para>
+            On Windows and macOS, as well as Wayland, this method does nothing.
+            </para>
             </remarks>
-            <seealso cref="M:SharpHook.Native.UioHook.CreateScreenInfo(System.Byte@)" />
+            <seealso cref="T:SharpHook.Simulation.EventSimulator" />
+        </member>
+        <member name="M:SharpHook.Native.UioHook.GetLinuxMode">
+            <summary>
+            Gets the mode for selecting which Linux backend to load.
+            </summary>
+            <remarks>
+            <para>
+            This method returns only the selection mode. If you need to get the Linux backend that was actually loaded, then
+            use <see cref="M:SharpHook.Native.UioHook.GetLoadedLinuxBackend" />.
+            </para>
+            <para>
+            On Windows and macOS, this method always returns <see cref="F:SharpHook.Data.LinuxMode.AutoXRecord" /> which is the default
+            value.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Native.UioHook.SetLinuxMode(SharpHook.Data.LinuxMode)">
+            <summary>
+            Sets the mode for selecting which Linux backend to load.
+            </summary>
+            <remarks>
+            This method returns one of three possible values:
+            <list type="bullet">
+            <item><see cref="F:SharpHook.Data.UioHookResult.Success" /> if the Linux mode was successfully set.</item>
+            <item><see cref="F:SharpHook.Data.UioHookResult.Failure" /> if the provided mode is an invalid enum value.</item>
+            <item>
+            <see cref="F:SharpHook.Data.UioHookResult.ErrorLinuxLoadBackend" /> if a Linux backend has already been loaded and changing it is
+            not allowed.
+            </item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Native.UioHook.GetLoadedLinuxBackend">
+            <summary>
+            Gets the loaded Linux backend.
+            </summary>
+            <remarks>
+            On Windows and macOS, this method always returns <see cref="F:SharpHook.Data.LinuxBackend.None" />.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Native.UioHook.SetDeviceProcs(SharpHook.Native.OpenDeviceProc,SharpHook.Native.CloseDeviceProc,System.IntPtr)">
+            <summary>
+            Sets the functions to open and close privieged devices. This can be used to provide a custom way of opening and
+            closing devices on Linux without requiring direct file access to them. This is an advanced scenario and should
+            generally be avoided.
+            </summary>
+            <param name="openProc">
+            The function to use when opening a privileged device, or <see langword="null" /> to use the default method.
+            </param>
+            <param name="closeProc">
+            The function to use when closing a privileged device, or <see langword="null" /> to use the default method.
+            </param>
+            <param name="userData">
+            The data to pass to the device functions.
+            </param>
+            <remarks>
+            These functions are used only on Linux, and only when the loaded backend uses libinput and uinput.
+            </remarks>
         </member>
         <member name="M:SharpHook.Native.UioHook.GetAutoRepeatRate">
             <summary>
-            Gets the auto-repeat rate.
+            Gets the key auto-repeat rate.
             </summary>
-            <returns>The auto-repeat rate.</returns>
+            <returns>The key auto-repeat rate.</returns>
         </member>
         <member name="M:SharpHook.Native.UioHook.GetAutoRepeatDelay">
             <summary>
-            Gets the auto-repeat delay.
+            Gets the key auto-repeat delay.
             </summary>
-            <returns>The auto-repeat delay.</returns>
+            <returns>The key auto-repeat delay.</returns>
         </member>
         <member name="M:SharpHook.Native.UioHook.GetPointerAccelerationMultiplier">
             <summary>
@@ -3257,6 +3466,26 @@
             Gets the multi-click time.
             </summary>
             <returns>The multi-click time.</returns>
+        </member>
+        <member name="M:SharpHook.Native.UioHook.CreateScreenInfo">
+            <summary>
+            Gets the information about screens.
+            </summary>
+            <returns>The information about screens.</returns>
+            <remarks>
+            This is the safe version of <see cref="M:SharpHook.Native.UioHook.CreateScreenInfo(System.Byte@)" /> as it returns a managed array.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Native.UioHook.CreateScreenInfo(System.Byte@)">
+            <summary>
+            Gets the information about screens.
+            </summary>
+            <param name="count">The number of screens.</param>
+            <returns>
+            The information about screens as an unmanaged array of <see cref="T:SharpHook.Data.ScreenData" /> whose length is returned
+            as <paramref name="count" />. The memory used by the array must be freed manually.
+            </returns>
+            <seealso cref="M:SharpHook.Native.UioHook.CreateScreenInfo" />
         </member>
         <member name="T:SharpHook.Providers.IAccessibilityProvider">
             <summary>

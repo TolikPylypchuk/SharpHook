@@ -55,8 +55,8 @@ public sealed class UioHookProvider :
     /// </remarks>
     public ulong PostTextDelayX11
     {
-        get => UioHook.GetPostTextDelayX11();
-        set => UioHook.SetPostTextDelayX11(value);
+        get => UioHook.GetPostTextDelayLinux();
+        set => UioHook.SetPostTextDelayLinux(value);
     }
 
     /// <summary>

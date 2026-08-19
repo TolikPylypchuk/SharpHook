@@ -89,7 +89,7 @@ public static partial class UioHook
     /// <remarks>
     /// <para>
     /// This method makes a difference only on Windows where there are two different global hooks – a keyboard hook and
-    /// a mouse hook. On macOS and Linux there is one hook for all events, and this method simply enables filtering
+    /// a mouse hook. On macOS and Linux, there is one hook for all events, and this method simply enables filtering
     /// mouse events out on these OSes.
     /// </para>
     /// <para>
@@ -117,7 +117,7 @@ public static partial class UioHook
     /// <remarks>
     /// <para>
     /// This method makes a difference only on Windows where there are two different global hooks – a keyboard hook and
-    /// a mouse hook. On macOS and Linux there is one hook for all events, and this method simply enables filtering
+    /// a mouse hook. On macOS and Linux, there is one hook for all events, and this method simply enables filtering
     /// keyboard events out on these OSes.
     /// </para>
     /// <para>
@@ -199,10 +199,22 @@ public static partial class UioHook
     /// </term>
     /// </item>
     /// <item>
+    /// <term><see cref="EventType.MousePressedIgnoreCoordinates" /></term>
+    /// <term>
+    /// Only <see cref="MouseEventData.Button" /> is considered.
+    /// </term>
+    /// </item>
+    /// <item>
     /// <term><see cref="EventType.MouseReleased" /></term>
     /// <term>
     /// Only <see cref="MouseWheelEventData.X" />, <see cref="MouseWheelEventData.Y" />,
     /// and <see cref="MouseEventData.Button" /> are considered.
+    /// </term>
+    /// </item>
+    /// <item>
+    /// <term><see cref="EventType.MouseReleasedIgnoreCoordinates" /></term>
+    /// <term>
+    /// Only <see cref="MouseEventData.Button" /> is considered.
     /// </term>
     /// </item>
     /// <item>
@@ -214,8 +226,16 @@ public static partial class UioHook
     /// <term>Only <see cref="MouseEventData.X" /> and <see cref="MouseEventData.Y" /> are considered.</term>
     /// </item>
     /// <item>
+    /// <term><see cref="EventType.MouseMovedRelative" /></term>
+    /// <term>Only <see cref="MouseEventData.X" /> and <see cref="MouseEventData.Y" /> are considered.</term>
+    /// </item>
+    /// <item>
     /// <term><see cref="EventType.MouseDragged" /></term>
     /// <term>Not recommended to use; same as <see cref="EventType.MouseMoved" />.</term>
+    /// </item>
+    /// <item>
+    /// <term><see cref="EventType.MouseDraggedRelative" /></term>
+    /// <term>Not recommended to use; same as <see cref="EventType.MouseMovedRelative" />.</term>
     /// </item>
     /// <item>
     /// <term><see cref="EventType.MouseWheel" /></term>
@@ -245,7 +265,9 @@ public static partial class UioHook
     /// <param name="size">The number of events to post.</param>
     /// <returns>The result of the operation.</returns>
     /// <remarks>
-    /// All the same rules apply as to <see cref="PostEvent" />.
+    /// All the same rules apply as to <see cref="PostEvent" />. The sequence of events must not contain events of types
+    /// <see cref="EventType.KeyTyped" /> or <see cref="EventType.MouseClicked" />, or the method will fail, potentially
+    /// in the middle of the simulation sequence.
     /// </remarks>
     /// <seealso cref="PostEvent" />
     /// <seealso cref="EventSimulator" />
@@ -278,10 +300,13 @@ public static partial class UioHook
     /// X11 doesn't support text simulation directly. Instead, for each character, an unused key code is remapped to
     /// that character, and then key press/release is simulated. Since the receiving application must react to the
     /// remapping, and may not do so instantaneously, a delay is needed for accurate simulation. This means that text
-    /// simulation on Linux works slowly and is not guaranteed to be correct. <see cref="SetPostTextDelayX11" /> can be
+    /// simulation on Linux works slowly and is not guaranteed to be correct. <see cref="SetPostTextDelayLinux" /> can be
     /// used to increase (or decrease) the delay if needed – longer dealys add consistency but may be more jarring to
-    /// end users. <see cref="GetPostTextDelayX11" /> can be used to get the currently configured delay – the default is
+    /// end users. <see cref="GetPostTextDelayLinux" /> can be used to get the currently configured delay – the default is
     /// 50 milliseconds.
+    /// </para>
+    /// <para>
+    /// On Wayland, text simulation is currently not supported.
     /// </para>
     /// </remarks>
     /// <seealso cref="EventSimulator" />
@@ -295,73 +320,40 @@ public static partial class UioHook
 #endif
 
     /// <summary>
-    /// Gets the delay (in nanoseconds) between posting individual characters when posting text on Linux.
+    /// Returns optional features of libuiohook that are supported on the current platform.
     /// </summary>
-    /// <returns>The delay (in nanoseconds) between posting individual characters when posting text on Linux.</returns>
-    /// <remarks>
-    /// <para>
-    /// X11 doesn't support posting arbitrary Unicode characters directly. Instead, for each character,
-    /// an unused key code is remapped to that character, and then key press/release is simulated. Since the receiving
-    /// application must react to the remapping, and may not do so instantaneously, a delay is needed for accurate
-    /// simulation.
-    /// </para>
-    /// <para>
-    /// The default delay is 50 milliseconds.
-    /// </para>
-    /// <para>
-    /// On Windows and macOS, this method always returns <c>0</c>.
-    /// </para>
-    /// </remarks>
-    /// <seealso cref="EventSimulator" />
+    /// <returns>
+    /// Flags which indicate which optional features are supported on the current platform.
+    /// </returns>
 #if NET7_0_OR_GREATER
-    [LibraryImport(LibUioHook, EntryPoint = "hook_get_post_text_delay_x11")]
+    [LibraryImport(LibUioHook, EntryPoint = "hook_get_optional_feature_support")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial ulong GetPostTextDelayX11();
+    public static partial UioHookFeature GetOptionalFeatureSupport();
 #else
-    [DllImport(LibUioHook, EntryPoint = "hook_get_post_text_delay_x11", CallingConvention = CallingConvention.Cdecl)]
-    public static extern ulong GetPostTextDelayX11();
+    [DllImport(
+        LibUioHook,
+        EntryPoint = "hook_get_optional_feature_support",
+        CallingConvention = CallingConvention.Cdecl)]
+    public static extern UioHookFeature GetOptionalFeatureSupport();
 #endif
 
     /// <summary>
-    /// Sets the delay (in nanoseconds) between posting individual characters when posting text on Linux.
-    /// </summary>
-    /// <param name="delayNanoseconds">
-    /// The delay (in nanoseconds) between posting individual characters when posting text on Linux.
-    /// </param>
-    /// <remarks>
-    /// <para>
-    /// X11 doesn't support posting arbitrary Unicode characters directly. Instead, for each character,
-    /// an unused key code is remapped to that character, and then key press/release is simulated. Since the receiving
-    /// application must react to the remapping, and may not do so instantaneously, a delay is needed for accurate
-    /// simulation.
-    /// </para>
-    /// <para>
-    /// The default delay is 50 milliseconds.
-    /// </para>
-    /// <para>
-    /// On Windows and macOS, this method does nothing.
-    /// </para>
-    /// </remarks>
-    /// <seealso cref="EventSimulator" />
-#if NET7_0_OR_GREATER
-    [LibraryImport(LibUioHook, EntryPoint = "hook_set_post_text_delay_x11")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetPostTextDelayX11(ulong delayNanoseconds);
-#else
-    [DllImport(LibUioHook, EntryPoint = "hook_set_post_text_delay_x11", CallingConvention = CallingConvention.Cdecl)]
-    public static extern void SetPostTextDelayX11(ulong delayNanoseconds);
-#endif
-
-    /// <summary>
-    /// Checks whether events of type <see cref="EventType.KeyTyped" /> are enabled.
+    /// Checks whether events of type <see cref="EventType.KeyTyped" /> are enabled. The default value is
+    /// <see langword="false" />.
     /// </summary>
     /// <returns>
     /// <see langword="true" /> if events of type <see cref="EventType.KeyTyped" /> are enabled. Otherwise,
     /// <see langword="false" />.
     /// </returns>
     /// <remarks>
+    /// <para>
     /// If the application doesn't use events of type <see cref="EventType.KeyTyped" />, then they should be disabled
     /// so that there is no performance penalty and no subtle system-wide side effects.
+    /// </para>
+    /// <para>
+    /// On Wayland, this method always returns <see langword="false" /> since events of type
+    /// <see cref="EventType.KeyTyped" /> are not supported.
+    /// </para>
     /// </remarks>
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_is_key_typed_enabled")]
@@ -375,16 +367,20 @@ public static partial class UioHook
 #endif
 
     /// <summary>
-    /// Sets the value which indicates whether events of type <see cref="EventType.KeyTyped" /> are enabled. The default
-    /// value is <see langword="true" />.
+    /// Sets the value which indicates whether events of type <see cref="EventType.KeyTyped" /> are enabled.
     /// </summary>
     /// <param name="enabled">
     /// <see langword="true" /> if events of type <see cref="EventType.KeyTyped" /> should be enabled. Otherwise,
     /// <see langword="false" />.
     /// </param>
     /// <remarks>
+    /// <para>
     /// If the application doesn't use events of type <see cref="EventType.KeyTyped" />, then they should be disabled
     /// so that there is no performance penalty and no subtle system-wide side effects.
+    /// </para>
+    /// <para>
+    /// On Wayland, this method does nothing since events of type <see cref="EventType.KeyTyped" /> are not supported.
+    /// </para>
     /// </remarks>
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_set_key_typed_enabled")]
@@ -508,55 +504,151 @@ public static partial class UioHook
 #endif
 
     /// <summary>
-    /// Gets the information about screens.
+    /// Gets the delay (in nanoseconds) between posting individual characters when posting text on Linux.
     /// </summary>
-    /// <param name="count">The number of screens.</param>
-    /// <returns>
-    /// The information about screens as an unmanaged array of <see cref="ScreenData" /> whose length is returned
-    /// as <paramref name="count" />. The memory used by the array must be freed manually.
-    /// </returns>
+    /// <returns>The delay (in nanoseconds) between posting individual characters when posting text on Linux.</returns>
     /// <remarks>
-    /// You should use <see cref="CreateScreenInfo()" /> instead as it returns a managed array.
+    /// <para>
+    /// X11 doesn't support posting arbitrary Unicode characters directly. Instead, for each character, an unused key
+    /// code is remapped to that character, and then key press/release is simulated. Since the receiving application
+    /// must react to the remapping, and may not do so instantaneously, a delay is needed for accurate simulation.
+    /// </para>
+    /// <para>
+    /// The default delay is 50 milliseconds.
+    /// </para>
+    /// <para>
+    /// On Windows and macOS, as well as Wayland, this method always returns <c>0</c>.
+    /// </para>
     /// </remarks>
-    /// <seealso cref="CreateScreenInfo()" />
+    /// <seealso cref="EventSimulator" />
 #if NET7_0_OR_GREATER
-    [LibraryImport(LibUioHook, EntryPoint = "hook_create_screen_info")]
+    [LibraryImport(LibUioHook, EntryPoint = "hook_get_post_text_delay_linux")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial nint CreateScreenInfo(out byte count);
+    public static partial ulong GetPostTextDelayLinux();
 #else
-    [DllImport(LibUioHook, EntryPoint = "hook_create_screen_info", CallingConvention = CallingConvention.Cdecl)]
-    public static extern nint CreateScreenInfo(out byte count);
+    [DllImport(LibUioHook, EntryPoint = "hook_get_post_text_delay_linux", CallingConvention = CallingConvention.Cdecl)]
+    public static extern ulong GetPostTextDelayLinux();
 #endif
 
     /// <summary>
-    /// Gets the information about screens.
+    /// Sets the delay (in nanoseconds) between posting individual characters when posting text on Linux.
     /// </summary>
-    /// <returns>The information about screens.</returns>
+    /// <param name="delayNanoseconds">
+    /// The delay (in nanoseconds) between posting individual characters when posting text on Linux.
+    /// </param>
     /// <remarks>
-    /// This is the safe version of <see cref="CreateScreenInfo(out byte)" /> as it returns a managed array.
+    /// <para>
+    /// X11 doesn't support posting arbitrary Unicode characters directly. Instead, for each character, an unused key
+    /// code is remapped to that character, and then key press/release is simulated. Since the receiving application
+    /// must react to the remapping, and may not do so instantaneously, a delay is needed for accurate simulation.
+    /// </para>
+    /// <para>
+    /// The default delay is 50 milliseconds.
+    /// </para>
+    /// <para>
+    /// On Windows and macOS, as well as Wayland, this method does nothing.
+    /// </para>
     /// </remarks>
-    /// <seealso cref="CreateScreenInfo(out byte)" />
-    public static ScreenData[] CreateScreenInfo()
-    {
-        nint screens = CreateScreenInfo(out byte count);
-
-        var result = new ScreenData[count];
-        int size = Marshal.SizeOf<ScreenData>();
-
-        for (int i = 0; i < count; i++)
-        {
-            result[i] = Marshal.PtrToStructure<ScreenData>((nint)((long)screens + i * size));
-        }
-
-        Marshal.FreeHGlobal(screens);
-
-        return result;
-    }
+    /// <seealso cref="EventSimulator" />
+#if NET7_0_OR_GREATER
+    [LibraryImport(LibUioHook, EntryPoint = "hook_set_post_text_delay_linux")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void SetPostTextDelayLinux(ulong delayNanoseconds);
+#else
+    [DllImport(LibUioHook, EntryPoint = "hook_set_post_text_delay_linux", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void SetPostTextDelayLinux(ulong delayNanoseconds);
+#endif
 
     /// <summary>
-    /// Gets the auto-repeat rate.
+    /// Gets the mode for selecting which Linux backend to load.
     /// </summary>
-    /// <returns>The auto-repeat rate.</returns>
+    /// <remarks>
+    /// <para>
+    /// This method returns only the selection mode. If you need to get the Linux backend that was actually loaded, then
+    /// use <see cref="GetLoadedLinuxBackend()" />.
+    /// </para>
+    /// <para>
+    /// On Windows and macOS, this method always returns <see cref="LinuxMode.AutoXRecord" /> which is the default
+    /// value.
+    /// </para>
+    /// </remarks>
+#if NET7_0_OR_GREATER
+    [LibraryImport(LibUioHook, EntryPoint = "hook_get_linux_mode")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial LinuxMode GetLinuxMode();
+#else
+    [DllImport(LibUioHook, EntryPoint = "hook_get_linux_mode", CallingConvention = CallingConvention.Cdecl)]
+    public static extern LinuxMode GetLinuxMode();
+#endif
+
+    /// <summary>
+    /// Sets the mode for selecting which Linux backend to load.
+    /// </summary>
+    /// <remarks>
+    /// This method returns one of three possible values:
+    /// <list type="bullet">
+    /// <item><see cref="UioHookResult.Success" /> if the Linux mode was successfully set.</item>
+    /// <item><see cref="UioHookResult.Failure" /> if the provided mode is an invalid enum value.</item>
+    /// <item>
+    /// <see cref="UioHookResult.ErrorLinuxLoadBackend" /> if a Linux backend has already been loaded and changing it is
+    /// not allowed.
+    /// </item>
+    /// </list>
+    /// </remarks>
+#if NET7_0_OR_GREATER
+    [LibraryImport(LibUioHook, EntryPoint = "hook_set_linux_mode")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial UioHookResult SetLinuxMode(LinuxMode mode);
+#else
+    [DllImport(LibUioHook, EntryPoint = "hook_set_linux_mode", CallingConvention = CallingConvention.Cdecl)]
+    public static extern UioHookResult SetLinuxMode(LinuxMode mode);
+#endif
+
+    /// <summary>
+    /// Gets the loaded Linux backend.
+    /// </summary>
+    /// <remarks>
+    /// On Windows and macOS, this method always returns <see cref="LinuxBackend.None" />.
+    /// </remarks>
+#if NET7_0_OR_GREATER
+    [LibraryImport(LibUioHook, EntryPoint = "hook_get_loaded_linux_backend")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial LinuxBackend GetLoadedLinuxBackend();
+#else
+    [DllImport(LibUioHook, EntryPoint = "hook_get_loaded_linux_backend", CallingConvention = CallingConvention.Cdecl)]
+    public static extern LinuxBackend GetLoadedLinuxBackend();
+#endif
+
+    /// <summary>
+    /// Sets the functions to open and close privieged devices. This can be used to provide a custom way of opening and
+    /// closing devices on Linux without requiring direct file access to them. This is an advanced scenario and should
+    /// generally be avoided.
+    /// </summary>
+    /// <param name="openProc">
+    /// The function to use when opening a privileged device, or <see langword="null" /> to use the default method.
+    /// </param>
+    /// <param name="closeProc">
+    /// The function to use when closing a privileged device, or <see langword="null" /> to use the default method.
+    /// </param>
+    /// <param name="userData">
+    /// The data to pass to the device functions.
+    /// </param>
+    /// <remarks>
+    /// These functions are used only on Linux, and only when the loaded backend uses libinput and uinput.
+    /// </remarks>
+#if NET7_0_OR_GREATER
+    [LibraryImport(LibUioHook, EntryPoint = "hook_set_device_procs")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void SetDeviceProcs(OpenDeviceProc? openProc, CloseDeviceProc? closeProc, nint userData);
+#else
+    [DllImport(LibUioHook, EntryPoint = "hook_set_device_procs", CallingConvention = CallingConvention.Cdecl)]
+    public static extern void SetDeviceProcs(OpenDeviceProc? openProc, CloseDeviceProc? closeProc, nint userData);
+#endif
+
+    /// <summary>
+    /// Gets the key auto-repeat rate.
+    /// </summary>
+    /// <returns>The key auto-repeat rate.</returns>
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_get_auto_repeat_rate")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -567,9 +659,9 @@ public static partial class UioHook
 #endif
 
     /// <summary>
-    /// Gets the auto-repeat delay.
+    /// Gets the key auto-repeat delay.
     /// </summary>
-    /// <returns>The auto-repeat delay.</returns>
+    /// <returns>The key auto-repeat delay.</returns>
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_get_auto_repeat_delay")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -635,5 +727,47 @@ public static partial class UioHook
 #else
     [DllImport(LibUioHook, EntryPoint = "hook_get_multi_click_time", CallingConvention = CallingConvention.Cdecl)]
     public static extern int GetMultiClickTime();
+#endif
+
+    /// <summary>
+    /// Gets the information about screens.
+    /// </summary>
+    /// <returns>The information about screens.</returns>
+    /// <remarks>
+    /// This is the safe version of <see cref="CreateScreenInfo(out byte)" /> as it returns a managed array.
+    /// </remarks>
+    public static ScreenData[] CreateScreenInfo()
+    {
+        nint screens = CreateScreenInfo(out byte count);
+
+        var result = new ScreenData[count];
+        int size = Marshal.SizeOf<ScreenData>();
+
+        for (int i = 0; i < count; i++)
+        {
+            result[i] = Marshal.PtrToStructure<ScreenData>((nint)((long)screens + i * size));
+        }
+
+        Marshal.FreeHGlobal(screens);
+
+        return result;
+    }
+
+    /// <summary>
+    /// Gets the information about screens.
+    /// </summary>
+    /// <param name="count">The number of screens.</param>
+    /// <returns>
+    /// The information about screens as an unmanaged array of <see cref="ScreenData" /> whose length is returned
+    /// as <paramref name="count" />. The memory used by the array must be freed manually.
+    /// </returns>
+    /// <seealso cref="CreateScreenInfo()" />
+#if NET7_0_OR_GREATER
+    [LibraryImport(LibUioHook, EntryPoint = "hook_create_screen_info")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial nint CreateScreenInfo(out byte count);
+#else
+    [DllImport(LibUioHook, EntryPoint = "hook_create_screen_info", CallingConvention = CallingConvention.Cdecl)]
+    internal static extern nint CreateScreenInfo(out byte count);
 #endif
 }
