@@ -32,12 +32,48 @@
       <PackagePath>runtimes/linux-x64/native/libuiohook.so</PackagePath>
       <Pack>True</Pack>
     </None>
+    <None Include="lib\linux-x64\libuiohook-wayland.so">
+      <PackagePath>runtimes/linux-x64/native/libuiohook-wayland.so</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\linux-x64\libuiohook-x11.so">
+      <PackagePath>runtimes/linux-x64/native/libuiohook-x11.so</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\linux-x64\libuiohook-xrecord.so">
+      <PackagePath>runtimes/linux-x64/native/libuiohook-xrecord.so</PackagePath>
+      <Pack>True</Pack>
+    </None>
     <None Include="lib\linux-arm\libuiohook.so">
       <PackagePath>runtimes/linux-arm/native/libuiohook.so</PackagePath>
       <Pack>True</Pack>
     </None>
+    <None Include="lib\linux-arm\libuiohook-wayland.so">
+      <PackagePath>runtimes/linux-arm/native/libuiohook-wayland.so</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\linux-arm\libuiohook-x11.so">
+      <PackagePath>runtimes/linux-arm/native/libuiohook-x11.so</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\linux-arm\libuiohook-xrecord.so">
+      <PackagePath>runtimes/linux-arm/native/libuiohook-xrecord.so</PackagePath>
+      <Pack>True</Pack>
+    </None>
     <None Include="lib\linux-arm64\libuiohook.so">
       <PackagePath>runtimes/linux-arm64/native/libuiohook.so</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\linux-arm64\libuiohook-wayland.so">
+      <PackagePath>runtimes/linux-arm64/native/libuiohook-wayland.so</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\linux-arm64\libuiohook-x11.so">
+      <PackagePath>runtimes/linux-arm64/native/libuiohook-x11.so</PackagePath>
+      <Pack>True</Pack>
+    </None>
+    <None Include="lib\linux-arm64\libuiohook-xrecord.so">
+      <PackagePath>runtimes/linux-arm64/native/libuiohook-xrecord.so</PackagePath>
       <Pack>True</Pack>
     </None>
     <None Include="lib\maccatalyst-x64\libuiohook.dylib">
@@ -152,6 +188,30 @@
     </ContentWithTargetPath>
   </ItemGroup>
 
+  <ItemGroup Condition="'$(SharpHookOS)' == 'Linux' And '$(SharpHookPlatform)' == 'x64'">
+    <ContentWithTargetPath Include="lib\linux-x64\libuiohook-wayland.so">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>libuiohook-wayland.so</TargetPath>
+      <Pack>False</Pack>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(SharpHookOS)' == 'Linux' And '$(SharpHookPlatform)' == 'x64'">
+    <ContentWithTargetPath Include="lib\linux-x64\libuiohook-x11.so">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>libuiohook-x11.so</TargetPath>
+      <Pack>False</Pack>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(SharpHookOS)' == 'Linux' And '$(SharpHookPlatform)' == 'x64'">
+    <ContentWithTargetPath Include="lib\linux-x64\libuiohook-xrecord.so">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>libuiohook-xrecord.so</TargetPath>
+      <Pack>False</Pack>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
   <ItemGroup Condition="'$(SharpHookOS)' == 'Linux' And '$(SharpHookPlatform)' == 'ARM32'">
     <ContentWithTargetPath Include="lib\linux-arm\libuiohook.so">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -160,10 +220,58 @@
     </ContentWithTargetPath>
   </ItemGroup>
 
+  <ItemGroup Condition="'$(SharpHookOS)' == 'Linux' And '$(SharpHookPlatform)' == 'ARM32'">
+    <ContentWithTargetPath Include="lib\linux-arm\libuiohook-wayland.so">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>libuiohook-wayland.so</TargetPath>
+      <Pack>False</Pack>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(SharpHookOS)' == 'Linux' And '$(SharpHookPlatform)' == 'ARM32'">
+    <ContentWithTargetPath Include="lib\linux-arm\libuiohook-x11.so">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>libuiohook-x11.so</TargetPath>
+      <Pack>False</Pack>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(SharpHookOS)' == 'Linux' And '$(SharpHookPlatform)' == 'ARM32'">
+    <ContentWithTargetPath Include="lib\linux-arm\libuiohook-xrecord.so">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>libuiohook-xrecord.so</TargetPath>
+      <Pack>False</Pack>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
   <ItemGroup Condition="'$(SharpHookOS)' == 'Linux' And '$(SharpHookPlatform)' == 'ARM64'">
     <ContentWithTargetPath Include="lib\linux-arm64\libuiohook.so">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>libuiohook.so</TargetPath>
+      <Pack>False</Pack>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(SharpHookOS)' == 'Linux' And '$(SharpHookPlatform)' == 'ARM64'">
+    <ContentWithTargetPath Include="lib\linux-arm64\libuiohook-wayland.so">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>libuiohook-wayland.so</TargetPath>
+      <Pack>False</Pack>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(SharpHookOS)' == 'Linux' And '$(SharpHookPlatform)' == 'ARM64'">
+    <ContentWithTargetPath Include="lib\linux-arm64\libuiohook-x11.so">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>libuiohook-x11.so</TargetPath>
+      <Pack>False</Pack>
+    </ContentWithTargetPath>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(SharpHookOS)' == 'Linux' And '$(SharpHookPlatform)' == 'ARM64'">
+    <ContentWithTargetPath Include="lib\linux-arm64\libuiohook-xrecord.so">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>libuiohook-xrecord.so</TargetPath>
       <Pack>False</Pack>
     </ContentWithTargetPath>
   </ItemGroup>

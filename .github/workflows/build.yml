@@ -37,10 +37,7 @@ jobs:
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/macos/arm64 \
             -D CMAKE_VERBOSE_MAKEFILE=true \
             -D CMAKE_OSX_ARCHITECTURES='arm64' \
-            -D BUILD_SHARED_LIBS=ON \
-            -D USE_APPKIT=OFF \
-            -D USE_EPOCH_TIME=ON \
-            -D ENABLE_TEST=ON
+            -D BUILD_TEST=ON
 
           cmake --build ${{github.workspace}}/build \
             --parallel 2 \
@@ -83,10 +80,7 @@ jobs:
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/macos/x86_64 \
             -D CMAKE_VERBOSE_MAKEFILE=true \
             -D CMAKE_OSX_ARCHITECTURES='x86_64' \
-            -D BUILD_SHARED_LIBS=ON \
-            -D USE_APPKIT=OFF \
-            -D USE_EPOCH_TIME=ON \
-            -D ENABLE_TEST=ON
+            -D BUILD_TEST=ON
 
           cmake --build ${{github.workspace}}/build \
             --parallel 2 \
@@ -124,12 +118,8 @@ jobs:
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/catalyst/arm64 \
             -D CMAKE_VERBOSE_MAKEFILE=true \
             -D CMAKE_OSX_ARCHITECTURES='arm64' \
-            -D BUILD_SHARED_LIBS=ON \
-            -D USE_APPLICATION_SERVICES=OFF \
-            -D USE_IOKIT=ON \
-            -D USE_APPKIT=OFF \
-            -D USE_EPOCH_TIME=ON \
-            -D ENABLE_TEST=ON
+            -D MAC_CATALYST=ON \
+            -D BUILD_TEST=ON
 
           cmake --build ${{github.workspace}}/build \
             --parallel 2 \
@@ -172,12 +162,8 @@ jobs:
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/catalyst/x86_64 \
             -D CMAKE_VERBOSE_MAKEFILE=true \
             -D CMAKE_OSX_ARCHITECTURES='x86_64' \
-            -D BUILD_SHARED_LIBS=ON \
-            -D USE_APPLICATION_SERVICES=OFF \
-            -D USE_IOKIT=ON \
-            -D USE_APPKIT=OFF \
-            -D USE_EPOCH_TIME=ON \
-            -D ENABLE_TEST=ON
+            -D MAC_CATALYST=ON \
+            -D BUILD_TEST=ON
 
           cmake --build ${{github.workspace}}/build \
             --parallel 2 \
@@ -193,7 +179,7 @@ jobs:
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-linux-arm:
-    runs-on: ubuntu-24.04-arm
+    runs-on: ubuntu-26.04-arm
 
     steps:
       - name: Checkout
@@ -223,14 +209,19 @@ jobs:
             gcc-arm-linux-gnueabihf
 
           sudo apt install -qy \
+            extra-cmake-modules \
             libx11-dev:armhf \
             libxtst-dev:armhf \
             libxt-dev:armhf \
-            libxinerama-dev:armhf \
+            libxrandr-dev:armhf \
             libx11-xcb-dev:armhf \
             libxkbcommon-dev:armhf \
             libxkbcommon-x11-dev:armhf \
-            libxkbfile-dev:armhf
+            libxkbfile-dev:armhf \
+            libinput-dev:armhf \
+            libudev-dev:armhf \
+            libwayland-dev:armhf \
+            wayland-protocols
 
       - name: Compile
         env:
@@ -246,9 +237,7 @@ jobs:
             -G "Unix Makefiles" \
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/linux/arm \
             -D CMAKE_VERBOSE_MAKEFILE=true \
-            -D BUILD_SHARED_LIBS=ON \
-            -D USE_EPOCH_TIME=ON \
-            -D ENABLE_TEST=ON
+            -D BUILD_TEST=ON
 
           cmake --build ${{github.workspace}}/build \
             --parallel 2 \
@@ -264,7 +253,7 @@ jobs:
           path: ${{github.workspace}}/dist/**/*
 
   libuiohook-linux-arm64:
-    runs-on: ubuntu-24.04-arm
+    runs-on: ubuntu-26.04-arm
 
     steps:
       - name: Checkout
@@ -276,14 +265,19 @@ jobs:
         shell: bash
         run: |
           sudo apt install -qy \
+            extra-cmake-modules \
             libx11-dev:arm64 \
             libxtst-dev:arm64 \
             libxt-dev:arm64 \
-            libxinerama-dev:arm64 \
+            libxrandr-dev:arm64 \
             libx11-xcb-dev:arm64 \
             libxkbcommon-dev:arm64 \
             libxkbcommon-x11-dev:arm64 \
-            libxkbfile-dev:arm64
+            libxkbfile-dev:arm64 \
+            libinput-dev:arm64 \
+            libudev-dev:arm64 \
+            libwayland-dev:arm64 \
+            wayland-protocols
 
       - name: Compile
         env:
@@ -299,9 +293,7 @@ jobs:
             -G "Unix Makefiles" \
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/linux/arm64 \
             -D CMAKE_VERBOSE_MAKEFILE=true \
-            -D BUILD_SHARED_LIBS=ON \
-            -D USE_EPOCH_TIME=ON \
-            -D ENABLE_TEST=ON
+            -D BUILD_TEST=ON
 
           cmake --build ${{github.workspace}}/build \
             --parallel 2 \
@@ -330,14 +322,19 @@ jobs:
         run: |
           sudo apt update -qy
           sudo apt install -qy \
+            extra-cmake-modules \
             libx11-dev:amd64 \
             libxtst-dev:amd64 \
             libxt-dev:amd64 \
-            libxinerama-dev:amd64 \
+            libxrandr-dev:amd64 \
             libx11-xcb-dev:amd64 \
             libxkbcommon-dev:amd64 \
             libxkbcommon-x11-dev:amd64 \
-            libxkbfile-dev:amd64
+            libxkbfile-dev:amd64 \
+            libinput-dev:amd64 \
+            libudev-dev:amd64 \
+            libwayland-dev:amd64 \
+            wayland-protocols
 
       - name: Compile
         env:
@@ -353,9 +350,7 @@ jobs:
             -G "Unix Makefiles" \
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}/dist/linux/x86_64 \
             -D CMAKE_VERBOSE_MAKEFILE=true \
-            -D BUILD_SHARED_LIBS=ON \
-            -D USE_EPOCH_TIME=ON \
-            -D ENABLE_TEST=ON
+            -D BUILD_TEST=ON
 
           cmake --build ${{github.workspace}}/build \
             --parallel 2 \
@@ -392,10 +387,8 @@ jobs:
             -G "Visual Studio 18 2026" -A ARM64 `
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\arm64 `
             -D CMAKE_VERBOSE_MAKEFILE=true `
-            -D BUILD_SHARED_LIBS=ON `
             -D CMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded `
-            -D USE_EPOCH_TIME=ON `
-            -D ENABLE_TEST=ON
+            -D BUILD_TEST=ON
 
           cmake --build ${{github.workspace}}\build `
             --parallel 2 `
@@ -437,10 +430,8 @@ jobs:
             -G "Visual Studio 18 2026" -A Win32 `
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\x86 `
             -D CMAKE_VERBOSE_MAKEFILE=true `
-            -D BUILD_SHARED_LIBS=ON `
             -D CMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded `
-            -D USE_EPOCH_TIME=ON `
-            -D ENABLE_TEST=ON
+            -D BUILD_TEST=ON
 
           cmake --build ${{github.workspace}}\build `
             --parallel 2 `
@@ -482,10 +473,8 @@ jobs:
             -G "Visual Studio 18 2026" -A x64 `
             -D CMAKE_INSTALL_PREFIX=${{github.workspace}}\dist\windows\x86_64 `
             -D CMAKE_VERBOSE_MAKEFILE=true `
-            -D BUILD_SHARED_LIBS=ON `
             -D CMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded `
-            -D USE_EPOCH_TIME=ON `
-            -D ENABLE_TEST=ON
+            -D BUILD_TEST=ON
 
           cmake --build ${{github.workspace}}\build `
             --parallel 2 `
@@ -560,12 +549,26 @@ jobs:
         shell: pwsh
         run: |
           mv libuiohook-build\linux\arm\lib\libuiohook.so SharpHook\lib\linux-arm\
+          mv libuiohook-build\linux\arm\lib\libuiohook-wayland.so SharpHook\lib\linux-arm\
+          mv libuiohook-build\linux\arm\lib\libuiohook-x11.so SharpHook\lib\linux-arm\
+          mv libuiohook-build\linux\arm\lib\libuiohook-xrecord.so SharpHook\lib\linux-arm\
+
           mv libuiohook-build\linux\arm64\lib\libuiohook.so SharpHook\lib\linux-arm64\
+          mv libuiohook-build\linux\arm64\lib\libuiohook-wayland.so SharpHook\lib\linux-arm64\
+          mv libuiohook-build\linux\arm64\lib\libuiohook-x11.so SharpHook\lib\linux-arm64\
+          mv libuiohook-build\linux\arm64\lib\libuiohook-xrecord.so SharpHook\lib\linux-arm64\
+
           mv libuiohook-build\linux\x86_64\lib\libuiohook.so SharpHook\lib\linux-x64\
+          mv libuiohook-build\linux\x86_64\lib\libuiohook-wayland.so SharpHook\lib\linux-x64\
+          mv libuiohook-build\linux\x86_64\lib\libuiohook-x11.so SharpHook\lib\linux-x64\
+          mv libuiohook-build\linux\x86_64\lib\libuiohook-xrecord.so SharpHook\lib\linux-x64\
+
           mv libuiohook-build\macos\arm64\lib\libuiohook.dylib SharpHook\lib\osx-arm64\
           mv libuiohook-build\macos\x86_64\lib\libuiohook.dylib SharpHook\lib\osx-x64\
+
           mv libuiohook-build\catalyst\arm64\lib\libuiohook.dylib SharpHook\lib\maccatalyst-arm64\
           mv libuiohook-build\catalyst\x86_64\lib\libuiohook.dylib SharpHook\lib\maccatalyst-x64\
+
           mv libuiohook-build\windows\arm64\bin\uiohook.dll SharpHook\lib\win-arm64\
           mv libuiohook-build\windows\x86\bin\uiohook.dll SharpHook\lib\win-x86\
           mv libuiohook-build\windows\x86_64\bin\uiohook.dll SharpHook\lib\win-x64\
