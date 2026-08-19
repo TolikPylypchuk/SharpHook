@@ -484,18 +484,24 @@ references:
   commentId: F:SharpHook.Data.EventType.MouseDragged
   fullName: SharpHook.Data.EventType.MouseDragged
   nameWithType: EventType.MouseDragged
+- uid: SharpHook.Data.EventType.MouseDraggedRelative
+  name: MouseDraggedRelative
+  href: api/SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseDraggedRelative
+  commentId: F:SharpHook.Data.EventType.MouseDraggedRelative
+  fullName: SharpHook.Data.EventType.MouseDraggedRelative
+  nameWithType: EventType.MouseDraggedRelative
 - uid: SharpHook.Data.EventType.MouseMoved
   name: MouseMoved
   href: api/SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseMoved
   commentId: F:SharpHook.Data.EventType.MouseMoved
   fullName: SharpHook.Data.EventType.MouseMoved
   nameWithType: EventType.MouseMoved
-- uid: SharpHook.Data.EventType.MouseMovedRelativeToCursor
-  name: MouseMovedRelativeToCursor
-  href: api/SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseMovedRelativeToCursor
-  commentId: F:SharpHook.Data.EventType.MouseMovedRelativeToCursor
-  fullName: SharpHook.Data.EventType.MouseMovedRelativeToCursor
-  nameWithType: EventType.MouseMovedRelativeToCursor
+- uid: SharpHook.Data.EventType.MouseMovedRelative
+  name: MouseMovedRelative
+  href: api/SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseMovedRelative
+  commentId: F:SharpHook.Data.EventType.MouseMovedRelative
+  fullName: SharpHook.Data.EventType.MouseMovedRelative
+  nameWithType: EventType.MouseMovedRelative
 - uid: SharpHook.Data.EventType.MousePressed
   name: MousePressed
   href: api/SharpHook.Data.EventType.html#SharpHook_Data_EventType_MousePressed
@@ -568,12 +574,6 @@ references:
   commentId: F:SharpHook.Data.KeyCode.Vc1
   fullName: SharpHook.Data.KeyCode.Vc1
   nameWithType: KeyCode.Vc1
-- uid: SharpHook.Data.KeyCode.Vc102
-  name: Vc102
-  href: api/SharpHook.Data.KeyCode.html#SharpHook_Data_KeyCode_Vc102
-  commentId: F:SharpHook.Data.KeyCode.Vc102
-  fullName: SharpHook.Data.KeyCode.Vc102
-  nameWithType: KeyCode.Vc102
 - uid: SharpHook.Data.KeyCode.Vc2
   name: Vc2
   href: api/SharpHook.Data.KeyCode.html#SharpHook_Data_KeyCode_Vc2
@@ -1456,6 +1456,12 @@ references:
   commentId: F:SharpHook.Data.KeyCode.VcScrollLock
   fullName: SharpHook.Data.KeyCode.VcScrollLock
   nameWithType: KeyCode.VcScrollLock
+- uid: SharpHook.Data.KeyCode.VcSection
+  name: VcSection
+  href: api/SharpHook.Data.KeyCode.html#SharpHook_Data_KeyCode_VcSection
+  commentId: F:SharpHook.Data.KeyCode.VcSection
+  fullName: SharpHook.Data.KeyCode.VcSection
+  nameWithType: KeyCode.VcSection
 - uid: SharpHook.Data.KeyCode.VcSemicolon
   name: VcSemicolon
   href: api/SharpHook.Data.KeyCode.html#SharpHook_Data_KeyCode_VcSemicolon
@@ -2335,6 +2341,78 @@ references:
   commentId: F:SharpHook.Data.UioHookResult.ErrorGetRunLoop
   fullName: SharpHook.Data.UioHookResult.ErrorGetRunLoop
   nameWithType: UioHookResult.ErrorGetRunLoop
+- uid: SharpHook.Data.UioHookResult.ErrorLinuxAssignSeat
+  name: ErrorLinuxAssignSeat
+  href: api/SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_ErrorLinuxAssignSeat
+  commentId: F:SharpHook.Data.UioHookResult.ErrorLinuxAssignSeat
+  fullName: SharpHook.Data.UioHookResult.ErrorLinuxAssignSeat
+  nameWithType: UioHookResult.ErrorLinuxAssignSeat
+- uid: SharpHook.Data.UioHookResult.ErrorLinuxCreateUinputDevice
+  name: ErrorLinuxCreateUinputDevice
+  href: api/SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_ErrorLinuxCreateUinputDevice
+  commentId: F:SharpHook.Data.UioHookResult.ErrorLinuxCreateUinputDevice
+  fullName: SharpHook.Data.UioHookResult.ErrorLinuxCreateUinputDevice
+  nameWithType: UioHookResult.ErrorLinuxCreateUinputDevice
+- uid: SharpHook.Data.UioHookResult.ErrorLinuxExecStopNotification
+  name: ErrorLinuxExecStopNotification
+  href: api/SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_ErrorLinuxExecStopNotification
+  commentId: F:SharpHook.Data.UioHookResult.ErrorLinuxExecStopNotification
+  fullName: SharpHook.Data.UioHookResult.ErrorLinuxExecStopNotification
+  nameWithType: UioHookResult.ErrorLinuxExecStopNotification
+- uid: SharpHook.Data.UioHookResult.ErrorLinuxInitLibinput
+  name: ErrorLinuxInitLibinput
+  href: api/SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_ErrorLinuxInitLibinput
+  commentId: F:SharpHook.Data.UioHookResult.ErrorLinuxInitLibinput
+  fullName: SharpHook.Data.UioHookResult.ErrorLinuxInitLibinput
+  nameWithType: UioHookResult.ErrorLinuxInitLibinput
+- uid: SharpHook.Data.UioHookResult.ErrorLinuxInitStopNotification
+  name: ErrorLinuxInitStopNotification
+  href: api/SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_ErrorLinuxInitStopNotification
+  commentId: F:SharpHook.Data.UioHookResult.ErrorLinuxInitStopNotification
+  fullName: SharpHook.Data.UioHookResult.ErrorLinuxInitStopNotification
+  nameWithType: UioHookResult.ErrorLinuxInitStopNotification
+- uid: SharpHook.Data.UioHookResult.ErrorLinuxInitUdev
+  name: ErrorLinuxInitUdev
+  href: api/SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_ErrorLinuxInitUdev
+  commentId: F:SharpHook.Data.UioHookResult.ErrorLinuxInitUdev
+  fullName: SharpHook.Data.UioHookResult.ErrorLinuxInitUdev
+  nameWithType: UioHookResult.ErrorLinuxInitUdev
+- uid: SharpHook.Data.UioHookResult.ErrorLinuxLoadBackend
+  name: ErrorLinuxLoadBackend
+  href: api/SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_ErrorLinuxLoadBackend
+  commentId: F:SharpHook.Data.UioHookResult.ErrorLinuxLoadBackend
+  fullName: SharpHook.Data.UioHookResult.ErrorLinuxLoadBackend
+  nameWithType: UioHookResult.ErrorLinuxLoadBackend
+- uid: SharpHook.Data.UioHookResult.ErrorLinuxNoInputDevices
+  name: ErrorLinuxNoInputDevices
+  href: api/SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_ErrorLinuxNoInputDevices
+  commentId: F:SharpHook.Data.UioHookResult.ErrorLinuxNoInputDevices
+  fullName: SharpHook.Data.UioHookResult.ErrorLinuxNoInputDevices
+  nameWithType: UioHookResult.ErrorLinuxNoInputDevices
+- uid: SharpHook.Data.UioHookResult.ErrorLinuxOpenUinput
+  name: ErrorLinuxOpenUinput
+  href: api/SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_ErrorLinuxOpenUinput
+  commentId: F:SharpHook.Data.UioHookResult.ErrorLinuxOpenUinput
+  fullName: SharpHook.Data.UioHookResult.ErrorLinuxOpenUinput
+  nameWithType: UioHookResult.ErrorLinuxOpenUinput
+- uid: SharpHook.Data.UioHookResult.ErrorLinuxOpenWaylandDisplay
+  name: ErrorLinuxOpenWaylandDisplay
+  href: api/SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_ErrorLinuxOpenWaylandDisplay
+  commentId: F:SharpHook.Data.UioHookResult.ErrorLinuxOpenWaylandDisplay
+  fullName: SharpHook.Data.UioHookResult.ErrorLinuxOpenWaylandDisplay
+  nameWithType: UioHookResult.ErrorLinuxOpenWaylandDisplay
+- uid: SharpHook.Data.UioHookResult.ErrorLinuxVirtualDevicesNoInitialized
+  name: ErrorLinuxVirtualDevicesNoInitialized
+  href: api/SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_ErrorLinuxVirtualDevicesNoInitialized
+  commentId: F:SharpHook.Data.UioHookResult.ErrorLinuxVirtualDevicesNoInitialized
+  fullName: SharpHook.Data.UioHookResult.ErrorLinuxVirtualDevicesNoInitialized
+  nameWithType: UioHookResult.ErrorLinuxVirtualDevicesNoInitialized
+- uid: SharpHook.Data.UioHookResult.ErrorLinuxWriteUinput
+  name: ErrorLinuxWriteUinput
+  href: api/SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_ErrorLinuxWriteUinput
+  commentId: F:SharpHook.Data.UioHookResult.ErrorLinuxWriteUinput
+  fullName: SharpHook.Data.UioHookResult.ErrorLinuxWriteUinput
+  nameWithType: UioHookResult.ErrorLinuxWriteUinput
 - uid: SharpHook.Data.UioHookResult.ErrorNull
   name: ErrorNull
   href: api/SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_ErrorNull
@@ -2347,18 +2425,18 @@ references:
   commentId: F:SharpHook.Data.UioHookResult.ErrorOutOfMemory
   fullName: SharpHook.Data.UioHookResult.ErrorOutOfMemory
   nameWithType: UioHookResult.ErrorOutOfMemory
-- uid: SharpHook.Data.UioHookResult.ErrorPostTextNull
-  name: ErrorPostTextNull
-  href: api/SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_ErrorPostTextNull
-  commentId: F:SharpHook.Data.UioHookResult.ErrorPostTextNull
-  fullName: SharpHook.Data.UioHookResult.ErrorPostTextNull
-  nameWithType: UioHookResult.ErrorPostTextNull
 - uid: SharpHook.Data.UioHookResult.ErrorSetWindowsHookEx
   name: ErrorSetWindowsHookEx
   href: api/SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_ErrorSetWindowsHookEx
   commentId: F:SharpHook.Data.UioHookResult.ErrorSetWindowsHookEx
   fullName: SharpHook.Data.UioHookResult.ErrorSetWindowsHookEx
   nameWithType: UioHookResult.ErrorSetWindowsHookEx
+- uid: SharpHook.Data.UioHookResult.ErrorUnsupportedFeature
+  name: ErrorUnsupportedFeature
+  href: api/SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_ErrorUnsupportedFeature
+  commentId: F:SharpHook.Data.UioHookResult.ErrorUnsupportedFeature
+  fullName: SharpHook.Data.UioHookResult.ErrorUnsupportedFeature
+  nameWithType: UioHookResult.ErrorUnsupportedFeature
 - uid: SharpHook.Data.UioHookResult.ErrorXOpenDisplay
   name: ErrorXOpenDisplay
   href: api/SharpHook.Data.UioHookResult.html#SharpHook_Data_UioHookResult_ErrorXOpenDisplay
