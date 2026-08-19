@@ -1,33 +1,13 @@
-namespace SharpHook;
+namespace SharpHook.Simulation;
 
 /// <summary>
-/// A keyboard and mouse event simulator which posts events to a simulation provider (libuiohook by default).
+/// Represents an object which can simulate keyboard and mouse events.
 /// </summary>
-/// <seealso cref="IEventSimulationProvider" />
-/// <seealso cref="UioHook.PostEvent(ref UioHookEvent)" />
-public class EventSimulator : IEventSimulator
+/// <remarks>
+/// The methods of this interface correspond to constants defined in the <see cref="EventType" /> enum.
+/// </remarks>
+public interface IEventSimulator
 {
-    private readonly IEventSimulationProvider simulationProvider;
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="EventSimulator" /> class.
-    /// </summary>
-    [ExcludeFromCodeCoverage]
-    public EventSimulator()
-        : this(null)
-    { }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="EventSimulator" /> class.
-    /// </summary>
-    /// <param name="simulationProvider">
-    /// The simulation functionality provider (or <see cref="UioHookProvider.Instance" /> if <see langword="null" />).
-    /// </param>
-    [SuppressMessage(
-        "Style", "IDE0290:Use primary constructor", Justification = "Primary constructors don't support XML comments")]
-    public EventSimulator(IEventSimulationProvider? simulationProvider) =>
-        this.simulationProvider = simulationProvider ?? UioHookProvider.Instance;
-
     /// <summary>
     /// Gets or sets the delay between simulating individual characters when simulating text on Linux.
     /// </summary>
@@ -49,51 +29,28 @@ public class EventSimulator : IEventSimulator
     /// <exception cref="ArgumentOutOfRangeException">
     /// <paramref name="value" /> represents a negative time span.
     /// </exception>
-    public TimeSpan TextSimulationDelayOnX11
-    {
-        get => TimeSpan.FromTicks((long)this.simulationProvider.PostTextDelayX11 / 100);
-        set
-        {
-            if (value.Ticks < 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(value));
-            }
-
-            this.simulationProvider.PostTextDelayX11 = (ulong)(value.Ticks * 100);
-        }
-    }
+    TimeSpan TextSimulationDelayOnX11 { get; set; }
 
     /// <summary>
     /// Simulates pressing a key.
     /// </summary>
     /// <param name="keyCode">The code of the key to press.</param>
     /// <returns>The result of the operation.</returns>
-    public UioHookResult SimulateKeyPress(KeyCode keyCode) =>
-        this.PostEvent(new()
-        {
-            Type = EventType.KeyPressed,
-            Keyboard = new() { KeyCode = keyCode }
-        });
+    UioHookResult SimulateKeyPress(KeyCode keyCode);
 
     /// <summary>
     /// Simulates releasing a key.
     /// </summary>
     /// <param name="keyCode">The code of the key to release.</param>
     /// <returns>The result of the operation.</returns>
-    public UioHookResult SimulateKeyRelease(KeyCode keyCode) =>
-        this.PostEvent(new()
-        {
-            Type = EventType.KeyReleased,
-            Keyboard = new() { KeyCode = keyCode }
-        });
+    UioHookResult SimulateKeyRelease(KeyCode keyCode);
 
     /// <summary>
     /// Simulates pressing a mouse button at the current coordinates.
     /// </summary>
     /// <param name="button">The mouse button to press.</param>
     /// <returns>The result of the operation.</returns>
-    public UioHookResult SimulateMousePress(MouseButton button) =>
-        this.SimulateMousePress(button, 0);
+    UioHookResult SimulateMousePress(MouseButton button);
 
     /// <summary>
     /// Simulates pressing a mouse button at the current coordinates.
@@ -101,12 +58,7 @@ public class EventSimulator : IEventSimulator
     /// <param name="button">The mouse button to press.</param>
     /// <param name="clicks">The click count (used only on macOS).</param>
     /// <returns>The result of the operation.</returns>
-    public UioHookResult SimulateMousePress(MouseButton button, ushort clicks) =>
-        this.PostEvent(new()
-        {
-            Type = EventType.MousePressedIgnoreCoordinates,
-            Mouse = new() { Button = button, Clicks = clicks }
-        });
+    UioHookResult SimulateMousePress(MouseButton button, ushort clicks);
 
     /// <summary>
     /// Simulates pressing a mouse button at the specified coordinates.
@@ -115,8 +67,7 @@ public class EventSimulator : IEventSimulator
     /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
     /// <param name="button">The mouse button to press.</param>
     /// <returns>The result of the operation.</returns>
-    public UioHookResult SimulateMousePress(short x, short y, MouseButton button) =>
-        this.SimulateMousePress(x, y, button, 0);
+    UioHookResult SimulateMousePress(short x, short y, MouseButton button);
 
     /// <summary>
     /// Simulates pressing a mouse button at the specified coordinates.
@@ -126,20 +77,14 @@ public class EventSimulator : IEventSimulator
     /// <param name="button">The mouse button to press.</param>
     /// <param name="clicks">The click count (used only on macOS).</param>
     /// <returns>The result of the operation.</returns>
-    public UioHookResult SimulateMousePress(short x, short y, MouseButton button, ushort clicks) =>
-        this.PostEvent(new()
-        {
-            Type = EventType.MousePressed,
-            Mouse = new() { Button = button, X = x, Y = y, Clicks = clicks }
-        });
+    UioHookResult SimulateMousePress(short x, short y, MouseButton button, ushort clicks);
 
     /// <summary>
     /// Simulates releasing a mouse button at the current coordinates.
     /// </summary>
     /// <param name="button">The mouse button to release.</param>
     /// <returns>The result of the operation.</returns>
-    public UioHookResult SimulateMouseRelease(MouseButton button) =>
-        this.SimulateMouseRelease(button, 0);
+    UioHookResult SimulateMouseRelease(MouseButton button);
 
     /// <summary>
     /// Simulates releasing a mouse button at the current coordinates.
@@ -147,12 +92,7 @@ public class EventSimulator : IEventSimulator
     /// <param name="button">The mouse button to release.</param>
     /// <param name="clicks">The click count (used only on macOS).</param>
     /// <returns>The result of the operation.</returns>
-    public UioHookResult SimulateMouseRelease(MouseButton button, ushort clicks) =>
-        this.PostEvent(new()
-        {
-            Type = EventType.MouseReleasedIgnoreCoordinates,
-            Mouse = new() { Button = button, Clicks = clicks }
-        });
+    UioHookResult SimulateMouseRelease(MouseButton button, ushort clicks);
 
     /// <summary>
     /// Simulates releasing a mouse button at the specified coordinates.
@@ -161,8 +101,7 @@ public class EventSimulator : IEventSimulator
     /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
     /// <param name="button">The mouse button to release.</param>
     /// <returns>The result of the operation.</returns>
-    public UioHookResult SimulateMouseRelease(short x, short y, MouseButton button) =>
-        this.SimulateMouseRelease(x, y, button, 0);
+    UioHookResult SimulateMouseRelease(short x, short y, MouseButton button);
 
     /// <summary>
     /// Simulates releasing a mouse button at the specified coordinates.
@@ -172,12 +111,7 @@ public class EventSimulator : IEventSimulator
     /// <param name="button">The mouse button to release.</param>
     /// <param name="clicks">The click count (used only on macOS).</param>
     /// <returns>The result of the operation.</returns>
-    public UioHookResult SimulateMouseRelease(short x, short y, MouseButton button, ushort clicks) =>
-        this.PostEvent(new()
-        {
-            Type = EventType.MouseReleased,
-            Mouse = new() { Button = button, X = x, Y = y, Clicks = clicks }
-        });
+    UioHookResult SimulateMouseRelease(short x, short y, MouseButton button, ushort clicks);
 
     /// <summary>
     /// Simulates moving a mouse pointer.
@@ -185,12 +119,7 @@ public class EventSimulator : IEventSimulator
     /// <param name="x">The target X-coordinate of the mouse pointer.</param>
     /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
     /// <returns>The result of the operation.</returns>
-    public UioHookResult SimulateMouseMovement(short x, short y) =>
-        this.PostEvent(new()
-        {
-            Type = EventType.MouseMoved,
-            Mouse = new() { X = x, Y = y }
-        });
+    UioHookResult SimulateMouseMovement(short x, short y);
 
     /// <summary>
     /// Simulates moving a mouse pointer relative to the current cursor position.
@@ -198,12 +127,7 @@ public class EventSimulator : IEventSimulator
     /// <param name="x">The X-coordinate offset.</param>
     /// <param name="y">The Y-coordinate offset.</param>
     /// <returns>The result of the operation.</returns>
-    public UioHookResult SimulateMouseMovementRelative(short x, short y) =>
-        this.PostEvent(new()
-        {
-            Type = EventType.MouseMovedRelativeToCursor,
-            Mouse = new() { X = x, Y = y }
-        });
+    UioHookResult SimulateMouseMovementRelative(short x, short y);
 
     /// <summary>
     /// Simulates scrolling the mouse wheel.
@@ -233,12 +157,7 @@ public class EventSimulator : IEventSimulator
     public UioHookResult SimulateMouseWheel(
         short rotation,
         MouseWheelScrollDirection direction = MouseWheelScrollDirection.Vertical,
-        MouseWheelScrollType type = MouseWheelScrollType.UnitScroll) =>
-        this.PostEvent(new()
-        {
-            Type = EventType.MouseWheel,
-            Wheel = new() { Rotation = rotation, Direction = direction, Type = type }
-        });
+        MouseWheelScrollType type = MouseWheelScrollType.UnitScroll);
 
     /// <summary>
     /// Simulates the input of arbitrary Unicode characters.
@@ -267,16 +186,11 @@ public class EventSimulator : IEventSimulator
     /// </para>
     /// </remarks>
     /// <exception cref="ArgumentNullException"><paramref name="text" /> is <see langword="null" />.</exception>
-    public UioHookResult SimulateTextEntry(string text) =>
-        this.simulationProvider.PostText(text ?? throw new ArgumentNullException(nameof(text)));
+    UioHookResult SimulateTextEntry(string text);
 
     /// <summary>
     /// Initializes a builder for a sequence of events that can be simulated together.
     /// </summary>
     /// <returns>A builder for a sequence of events that can be simulated together.</returns>
-    public IEventSimulationSequenceBuilder Sequence() =>
-        new EventSimulationSequenceBuilder(this.simulationProvider);
-
-    private UioHookResult PostEvent(UioHookEvent e) =>
-        this.simulationProvider.PostEvent(ref e);
+    IEventSimulationSequenceBuilder Sequence();
 }

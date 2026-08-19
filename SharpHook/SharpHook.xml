@@ -1188,14 +1188,6 @@
             <summary>IME Kana mode</summary>
             <remarks>Available on: Windows, macOS</remarks>
         </member>
-        <member name="F:SharpHook.Data.KeyCode.VcKanji">
-            <summary>IME Kanji mode</summary>
-            <remarks>Available on: Windows</remarks>
-        </member>
-        <member name="F:SharpHook.Data.KeyCode.VcHangul">
-            <summary>IME Hangul mode</summary>
-            <remarks>Available on: Windows, Linux</remarks>
-        </member>
         <member name="F:SharpHook.Data.KeyCode.VcJunja">
             <summary>IME Junja mode</summary>
             <remarks>Available on: Windows</remarks>
@@ -1908,530 +1900,6 @@
             </param>
             <exception cref="T:SharpHook.HookException">Stopping the hook has failed.</exception>
         </member>
-        <member name="T:SharpHook.EventSimulationExtensions">
-            <summary>
-            Contains extension methods for <see cref="T:SharpHook.IEventSimulator" /> and <see cref="T:SharpHook.IEventSimulationSequenceBuilder" />.
-            </summary>
-        </member>
-        <member name="M:SharpHook.EventSimulationExtensions.AddKeyStroke(SharpHook.IEventSimulationSequenceBuilder,SharpHook.Data.KeyCode[])">
-            <inheritdoc cref="M:SharpHook.EventSimulationExtensions.&lt;G&gt;$9780AC0AF75CCB5A305132DFDBE666BB.AddKeyStroke(SharpHook.Data.KeyCode[])"/>
-        </member>
-        <member name="M:SharpHook.EventSimulationExtensions.AddKeyStroke(SharpHook.IEventSimulationSequenceBuilder,System.Collections.Generic.IEnumerable{SharpHook.Data.KeyCode})">
-            <inheritdoc cref="M:SharpHook.EventSimulationExtensions.&lt;G&gt;$9780AC0AF75CCB5A305132DFDBE666BB.AddKeyStroke(System.Collections.Generic.IEnumerable{SharpHook.Data.KeyCode})"/>
-        </member>
-        <member name="M:SharpHook.EventSimulationExtensions.SimulateKeyStroke(SharpHook.IEventSimulator,SharpHook.Data.KeyCode[])">
-            <inheritdoc cref="M:SharpHook.EventSimulationExtensions.&lt;G&gt;$8C0C4809C841289DDD3FF71E471E05EE.SimulateKeyStroke(SharpHook.Data.KeyCode[])"/>
-        </member>
-        <member name="M:SharpHook.EventSimulationExtensions.SimulateKeyStroke(SharpHook.IEventSimulator,System.Collections.Generic.IEnumerable{SharpHook.Data.KeyCode})">
-            <inheritdoc cref="M:SharpHook.EventSimulationExtensions.&lt;G&gt;$8C0C4809C841289DDD3FF71E471E05EE.SimulateKeyStroke(System.Collections.Generic.IEnumerable{SharpHook.Data.KeyCode})"/>
-        </member>
-        <member name="M:SharpHook.EventSimulationExtensions.&lt;G&gt;$9780AC0AF75CCB5A305132DFDBE666BB.AddKeyStroke(SharpHook.Data.KeyCode[])">
-            <summary>
-            Adds a sequecne of key press and release events which represent a single key stroke to the sequence of
-            events to simulate.
-            </summary>
-            <param name="keyCodes">The codes of the keys to press and release.</param>
-            <returns>The builder.</returns>
-            <remarks>
-            As an example, if the method is called with the following parameters:
-            <code>
-            builder.AddKeyStroke(KeyCode.VcLeftControl, KeyCode.VcC);
-            </code>
-            then this will be equivalent to calling the following method sequence:
-            <code>
-            builder
-                .AddKeyPress(KeyCode.VcLeftControl)
-                .AddKeyPress(KeyCode.VcC)
-                .AddKeyRelease(KeyCode.VcC)
-                .AddKeyRelease(KeyCode.VcLeftControl);
-            </code>
-            which means that this method will add pressing Left Control, then pressing C, then releasing C, then
-            releasing Left Control.
-            </remarks>
-        </member>
-        <member name="M:SharpHook.EventSimulationExtensions.&lt;G&gt;$9780AC0AF75CCB5A305132DFDBE666BB.AddKeyStroke(System.Collections.Generic.IEnumerable{SharpHook.Data.KeyCode})">
-            <summary>
-            Adds a sequence of key press and release events which represent a single key stroke to the sequence of
-            events to simulate.
-            </summary>
-            <param name="keyCodes">The codes of the keys to press and release.</param>
-            <returns>The builder.</returns>
-            <remarks>
-            As an example, if the method is called with the following parameters:
-            <code>
-            builder.AddKeyStroke([KeyCode.VcLeftControl, KeyCode.VcC]);
-            </code>
-            then this will be equivalent to calling the following method sequence:
-            <code>
-            builder
-                .AddKeyPress(KeyCode.VcLeftControl)
-                .AddKeyPress(KeyCode.VcC)
-                .AddKeyRelease(KeyCode.VcC)
-                .AddKeyRelease(KeyCode.VcLeftControl);
-            </code>
-            which means that this method will add pressing Left Control, then pressing C, then releasing C, then
-            releasing Left Control.
-            </remarks>
-        </member>
-        <member name="M:SharpHook.EventSimulationExtensions.&lt;G&gt;$8C0C4809C841289DDD3FF71E471E05EE.SimulateKeyStroke(SharpHook.Data.KeyCode[])">
-            <summary>
-            Simulates a sequence of key press and release events which represent a single key stroke.
-            </summary>
-            <param name="keyCodes">The codes of the keys to press and release.</param>
-            <returns>The result of the operation.</returns>
-            <remarks>
-            As an example, if the method is called with the following parameters:
-            <code>
-            simulator.SimulateKeyStroke(KeyCode.VcLeftControl, KeyCode.VcC);
-            </code>
-            then this will be equivalent to calling the following method sequence:
-            <code>
-            simulator.Sequence()
-                .AddKeyPress(KeyCode.VcLeftControl)
-                .AddKeyPress(KeyCode.VcC)
-                .AddKeyRelease(KeyCode.VcC)
-                .AddKeyRelease(KeyCode.VcLeftControl)
-                .Simulate();
-            </code>
-            which means that this method will simualte pressing Left Control, then pressing C, then releasing C, then
-            releasing Left Control.
-            </remarks>
-        </member>
-        <member name="M:SharpHook.EventSimulationExtensions.&lt;G&gt;$8C0C4809C841289DDD3FF71E471E05EE.SimulateKeyStroke(System.Collections.Generic.IEnumerable{SharpHook.Data.KeyCode})">
-            <summary>
-            Simulates a sequence of key press and release events which represent a single key stroke.
-            </summary>
-            <param name="keyCodes">The codes of the keys to press and release.</param>
-            <returns>The result of the operation.</returns>
-            <remarks>
-            As an example, if the method is called with the following parameters:
-            <code>
-            simulator.SimulateKeyStroke([KeyCode.VcLeftControl, KeyCode.VcC]);
-            </code>
-            then this will be equivalent to calling the following method sequence:
-            <code>
-            simulator.Sequence()
-                .AddKeyPress(KeyCode.VcLeftControl)
-                .AddKeyPress(KeyCode.VcC)
-                .AddKeyRelease(KeyCode.VcC)
-                .AddKeyRelease(KeyCode.VcLeftControl)
-                .Simulate();
-            </code>
-            which means that this method will simualte pressing Left Control, then pressing C, then releasing C, then
-            releasing Left Control.
-            </remarks>
-        </member>
-        <member name="T:SharpHook.EventSimulationSequenceBuilder">
-            <summary>
-            Represents a builder for a sequence of events that can be simulated together.
-            </summary>
-        </member>
-        <member name="M:SharpHook.EventSimulationSequenceBuilder.#ctor(SharpHook.Providers.IEventSimulationProvider)">
-            <summary>
-            Initializes a new instance of the <see cref="T:SharpHook.EventSimulationSequenceBuilder" /> class.
-            </summary>
-            <param name="simulationProvider">
-            The simulation functionality provider (or <see cref="P:SharpHook.Providers.UioHookProvider.Instance" /> if <see langword="null" />).
-            </param>
-        </member>
-        <member name="M:SharpHook.EventSimulationSequenceBuilder.AddEvent(SharpHook.Data.UioHookEvent)">
-            <summary>
-            Adds the specified event to the sequence of events to simulate.
-            </summary>
-            <param name="e">The event to add to the sequence.</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulationSequenceBuilder.AddEvents(SharpHook.Data.UioHookEvent[])">
-            <summary>
-            Adds the specified events to the sequence of events to simulate.
-            </summary>
-            <param name="events">The events to add to the sequence.</param>
-            <returns>The current builder.</returns>
-            <exception cref="T:System.ArgumentNullException"><paramref name="events" /> is <see langword="null" />.</exception>
-        </member>
-        <member name="M:SharpHook.EventSimulationSequenceBuilder.AddEvents(System.Collections.Generic.IEnumerable{SharpHook.Data.UioHookEvent})">
-            <summary>
-            Adds the specified events to the sequence of events to simulate.
-            </summary>
-            <param name="events">The events to add to the sequence.</param>
-            <returns>The current builder.</returns>
-            <exception cref="T:System.ArgumentNullException"><paramref name="events" /> is <see langword="null" />.</exception>
-        </member>
-        <member name="M:SharpHook.EventSimulationSequenceBuilder.AddKeyPress(SharpHook.Data.KeyCode)">
-            <summary>
-            Adds a key press event to the sequence of events to simulate.
-            </summary>
-            <param name="keyCode">The code of the key to press.</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulationSequenceBuilder.AddKeyRelease(SharpHook.Data.KeyCode)">
-            <summary>
-            Adds a key release event to the sequence of events to simulate.
-            </summary>
-            <param name="keyCode">The code of the key to press.</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton)">
-            <summary>
-            Adds a mouse button press event to the sequence of events to simulate.
-            </summary>
-            <param name="button">The mouse button to press.</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton,System.UInt16)">
-            <summary>
-            Adds a mouse button press event to the sequence of events to simulate.
-            </summary>
-            <param name="button">The mouse button to press.</param>
-            <param name="clicks">The click count (used only on macOS).</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulationSequenceBuilder.AddMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton)">
-            <summary>
-            Adds a mouse button press event to the sequence of events to simulate.
-            </summary>
-            <param name="x">The target X-coordinate of the mouse pointer.</param>
-            <param name="y">The target Y-coordinate of the mouse pointer.</param>
-            <param name="button">The mouse button to press.</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulationSequenceBuilder.AddMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)">
-            <summary>
-            Adds a mouse button press event to the sequence of events to simulate.
-            </summary>
-            <param name="x">The target X-coordinate of the mouse pointer.</param>
-            <param name="y">The target Y-coordinate of the mouse pointer.</param>
-            <param name="button">The mouse button to press.</param>
-            <param name="clicks">The click count (used only on macOS).</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulationSequenceBuilder.AddMouseRelease(SharpHook.Data.MouseButton)">
-            <summary>
-            Adds a mouse button release event to the sequence of events to simulate.
-            </summary>
-            <param name="button">The mouse button to release.</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulationSequenceBuilder.AddMouseRelease(SharpHook.Data.MouseButton,System.UInt16)">
-            <summary>
-            Adds a mouse button release event to the sequence of events to simulate.
-            </summary>
-            <param name="button">The mouse button to release.</param>
-            <param name="clicks">The click count (used only on macOS).</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulationSequenceBuilder.AddMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton)">
-            <summary>
-            Adds a mouse button release event to the sequence of events to simulate.
-            </summary>
-            <param name="x">The target X-coordinate of the mouse pointer.</param>
-            <param name="y">The target Y-coordinate of the mouse pointer.</param>
-            <param name="button">The mouse button to release.</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulationSequenceBuilder.AddMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)">
-            <summary>
-            Adds a mouse button release event to the sequence of events to simulate.
-            </summary>
-            <param name="x">The target X-coordinate of the mouse pointer.</param>
-            <param name="y">The target Y-coordinate of the mouse pointer.</param>
-            <param name="button">The mouse button to release.</param>
-            <param name="clicks">The click count (used only on macOS).</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulationSequenceBuilder.AddMouseMovement(System.Int16,System.Int16)">
-            <summary>
-            Adds a mouse movement event to the sequence of events to simulate.
-            </summary>
-            <param name="x">The target X-coordinate of the mouse pointer.</param>
-            <param name="y">The target Y-coordinate of the mouse pointer.</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulationSequenceBuilder.AddMouseMovementRelative(System.Int16,System.Int16)">
-            <summary>
-            Adds a relative mouse movement event to the sequence of events to simulate.
-            </summary>
-            <param name="x">The X-coordinate offset.</param>
-            <param name="y">The Y-coordinate offset.</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulationSequenceBuilder.AddMouseWheel(System.Int16,SharpHook.Data.MouseWheelScrollDirection,SharpHook.Data.MouseWheelScrollType)">
-            <summary>
-            Adds a mouse wheel scroll event to the sequence of events to simulate.
-            </summary>
-            <param name="rotation">
-            The wheel rotation. A positive value indicates that the wheel will be rotated up or left,
-            and a negative value indicates that the wheel will be rotated down or right.
-            </param>
-            <param name="direction">The scroll direction.</param>
-            <param name="type">The scroll type (considered only on macOS).</param>
-            <returns>The current builder.</returns>
-            <remarks>
-            <para>
-            On Windows, the value <c>120</c> represents the default wheel step. As such, multiples of <c>120</c> can be
-            used, but it's not required. The value of <paramref name="type" /> is ignored.
-            </para>
-            <para>
-            On macOS, it's recommended to use values between <c>-10</c> and <c>10</c>. This will result in quite a small
-            scroll amount with pixel scrolling, so <see cref="F:SharpHook.Data.MouseWheelScrollType.BlockScroll" /> is recommended for line
-            scrolling instead of pixel scrolling.
-            </para>
-            <para>
-            On Linux, there is no fixed recommendation, but multiples of <c>100</c> can be used. The value of
-            <paramref name="type" /> is ignored.
-            </para>
-            </remarks>
-        </member>
-        <member name="M:SharpHook.EventSimulationSequenceBuilder.RemoveEvent(SharpHook.Data.UioHookEvent)">
-            <summary>
-            Removes the specified event from the sequence of events to simulate.
-            </summary>
-            <param name="e">The event to remove from the sequence.</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulationSequenceBuilder.RemoveEvents(System.Func{SharpHook.Data.UioHookEvent,System.Boolean})">
-            <summary>
-            Removes the specified events from the sequence of events to simulate.
-            </summary>
-            <param name="predicate">The predicate to check if the event should be removed from the sequence.</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulationSequenceBuilder.Simulate">
-            <summary>
-            Simulates the events in this sequence.
-            </summary>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulationSequenceBuilder.CreateTemplate">
-            <summary>
-            Creates a template based on the events in this sequence.
-            </summary>
-            <returns>A template based on the events in this sequence.</returns>
-        </member>
-        <member name="T:SharpHook.EventSimulationSequenceTemplate">
-            <summary>
-            Represents an object that can simulate a predetermined sequence of events.
-            </summary>
-        </member>
-        <member name="M:SharpHook.EventSimulationSequenceTemplate.#ctor(System.Collections.Generic.IEnumerable{SharpHook.Data.UioHookEvent},SharpHook.Providers.IEventSimulationProvider)">
-            <summary>
-            Initializes a new instance of the <see cref="T:SharpHook.EventSimulationSequenceTemplate" /> class.
-            </summary>
-            <param name="events">The events to simulate. They will be copied to ensure the events don't change.</param>
-            <param name="simulationProvider">
-            The simulation functionality provider (or <see cref="P:SharpHook.Providers.UioHookProvider.Instance" /> if <see langword="null" />).
-            </param>
-            <exception cref="T:System.ArgumentNullException"><paramref name="events" /> is <see langword="null" />.</exception>
-        </member>
-        <member name="M:SharpHook.EventSimulationSequenceTemplate.Simulate">
-            <summary>
-            Simulates the predetermined sequence of events.
-            </summary>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="T:SharpHook.EventSimulator">
-            <summary>
-            A keyboard and mouse event simulator which posts events to a simulation provider (libuiohook by default).
-            </summary>
-            <seealso cref="T:SharpHook.Providers.IEventSimulationProvider" />
-            <seealso cref="M:SharpHook.Native.UioHook.PostEvent(SharpHook.Data.UioHookEvent@)" />
-        </member>
-        <member name="M:SharpHook.EventSimulator.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:SharpHook.EventSimulator" /> class.
-            </summary>
-        </member>
-        <member name="M:SharpHook.EventSimulator.#ctor(SharpHook.Providers.IEventSimulationProvider)">
-            <summary>
-            Initializes a new instance of the <see cref="T:SharpHook.EventSimulator" /> class.
-            </summary>
-            <param name="simulationProvider">
-            The simulation functionality provider (or <see cref="P:SharpHook.Providers.UioHookProvider.Instance" /> if <see langword="null" />).
-            </param>
-        </member>
-        <member name="P:SharpHook.EventSimulator.TextSimulationDelayOnX11">
-            <summary>
-            Gets or sets the delay between simulating individual characters when simulating text on Linux.
-            </summary>
-            <value>The delay between simulating individual characters when simulating text on Linux.</value>
-            <remarks>
-            <para>
-            X11 doesn't support simulating arbitrary Unicode characters directly. Instead, for each character,
-            an unused key code is remapped to that character, and then key press/release is simulated. Since the receiving
-            application must react to the remapping, and may not do so instantaneously, a delay is needed for accurate
-            simulation.
-            </para>
-            <para>
-            The default delay is 50 milliseconds.
-            </para>
-            <para>
-            On Windows and macOS, this property is ignored.
-            </para>
-            </remarks>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            <paramref name="value" /> represents a negative time span.
-            </exception>
-        </member>
-        <member name="M:SharpHook.EventSimulator.SimulateKeyPress(SharpHook.Data.KeyCode)">
-            <summary>
-            Simulates pressing a key.
-            </summary>
-            <param name="keyCode">The code of the key to press.</param>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulator.SimulateKeyRelease(SharpHook.Data.KeyCode)">
-            <summary>
-            Simulates releasing a key.
-            </summary>
-            <param name="keyCode">The code of the key to release.</param>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulator.SimulateMousePress(SharpHook.Data.MouseButton)">
-            <summary>
-            Simulates pressing a mouse button at the current coordinates.
-            </summary>
-            <param name="button">The mouse button to press.</param>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulator.SimulateMousePress(SharpHook.Data.MouseButton,System.UInt16)">
-            <summary>
-            Simulates pressing a mouse button at the current coordinates.
-            </summary>
-            <param name="button">The mouse button to press.</param>
-            <param name="clicks">The click count (used only on macOS).</param>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulator.SimulateMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton)">
-            <summary>
-            Simulates pressing a mouse button at the specified coordinates.
-            </summary>
-            <param name="x">The target X-coordinate of the mouse pointer.</param>
-            <param name="y">The target Y-coordinate of the mouse pointer.</param>
-            <param name="button">The mouse button to press.</param>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulator.SimulateMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)">
-            <summary>
-            Simulates pressing a mouse button at the specified coordinates.
-            </summary>
-            <param name="x">The target X-coordinate of the mouse pointer.</param>
-            <param name="y">The target Y-coordinate of the mouse pointer.</param>
-            <param name="button">The mouse button to press.</param>
-            <param name="clicks">The click count (used only on macOS).</param>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulator.SimulateMouseRelease(SharpHook.Data.MouseButton)">
-            <summary>
-            Simulates releasing a mouse button at the current coordinates.
-            </summary>
-            <param name="button">The mouse button to release.</param>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulator.SimulateMouseRelease(SharpHook.Data.MouseButton,System.UInt16)">
-            <summary>
-            Simulates releasing a mouse button at the current coordinates.
-            </summary>
-            <param name="button">The mouse button to release.</param>
-            <param name="clicks">The click count (used only on macOS).</param>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulator.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton)">
-            <summary>
-            Simulates releasing a mouse button at the specified coordinates.
-            </summary>
-            <param name="x">The target X-coordinate of the mouse pointer.</param>
-            <param name="y">The target Y-coordinate of the mouse pointer.</param>
-            <param name="button">The mouse button to release.</param>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulator.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)">
-            <summary>
-            Simulates releasing a mouse button at the specified coordinates.
-            </summary>
-            <param name="x">The target X-coordinate of the mouse pointer.</param>
-            <param name="y">The target Y-coordinate of the mouse pointer.</param>
-            <param name="button">The mouse button to release.</param>
-            <param name="clicks">The click count (used only on macOS).</param>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulator.SimulateMouseMovement(System.Int16,System.Int16)">
-            <summary>
-            Simulates moving a mouse pointer.
-            </summary>
-            <param name="x">The target X-coordinate of the mouse pointer.</param>
-            <param name="y">The target Y-coordinate of the mouse pointer.</param>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulator.SimulateMouseMovementRelative(System.Int16,System.Int16)">
-            <summary>
-            Simulates moving a mouse pointer relative to the current cursor position.
-            </summary>
-            <param name="x">The X-coordinate offset.</param>
-            <param name="y">The Y-coordinate offset.</param>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.EventSimulator.SimulateMouseWheel(System.Int16,SharpHook.Data.MouseWheelScrollDirection,SharpHook.Data.MouseWheelScrollType)">
-            <summary>
-            Simulates scrolling the mouse wheel.
-            </summary>
-            <param name="rotation">
-            The wheel rotation. A positive value indicates that the wheel will be rotated up or left,
-            and a negative value indicates that the wheel will be rotated down or right.
-            </param>
-            <param name="direction">The scroll direction.</param>
-            <param name="type">The scroll type (considered only on macOS).</param>
-            <returns>The result of the operation.</returns>
-            <remarks>
-            <para>
-            On Windows, the value <c>120</c> represents the default wheel step. As such, multiples of <c>120</c> can be
-            used, but it's not required. The value of <paramref name="type" /> is ignored.
-            </para>
-            <para>
-            On macOS, it's recommended to use values between <c>-10</c> and <c>10</c>. This will result in quite a small
-            scroll amount with pixel scrolling, so <see cref="F:SharpHook.Data.MouseWheelScrollType.BlockScroll" /> is recommended for line
-            scrolling instead of pixel scrolling.
-            </para>
-            <para>
-            On Linux, there is no fixed recommendation, but multiples of <c>100</c> can be used. The value of
-            <paramref name="type" /> is ignored.
-            </para>
-            </remarks>
-        </member>
-        <member name="M:SharpHook.EventSimulator.SimulateTextEntry(System.String)">
-            <summary>
-            Simulates the input of arbitrary Unicode characters.
-            </summary>
-            <param name="text">The text to simulate.</param>
-            <returns>The result of the operation.</returns>
-            <remarks>
-            <para>
-            The text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16 (including
-            surrogate pairs, e.g. emojis) is supported.
-            </para>
-            <para>
-            On Windows, text simulation should work correctly and consistently.
-            </para>
-            <para>
-            On macOS, applications are not required to process text simulation, but most of them should handle it correctly.
-            </para>
-            <para>
-            X11 doesn't support text simulation directly. Instead, for each character, an unused key code is remapped to
-            that character, and then key press/release is simulated. Since the receiving application must react to the
-            remapping, and may not do so instantaneously, a delay is needed for accurate simulation. This means that text
-            simulation on Linux works slowly and is not guaranteed to be correct. <see cref="P:SharpHook.EventSimulator.TextSimulationDelayOnX11" />
-            can be used to increase (or decrease) the delay if needed – longer delays add consistency but may be more
-            jarring to end users. <see cref="P:SharpHook.EventSimulator.TextSimulationDelayOnX11" /> can also be used to get the currently configured
-            delay – the default is 50 milliseconds.
-            </para>
-            </remarks>
-            <exception cref="T:System.ArgumentNullException"><paramref name="text" /> is <see langword="null" />.</exception>
-        </member>
-        <member name="M:SharpHook.EventSimulator.Sequence">
-            <summary>
-            Initializes a builder for a sequence of events that can be simulated together.
-            </summary>
-            <returns>A builder for a sequence of events that can be simulated together.</returns>
-        </member>
         <member name="T:SharpHook.GlobalHookBase">
             <summary>
             Represents an abstract implementation of <see cref="T:SharpHook.IGlobalHook" /> which defines everything needed except for
@@ -2780,387 +2248,6 @@
             <remarks>
             After stopping, the global hook can run again.
             </remarks>
-        </member>
-        <member name="T:SharpHook.IEventSimulationSequenceBuilder">
-            <summary>
-            Represents a builder for a sequence of events that can be simulated together.
-            </summary>
-        </member>
-        <member name="M:SharpHook.IEventSimulationSequenceBuilder.AddEvent(SharpHook.Data.UioHookEvent)">
-            <summary>
-            Adds the specified event to the sequence of events to simulate.
-            </summary>
-            <param name="e">The event to add to the sequence.</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulationSequenceBuilder.AddEvents(SharpHook.Data.UioHookEvent[])">
-            <summary>
-            Adds the specified events to the sequence of events to simulate.
-            </summary>
-            <param name="events">The events to add to the sequence.</param>
-            <returns>The current builder.</returns>
-            <exception cref="T:System.ArgumentNullException"><paramref name="events" /> is <see langword="null" />.</exception>
-        </member>
-        <member name="M:SharpHook.IEventSimulationSequenceBuilder.AddEvents(System.Collections.Generic.IEnumerable{SharpHook.Data.UioHookEvent})">
-            <summary>
-            Adds the specified events to the sequence of events to simulate.
-            </summary>
-            <param name="events">The events to add to the sequence.</param>
-            <returns>The current builder.</returns>
-            <exception cref="T:System.ArgumentNullException"><paramref name="events" /> is <see langword="null" />.</exception>
-        </member>
-        <member name="M:SharpHook.IEventSimulationSequenceBuilder.AddKeyPress(SharpHook.Data.KeyCode)">
-            <summary>
-            Adds a key press event to the sequence of events to simulate.
-            </summary>
-            <param name="keyCode">The code of the key to press.</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulationSequenceBuilder.AddKeyRelease(SharpHook.Data.KeyCode)">
-            <summary>
-            Adds a key release event to the sequence of events to simulate.
-            </summary>
-            <param name="keyCode">The code of the key to press.</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton)">
-            <summary>
-            Adds a mouse button press event to the sequence of events to simulate.
-            </summary>
-            <param name="button">The mouse button to press.</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton,System.UInt16)">
-            <summary>
-            Adds a mouse button press event to the sequence of events to simulate.
-            </summary>
-            <param name="button">The mouse button to press.</param>
-            <param name="clicks">The click count (used only on macOS).</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulationSequenceBuilder.AddMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton)">
-            <summary>
-            Adds a mouse button press event to the sequence of events to simulate.
-            </summary>
-            <param name="x">The target X-coordinate of the mouse pointer.</param>
-            <param name="y">The target Y-coordinate of the mouse pointer.</param>
-            <param name="button">The mouse button to press.</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulationSequenceBuilder.AddMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)">
-            <summary>
-            Adds a mouse button press event to the sequence of events to simulate.
-            </summary>
-            <param name="x">The target X-coordinate of the mouse pointer.</param>
-            <param name="y">The target Y-coordinate of the mouse pointer.</param>
-            <param name="button">The mouse button to press.</param>
-            <param name="clicks">The click count (used only on macOS).</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulationSequenceBuilder.AddMouseRelease(SharpHook.Data.MouseButton)">
-            <summary>
-            Adds a mouse button release event to the sequence of events to simulate.
-            </summary>
-            <param name="button">The mouse button to release.</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulationSequenceBuilder.AddMouseRelease(SharpHook.Data.MouseButton,System.UInt16)">
-            <summary>
-            Adds a mouse button release event to the sequence of events to simulate.
-            </summary>
-            <param name="button">The mouse button to release.</param>
-            <param name="clicks">The click count (used only on macOS).</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulationSequenceBuilder.AddMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton)">
-            <summary>
-            Adds a mouse button release event to the sequence of events to simulate.
-            </summary>
-            <param name="x">The target X-coordinate of the mouse pointer.</param>
-            <param name="y">The target Y-coordinate of the mouse pointer.</param>
-            <param name="button">The mouse button to release.</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulationSequenceBuilder.AddMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)">
-            <summary>
-            Adds a mouse button release event to the sequence of events to simulate.
-            </summary>
-            <param name="x">The target X-coordinate of the mouse pointer.</param>
-            <param name="y">The target Y-coordinate of the mouse pointer.</param>
-            <param name="button">The mouse button to release.</param>
-            <param name="clicks">The click count (used only on macOS).</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulationSequenceBuilder.AddMouseMovement(System.Int16,System.Int16)">
-            <summary>
-            Adds a mouse movement event to the sequence of events to simulate.
-            </summary>
-            <param name="x">The target X-coordinate of the mouse pointer.</param>
-            <param name="y">The target Y-coordinate of the mouse pointer.</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulationSequenceBuilder.AddMouseMovementRelative(System.Int16,System.Int16)">
-            <summary>
-            Adds a relative mouse movement event to the sequence of events to simulate.
-            </summary>
-            <param name="x">The X-coordinate offset.</param>
-            <param name="y">The Y-coordinate offset.</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulationSequenceBuilder.AddMouseWheel(System.Int16,SharpHook.Data.MouseWheelScrollDirection,SharpHook.Data.MouseWheelScrollType)">
-            <summary>
-            Adds a mouse wheel scroll event to the sequence of events to simulate.
-            </summary>
-            <param name="rotation">
-            The wheel rotation. A positive value indicates that the wheel will be rotated up or left,
-            and a negative value indicates that the wheel will be rotated down or right.
-            </param>
-            <param name="direction">The scroll direction.</param>
-            <param name="type">The scroll type (considered only on macOS).</param>
-            <returns>The current builder.</returns>
-            <remarks>
-            <para>
-            On Windows, the value <c>120</c> represents the default wheel step. As such, multiples of <c>120</c> can be
-            used, but it's not required. The value of <paramref name="type" /> is ignored.
-            </para>
-            <para>
-            On macOS, it's recommended to use values between <c>-10</c> and <c>10</c>. This will result in quite a small
-            scroll amount with pixel scrolling, so <see cref="F:SharpHook.Data.MouseWheelScrollType.BlockScroll" /> is recommended for line
-            scrolling instead of pixel scrolling.
-            </para>
-            <para>
-            On Linux, there is no fixed recommendation, but multiples of <c>100</c> can be used. The value of
-            <paramref name="type" /> is ignored.
-            </para>
-            </remarks>
-        </member>
-        <member name="M:SharpHook.IEventSimulationSequenceBuilder.RemoveEvent(SharpHook.Data.UioHookEvent)">
-            <summary>
-            Removes the specified event from the sequence of events to simulate.
-            </summary>
-            <param name="e">The event to remove from the sequence.</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulationSequenceBuilder.RemoveEvents(System.Func{SharpHook.Data.UioHookEvent,System.Boolean})">
-            <summary>
-            Removes the specified events from the sequence of events to simulate.
-            </summary>
-            <param name="predicate">The predicate to check if the event should be removed from the sequence.</param>
-            <returns>The current builder.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulationSequenceBuilder.Simulate">
-            <summary>
-            Simulates the events in this sequence.
-            </summary>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulationSequenceBuilder.CreateTemplate">
-            <summary>
-            Creates a template based on the events in this sequence.
-            </summary>
-            <returns>A template based on the events in this sequence.</returns>
-        </member>
-        <member name="T:SharpHook.IEventSimulationSequenceTemplate">
-            <summary>
-            Represents an object that can simulate a predetermined sequence of events.
-            </summary>
-        </member>
-        <member name="M:SharpHook.IEventSimulationSequenceTemplate.Simulate">
-            <summary>
-            Simulates the predetermined sequence of events.
-            </summary>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="T:SharpHook.IEventSimulator">
-            <summary>
-            Represents an object which can simulate keyboard and mouse events.
-            </summary>
-            <remarks>
-            The methods of this interface correspond to constants defined in the <see cref="T:SharpHook.Data.EventType" /> enum.
-            </remarks>
-        </member>
-        <member name="P:SharpHook.IEventSimulator.TextSimulationDelayOnX11">
-            <summary>
-            Gets or sets the delay between simulating individual characters when simulating text on Linux.
-            </summary>
-            <value>The delay between simulating individual characters when simulating text on Linux.</value>
-            <remarks>
-            <para>
-            X11 doesn't support simulating arbitrary Unicode characters directly. Instead, for each character,
-            an unused key code is remapped to that character, and then key press/release is simulated. Since the receiving
-            application must react to the remapping, and may not do so instantaneously, a delay is needed for accurate
-            simulation.
-            </para>
-            <para>
-            The default delay is 50 milliseconds.
-            </para>
-            <para>
-            On Windows and macOS, this property is ignored.
-            </para>
-            </remarks>
-            <exception cref="T:System.ArgumentOutOfRangeException">
-            <paramref name="value" /> represents a negative time span.
-            </exception>
-        </member>
-        <member name="M:SharpHook.IEventSimulator.SimulateKeyPress(SharpHook.Data.KeyCode)">
-            <summary>
-            Simulates pressing a key.
-            </summary>
-            <param name="keyCode">The code of the key to press.</param>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulator.SimulateKeyRelease(SharpHook.Data.KeyCode)">
-            <summary>
-            Simulates releasing a key.
-            </summary>
-            <param name="keyCode">The code of the key to release.</param>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulator.SimulateMousePress(SharpHook.Data.MouseButton)">
-            <summary>
-            Simulates pressing a mouse button at the current coordinates.
-            </summary>
-            <param name="button">The mouse button to press.</param>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulator.SimulateMousePress(SharpHook.Data.MouseButton,System.UInt16)">
-            <summary>
-            Simulates pressing a mouse button at the current coordinates.
-            </summary>
-            <param name="button">The mouse button to press.</param>
-            <param name="clicks">The click count (used only on macOS).</param>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulator.SimulateMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton)">
-            <summary>
-            Simulates pressing a mouse button at the specified coordinates.
-            </summary>
-            <param name="x">The target X-coordinate of the mouse pointer.</param>
-            <param name="y">The target Y-coordinate of the mouse pointer.</param>
-            <param name="button">The mouse button to press.</param>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulator.SimulateMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)">
-            <summary>
-            Simulates pressing a mouse button at the specified coordinates.
-            </summary>
-            <param name="x">The target X-coordinate of the mouse pointer.</param>
-            <param name="y">The target Y-coordinate of the mouse pointer.</param>
-            <param name="button">The mouse button to press.</param>
-            <param name="clicks">The click count (used only on macOS).</param>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulator.SimulateMouseRelease(SharpHook.Data.MouseButton)">
-            <summary>
-            Simulates releasing a mouse button at the current coordinates.
-            </summary>
-            <param name="button">The mouse button to release.</param>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulator.SimulateMouseRelease(SharpHook.Data.MouseButton,System.UInt16)">
-            <summary>
-            Simulates releasing a mouse button at the current coordinates.
-            </summary>
-            <param name="button">The mouse button to release.</param>
-            <param name="clicks">The click count (used only on macOS).</param>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulator.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton)">
-            <summary>
-            Simulates releasing a mouse button at the specified coordinates.
-            </summary>
-            <param name="x">The target X-coordinate of the mouse pointer.</param>
-            <param name="y">The target Y-coordinate of the mouse pointer.</param>
-            <param name="button">The mouse button to release.</param>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulator.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)">
-            <summary>
-            Simulates releasing a mouse button at the specified coordinates.
-            </summary>
-            <param name="x">The target X-coordinate of the mouse pointer.</param>
-            <param name="y">The target Y-coordinate of the mouse pointer.</param>
-            <param name="button">The mouse button to release.</param>
-            <param name="clicks">The click count (used only on macOS).</param>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulator.SimulateMouseMovement(System.Int16,System.Int16)">
-            <summary>
-            Simulates moving a mouse pointer.
-            </summary>
-            <param name="x">The target X-coordinate of the mouse pointer.</param>
-            <param name="y">The target Y-coordinate of the mouse pointer.</param>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulator.SimulateMouseMovementRelative(System.Int16,System.Int16)">
-            <summary>
-            Simulates moving a mouse pointer relative to the current cursor position.
-            </summary>
-            <param name="x">The X-coordinate offset.</param>
-            <param name="y">The Y-coordinate offset.</param>
-            <returns>The result of the operation.</returns>
-        </member>
-        <member name="M:SharpHook.IEventSimulator.SimulateMouseWheel(System.Int16,SharpHook.Data.MouseWheelScrollDirection,SharpHook.Data.MouseWheelScrollType)">
-            <summary>
-            Simulates scrolling the mouse wheel.
-            </summary>
-            <param name="rotation">
-            The wheel rotation. A positive value indicates that the wheel will be rotated up or left,
-            and a negative value indicates that the wheel will be rotated down or right.
-            </param>
-            <param name="direction">The scroll direction.</param>
-            <param name="type">The scroll type (considered only on macOS).</param>
-            <returns>The result of the operation.</returns>
-            <remarks>
-            <para>
-            On Windows, the value <c>120</c> represents the default wheel step. As such, multiples of <c>120</c> can be
-            used, but it's not required. The value of <paramref name="type" /> is ignored.
-            </para>
-            <para>
-            On macOS, it's recommended to use values between <c>-10</c> and <c>10</c>. This will result in quite a small
-            scroll amount with pixel scrolling, so <see cref="F:SharpHook.Data.MouseWheelScrollType.BlockScroll" /> is recommended for line
-            scrolling instead of pixel scrolling.
-            </para>
-            <para>
-            On Linux, there is no fixed recommendation, but multiples of <c>100</c> can be used. The value of
-            <paramref name="type" /> is ignored.
-            </para>
-            </remarks>
-        </member>
-        <member name="M:SharpHook.IEventSimulator.SimulateTextEntry(System.String)">
-            <summary>
-            Simulates the input of arbitrary Unicode characters.
-            </summary>
-            <param name="text">The text to simulate.</param>
-            <returns>The result of the operation.</returns>
-            <remarks>
-            <para>
-            The text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16 (including
-            surrogate pairs, e.g. emojis) is supported.
-            </para>
-            <para>
-            On Windows, text simulation should work correctly and consistently.
-            </para>
-            <para>
-            On macOS, applications are not required to process text simulation, but most of them should handle it correctly.
-            </para>
-            <para>
-            X11 doesn't support text simulation directly. Instead, for each character, an unused key code is remapped to
-            that character, and then key press/release is simulated. Since the receiving application must react to the
-            remapping, and may not do so instantaneously, a delay is needed for accurate simulation. This means that text
-            simulation on Linux works slowly and is not guaranteed to be correct. <see cref="P:SharpHook.IEventSimulator.TextSimulationDelayOnX11" />
-            can be used to increase (or decrease) the delay if needed – longer delays add consistency but may be more
-            jarring to end users. <see cref="P:SharpHook.IEventSimulator.TextSimulationDelayOnX11" /> can also be used to get the currently configured
-            delay – the default is 50 milliseconds.
-            </para>
-            </remarks>
-            <exception cref="T:System.ArgumentNullException"><paramref name="text" /> is <see langword="null" />.</exception>
-        </member>
-        <member name="M:SharpHook.IEventSimulator.Sequence">
-            <summary>
-            Initializes a builder for a sequence of events that can be simulated together.
-            </summary>
-            <returns>A builder for a sequence of events that can be simulated together.</returns>
         </member>
         <member name="T:SharpHook.IGlobalHook">
             <summary>
@@ -3860,7 +2947,7 @@
             </para>
             </remarks>
             <seealso cref="M:SharpHook.Native.UioHook.PostEvents(SharpHook.Data.UioHookEvent[],System.UInt32)" />
-            <seealso cref="T:SharpHook.EventSimulator" />
+            <seealso cref="T:SharpHook.Simulation.EventSimulator" />
         </member>
         <member name="M:SharpHook.Native.UioHook.PostEvents(SharpHook.Data.UioHookEvent[],System.UInt32)">
             <summary>
@@ -3873,7 +2960,7 @@
             All the same rules apply as to <see cref="M:SharpHook.Native.UioHook.PostEvent(SharpHook.Data.UioHookEvent@)" />.
             </remarks>
             <seealso cref="M:SharpHook.Native.UioHook.PostEvent(SharpHook.Data.UioHookEvent@)" />
-            <seealso cref="T:SharpHook.EventSimulator" />
+            <seealso cref="T:SharpHook.Simulation.EventSimulator" />
         </member>
         <member name="M:SharpHook.Native.UioHook.PostText(System.String)">
             <summary>
@@ -3902,7 +2989,7 @@
             50 milliseconds.
             </para>
             </remarks>
-            <seealso cref="T:SharpHook.EventSimulator" />
+            <seealso cref="T:SharpHook.Simulation.EventSimulator" />
         </member>
         <member name="M:SharpHook.Native.UioHook.GetPostTextDelayX11">
             <summary>
@@ -3923,7 +3010,7 @@
             On Windows and macOS, this method always returns <c>0</c>.
             </para>
             </remarks>
-            <seealso cref="T:SharpHook.EventSimulator" />
+            <seealso cref="T:SharpHook.Simulation.EventSimulator" />
         </member>
         <member name="M:SharpHook.Native.UioHook.SetPostTextDelayX11(System.UInt64)">
             <summary>
@@ -3946,7 +3033,7 @@
             On Windows and macOS, this method does nothing.
             </para>
             </remarks>
-            <seealso cref="T:SharpHook.EventSimulator" />
+            <seealso cref="T:SharpHook.Simulation.EventSimulator" />
         </member>
         <member name="M:SharpHook.Native.UioHook.IsKeyTypedEnabled">
             <summary>
@@ -4739,6 +3826,911 @@
             Handles the hook event.
             </summary>
             <param name="e">The event to handle.</param>
+        </member>
+        <member name="T:SharpHook.Simulation.EventSimulationExtensions">
+            <summary>
+            Contains extension methods for <see cref="T:SharpHook.Simulation.IEventSimulator" /> and <see cref="T:SharpHook.Simulation.IEventSimulationSequenceBuilder" />.
+            </summary>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationExtensions.AddKeyStroke(SharpHook.Simulation.IEventSimulationSequenceBuilder,SharpHook.Data.KeyCode[])">
+            <inheritdoc cref="M:SharpHook.Simulation.EventSimulationExtensions.&lt;G&gt;$DACA892A3861416B5886127210151114.AddKeyStroke(SharpHook.Data.KeyCode[])"/>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationExtensions.AddKeyStroke(SharpHook.Simulation.IEventSimulationSequenceBuilder,System.Collections.Generic.IEnumerable{SharpHook.Data.KeyCode})">
+            <inheritdoc cref="M:SharpHook.Simulation.EventSimulationExtensions.&lt;G&gt;$DACA892A3861416B5886127210151114.AddKeyStroke(System.Collections.Generic.IEnumerable{SharpHook.Data.KeyCode})"/>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationExtensions.SimulateKeyStroke(SharpHook.Simulation.IEventSimulator,SharpHook.Data.KeyCode[])">
+            <inheritdoc cref="M:SharpHook.Simulation.EventSimulationExtensions.&lt;G&gt;$9AF52587682DDC3B3C38070E88FA131F.SimulateKeyStroke(SharpHook.Data.KeyCode[])"/>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationExtensions.SimulateKeyStroke(SharpHook.Simulation.IEventSimulator,System.Collections.Generic.IEnumerable{SharpHook.Data.KeyCode})">
+            <inheritdoc cref="M:SharpHook.Simulation.EventSimulationExtensions.&lt;G&gt;$9AF52587682DDC3B3C38070E88FA131F.SimulateKeyStroke(System.Collections.Generic.IEnumerable{SharpHook.Data.KeyCode})"/>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationExtensions.&lt;G&gt;$DACA892A3861416B5886127210151114.AddKeyStroke(SharpHook.Data.KeyCode[])">
+            <summary>
+            Adds a sequecne of key press and release events which represent a single key stroke to the sequence of
+            events to simulate.
+            </summary>
+            <param name="keyCodes">The codes of the keys to press and release.</param>
+            <returns>The builder.</returns>
+            <remarks>
+            As an example, if the method is called with the following parameters:
+            <code>
+            builder.AddKeyStroke(KeyCode.VcLeftControl, KeyCode.VcC);
+            </code>
+            then this will be equivalent to calling the following method sequence:
+            <code>
+            builder
+                .AddKeyPress(KeyCode.VcLeftControl)
+                .AddKeyPress(KeyCode.VcC)
+                .AddKeyRelease(KeyCode.VcC)
+                .AddKeyRelease(KeyCode.VcLeftControl);
+            </code>
+            which means that this method will add pressing Left Control, then pressing C, then releasing C, then
+            releasing Left Control.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationExtensions.&lt;G&gt;$DACA892A3861416B5886127210151114.AddKeyStroke(System.Collections.Generic.IEnumerable{SharpHook.Data.KeyCode})">
+            <summary>
+            Adds a sequence of key press and release events which represent a single key stroke to the sequence of
+            events to simulate.
+            </summary>
+            <param name="keyCodes">The codes of the keys to press and release.</param>
+            <returns>The builder.</returns>
+            <remarks>
+            As an example, if the method is called with the following parameters:
+            <code>
+            builder.AddKeyStroke([KeyCode.VcLeftControl, KeyCode.VcC]);
+            </code>
+            then this will be equivalent to calling the following method sequence:
+            <code>
+            builder
+                .AddKeyPress(KeyCode.VcLeftControl)
+                .AddKeyPress(KeyCode.VcC)
+                .AddKeyRelease(KeyCode.VcC)
+                .AddKeyRelease(KeyCode.VcLeftControl);
+            </code>
+            which means that this method will add pressing Left Control, then pressing C, then releasing C, then
+            releasing Left Control.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationExtensions.&lt;G&gt;$9AF52587682DDC3B3C38070E88FA131F.SimulateKeyStroke(SharpHook.Data.KeyCode[])">
+            <summary>
+            Simulates a sequence of key press and release events which represent a single key stroke.
+            </summary>
+            <param name="keyCodes">The codes of the keys to press and release.</param>
+            <returns>The result of the operation.</returns>
+            <remarks>
+            As an example, if the method is called with the following parameters:
+            <code>
+            simulator.SimulateKeyStroke(KeyCode.VcLeftControl, KeyCode.VcC);
+            </code>
+            then this will be equivalent to calling the following method sequence:
+            <code>
+            simulator.Sequence()
+                .AddKeyPress(KeyCode.VcLeftControl)
+                .AddKeyPress(KeyCode.VcC)
+                .AddKeyRelease(KeyCode.VcC)
+                .AddKeyRelease(KeyCode.VcLeftControl)
+                .Simulate();
+            </code>
+            which means that this method will simualte pressing Left Control, then pressing C, then releasing C, then
+            releasing Left Control.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationExtensions.&lt;G&gt;$9AF52587682DDC3B3C38070E88FA131F.SimulateKeyStroke(System.Collections.Generic.IEnumerable{SharpHook.Data.KeyCode})">
+            <summary>
+            Simulates a sequence of key press and release events which represent a single key stroke.
+            </summary>
+            <param name="keyCodes">The codes of the keys to press and release.</param>
+            <returns>The result of the operation.</returns>
+            <remarks>
+            As an example, if the method is called with the following parameters:
+            <code>
+            simulator.SimulateKeyStroke([KeyCode.VcLeftControl, KeyCode.VcC]);
+            </code>
+            then this will be equivalent to calling the following method sequence:
+            <code>
+            simulator.Sequence()
+                .AddKeyPress(KeyCode.VcLeftControl)
+                .AddKeyPress(KeyCode.VcC)
+                .AddKeyRelease(KeyCode.VcC)
+                .AddKeyRelease(KeyCode.VcLeftControl)
+                .Simulate();
+            </code>
+            which means that this method will simualte pressing Left Control, then pressing C, then releasing C, then
+            releasing Left Control.
+            </remarks>
+        </member>
+        <member name="T:SharpHook.Simulation.EventSimulationSequenceBuilder">
+            <summary>
+            Represents a builder for a sequence of events that can be simulated together.
+            </summary>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.#ctor(SharpHook.Providers.IEventSimulationProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpHook.Simulation.EventSimulationSequenceBuilder" /> class.
+            </summary>
+            <param name="simulationProvider">
+            The simulation functionality provider (or <see cref="P:SharpHook.Providers.UioHookProvider.Instance" /> if <see langword="null" />).
+            </param>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddEvent(SharpHook.Data.UioHookEvent)">
+            <summary>
+            Adds the specified event to the sequence of events to simulate.
+            </summary>
+            <param name="e">The event to add to the sequence.</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddEvents(SharpHook.Data.UioHookEvent[])">
+            <summary>
+            Adds the specified events to the sequence of events to simulate.
+            </summary>
+            <param name="events">The events to add to the sequence.</param>
+            <returns>The current builder.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="events" /> is <see langword="null" />.</exception>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddEvents(System.Collections.Generic.IEnumerable{SharpHook.Data.UioHookEvent})">
+            <summary>
+            Adds the specified events to the sequence of events to simulate.
+            </summary>
+            <param name="events">The events to add to the sequence.</param>
+            <returns>The current builder.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="events" /> is <see langword="null" />.</exception>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddKeyPress(SharpHook.Data.KeyCode)">
+            <summary>
+            Adds a key press event to the sequence of events to simulate.
+            </summary>
+            <param name="keyCode">The code of the key to press.</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddKeyRelease(SharpHook.Data.KeyCode)">
+            <summary>
+            Adds a key release event to the sequence of events to simulate.
+            </summary>
+            <param name="keyCode">The code of the key to press.</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton)">
+            <summary>
+            Adds a mouse button press event to the sequence of events to simulate.
+            </summary>
+            <param name="button">The mouse button to press.</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton,System.UInt16)">
+            <summary>
+            Adds a mouse button press event to the sequence of events to simulate.
+            </summary>
+            <param name="button">The mouse button to press.</param>
+            <param name="clicks">The click count (used only on macOS).</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton)">
+            <summary>
+            Adds a mouse button press event to the sequence of events to simulate.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to press.</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)">
+            <summary>
+            Adds a mouse button press event to the sequence of events to simulate.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to press.</param>
+            <param name="clicks">The click count (used only on macOS).</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddMouseRelease(SharpHook.Data.MouseButton)">
+            <summary>
+            Adds a mouse button release event to the sequence of events to simulate.
+            </summary>
+            <param name="button">The mouse button to release.</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddMouseRelease(SharpHook.Data.MouseButton,System.UInt16)">
+            <summary>
+            Adds a mouse button release event to the sequence of events to simulate.
+            </summary>
+            <param name="button">The mouse button to release.</param>
+            <param name="clicks">The click count (used only on macOS).</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton)">
+            <summary>
+            Adds a mouse button release event to the sequence of events to simulate.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to release.</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)">
+            <summary>
+            Adds a mouse button release event to the sequence of events to simulate.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to release.</param>
+            <param name="clicks">The click count (used only on macOS).</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddMouseMovement(System.Int16,System.Int16)">
+            <summary>
+            Adds a mouse movement event to the sequence of events to simulate.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddMouseMovementRelative(System.Int16,System.Int16)">
+            <summary>
+            Adds a relative mouse movement event to the sequence of events to simulate.
+            </summary>
+            <param name="x">The X-coordinate offset.</param>
+            <param name="y">The Y-coordinate offset.</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddMouseWheel(System.Int16,SharpHook.Data.MouseWheelScrollDirection,SharpHook.Data.MouseWheelScrollType)">
+            <summary>
+            Adds a mouse wheel scroll event to the sequence of events to simulate.
+            </summary>
+            <param name="rotation">
+            The wheel rotation. A positive value indicates that the wheel will be rotated up or left,
+            and a negative value indicates that the wheel will be rotated down or right.
+            </param>
+            <param name="direction">The scroll direction.</param>
+            <param name="type">The scroll type (considered only on macOS).</param>
+            <returns>The current builder.</returns>
+            <remarks>
+            <para>
+            On Windows, the value <c>120</c> represents the default wheel step. As such, multiples of <c>120</c> can be
+            used, but it's not required. The value of <paramref name="type" /> is ignored.
+            </para>
+            <para>
+            On macOS, it's recommended to use values between <c>-10</c> and <c>10</c>. This will result in quite a small
+            scroll amount with pixel scrolling, so <see cref="F:SharpHook.Data.MouseWheelScrollType.BlockScroll" /> is recommended for line
+            scrolling instead of pixel scrolling.
+            </para>
+            <para>
+            On Linux, there is no fixed recommendation, but multiples of <c>100</c> can be used. The value of
+            <paramref name="type" /> is ignored.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.RemoveEvent(SharpHook.Data.UioHookEvent)">
+            <summary>
+            Removes the specified event from the sequence of events to simulate.
+            </summary>
+            <param name="e">The event to remove from the sequence.</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.RemoveEvents(System.Func{SharpHook.Data.UioHookEvent,System.Boolean})">
+            <summary>
+            Removes the specified events from the sequence of events to simulate.
+            </summary>
+            <param name="predicate">The predicate to check if the event should be removed from the sequence.</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.Simulate">
+            <summary>
+            Simulates the events in this sequence.
+            </summary>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.CreateTemplate">
+            <summary>
+            Creates a template based on the events in this sequence.
+            </summary>
+            <returns>A template based on the events in this sequence.</returns>
+        </member>
+        <member name="T:SharpHook.Simulation.EventSimulationSequenceTemplate">
+            <summary>
+            Represents an object that can simulate a predetermined sequence of events.
+            </summary>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationSequenceTemplate.#ctor(System.Collections.Generic.IEnumerable{SharpHook.Data.UioHookEvent},SharpHook.Providers.IEventSimulationProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpHook.Simulation.EventSimulationSequenceTemplate" /> class.
+            </summary>
+            <param name="events">The events to simulate. They will be copied to ensure the events don't change.</param>
+            <param name="simulationProvider">
+            The simulation functionality provider (or <see cref="P:SharpHook.Providers.UioHookProvider.Instance" /> if <see langword="null" />).
+            </param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="events" /> is <see langword="null" />.</exception>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationSequenceTemplate.Simulate">
+            <summary>
+            Simulates the predetermined sequence of events.
+            </summary>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="T:SharpHook.Simulation.EventSimulator">
+            <summary>
+            A keyboard and mouse event simulator which posts events to a simulation provider (libuiohook by default).
+            </summary>
+            <seealso cref="T:SharpHook.Providers.IEventSimulationProvider" />
+            <seealso cref="M:SharpHook.Native.UioHook.PostEvent(SharpHook.Data.UioHookEvent@)" />
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpHook.Simulation.EventSimulator" /> class.
+            </summary>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulator.#ctor(SharpHook.Providers.IEventSimulationProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpHook.Simulation.EventSimulator" /> class.
+            </summary>
+            <param name="simulationProvider">
+            The simulation functionality provider (or <see cref="P:SharpHook.Providers.UioHookProvider.Instance" /> if <see langword="null" />).
+            </param>
+        </member>
+        <member name="P:SharpHook.Simulation.EventSimulator.TextSimulationDelayOnX11">
+            <summary>
+            Gets or sets the delay between simulating individual characters when simulating text on Linux.
+            </summary>
+            <value>The delay between simulating individual characters when simulating text on Linux.</value>
+            <remarks>
+            <para>
+            X11 doesn't support simulating arbitrary Unicode characters directly. Instead, for each character,
+            an unused key code is remapped to that character, and then key press/release is simulated. Since the receiving
+            application must react to the remapping, and may not do so instantaneously, a delay is needed for accurate
+            simulation.
+            </para>
+            <para>
+            The default delay is 50 milliseconds.
+            </para>
+            <para>
+            On Windows and macOS, this property is ignored.
+            </para>
+            </remarks>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <paramref name="value" /> represents a negative time span.
+            </exception>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulator.SimulateKeyPress(SharpHook.Data.KeyCode)">
+            <summary>
+            Simulates pressing a key.
+            </summary>
+            <param name="keyCode">The code of the key to press.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulator.SimulateKeyRelease(SharpHook.Data.KeyCode)">
+            <summary>
+            Simulates releasing a key.
+            </summary>
+            <param name="keyCode">The code of the key to release.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulator.SimulateMousePress(SharpHook.Data.MouseButton)">
+            <summary>
+            Simulates pressing a mouse button at the current coordinates.
+            </summary>
+            <param name="button">The mouse button to press.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulator.SimulateMousePress(SharpHook.Data.MouseButton,System.UInt16)">
+            <summary>
+            Simulates pressing a mouse button at the current coordinates.
+            </summary>
+            <param name="button">The mouse button to press.</param>
+            <param name="clicks">The click count (used only on macOS).</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulator.SimulateMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton)">
+            <summary>
+            Simulates pressing a mouse button at the specified coordinates.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to press.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulator.SimulateMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)">
+            <summary>
+            Simulates pressing a mouse button at the specified coordinates.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to press.</param>
+            <param name="clicks">The click count (used only on macOS).</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulator.SimulateMouseRelease(SharpHook.Data.MouseButton)">
+            <summary>
+            Simulates releasing a mouse button at the current coordinates.
+            </summary>
+            <param name="button">The mouse button to release.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulator.SimulateMouseRelease(SharpHook.Data.MouseButton,System.UInt16)">
+            <summary>
+            Simulates releasing a mouse button at the current coordinates.
+            </summary>
+            <param name="button">The mouse button to release.</param>
+            <param name="clicks">The click count (used only on macOS).</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulator.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton)">
+            <summary>
+            Simulates releasing a mouse button at the specified coordinates.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to release.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulator.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)">
+            <summary>
+            Simulates releasing a mouse button at the specified coordinates.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to release.</param>
+            <param name="clicks">The click count (used only on macOS).</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulator.SimulateMouseMovement(System.Int16,System.Int16)">
+            <summary>
+            Simulates moving a mouse pointer.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulator.SimulateMouseMovementRelative(System.Int16,System.Int16)">
+            <summary>
+            Simulates moving a mouse pointer relative to the current cursor position.
+            </summary>
+            <param name="x">The X-coordinate offset.</param>
+            <param name="y">The Y-coordinate offset.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulator.SimulateMouseWheel(System.Int16,SharpHook.Data.MouseWheelScrollDirection,SharpHook.Data.MouseWheelScrollType)">
+            <summary>
+            Simulates scrolling the mouse wheel.
+            </summary>
+            <param name="rotation">
+            The wheel rotation. A positive value indicates that the wheel will be rotated up or left,
+            and a negative value indicates that the wheel will be rotated down or right.
+            </param>
+            <param name="direction">The scroll direction.</param>
+            <param name="type">The scroll type (considered only on macOS).</param>
+            <returns>The result of the operation.</returns>
+            <remarks>
+            <para>
+            On Windows, the value <c>120</c> represents the default wheel step. As such, multiples of <c>120</c> can be
+            used, but it's not required. The value of <paramref name="type" /> is ignored.
+            </para>
+            <para>
+            On macOS, it's recommended to use values between <c>-10</c> and <c>10</c>. This will result in quite a small
+            scroll amount with pixel scrolling, so <see cref="F:SharpHook.Data.MouseWheelScrollType.BlockScroll" /> is recommended for line
+            scrolling instead of pixel scrolling.
+            </para>
+            <para>
+            On Linux, there is no fixed recommendation, but multiples of <c>100</c> can be used. The value of
+            <paramref name="type" /> is ignored.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulator.SimulateTextEntry(System.String)">
+            <summary>
+            Simulates the input of arbitrary Unicode characters.
+            </summary>
+            <param name="text">The text to simulate.</param>
+            <returns>The result of the operation.</returns>
+            <remarks>
+            <para>
+            The text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16 (including
+            surrogate pairs, e.g. emojis) is supported.
+            </para>
+            <para>
+            On Windows, text simulation should work correctly and consistently.
+            </para>
+            <para>
+            On macOS, applications are not required to process text simulation, but most of them should handle it correctly.
+            </para>
+            <para>
+            X11 doesn't support text simulation directly. Instead, for each character, an unused key code is remapped to
+            that character, and then key press/release is simulated. Since the receiving application must react to the
+            remapping, and may not do so instantaneously, a delay is needed for accurate simulation. This means that text
+            simulation on Linux works slowly and is not guaranteed to be correct. <see cref="P:SharpHook.Simulation.EventSimulator.TextSimulationDelayOnX11" />
+            can be used to increase (or decrease) the delay if needed – longer delays add consistency but may be more
+            jarring to end users. <see cref="P:SharpHook.Simulation.EventSimulator.TextSimulationDelayOnX11" /> can also be used to get the currently configured
+            delay – the default is 50 milliseconds.
+            </para>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException"><paramref name="text" /> is <see langword="null" />.</exception>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulator.Sequence">
+            <summary>
+            Initializes a builder for a sequence of events that can be simulated together.
+            </summary>
+            <returns>A builder for a sequence of events that can be simulated together.</returns>
+        </member>
+        <member name="T:SharpHook.Simulation.IEventSimulationSequenceBuilder">
+            <summary>
+            Represents a builder for a sequence of events that can be simulated together.
+            </summary>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddEvent(SharpHook.Data.UioHookEvent)">
+            <summary>
+            Adds the specified event to the sequence of events to simulate.
+            </summary>
+            <param name="e">The event to add to the sequence.</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddEvents(SharpHook.Data.UioHookEvent[])">
+            <summary>
+            Adds the specified events to the sequence of events to simulate.
+            </summary>
+            <param name="events">The events to add to the sequence.</param>
+            <returns>The current builder.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="events" /> is <see langword="null" />.</exception>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddEvents(System.Collections.Generic.IEnumerable{SharpHook.Data.UioHookEvent})">
+            <summary>
+            Adds the specified events to the sequence of events to simulate.
+            </summary>
+            <param name="events">The events to add to the sequence.</param>
+            <returns>The current builder.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="events" /> is <see langword="null" />.</exception>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddKeyPress(SharpHook.Data.KeyCode)">
+            <summary>
+            Adds a key press event to the sequence of events to simulate.
+            </summary>
+            <param name="keyCode">The code of the key to press.</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddKeyRelease(SharpHook.Data.KeyCode)">
+            <summary>
+            Adds a key release event to the sequence of events to simulate.
+            </summary>
+            <param name="keyCode">The code of the key to press.</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton)">
+            <summary>
+            Adds a mouse button press event to the sequence of events to simulate.
+            </summary>
+            <param name="button">The mouse button to press.</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton,System.UInt16)">
+            <summary>
+            Adds a mouse button press event to the sequence of events to simulate.
+            </summary>
+            <param name="button">The mouse button to press.</param>
+            <param name="clicks">The click count (used only on macOS).</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton)">
+            <summary>
+            Adds a mouse button press event to the sequence of events to simulate.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to press.</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)">
+            <summary>
+            Adds a mouse button press event to the sequence of events to simulate.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to press.</param>
+            <param name="clicks">The click count (used only on macOS).</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddMouseRelease(SharpHook.Data.MouseButton)">
+            <summary>
+            Adds a mouse button release event to the sequence of events to simulate.
+            </summary>
+            <param name="button">The mouse button to release.</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddMouseRelease(SharpHook.Data.MouseButton,System.UInt16)">
+            <summary>
+            Adds a mouse button release event to the sequence of events to simulate.
+            </summary>
+            <param name="button">The mouse button to release.</param>
+            <param name="clicks">The click count (used only on macOS).</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton)">
+            <summary>
+            Adds a mouse button release event to the sequence of events to simulate.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to release.</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)">
+            <summary>
+            Adds a mouse button release event to the sequence of events to simulate.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to release.</param>
+            <param name="clicks">The click count (used only on macOS).</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddMouseMovement(System.Int16,System.Int16)">
+            <summary>
+            Adds a mouse movement event to the sequence of events to simulate.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddMouseMovementRelative(System.Int16,System.Int16)">
+            <summary>
+            Adds a relative mouse movement event to the sequence of events to simulate.
+            </summary>
+            <param name="x">The X-coordinate offset.</param>
+            <param name="y">The Y-coordinate offset.</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddMouseWheel(System.Int16,SharpHook.Data.MouseWheelScrollDirection,SharpHook.Data.MouseWheelScrollType)">
+            <summary>
+            Adds a mouse wheel scroll event to the sequence of events to simulate.
+            </summary>
+            <param name="rotation">
+            The wheel rotation. A positive value indicates that the wheel will be rotated up or left,
+            and a negative value indicates that the wheel will be rotated down or right.
+            </param>
+            <param name="direction">The scroll direction.</param>
+            <param name="type">The scroll type (considered only on macOS).</param>
+            <returns>The current builder.</returns>
+            <remarks>
+            <para>
+            On Windows, the value <c>120</c> represents the default wheel step. As such, multiples of <c>120</c> can be
+            used, but it's not required. The value of <paramref name="type" /> is ignored.
+            </para>
+            <para>
+            On macOS, it's recommended to use values between <c>-10</c> and <c>10</c>. This will result in quite a small
+            scroll amount with pixel scrolling, so <see cref="F:SharpHook.Data.MouseWheelScrollType.BlockScroll" /> is recommended for line
+            scrolling instead of pixel scrolling.
+            </para>
+            <para>
+            On Linux, there is no fixed recommendation, but multiples of <c>100</c> can be used. The value of
+            <paramref name="type" /> is ignored.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.RemoveEvent(SharpHook.Data.UioHookEvent)">
+            <summary>
+            Removes the specified event from the sequence of events to simulate.
+            </summary>
+            <param name="e">The event to remove from the sequence.</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.RemoveEvents(System.Func{SharpHook.Data.UioHookEvent,System.Boolean})">
+            <summary>
+            Removes the specified events from the sequence of events to simulate.
+            </summary>
+            <param name="predicate">The predicate to check if the event should be removed from the sequence.</param>
+            <returns>The current builder.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.Simulate">
+            <summary>
+            Simulates the events in this sequence.
+            </summary>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.CreateTemplate">
+            <summary>
+            Creates a template based on the events in this sequence.
+            </summary>
+            <returns>A template based on the events in this sequence.</returns>
+        </member>
+        <member name="T:SharpHook.Simulation.IEventSimulationSequenceTemplate">
+            <summary>
+            Represents an object that can simulate a predetermined sequence of events.
+            </summary>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulationSequenceTemplate.Simulate">
+            <summary>
+            Simulates the predetermined sequence of events.
+            </summary>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="T:SharpHook.Simulation.IEventSimulator">
+            <summary>
+            Represents an object which can simulate keyboard and mouse events.
+            </summary>
+            <remarks>
+            The methods of this interface correspond to constants defined in the <see cref="T:SharpHook.Data.EventType" /> enum.
+            </remarks>
+        </member>
+        <member name="P:SharpHook.Simulation.IEventSimulator.TextSimulationDelayOnX11">
+            <summary>
+            Gets or sets the delay between simulating individual characters when simulating text on Linux.
+            </summary>
+            <value>The delay between simulating individual characters when simulating text on Linux.</value>
+            <remarks>
+            <para>
+            X11 doesn't support simulating arbitrary Unicode characters directly. Instead, for each character,
+            an unused key code is remapped to that character, and then key press/release is simulated. Since the receiving
+            application must react to the remapping, and may not do so instantaneously, a delay is needed for accurate
+            simulation.
+            </para>
+            <para>
+            The default delay is 50 milliseconds.
+            </para>
+            <para>
+            On Windows and macOS, this property is ignored.
+            </para>
+            </remarks>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <paramref name="value" /> represents a negative time span.
+            </exception>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulator.SimulateKeyPress(SharpHook.Data.KeyCode)">
+            <summary>
+            Simulates pressing a key.
+            </summary>
+            <param name="keyCode">The code of the key to press.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulator.SimulateKeyRelease(SharpHook.Data.KeyCode)">
+            <summary>
+            Simulates releasing a key.
+            </summary>
+            <param name="keyCode">The code of the key to release.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulator.SimulateMousePress(SharpHook.Data.MouseButton)">
+            <summary>
+            Simulates pressing a mouse button at the current coordinates.
+            </summary>
+            <param name="button">The mouse button to press.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulator.SimulateMousePress(SharpHook.Data.MouseButton,System.UInt16)">
+            <summary>
+            Simulates pressing a mouse button at the current coordinates.
+            </summary>
+            <param name="button">The mouse button to press.</param>
+            <param name="clicks">The click count (used only on macOS).</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulator.SimulateMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton)">
+            <summary>
+            Simulates pressing a mouse button at the specified coordinates.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to press.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulator.SimulateMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)">
+            <summary>
+            Simulates pressing a mouse button at the specified coordinates.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to press.</param>
+            <param name="clicks">The click count (used only on macOS).</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulator.SimulateMouseRelease(SharpHook.Data.MouseButton)">
+            <summary>
+            Simulates releasing a mouse button at the current coordinates.
+            </summary>
+            <param name="button">The mouse button to release.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulator.SimulateMouseRelease(SharpHook.Data.MouseButton,System.UInt16)">
+            <summary>
+            Simulates releasing a mouse button at the current coordinates.
+            </summary>
+            <param name="button">The mouse button to release.</param>
+            <param name="clicks">The click count (used only on macOS).</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulator.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton)">
+            <summary>
+            Simulates releasing a mouse button at the specified coordinates.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to release.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulator.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)">
+            <summary>
+            Simulates releasing a mouse button at the specified coordinates.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <param name="button">The mouse button to release.</param>
+            <param name="clicks">The click count (used only on macOS).</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulator.SimulateMouseMovement(System.Int16,System.Int16)">
+            <summary>
+            Simulates moving a mouse pointer.
+            </summary>
+            <param name="x">The target X-coordinate of the mouse pointer.</param>
+            <param name="y">The target Y-coordinate of the mouse pointer.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulator.SimulateMouseMovementRelative(System.Int16,System.Int16)">
+            <summary>
+            Simulates moving a mouse pointer relative to the current cursor position.
+            </summary>
+            <param name="x">The X-coordinate offset.</param>
+            <param name="y">The Y-coordinate offset.</param>
+            <returns>The result of the operation.</returns>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulator.SimulateMouseWheel(System.Int16,SharpHook.Data.MouseWheelScrollDirection,SharpHook.Data.MouseWheelScrollType)">
+            <summary>
+            Simulates scrolling the mouse wheel.
+            </summary>
+            <param name="rotation">
+            The wheel rotation. A positive value indicates that the wheel will be rotated up or left,
+            and a negative value indicates that the wheel will be rotated down or right.
+            </param>
+            <param name="direction">The scroll direction.</param>
+            <param name="type">The scroll type (considered only on macOS).</param>
+            <returns>The result of the operation.</returns>
+            <remarks>
+            <para>
+            On Windows, the value <c>120</c> represents the default wheel step. As such, multiples of <c>120</c> can be
+            used, but it's not required. The value of <paramref name="type" /> is ignored.
+            </para>
+            <para>
+            On macOS, it's recommended to use values between <c>-10</c> and <c>10</c>. This will result in quite a small
+            scroll amount with pixel scrolling, so <see cref="F:SharpHook.Data.MouseWheelScrollType.BlockScroll" /> is recommended for line
+            scrolling instead of pixel scrolling.
+            </para>
+            <para>
+            On Linux, there is no fixed recommendation, but multiples of <c>100</c> can be used. The value of
+            <paramref name="type" /> is ignored.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulator.SimulateTextEntry(System.String)">
+            <summary>
+            Simulates the input of arbitrary Unicode characters.
+            </summary>
+            <param name="text">The text to simulate.</param>
+            <returns>The result of the operation.</returns>
+            <remarks>
+            <para>
+            The text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16 (including
+            surrogate pairs, e.g. emojis) is supported.
+            </para>
+            <para>
+            On Windows, text simulation should work correctly and consistently.
+            </para>
+            <para>
+            On macOS, applications are not required to process text simulation, but most of them should handle it correctly.
+            </para>
+            <para>
+            X11 doesn't support text simulation directly. Instead, for each character, an unused key code is remapped to
+            that character, and then key press/release is simulated. Since the receiving application must react to the
+            remapping, and may not do so instantaneously, a delay is needed for accurate simulation. This means that text
+            simulation on Linux works slowly and is not guaranteed to be correct. <see cref="P:SharpHook.Simulation.IEventSimulator.TextSimulationDelayOnX11" />
+            can be used to increase (or decrease) the delay if needed – longer delays add consistency but may be more
+            jarring to end users. <see cref="P:SharpHook.Simulation.IEventSimulator.TextSimulationDelayOnX11" /> can also be used to get the currently configured
+            delay – the default is 50 milliseconds.
+            </para>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException"><paramref name="text" /> is <see langword="null" />.</exception>
+        </member>
+        <member name="M:SharpHook.Simulation.IEventSimulator.Sequence">
+            <summary>
+            Initializes a builder for a sequence of events that can be simulated together.
+            </summary>
+            <returns>A builder for a sequence of events that can be simulated together.</returns>
         </member>
         <member name="T:SharpHook.TaskPoolGlobalHook">
             <summary>

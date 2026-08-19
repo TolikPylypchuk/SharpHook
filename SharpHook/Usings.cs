@@ -6,3 +6,4 @@ global using SharpHook.Data;
 global using SharpHook.Internal;
 global using SharpHook.Native;
 global using SharpHook.Providers;
+global using SharpHook.Simulation;

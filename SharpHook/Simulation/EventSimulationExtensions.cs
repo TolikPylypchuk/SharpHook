@@ -1,4 +1,4 @@
-namespace SharpHook;
+namespace SharpHook.Simulation;
 
 /// <summary>
 /// Contains extension methods for <see cref="IEventSimulator" /> and <see cref="IEventSimulationSequenceBuilder" />.

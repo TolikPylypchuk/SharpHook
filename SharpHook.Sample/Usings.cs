@@ -11,3 +11,4 @@ global using SharpHook.R3;
 global using SharpHook.R3.Logging;
 global using SharpHook.Reactive;
 global using SharpHook.Reactive.Logging;
+global using SharpHook.Simulation;

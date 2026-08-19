@@ -10,6 +10,7 @@ global using R3;
 
 global using SharpHook.Data;
 global using SharpHook.Providers;
+global using SharpHook.Simulation;
 global using SharpHook.TestData;
 global using SharpHook.Testing;
 

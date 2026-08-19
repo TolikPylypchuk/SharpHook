@@ -1,4 +1,4 @@
-namespace SharpHook;
+namespace SharpHook.Simulation;
 
 public sealed class EventSimulationSequenceBuilderTests
 {

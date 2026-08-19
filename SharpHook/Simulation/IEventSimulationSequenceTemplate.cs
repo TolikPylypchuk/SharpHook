@@ -1,4 +1,4 @@
-namespace SharpHook;
+namespace SharpHook.Simulation;
 
 /// <summary>
 /// Represents an object that can simulate a predetermined sequence of events.
