@@ -1051,62 +1051,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Testing.TestGlobalHook.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.Testing.TestGlobalHook.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.Testing.TestGlobalHook",
-      "Summary": "<p sourcefile=\"api/SharpHook.Testing.TestGlobalHook.yml\" sourcestartlinenumber=\"1\">A global hook and event simulator which can be used in tests.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Testing.TestProvider.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.Testing.TestProvider.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.Testing.TestProvider",
-      "Summary": "<p sourcefile=\"api/SharpHook.Testing.TestProvider.yml\" sourcestartlinenumber=\"1\">A provider of low-level functionality which can be used in tests.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Testing.TestThreadingMode.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.Testing.TestThreadingMode.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.Testing.TestThreadingMode",
-      "Summary": "<p sourcefile=\"api/SharpHook.Testing.TestThreadingMode.yml\" sourcestartlinenumber=\"1\">Represents the mode of dispatching simulated events in testing hooks – either on the same thread which simulates\nthem, or on the thread which runs the testing hook.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Testing.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.Testing.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.Testing",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/SharpHook.yml",
       "output": {
         ".html": {

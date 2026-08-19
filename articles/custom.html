@@ -112,9 +112,8 @@ public sealed class SimpleGlobalHook : GlobalHookBase
 </code></pre>
 <p>As you can see, it really is exceedingly simple!</p>
 <p><code>GlobalHookBase</code> also provides the <code>BeforeRun</code> and <code>AfterStop</code> methods to execute custom logic before a global hook
-starts running and after it finishes running. You can also override its <code>Dispose</code> method. You must call the base
-method inside the overriden method. For example, <code>EventLoopGlobalHook</code> overrides <code>BeforeRun</code> to start a separate thread
-with an event loop, and <code>Dispose</code> to stop it.</p>
+starts running and after it finishes running. You can also override its <code>Dispose</code> method, but you must call the base
+<code>Dispose</code> method inside the overridden method.</p>
 <p>Additionally, <code>GlobalHookBase</code> provides virtual methods that raise appropriate events like <code>OnHookEnabled</code> and
 <code>OnKeyPressed</code>.</p>
 <h2 id="custom-global-hooks-with-other-event-forms">Custom Global Hooks With Other Event Forms</h2>
