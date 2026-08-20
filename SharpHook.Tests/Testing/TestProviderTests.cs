@@ -709,7 +709,7 @@ public sealed class TestProviderTests
     }
 
     [Fact(DisplayName = "InitializeVirtualDevices should increment the initialization counter")]
-    public void InitializeVirtualDevicesShouldIncrementCounter()
+    public void InitializeVirtualDevices()
     {
         // Arrange
 
@@ -726,7 +726,7 @@ public sealed class TestProviderTests
     }
 
     [Property(DisplayName = "InitializeVirtualDevices should should return an error if configured to do so")]
-    public void InitializeVirtualDevicesShouldReturnAnError(FailedUioHookResult result)
+    public void InitializeVirtualDevicesError(FailedUioHookResult result)
     {
         // Arrange
 
@@ -746,7 +746,7 @@ public sealed class TestProviderTests
     }
 
     [Fact(DisplayName = "DestroyVirtualInputDevices should decrement the initialization counter")]
-    public void DestroyVirtualInputDevicesShouldDecrementCounter()
+    public void DestroyVirtualInputDevices()
     {
         // Arrange
 
@@ -764,7 +764,7 @@ public sealed class TestProviderTests
     }
 
     [Fact(DisplayName = "DestroyVirtualInputDevices should should do nothing if the counter is zero")]
-    public void DestroyVirtualInputDevicesShouldDoNothingIfCounterIsZero()
+    public void DestroyVirtualInputDevicesZero()
     {
         // Arrange
 
@@ -781,7 +781,7 @@ public sealed class TestProviderTests
     }
 
     [Property(DisplayName = "DestroyVirtualInputDevices should should return an error if configured to do so")]
-    public void DestroyVirtualInputDevicesShouldReturnAnError(FailedUioHookResult result)
+    public void DestroyVirtualInputDevicesError(FailedUioHookResult result)
     {
         // Arrange
 
@@ -800,6 +800,106 @@ public sealed class TestProviderTests
 
         Assert.Equal(result.Value, actualResult);
         Assert.Equal(1, provider.VirtualDevicesInitializationCount);
+    }
+
+    [Fact(DisplayName = "GetOptionalFeatureSupport should always return all features")]
+    public void OptionalFeatures()
+    {
+        // Arrange
+
+        var provider = new TestProvider();
+
+        // Act
+
+        var features = ((IFeatureProvider)provider).GetOptionalFeatureSupport();
+
+        // Assert
+
+        foreach (var expectedFeature in Enum.GetValues<UioHookFeature>().Where(f => f != UioHookFeature.None))
+        {
+            Assert.NotEqual(UioHookFeature.None, expectedFeature & features);
+        }
+    }
+
+    [Property(DisplayName = "GetLinuxMode should return the Linux mode set in SetLinuxMode")]
+    public void GetSetLinuxMode(LinuxMode linuxMode)
+    {
+        // Arrange
+
+        var provider = new TestProvider();
+
+        // Act
+
+        var actualResult = provider.SetLinuxMode(linuxMode);
+        var actualMode = provider.GetLinuxMode();
+
+        // Assert
+
+        Assert.Equal(UioHookResult.Success, actualResult);
+        Assert.Equal(linuxMode, actualMode);
+    }
+
+    [Fact(DisplayName = "GetLinuxMode should return AutoXRecord by default")]
+    public void GetLinuxModeDefault()
+    {
+        // Arrange
+
+        var provider = new TestProvider();
+
+        // Act
+
+        var actualMode = provider.GetLinuxMode();
+
+        // Assert
+
+        Assert.Equal(LinuxMode.AutoXRecord, actualMode);
+    }
+
+    [Fact(DisplayName = "SetLinuxMode should throw if the mode is an invalid enum value")]
+    public void SetLinuxModeException()
+    {
+        // Arrange
+
+        var provider = new TestProvider();
+
+        // Act + Assert
+
+        Assert.Throws<ArgumentOutOfRangeException>(() => provider.SetLinuxMode((LinuxMode) 5));
+    }
+
+    [Property(DisplayName = "SetLinuxMode should return an error if configured to do so")]
+    public void SetLinuxModeError(LinuxMode mode, FailedUioHookResult result)
+    {
+        // Arrange
+
+        var provider = new TestProvider
+        {
+            SetLinuxModeResult = result.Value
+        };
+
+        // Act
+
+        var actualResult = provider.SetLinuxMode(mode);
+
+        // Assert
+
+        Assert.Equal(result.Value, actualResult);
+        Assert.Equal(LinuxMode.AutoXRecord, provider.GetLinuxMode());
+    }
+
+    [Fact(DisplayName = "SetDeviceProcs should do nothing")]
+    public void SetDeviceProcs()
+    {
+        // Arrange
+
+        var provider = new TestProvider();
+
+        // Act + Assert
+
+        var exception = Record.Exception(() => ((IDeviceProcsProvider)provider)
+            .SetDeviceProcs((path, flags, userData) => -1, (fd, userData) => { }, IntPtr.Zero));
+
+        Assert.Null(exception);
     }
 
     [Property(DisplayName = "Checking if Accessibility API is disabled should depend on operation results")]

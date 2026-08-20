@@ -9,7 +9,10 @@ public sealed class TestProvider :
     IGlobalHookProvider,
     ILoggingProvider,
     IEventSimulationProvider,
+    IFeatureProvider,
     IAccessibilityProvider,
+    ILinuxBackendProvider,
+    IDeviceProcsProvider,
     IScreenInfoProvider,
     IKeyboardInfoProvider,
     IMouseInfoProvider
@@ -33,6 +36,8 @@ public sealed class TestProvider :
 
     private Func<EventType, DateTimeOffset> eventDateTime = t => DateTimeOffset.UtcNow;
     private Func<EventType, EventMask> eventMask = t => Data.EventMask.None;
+
+    private LinuxMode linuxMode = LinuxMode.AutoXRecord;
 
     /// <summary>
     /// Initializes a new instance of <see cref="TestProvider" />.
@@ -141,6 +146,13 @@ public sealed class TestProvider :
     /// </summary>
     /// <value>The result of the <see cref="DestroyVirtualDevices()" /> method.</value>
     public UioHookResult DestroyVirtualDevicesResult { get; set; } = UioHookResult.Success;
+
+    /// <summary>
+    /// Gets or sets the result of the <see cref="SetLinuxMode(LinuxMode)" /> method. If anything other than
+    /// <see cref="UioHookResult.Success" /> is set, then virtual devices won't be destroyed.
+    /// </summary>
+    /// <value>The result of the <see cref="SetLinuxMode(LinuxMode)" /> method.</value>
+    public UioHookResult SetLinuxModeResult { get; set; } = UioHookResult.Success;
 
     /// <summary>
     /// Gets the number of times the virtual devices have been initialized.
@@ -494,6 +506,44 @@ public sealed class TestProvider :
         this.PostEventResult == UioHookResult.ErrorAxApiDisabled ||
         this.PostTextResult == UioHookResult.ErrorAxApiDisabled;
 
+    /// <summary>
+    /// Gets the current Linux mode.
+    /// </summary>
+    /// <returns>The current Linux mode.</returns>
+    public LinuxMode GetLinuxMode() =>
+        this.linuxMode;
+
+    /// <summary>
+    /// Sets the Linux mode if <see cref="SetLinuxModeResult" /> is set to<see cref="UioHookResult.Success" />.
+    /// Otherwise, does nothing.
+    /// </summary>
+    /// <param name="mode">The Linux mode to set.</param>
+    /// <returns>The value of <see cref="SetLinuxModeResult" />.</returns>
+    /// <exception cref="ArgumentOutOfRangeException">
+    /// <paramref name="mode" /> is not a valid <see cref="LinuxMode" /> value.
+    /// </exception>
+    public UioHookResult SetLinuxMode(LinuxMode mode)
+    {
+#if NET5_0_OR_GREATER
+        if (!Enum.IsDefined(mode))
+#else
+        if (!Enum.IsDefined(typeof(LinuxMode), mode))
+#endif
+        {
+            throw new ArgumentOutOfRangeException(nameof(mode));
+        }
+
+        var result = this.SetLinuxModeResult;
+
+        if (result != UioHookResult.Success)
+        {
+            return result;
+        }
+
+        this.linuxMode = mode;
+        return result;
+    }
+
     private UioHookResult Run(GlobalHookType globalHookType)
     {
         this.ThrowIfRunning();
@@ -671,6 +721,21 @@ public sealed class TestProvider :
     uint IAccessibilityProvider.AxPollFrequency { get; set; } = 1;
 
     void ILoggingProvider.SetLoggerProc(LoggerProc? loggerProc, nint userData)
+    { }
+
+    UioHookFeature IFeatureProvider.GetOptionalFeatureSupport() =>
+#if NET5_0_OR_GREATER
+        Enum.GetValues<UioHookFeature>()
+#else
+            Enum.GetValues(typeof(UioHookFeature))
+                .Cast<UioHookFeature>()
+#endif
+            .Aggregate((feature1, feature2) => feature1 | feature2);
+
+    LinuxBackend ILinuxBackendProvider.GetLoadedLinuxBackend() =>
+        LinuxBackend.None;
+
+    void IDeviceProcsProvider.SetDeviceProcs(OpenDeviceProc? openProc, CloseDeviceProc? closeProc, nint userData)
     { }
 
     ScreenData[] IScreenInfoProvider.CreateScreenInfo() =>

@@ -183,7 +183,7 @@ public interface IEventSimulationProvider
     /// </para>
     /// </remarks>
     /// <seealso cref="DestroyVirtualDevices" />
-    public UioHookResult InitializeVirtualDevices(string applicationName);
+    UioHookResult InitializeVirtualDevices(string applicationName);
 
     /// <summary>
     /// Destroys virtual input devices used for event simulation.
@@ -203,5 +203,5 @@ public interface IEventSimulationProvider
     /// </para>
     /// </remarks>
     /// <seealso cref="DestroyVirtualDevices" />
-    public UioHookResult DestroyVirtualDevices();
+    UioHookResult DestroyVirtualDevices();
 }

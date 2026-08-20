@@ -7,12 +7,25 @@ public interface IGlobalHookProvider
 {
     /// <summary>
     /// Gets or sets the value which indicates whether events of type <see cref="EventType.KeyTyped" /> are enabled. The
-    /// default value is <see langword="true" />.
+    /// default value is <see langword="false" />.
     /// </summary>
     /// <value>
     /// <see langword="true" /> if events of type <see cref="EventType.KeyTyped" /> are enabled. Otherwise,
     /// <see langword="false" />.
     /// </value>
+    /// <remarks>
+    /// <para>
+    /// If the application doesn't use events of type <see cref="EventType.KeyTyped" />, then they should be disabled
+    /// so that there is no performance penalty and no subtle system-wide side effects.
+    /// </para>
+    /// <para>
+    /// Support for events of type <see cref="EventType.KeyTyped" /> can be queried using
+    /// <see cref="IFeatureProvider.GetOptionalFeatureSupport" />. If that method returns
+    /// <see cref="UioHookFeature.KeyTypedEvents" /> as one of its flags, then <see cref="EventType.KeyTyped" /> events
+    /// are supported and can be enabled or disabled. On Wayland, this property does nothing since this feature is not
+    /// supported.
+    /// </para>
+    /// </remarks>
     bool KeyTypedEnabled { get; set; }
 
     /// <summary>

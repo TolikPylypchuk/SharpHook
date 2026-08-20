@@ -4,9 +4,13 @@ namespace SharpHook.Native;
 /// Contains native methods of libuiohook.
 /// </summary>
 /// <seealso cref="IAccessibilityProvider" />
+/// <seealso cref="IDeviceProcsProvider" />
 /// <seealso cref="IEventSimulationProvider" />
+/// <seealso cref="IFeatureProvider" />
 /// <seealso cref="IGlobalHookProvider" />
 /// <seealso cref="ILoggingProvider" />
+/// <seealso cref="IKeyboardInfoProvider" />
+/// <seealso cref="ILinuxBackendProvider" />
 /// <seealso cref="IMouseInfoProvider" />
 /// <seealso cref="IScreenInfoProvider" />
 /// <seealso cref="UioHookProvider" />
@@ -407,8 +411,10 @@ public static partial class UioHook
     /// so that there is no performance penalty and no subtle system-wide side effects.
     /// </para>
     /// <para>
-    /// On Wayland, this method always returns <see langword="false" /> since events of type
-    /// <see cref="EventType.KeyTyped" /> are not supported.
+    /// Support for events of type <see cref="EventType.KeyTyped" /> can be queried using
+    /// <see cref="GetOptionalFeatureSupport" />. If that method returns <see cref="UioHookFeature.KeyTypedEvents" /> as
+    /// one of its flags, then <see cref="EventType.KeyTyped" /> events are supported and can be enabled or disabled. On
+    /// Wayland, this method does nothing since this feature is not supported.
     /// </para>
     /// </remarks>
 #if NET7_0_OR_GREATER
@@ -435,7 +441,10 @@ public static partial class UioHook
     /// so that there is no performance penalty and no subtle system-wide side effects.
     /// </para>
     /// <para>
-    /// On Wayland, this method does nothing since events of type <see cref="EventType.KeyTyped" /> are not supported.
+    /// Support for events of type <see cref="EventType.KeyTyped" /> can be queried using
+    /// <see cref="GetOptionalFeatureSupport" />. If that method returns <see cref="UioHookFeature.KeyTypedEvents" /> as
+    /// one of its flags, then <see cref="EventType.KeyTyped" /> are supported and can be enabled or disabled. On
+    /// Wayland, this method does nothing since this feature is not supported.
     /// </para>
     /// </remarks>
 #if NET7_0_OR_GREATER
@@ -731,6 +740,11 @@ public static partial class UioHook
     /// Gets the pointer acceleration multiplier.
     /// </summary>
     /// <returns>The pointer acceleration multiplier.</returns>
+    /// <remarks>
+    /// Support for this method can be queried using <see cref="GetOptionalFeatureSupport" />. If that method returns
+    /// <see cref="UioHookFeature.PointerProperties" /> as one of its flags, then this method is supported. Otherwise,
+    /// this method always returns <c>-1</c>. On Wayland, this feature is not supported.
+    /// </remarks>
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_get_pointer_acceleration_multiplier")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -747,6 +761,11 @@ public static partial class UioHook
     /// Gets the pointer acceleration threshold.
     /// </summary>
     /// <returns>The pointer acceleration threshold.</returns>
+    /// <remarks>
+    /// Support for this method can be queried using <see cref="GetOptionalFeatureSupport" />. If that method returns
+    /// <see cref="UioHookFeature.PointerProperties" /> as one of its flags, then this method is supported. Otherwise,
+    /// this method always returns <c>-1</c>. On Wayland, this feature is not supported.
+    /// </remarks>
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_get_pointer_acceleration_threshold")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
@@ -763,6 +782,11 @@ public static partial class UioHook
     /// Gets the pointer sensitivity.
     /// </summary>
     /// <returns>The pointer sensitivity.</returns>
+    /// <remarks>
+    /// Support for this method can be queried using <see cref="GetOptionalFeatureSupport" />. If that method returns
+    /// <see cref="UioHookFeature.PointerProperties" /> as one of its flags, then this method is supported. Otherwise,
+    /// this method always returns <c>-1</c>. On Wayland, this feature is not supported.
+    /// </remarks>
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_get_pointer_sensitivity")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]

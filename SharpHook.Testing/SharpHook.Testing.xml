@@ -662,6 +662,13 @@
             </summary>
             <value>The result of the <see cref="M:SharpHook.Testing.TestProvider.DestroyVirtualDevices" /> method.</value>
         </member>
+        <member name="P:SharpHook.Testing.TestProvider.SetLinuxModeResult">
+            <summary>
+            Gets or sets the result of the <see cref="M:SharpHook.Testing.TestProvider.SetLinuxMode(SharpHook.Data.LinuxMode)" /> method. If anything other than
+            <see cref="F:SharpHook.Data.UioHookResult.Success" /> is set, then virtual devices won't be destroyed.
+            </summary>
+            <value>The result of the <see cref="M:SharpHook.Testing.TestProvider.SetLinuxMode(SharpHook.Data.LinuxMode)" /> method.</value>
+        </member>
         <member name="P:SharpHook.Testing.TestProvider.VirtualDevicesInitializationCount">
             <summary>
             Gets the number of times the virtual devices have been initialized.
@@ -880,6 +887,23 @@
             be configured to return <see cref="F:SharpHook.Data.UioHookResult.ErrorAxApiDisabled" />, for consistency with real
             Accessibility API checks.
             </remarks>
+        </member>
+        <member name="M:SharpHook.Testing.TestProvider.GetLinuxMode">
+            <summary>
+            Gets the current Linux mode.
+            </summary>
+            <returns>The current Linux mode.</returns>
+        </member>
+        <member name="M:SharpHook.Testing.TestProvider.SetLinuxMode(SharpHook.Data.LinuxMode)">
+            <summary>
+            Sets the Linux mode if <see cref="P:SharpHook.Testing.TestProvider.SetLinuxModeResult" /> is set to<see cref="F:SharpHook.Data.UioHookResult.Success" />.
+            Otherwise, does nothing.
+            </summary>
+            <param name="mode">The Linux mode to set.</param>
+            <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.SetLinuxModeResult" />.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <paramref name="mode" /> is not a valid <see cref="T:SharpHook.Data.LinuxMode" /> value.
+            </exception>
         </member>
         <member name="T:SharpHook.Testing.TestThreadingMode">
             <summary>

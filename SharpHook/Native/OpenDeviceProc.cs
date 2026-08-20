@@ -10,4 +10,4 @@ namespace SharpHook.Native;
 /// </param>
 /// <seealso cref="UioHook.SetDeviceProcs(OpenDeviceProc?, CloseDeviceProc?, nint)" />
 [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-public delegate int OpenDeviceProc(string path, nint flags, nint userData);
+public delegate int OpenDeviceProc(string path, int flags, nint userData);

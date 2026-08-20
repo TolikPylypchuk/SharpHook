@@ -1,15 +1,17 @@
 namespace SharpHook.Providers;
 
 /// <summary>
-/// A provider of low-level functionality which delegates it to the <see cref="UioHook" /> class.
+/// A provider of low-level functionality which delegates it to libuiohook.
 /// </summary>
-/// <seealso cref="UioHook" />
 [ExcludeFromCodeCoverage]
 public sealed class UioHookProvider :
     ILoggingProvider,
     IGlobalHookProvider,
     IEventSimulationProvider,
+    IFeatureProvider,
     IAccessibilityProvider,
+    ILinuxBackendProvider,
+    IDeviceProcsProvider,
     IScreenInfoProvider,
     IKeyboardInfoProvider,
     IMouseInfoProvider
@@ -24,12 +26,24 @@ public sealed class UioHookProvider :
 
     /// <summary>
     /// Gets or sets the value which indicates whether events of type <see cref="EventType.KeyTyped" /> are enabled. The
-    /// default value is <see langword="true" />.
+    /// default value is <see langword="false" />.
     /// </summary>
     /// <value>
     /// <see langword="true" /> if events of type <see cref="EventType.KeyTyped" /> are enabled. Otherwise,
     /// <see langword="false" />.
     /// </value>
+    /// <remarks>
+    /// <para>
+    /// If the application doesn't use events of type <see cref="EventType.KeyTyped" />, then they should be disabled
+    /// so that there is no performance penalty and no subtle system-wide side effects.
+    /// </para>
+    /// <para>
+    /// Support for events of type <see cref="EventType.KeyTyped" /> can be queried using
+    /// <see cref="GetOptionalFeatureSupport" />. If that method returns <see cref="UioHookFeature.KeyTypedEvents" /> as
+    /// one of its flags, then <see cref="EventType.KeyTyped" /> events are supported and can be enabled or disabled. On
+    /// Wayland, this property does nothing since this feature is not supported.
+    /// </para>
+    /// </remarks>
     public bool KeyTypedEnabled
     {
         get => UioHook.IsKeyTypedEnabled();
@@ -346,6 +360,15 @@ public sealed class UioHookProvider :
         UioHook.DestroyVirtualDevices();
 
     /// <summary>
+    /// Returns optional features of libuiohook that are supported on the current platform.
+    /// </summary>
+    /// <returns>
+    /// Flags which indicate which optional features are supported on the current platform.
+    /// </returns>
+    public UioHookFeature GetOptionalFeatureSupport() =>
+        UioHook.GetOptionalFeatureSupport();
+
+    /// <summary>
     /// Checks whether access to macOS Accessibility API is enabled for the process, optionally prompting the user
     /// if it is disabled.
     /// </summary>
@@ -359,6 +382,68 @@ public sealed class UioHookProvider :
     /// </remarks>
     public bool IsAxApiEnabled(bool promptUserIfDisabled) =>
         UioHook.IsAxApiEnabled(promptUserIfDisabled);
+
+    /// <summary>
+    /// Gets the mode for selecting which Linux backend to load.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// This method returns only the selection mode. If you need to get the Linux backend that was actually loaded, then
+    /// use <see cref="GetLoadedLinuxBackend()" />.
+    /// </para>
+    /// <para>
+    /// On Windows and macOS, this method always returns <see cref="LinuxMode.AutoXRecord" /> which is the default
+    /// value.
+    /// </para>
+    /// </remarks>
+    public LinuxMode GetLinuxMode() =>
+        UioHook.GetLinuxMode();
+
+    /// <summary>
+    /// Sets the mode for selecting which Linux backend to load.
+    /// </summary>
+    /// <remarks>
+    /// This method returns one of three possible values:
+    /// <list type="bullet">
+    /// <item><see cref="UioHookResult.Success" /> if the Linux mode was successfully set.</item>
+    /// <item><see cref="UioHookResult.Failure" /> if the provided mode is an invalid enum value.</item>
+    /// <item>
+    /// <see cref="UioHookResult.ErrorLinuxLoadBackend" /> if a Linux backend has already been loaded and changing it is
+    /// not allowed.
+    /// </item>
+    /// </list>
+    /// </remarks>
+    public UioHookResult SetLinuxMode(LinuxMode mode) =>
+        UioHook.SetLinuxMode(mode);
+
+    /// <summary>
+    /// Gets the loaded Linux backend.
+    /// </summary>
+    /// <remarks>
+    /// On Windows and macOS, this method always returns <see cref="LinuxBackend.None" />.
+    /// </remarks>
+    public LinuxBackend GetLoadedLinuxBackend() =>
+        UioHook.GetLoadedLinuxBackend();
+
+    /// <summary>
+    /// Sets the functions to open and close privieged devices. This can be used to provide a custom way of opening and
+    /// closing devices on Linux without requiring direct file access to them. This is an advanced scenario and should
+    /// generally be avoided.
+    /// </summary>
+    /// <param name="openProc">
+    /// The function to use when opening a privileged device, or <see langword="null" /> to use the default method.
+    /// </param>
+    /// <param name="closeProc">
+    /// The function to use when closing a privileged device, or <see langword="null" /> to use the default method.
+    /// </param>
+    /// <param name="userData">
+    /// The data to pass to the device functions.
+    /// </param>
+    /// <remarks>
+    /// These functions are used only on Linux, and only when the loaded backend uses libinput and uinput.
+    /// </remarks>
+    public void SetDeviceProcs(OpenDeviceProc? openProc, CloseDeviceProc? closeProc, nint userData) =>
+        UioHook.SetDeviceProcs(openProc, closeProc, userData);
 
     /// <summary>
     /// Gets the information about screens.
@@ -385,6 +470,11 @@ public sealed class UioHookProvider :
     /// Gets the pointer acceleration multiplier.
     /// </summary>
     /// <returns>The pointer acceleration multiplier.</returns>
+    /// <remarks>
+    /// Support for this method can be queried using <see cref="GetOptionalFeatureSupport" />. If that method returns
+    /// <see cref="UioHookFeature.PointerProperties" /> as one of its flags, then this method is supported. Otherwise,
+    /// this method always returns <c>-1</c>. On Wayland, this feature is not supported.
+    /// </remarks>
     public int GetPointerAccelerationMultiplier() =>
         UioHook.GetPointerAccelerationMultiplier();
 
@@ -392,6 +482,11 @@ public sealed class UioHookProvider :
     /// Gets the pointer acceleration threshold.
     /// </summary>
     /// <returns>The pointer acceleration threshold.</returns>
+    /// <remarks>
+    /// Support for this method can be queried using <see cref="GetOptionalFeatureSupport" />. If that method returns
+    /// <see cref="UioHookFeature.PointerProperties" /> as one of its flags, then this method is supported. Otherwise,
+    /// this method always returns <c>-1</c>. On Wayland, this feature is not supported.
+    /// </remarks>
     public int GetPointerAccelerationThreshold() =>
         UioHook.GetPointerAccelerationThreshold();
 
@@ -399,6 +494,11 @@ public sealed class UioHookProvider :
     /// Gets the pointer sensitivity.
     /// </summary>
     /// <returns>The pointer sensitivity.</returns>
+    /// <remarks>
+    /// Support for this method can be queried using <see cref="GetOptionalFeatureSupport" />. If that method returns
+    /// <see cref="UioHookFeature.PointerProperties" /> as one of its flags, then this method is supported. Otherwise,
+    /// this method always returns <c>-1</c>. On Wayland, this feature is not supported.
+    /// </remarks>
     public int GetPointerSensitivity() =>
         UioHook.GetPointerSensitivity();
 

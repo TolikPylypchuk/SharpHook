@@ -7,6 +7,11 @@ namespace SharpHook.Data;
 public enum UioHookFeature : uint
 {
     /// <summary>
+    /// Used if the current platform supports no optional features
+    /// </summary>
+    None = 0,
+
+    /// <summary>
     /// Event suppression. Supported on Windows and macOS. Not supported on Linux – neither on X11 nor on Wayland.
     /// </summary>
     EventSuppression = 1 << 0,

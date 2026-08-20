@@ -1815,6 +1815,11 @@
             Represents an optional feature of libuiohook that is not supported on all platforms.
             </summary>
         </member>
+        <member name="F:SharpHook.Data.UioHookFeature.None">
+            <summary>
+            Used if the current platform supports no optional features
+            </summary>
+        </member>
         <member name="F:SharpHook.Data.UioHookFeature.EventSuppression">
             <summary>
             Event suppression. Supported on Windows and macOS. Not supported on Linux – neither on X11 nor on Wayland.
@@ -2967,9 +2972,13 @@
             Contains native methods of libuiohook.
             </summary>
             <seealso cref="T:SharpHook.Providers.IAccessibilityProvider" />
+            <seealso cref="T:SharpHook.Providers.IDeviceProcsProvider" />
             <seealso cref="T:SharpHook.Providers.IEventSimulationProvider" />
+            <seealso cref="T:SharpHook.Providers.IFeatureProvider" />
             <seealso cref="T:SharpHook.Providers.IGlobalHookProvider" />
             <seealso cref="T:SharpHook.Providers.ILoggingProvider" />
+            <seealso cref="T:SharpHook.Providers.IKeyboardInfoProvider" />
+            <seealso cref="T:SharpHook.Providers.ILinuxBackendProvider" />
             <seealso cref="T:SharpHook.Providers.IMouseInfoProvider" />
             <seealso cref="T:SharpHook.Providers.IScreenInfoProvider" />
             <seealso cref="T:SharpHook.Providers.UioHookProvider" />
@@ -3268,8 +3277,10 @@
             so that there is no performance penalty and no subtle system-wide side effects.
             </para>
             <para>
-            On Wayland, this method always returns <see langword="false" /> since events of type
-            <see cref="F:SharpHook.Data.EventType.KeyTyped" /> are not supported.
+            Support for events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> can be queried using
+            <see cref="M:SharpHook.Native.UioHook.GetOptionalFeatureSupport" />. If that method returns <see cref="F:SharpHook.Data.UioHookFeature.KeyTypedEvents" /> as
+            one of its flags, then <see cref="F:SharpHook.Data.EventType.KeyTyped" /> events are supported and can be enabled or disabled. On
+            Wayland, this method does nothing since this feature is not supported.
             </para>
             </remarks>
         </member>
@@ -3287,7 +3298,10 @@
             so that there is no performance penalty and no subtle system-wide side effects.
             </para>
             <para>
-            On Wayland, this method does nothing since events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> are not supported.
+            Support for events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> can be queried using
+            <see cref="M:SharpHook.Native.UioHook.GetOptionalFeatureSupport" />. If that method returns <see cref="F:SharpHook.Data.UioHookFeature.KeyTypedEvents" /> as
+            one of its flags, then <see cref="F:SharpHook.Data.EventType.KeyTyped" /> are supported and can be enabled or disabled. On
+            Wayland, this method does nothing since this feature is not supported.
             </para>
             </remarks>
         </member>
@@ -3472,18 +3486,33 @@
             Gets the pointer acceleration multiplier.
             </summary>
             <returns>The pointer acceleration multiplier.</returns>
+            <remarks>
+            Support for this method can be queried using <see cref="M:SharpHook.Native.UioHook.GetOptionalFeatureSupport" />. If that method returns
+            <see cref="F:SharpHook.Data.UioHookFeature.PointerProperties" /> as one of its flags, then this method is supported. Otherwise,
+            this method always returns <c>-1</c>. On Wayland, this feature is not supported.
+            </remarks>
         </member>
         <member name="M:SharpHook.Native.UioHook.GetPointerAccelerationThreshold">
             <summary>
             Gets the pointer acceleration threshold.
             </summary>
             <returns>The pointer acceleration threshold.</returns>
+            <remarks>
+            Support for this method can be queried using <see cref="M:SharpHook.Native.UioHook.GetOptionalFeatureSupport" />. If that method returns
+            <see cref="F:SharpHook.Data.UioHookFeature.PointerProperties" /> as one of its flags, then this method is supported. Otherwise,
+            this method always returns <c>-1</c>. On Wayland, this feature is not supported.
+            </remarks>
         </member>
         <member name="M:SharpHook.Native.UioHook.GetPointerSensitivity">
             <summary>
             Gets the pointer sensitivity.
             </summary>
             <returns>The pointer sensitivity.</returns>
+            <remarks>
+            Support for this method can be queried using <see cref="M:SharpHook.Native.UioHook.GetOptionalFeatureSupport" />. If that method returns
+            <see cref="F:SharpHook.Data.UioHookFeature.PointerProperties" /> as one of its flags, then this method is supported. Otherwise,
+            this method always returns <c>-1</c>. On Wayland, this feature is not supported.
+            </remarks>
         </member>
         <member name="M:SharpHook.Native.UioHook.GetMultiClickTime">
             <summary>
@@ -3554,6 +3583,30 @@
             </returns>
             <remarks>
             On Windows and Linux, this method does nothing and always returns <see langword="true" />.
+            </remarks>
+        </member>
+        <member name="T:SharpHook.Providers.IDeviceProcsProvider">
+            <summary>
+            Represents a provider of low-level device functionality.
+            </summary>
+        </member>
+        <member name="M:SharpHook.Providers.IDeviceProcsProvider.SetDeviceProcs(SharpHook.Native.OpenDeviceProc,SharpHook.Native.CloseDeviceProc,System.IntPtr)">
+            <summary>
+            Sets the functions to open and close privieged devices. This can be used to provide a custom way of opening and
+            closing devices on Linux without requiring direct file access to them. This is an advanced scenario and should
+            generally be avoided.
+            </summary>
+            <param name="openProc">
+            The function to use when opening a privileged device, or <see langword="null" /> to use the default method.
+            </param>
+            <param name="closeProc">
+            The function to use when closing a privileged device, or <see langword="null" /> to use the default method.
+            </param>
+            <param name="userData">
+            The data to pass to the device functions.
+            </param>
+            <remarks>
+            These functions are used only on Linux, and only when the loaded backend uses libinput and uinput.
             </remarks>
         </member>
         <member name="T:SharpHook.Providers.IEventSimulationProvider">
@@ -3761,6 +3814,19 @@
             </remarks>
             <seealso cref="M:SharpHook.Providers.IEventSimulationProvider.DestroyVirtualDevices" />
         </member>
+        <member name="T:SharpHook.Providers.IFeatureProvider">
+            <summary>
+            Represents a provider of low-level feature functionality.
+            </summary>
+        </member>
+        <member name="M:SharpHook.Providers.IFeatureProvider.GetOptionalFeatureSupport">
+            <summary>
+            Returns optional features of libuiohook that are supported on the current platform.
+            </summary>
+            <returns>
+            Flags which indicate which optional features are supported on the current platform.
+            </returns>
+        </member>
         <member name="T:SharpHook.Providers.IGlobalHookProvider">
             <summary>
             Represents a provider of low-level global hook functionality.
@@ -3769,12 +3835,25 @@
         <member name="P:SharpHook.Providers.IGlobalHookProvider.KeyTypedEnabled">
             <summary>
             Gets or sets the value which indicates whether events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> are enabled. The
-            default value is <see langword="true" />.
+            default value is <see langword="false" />.
             </summary>
             <value>
             <see langword="true" /> if events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> are enabled. Otherwise,
             <see langword="false" />.
             </value>
+            <remarks>
+            <para>
+            If the application doesn't use events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" />, then they should be disabled
+            so that there is no performance penalty and no subtle system-wide side effects.
+            </para>
+            <para>
+            Support for events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> can be queried using
+            <see cref="M:SharpHook.Providers.IFeatureProvider.GetOptionalFeatureSupport" />. If that method returns
+            <see cref="F:SharpHook.Data.UioHookFeature.KeyTypedEvents" /> as one of its flags, then <see cref="F:SharpHook.Data.EventType.KeyTyped" /> events
+            are supported and can be enabled or disabled. On Wayland, this property does nothing since this feature is not
+            supported.
+            </para>
+            </remarks>
         </member>
         <member name="M:SharpHook.Providers.IGlobalHookProvider.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)">
             <summary>
@@ -3829,6 +3908,50 @@
             </summary>
             <returns>The key auto-repeat delay.</returns>
         </member>
+        <member name="T:SharpHook.Providers.ILinuxBackendProvider">
+            <summary>
+            Represents a provider of low-level Linux backend functionality.
+            </summary>
+        </member>
+        <member name="M:SharpHook.Providers.ILinuxBackendProvider.GetLinuxMode">
+            <summary>
+            Gets the mode for selecting which Linux backend to load.
+            </summary>
+            <remarks>
+            <para>
+            This method returns only the selection mode. If you need to get the Linux backend that was actually loaded, then
+            use <see cref="M:SharpHook.Providers.ILinuxBackendProvider.GetLoadedLinuxBackend" />.
+            </para>
+            <para>
+            On Windows and macOS, this method always returns <see cref="F:SharpHook.Data.LinuxMode.AutoXRecord" /> which is the default
+            value.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Providers.ILinuxBackendProvider.SetLinuxMode(SharpHook.Data.LinuxMode)">
+            <summary>
+            Sets the mode for selecting which Linux backend to load.
+            </summary>
+            <remarks>
+            This method returns one of three possible values:
+            <list type="bullet">
+            <item><see cref="F:SharpHook.Data.UioHookResult.Success" /> if the Linux mode was successfully set.</item>
+            <item><see cref="F:SharpHook.Data.UioHookResult.Failure" /> if the provided mode is an invalid enum value.</item>
+            <item>
+            <see cref="F:SharpHook.Data.UioHookResult.ErrorLinuxLoadBackend" /> if a Linux backend has already been loaded and changing it is
+            not allowed.
+            </item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Providers.ILinuxBackendProvider.GetLoadedLinuxBackend">
+            <summary>
+            Gets the loaded Linux backend.
+            </summary>
+            <remarks>
+            On Windows and macOS, this method always returns <see cref="F:SharpHook.Data.LinuxBackend.None" />.
+            </remarks>
+        </member>
         <member name="T:SharpHook.Providers.ILoggingProvider">
             <summary>
             Represents a provider of low-level logging functionality.
@@ -3856,24 +3979,44 @@
             Gets the pointer acceleration multiplier.
             </summary>
             <returns>The pointer acceleration multiplier.</returns>
+            <remarks>
+            Support for this method can be queried using <see cref="M:SharpHook.Providers.IFeatureProvider.GetOptionalFeatureSupport" />. If that
+            method returns <see cref="F:SharpHook.Data.UioHookFeature.PointerProperties" /> as one of its flags, then this method is
+            supported. Otherwise, this method always returns <c>-1</c>. On Wayland, this feature is not supported.
+            </remarks>
         </member>
         <member name="M:SharpHook.Providers.IMouseInfoProvider.GetPointerAccelerationThreshold">
             <summary>
             Gets the pointer acceleration threshold.
             </summary>
             <returns>The pointer acceleration threshold.</returns>
+            <remarks>
+            Support for this method can be queried using <see cref="M:SharpHook.Providers.IFeatureProvider.GetOptionalFeatureSupport" />. If that
+            method returns <see cref="F:SharpHook.Data.UioHookFeature.PointerProperties" /> as one of its flags, then this method is
+            supported. Otherwise, this method always returns <c>-1</c>. On Wayland, this feature is not supported.
+            </remarks>
         </member>
         <member name="M:SharpHook.Providers.IMouseInfoProvider.GetPointerSensitivity">
             <summary>
             Gets the pointer sensitivity.
             </summary>
             <returns>The pointer sensitivity.</returns>
+            <remarks>
+            Support for this method can be queried using <see cref="M:SharpHook.Providers.IFeatureProvider.GetOptionalFeatureSupport" />. If that
+            method returns <see cref="F:SharpHook.Data.UioHookFeature.PointerProperties" /> as one of its flags, then this method is
+            supported. Otherwise, this method always returns <c>-1</c>. On Wayland, this feature is not supported.
+            </remarks>
         </member>
         <member name="M:SharpHook.Providers.IMouseInfoProvider.GetMultiClickTime">
             <summary>
             Gets the multi-click time.
             </summary>
             <returns>The multi-click time.</returns>
+            <remarks>
+            Support for this method can be queried using <see cref="M:SharpHook.Providers.IFeatureProvider.GetOptionalFeatureSupport" />. If that
+            method returns <see cref="F:SharpHook.Data.UioHookFeature.PointerProperties" /> as one of its flags, then this method is
+            supported. Otherwise, this method always returns <c>-1</c>. On Wayland, this feature is not supported.
+            </remarks>
         </member>
         <member name="T:SharpHook.Providers.IScreenInfoProvider">
             <summary>
@@ -3888,9 +4031,8 @@
         </member>
         <member name="T:SharpHook.Providers.UioHookProvider">
             <summary>
-            A provider of low-level functionality which delegates it to the <see cref="T:SharpHook.Native.UioHook" /> class.
+            A provider of low-level functionality which delegates it to libuiohook.
             </summary>
-            <seealso cref="T:SharpHook.Native.UioHook" />
         </member>
         <member name="P:SharpHook.Providers.UioHookProvider.Instance">
             <summary>
@@ -3900,12 +4042,24 @@
         <member name="P:SharpHook.Providers.UioHookProvider.KeyTypedEnabled">
             <summary>
             Gets or sets the value which indicates whether events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> are enabled. The
-            default value is <see langword="true" />.
+            default value is <see langword="false" />.
             </summary>
             <value>
             <see langword="true" /> if events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> are enabled. Otherwise,
             <see langword="false" />.
             </value>
+            <remarks>
+            <para>
+            If the application doesn't use events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" />, then they should be disabled
+            so that there is no performance penalty and no subtle system-wide side effects.
+            </para>
+            <para>
+            Support for events of type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> can be queried using
+            <see cref="M:SharpHook.Providers.UioHookProvider.GetOptionalFeatureSupport" />. If that method returns <see cref="F:SharpHook.Data.UioHookFeature.KeyTypedEvents" /> as
+            one of its flags, then <see cref="F:SharpHook.Data.EventType.KeyTyped" /> events are supported and can be enabled or disabled. On
+            Wayland, this property does nothing since this feature is not supported.
+            </para>
+            </remarks>
         </member>
         <member name="P:SharpHook.Providers.UioHookProvider.PostTextDelayLinux">
             <summary>
@@ -4193,6 +4347,14 @@
             </remarks>
             <seealso cref="M:SharpHook.Providers.UioHookProvider.DestroyVirtualDevices" />
         </member>
+        <member name="M:SharpHook.Providers.UioHookProvider.GetOptionalFeatureSupport">
+            <summary>
+            Returns optional features of libuiohook that are supported on the current platform.
+            </summary>
+            <returns>
+            Flags which indicate which optional features are supported on the current platform.
+            </returns>
+        </member>
         <member name="M:SharpHook.Providers.UioHookProvider.IsAxApiEnabled(System.Boolean)">
             <summary>
             Checks whether access to macOS Accessibility API is enabled for the process, optionally prompting the user
@@ -4205,6 +4367,64 @@
             </returns>
             <remarks>
             On Windows and Linux, this method does nothing and always returns <see langword="true" />.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Providers.UioHookProvider.GetLinuxMode">
+            <summary>
+            Gets the mode for selecting which Linux backend to load.
+            </summary>
+            <remarks>
+            <para>
+            This method returns only the selection mode. If you need to get the Linux backend that was actually loaded, then
+            use <see cref="M:SharpHook.Providers.UioHookProvider.GetLoadedLinuxBackend" />.
+            </para>
+            <para>
+            On Windows and macOS, this method always returns <see cref="F:SharpHook.Data.LinuxMode.AutoXRecord" /> which is the default
+            value.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Providers.UioHookProvider.SetLinuxMode(SharpHook.Data.LinuxMode)">
+            <summary>
+            Sets the mode for selecting which Linux backend to load.
+            </summary>
+            <remarks>
+            This method returns one of three possible values:
+            <list type="bullet">
+            <item><see cref="F:SharpHook.Data.UioHookResult.Success" /> if the Linux mode was successfully set.</item>
+            <item><see cref="F:SharpHook.Data.UioHookResult.Failure" /> if the provided mode is an invalid enum value.</item>
+            <item>
+            <see cref="F:SharpHook.Data.UioHookResult.ErrorLinuxLoadBackend" /> if a Linux backend has already been loaded and changing it is
+            not allowed.
+            </item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Providers.UioHookProvider.GetLoadedLinuxBackend">
+            <summary>
+            Gets the loaded Linux backend.
+            </summary>
+            <remarks>
+            On Windows and macOS, this method always returns <see cref="F:SharpHook.Data.LinuxBackend.None" />.
+            </remarks>
+        </member>
+        <member name="M:SharpHook.Providers.UioHookProvider.SetDeviceProcs(SharpHook.Native.OpenDeviceProc,SharpHook.Native.CloseDeviceProc,System.IntPtr)">
+            <summary>
+            Sets the functions to open and close privieged devices. This can be used to provide a custom way of opening and
+            closing devices on Linux without requiring direct file access to them. This is an advanced scenario and should
+            generally be avoided.
+            </summary>
+            <param name="openProc">
+            The function to use when opening a privileged device, or <see langword="null" /> to use the default method.
+            </param>
+            <param name="closeProc">
+            The function to use when closing a privileged device, or <see langword="null" /> to use the default method.
+            </param>
+            <param name="userData">
+            The data to pass to the device functions.
+            </param>
+            <remarks>
+            These functions are used only on Linux, and only when the loaded backend uses libinput and uinput.
             </remarks>
         </member>
         <member name="M:SharpHook.Providers.UioHookProvider.CreateScreenInfo">
@@ -4230,18 +4450,33 @@
             Gets the pointer acceleration multiplier.
             </summary>
             <returns>The pointer acceleration multiplier.</returns>
+            <remarks>
+            Support for this method can be queried using <see cref="M:SharpHook.Providers.UioHookProvider.GetOptionalFeatureSupport" />. If that method returns
+            <see cref="F:SharpHook.Data.UioHookFeature.PointerProperties" /> as one of its flags, then this method is supported. Otherwise,
+            this method always returns <c>-1</c>. On Wayland, this feature is not supported.
+            </remarks>
         </member>
         <member name="M:SharpHook.Providers.UioHookProvider.GetPointerAccelerationThreshold">
             <summary>
             Gets the pointer acceleration threshold.
             </summary>
             <returns>The pointer acceleration threshold.</returns>
+            <remarks>
+            Support for this method can be queried using <see cref="M:SharpHook.Providers.UioHookProvider.GetOptionalFeatureSupport" />. If that method returns
+            <see cref="F:SharpHook.Data.UioHookFeature.PointerProperties" /> as one of its flags, then this method is supported. Otherwise,
+            this method always returns <c>-1</c>. On Wayland, this feature is not supported.
+            </remarks>
         </member>
         <member name="M:SharpHook.Providers.UioHookProvider.GetPointerSensitivity">
             <summary>
             Gets the pointer sensitivity.
             </summary>
             <returns>The pointer sensitivity.</returns>
+            <remarks>
+            Support for this method can be queried using <see cref="M:SharpHook.Providers.UioHookProvider.GetOptionalFeatureSupport" />. If that method returns
+            <see cref="F:SharpHook.Data.UioHookFeature.PointerProperties" /> as one of its flags, then this method is supported. Otherwise,
+            this method always returns <c>-1</c>. On Wayland, this feature is not supported.
+            </remarks>
         </member>
         <member name="M:SharpHook.Providers.UioHookProvider.GetMultiClickTime">
             <summary>
