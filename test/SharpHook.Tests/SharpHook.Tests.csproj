@@ -21,11 +21,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SharpHook\SharpHook.csproj" />
-    <ProjectReference Include="..\SharpHook.R3\SharpHook.R3.csproj" />
-    <ProjectReference Include="..\SharpHook.Reactive\SharpHook.Reactive.csproj" />
-    <ProjectReference Include="..\SharpHook.ReactiveUI\SharpHook.ReactiveUI.csproj" />
-    <ProjectReference Include="..\SharpHook.Testing\SharpHook.Testing.csproj" />
+    <ProjectReference Include="..\..\src\SharpHook\SharpHook.csproj" />
+    <ProjectReference Include="..\..\src\SharpHook.R3\SharpHook.R3.csproj" />
+    <ProjectReference Include="..\..\src\SharpHook.Reactive\SharpHook.Reactive.csproj" />
+    <ProjectReference Include="..\..\src\SharpHook.ReactiveUI\SharpHook.ReactiveUI.csproj" />
+    <ProjectReference Include="..\..\src\SharpHook.Testing\SharpHook.Testing.csproj" />
   </ItemGroup>
 
 </Project>

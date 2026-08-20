@@ -1,15 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <PackageTags>$(PackageTags) testing</PackageTags>
+    <PackageTags>$(PackageTags) rx reactive</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup>
-    <DocumentationFile>$(ProjectDir)SharpHook.Testing.xml</DocumentationFile>
+    <DocumentationFile>$(ProjectDir)SharpHook.Reactive.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.400" PrivateAssets="all" Condition="!$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))" />
+    <PackageReference Include="System.Reactive" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\icon.png">
+    <None Include="..\..\icon.png">
       <Pack>True</Pack>
       <PackagePath />
     </None>

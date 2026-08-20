@@ -21,7 +21,7 @@
       <PackagePath>build/net472/SharpHook.targets</PackagePath>
       <Pack>True</Pack>
     </None>
-    <None Include="..\icon.png">
+    <None Include="..\..\icon.png">
       <Pack>True</Pack>
       <PackagePath />
     </None>

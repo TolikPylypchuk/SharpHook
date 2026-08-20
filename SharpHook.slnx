@@ -6,13 +6,13 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Folder Name="/Docs/">
+  <Folder Name="/docs/">
     <File Path="docs/docfx.json" />
     <File Path="docs/index.md" />
     <File Path="docs/template/public/main.js" />
     <File Path="docs/toc.yml" />
   </Folder>
-  <Folder Name="/Docs/Articles/">
+  <Folder Name="/docs/articles/">
     <File Path="docs/articles/about.md" />
     <File Path="docs/articles/custom.md" />
     <File Path="docs/articles/hooks.md" />
@@ -26,7 +26,7 @@
     <File Path="docs/articles/testing.md" />
     <File Path="docs/articles/toc.yml" />
   </Folder>
-  <Folder Name="/Solution Items/">
+  <Folder Name="/items/">
     <File Path=".editorconfig" />
     <File Path=".gitattributes" />
     <File Path=".github/workflows/build.yml" />
@@ -39,46 +39,50 @@
     <File Path="LICENSE" />
     <File Path="README.md" />
   </Folder>
-  <Project Path="SharpHook.R3/SharpHook.R3.csproj" Id="2d4e4ce3-36c6-4b74-97fd-4b28bc1ec8bf">
-    <Platform Solution="*|ARM32" Project="ARM32" />
-    <Platform Solution="*|ARM64" Project="ARM64" />
-    <Platform Solution="*|x64" Project="x64" />
-    <Platform Solution="*|x86" Project="x86" />
-  </Project>
-  <Project Path="SharpHook.Reactive/SharpHook.Reactive.csproj">
-    <Platform Solution="*|ARM32" Project="ARM32" />
-    <Platform Solution="*|ARM64" Project="ARM64" />
-    <Platform Solution="*|x64" Project="x64" />
-    <Platform Solution="*|x86" Project="x86" />
-  </Project>
-  <Project Path="SharpHook.ReactiveUI/SharpHook.ReactiveUI.csproj" Id="ef9eb357-2cde-429c-b17e-5a72c970493e">
-    <Platform Solution="*|ARM32" Project="ARM32" />
-    <Platform Solution="*|ARM64" Project="ARM64" />
-    <Platform Solution="*|x64" Project="x64" />
-    <Platform Solution="*|x86" Project="x86" />
-  </Project>
-  <Project Path="SharpHook.Sample/SharpHook.Sample.csproj">
-    <Platform Solution="*|ARM32" Project="ARM32" />
-    <Platform Solution="*|ARM64" Project="ARM64" />
-    <Platform Solution="*|x64" Project="x64" />
-    <Platform Solution="*|x86" Project="x86" />
-  </Project>
-  <Project Path="SharpHook.Testing/SharpHook.Testing.csproj" Id="df1e2c73-0f3c-4a8d-80ce-ec7e83bf459a">
-    <Platform Solution="*|ARM32" Project="ARM32" />
-    <Platform Solution="*|ARM64" Project="ARM64" />
-    <Platform Solution="*|x64" Project="x64" />
-    <Platform Solution="*|x86" Project="x86" />
-  </Project>
-  <Project Path="SharpHook.Tests/SharpHook.Tests.csproj">
-    <Platform Solution="*|ARM32" Project="ARM32" />
-    <Platform Solution="*|ARM64" Project="ARM64" />
-    <Platform Solution="*|x64" Project="x64" />
-    <Platform Solution="*|x86" Project="x86" />
-  </Project>
-  <Project Path="SharpHook/SharpHook.csproj">
-    <Platform Solution="*|ARM32" Project="ARM32" />
-    <Platform Solution="*|ARM64" Project="ARM64" />
-    <Platform Solution="*|x64" Project="x64" />
-    <Platform Solution="*|x86" Project="x86" />
-  </Project>
+  <Folder Name="/src/">
+    <Project Path="src/SharpHook.R3/SharpHook.R3.csproj" Id="2d4e4ce3-36c6-4b74-97fd-4b28bc1ec8bf">
+      <Platform Solution="*|ARM32" Project="ARM32" />
+      <Platform Solution="*|ARM64" Project="ARM64" />
+      <Platform Solution="*|x64" Project="x64" />
+      <Platform Solution="*|x86" Project="x86" />
+    </Project>
+    <Project Path="src/SharpHook.Reactive/SharpHook.Reactive.csproj">
+      <Platform Solution="*|ARM32" Project="ARM32" />
+      <Platform Solution="*|ARM64" Project="ARM64" />
+      <Platform Solution="*|x64" Project="x64" />
+      <Platform Solution="*|x86" Project="x86" />
+    </Project>
+    <Project Path="src/SharpHook.ReactiveUI/SharpHook.ReactiveUI.csproj" Id="ef9eb357-2cde-429c-b17e-5a72c970493e">
+      <Platform Solution="*|ARM32" Project="ARM32" />
+      <Platform Solution="*|ARM64" Project="ARM64" />
+      <Platform Solution="*|x64" Project="x64" />
+      <Platform Solution="*|x86" Project="x86" />
+    </Project>
+    <Project Path="src/SharpHook.Sample/SharpHook.Sample.csproj">
+      <Platform Solution="*|ARM32" Project="ARM32" />
+      <Platform Solution="*|ARM64" Project="ARM64" />
+      <Platform Solution="*|x64" Project="x64" />
+      <Platform Solution="*|x86" Project="x86" />
+    </Project>
+    <Project Path="src/SharpHook.Testing/SharpHook.Testing.csproj" Id="df1e2c73-0f3c-4a8d-80ce-ec7e83bf459a">
+      <Platform Solution="*|ARM32" Project="ARM32" />
+      <Platform Solution="*|ARM64" Project="ARM64" />
+      <Platform Solution="*|x64" Project="x64" />
+      <Platform Solution="*|x86" Project="x86" />
+    </Project>
+    <Project Path="src/SharpHook/SharpHook.csproj">
+      <Platform Solution="*|ARM32" Project="ARM32" />
+      <Platform Solution="*|ARM64" Project="ARM64" />
+      <Platform Solution="*|x64" Project="x64" />
+      <Platform Solution="*|x86" Project="x86" />
+    </Project>
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/SharpHook.Tests/SharpHook.Tests.csproj">
+      <Platform Solution="*|ARM32" Project="ARM32" />
+      <Platform Solution="*|ARM64" Project="ARM64" />
+      <Platform Solution="*|x64" Project="x64" />
+      <Platform Solution="*|x86" Project="x86" />
+    </Project>
+  </Folder>
 </Solution>
