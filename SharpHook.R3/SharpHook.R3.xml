@@ -28,8 +28,8 @@
             </summary>
             <value>An observable which emits a value when the global hook is enabled.</value>
             <remarks>
-            The observable emits a value when the <see cref="M:SharpHook.IBasicGlobalHook.Run" /> or
-            <see cref="M:SharpHook.IBasicGlobalHook.RunAsync" /> method is called.
+            The observable emits a value when the <see cref="M:SharpHook.IBasicGlobalHook.Run(SharpHook.Data.GlobalHookType)" /> or
+            <see cref="M:SharpHook.IBasicGlobalHook.RunAsync(SharpHook.Data.GlobalHookType,System.Boolean)" /> method is called.
             </remarks>
         </member>
         <member name="P:SharpHook.R3.IR3GlobalHook.HookDisabled">
@@ -163,21 +163,16 @@
             </summary>
             <seealso cref="T:SharpHook.R3.IR3GlobalHook" />
         </member>
-        <member name="M:SharpHook.R3.R3GlobalHook.#ctor(SharpHook.Data.GlobalHookType,System.TimeProvider,SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
+        <member name="M:SharpHook.R3.R3GlobalHook.#ctor(System.TimeProvider,SharpHook.Providers.IGlobalHookProvider)">
             <summary>
             Initializes a new instance of <see cref="T:SharpHook.R3.R3GlobalHook" />.
             </summary>
-            <param name="globalHookType">The global hook type.</param>
             <param name="defaultTimeProvider">
             The default time provider for observables, or <see langword="null" /> to use the default one as defined in
             <see cref="P:R3.ObservableSystem.DefaultTimeProvider" />.
             </param>
             <param name="globalHookProvider">
             The underlying global hook provider, or <see langword="null" /> to use the default one.
-            </param>
-            <param name="runAsyncOnBackgroundThread">
-            <see langword="true" /> if <see cref="M:SharpHook.IBasicGlobalHook.RunAsync" /> should run the hook on a background thread.
-            Otherwise, <see langword="false" />.
             </param>
         </member>
         <member name="P:SharpHook.R3.R3GlobalHook.HookEnabled">
@@ -186,8 +181,8 @@
             </summary>
             <value>An observable which emits a value when the global hook is enabled.</value>
             <remarks>
-            The observable emits a value when the <see cref="M:SharpHook.IBasicGlobalHook.Run" /> or
-            <see cref="M:SharpHook.IBasicGlobalHook.RunAsync" /> method is called.
+            The observable emits a value when the <see cref="M:SharpHook.IBasicGlobalHook.Run(SharpHook.Data.GlobalHookType)" /> or
+            <see cref="M:SharpHook.IBasicGlobalHook.RunAsync(SharpHook.Data.GlobalHookType,System.Boolean)" /> method is called.
             </remarks>
         </member>
         <member name="P:SharpHook.R3.R3GlobalHook.HookDisabled">
@@ -306,8 +301,8 @@
             </summary>
             <value>An observable which emits a value when the global hook is enabled.</value>
             <remarks>
-            The observable emits a value when the <see cref="M:SharpHook.IBasicGlobalHook.Run" /> or
-            <see cref="M:SharpHook.IBasicGlobalHook.RunAsync" /> method is called.
+            The observable emits a value when the <see cref="M:SharpHook.IBasicGlobalHook.Run(SharpHook.Data.GlobalHookType)" /> or
+            <see cref="M:SharpHook.IBasicGlobalHook.RunAsync(SharpHook.Data.GlobalHookType,System.Boolean)" /> method is called.
             </remarks>
         </member>
         <member name="P:SharpHook.R3.R3GlobalHookAdapter.HookDisabled">
@@ -374,20 +369,23 @@
             </summary>
             <value>An observable which emits a value when the mouse wheel is scrolled.</value>
         </member>
-        <member name="M:SharpHook.R3.R3GlobalHookAdapter.Run">
+        <member name="M:SharpHook.R3.R3GlobalHookAdapter.Run(SharpHook.Data.GlobalHookType)">
             <summary>
             Runs the global hook on the current thread, blocking it. The hook can be stopped by calling the
             <see cref="M:SharpHook.R3.R3GlobalHookAdapter.Stop" /> or the <see cref="M:System.IDisposable.Dispose" /> methods.
             </summary>
+            <param name="globalHookType">The type of the global hook to run.</param>
             <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
             <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
             <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
         </member>
-        <member name="M:SharpHook.R3.R3GlobalHookAdapter.RunAsync">
+        <member name="M:SharpHook.R3.R3GlobalHookAdapter.RunAsync(SharpHook.Data.GlobalHookType,System.Boolean)">
             <summary>
             Runs the global hook without blocking the current thread. The hook can be stopped by calling the
             <see cref="M:SharpHook.R3.R3GlobalHookAdapter.Stop" /> or the <see cref="M:System.IDisposable.Dispose" /> methods.
             </summary>
+            <param name="globalHookType">The type of the global hook to run.</param>
+            <param name="useBackgroundThread">A value which indicates whether to use a background thread.</param>
             <returns>A task which is completed when the hook is stopped.</returns>
             <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
             <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>

@@ -13,7 +13,7 @@ public class EventSimulator : IEventSimulator
     /// Initializes a new instance of the <see cref="EventSimulator" /> class.
     /// </summary>
     /// <param name="simulationProvider">
-    /// The simulation functionality provider, or <see cref="UioHookProvider.Instance" /> if <see langword="null" />.
+    /// The simulation functionality provider, or <see langword="null" /> to use the default one.
     /// </param>
     [SuppressMessage(
         "Style", "IDE0290:Use primary constructor", Justification = "Primary constructors don't support XML comments")]

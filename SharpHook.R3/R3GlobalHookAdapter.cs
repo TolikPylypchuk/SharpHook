@@ -219,21 +219,24 @@ public sealed class R3GlobalHookAdapter : IGlobalHook, IR3GlobalHook
     /// Runs the global hook on the current thread, blocking it. The hook can be stopped by calling the
     /// <see cref="Stop" /> or the <see cref="IDisposable.Dispose" /> methods.
     /// </summary>
+    /// <param name="globalHookType">The type of the global hook to run.</param>
     /// <exception cref="HookException">Starting the global hook has failed.</exception>
     /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
     /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
-    public void Run()
+    public void Run(GlobalHookType globalHookType = GlobalHookType.All)
     {
         this.ThrowIfRunning();
         this.ThrowIfDisposed();
 
-        this.hook.Run();
+        this.hook.Run(globalHookType);
     }
 
     /// <summary>
     /// Runs the global hook without blocking the current thread. The hook can be stopped by calling the
     /// <see cref="Stop" /> or the <see cref="IDisposable.Dispose" /> methods.
     /// </summary>
+    /// <param name="globalHookType">The type of the global hook to run.</param>
+    /// <param name="useBackgroundThread">A value which indicates whether to use a background thread.</param>
     /// <returns>A task which is completed when the hook is stopped.</returns>
     /// <exception cref="HookException">Starting the global hook has failed.</exception>
     /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
@@ -241,12 +244,12 @@ public sealed class R3GlobalHookAdapter : IGlobalHook, IR3GlobalHook
     /// <remarks>
     /// The hook is started on a separate thread.
     /// </remarks>
-    public Task RunAsync()
+    public Task RunAsync(GlobalHookType globalHookType = GlobalHookType.All, bool useBackgroundThread = false)
     {
         this.ThrowIfRunning();
         this.ThrowIfDisposed();
 
-        return this.hook.RunAsync();
+        return this.hook.RunAsync(globalHookType, useBackgroundThread);
     }
 
     /// <summary>
@@ -333,14 +336,6 @@ public sealed class R3GlobalHookAdapter : IGlobalHook, IR3GlobalHook
             throw new ObjectDisposedException(
                 this.GetType().Name, $"Cannot call {method} – the object is disposed");
         }
-    }
-
-    Task IBasicGlobalHook.RunAsync()
-    {
-        this.ThrowIfRunning();
-        this.ThrowIfDisposed();
-
-        return this.hook.RunAsync();
     }
 
     event EventHandler<HookEventArgs> IGlobalHook.HookEnabled

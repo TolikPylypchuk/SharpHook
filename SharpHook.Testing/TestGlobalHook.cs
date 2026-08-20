@@ -165,17 +165,17 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     public bool DragMouseWhenMoving { get; set; } = false;
 
     /// <summary>
-    /// Gets or sets the result of the <see cref="Run()" /> and <see cref="RunAsync" /> methods. If anything other than
+    /// Gets or sets the result of the <see cref="Run" /> and <see cref="RunAsync" /> methods. If anything other than
     /// <see cref="UioHookResult.Success" /> is set, then the method will throw a <see cref="HookException" />.
     /// </summary>
-    /// <value>The result of the <see cref="Run()" /> and <see cref="RunAsync" /> methods.</value>
+    /// <value>The result of the <see cref="Run" /> and <see cref="RunAsync" /> methods.</value>
     public UioHookResult RunResult { get; set; } = UioHookResult.Success;
 
     /// <summary>
-    /// Gets or sets the result of the <see cref="Stop()" /> method. If anything other than
+    /// Gets or sets the result of the <see cref="Stop" /> method. If anything other than
     /// <see cref="UioHookResult.Success" /> is set, then the method will throw a <see cref="HookException" />.
     /// </summary>
-    /// <value>The result of the <see cref="Stop()" /> method.</value>
+    /// <value>The result of the <see cref="Stop" /> method.</value>
     public UioHookResult StopResult { get; set; } = UioHookResult.Success;
 
     /// <summary>
@@ -242,6 +242,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// Runs the global hook on the current thread, blocking it. The hook can be stopped by calling the
     /// <see cref="Stop" /> or <see cref="IDisposable.Dispose" /> method.
     /// </summary>
+    /// <param name="globalHookType">This parameter is ignored.</param>
     /// <exception cref="HookException">
     /// <see cref="RunResult" /> was set to something other than <see cref="UioHookResult.Success" />.
     /// </exception>
@@ -251,7 +252,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// Depending on the threading mode, this method will either run an event loop or do nothing and wait for the hook
     /// to be stopped.
     /// </remarks>
-    public void Run()
+    public void Run(GlobalHookType globalHookType = GlobalHookType.All)
     {
         this.ThrowIfRunning();
         this.ThrowIfDisposed();
@@ -277,6 +278,8 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// Runs the global hook without blocking the current thread. The hook can be stopped by calling the
     /// <see cref="Stop" /> or <see cref="IDisposable.Dispose" /> method.
     /// </summary>
+    /// <param name="globalHookType">This parameter is ignored.</param>
+    /// <param name="useBackgroundThread">This parameter is ignored.</param>
     /// <returns>A <see cref="Task" /> which finishes when the hook is stopped.</returns>
     /// <exception cref="HookException">
     /// <see cref="RunResult" /> was set to something other than <see cref="UioHookResult.Success" />.
@@ -287,7 +290,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// Depending on the threading mode, this method will either run an event loop or do nothing and wait for the hook
     /// to be stopped.
     /// </remarks>
-    public async Task RunAsync()
+    public async Task RunAsync(GlobalHookType globalHookType = GlobalHookType.All, bool useBackgroundThread = false)
     {
         this.ThrowIfRunning();
         this.ThrowIfDisposed();

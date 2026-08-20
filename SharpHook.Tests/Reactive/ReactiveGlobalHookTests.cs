@@ -8,34 +8,32 @@ public sealed class ReactiveGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new ReactiveGlobalHook(
-            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
+        var hook = new ReactiveGlobalHook(globalHookProvider: provider);
 
         // Act + Assert
 
         Assert.False(hook.IsRunning);
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
         Assert.True(hook.IsRunning);
 
         this.StopHookAndWaitForStop(hook);
         Assert.False(hook.IsRunning);
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
         Assert.True(hook.IsRunning);
 
         this.DisposeHookAndWaitForStop(hook);
         Assert.False(hook.IsRunning);
     }
 
-    [Property(DisplayName = "IsDisposed should be true only if the hook is disposed")]
-    public void IsDisposed(GlobalHookType globalHookType)
+    [Fact(DisplayName = "IsDisposed should be true only if the hook is disposed")]
+    public void IsDisposed()
     {
         // Arrange
 
         var provider = new TestProvider();
-        var hook = new ReactiveGlobalHook(
-            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
+        var hook = new ReactiveGlobalHook(globalHookProvider: provider);
 
         // Act + Assert
 
@@ -57,8 +55,7 @@ public sealed class ReactiveGlobalHookTests
             EventMask = t => mask
         };
 
-        var hook = new ReactiveGlobalHook(
-            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
+        var hook = new ReactiveGlobalHook(globalHookProvider: provider);
 
         HookEventArgs? actualEventArgs = null;
 
@@ -72,7 +69,7 @@ public sealed class ReactiveGlobalHookTests
 
         // Act
 
-        hook.Run();
+        hook.Run(globalHookType);
 
         // Assert
 
@@ -94,8 +91,7 @@ public sealed class ReactiveGlobalHookTests
             EventMask = t => mask
         };
 
-        var hook = new ReactiveGlobalHook(
-            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
+        var hook = new ReactiveGlobalHook(globalHookProvider: provider);
 
         HookEventArgs? actualEventArgs = null;
 
@@ -106,7 +102,7 @@ public sealed class ReactiveGlobalHookTests
 
         // Act
 
-        hook.Run();
+        hook.Run(globalHookType);
 
         // Assert
 
@@ -128,8 +124,7 @@ public sealed class ReactiveGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHook(
-            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
+        using var hook = new ReactiveGlobalHook(globalHookProvider: provider);
 
         var @event = new UioHookEvent
         {
@@ -150,7 +145,7 @@ public sealed class ReactiveGlobalHookTests
 
         // Act
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
 
         provider.PostEvent(ref @event);
 
@@ -183,8 +178,7 @@ public sealed class ReactiveGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHook(
-            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
+        using var hook = new ReactiveGlobalHook(globalHookProvider: provider);
 
         var @event = new UioHookEvent
         {
@@ -205,7 +199,7 @@ public sealed class ReactiveGlobalHookTests
 
         // Act
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
 
         provider.PostEvent(ref @event);
 
@@ -239,8 +233,7 @@ public sealed class ReactiveGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHook(
-            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
+        using var hook = new ReactiveGlobalHook(globalHookProvider: provider);
 
         var @event = new UioHookEvent
         {
@@ -261,7 +254,7 @@ public sealed class ReactiveGlobalHookTests
 
         // Act
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
 
         provider.PostEvent(ref @event);
 
@@ -296,8 +289,7 @@ public sealed class ReactiveGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHook(
-            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
+        using var hook = new ReactiveGlobalHook(globalHookProvider: provider);
 
         var @event = new UioHookEvent
         {
@@ -319,7 +311,7 @@ public sealed class ReactiveGlobalHookTests
 
         // Act
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
 
         provider.PostEvent(ref @event);
 
@@ -355,8 +347,7 @@ public sealed class ReactiveGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHook(
-            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
+        using var hook = new ReactiveGlobalHook(globalHookProvider: provider);
 
         var @event = new UioHookEvent
         {
@@ -378,7 +369,7 @@ public sealed class ReactiveGlobalHookTests
 
         // Act
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
 
         provider.PostEvent(ref @event);
 
@@ -414,8 +405,7 @@ public sealed class ReactiveGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHook(
-            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
+        using var hook = new ReactiveGlobalHook(globalHookProvider: provider);
 
         var @event = new UioHookEvent
         {
@@ -437,7 +427,7 @@ public sealed class ReactiveGlobalHookTests
 
         // Act
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
 
         provider.PostEvent(ref @event);
 
@@ -471,8 +461,7 @@ public sealed class ReactiveGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHook(
-            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
+        using var hook = new ReactiveGlobalHook(globalHookProvider: provider);
 
         var @event = new UioHookEvent
         {
@@ -492,7 +481,7 @@ public sealed class ReactiveGlobalHookTests
 
         // Act
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
 
         provider.PostEvent(ref @event);
 
@@ -524,8 +513,7 @@ public sealed class ReactiveGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHook(
-            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
+        using var hook = new ReactiveGlobalHook(globalHookProvider: provider);
 
         var @event = new UioHookEvent
         {
@@ -545,7 +533,7 @@ public sealed class ReactiveGlobalHookTests
 
         // Act
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
 
         provider.PostEvent(ref @event);
 
@@ -581,8 +569,7 @@ public sealed class ReactiveGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHook(
-            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
+        using var hook = new ReactiveGlobalHook(globalHookProvider: provider);
 
         var @event = new UioHookEvent
         {
@@ -606,7 +593,7 @@ public sealed class ReactiveGlobalHookTests
 
         // Act
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
 
         provider.PostEvent(ref @event);
 
@@ -641,12 +628,11 @@ public sealed class ReactiveGlobalHookTests
             RunResult = result.Value
         };
 
-        using var hook = new ReactiveGlobalHook(
-            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
+        using var hook = new ReactiveGlobalHook(globalHookProvider: provider);
 
         // Act + Assert
 
-        var exception = Assert.Throws<HookException>(hook.Run);
+        var exception = Assert.Throws<HookException>(() => hook.Run(globalHookType));
         Assert.Equal(result.Value, exception.Result);
     }
 
@@ -660,12 +646,11 @@ public sealed class ReactiveGlobalHookTests
             RunResult = result.Value
         };
 
-        using var hook = new ReactiveGlobalHook(
-            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
+        using var hook = new ReactiveGlobalHook(globalHookProvider: provider);
 
         // Act + Assert
 
-        var exception = await Assert.ThrowsAsync<HookException>(async () => await hook.RunAsync());
+        var exception = await Assert.ThrowsAsync<HookException>(() => hook.RunAsync(globalHookType));
         Assert.Equal(result.Value, exception.Result);
     }
 
@@ -675,14 +660,13 @@ public sealed class ReactiveGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHook(
-            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
+        using var hook = new ReactiveGlobalHook(globalHookProvider: provider);
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
 
         // Act + Assert
 
-        Assert.Throws<InvalidOperationException>(hook.Run);
+        Assert.Throws<InvalidOperationException>(() => hook.Run(globalHookType));
     }
 
     [Property(DisplayName = "RunAsync should throw if the hook is already running")]
@@ -691,14 +675,13 @@ public sealed class ReactiveGlobalHookTests
         // Arrange
 
         var provider = new TestProvider();
-        using var hook = new ReactiveGlobalHook(
-            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
+        using var hook = new ReactiveGlobalHook(globalHookProvider: provider);
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
 
         // Act + Assert
 
-        await Assert.ThrowsAsync<InvalidOperationException>(async () => await hook.RunAsync());
+        await Assert.ThrowsAsync<InvalidOperationException>(() => hook.RunAsync(globalHookType));
     }
 
     [Property(DisplayName = "Run should throw if the hook is disposed")]
@@ -706,12 +689,12 @@ public sealed class ReactiveGlobalHookTests
     {
         // Arrange
 
-        var hook = new ReactiveGlobalHook(globalHookType);
+        var hook = new ReactiveGlobalHook();
         hook.Dispose();
 
         // Act + Assert
 
-        Assert.Throws<ObjectDisposedException>(hook.Run);
+        Assert.Throws<ObjectDisposedException>(() => hook.Run(globalHookType));
     }
 
     [Property(DisplayName = "RunAsync should throw if the hook is disposed")]
@@ -719,12 +702,12 @@ public sealed class ReactiveGlobalHookTests
     {
         // Arrange
 
-        var hook = new ReactiveGlobalHook(globalHookType);
+        var hook = new ReactiveGlobalHook();
         hook.Dispose();
 
         // Act + Assert
 
-        await Assert.ThrowsAsync<ObjectDisposedException>(async () => await hook.RunAsync());
+        await Assert.ThrowsAsync<ObjectDisposedException>(() => hook.RunAsync(globalHookType));
     }
 
     [Property(DisplayName = "Stop should throw if the hook failed to stop")]
@@ -737,9 +720,9 @@ public sealed class ReactiveGlobalHookTests
             StopResult = result.Value
         };
 
-        var hook = new ReactiveGlobalHook(globalHookType, globalHookProvider: provider);
+        var hook = new ReactiveGlobalHook(globalHookProvider: provider);
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
 
         // Act + Assert
 
@@ -752,12 +735,12 @@ public sealed class ReactiveGlobalHookTests
         this.DisposeHookAndWaitForStop(hook);
     }
 
-    [Property(DisplayName = "Stop should throw if the hook is disposed")]
-    public void StopDisposed(GlobalHookType globalHookType)
+    [Fact(DisplayName = "Stop should throw if the hook is disposed")]
+    public void StopDisposed()
     {
         // Arrange
 
-        var hook = new ReactiveGlobalHook(globalHookType);
+        var hook = new ReactiveGlobalHook();
         hook.Dispose();
 
         // Act + Assert
@@ -775,10 +758,9 @@ public sealed class ReactiveGlobalHookTests
             StopResult = result.Value
         };
 
-        var hook = new ReactiveGlobalHook(
-            globalHookType, globalHookProvider: provider, runAsyncOnBackgroundThread: true);
+        var hook = new ReactiveGlobalHook(globalHookProvider: provider);
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
 
         // Act + Assert
 
@@ -786,12 +768,12 @@ public sealed class ReactiveGlobalHookTests
         Assert.Equal(result.Value, exception.Result);
     }
 
-    [Property(DisplayName = "Dispose should do nothing if the hook is disposed")]
-    public void DisposeDisposed(GlobalHookType globalHookType)
+    [Fact(DisplayName = "Dispose should do nothing if the hook is disposed")]
+    public void DisposeDisposed()
     {
         // Arrange
 
-        var hook = new ReactiveGlobalHook(globalHookType);
+        var hook = new ReactiveGlobalHook();
         hook.Dispose();
 
         // Act
@@ -803,23 +785,23 @@ public sealed class ReactiveGlobalHookTests
         Assert.Null(exception);
     }
 
-    [Property(DisplayName = "ReactiveGlobalHook should not throw if the scheduler is null")]
-    public void SchedulerNull(GlobalHookType globalHookType)
+    [Fact(DisplayName = "ReactiveGlobalHook should not throw if the scheduler is null")]
+    public void SchedulerNull()
     {
-        var exception = Record.Exception(() => new ReactiveGlobalHook(globalHookType, defaultScheduler: null));
+        var exception = Record.Exception(() => new ReactiveGlobalHook(defaultScheduler: null));
         Assert.Null(exception);
     }
 
-    [Property(DisplayName = "ReactiveGlobalHook should not throw if the provider is null")]
-    public void ProviderNull(GlobalHookType globalHookType)
+    [Fact(DisplayName = "ReactiveGlobalHook should not throw if the provider is null")]
+    public void ProviderNull()
     {
-        var exception = Record.Exception(() => new ReactiveGlobalHook(globalHookType, globalHookProvider: null));
+        var exception = Record.Exception(() => new ReactiveGlobalHook(globalHookProvider: null));
         Assert.Null(exception);
     }
 
-    private void RunHookAndWaitForStart(ReactiveGlobalHook hook, TestProvider provider)
+    private void RunHookAndWaitForStart(ReactiveGlobalHook hook, TestProvider provider, GlobalHookType globalHookType)
     {
-        hook.RunAsync();
+        hook.RunAsync(globalHookType, useBackgroundThread: true);
 
         while (!provider.IsRunning)
         {

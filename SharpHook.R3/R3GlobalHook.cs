@@ -24,7 +24,6 @@ public sealed class R3GlobalHook : BasicGlobalHookBase, IR3GlobalHook
     /// <summary>
     /// Initializes a new instance of <see cref="R3GlobalHook" />.
     /// </summary>
-    /// <param name="globalHookType">The global hook type.</param>
     /// <param name="defaultTimeProvider">
     /// The default time provider for observables, or <see langword="null" /> to use the default one as defined in
     /// <see cref="ObservableSystem.DefaultTimeProvider" />.
@@ -32,16 +31,8 @@ public sealed class R3GlobalHook : BasicGlobalHookBase, IR3GlobalHook
     /// <param name="globalHookProvider">
     /// The underlying global hook provider, or <see langword="null" /> to use the default one.
     /// </param>
-    /// <param name="runAsyncOnBackgroundThread">
-    /// <see langword="true" /> if <see cref="IBasicGlobalHook.RunAsync" /> should run the hook on a background thread.
-    /// Otherwise, <see langword="false" />.
-    /// </param>
-    public R3GlobalHook(
-        GlobalHookType globalHookType = GlobalHookType.All,
-        TimeProvider? defaultTimeProvider = null,
-        IGlobalHookProvider? globalHookProvider = null,
-        bool runAsyncOnBackgroundThread = false)
-        : base(globalHookType, globalHookProvider, runAsyncOnBackgroundThread)
+    public R3GlobalHook(TimeProvider? defaultTimeProvider = null, IGlobalHookProvider? globalHookProvider = null)
+        : base(globalHookProvider)
     {
         defaultTimeProvider ??= ObservableSystem.DefaultTimeProvider;
 

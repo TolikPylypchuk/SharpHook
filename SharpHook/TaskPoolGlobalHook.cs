@@ -29,22 +29,15 @@ public sealed class TaskPoolGlobalHook : GlobalHookBase
     /// Initializes a new instance of <see cref="TaskPoolGlobalHook" />.
     /// </summary>
     /// <param name="parallelismLevel">The parallelism level of event handlers.</param>
-    /// <param name="globalHookType">The global hook type.</param>
     /// <param name="globalHookProvider">
     /// The underlying global hook provider, or <see langword="null" /> to use the default one.
-    /// </param>
-    /// <param name="runAsyncOnBackgroundThread">
-    /// <see langword="true" /> if <see cref="IBasicGlobalHook.RunAsync" /> should run the hook on a background thread.
-    /// Otherwise, <see langword="false" />.
     /// </param>
     [SuppressMessage(
         "Style", "IDE0290:Use primary constructor", Justification = "Primary constructors don't support XML comments")]
     public TaskPoolGlobalHook(
         int parallelismLevel = DefaultParallelismLevel,
-        GlobalHookType globalHookType = GlobalHookType.All,
-        IGlobalHookProvider? globalHookProvider = null,
-        bool runAsyncOnBackgroundThread = false)
-        : base(globalHookType, globalHookProvider, runAsyncOnBackgroundThread) =>
+        IGlobalHookProvider? globalHookProvider = null)
+        : base(globalHookProvider) =>
         this.taskQueue = new(parallelismLevel);
 
     /// <summary>

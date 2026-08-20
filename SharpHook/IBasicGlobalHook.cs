@@ -29,15 +29,18 @@ public interface IBasicGlobalHook : IDisposable
     /// Runs the global hook on the current thread, blocking it. The hook can be stopped temporarily by calling
     /// <see cref="Stop" /> or stopped permanently by calling <see cref="IDisposable.Dispose" />.
     /// </summary>
+    /// <param name="globalHookType">The type of the global hook to run.</param>
     /// <exception cref="HookException">Starting the global hook has failed.</exception>
     /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
     /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
-    void Run();
+    void Run(GlobalHookType globalHookType = GlobalHookType.All);
 
     /// <summary>
     /// Runs the global hook without blocking the current thread. The hook can be stopped temporarily by calling
     /// <see cref="Stop" /> or stopped permanently by calling <see cref="IDisposable.Dispose" />.
     /// </summary>
+    /// <param name="globalHookType">The type of the global hook to run.</param>
+    /// <param name="useBackgroundThread">A value which indicates whether to use a background thread.</param>
     /// <returns>A <see cref="Task" /> which finishes when the hook is stopped.</returns>
     /// <exception cref="HookException">Starting the global hook has failed.</exception>
     /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
@@ -46,7 +49,7 @@ public interface IBasicGlobalHook : IDisposable
     /// Since the underlying native API for running a global hook is blocking, the only way to run it without blocking
     /// the current thread is to run it on a separate thread.
     /// </remarks>
-    Task RunAsync();
+    Task RunAsync(GlobalHookType globalHookType = GlobalHookType.All, bool useBackgroundThread = false);
 
     /// <summary>
     /// Stops the global hook.

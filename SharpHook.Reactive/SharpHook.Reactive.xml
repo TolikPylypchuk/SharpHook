@@ -28,8 +28,8 @@
             </summary>
             <value>An observable which emits a value when the global hook is enabled.</value>
             <remarks>
-            The observable emits a value when the <see cref="M:SharpHook.IBasicGlobalHook.Run" /> or
-            <see cref="M:SharpHook.IBasicGlobalHook.RunAsync" /> method is called.
+            The observable emits a value when the <see cref="M:SharpHook.IBasicGlobalHook.Run(SharpHook.Data.GlobalHookType)" /> or
+            <see cref="M:SharpHook.IBasicGlobalHook.RunAsync(SharpHook.Data.GlobalHookType,System.Boolean)" /> method is called.
             </remarks>
         </member>
         <member name="P:SharpHook.Reactive.IReactiveGlobalHook.HookDisabled">
@@ -166,21 +166,16 @@
             </summary>
             <seealso cref="T:SharpHook.Reactive.IReactiveGlobalHook" />
         </member>
-        <member name="M:SharpHook.Reactive.ReactiveGlobalHook.#ctor(SharpHook.Data.GlobalHookType,System.Reactive.Concurrency.IScheduler,SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
+        <member name="M:SharpHook.Reactive.ReactiveGlobalHook.#ctor(System.Reactive.Concurrency.IScheduler,SharpHook.Providers.IGlobalHookProvider)">
             <summary>
             Initializes a new instance of <see cref="T:SharpHook.Reactive.ReactiveGlobalHook" />.
             </summary>
-            <param name="globalHookType">The global hook type.</param>
             <param name="defaultScheduler">
             The default scheduler for observables, or <see langword="null" /> to use the default one
             (<see cref="P:System.Reactive.Concurrency.Scheduler.Immediate" />).
             </param>
             <param name="globalHookProvider">
             The underlying global hook provider, or <see langword="null" /> to use the default one.
-            </param>
-            <param name="runAsyncOnBackgroundThread">
-            <see langword="true" /> if <see cref="M:SharpHook.IBasicGlobalHook.RunAsync" /> should run the hook on a background thread.
-            Otherwise, <see langword="false" />.
             </param>
         </member>
         <member name="P:SharpHook.Reactive.ReactiveGlobalHook.HookEnabled">
@@ -189,8 +184,8 @@
             </summary>
             <value>An observable which emits a value when the global hook is enabled.</value>
             <remarks>
-            The observable emits a value when the <see cref="M:SharpHook.IBasicGlobalHook.Run" /> or
-            <see cref="M:SharpHook.IBasicGlobalHook.RunAsync" /> method is called.
+            The observable emits a value when the <see cref="M:SharpHook.IBasicGlobalHook.Run(SharpHook.Data.GlobalHookType)" /> or
+            <see cref="M:SharpHook.IBasicGlobalHook.RunAsync(SharpHook.Data.GlobalHookType,System.Boolean)" /> method is called.
             </remarks>
         </member>
         <member name="P:SharpHook.Reactive.ReactiveGlobalHook.HookDisabled">
@@ -309,8 +304,8 @@
             </summary>
             <value>An observable which emits a value when the global hook is enabled.</value>
             <remarks>
-            The observable emits a value when the <see cref="M:SharpHook.IBasicGlobalHook.Run" /> or
-            <see cref="M:SharpHook.IBasicGlobalHook.RunAsync" /> method is called.
+            The observable emits a value when the <see cref="M:SharpHook.IBasicGlobalHook.Run(SharpHook.Data.GlobalHookType)" /> or
+            <see cref="M:SharpHook.IBasicGlobalHook.RunAsync(SharpHook.Data.GlobalHookType,System.Boolean)" /> method is called.
             </remarks>
         </member>
         <member name="P:SharpHook.Reactive.ReactiveGlobalHookAdapter.HookDisabled">
@@ -377,20 +372,23 @@
             </summary>
             <value>An observable which emits a value when the mouse wheel is scrolled.</value>
         </member>
-        <member name="M:SharpHook.Reactive.ReactiveGlobalHookAdapter.Run">
+        <member name="M:SharpHook.Reactive.ReactiveGlobalHookAdapter.Run(SharpHook.Data.GlobalHookType)">
             <summary>
             Runs the global hook on the current thread, blocking it. The hook can be stopped by calling the
             <see cref="M:SharpHook.Reactive.ReactiveGlobalHookAdapter.Stop" /> or the <see cref="M:System.IDisposable.Dispose" /> methods.
             </summary>
+            <param name="globalHookType">The type of the global hook to run.</param>
             <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
             <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
             <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
         </member>
-        <member name="M:SharpHook.Reactive.ReactiveGlobalHookAdapter.RunAsync">
+        <member name="M:SharpHook.Reactive.ReactiveGlobalHookAdapter.RunAsync(SharpHook.Data.GlobalHookType,System.Boolean)">
             <summary>
             Runs the global hook without blocking the current thread. The hook can be stopped by calling the
             <see cref="M:SharpHook.Reactive.ReactiveGlobalHookAdapter.Stop" /> or the <see cref="M:System.IDisposable.Dispose" /> methods.
             </summary>
+            <param name="globalHookType">The type of the global hook to run.</param>
+            <param name="useBackgroundThread">A value which indicates whether to use a background thread.</param>
             <returns>A task which is completed when the hook is stopped.</returns>
             <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
             <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>

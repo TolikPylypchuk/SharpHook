@@ -919,7 +919,7 @@ public sealed class TestGlobalHookTests
     }
 
     [Property(DisplayName = "Run should throw an exception if configured to do so")]
-    public void RunFail(FailedUioHookResult result)
+    public void RunFail(GlobalHookType globalHookType, FailedUioHookResult result)
     {
         // Arrange
 
@@ -930,13 +930,13 @@ public sealed class TestGlobalHookTests
 
         // Act + Assert
 
-        var exception = Assert.Throws<HookException>(hook.Run);
+        var exception = Assert.Throws<HookException>(() => hook.Run(globalHookType));
 
         Assert.Equal(result.Value, exception.Result);
     }
 
-    [Fact(DisplayName = "Run should throw an exception if the global hook is already running")]
-    public void RunRunning()
+    [Property(DisplayName = "Run should throw an exception if the global hook is already running")]
+    public void RunRunning(GlobalHookType globalHookType)
     {
         // Arrange
 
@@ -946,11 +946,11 @@ public sealed class TestGlobalHookTests
 
         _ = hook.RunAsync();
 
-        Assert.Throws<InvalidOperationException>(hook.Run);
+        Assert.Throws<InvalidOperationException>(() => hook.Run(globalHookType));
     }
 
-    [Fact(DisplayName = "Run should throw an exception if the hook is disposed")]
-    public void RunDisposed()
+    [Property(DisplayName = "Run should throw an exception if the hook is disposed")]
+    public void RunDisposed(GlobalHookType globalHookType)
     {
         // Arrange
 
@@ -959,11 +959,11 @@ public sealed class TestGlobalHookTests
 
         // Act + Assert
 
-        Assert.Throws<ObjectDisposedException>(hook.Run);
+        Assert.Throws<ObjectDisposedException>(() => hook.Run(globalHookType));
     }
 
     [Property(DisplayName = "RunAsync should throw an exception if configured to do so")]
-    public async Task RunAsyncFail(FailedUioHookResult result)
+    public async Task RunAsyncFail(GlobalHookType globalHookType, FailedUioHookResult result)
     {
         // Arrange
 
@@ -974,13 +974,13 @@ public sealed class TestGlobalHookTests
 
         // Act + Assert
 
-        var exception = await Assert.ThrowsAsync<HookException>(hook.RunAsync);
+        var exception = await Assert.ThrowsAsync<HookException>(() => hook.RunAsync(globalHookType));
 
         Assert.Equal(result.Value, exception.Result);
     }
 
-    [Fact(DisplayName = "RunAsync should throw an exception if the hook is disposed")]
-    public async Task RunAsyncDisposed()
+    [Property(DisplayName = "RunAsync should throw an exception if the hook is disposed")]
+    public async Task RunAsyncDisposed(GlobalHookType globalHookType)
     {
         // Arrange
 
@@ -989,11 +989,11 @@ public sealed class TestGlobalHookTests
 
         // Act + Assert
 
-        await Assert.ThrowsAsync<ObjectDisposedException>(hook.RunAsync);
+        await Assert.ThrowsAsync<ObjectDisposedException>(() => hook.RunAsync(globalHookType));
     }
 
-    [Fact(DisplayName = "RunAsync should throw an exception if the global hook is already running")]
-    public async Task RunAsyncRunning()
+    [Property(DisplayName = "RunAsync should throw an exception if the global hook is already running")]
+    public async Task RunAsyncRunning(GlobalHookType globalHookType)
     {
         // Arrange
 
@@ -1003,7 +1003,7 @@ public sealed class TestGlobalHookTests
 
         _ = hook.RunAsync();
 
-        await Assert.ThrowsAsync<InvalidOperationException>(hook.RunAsync);
+        await Assert.ThrowsAsync<InvalidOperationException>(() => hook.RunAsync(globalHookType));
     }
 
     [Property(DisplayName = "Stop should throw an exception if configured to do so")]

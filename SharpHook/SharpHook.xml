@@ -12,17 +12,12 @@
             <seealso cref="T:SharpHook.IGlobalHook" />
             <seealso cref="T:SharpHook.GlobalHookBase" />
         </member>
-        <member name="M:SharpHook.BasicGlobalHookBase.#ctor(SharpHook.Data.GlobalHookType,SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
+        <member name="M:SharpHook.BasicGlobalHookBase.#ctor(SharpHook.Providers.IGlobalHookProvider)">
             <summary>
             Initializes a new instance of <see cref="T:SharpHook.BasicGlobalHookBase" />.
             </summary>
-            <param name="globalHookType">The global hook type.</param>
             <param name="globalHookProvider">
             The underlying global hook provider, or <see langword="null" /> to use the default one.
-            </param>
-            <param name="runAsyncOnBackgroundThread">
-            <see langword="true" /> if <see cref="M:SharpHook.BasicGlobalHookBase.RunAsync" /> should run the hook on a background thread.
-            Otherwise, <see langword="false" />.
             </param>
         </member>
         <member name="M:SharpHook.BasicGlobalHookBase.Finalize">
@@ -45,20 +40,23 @@
             </value>
             <remarks>A disposed global hook cannot be started again.</remarks>
         </member>
-        <member name="M:SharpHook.BasicGlobalHookBase.Run">
+        <member name="M:SharpHook.BasicGlobalHookBase.Run(SharpHook.Data.GlobalHookType)">
             <summary>
             Runs the global hook on the current thread, blocking it. The hook can be stopped temporarily by calling
             <see cref="M:SharpHook.BasicGlobalHookBase.Stop" /> or stopped permanently by calling <see cref="M:SharpHook.BasicGlobalHookBase.Dispose" />.
             </summary>
+            <param name="globalHookType">The type of the global hook to run.</param>
             <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
             <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
             <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
         </member>
-        <member name="M:SharpHook.BasicGlobalHookBase.RunAsync">
+        <member name="M:SharpHook.BasicGlobalHookBase.RunAsync(SharpHook.Data.GlobalHookType,System.Boolean)">
             <summary>
             Runs the global hook without blocking the current thread. The hook can be stopped temporarily by calling
             <see cref="M:SharpHook.BasicGlobalHookBase.Stop" /> or stopped permanently by calling <see cref="M:SharpHook.BasicGlobalHookBase.Dispose" />.
             </summary>
+            <param name="globalHookType">The type of the global hook to run.</param>
+            <param name="useBackgroundThread">A value which indicates whether to use a background thread.</param>
             <returns>A <see cref="T:System.Threading.Tasks.Task" /> which finishes when the hook is stopped or disposed.</returns>
             <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
             <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
@@ -2046,17 +2044,12 @@
             <seealso cref="T:SharpHook.SimpleGlobalHook" />
             <seealso cref="T:SharpHook.TaskPoolGlobalHook" />
         </member>
-        <member name="M:SharpHook.EventLoopGlobalHook.#ctor(SharpHook.Data.GlobalHookType,SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
+        <member name="M:SharpHook.EventLoopGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider)">
             <summary>
             Initializes a new instance of <see cref="T:SharpHook.EventLoopGlobalHook" />.
             </summary>
-            <param name="globalHookType">The global hook type.</param>
             <param name="globalHookProvider">
             The underlying global hook provider, or <see langword="null" /> to use the default one.
-            </param>
-            <param name="runAsyncOnBackgroundThread">
-            <see langword="true" /> if <see cref="M:SharpHook.IBasicGlobalHook.RunAsync" /> should run the hook on a background thread.
-            Otherwise, <see langword="false" />.
             </param>
         </member>
         <member name="M:SharpHook.EventLoopGlobalHook.BeforeRun">
@@ -2091,17 +2084,12 @@
             <seealso cref="T:SharpHook.TaskPoolGlobalHook" />
             <seealso cref="T:SharpHook.BasicGlobalHookBase" />
         </member>
-        <member name="M:SharpHook.GlobalHookBase.#ctor(SharpHook.Data.GlobalHookType,SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
+        <member name="M:SharpHook.GlobalHookBase.#ctor(SharpHook.Providers.IGlobalHookProvider)">
             <summary>
             Initializes a new instance of <see cref="T:SharpHook.GlobalHookBase" />.
             </summary>
-            <param name="globalHookType">The global hook type.</param>
             <param name="globalHookProvider">
             The underlying global hook provider, or <see langword="null" /> to use the default one.
-            </param>
-            <param name="runAsyncOnBackgroundThread">
-            <see langword="true" /> if <see cref="M:SharpHook.IBasicGlobalHook.RunAsync" /> should run the hook on a background thread.
-            Otherwise, <see langword="false" />.
             </param>
         </member>
         <member name="M:SharpHook.GlobalHookBase.HandleHookEvent(SharpHook.Data.UioHookEvent@)">
@@ -2206,7 +2194,7 @@
             An event which is raised when the global hook is enabled.
             </summary>
             <remarks>
-            This event is raised when the <see cref="M:SharpHook.IBasicGlobalHook.Run" /> or <see cref="M:SharpHook.IBasicGlobalHook.RunAsync" />
+            This event is raised when the <see cref="M:SharpHook.IBasicGlobalHook.Run(SharpHook.Data.GlobalHookType)" /> or <see cref="M:SharpHook.IBasicGlobalHook.RunAsync(SharpHook.Data.GlobalHookType,System.Boolean)" />
             method is called.
             </remarks>
         </member>
@@ -2397,20 +2385,23 @@
             </value>
             <remarks>A disposed global hook cannot be started again.</remarks>
         </member>
-        <member name="M:SharpHook.IBasicGlobalHook.Run">
+        <member name="M:SharpHook.IBasicGlobalHook.Run(SharpHook.Data.GlobalHookType)">
             <summary>
             Runs the global hook on the current thread, blocking it. The hook can be stopped temporarily by calling
             <see cref="M:SharpHook.IBasicGlobalHook.Stop" /> or stopped permanently by calling <see cref="M:System.IDisposable.Dispose" />.
             </summary>
+            <param name="globalHookType">The type of the global hook to run.</param>
             <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
             <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
             <exception cref="T:System.ObjectDisposedException">The global hook has been disposed.</exception>
         </member>
-        <member name="M:SharpHook.IBasicGlobalHook.RunAsync">
+        <member name="M:SharpHook.IBasicGlobalHook.RunAsync(SharpHook.Data.GlobalHookType,System.Boolean)">
             <summary>
             Runs the global hook without blocking the current thread. The hook can be stopped temporarily by calling
             <see cref="M:SharpHook.IBasicGlobalHook.Stop" /> or stopped permanently by calling <see cref="M:System.IDisposable.Dispose" />.
             </summary>
+            <param name="globalHookType">The type of the global hook to run.</param>
+            <param name="useBackgroundThread">A value which indicates whether to use a background thread.</param>
             <returns>A <see cref="T:System.Threading.Tasks.Task" /> which finishes when the hook is stopped.</returns>
             <exception cref="T:SharpHook.HookException">Starting the global hook has failed.</exception>
             <exception cref="T:System.InvalidOperationException">The global hook is already running.</exception>
@@ -2447,7 +2438,7 @@
             An event which is raised when the global hook is enabled.
             </summary>
             <remarks>
-            This event is raised when the <see cref="M:SharpHook.IBasicGlobalHook.Run" /> or <see cref="M:SharpHook.IBasicGlobalHook.RunAsync" />
+            This event is raised when the <see cref="M:SharpHook.IBasicGlobalHook.Run(SharpHook.Data.GlobalHookType)" /> or <see cref="M:SharpHook.IBasicGlobalHook.RunAsync(SharpHook.Data.GlobalHookType,System.Boolean)" />
             method is called.
             </remarks>
         </member>
@@ -4269,24 +4260,19 @@
             <remarks>
             The event handlers should generally be fast and simple so that the thread can process all raised events. If you
             need to do a lot of processing in the event handlers then consider using another implementation, e.g.,
-            <see cref="T:SharpHook.TaskPoolGlobalHook" />.
+            <see cref="T:SharpHook.EventLoopGlobalHook" />.
             </remarks>
             <seealso cref="T:SharpHook.IGlobalHook" />
             <seealso cref="T:SharpHook.GlobalHookBase" />
             <seealso cref="T:SharpHook.EventLoopGlobalHook" />
             <seealso cref="T:SharpHook.TaskPoolGlobalHook" />
         </member>
-        <member name="M:SharpHook.SimpleGlobalHook.#ctor(SharpHook.Data.GlobalHookType,SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
+        <member name="M:SharpHook.SimpleGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider)">
             <summary>
             Initializes a new instance of <see cref="T:SharpHook.SimpleGlobalHook" />.
             </summary>
-            <param name="globalHookType">The global hook type.</param>
             <param name="globalHookProvider">
             The underlying global hook provider, or <see langword="null" /> to use the default one.
-            </param>
-            <param name="runAsyncOnBackgroundThread">
-            <see langword="true" /> if <see cref="M:SharpHook.IBasicGlobalHook.RunAsync" /> should run the hook on a background thread.
-            Otherwise, <see langword="false" />.
             </param>
         </member>
         <member name="M:SharpHook.SimpleGlobalHook.HandleHookEvent(SharpHook.Data.UioHookEvent@)">
@@ -4628,7 +4614,7 @@
             Initializes a new instance of the <see cref="T:SharpHook.Simulation.EventSimulator" /> class.
             </summary>
             <param name="simulationProvider">
-            The simulation functionality provider, or <see cref="P:SharpHook.Providers.UioHookProvider.Instance" /> if <see langword="null" />.
+            The simulation functionality provider, or <see langword="null" /> to use the default one.
             </param>
         </member>
         <member name="P:SharpHook.Simulation.EventSimulator.TextSimulationDelayOnLinux">
@@ -5216,18 +5202,13 @@
             <seealso cref="T:SharpHook.SimpleGlobalHook" />
             <seealso cref="T:SharpHook.EventLoopGlobalHook" />
         </member>
-        <member name="M:SharpHook.TaskPoolGlobalHook.#ctor(System.Int32,SharpHook.Data.GlobalHookType,SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
+        <member name="M:SharpHook.TaskPoolGlobalHook.#ctor(System.Int32,SharpHook.Providers.IGlobalHookProvider)">
             <summary>
             Initializes a new instance of <see cref="T:SharpHook.TaskPoolGlobalHook" />.
             </summary>
             <param name="parallelismLevel">The parallelism level of event handlers.</param>
-            <param name="globalHookType">The global hook type.</param>
             <param name="globalHookProvider">
             The underlying global hook provider, or <see langword="null" /> to use the default one.
-            </param>
-            <param name="runAsyncOnBackgroundThread">
-            <see langword="true" /> if <see cref="M:SharpHook.IBasicGlobalHook.RunAsync" /> should run the hook on a background thread.
-            Otherwise, <see langword="false" />.
             </param>
         </member>
         <member name="M:SharpHook.TaskPoolGlobalHook.HandleHookEvent(SharpHook.Data.UioHookEvent@)">

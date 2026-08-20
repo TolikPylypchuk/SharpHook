@@ -10,38 +10,34 @@ public sealed class R3GlobalHookAdapterTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        var hook = new R3GlobalHookAdapter(
-            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
-            timeProvider);
+        var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(provider), timeProvider);
 
         // Act + Assert
 
         Assert.False(hook.IsRunning);
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
         Assert.True(hook.IsRunning);
 
         this.StopHookAndWaitForStop(hook);
         Assert.False(hook.IsRunning);
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
         Assert.True(hook.IsRunning);
 
         this.DisposeHookAndWaitForStop(hook);
         Assert.False(hook.IsRunning);
     }
 
-    [Property(DisplayName = "IsDisposed should be true only if the hook is disposed")]
-    public void IsDisposed(GlobalHookType globalHookType)
+    [Fact(DisplayName = "IsDisposed should be true only if the hook is disposed")]
+    public void IsDisposed()
     {
         // Arrange
 
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        var hook = new R3GlobalHookAdapter(
-            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
-            timeProvider);
+        var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(provider), timeProvider);
 
         // Act + Assert
 
@@ -65,9 +61,7 @@ public sealed class R3GlobalHookAdapterTests
 
         var timeProvider = new FakeTimeProvider();
 
-        var hook = new R3GlobalHookAdapter(
-            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
-            timeProvider);
+        var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(provider), timeProvider);
 
         HookEventArgs? actualEventArgs = null;
 
@@ -81,7 +75,7 @@ public sealed class R3GlobalHookAdapterTests
 
         // Act
 
-        hook.Run();
+        hook.Run(globalHookType);
 
         // Assert
 
@@ -105,9 +99,7 @@ public sealed class R3GlobalHookAdapterTests
 
         var timeProvider = new FakeTimeProvider();
 
-        var hook = new R3GlobalHookAdapter(
-            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
-            timeProvider);
+        var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(provider), timeProvider);
 
         HookEventArgs? actualEventArgs = null;
 
@@ -118,7 +110,7 @@ public sealed class R3GlobalHookAdapterTests
 
         // Act
 
-        hook.Run();
+        hook.Run(globalHookType);
 
         // Assert
 
@@ -142,9 +134,7 @@ public sealed class R3GlobalHookAdapterTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new R3GlobalHookAdapter(
-            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
-            timeProvider);
+        using var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(provider), timeProvider);
 
         var @event = new UioHookEvent
         {
@@ -165,7 +155,7 @@ public sealed class R3GlobalHookAdapterTests
 
         // Act
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
 
         provider.PostEvent(ref @event);
 
@@ -200,9 +190,7 @@ public sealed class R3GlobalHookAdapterTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new R3GlobalHookAdapter(
-            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
-            timeProvider);
+        using var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(provider), timeProvider);
 
         var @event = new UioHookEvent
         {
@@ -223,7 +211,7 @@ public sealed class R3GlobalHookAdapterTests
 
         // Act
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
 
         provider.PostEvent(ref @event);
 
@@ -259,9 +247,7 @@ public sealed class R3GlobalHookAdapterTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new R3GlobalHookAdapter(
-            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
-            timeProvider);
+        using var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(provider), timeProvider);
 
         var @event = new UioHookEvent
         {
@@ -282,7 +268,7 @@ public sealed class R3GlobalHookAdapterTests
 
         // Act
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
 
         provider.PostEvent(ref @event);
 
@@ -319,9 +305,7 @@ public sealed class R3GlobalHookAdapterTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new R3GlobalHookAdapter(
-            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
-            timeProvider);
+        using var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(provider), timeProvider);
 
         var @event = new UioHookEvent
         {
@@ -343,7 +327,7 @@ public sealed class R3GlobalHookAdapterTests
 
         // Act
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
 
         provider.PostEvent(ref @event);
 
@@ -381,9 +365,7 @@ public sealed class R3GlobalHookAdapterTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new R3GlobalHookAdapter(
-            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
-            timeProvider);
+        using var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(provider), timeProvider);
 
         var @event = new UioHookEvent
         {
@@ -405,7 +387,7 @@ public sealed class R3GlobalHookAdapterTests
 
         // Act
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
 
         provider.PostEvent(ref @event);
 
@@ -443,9 +425,7 @@ public sealed class R3GlobalHookAdapterTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new R3GlobalHookAdapter(
-            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
-            timeProvider);
+        using var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(provider), timeProvider);
 
         var @event = new UioHookEvent
         {
@@ -467,7 +447,7 @@ public sealed class R3GlobalHookAdapterTests
 
         // Act
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
 
         provider.PostEvent(ref @event);
 
@@ -503,9 +483,7 @@ public sealed class R3GlobalHookAdapterTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new R3GlobalHookAdapter(
-            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
-            timeProvider);
+        using var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(provider), timeProvider);
 
         var @event = new UioHookEvent
         {
@@ -525,7 +503,7 @@ public sealed class R3GlobalHookAdapterTests
 
         // Act
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
 
         provider.PostEvent(ref @event);
 
@@ -559,9 +537,7 @@ public sealed class R3GlobalHookAdapterTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new R3GlobalHookAdapter(
-            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
-            timeProvider);
+        using var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(provider), timeProvider);
 
         var @event = new UioHookEvent
         {
@@ -581,7 +557,7 @@ public sealed class R3GlobalHookAdapterTests
 
         // Act
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
 
         provider.PostEvent(ref @event);
 
@@ -619,9 +595,7 @@ public sealed class R3GlobalHookAdapterTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new R3GlobalHookAdapter(
-            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
-            timeProvider);
+        using var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(provider), timeProvider);
 
         var @event = new UioHookEvent
         {
@@ -645,7 +619,7 @@ public sealed class R3GlobalHookAdapterTests
 
         // Act
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
 
         provider.PostEvent(ref @event);
 
@@ -682,13 +656,11 @@ public sealed class R3GlobalHookAdapterTests
 
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new R3GlobalHookAdapter(
-            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
-            timeProvider);
+        using var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(provider), timeProvider);
 
         // Act + Assert
 
-        var exception = Assert.Throws<HookException>(hook.Run);
+        var exception = Assert.Throws<HookException>(() => hook.Run(globalHookType));
         Assert.Equal(result.Value, exception.Result);
     }
 
@@ -704,13 +676,11 @@ public sealed class R3GlobalHookAdapterTests
 
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new R3GlobalHookAdapter(
-            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
-            timeProvider);
+        using var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(provider), timeProvider);
 
         // Act + Assert
 
-        var exception = await Assert.ThrowsAsync<HookException>(async () => await hook.RunAsync());
+        var exception = await Assert.ThrowsAsync<HookException>(() => hook.RunAsync(globalHookType));
         Assert.Equal(result.Value, exception.Result);
     }
 
@@ -722,15 +692,13 @@ public sealed class R3GlobalHookAdapterTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new R3GlobalHookAdapter(
-            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
-            timeProvider);
+        using var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(provider), timeProvider);
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
 
         // Act + Assert
 
-        Assert.Throws<InvalidOperationException>(hook.Run);
+        Assert.Throws<InvalidOperationException>(() => hook.Run(globalHookType));
     }
 
     [Property(DisplayName = "RunAsync should throw if the hook is already running")]
@@ -741,15 +709,13 @@ public sealed class R3GlobalHookAdapterTests
         var provider = new TestProvider();
         var timeProvider = new FakeTimeProvider();
 
-        using var hook = new R3GlobalHookAdapter(
-            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
-            timeProvider);
+        using var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(provider), timeProvider);
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
 
         // Act + Assert
 
-        await Assert.ThrowsAsync<InvalidOperationException>(async () => await hook.RunAsync());
+        await Assert.ThrowsAsync<InvalidOperationException>(() => hook.RunAsync(globalHookType));
     }
 
     [Property(DisplayName = "Run should throw if the hook is disposed")]
@@ -757,12 +723,12 @@ public sealed class R3GlobalHookAdapterTests
     {
         // Arrange
 
-        var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(globalHookType));
+        var hook = new R3GlobalHookAdapter(new SimpleGlobalHook());
         hook.Dispose();
 
         // Act + Assert
 
-        Assert.Throws<ObjectDisposedException>(hook.Run);
+        Assert.Throws<ObjectDisposedException>(() => hook.Run(globalHookType));
     }
 
     [Property(DisplayName = "RunAsync should throw if the hook is disposed")]
@@ -770,12 +736,12 @@ public sealed class R3GlobalHookAdapterTests
     {
         // Arrange
 
-        var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(globalHookType));
+        var hook = new R3GlobalHookAdapter(new SimpleGlobalHook());
         hook.Dispose();
 
         // Act + Assert
 
-        await Assert.ThrowsAsync<ObjectDisposedException>(async () => await hook.RunAsync());
+        await Assert.ThrowsAsync<ObjectDisposedException>(() => hook.RunAsync(globalHookType));
     }
 
     [Property(DisplayName = "Stop should throw if the hook failed to start")]
@@ -790,11 +756,9 @@ public sealed class R3GlobalHookAdapterTests
 
         var timeProvider = new FakeTimeProvider();
 
-        var hook = new R3GlobalHookAdapter(
-            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
-            timeProvider);
+        var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(provider), timeProvider);
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
 
         // Act + Assert
 
@@ -807,12 +771,12 @@ public sealed class R3GlobalHookAdapterTests
         this.DisposeHookAndWaitForStop(hook);
     }
 
-    [Property(DisplayName = "Stop should throw if the hook is disposed")]
-    public void StopDisposed(GlobalHookType globalHookType)
+    [Fact(DisplayName = "Stop should throw if the hook is disposed")]
+    public void StopDisposed()
     {
         // Arrange
 
-        var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(globalHookType));
+        var hook = new R3GlobalHookAdapter(new SimpleGlobalHook());
         hook.Dispose();
 
         // Act + Assert
@@ -833,10 +797,10 @@ public sealed class R3GlobalHookAdapterTests
         var timeProvider = new FakeTimeProvider();
 
         var hook = new R3GlobalHookAdapter(
-            new SimpleGlobalHook(globalHookType, provider, runAsyncOnBackgroundThread: true),
+            new SimpleGlobalHook(provider),
             timeProvider);
 
-        this.RunHookAndWaitForStart(hook, provider);
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
 
         // Act + Assert
 
@@ -844,12 +808,12 @@ public sealed class R3GlobalHookAdapterTests
         Assert.Equal(result.Value, exception.Result);
     }
 
-    [Property(DisplayName = "Dispose should do nothing if the hook is disposed")]
-    public void DisposeDisposed(GlobalHookType globalHookType)
+    [Fact(DisplayName = "Dispose should do nothing if the hook is disposed")]
+    public void DisposeDisposed()
     {
         // Arrange
 
-        var hook = new R3GlobalHookAdapter(new SimpleGlobalHook(globalHookType));
+        var hook = new R3GlobalHookAdapter(new SimpleGlobalHook());
         hook.Dispose();
 
         // Act
@@ -865,17 +829,16 @@ public sealed class R3GlobalHookAdapterTests
     public void AdaptedHookNull() =>
         Assert.Throws<ArgumentNullException>(() => new R3GlobalHookAdapter(null!));
 
-    [Property(DisplayName = "SimpleReactiveGlobalHook should not throw if the time provider is null")]
-    public void TimeProviderNull(GlobalHookType globalHookType)
+    [Fact(DisplayName = "SimpleReactiveGlobalHook should not throw if the time provider is null")]
+    public void TimeProviderNull()
     {
-        var exception = Record.Exception(() => new R3GlobalHookAdapter(
-            new SimpleGlobalHook(globalHookType), null));
+        var exception = Record.Exception(() => new R3GlobalHookAdapter(new SimpleGlobalHook(), null));
         Assert.Null(exception);
     }
 
-    private void RunHookAndWaitForStart(R3GlobalHookAdapter hook, TestProvider provider)
+    private void RunHookAndWaitForStart(R3GlobalHookAdapter hook, TestProvider provider, GlobalHookType globalHookType)
     {
-        hook.RunAsync();
+        hook.RunAsync(globalHookType, useBackgroundThread: true);
 
         while (!provider.IsRunning)
         {

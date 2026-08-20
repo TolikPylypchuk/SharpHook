@@ -24,7 +24,6 @@ public sealed class ReactiveGlobalHook : BasicGlobalHookBase, IReactiveGlobalHoo
     /// <summary>
     /// Initializes a new instance of <see cref="ReactiveGlobalHook" />.
     /// </summary>
-    /// <param name="globalHookType">The global hook type.</param>
     /// <param name="defaultScheduler">
     /// The default scheduler for observables, or <see langword="null" /> to use the default one
     /// (<see cref="Scheduler.Immediate" />).
@@ -32,16 +31,8 @@ public sealed class ReactiveGlobalHook : BasicGlobalHookBase, IReactiveGlobalHoo
     /// <param name="globalHookProvider">
     /// The underlying global hook provider, or <see langword="null" /> to use the default one.
     /// </param>
-    /// <param name="runAsyncOnBackgroundThread">
-    /// <see langword="true" /> if <see cref="IBasicGlobalHook.RunAsync" /> should run the hook on a background thread.
-    /// Otherwise, <see langword="false" />.
-    /// </param>
-    public ReactiveGlobalHook(
-        GlobalHookType globalHookType = GlobalHookType.All,
-        IScheduler? defaultScheduler = null,
-        IGlobalHookProvider? globalHookProvider = null,
-        bool runAsyncOnBackgroundThread = false)
-        : base(globalHookType, globalHookProvider, runAsyncOnBackgroundThread)
+    public ReactiveGlobalHook(IScheduler? defaultScheduler = null, IGlobalHookProvider? globalHookProvider = null)
+        : base(globalHookProvider)
     {
         defaultScheduler ??= Scheduler.Immediate;
 

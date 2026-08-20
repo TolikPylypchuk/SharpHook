@@ -20,31 +20,19 @@ public abstract class BasicGlobalHookBase : IBasicGlobalHook
     private static int currentHookIndex = 0;
 
     private readonly IGlobalHookProvider globalHookProvider;
-    private readonly GlobalHookType globalHookType;
-    private readonly bool runAsyncOnBackgroundThread;
     private readonly nint hookIndex;
 
     /// <summary>
     /// Initializes a new instance of <see cref="BasicGlobalHookBase" />.
     /// </summary>
-    /// <param name="globalHookType">The global hook type.</param>
     /// <param name="globalHookProvider">
     /// The underlying global hook provider, or <see langword="null" /> to use the default one.
     /// </param>
-    /// <param name="runAsyncOnBackgroundThread">
-    /// <see langword="true" /> if <see cref="RunAsync" /> should run the hook on a background thread.
-    /// Otherwise, <see langword="false" />.
-    /// </param>
     [SuppressMessage(
         "Style", "IDE0290:Use primary constructor", Justification = "Primary constructors don't support XML comments")]
-    protected BasicGlobalHookBase(
-        GlobalHookType globalHookType = GlobalHookType.All,
-        IGlobalHookProvider? globalHookProvider = null,
-        bool runAsyncOnBackgroundThread = false)
+    protected BasicGlobalHookBase(IGlobalHookProvider? globalHookProvider = null)
     {
         this.globalHookProvider = globalHookProvider ?? UioHookProvider.Instance;
-        this.globalHookType = globalHookType;
-        this.runAsyncOnBackgroundThread = runAsyncOnBackgroundThread;
         this.hookIndex = Interlocked.Increment(ref currentHookIndex);
     }
 
@@ -74,10 +62,11 @@ public abstract class BasicGlobalHookBase : IBasicGlobalHook
     /// Runs the global hook on the current thread, blocking it. The hook can be stopped temporarily by calling
     /// <see cref="Stop" /> or stopped permanently by calling <see cref="Dispose()" />.
     /// </summary>
+    /// <param name="globalHookType">The type of the global hook to run.</param>
     /// <exception cref="HookException">Starting the global hook has failed.</exception>
     /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
     /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
-    public void Run()
+    public void Run(GlobalHookType globalHookType = GlobalHookType.All)
     {
         this.ThrowIfRunning();
         this.ThrowIfDisposed();
@@ -92,7 +81,7 @@ public abstract class BasicGlobalHookBase : IBasicGlobalHook
             this.globalHookProvider.SetDispatchProc(dispatchProc, this.hookIndex);
 
             this.IsRunning = true;
-            result = this.RunGlobalHook();
+            result = this.RunGlobalHook(globalHookType);
         } catch (Exception e)
         {
             throw new HookException(UioHookResult.Failure, e);
@@ -113,12 +102,14 @@ public abstract class BasicGlobalHookBase : IBasicGlobalHook
     /// Runs the global hook without blocking the current thread. The hook can be stopped temporarily by calling
     /// <see cref="Stop" /> or stopped permanently by calling <see cref="Dispose()" />.
     /// </summary>
+    /// <param name="globalHookType">The type of the global hook to run.</param>
+    /// <param name="useBackgroundThread">A value which indicates whether to use a background thread.</param>
     /// <returns>A <see cref="Task" /> which finishes when the hook is stopped or disposed.</returns>
     /// <exception cref="HookException">Starting the global hook has failed.</exception>
     /// <exception cref="InvalidOperationException">The global hook is already running.</exception>
     /// <exception cref="ObjectDisposedException">The global hook has been disposed.</exception>
     /// <remarks>The hook is started on a separate thread.</remarks>
-    public Task RunAsync()
+    public Task RunAsync(GlobalHookType globalHookType = GlobalHookType.All, bool useBackgroundThread = false)
     {
         this.ThrowIfRunning();
         this.ThrowIfDisposed();
@@ -135,7 +126,7 @@ public abstract class BasicGlobalHookBase : IBasicGlobalHook
                 this.globalHookProvider.SetDispatchProc(dispatchProc, this.hookIndex);
 
                 this.IsRunning = true;
-                var result = this.RunGlobalHook();
+                var result = this.RunGlobalHook(globalHookType);
                 this.IsRunning = false;
 
                 if (result == UioHookResult.Success)
@@ -156,7 +147,7 @@ public abstract class BasicGlobalHookBase : IBasicGlobalHook
             }
         })
         {
-            IsBackground = this.runAsyncOnBackgroundThread
+            IsBackground = useBackgroundThread
         };
 
         thread.Start();
@@ -273,8 +264,8 @@ public abstract class BasicGlobalHookBase : IBasicGlobalHook
         }
     }
 
-    private UioHookResult RunGlobalHook() =>
-        this.globalHookType switch
+    private UioHookResult RunGlobalHook(GlobalHookType globalHookType) =>
+        globalHookType switch
         {
             GlobalHookType.Keyboard => this.globalHookProvider.RunKeyboard(),
             GlobalHookType.Mouse => this.globalHookProvider.RunMouse(),

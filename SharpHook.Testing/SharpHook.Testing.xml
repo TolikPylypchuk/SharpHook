@@ -116,10 +116,10 @@
         </member>
         <member name="P:SharpHook.Testing.TestGlobalHook.RunResult">
             <summary>
-            Gets or sets the result of the <see cref="M:SharpHook.Testing.TestGlobalHook.Run" /> and <see cref="M:SharpHook.Testing.TestGlobalHook.RunAsync" /> methods. If anything other than
+            Gets or sets the result of the <see cref="M:SharpHook.Testing.TestGlobalHook.Run(SharpHook.Data.GlobalHookType)" /> and <see cref="M:SharpHook.Testing.TestGlobalHook.RunAsync(SharpHook.Data.GlobalHookType,System.Boolean)" /> methods. If anything other than
             <see cref="F:SharpHook.Data.UioHookResult.Success" /> is set, then the method will throw a <see cref="T:SharpHook.HookException" />.
             </summary>
-            <value>The result of the <see cref="M:SharpHook.Testing.TestGlobalHook.Run" /> and <see cref="M:SharpHook.Testing.TestGlobalHook.RunAsync" /> methods.</value>
+            <value>The result of the <see cref="M:SharpHook.Testing.TestGlobalHook.Run(SharpHook.Data.GlobalHookType)" /> and <see cref="M:SharpHook.Testing.TestGlobalHook.RunAsync(SharpHook.Data.GlobalHookType,System.Boolean)" /> methods.</value>
         </member>
         <member name="P:SharpHook.Testing.TestGlobalHook.StopResult">
             <summary>
@@ -188,11 +188,12 @@
             method.
             </value>
         </member>
-        <member name="M:SharpHook.Testing.TestGlobalHook.Run">
+        <member name="M:SharpHook.Testing.TestGlobalHook.Run(SharpHook.Data.GlobalHookType)">
             <summary>
             Runs the global hook on the current thread, blocking it. The hook can be stopped by calling the
             <see cref="M:SharpHook.Testing.TestGlobalHook.Stop" /> or <see cref="M:System.IDisposable.Dispose" /> method.
             </summary>
+            <param name="globalHookType">This parameter is ignored.</param>
             <exception cref="T:SharpHook.HookException">
             <see cref="P:SharpHook.Testing.TestGlobalHook.RunResult" /> was set to something other than <see cref="F:SharpHook.Data.UioHookResult.Success" />.
             </exception>
@@ -203,11 +204,13 @@
             to be stopped.
             </remarks>
         </member>
-        <member name="M:SharpHook.Testing.TestGlobalHook.RunAsync">
+        <member name="M:SharpHook.Testing.TestGlobalHook.RunAsync(SharpHook.Data.GlobalHookType,System.Boolean)">
             <summary>
             Runs the global hook without blocking the current thread. The hook can be stopped by calling the
             <see cref="M:SharpHook.Testing.TestGlobalHook.Stop" /> or <see cref="M:System.IDisposable.Dispose" /> method.
             </summary>
+            <param name="globalHookType">This parameter is ignored.</param>
+            <param name="useBackgroundThread">This parameter is ignored.</param>
             <returns>A <see cref="T:System.Threading.Tasks.Task" /> which finishes when the hook is stopped.</returns>
             <exception cref="T:SharpHook.HookException">
             <see cref="P:SharpHook.Testing.TestGlobalHook.RunResult" /> was set to something other than <see cref="F:SharpHook.Data.UioHookResult.Success" />.
@@ -507,7 +510,7 @@
             <summary>
             An event which is raised when the global hook is enabled.
             </summary>
-            <remarks>This event is raised when the <see cref="M:SharpHook.Testing.TestGlobalHook.Run" /> or <see cref="M:SharpHook.Testing.TestGlobalHook.RunAsync" /> method is called.</remarks>
+            <remarks>This event is raised when the <see cref="M:SharpHook.Testing.TestGlobalHook.Run(SharpHook.Data.GlobalHookType)" /> or <see cref="M:SharpHook.Testing.TestGlobalHook.RunAsync(SharpHook.Data.GlobalHookType,System.Boolean)" /> method is called.</remarks>
         </member>
         <member name="E:SharpHook.Testing.TestGlobalHook.HookDisabled">
             <summary>
