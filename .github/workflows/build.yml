@@ -573,30 +573,30 @@ jobs:
       - name: Move libuiohook
         shell: pwsh
         run: |
-          mv libuiohook-build\linux\arm\lib\libuiohook.so SharpHook\lib\linux-arm\
-          mv libuiohook-build\linux\arm\lib\libuiohook-wayland.so SharpHook\lib\linux-arm\
-          mv libuiohook-build\linux\arm\lib\libuiohook-x11.so SharpHook\lib\linux-arm\
-          mv libuiohook-build\linux\arm\lib\libuiohook-xrecord.so SharpHook\lib\linux-arm\
+          mv libuiohook-build\linux\arm\lib\libuiohook.so src\SharpHook\lib\linux-arm\
+          mv libuiohook-build\linux\arm\lib\libuiohook-wayland.so src\SharpHook\lib\linux-arm\
+          mv libuiohook-build\linux\arm\lib\libuiohook-x11.so src\SharpHook\lib\linux-arm\
+          mv libuiohook-build\linux\arm\lib\libuiohook-xrecord.so src\SharpHook\lib\linux-arm\
 
-          mv libuiohook-build\linux\arm64\lib\libuiohook.so SharpHook\lib\linux-arm64\
-          mv libuiohook-build\linux\arm64\lib\libuiohook-wayland.so SharpHook\lib\linux-arm64\
-          mv libuiohook-build\linux\arm64\lib\libuiohook-x11.so SharpHook\lib\linux-arm64\
-          mv libuiohook-build\linux\arm64\lib\libuiohook-xrecord.so SharpHook\lib\linux-arm64\
+          mv libuiohook-build\linux\arm64\lib\libuiohook.so src\SharpHook\lib\linux-arm64\
+          mv libuiohook-build\linux\arm64\lib\libuiohook-wayland.so src\SharpHook\lib\linux-arm64\
+          mv libuiohook-build\linux\arm64\lib\libuiohook-x11.so src\SharpHook\lib\linux-arm64\
+          mv libuiohook-build\linux\arm64\lib\libuiohook-xrecord.so src\SharpHook\lib\linux-arm64\
 
-          mv libuiohook-build\linux\x86_64\lib\libuiohook.so SharpHook\lib\linux-x64\
-          mv libuiohook-build\linux\x86_64\lib\libuiohook-wayland.so SharpHook\lib\linux-x64\
-          mv libuiohook-build\linux\x86_64\lib\libuiohook-x11.so SharpHook\lib\linux-x64\
-          mv libuiohook-build\linux\x86_64\lib\libuiohook-xrecord.so SharpHook\lib\linux-x64\
+          mv libuiohook-build\linux\x86_64\lib\libuiohook.so src\SharpHook\lib\linux-x64\
+          mv libuiohook-build\linux\x86_64\lib\libuiohook-wayland.so src\SharpHook\lib\linux-x64\
+          mv libuiohook-build\linux\x86_64\lib\libuiohook-x11.so src\SharpHook\lib\linux-x64\
+          mv libuiohook-build\linux\x86_64\lib\libuiohook-xrecord.so src\SharpHook\lib\linux-x64\
 
-          mv libuiohook-build\macos\arm64\lib\libuiohook.dylib SharpHook\lib\osx-arm64\
-          mv libuiohook-build\macos\x86_64\lib\libuiohook.dylib SharpHook\lib\osx-x64\
+          mv libuiohook-build\macos\arm64\lib\libuiohook.dylib src\SharpHook\lib\osx-arm64\
+          mv libuiohook-build\macos\x86_64\lib\libuiohook.dylib src\SharpHook\lib\osx-x64\
 
-          mv libuiohook-build\catalyst\arm64\lib\libuiohook.dylib SharpHook\lib\maccatalyst-arm64\
-          mv libuiohook-build\catalyst\x86_64\lib\libuiohook.dylib SharpHook\lib\maccatalyst-x64\
+          mv libuiohook-build\catalyst\arm64\lib\libuiohook.dylib src\SharpHook\lib\maccatalyst-arm64\
+          mv libuiohook-build\catalyst\x86_64\lib\libuiohook.dylib src\SharpHook\lib\maccatalyst-x64\
 
-          mv libuiohook-build\windows\arm64\bin\uiohook.dll SharpHook\lib\win-arm64\
-          mv libuiohook-build\windows\x86\bin\uiohook.dll SharpHook\lib\win-x86\
-          mv libuiohook-build\windows\x86_64\bin\uiohook.dll SharpHook\lib\win-x64\
+          mv libuiohook-build\windows\arm64\bin\uiohook.dll src\SharpHook\lib\win-arm64\
+          mv libuiohook-build\windows\x86\bin\uiohook.dll src\SharpHook\lib\win-x86\
+          mv libuiohook-build\windows\x86_64\bin\uiohook.dll src\SharpHook\lib\win-x64\
 
       - name: Build SharpHook
         shell: pwsh
