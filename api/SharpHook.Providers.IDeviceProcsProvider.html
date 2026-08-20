@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-      <title>Namespace SharpHook.Providers | SharpHook </title>
+      <title>Interface IDeviceProcsProvider | SharpHook </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Namespace SharpHook.Providers | SharpHook ">
+      <meta name="title" content="Interface IDeviceProcsProvider | SharpHook ">
       
-      
+      <meta name="description" content="Represents a provider of low-level device functionality.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -84,79 +84,92 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="SharpHook.Providers">
+        <article data-uid="SharpHook.Providers.IDeviceProcsProvider">
 
-  <h1 id="SharpHook_Providers" data-uid="SharpHook.Providers" class="text-break">Namespace SharpHook.Providers</h1>
-  <div class="markdown level0 summary"></div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="markdown level0 remarks"></div>
 
-    <h3 id="classes">
-Classes
-</h3>
-    <dl class="jumplist">
-      <dt><a class="xref" href="SharpHook.Providers.UioHookProvider.html">UioHookProvider</a></dt>
-      <dd><p>A provider of low-level functionality which delegates it to libuiohook.</p>
+
+  <h1 id="SharpHook_Providers_IDeviceProcsProvider" data-uid="SharpHook.Providers.IDeviceProcsProvider" class="text-break">
+Interface IDeviceProcsProvider  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Providers/IDeviceProcsProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SharpHook.html">SharpHook</a>.<a class="xref" href="SharpHook.Providers.html">Providers</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Represents a provider of low-level device functionality.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IDeviceProcsProvider</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="SharpHook_Providers_IDeviceProcsProvider_SetDeviceProcs_" data-uid="SharpHook.Providers.IDeviceProcsProvider.SetDeviceProcs*"></a>
+
+  <h3 id="SharpHook_Providers_IDeviceProcsProvider_SetDeviceProcs_SharpHook_Native_OpenDeviceProc_SharpHook_Native_CloseDeviceProc_System_IntPtr_" data-uid="SharpHook.Providers.IDeviceProcsProvider.SetDeviceProcs(SharpHook.Native.OpenDeviceProc,SharpHook.Native.CloseDeviceProc,System.IntPtr)">
+  SetDeviceProcs(OpenDeviceProc?, CloseDeviceProc?, nint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Providers/IDeviceProcsProvider.cs"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets the functions to open and close privieged devices. This can be used to provide a custom way of opening and
+closing devices on Linux without requiring direct file access to them. This is an advanced scenario and should
+generally be avoided.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetDeviceProcs(OpenDeviceProc? openProc, CloseDeviceProc? closeProc, nint userData)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>openProc</code> <a class="xref" href="SharpHook.Native.OpenDeviceProc.html">OpenDeviceProc</a></dt>
+    <dd><p>The function to use when opening a privileged device, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to use the default method.</p>
 </dd>
-    </dl>
-    <h3 id="interfaces">
-Interfaces
-</h3>
-    <dl class="jumplist">
-      <dt><a class="xref" href="SharpHook.Providers.IAccessibilityProvider.html">IAccessibilityProvider</a></dt>
-      <dd><p>Represents a provider of low-level macOS Accessibility API functionality.</p>
+    <dt><code>closeProc</code> <a class="xref" href="SharpHook.Native.CloseDeviceProc.html">CloseDeviceProc</a></dt>
+    <dd><p>The function to use when closing a privileged device, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to use the default method.</p>
 </dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="SharpHook.Providers.IDeviceProcsProvider.html">IDeviceProcsProvider</a></dt>
-      <dd><p>Represents a provider of low-level device functionality.</p>
+    <dt><code>userData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
+    <dd><p>The data to pass to the device functions.</p>
 </dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="SharpHook.Providers.IEventSimulationProvider.html">IEventSimulationProvider</a></dt>
-      <dd><p>Represents a provider of low-level event simulation functionality.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="SharpHook.Providers.IFeatureProvider.html">IFeatureProvider</a></dt>
-      <dd><p>Represents a provider of low-level feature functionality.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html">IGlobalHookProvider</a></dt>
-      <dd><p>Represents a provider of low-level global hook functionality.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="SharpHook.Providers.IKeyboardInfoProvider.html">IKeyboardInfoProvider</a></dt>
-      <dd><p>Represents a provider of low-level keyboard info functionality.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="SharpHook.Providers.ILinuxBackendProvider.html">ILinuxBackendProvider</a></dt>
-      <dd><p>Represents a provider of low-level Linux backend functionality.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="SharpHook.Providers.ILoggingProvider.html">ILoggingProvider</a></dt>
-      <dd><p>Represents a provider of low-level logging functionality.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="SharpHook.Providers.IMouseInfoProvider.html">IMouseInfoProvider</a></dt>
-      <dd><p>Represents a provider of low-level mouse info functionality.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="SharpHook.Providers.IScreenInfoProvider.html">IScreenInfoProvider</a></dt>
-      <dd><p>Represents a provider of low-level screen info functionality.</p>
-</dd>
-    </dl>
+  </dl>
+
+
+
+
+
+
+
+
+  <h4 class="section" id="SharpHook_Providers_IDeviceProcsProvider_SetDeviceProcs_SharpHook_Native_OpenDeviceProc_SharpHook_Native_CloseDeviceProc_System_IntPtr__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>These functions are used only on Linux, and only when the loaded backend uses libinput and uinput.</p>
+</div>
+
+
+
 
 
 </article>
 
         <div class="contribution d-print-none">
+          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Providers/IDeviceProcsProvider.cs" class="edit-link">Edit this page</a>
         </div>
 
 

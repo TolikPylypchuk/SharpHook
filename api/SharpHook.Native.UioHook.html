@@ -517,6 +517,11 @@ value.
 
 
 
+  <h4 class="section" id="SharpHook_Native_UioHook_GetPointerAccelerationMultiplier_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Support for this method can be queried using <a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetOptionalFeatureSupport">GetOptionalFeatureSupport()</a>. If that method returns
+<a class="xref" href="SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_PointerProperties">PointerProperties</a> as one of its flags, then this method is supported. Otherwise,
+this method always returns <code>-1</code>. On Wayland, this feature is not supported.</p>
+</div>
 
 
 
@@ -550,6 +555,11 @@ value.
 
 
 
+  <h4 class="section" id="SharpHook_Native_UioHook_GetPointerAccelerationThreshold_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Support for this method can be queried using <a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetOptionalFeatureSupport">GetOptionalFeatureSupport()</a>. If that method returns
+<a class="xref" href="SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_PointerProperties">PointerProperties</a> as one of its flags, then this method is supported. Otherwise,
+this method always returns <code>-1</code>. On Wayland, this feature is not supported.</p>
+</div>
 
 
 
@@ -583,6 +593,11 @@ value.
 
 
 
+  <h4 class="section" id="SharpHook_Native_UioHook_GetPointerSensitivity_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>Support for this method can be queried using <a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetOptionalFeatureSupport">GetOptionalFeatureSupport()</a>. If that method returns
+<a class="xref" href="SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_PointerProperties">PointerProperties</a> as one of its flags, then this method is supported. Otherwise,
+this method always returns <code>-1</code>. On Wayland, this feature is not supported.</p>
+</div>
 
 
 
@@ -815,8 +830,10 @@ If the application doesn't use events of type <a class="xref" href="SharpHook.Da
 so that there is no performance penalty and no subtle system-wide side effects.
 </p>
 <p>
-On Wayland, this method always returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> since events of type
-<a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a> are not supported.
+Support for events of type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a> can be queried using
+<a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetOptionalFeatureSupport">GetOptionalFeatureSupport()</a>. If that method returns <a class="xref" href="SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_KeyTypedEvents">KeyTypedEvents</a> as
+one of its flags, then <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a> events are supported and can be enabled or disabled. On
+Wayland, this method does nothing since this feature is not supported.
 </p>
 </div>
 
@@ -1311,7 +1328,10 @@ If the application doesn't use events of type <a class="xref" href="SharpHook.Da
 so that there is no performance penalty and no subtle system-wide side effects.
 </p>
 <p>
-On Wayland, this method does nothing since events of type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a> are not supported.
+Support for events of type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a> can be queried using
+<a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_GetOptionalFeatureSupport">GetOptionalFeatureSupport()</a>. If that method returns <a class="xref" href="SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_KeyTypedEvents">KeyTypedEvents</a> as
+one of its flags, then <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a> are supported and can be enabled or disabled. On
+Wayland, this method does nothing since this feature is not supported.
 </p>
 </div>
 
@@ -1531,9 +1551,13 @@ Accessibility API when it is disabled. Otherwise, <a href="https://learn.microso
   <h2 id="seealso">See Also</h2>
   <div class="seealso">
       <div><a class="xref" href="SharpHook.Providers.IAccessibilityProvider.html">IAccessibilityProvider</a></div>
+      <div><a class="xref" href="SharpHook.Providers.IDeviceProcsProvider.html">IDeviceProcsProvider</a></div>
       <div><a class="xref" href="SharpHook.Providers.IEventSimulationProvider.html">IEventSimulationProvider</a></div>
+      <div><a class="xref" href="SharpHook.Providers.IFeatureProvider.html">IFeatureProvider</a></div>
       <div><a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html">IGlobalHookProvider</a></div>
       <div><a class="xref" href="SharpHook.Providers.ILoggingProvider.html">ILoggingProvider</a></div>
+      <div><a class="xref" href="SharpHook.Providers.IKeyboardInfoProvider.html">IKeyboardInfoProvider</a></div>
+      <div><a class="xref" href="SharpHook.Providers.ILinuxBackendProvider.html">ILinuxBackendProvider</a></div>
       <div><a class="xref" href="SharpHook.Providers.IMouseInfoProvider.html">IMouseInfoProvider</a></div>
       <div><a class="xref" href="SharpHook.Providers.IScreenInfoProvider.html">IScreenInfoProvider</a></div>
       <div><a class="xref" href="SharpHook.Providers.UioHookProvider.html">UioHookProvider</a></div>

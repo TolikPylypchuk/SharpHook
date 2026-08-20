@@ -631,6 +631,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Providers.IDeviceProcsProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Providers.IDeviceProcsProvider.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Providers.IDeviceProcsProvider",
+      "Summary": "<p sourcefile=\"api/SharpHook.Providers.IDeviceProcsProvider.yml\" sourcestartlinenumber=\"1\">Represents a provider of low-level device functionality.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SharpHook.Providers.IEventSimulationProvider.yml",
       "output": {
         ".html": {
@@ -642,6 +656,20 @@
       "IsMRef": true,
       "Title": "SharpHook.Providers.IEventSimulationProvider",
       "Summary": "<p sourcefile=\"api/SharpHook.Providers.IEventSimulationProvider.yml\" sourcestartlinenumber=\"1\">Represents a provider of low-level event simulation functionality.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Providers.IFeatureProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Providers.IFeatureProvider.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Providers.IFeatureProvider",
+      "Summary": "<p sourcefile=\"api/SharpHook.Providers.IFeatureProvider.yml\" sourcestartlinenumber=\"1\">Represents a provider of low-level feature functionality.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -670,6 +698,20 @@
       "IsMRef": true,
       "Title": "SharpHook.Providers.IKeyboardInfoProvider",
       "Summary": "<p sourcefile=\"api/SharpHook.Providers.IKeyboardInfoProvider.yml\" sourcestartlinenumber=\"1\">Represents a provider of low-level keyboard info functionality.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Providers.ILinuxBackendProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Providers.ILinuxBackendProvider.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Providers.ILinuxBackendProvider",
+      "Summary": "<p sourcefile=\"api/SharpHook.Providers.ILinuxBackendProvider.yml\" sourcestartlinenumber=\"1\">Represents a provider of low-level Linux backend functionality.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -725,7 +767,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "SharpHook.Providers.UioHookProvider",
-      "Summary": "<p sourcefile=\"api/SharpHook.Providers.UioHookProvider.yml\" sourcestartlinenumber=\"1\">A provider of low-level functionality which delegates it to the <xref href=\"SharpHook.Native.UioHook\" data-throw-if-not-resolved=\"false\"></xref> class.</p>\n"
+      "Summary": "<p sourcefile=\"api/SharpHook.Providers.UioHookProvider.yml\" sourcestartlinenumber=\"1\">A provider of low-level functionality which delegates it to libuiohook.</p>\n"
     },
     {
       "type": "ManagedReference",

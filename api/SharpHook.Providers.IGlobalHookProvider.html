@@ -129,7 +129,7 @@ Interface IGlobalHookProvider  <a class="header-action link-secondary" title="Vi
   </h3>
 
   <div class="markdown level1 summary"><p>Gets or sets the value which indicates whether events of type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a> are enabled. The
-default value is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.</p>
+default value is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -152,6 +152,19 @@ default value is <a href="https://learn.microsoft.com/dotnet/csharp/language-ref
 
 
 
+  <h4 class="section" id="SharpHook_Providers_IGlobalHookProvider_KeyTypedEnabled_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+If the application doesn't use events of type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a>, then they should be disabled
+so that there is no performance penalty and no subtle system-wide side effects.
+</p>
+<p>
+Support for events of type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a> can be queried using
+<a class="xref" href="SharpHook.Providers.IFeatureProvider.html#SharpHook_Providers_IFeatureProvider_GetOptionalFeatureSupport">GetOptionalFeatureSupport()</a>. If that method returns
+<a class="xref" href="SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_KeyTypedEvents">KeyTypedEvents</a> as one of its flags, then <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a> events
+are supported and can be enabled or disabled. On Wayland, this property does nothing since this feature is not
+supported.
+</p>
+</div>
 
 
 
