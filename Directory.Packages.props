@@ -4,7 +4,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.400" PrivateAssets="all" />
+    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.400" />
     <PackageVersion Include="R3" Version="1.3.1" />
     <PackageVersion Include="ReactiveUI.Primitives" Version="7.2.0" />
     <PackageVersion Include="System.Reactive" Version="7.0.0" />
