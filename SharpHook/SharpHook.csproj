@@ -1,5 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <PropertyGroup Condition="'$(SHARPHOOK_SKIP_MACCATALYST)' == '' Or '$(SHARPHOOK_SKIP_MACCATALYST)' == 'false'">
+    <TargetFrameworks>$(TargetFrameworks);net10.0-maccatalyst</TargetFrameworks>
+  </PropertyGroup>
+
   <PropertyGroup>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>

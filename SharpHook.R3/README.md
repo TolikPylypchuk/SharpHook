@@ -5,7 +5,7 @@ SharpHook provides a cross-platform global keyboard and mouse hook, event simula
 features as well as higher-level types to work with it.
 
 If you're using [R3](https://github.com/Cysharp/R3), you can use the SharpHook.R3 package to integrate SharpHook with
-R3.
+it.
 
 ## Usage
 
@@ -81,6 +81,12 @@ r3LogSource.MessageLogged.Subscribe(this.OnMessageLogged);
 
 As an alternative, SharpHook also provides integration with [Rx.NET](https://github.com/dotnet/reactive) in the
 [SharpHook.Reactive](https://www.nuget.org/packages/SharpHook.Reactive) package.
+
+### ReactiveUI.Primitives Integration
+
+As an alternative, SharpHook also provides integration with
+[ReactiveUI.Primitives](https://github.com/reactiveui/Primitives) in the
+[SharpHook.ReactiveUI](https://www.nuget.org/packages/SharpHook.ReactiveUI) package.
 
 ## Icon
 

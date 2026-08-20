@@ -11,11 +11,12 @@ namespace SharpHook.Reactive;
 /// It is highly recommended to extend the <see cref="BasicGlobalHookBase" /> class if you want to implement this
 /// inteface as it correctly implements the invariants required for advanced scenarios.
 /// </para>
+/// <para>
+/// Implementations of this interface are defined in the SharpHook.Reactive and SharpHook.ReactiveUI packages.
+/// </para>
 /// </remarks>
 /// <seealso cref="IGlobalHook" />
 /// <seealso cref="IBasicGlobalHook" />
-/// <seealso cref="ReactiveGlobalHook" />
-/// <seealso cref="ReactiveGlobalHookAdapter" />
 public interface IReactiveGlobalHook : IBasicGlobalHook
 {
     /// <summary>

@@ -214,24 +214,14 @@ public sealed class ReactiveGlobalHook : BasicGlobalHookBase, IReactiveGlobalHoo
 
         if (isRunning)
         {
-            this.hookDisabledSubject.Subscribe(_ => this.CompleteAndDisposeAllSubjects(disposing));
+            this.hookDisabledSubject.Subscribe(_ => this.CompleteAllSubjects());
         }
 
         base.Dispose(disposing);
 
         if (!isRunning)
         {
-            this.CompleteAndDisposeAllSubjects(disposing);
-        }
-    }
-
-    private void CompleteAndDisposeAllSubjects(bool disposing)
-    {
-        this.CompleteAllSubjects();
-
-        if (disposing)
-        {
-            this.DisposeAllSubjects();
+            this.CompleteAllSubjects();
         }
     }
 
@@ -251,23 +241,5 @@ public sealed class ReactiveGlobalHook : BasicGlobalHookBase, IReactiveGlobalHoo
         this.mouseDraggedSubject.OnCompleted();
 
         this.mouseWheelSubject.OnCompleted();
-    }
-
-    private void DisposeAllSubjects()
-    {
-        this.hookEnabledSubject.Dispose();
-        this.hookDisabledSubject.Dispose();
-
-        this.keyTypedSubject.Dispose();
-        this.keyPressedSubject.Dispose();
-        this.keyReleasedSubject.Dispose();
-
-        this.mouseClickedSubject.Dispose();
-        this.mousePressedSubject.Dispose();
-        this.mouseReleasedSubject.Dispose();
-        this.mouseMovedSubject.Dispose();
-        this.mouseDraggedSubject.Dispose();
-
-        this.mouseWheelSubject.Dispose();
     }
 }

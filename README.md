@@ -213,13 +213,16 @@ extended to create a custom global hook which has a different form of events fro
 
 ### Reactive Global Hooks
 
+SharpHook provides the `SharpHook.Reactive.IReactiveGlobalHook` interface, but its implementations live in separate
+packages.
+
 #### Rx.NET
 
 If you're using [Rx.NET](https://github.com/dotnet/reactive), you can use the SharpHook.Reactive package to integrate
-SharpHook with Rx.NET.
+SharpHook with it.
 
-SharpHook.Reactive provides the `SharpHook.Reactive.IReactiveGlobalHook` interface along with a default implementation
-which you can use to use to control the hook and subscribe to its observables. Here's a basic example:
+SharpHook.Reactive provides an implementation of `IReactiveGlobalHook` which you can use to use to control the hook and
+subscribe to its observables. Here's a basic example:
 
 ```csharp
 using SharpHook.Reactive;
@@ -268,7 +271,7 @@ to `IGlobalHook`. A default scheduler can be specified for all observables.
 #### R3
 
 If you're using [R3](https://github.com/Cysharp/R3), you can use the SharpHook.R3 package to integrate SharpHook with
-R3.
+it.
 
 SharpHook.R3 provides the `SharpHook.R3.IR3GlobalHook` interface along with a default implementation which you can use
 to use to control the hook and subscribe to its observables. Here's a basic example:
@@ -308,6 +311,9 @@ await hook.RunAsync();
 
 R3 global hooks are basically the same as the default global hooks and the same rules apply to them.
 
+Note that SharpHook.R3 uses its own interface instead of implementing `IReactiveGlobalHook` since R3's implementation is
+incompatible with the interface.
+
 SharpHook.R3 provides two implementations of `IR3GlobalHook`:
 
 - `SharpHook.R3.R3GlobalHook`. Since we're dealing with observables, it's up to you to decide when and where to handle
@@ -316,6 +322,58 @@ the events through time providers. A default time provider can be specified for 
 - `SharpHook.R3.R3GlobalHookAdapter` adapts an `IGlobalHook` to `IR3GlobalHook`. All subscriptions and changes are
 propagated to the adapted hook. There is no default adapter from `IR3GlobalHook` to `IGlobalHook`. A default time
 provider can be specified for all observables.
+
+#### ReactiveUI.Primitives
+
+If you're using [ReactiveUI.Primitives](https://github.com/reactiveui/Primitives), you can use the SharpHook.ReactiveUI
+package to integrate SharpHook with it.
+
+SharpHook.ReactiveUI provides an implementation of `IReactiveGlobalHook` which you can use to use to control the hook and
+subscribe to its observables. Here's a basic example:
+
+```csharp
+using SharpHook.ReactiveUI;
+
+// ...
+
+var hook = new ReactiveUIGlobalHook();
+
+hook.HookEnabled.Subscribe(OnHookEnabled);
+hook.HookDisabled.Subscribe(OnHookDisabled);
+
+hook.KeyTyped.Subscribe(OnKeyTyped);
+hook.KeyPressed.Subscribe(OnKeyPressed);
+hook.KeyReleased.Subscribe(OnKeyReleased);
+
+hook.MouseClicked.Subscribe(OnMouseClicked);
+hook.MousePressed.Subscribe(OnMousePressed);
+hook.MouseReleased.Subscribe(OnMouseReleased);
+
+hook.MouseMoved
+    .Throttle(TimeSpan.FromSeconds(0.5))
+    .Subscribe(OnMouseMoved);
+
+hook.MouseDragged
+    .Throttle(TimeSpan.FromSeconds(0.5))
+    .Subscribe(OnMouseDragged);
+
+hook.MouseWheel.Subscribe(OnMouseWheel);
+
+hook.Run();
+// or
+await hook.RunAsync();
+```
+
+Reactive global hooks are basically the same as the default global hooks and the same rules apply to them.
+
+SharpHook.ReactiveUI provides two implementations of `IReactiveGlobalHook`:
+
+- `SharpHook.ReactiveUI.ReactiveUIGlobalHook`. Since we're dealing with observables, it's up to you to decide when and
+where to handle the events through sequencers. A default sequencer can be specified for all observables.
+
+- `SharpHook.ReactiveUI.ReactiveUIGlobalHookAdapter` adapts an `IGlobalHook` to `IReactiveGlobalHook`. All
+subscriptions and changes are propagated to the adapted hook. There is no default adapter from `IReactiveGlobalHook`
+to `IGlobalHook`. A default sequencer can be specified for all observables.
 
 ### Event Simulation
 

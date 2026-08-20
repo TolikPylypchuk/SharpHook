@@ -3913,6 +3913,116 @@
             </summary>
             <returns>The multi-click time.</returns>
         </member>
+        <member name="T:SharpHook.Reactive.IReactiveGlobalHook">
+            <summary>
+            Represents a reactive global keyboard and mouse hook.
+            </summary>
+            <remarks>
+            <para>
+            All observables of objects of this interface are completed when the object is disposed.
+            </para>
+            <para>
+            It is highly recommended to extend the <see cref="T:SharpHook.BasicGlobalHookBase" /> class if you want to implement this
+            inteface as it correctly implements the invariants required for advanced scenarios.
+            </para>
+            <para>
+            Implementations of this interface are defined in the SharpHook.Reactive and SharpHook.ReactiveUI packages.
+            </para>
+            </remarks>
+            <seealso cref="T:SharpHook.IGlobalHook" />
+            <seealso cref="T:SharpHook.IBasicGlobalHook" />
+        </member>
+        <member name="P:SharpHook.Reactive.IReactiveGlobalHook.HookEnabled">
+            <summary>
+            Gets an observable which emits a value when the global hook is enabled.
+            </summary>
+            <value>An observable which emits a value when the global hook is enabled.</value>
+            <remarks>
+            The observable emits a value when the <see cref="M:SharpHook.IBasicGlobalHook.Run(SharpHook.Data.GlobalHookType)" /> or
+            <see cref="M:SharpHook.IBasicGlobalHook.RunAsync(SharpHook.Data.GlobalHookType,System.Boolean)" /> method is called.
+            </remarks>
+        </member>
+        <member name="P:SharpHook.Reactive.IReactiveGlobalHook.HookDisabled">
+            <summary>
+            Gets an observable which emits a value when the global hook is disabled.
+            </summary>
+            <value>An observable which emits a value when the global hook is disabled.</value>
+            <remarks>
+            The observable emits a value when the <see cref="M:SharpHook.IBasicGlobalHook.Stop" /> or <see cref="M:System.IDisposable.Dispose" />
+            method is called.
+            </remarks>
+        </member>
+        <member name="P:SharpHook.Reactive.IReactiveGlobalHook.KeyTyped">
+            <summary>
+            Gets an observable which emits a value when a key is typed.
+            </summary>
+            <value>An observable which emits a value when a key is typed.</value>
+        </member>
+        <member name="P:SharpHook.Reactive.IReactiveGlobalHook.KeyPressed">
+            <summary>
+            Gets an observable which emits a value when a key is pressed.
+            </summary>
+            <value>An observable which emits a value when a key is pressed.</value>
+        </member>
+        <member name="P:SharpHook.Reactive.IReactiveGlobalHook.KeyReleased">
+            <summary>
+            Gets an observable which emits a value when a key is released.
+            </summary>
+            <value>An observable which emits a value when a key is released.</value>
+        </member>
+        <member name="P:SharpHook.Reactive.IReactiveGlobalHook.MouseClicked">
+            <summary>
+            Gets an observable which emits a value when a mouse button is clicked.
+            </summary>
+            <value>An observable which emits a value when a mouse button is clicked.</value>
+        </member>
+        <member name="P:SharpHook.Reactive.IReactiveGlobalHook.MousePressed">
+            <summary>
+            Gets an observable which emits a value when a mouse button is pressed.
+            </summary>
+            <value>An observable which emits a value when a mouse button is pressed.</value>
+        </member>
+        <member name="P:SharpHook.Reactive.IReactiveGlobalHook.MouseReleased">
+            <summary>
+            Gets an observable which emits a value when a mouse button is released.
+            </summary>
+            <value>An observable which emits a value when a mouse button is released.</value>
+        </member>
+        <member name="P:SharpHook.Reactive.IReactiveGlobalHook.MouseMoved">
+            <summary>
+            Gets an observable which emits a value when the mouse cursor is moved.
+            </summary>
+            <value>An observable which emits a value when the mouse cursor is moved.</value>
+        </member>
+        <member name="P:SharpHook.Reactive.IReactiveGlobalHook.MouseDragged">
+            <summary>
+            Gets an observable which emits a value when the mouse cursor is dragged.
+            </summary>
+            <value>An observable which emits a value when the mouse cursor is dragged.</value>
+        </member>
+        <member name="P:SharpHook.Reactive.IReactiveGlobalHook.MouseWheel">
+            <summary>
+            Gets an observable which emits a value when the mouse wheel is scrolled.
+            </summary>
+            <value>An observable which emits a value when the mouse wheel is scrolled.</value>
+        </member>
+        <member name="T:SharpHook.Reactive.Logging.IReactiveLogSource">
+            <summary>
+            Represents a reactive source of libuiohook logs.
+            </summary>
+            <remarks>
+            Implementations of this interface are defined in the SharpHook.Reactive and SharpHook.ReactiveUI packages.
+            </remarks>
+            <seealso cref="T:SharpHook.Logging.ILogSource" />
+            <seealso cref="T:SharpHook.Logging.LogSource" />
+            <seealso cref="T:SharpHook.Logging.LogEventArgs" />
+            <seealso cref="T:SharpHook.Logging.LogEntry" />
+        </member>
+        <member name="P:SharpHook.Reactive.Logging.IReactiveLogSource.MessageLogged">
+            <summary>
+            An observable which is emitted when libuiohook logs a message.
+            </summary>
+        </member>
         <member name="T:SharpHook.SimpleGlobalHook">
             <summary>
             Represents an implementation of <see cref="T:SharpHook.IGlobalHook" /> which raises events on the same thread on which

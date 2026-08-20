@@ -287,7 +287,7 @@ public sealed class R3GlobalHookAdapter : IGlobalHook, IR3GlobalHook
             this.hookDisabledSubject.Subscribe(_ =>
             {
                 this.subscriptions.Dispose();
-                this.DisposeAllSubjects();
+                this.CompleteAllSubjects();
             });
         }
 
@@ -296,29 +296,29 @@ public sealed class R3GlobalHookAdapter : IGlobalHook, IR3GlobalHook
         if (!isRunning)
         {
             this.subscriptions.Dispose();
-            this.DisposeAllSubjects();
+            this.CompleteAllSubjects();
         }
     }
 
     private TArgs SelectEventArgs<TArgs>((object? Sender, TArgs Args) e) =>
         e.Args;
 
-    private void DisposeAllSubjects()
+    private void CompleteAllSubjects()
     {
-        this.hookEnabledSubject.Dispose();
-        this.hookDisabledSubject.Dispose();
+        this.hookEnabledSubject.OnCompleted();
+        this.hookDisabledSubject.OnCompleted();
 
-        this.keyTypedSubject.Dispose();
-        this.keyPressedSubject.Dispose();
-        this.keyReleasedSubject.Dispose();
+        this.keyTypedSubject.OnCompleted();
+        this.keyPressedSubject.OnCompleted();
+        this.keyReleasedSubject.OnCompleted();
 
-        this.mouseClickedSubject.Dispose();
-        this.mousePressedSubject.Dispose();
-        this.mouseReleasedSubject.Dispose();
-        this.mouseMovedSubject.Dispose();
-        this.mouseDraggedSubject.Dispose();
+        this.mouseClickedSubject.OnCompleted();
+        this.mousePressedSubject.OnCompleted();
+        this.mouseReleasedSubject.OnCompleted();
+        this.mouseMovedSubject.OnCompleted();
+        this.mouseDraggedSubject.OnCompleted();
 
-        this.mouseWheelSubject.Dispose();
+        this.mouseWheelSubject.OnCompleted();
     }
 
     private void ThrowIfRunning()

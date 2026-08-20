@@ -51,6 +51,12 @@
     <Platform Solution="*|x64" Project="x64" />
     <Platform Solution="*|x86" Project="x86" />
   </Project>
+  <Project Path="SharpHook.ReactiveUI/SharpHook.ReactiveUI.csproj" Id="ef9eb357-2cde-429c-b17e-5a72c970493e">
+    <Platform Solution="*|ARM32" Project="ARM32" />
+    <Platform Solution="*|ARM64" Project="ARM64" />
+    <Platform Solution="*|x64" Project="x64" />
+    <Platform Solution="*|x86" Project="x86" />
+  </Project>
   <Project Path="SharpHook.Sample/SharpHook.Sample.csproj">
     <Platform Solution="*|ARM32" Project="ARM32" />
     <Platform Solution="*|ARM64" Project="ARM64" />

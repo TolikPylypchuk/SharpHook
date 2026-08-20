@@ -1,11 +1,11 @@
-# SharpHook.Reactive
+# SharpHook.ReactiveUI
 
 SharpHook provides a cross-platform global keyboard and mouse hook, event simulation, and text entry simulation for
 .NET. It is a wrapper of [libuiohook](https://github.com/TolikPylypchuk/libuiohook) and provides direct access to its
 features as well as higher-level types to work with it.
 
-If you're using [Rx.NET](https://github.com/dotnet/reactive), you can use the SharpHook.Reactive package to integrate
-SharpHook with Rx.NET.
+If you're using [ReactiveUI.Primitives](https://github.com/reactiveui/Primitives), you can use the SharpHook.ReactiveUI
+package to integrate SharpHook with it.
 
 ## Usage
 
@@ -17,15 +17,15 @@ Refer to the [SharpHook](https://www.nuget.org/packages/SharpHook) package for t
 
 The base SharpHook package provides the `IReactiveGlobalHook` interface.
 
-SharpHook.Reactive provides a default implementation for `IReactiveGlobalHook` and an adapter which you can use to use
+SharpHook.ReactiveUI provides a default implementation for `IReactiveGlobalHook` and an adapter which you can use to use
 to control the global hook and subscribe to its observables. Here's a basic example:
 
 ```csharp
-using SharpHook.Reactive;
+using SharpHook.ReactiveUI;
 
 // ...
 
-var hook = new ReactiveGlobalHook();
+var hook = new ReactiveUIGlobalHook();
 
 hook.HookEnabled.Subscribe(OnHookEnabled);
 hook.HookDisabled.Subscribe(OnHookDisabled);
@@ -55,42 +55,41 @@ await hook.RunAsync();
 
 Reactive global hooks are basically the same as the default global hooks and the same rules apply to them.
 
-SharpHook.Reactive provides two implementations of `IReactiveGlobalHook`:
+SharpHook.ReactiveUI provides two implementations of `IReactiveGlobalHook`:
 
-- `SharpHook.Reactive.ReactiveGlobalHook`. Since we're dealing with observables, it's up to you to decide when and where
-to handle the events through schedulers. A default scheduler can be specified for all observables.
+- `SharpHook.ReactiveUI.ReactiveUIGlobalHook`. Since we're dealing with observables, it's up to you to decide when and
+where to handle the events through sequencers. A default sequencer can be specified for all observables.
 
-- `SharpHook.Reactive.ReactiveGlobalHookAdapter` adapts an `IGlobalHook` to `IReactiveGlobalHook`. All
+- `SharpHook.ReactiveUI.ReactiveUIGlobalHookAdapter` adapts an `IGlobalHook` to `IReactiveGlobalHook`. All
 subscriptions and changes are propagated to the adapted hook. There is no default adapter from `IReactiveGlobalHook`
-to `IGlobalHook`. A default scheduler can be specified for all observables.
+to `IGlobalHook`. A default sequencer can be specified for all observables.
 
 ### Logging
 
 The base SharpHook package provides the `IReactiveLogSource` interface.
 
-SharpHook.Reactive contains `ReactiveLogSourceAdapter` which adapts an `ILogSource` into an `IReactiveLogSource`:
+SharpHook.ReactiveUI contains `ReactiveUILogSourceAdapter` which adapts an `ILogSource` into an `IReactiveLogSource`:
 
 ```csharp
 using SharpHook.Logging;
-using SharpHook.Reactive.Logging;
+using SharpHook.ReactiveUI.Logging;
 
 // ...
 
 var logSource = LogSource.RegisterOrGet();
-var reactiveLogSource = new ReactiveLogSourceAdapter(logSource);
+var reactiveLogSource = new ReactiveUILogSourceAdapter(logSource);
 reactiveLogSource.MessageLogged.Subscribe(this.OnMessageLogged);
 ```
+
+### Rx.NET Integration
+
+As an alternative, SharpHook also provides integration with [Rx.NET](https://github.com/dotnet/reactive) in the
+[SharpHook.Reactive](https://www.nuget.org/packages/SharpHook.Reactive) package.
 
 ### R3 Integration
 
 As an alternative, SharpHook also provides integration with [R3](https://github.com/Cysharp/R3) in the
 [SharpHook.R3](https://www.nuget.org/packages/SharpHook.R3) package.
-
-### ReactiveUI.Primitives Integration
-
-As an alternative, SharpHook also provides integration with
-[ReactiveUI.Primitives](https://github.com/reactiveui/Primitives) in the
-[SharpHook.ReactiveUI](https://www.nuget.org/packages/SharpHook.ReactiveUI) package.
 
 ## Icon
 

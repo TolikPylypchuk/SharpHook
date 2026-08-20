@@ -125,10 +125,13 @@ the events. It also keeps a reference to a running global hook so that it's not 
 ### Reactive Global Hooks
 
 Use the [SharpHook.Reactive](https://www.nuget.org/packages/SharpHook.Reactive) package for reactive global hooks with
-[Rx.NET](https://github.com/dotnet/reactive) integration.
+the [Rx.NET](https://github.com/dotnet/reactive) integration.
 
-Use the [SharpHook.R3](https://www.nuget.org/packages/SharpHook.R3) package for reactive global hooks with
+Use the [SharpHook.R3](https://www.nuget.org/packages/SharpHook.R3) package for reactive global hooks with the
 [R3](https://github.com/Cysharp/R3) integration.
+
+Use the [SharpHook.ReactiveUI](https://www.nuget.org/packages/SharpHook.ReactiveUI) package for reactive global hooks
+with the [ReactiveUI.Primitives](https://github.com/reactiveui/Primitives) integration.
 
 ### Event Simulation
 
