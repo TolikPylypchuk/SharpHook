@@ -3,7 +3,6 @@ namespace SharpHook.Data;
 /// <summary>
 /// Represents a result of an operation of libuiohook.
 /// </summary>
-/// <seealso cref="UioHook" />
 public enum UioHookResult
 {
     /// <summary>

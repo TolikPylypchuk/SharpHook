@@ -5,10 +5,11 @@ namespace SharpHook.Native;
 /// </summary>
 /// <param name="level">The log level.</param>
 /// <param name="userData">
-/// The data that was passed to <see cref="UioHook.SetLoggerProc(LoggerProc?, nint)" />. Usually should not be used.
+/// The data that was passed to <see cref="ILoggingProvider.SetLoggerProc(LoggerProc?, nint)" />. Usually should not be
+/// used.
 /// </param>
 /// <param name="format">The format of the log message.</param>
 /// <param name="args">The arguments of the log message.</param>
-/// <seealso cref="UioHook.SetLoggerProc(LoggerProc?, nint)" />
+/// <seealso cref="ILoggingProvider.SetLoggerProc(LoggerProc?, nint)" />
 [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 public delegate void LoggerProc(LogLevel level, nint userData, nint format, nint args);

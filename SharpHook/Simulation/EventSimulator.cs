@@ -4,7 +4,8 @@ namespace SharpHook.Simulation;
 /// A keyboard and mouse event simulator which posts events to a simulation provider (libuiohook by default).
 /// </summary>
 /// <seealso cref="IEventSimulationProvider" />
-/// <seealso cref="UioHook.PostEvent(ref UioHookEvent)" />
+/// <seealso cref="IEventSimulationSequenceBuilder" />
+/// <seealso cref="IEventSimulationSequenceTemplate" />
 public sealed class EventSimulator : IEventSimulator
 {
     private EventSimulator(IEventSimulationProvider simulationProvider) =>
