@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class EventSimulator | SharpHook ">
       
-      
+      <meta name="description" content="A keyboard and mouse event simulator which posts events to a simulation provider (libuiohook by default).">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,8 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>A keyboard and mouse event simulator which posts events to a simulation provider (libuiohook by default).</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -175,7 +176,8 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Simulation/EventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="SharpHook.Simulation.EventSimulator.html">EventSimulator</a> class.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -185,7 +187,8 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>simulationProvider</code> <a class="xref" href="SharpHook.Providers.IEventSimulationProvider.html">IEventSimulationProvider</a></dt>
-    <dd></dd>
+    <dd><p>The simulation functionality provider, or <a class="xref" href="SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_Instance">Instance</a> if <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
   </dl>
 
 
@@ -210,7 +213,8 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Simulation/EventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets the delay between simulating individual characters when simulating text on Linux.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -224,13 +228,34 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></dt>
-    <dd></dd>
+    <dd><p>The delay between simulating individual characters when simulating text on Linux.</p>
+</dd>
   </dl>
 
 
 
 
+  <h4 class="section" id="SharpHook_Simulation_EventSimulator_TextSimulationDelayOnLinux_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+X11 doesn't support simulating arbitrary Unicode characters directly. Instead, for each character,
+an unused key code is remapped to that character, and then key press/release is simulated. Since the receiving
+application must react to the remapping, and may not do so instantaneously, a delay is needed for accurate
+simulation.
+</p>
+<p>
+The default delay is 50 milliseconds.
+</p>
+<p>
+On Windows and macOS, this property is ignored.
+</p>
+</div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">value</code> represents a negative time span.</p>
+</dd>
+  </dl>
 
 
 
@@ -245,7 +270,8 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Simulation/EventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initializes a builder for a sequence of events that can be simulated together.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -256,7 +282,8 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Simulation.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd></dd>
+    <dd><p>A builder for a sequence of events that can be simulated together.</p>
+</dd>
   </dl>
 
 
@@ -276,7 +303,8 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Simulation/EventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Simulates pressing a key.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -286,13 +314,15 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>keyCode</code> <a class="xref" href="SharpHook.Data.KeyCode.html">KeyCode</a></dt>
-    <dd></dd>
+    <dd><p>The code of the key to press.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
-    <dd></dd>
+    <dd><p>The result of the operation.</p>
+</dd>
   </dl>
 
 
@@ -312,7 +342,8 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Simulation/EventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Simulates releasing a key.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -322,13 +353,15 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>keyCode</code> <a class="xref" href="SharpHook.Data.KeyCode.html">KeyCode</a></dt>
-    <dd></dd>
+    <dd><p>The code of the key to release.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
-    <dd></dd>
+    <dd><p>The result of the operation.</p>
+</dd>
   </dl>
 
 
@@ -348,7 +381,8 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Simulation/EventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Simulates moving a mouse pointer.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -358,15 +392,18 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd></dd>
+    <dd><p>The target X-coordinate of the mouse pointer.</p>
+</dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd></dd>
+    <dd><p>The target Y-coordinate of the mouse pointer.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
-    <dd></dd>
+    <dd><p>The result of the operation.</p>
+</dd>
   </dl>
 
 
@@ -386,7 +423,8 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Simulation/EventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Simulates moving a mouse pointer relative to the current cursor position.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -396,15 +434,18 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd></dd>
+    <dd><p>The X-coordinate offset.</p>
+</dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd></dd>
+    <dd><p>The Y-coordinate offset.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
-    <dd></dd>
+    <dd><p>The result of the operation.</p>
+</dd>
   </dl>
 
 
@@ -424,7 +465,8 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Simulation/EventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Simulates pressing a mouse button at the current coordinates.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -434,13 +476,15 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>button</code> <a class="xref" href="SharpHook.Data.MouseButton.html">MouseButton</a></dt>
-    <dd></dd>
+    <dd><p>The mouse button to press.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
-    <dd></dd>
+    <dd><p>The result of the operation.</p>
+</dd>
   </dl>
 
 
@@ -460,7 +504,8 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Simulation/EventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Simulates pressing a mouse button at the current coordinates.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -470,15 +515,18 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>button</code> <a class="xref" href="SharpHook.Data.MouseButton.html">MouseButton</a></dt>
-    <dd></dd>
+    <dd><p>The mouse button to press.</p>
+</dd>
     <dt><code>clicks</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
-    <dd></dd>
+    <dd><p>The click count (used only on macOS).</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
-    <dd></dd>
+    <dd><p>The result of the operation.</p>
+</dd>
   </dl>
 
 
@@ -498,7 +546,8 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Simulation/EventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Simulates pressing a mouse button at the specified coordinates.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -508,17 +557,21 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd></dd>
+    <dd><p>The target X-coordinate of the mouse pointer.</p>
+</dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd></dd>
+    <dd><p>The target Y-coordinate of the mouse pointer.</p>
+</dd>
     <dt><code>button</code> <a class="xref" href="SharpHook.Data.MouseButton.html">MouseButton</a></dt>
-    <dd></dd>
+    <dd><p>The mouse button to press.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
-    <dd></dd>
+    <dd><p>The result of the operation.</p>
+</dd>
   </dl>
 
 
@@ -538,7 +591,8 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Simulation/EventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Simulates pressing a mouse button at the specified coordinates.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -548,19 +602,24 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd></dd>
+    <dd><p>The target X-coordinate of the mouse pointer.</p>
+</dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd></dd>
+    <dd><p>The target Y-coordinate of the mouse pointer.</p>
+</dd>
     <dt><code>button</code> <a class="xref" href="SharpHook.Data.MouseButton.html">MouseButton</a></dt>
-    <dd></dd>
+    <dd><p>The mouse button to press.</p>
+</dd>
     <dt><code>clicks</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
-    <dd></dd>
+    <dd><p>The click count (used only on macOS).</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
-    <dd></dd>
+    <dd><p>The result of the operation.</p>
+</dd>
   </dl>
 
 
@@ -580,7 +639,8 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Simulation/EventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Simulates releasing a mouse button at the current coordinates.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -590,13 +650,15 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>button</code> <a class="xref" href="SharpHook.Data.MouseButton.html">MouseButton</a></dt>
-    <dd></dd>
+    <dd><p>The mouse button to release.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
-    <dd></dd>
+    <dd><p>The result of the operation.</p>
+</dd>
   </dl>
 
 
@@ -616,7 +678,8 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Simulation/EventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Simulates releasing a mouse button at the current coordinates.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -626,15 +689,18 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>button</code> <a class="xref" href="SharpHook.Data.MouseButton.html">MouseButton</a></dt>
-    <dd></dd>
+    <dd><p>The mouse button to release.</p>
+</dd>
     <dt><code>clicks</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
-    <dd></dd>
+    <dd><p>The click count (used only on macOS).</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
-    <dd></dd>
+    <dd><p>The result of the operation.</p>
+</dd>
   </dl>
 
 
@@ -654,7 +720,8 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Simulation/EventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Simulates releasing a mouse button at the specified coordinates.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -664,17 +731,21 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd></dd>
+    <dd><p>The target X-coordinate of the mouse pointer.</p>
+</dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd></dd>
+    <dd><p>The target Y-coordinate of the mouse pointer.</p>
+</dd>
     <dt><code>button</code> <a class="xref" href="SharpHook.Data.MouseButton.html">MouseButton</a></dt>
-    <dd></dd>
+    <dd><p>The mouse button to release.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
-    <dd></dd>
+    <dd><p>The result of the operation.</p>
+</dd>
   </dl>
 
 
@@ -694,7 +765,8 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Simulation/EventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Simulates releasing a mouse button at the specified coordinates.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -704,19 +776,24 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd></dd>
+    <dd><p>The target X-coordinate of the mouse pointer.</p>
+</dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd></dd>
+    <dd><p>The target Y-coordinate of the mouse pointer.</p>
+</dd>
     <dt><code>button</code> <a class="xref" href="SharpHook.Data.MouseButton.html">MouseButton</a></dt>
-    <dd></dd>
+    <dd><p>The mouse button to release.</p>
+</dd>
     <dt><code>clicks</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
-    <dd></dd>
+    <dd><p>The click count (used only on macOS).</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
-    <dd></dd>
+    <dd><p>The result of the operation.</p>
+</dd>
   </dl>
 
 
@@ -736,7 +813,8 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Simulation/EventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Simulates scrolling the mouse wheel.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -746,17 +824,22 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>rotation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd></dd>
+    <dd><p>The wheel rotation. A positive value indicates that the wheel will be rotated up or left,
+and a negative value indicates that the wheel will be rotated down or right.</p>
+</dd>
     <dt><code>direction</code> <a class="xref" href="SharpHook.Data.MouseWheelScrollDirection.html">MouseWheelScrollDirection</a></dt>
-    <dd></dd>
+    <dd><p>The scroll direction.</p>
+</dd>
     <dt><code>type</code> <a class="xref" href="SharpHook.Data.MouseWheelScrollType.html">MouseWheelScrollType</a></dt>
-    <dd></dd>
+    <dd><p>The scroll type (considered only on macOS).</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
-    <dd></dd>
+    <dd><p>The result of the operation.</p>
+</dd>
   </dl>
 
 
@@ -765,6 +848,21 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
 
 
 
+  <h4 class="section" id="SharpHook_Simulation_EventSimulator_SimulateMouseWheel_System_Int16_SharpHook_Data_MouseWheelScrollDirection_SharpHook_Data_MouseWheelScrollType__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+On Windows, the value <code>120</code> represents the default wheel step. As such, multiples of <code>120</code> can be
+used, but it's not required. The value of <code class="paramref">type</code> is ignored.
+</p>
+<p>
+On macOS, it's recommended to use values between <code>-10</code> and <code>10</code>. This will result in quite a small
+scroll amount with pixel scrolling, so <a class="xref" href="SharpHook.Data.MouseWheelScrollType.html#SharpHook_Data_MouseWheelScrollType_BlockScroll">BlockScroll</a> is recommended for line
+scrolling instead of pixel scrolling.
+</p>
+<p>
+On Linux, there is no fixed recommendation, but multiples of <code>100</code> can be used. The value of
+<code class="paramref">type</code> is ignored.
+</p>
+</div>
 
 
 
@@ -776,7 +874,8 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Simulation/EventSimulator.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Simulates the input of arbitrary Unicode characters.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -786,13 +885,15 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>text</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The text to simulate.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
-    <dd></dd>
+    <dd><p>The result of the operation.</p>
+</dd>
   </dl>
 
 
@@ -801,10 +902,42 @@ Class EventSimulator  <a class="header-action link-secondary" title="View source
 
 
 
+  <h4 class="section" id="SharpHook_Simulation_EventSimulator_SimulateTextEntry_System_String__remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+The text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16 (including
+surrogate pairs, e.g. emojis) is supported.
+</p>
+<p>
+On Windows, text simulation should work correctly and consistently.
+</p>
+<p>
+On macOS, applications are not required to process text simulation, but most of them should handle it correctly.
+</p>
+<p>
+X11 doesn't support text simulation directly. Instead, for each character, an unused key code is remapped to
+that character, and then key press/release is simulated. Since the receiving application must react to the
+remapping, and may not do so instantaneously, a delay is needed for accurate simulation. This means that text
+simulation on Linux works slowly and is not guaranteed to be correct. <a class="xref" href="SharpHook.Simulation.EventSimulator.html#SharpHook_Simulation_EventSimulator_TextSimulationDelayOnLinux">TextSimulationDelayOnLinux</a>
+can be used to increase (or decrease) the delay if needed – longer delays add consistency but may be more
+jarring to end users. <a class="xref" href="SharpHook.Simulation.EventSimulator.html#SharpHook_Simulation_EventSimulator_TextSimulationDelayOnLinux">TextSimulationDelayOnLinux</a> can also be used to get the currently configured
+delay – the default is 50 milliseconds.
+</p>
+</div>
+
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+    <dd><p><code class="paramref">text</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+  </dl>
 
 
 
-
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="SharpHook.Providers.IEventSimulationProvider.html">IEventSimulationProvider</a></div>
+      <div><a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_PostEvent_SharpHook_Data_UioHookEvent__">PostEvent</a>(ref <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a>)</div>
+  </div>
 
 </article>
 

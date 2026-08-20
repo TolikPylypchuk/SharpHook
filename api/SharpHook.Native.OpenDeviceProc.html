@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Delegate OpenDeviceProc | SharpHook ">
       
-      
+      <meta name="description" content="Represents a function which opens a privileged device and provides a file descriptor.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,8 @@ Delegate OpenDeviceProc  <a class="header-action link-secondary" title="View sou
   <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Represents a function which opens a privileged device and provides a file descriptor.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -107,17 +108,20 @@ Delegate OpenDeviceProc  <a class="header-action link-secondary" title="View sou
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
+    <dd><p>The path to the device to open.</p>
+</dd>
     <dt><code>flags</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd></dd>
+    <dd><p>The flags to use when opening the device.</p>
+</dd>
     <dt><code>userData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd></dd>
+    <dd><p>The data that was passed to <a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetDeviceProcs_SharpHook_Native_OpenDeviceProc_SharpHook_Native_CloseDeviceProc_System_IntPtr_">SetDeviceProcs(OpenDeviceProc?, CloseDeviceProc?, nint)</a>.</p>
+</dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
+    <dd>Represents a function which opens a privileged device and provides a file descriptor.</dd>
   </dl>
 
 
@@ -291,6 +295,10 @@ Delegate OpenDeviceProc  <a class="header-action link-secondary" title="View sou
 
 
 
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="SharpHook.Native.UioHook.html#SharpHook_Native_UioHook_SetDeviceProcs_SharpHook_Native_OpenDeviceProc_SharpHook_Native_CloseDeviceProc_System_IntPtr_">SetDeviceProcs</a>(<a class="xref" href="SharpHook.Native.OpenDeviceProc.html">OpenDeviceProc</a>, <a class="xref" href="SharpHook.Native.CloseDeviceProc.html">CloseDeviceProc</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a>)</div>
+  </div>
 
 </article>
 
