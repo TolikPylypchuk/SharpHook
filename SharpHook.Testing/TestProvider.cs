@@ -129,6 +129,26 @@ public sealed class TestProvider :
     public UioHookResult PostTextResult { get; set; } = UioHookResult.Success;
 
     /// <summary>
+    /// Gets or sets the result of the <see cref="InitializeVirtualDevices(string)" /> method. If anything other than
+    /// <see cref="UioHookResult.Success" /> is set, then virtual devices won't be initialized.
+    /// </summary>
+    /// <value>The result of the <see cref="InitializeVirtualDevices(string)" /> method.</value>
+    public UioHookResult InitializeVirtualDevicesResult { get; set; } = UioHookResult.Success;
+
+    /// <summary>
+    /// Gets or sets the result of the <see cref="DestroyVirtualDevices()" /> method. If anything other than
+    /// <see cref="UioHookResult.Success" /> is set, then virtual devices won't be destroyed.
+    /// </summary>
+    /// <value>The result of the <see cref="DestroyVirtualDevices()" /> method.</value>
+    public UioHookResult DestroyVirtualDevicesResult { get; set; } = UioHookResult.Success;
+
+    /// <summary>
+    /// Gets the number of times the virtual devices have been initialized.
+    /// </summary>
+    /// <value>The number of times the virtual devices have been initialized.</value>
+    public int VirtualDevicesInitializationCount { get; private set; }
+
+    /// <summary>
     /// Gets or sets the information about screens for testing.
     /// </summary>
     /// <returns>The information about screens.</returns>
@@ -413,6 +433,48 @@ public sealed class TestProvider :
     }
 
     /// <summary>
+    /// Marks virtual devices as initialized by incrementing the value of
+    /// <see cref="VirtualDevicesInitializationCount" /> if <see cref="InitializeVirtualDevicesResult" /> is set to
+    /// <see cref="UioHookResult.Success" />. Otherwise, does nothing.
+    /// </summary>
+    /// <param name="applicationName">This parameter is ignored.</param>
+    /// <returns>The value of <see cref="InitializeVirtualDevicesResult" />.</returns>
+    public UioHookResult InitializeVirtualDevices(string applicationName)
+    {
+        var result = this.InitializeVirtualDevicesResult;
+        if (result != UioHookResult.Success)
+        {
+            return result;
+        }
+
+        this.VirtualDevicesInitializationCount++;
+
+        return result;
+    }
+
+    /// <summary>
+    /// Marks virtual devices as destroyed by decrementing the value of
+    /// <see cref="VirtualDevicesInitializationCount" /> if <see cref="DestroyVirtualDevicesResult" /> is set to
+    /// <see cref="UioHookResult.Success" />. Otherwise, does nothing.
+    /// </summary>
+    /// <returns>The value of <see cref="DestroyVirtualDevicesResult" />.</returns>
+    public UioHookResult DestroyVirtualDevices()
+    {
+        var result = this.DestroyVirtualDevicesResult;
+        if (result != UioHookResult.Success)
+        {
+            return result;
+        }
+
+        if (this.VirtualDevicesInitializationCount > 0)
+        {
+            this.VirtualDevicesInitializationCount--;
+        }
+
+        return result;
+    }
+
+    /// <summary>
     /// Checks whether access to macOS Accessibility API is enabled for the process.
     /// </summary>
     /// <param name="promptUserIfDisabled">Not used.</param>
@@ -603,12 +665,6 @@ public sealed class TestProvider :
     bool IGlobalHookProvider.KeyTypedEnabled { get; set; }
 
     ulong IEventSimulationProvider.PostTextDelayLinux { get; set; }
-
-    UioHookResult IEventSimulationProvider.InitializeVirtualDevices(string applicationName) =>
-        UioHookResult.Success;
-
-    UioHookResult IEventSimulationProvider.DestroyVirtualDevices() =>
-        UioHookResult.Success;
 
     bool IAccessibilityProvider.PromptUserIfAxApiDisabled { get; set; } = true;
 

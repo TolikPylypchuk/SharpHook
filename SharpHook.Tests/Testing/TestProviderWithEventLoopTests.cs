@@ -2,7 +2,7 @@ namespace SharpHook.Testing;
 
 public sealed class TestProviderWithEventLoopTests
 {
-    private static readonly Random random = new();
+    private static readonly string ApplicationName = "TestApp";
 
     [Property(DisplayName = "SetDispatchProc, Run, and PostEvent should work together")]
     public void Run(UioHookEvent eventToPost, nint userData)
@@ -503,7 +503,7 @@ public sealed class TestProviderWithEventLoopTests
         // Arrange
 
         var eventsToPost = events.Get;
-        int size = random.Next(eventsToPost.Length);
+        int size = Random.Shared.Next(eventsToPost.Length);
 
         var provider = new TestProvider(TestThreadingMode.EventLoop);
 
@@ -595,7 +595,7 @@ public sealed class TestProviderWithEventLoopTests
         // Arrange
 
         var eventsToPost = events.Get;
-        int size = random.Next(eventsToPost.Length) + eventsToPost.Length + 1;
+        int size = Random.Shared.Next(eventsToPost.Length) + eventsToPost.Length + 1;
 
         var provider = new TestProvider(TestThreadingMode.EventLoop);
 
@@ -703,8 +703,8 @@ public sealed class TestProviderWithEventLoopTests
         Assert.Equal(postTextDelay, ((IEventSimulationProvider)provider).PostTextDelayLinux);
     }
 
-    [Fact(DisplayName = "Initializing virtual input devices should do nothing")]
-    public void InitializingVirtualInputDevicesShouldDoNothing()
+    [Fact(DisplayName = "InitializeVirtualDevices should increment the initialization counter")]
+    public void InitializeVirtualDevicesShouldIncrementCounter()
     {
         // Arrange
 
@@ -712,15 +712,54 @@ public sealed class TestProviderWithEventLoopTests
 
         // Act
 
-        var result = ((IEventSimulationProvider)provider).InitializeVirtualDevices("TestApp");
+        var result = provider.InitializeVirtualDevices(ApplicationName);
 
         // Assert
 
         Assert.Equal(UioHookResult.Success, result);
+        Assert.Equal(1, provider.VirtualDevicesInitializationCount);
     }
 
-    [Fact(DisplayName = "Destroying virtual input devices should do nothing")]
-    public void DestroyingVirtualInputDevicesShouldDoNothing()
+    [Property(DisplayName = "InitializeVirtualDevices should should return an error if configured to do so")]
+    public void InitializeVirtualDevicesShouldReturnAnError(FailedUioHookResult result)
+    {
+        // Arrange
+
+        var provider = new TestProvider(TestThreadingMode.EventLoop)
+        {
+            InitializeVirtualDevicesResult = result.Value
+        };
+
+        // Act
+
+        var actualResult = provider.InitializeVirtualDevices(ApplicationName);
+
+        // Assert
+
+        Assert.Equal(result.Value, actualResult);
+        Assert.Equal(0, provider.VirtualDevicesInitializationCount);
+    }
+
+    [Fact(DisplayName = "DestroyVirtualInputDevices should decrement the initialization counter")]
+    public void DestroyVirtualInputDevicesShouldDecrementCounter()
+    {
+        // Arrange
+
+        var provider = new TestProvider(TestThreadingMode.EventLoop);
+        provider.InitializeVirtualDevices(ApplicationName);
+
+        // Act
+
+        var result = provider.DestroyVirtualDevices();
+
+        // Assert
+
+        Assert.Equal(UioHookResult.Success, result);
+        Assert.Equal(0, provider.VirtualDevicesInitializationCount);
+    }
+
+    [Fact(DisplayName = "DestroyVirtualInputDevices should should do nothing if the counter is zero")]
+    public void DestroyVirtualInputDevicesShouldDoNothingIfCounterIsZero()
     {
         // Arrange
 
@@ -728,11 +767,34 @@ public sealed class TestProviderWithEventLoopTests
 
         // Act
 
-        var result = ((IEventSimulationProvider)provider).DestroyVirtualDevices();
+        var result = provider.DestroyVirtualDevices();
 
         // Assert
 
         Assert.Equal(UioHookResult.Success, result);
+        Assert.Equal(0, provider.VirtualDevicesInitializationCount);
+    }
+
+    [Property(DisplayName = "DestroyVirtualInputDevices should should return an error if configured to do so")]
+    public void DestroyVirtualInputDevicesShouldReturnAnError(FailedUioHookResult result)
+    {
+        // Arrange
+
+        var provider = new TestProvider(TestThreadingMode.EventLoop)
+        {
+            DestroyVirtualDevicesResult = result.Value
+        };
+
+        provider.InitializeVirtualDevices(ApplicationName);
+
+        // Act
+
+        var actualResult = provider.DestroyVirtualDevices();
+
+        // Assert
+
+        Assert.Equal(result.Value, actualResult);
+        Assert.Equal(1, provider.VirtualDevicesInitializationCount);
     }
 
     [Property(DisplayName = "Checking if Accessibility API is disabled should depend on operation results")]

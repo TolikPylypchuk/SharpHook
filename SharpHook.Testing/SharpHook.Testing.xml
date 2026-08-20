@@ -645,6 +645,26 @@
             </summary>
             <value>The result of the <see cref="M:SharpHook.Testing.TestProvider.PostText(System.String)" /> method.</value>
         </member>
+        <member name="P:SharpHook.Testing.TestProvider.InitializeVirtualDevicesResult">
+            <summary>
+            Gets or sets the result of the <see cref="M:SharpHook.Testing.TestProvider.InitializeVirtualDevices(System.String)" /> method. If anything other than
+            <see cref="F:SharpHook.Data.UioHookResult.Success" /> is set, then virtual devices won't be initialized.
+            </summary>
+            <value>The result of the <see cref="M:SharpHook.Testing.TestProvider.InitializeVirtualDevices(System.String)" /> method.</value>
+        </member>
+        <member name="P:SharpHook.Testing.TestProvider.DestroyVirtualDevicesResult">
+            <summary>
+            Gets or sets the result of the <see cref="M:SharpHook.Testing.TestProvider.DestroyVirtualDevices" /> method. If anything other than
+            <see cref="F:SharpHook.Data.UioHookResult.Success" /> is set, then virtual devices won't be destroyed.
+            </summary>
+            <value>The result of the <see cref="M:SharpHook.Testing.TestProvider.DestroyVirtualDevices" /> method.</value>
+        </member>
+        <member name="P:SharpHook.Testing.TestProvider.VirtualDevicesInitializationCount">
+            <summary>
+            Gets the number of times the virtual devices have been initialized.
+            </summary>
+            <value>The number of times the virtual devices have been initialized.</value>
+        </member>
         <member name="P:SharpHook.Testing.TestProvider.ScreenInfo">
             <summary>
             Gets or sets the information about screens for testing.
@@ -823,6 +843,23 @@
             <paramref name="text" /> is <see langword="null" />.
             </returns>
             <remarks>This method doesn't cause any input events to be created, unlike real text entry simulation.</remarks>
+        </member>
+        <member name="M:SharpHook.Testing.TestProvider.InitializeVirtualDevices(System.String)">
+            <summary>
+            Marks virtual devices as initialized by incrementing the value of
+            <see cref="P:SharpHook.Testing.TestProvider.VirtualDevicesInitializationCount" /> if <see cref="P:SharpHook.Testing.TestProvider.InitializeVirtualDevicesResult" /> is set to
+            <see cref="F:SharpHook.Data.UioHookResult.Success" />. Otherwise, does nothing.
+            </summary>
+            <param name="applicationName">This parameter is ignored.</param>
+            <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.InitializeVirtualDevicesResult" />.</returns>
+        </member>
+        <member name="M:SharpHook.Testing.TestProvider.DestroyVirtualDevices">
+            <summary>
+            Marks virtual devices as destroyed by decrementing the value of
+            <see cref="P:SharpHook.Testing.TestProvider.VirtualDevicesInitializationCount" /> if <see cref="P:SharpHook.Testing.TestProvider.DestroyVirtualDevicesResult" /> is set to
+            <see cref="F:SharpHook.Data.UioHookResult.Success" />. Otherwise, does nothing.
+            </summary>
+            <returns>The value of <see cref="P:SharpHook.Testing.TestProvider.DestroyVirtualDevicesResult" />.</returns>
         </member>
         <member name="M:SharpHook.Testing.TestProvider.IsAxApiEnabled(System.Boolean)">
             <summary>
