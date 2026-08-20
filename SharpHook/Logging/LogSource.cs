@@ -57,7 +57,7 @@ public sealed class LogSource : ILogSource
     /// <remarks>
     /// A disposed log source doesn't raise the <see cref="MessageLogged" /> event and cannot be registered again.
     /// </remarks>
-    public bool IsDisposed { get; private set; } = false;
+    public bool IsDisposed { get; private set; }
 
     /// <summary>
     /// Creates and registers a source of libuiohook logs or returns the registered instance.

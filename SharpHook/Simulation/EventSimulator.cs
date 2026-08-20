@@ -5,20 +5,22 @@ namespace SharpHook.Simulation;
 /// </summary>
 /// <seealso cref="IEventSimulationProvider" />
 /// <seealso cref="UioHook.PostEvent(ref UioHookEvent)" />
-public class EventSimulator : IEventSimulator
+public sealed class EventSimulator : IEventSimulator
 {
-    private readonly IEventSimulationProvider simulationProvider;
+    private EventSimulator(IEventSimulationProvider simulationProvider) =>
+        this.SimulationProvider = simulationProvider;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="EventSimulator" /> class.
+    /// Destroys virtual input devices.
     /// </summary>
-    /// <param name="simulationProvider">
-    /// The simulation functionality provider, or <see langword="null" /> to use the default one.
-    /// </param>
-    [SuppressMessage(
-        "Style", "IDE0290:Use primary constructor", Justification = "Primary constructors don't support XML comments")]
-    public EventSimulator(IEventSimulationProvider? simulationProvider = null) =>
-        this.simulationProvider = simulationProvider ?? UioHookProvider.Instance;
+    [ExcludeFromCodeCoverage]
+    ~EventSimulator()
+    {
+        try
+        {
+            this.SimulationProvider.DestroyVirtualDevices();
+        } catch { }
+    }
 
     /// <summary>
     /// Gets or sets the delay between simulating individual characters when simulating text on Linux.
@@ -35,7 +37,7 @@ public class EventSimulator : IEventSimulator
     /// The default delay is 50 milliseconds.
     /// </para>
     /// <para>
-    /// On Windows and macOS, this property is ignored.
+    /// On Windows and macOS, as well as Wayland, this property is ignored.
     /// </para>
     /// </remarks>
     /// <exception cref="ArgumentOutOfRangeException">
@@ -43,7 +45,7 @@ public class EventSimulator : IEventSimulator
     /// </exception>
     public TimeSpan TextSimulationDelayOnLinux
     {
-        get => TimeSpan.FromTicks((long)this.simulationProvider.PostTextDelayLinux / 100);
+        get => TimeSpan.FromTicks((long)this.SimulationProvider.PostTextDelayLinux / 100);
         set
         {
             if (value.Ticks < 0)
@@ -51,8 +53,64 @@ public class EventSimulator : IEventSimulator
                 throw new ArgumentOutOfRangeException(nameof(value));
             }
 
-            this.simulationProvider.PostTextDelayLinux = (ulong)(value.Ticks * 100);
+            this.SimulationProvider.PostTextDelayLinux = (ulong)(value.Ticks * 100);
         }
+    }
+
+    /// <summary>
+    /// Gets the value which indicates whether the event simulator has been disposed.
+    /// </summary>
+    /// <value>
+    /// <see langword="true" /> if the event simulator has been disposed. Otherwise, <see langword="false" />.
+    /// </value>
+    /// <remarks>A disposed event simulator cannot be used to simulate events.</remarks>
+    public bool IsDisposed { get; private set; }
+
+    /// <summary>
+    /// Gets the simulation provider used by this event simulator.
+    /// </summary>
+    internal IEventSimulationProvider SimulationProvider { get; }
+
+    /// <summary>
+    /// Creates a new instance of the <see cref="EventSimulator" /> class. On Linux, this method also initializes
+    /// virtual input devices for event simulation.
+    /// </summary>
+    /// <param name="applicationName">
+    /// The application name which is used to identify the virtual input devices. A <see langword="null" /> or empty
+    /// string is technnically allowed, but not recommended.
+    /// </param>
+    /// <param name="simulationProvider">
+    /// The simulation functionality provider, or <see langword="null" /> to use the default one.
+    /// </param>
+    /// <exception cref="HookException">Initialization of virtual devices on Linux has failed.</exception>
+    /// <returns>A new instance of <see cref="EventSimulator" />.</returns>
+    /// <remarks>
+    /// <para>
+    /// Virtual input devices are required on Linux when using a uinput-based backend. On Windows, macOS, and the
+    /// XRecord-based X11 backend, device initialization is a no-op.
+    /// </para>
+    /// <para>
+    /// Initializing virtual devices is expensive, so it is recommended to reuse the same instance of
+    /// <see cref="EventSimulator" />. Virtual devices are destroyed when the <see cref="EventSimulator" /> instance is
+    /// disposed.
+    /// </para>
+    /// <para>
+    /// If an instance of <see cref="EventSimulator" /> is created when another instance is already active, virtual
+    /// devices will not be initialized again. Instead, a reference counter will be incremented. Virtual devices will
+    /// only be destroyed when all active instances of <see cref="EventSimulator" /> are disposed.
+    /// </para>
+    /// </remarks>
+    public static EventSimulator Create(string applicationName, IEventSimulationProvider? simulationProvider = null)
+    {
+        simulationProvider ??= UioHookProvider.Instance;
+        var result = simulationProvider.InitializeVirtualDevices(applicationName);
+
+        if (result != UioHookResult.Success)
+        {
+            throw new HookException(result, $"Failed to initialize virtual devices: {result}");
+        }
+
+        return new(simulationProvider);
     }
 
     /// <summary>
@@ -259,16 +317,70 @@ public class EventSimulator : IEventSimulator
     /// </para>
     /// </remarks>
     /// <exception cref="ArgumentNullException"><paramref name="text" /> is <see langword="null" />.</exception>
-    public UioHookResult SimulateTextEntry(string text) =>
-        this.simulationProvider.PostText(text ?? throw new ArgumentNullException(nameof(text)));
+    public UioHookResult SimulateTextEntry(string text)
+    {
+        this.ThrowIfDisposed();
+        return this.SimulationProvider.PostText(text ?? throw new ArgumentNullException(nameof(text)));
+    }
 
     /// <summary>
     /// Initializes a builder for a sequence of events that can be simulated together.
     /// </summary>
     /// <returns>A builder for a sequence of events that can be simulated together.</returns>
-    public IEventSimulationSequenceBuilder Sequence() =>
-        new EventSimulationSequenceBuilder(this.simulationProvider);
+    /// <remarks>The builder is automatically disposed when this simulator is disposed or garbage-collected.</remarks>
+    public IEventSimulationSequenceBuilder Sequence()
+    {
+        this.ThrowIfDisposed();
+        return new EventSimulationSequenceBuilder(this);
+    }
 
-    private UioHookResult PostEvent(UioHookEvent @event) =>
-        this.simulationProvider.PostEvent(ref @event);
+    /// <summary>
+    /// Disposes of the event simulator and destroys virtual input devices on Linux.
+    /// </summary>
+    /// <exception cref="HookException">Destroying virtual devices on Linux has failed.</exception>
+    /// <remarks>
+    /// <para>
+    /// This method also disposes of any <see cref="IEventSimulationSequenceBuilder" /> and
+    /// <see cref="IEventSimulationSequenceTemplate" /> instances owned by this event simulator.
+    /// </para>
+    /// <para>
+    /// Virtual devices are destroyed only when all active instances of <see cref="EventSimulator" /> are disposed.
+    /// </para>
+    /// </remarks>
+    public void Dispose()
+    {
+        if (this.IsDisposed)
+        {
+            return;
+        }
+
+        var result = SimulationProvider.DestroyVirtualDevices();
+
+        if (result != UioHookResult.Success)
+        {
+            throw new HookException(result, $"Failed to destroy virtual devices: {result}");
+        }
+
+        GC.SuppressFinalize(this);
+        this.IsDisposed = true;
+
+        this.OnDisposed?.Invoke();
+    }
+
+    private UioHookResult PostEvent(UioHookEvent @event)
+    {
+        this.ThrowIfDisposed();
+        return this.SimulationProvider.PostEvent(ref @event);
+    }
+
+    private void ThrowIfDisposed([CallerMemberName] string? method = null)
+    {
+        if (this.IsDisposed)
+        {
+            throw new ObjectDisposedException(
+                this.GetType().Name, $"Cannot call {method} – the object is disposed");
+        }
+    }
+
+    internal event Action? OnDisposed;
 }

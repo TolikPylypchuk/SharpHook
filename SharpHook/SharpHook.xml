@@ -2376,15 +2376,6 @@
             </summary>
             <value><see langword="true" /> if the global hook is running. Otherwise, <see langword="false" />.</value>
         </member>
-        <member name="P:SharpHook.IBasicGlobalHook.IsDisposed">
-            <summary>
-            Gets the value which indicates whether the global hook has been disposed.
-            </summary>
-            <value>
-            <see langword="true" /> if the global hook has been disposed. Otherwise, <see langword="false" />.
-            </value>
-            <remarks>A disposed global hook cannot be started again.</remarks>
-        </member>
         <member name="M:SharpHook.IBasicGlobalHook.Run(SharpHook.Data.GlobalHookType)">
             <summary>
             Runs the global hook on the current thread, blocking it. The hook can be stopped temporarily by calling
@@ -2493,6 +2484,19 @@
             An event which is raised when the mouse wheel is scrolled.
             </summary>
         </member>
+        <member name="T:SharpHook.IStatefulDisposable">
+            <summary>
+            Provides a mechanism for disposing of resources and tracking the disposal state.
+            </summary>
+        </member>
+        <member name="P:SharpHook.IStatefulDisposable.IsDisposed">
+            <summary>
+            Gets a value which indicates whether the object has been disposed.
+            </summary>
+            <value>
+            <see langword="true" /> if the object has been disposed. Otherwise, <see langword="false" />.
+            </value>
+        </member>
         <member name="T:SharpHook.KeyboardHookEventArgs">
             <summary>
             Event args for keyboard-related hook events.
@@ -2561,13 +2565,6 @@
             <seealso cref="T:SharpHook.Logging.EmptyLogSource" />
             <seealso cref="T:SharpHook.Logging.LogEventArgs" />
             <seealso cref="T:SharpHook.Logging.LogEntry" />
-        </member>
-        <member name="P:SharpHook.Logging.ILogSource.IsDisposed">
-            <summary>
-            Gets the value which indicates whether the log source is disposed.
-            </summary>
-            <value><see langword="true" /> if the log source is disposed. Otherwise, <see langword="false" />.</value>
-            <remarks>A disposed log source doesn't raise the <see cref="E:SharpHook.Logging.ILogSource.MessageLogged" /> event.</remarks>
         </member>
         <member name="E:SharpHook.Logging.ILogSource.MessageLogged">
             <summary>
@@ -4399,13 +4396,24 @@
             Represents a builder for a sequence of events that can be simulated together.
             </summary>
         </member>
-        <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.#ctor(SharpHook.Providers.IEventSimulationProvider)">
+        <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.#ctor(SharpHook.Simulation.EventSimulator)">
             <summary>
             Initializes a new instance of the <see cref="T:SharpHook.Simulation.EventSimulationSequenceBuilder" /> class.
             </summary>
-            <param name="simulationProvider">
-            The simulation functionality provider (or <see cref="P:SharpHook.Providers.UioHookProvider.Instance" /> if <see langword="null" />).
-            </param>
+            <param name="owner">This owner of this builder.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="owner" /> is <see langword="null" />.</exception>
+            <remarks>
+            If <paramref name="owner" /> is disposed, then this instance becomes instantly disposed as well.
+            </remarks>
+        </member>
+        <member name="P:SharpHook.Simulation.EventSimulationSequenceBuilder.IsDisposed">
+            <summary>
+            Gets the value which indicates whether the builder has been disposed.
+            </summary>
+            <value>
+            <see langword="true" /> if the builder has been disposed. Otherwise, <see langword="false" />.
+            </value>
+            <remarks>A disposed builder cannot be used to simulate events.</remarks>
         </member>
         <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddEvent(SharpHook.Data.UioHookEvent)">
             <summary>
@@ -4413,6 +4421,10 @@
             </summary>
             <param name="event">The event to add to the sequence.</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <paramref name="event" /> has type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> or <see cref="F:SharpHook.Data.EventType.MouseClicked" />.
+            </exception>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddEvents(SharpHook.Data.UioHookEvent[])">
             <summary>
@@ -4421,6 +4433,11 @@
             <param name="events">The events to add to the sequence.</param>
             <returns>The current builder.</returns>
             <exception cref="T:System.ArgumentNullException"><paramref name="events" /> is <see langword="null" />.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            One of <paramref name="events" /> has type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> or
+            <see cref="F:SharpHook.Data.EventType.MouseClicked" />.
+            </exception>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddEvents(System.Collections.Generic.IEnumerable{SharpHook.Data.UioHookEvent})">
             <summary>
@@ -4429,6 +4446,11 @@
             <param name="events">The events to add to the sequence.</param>
             <returns>The current builder.</returns>
             <exception cref="T:System.ArgumentNullException"><paramref name="events" /> is <see langword="null" />.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            One of <paramref name="events" /> has type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> or
+            <see cref="F:SharpHook.Data.EventType.MouseClicked" />.
+            </exception>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddKeyPress(SharpHook.Data.KeyCode)">
             <summary>
@@ -4436,6 +4458,7 @@
             </summary>
             <param name="keyCode">The code of the key to press.</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddKeyRelease(SharpHook.Data.KeyCode)">
             <summary>
@@ -4443,6 +4466,7 @@
             </summary>
             <param name="keyCode">The code of the key to press.</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton)">
             <summary>
@@ -4450,6 +4474,7 @@
             </summary>
             <param name="button">The mouse button to press.</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton,System.UInt16)">
             <summary>
@@ -4458,6 +4483,7 @@
             <param name="button">The mouse button to press.</param>
             <param name="clicks">The click count (used only on macOS).</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton)">
             <summary>
@@ -4467,6 +4493,7 @@
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
             <param name="button">The mouse button to press.</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)">
             <summary>
@@ -4484,6 +4511,7 @@
             </summary>
             <param name="button">The mouse button to release.</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddMouseRelease(SharpHook.Data.MouseButton,System.UInt16)">
             <summary>
@@ -4492,6 +4520,7 @@
             <param name="button">The mouse button to release.</param>
             <param name="clicks">The click count (used only on macOS).</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton)">
             <summary>
@@ -4501,6 +4530,7 @@
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
             <param name="button">The mouse button to release.</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)">
             <summary>
@@ -4511,6 +4541,7 @@
             <param name="button">The mouse button to release.</param>
             <param name="clicks">The click count (used only on macOS).</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddMouseMovement(System.Int16,System.Int16)">
             <summary>
@@ -4519,6 +4550,7 @@
             <param name="x">The target X-coordinate of the mouse pointer.</param>
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddMouseMovementRelative(System.Int16,System.Int16)">
             <summary>
@@ -4527,6 +4559,7 @@
             <param name="x">The X-coordinate offset.</param>
             <param name="y">The Y-coordinate offset.</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.AddMouseWheel(System.Int16,SharpHook.Data.MouseWheelScrollDirection,SharpHook.Data.MouseWheelScrollType)">
             <summary>
@@ -4539,6 +4572,7 @@
             <param name="direction">The scroll direction.</param>
             <param name="type">The scroll type (considered only on macOS).</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
             <remarks>
             <para>
             On Windows, the value <c>120</c> represents the default wheel step. As such, multiples of <c>120</c> can be
@@ -4561,6 +4595,7 @@
             </summary>
             <param name="event">The event to remove from the sequence.</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.RemoveEvents(System.Func{SharpHook.Data.UioHookEvent,System.Boolean})">
             <summary>
@@ -4568,39 +4603,65 @@
             </summary>
             <param name="predicate">The predicate to check if the event should be removed from the sequence.</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.Simulate">
             <summary>
             Simulates the events in this sequence.
             </summary>
             <returns>The result of the operation.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.CreateTemplate">
             <summary>
             Creates a template based on the events in this sequence.
             </summary>
             <returns>A template based on the events in this sequence.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationSequenceBuilder.Dispose">
+            <summary>
+            Disposes of this builder.
+            </summary>
         </member>
         <member name="T:SharpHook.Simulation.EventSimulationSequenceTemplate">
             <summary>
             Represents an object that can simulate a predetermined sequence of events.
             </summary>
         </member>
-        <member name="M:SharpHook.Simulation.EventSimulationSequenceTemplate.#ctor(System.Collections.Generic.IEnumerable{SharpHook.Data.UioHookEvent},SharpHook.Providers.IEventSimulationProvider)">
+        <member name="M:SharpHook.Simulation.EventSimulationSequenceTemplate.#ctor(SharpHook.Simulation.EventSimulator,System.Collections.Generic.IEnumerable{SharpHook.Data.UioHookEvent})">
             <summary>
             Initializes a new instance of the <see cref="T:SharpHook.Simulation.EventSimulationSequenceTemplate" /> class.
             </summary>
+            <param name="owner">The owner of this template.</param>
             <param name="events">The events to simulate. They will be copied to ensure the events don't change.</param>
-            <param name="simulationProvider">
-            The simulation functionality provider (or <see cref="P:SharpHook.Providers.UioHookProvider.Instance" /> if <see langword="null" />).
-            </param>
-            <exception cref="T:System.ArgumentNullException"><paramref name="events" /> is <see langword="null" />.</exception>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="owner" /> or <paramref name="events" /> is <see langword="null" />.
+            </exception>
+            <remarks>
+            If <paramref name="owner" /> is disposed, then this instance becomes instantly disposed as well.
+            </remarks>
+        </member>
+        <member name="P:SharpHook.Simulation.EventSimulationSequenceTemplate.IsDisposed">
+            <summary>
+            Gets the value which indicates whether the template has been disposed.
+            </summary>
+            <value>
+            <see langword="true" /> if the template has been disposed. Otherwise, <see langword="false" />.
+            </value>
+            <remarks>A disposed template cannot be used to simulate events.</remarks>
         </member>
         <member name="M:SharpHook.Simulation.EventSimulationSequenceTemplate.Simulate">
             <summary>
             Simulates the predetermined sequence of events.
             </summary>
             <returns>The result of the operation.</returns>
+            <exception cref="T:System.ObjectDisposedException">The template is disposed.</exception>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulationSequenceTemplate.Dispose">
+            <summary>
+            Disposes of this template.
+            </summary>
         </member>
         <member name="T:SharpHook.Simulation.EventSimulator">
             <summary>
@@ -4609,13 +4670,10 @@
             <seealso cref="T:SharpHook.Providers.IEventSimulationProvider" />
             <seealso cref="M:SharpHook.Native.UioHook.PostEvent(SharpHook.Data.UioHookEvent@)" />
         </member>
-        <member name="M:SharpHook.Simulation.EventSimulator.#ctor(SharpHook.Providers.IEventSimulationProvider)">
+        <member name="M:SharpHook.Simulation.EventSimulator.Finalize">
             <summary>
-            Initializes a new instance of the <see cref="T:SharpHook.Simulation.EventSimulator" /> class.
+            Destroys virtual input devices.
             </summary>
-            <param name="simulationProvider">
-            The simulation functionality provider, or <see langword="null" /> to use the default one.
-            </param>
         </member>
         <member name="P:SharpHook.Simulation.EventSimulator.TextSimulationDelayOnLinux">
             <summary>
@@ -4633,12 +4691,57 @@
             The default delay is 50 milliseconds.
             </para>
             <para>
-            On Windows and macOS, this property is ignored.
+            On Windows and macOS, as well as Wayland, this property is ignored.
             </para>
             </remarks>
             <exception cref="T:System.ArgumentOutOfRangeException">
             <paramref name="value" /> represents a negative time span.
             </exception>
+        </member>
+        <member name="P:SharpHook.Simulation.EventSimulator.IsDisposed">
+            <summary>
+            Gets the value which indicates whether the event simulator has been disposed.
+            </summary>
+            <value>
+            <see langword="true" /> if the event simulator has been disposed. Otherwise, <see langword="false" />.
+            </value>
+            <remarks>A disposed event simulator cannot be used to simulate events.</remarks>
+        </member>
+        <member name="P:SharpHook.Simulation.EventSimulator.SimulationProvider">
+            <summary>
+            Gets the simulation provider used by this event simulator.
+            </summary>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulator.Create(System.String,SharpHook.Providers.IEventSimulationProvider)">
+            <summary>
+            Creates a new instance of the <see cref="T:SharpHook.Simulation.EventSimulator" /> class. On Linux, this method also initializes
+            virtual input devices for event simulation.
+            </summary>
+            <param name="applicationName">
+            The application name which is used to identify the virtual input devices. A <see langword="null" /> or empty
+            string is technnically allowed, but not recommended.
+            </param>
+            <param name="simulationProvider">
+            The simulation functionality provider, or <see langword="null" /> to use the default one.
+            </param>
+            <exception cref="T:SharpHook.HookException">Initialization of virtual devices on Linux has failed.</exception>
+            <returns>A new instance of <see cref="T:SharpHook.Simulation.EventSimulator" />.</returns>
+            <remarks>
+            <para>
+            Virtual input devices are required on Linux when using a uinput-based backend. On Windows, macOS, and the
+            XRecord-based X11 backend, device initialization is a no-op.
+            </para>
+            <para>
+            Initializing virtual devices is expensive, so it is recommended to reuse the same instance of
+            <see cref="T:SharpHook.Simulation.EventSimulator" />. Virtual devices are destroyed when the <see cref="T:SharpHook.Simulation.EventSimulator" /> instance is
+            disposed.
+            </para>
+            <para>
+            If an instance of <see cref="T:SharpHook.Simulation.EventSimulator" /> is created when another instance is already active, virtual
+            devices will not be initialized again. Instead, a reference counter will be incremented. Virtual devices will
+            only be destroyed when all active instances of <see cref="T:SharpHook.Simulation.EventSimulator" /> are disposed.
+            </para>
+            </remarks>
         </member>
         <member name="M:SharpHook.Simulation.EventSimulator.SimulateKeyPress(SharpHook.Data.KeyCode)">
             <summary>
@@ -4799,6 +4902,22 @@
             Initializes a builder for a sequence of events that can be simulated together.
             </summary>
             <returns>A builder for a sequence of events that can be simulated together.</returns>
+            <remarks>The builder is automatically disposed when this simulator is disposed or garbage-collected.</remarks>
+        </member>
+        <member name="M:SharpHook.Simulation.EventSimulator.Dispose">
+            <summary>
+            Disposes of the event simulator and destroys virtual input devices on Linux.
+            </summary>
+            <exception cref="T:SharpHook.HookException">Destroying virtual devices on Linux has failed.</exception>
+            <remarks>
+            <para>
+            This method also disposes of any <see cref="T:SharpHook.Simulation.IEventSimulationSequenceBuilder" /> and
+            <see cref="T:SharpHook.Simulation.IEventSimulationSequenceTemplate" /> instances owned by this event simulator.
+            </para>
+            <para>
+            Virtual devices are destroyed only when all active instances of <see cref="T:SharpHook.Simulation.EventSimulator" /> are disposed.
+            </para>
+            </remarks>
         </member>
         <member name="T:SharpHook.Simulation.IEventSimulationSequenceBuilder">
             <summary>
@@ -4811,6 +4930,10 @@
             </summary>
             <param name="event">The event to add to the sequence.</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <paramref name="event" /> has type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> or <see cref="F:SharpHook.Data.EventType.MouseClicked" />.
+            </exception>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddEvents(SharpHook.Data.UioHookEvent[])">
             <summary>
@@ -4819,6 +4942,11 @@
             <param name="events">The events to add to the sequence.</param>
             <returns>The current builder.</returns>
             <exception cref="T:System.ArgumentNullException"><paramref name="events" /> is <see langword="null" />.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            One of <paramref name="events" /> has type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> or
+            <see cref="F:SharpHook.Data.EventType.MouseClicked" />.
+            </exception>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddEvents(System.Collections.Generic.IEnumerable{SharpHook.Data.UioHookEvent})">
             <summary>
@@ -4827,6 +4955,11 @@
             <param name="events">The events to add to the sequence.</param>
             <returns>The current builder.</returns>
             <exception cref="T:System.ArgumentNullException"><paramref name="events" /> is <see langword="null" />.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            One of <paramref name="events" /> has type <see cref="F:SharpHook.Data.EventType.KeyTyped" /> or
+            <see cref="F:SharpHook.Data.EventType.MouseClicked" />.
+            </exception>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddKeyPress(SharpHook.Data.KeyCode)">
             <summary>
@@ -4834,6 +4967,7 @@
             </summary>
             <param name="keyCode">The code of the key to press.</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddKeyRelease(SharpHook.Data.KeyCode)">
             <summary>
@@ -4841,6 +4975,7 @@
             </summary>
             <param name="keyCode">The code of the key to press.</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton)">
             <summary>
@@ -4848,6 +4983,7 @@
             </summary>
             <param name="button">The mouse button to press.</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddMousePress(SharpHook.Data.MouseButton,System.UInt16)">
             <summary>
@@ -4856,6 +4992,7 @@
             <param name="button">The mouse button to press.</param>
             <param name="clicks">The click count (used only on macOS).</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton)">
             <summary>
@@ -4865,6 +5002,7 @@
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
             <param name="button">The mouse button to press.</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)">
             <summary>
@@ -4875,6 +5013,7 @@
             <param name="button">The mouse button to press.</param>
             <param name="clicks">The click count (used only on macOS).</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddMouseRelease(SharpHook.Data.MouseButton)">
             <summary>
@@ -4882,6 +5021,7 @@
             </summary>
             <param name="button">The mouse button to release.</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddMouseRelease(SharpHook.Data.MouseButton,System.UInt16)">
             <summary>
@@ -4890,6 +5030,7 @@
             <param name="button">The mouse button to release.</param>
             <param name="clicks">The click count (used only on macOS).</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton)">
             <summary>
@@ -4899,6 +5040,7 @@
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
             <param name="button">The mouse button to release.</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)">
             <summary>
@@ -4909,6 +5051,7 @@
             <param name="button">The mouse button to release.</param>
             <param name="clicks">The click count (used only on macOS).</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddMouseMovement(System.Int16,System.Int16)">
             <summary>
@@ -4917,6 +5060,7 @@
             <param name="x">The target X-coordinate of the mouse pointer.</param>
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddMouseMovementRelative(System.Int16,System.Int16)">
             <summary>
@@ -4925,6 +5069,7 @@
             <param name="x">The X-coordinate offset.</param>
             <param name="y">The Y-coordinate offset.</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.AddMouseWheel(System.Int16,SharpHook.Data.MouseWheelScrollDirection,SharpHook.Data.MouseWheelScrollType)">
             <summary>
@@ -4937,6 +5082,7 @@
             <param name="direction">The scroll direction.</param>
             <param name="type">The scroll type (considered only on macOS).</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
             <remarks>
             <para>
             On Windows, the value <c>120</c> represents the default wheel step. As such, multiples of <c>120</c> can be
@@ -4959,6 +5105,7 @@
             </summary>
             <param name="event">The event to remove from the sequence.</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.RemoveEvents(System.Func{SharpHook.Data.UioHookEvent,System.Boolean})">
             <summary>
@@ -4966,18 +5113,21 @@
             </summary>
             <param name="predicate">The predicate to check if the event should be removed from the sequence.</param>
             <returns>The current builder.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.Simulate">
             <summary>
             Simulates the events in this sequence.
             </summary>
             <returns>The result of the operation.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulationSequenceBuilder.CreateTemplate">
             <summary>
             Creates a template based on the events in this sequence.
             </summary>
             <returns>A template based on the events in this sequence.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="T:SharpHook.Simulation.IEventSimulationSequenceTemplate">
             <summary>
@@ -4989,6 +5139,7 @@
             Simulates the predetermined sequence of events.
             </summary>
             <returns>The result of the operation.</returns>
+            <exception cref="T:System.ObjectDisposedException">The builder has been disposed.</exception>
         </member>
         <member name="T:SharpHook.Simulation.IEventSimulator">
             <summary>
@@ -5027,6 +5178,7 @@
             </summary>
             <param name="keyCode">The code of the key to press.</param>
             <returns>The result of the operation.</returns>
+            <exception cref="T:System.ObjectDisposedException">The event simulator has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulator.SimulateKeyRelease(SharpHook.Data.KeyCode)">
             <summary>
@@ -5034,6 +5186,7 @@
             </summary>
             <param name="keyCode">The code of the key to release.</param>
             <returns>The result of the operation.</returns>
+            <exception cref="T:System.ObjectDisposedException">The event simulator has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulator.SimulateMousePress(SharpHook.Data.MouseButton)">
             <summary>
@@ -5041,6 +5194,7 @@
             </summary>
             <param name="button">The mouse button to press.</param>
             <returns>The result of the operation.</returns>
+            <exception cref="T:System.ObjectDisposedException">The event simulator has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulator.SimulateMousePress(SharpHook.Data.MouseButton,System.UInt16)">
             <summary>
@@ -5049,6 +5203,7 @@
             <param name="button">The mouse button to press.</param>
             <param name="clicks">The click count (used only on macOS).</param>
             <returns>The result of the operation.</returns>
+            <exception cref="T:System.ObjectDisposedException">The event simulator has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulator.SimulateMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton)">
             <summary>
@@ -5058,6 +5213,7 @@
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
             <param name="button">The mouse button to press.</param>
             <returns>The result of the operation.</returns>
+            <exception cref="T:System.ObjectDisposedException">The event simulator has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulator.SimulateMousePress(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)">
             <summary>
@@ -5068,6 +5224,7 @@
             <param name="button">The mouse button to press.</param>
             <param name="clicks">The click count (used only on macOS).</param>
             <returns>The result of the operation.</returns>
+            <exception cref="T:System.ObjectDisposedException">The event simulator has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulator.SimulateMouseRelease(SharpHook.Data.MouseButton)">
             <summary>
@@ -5075,6 +5232,7 @@
             </summary>
             <param name="button">The mouse button to release.</param>
             <returns>The result of the operation.</returns>
+            <exception cref="T:System.ObjectDisposedException">The event simulator has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulator.SimulateMouseRelease(SharpHook.Data.MouseButton,System.UInt16)">
             <summary>
@@ -5083,6 +5241,7 @@
             <param name="button">The mouse button to release.</param>
             <param name="clicks">The click count (used only on macOS).</param>
             <returns>The result of the operation.</returns>
+            <exception cref="T:System.ObjectDisposedException">The event simulator has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulator.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton)">
             <summary>
@@ -5092,6 +5251,7 @@
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
             <param name="button">The mouse button to release.</param>
             <returns>The result of the operation.</returns>
+            <exception cref="T:System.ObjectDisposedException">The event simulator has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulator.SimulateMouseRelease(System.Int16,System.Int16,SharpHook.Data.MouseButton,System.UInt16)">
             <summary>
@@ -5102,6 +5262,7 @@
             <param name="button">The mouse button to release.</param>
             <param name="clicks">The click count (used only on macOS).</param>
             <returns>The result of the operation.</returns>
+            <exception cref="T:System.ObjectDisposedException">The event simulator has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulator.SimulateMouseMovement(System.Int16,System.Int16)">
             <summary>
@@ -5110,6 +5271,7 @@
             <param name="x">The target X-coordinate of the mouse pointer.</param>
             <param name="y">The target Y-coordinate of the mouse pointer.</param>
             <returns>The result of the operation.</returns>
+            <exception cref="T:System.ObjectDisposedException">The event simulator has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulator.SimulateMouseMovementRelative(System.Int16,System.Int16)">
             <summary>
@@ -5118,6 +5280,7 @@
             <param name="x">The X-coordinate offset.</param>
             <param name="y">The Y-coordinate offset.</param>
             <returns>The result of the operation.</returns>
+            <exception cref="T:System.ObjectDisposedException">The event simulator has been disposed.</exception>
         </member>
         <member name="M:SharpHook.Simulation.IEventSimulator.SimulateMouseWheel(System.Int16,SharpHook.Data.MouseWheelScrollDirection,SharpHook.Data.MouseWheelScrollType)">
             <summary>
@@ -5130,6 +5293,7 @@
             <param name="direction">The scroll direction.</param>
             <param name="type">The scroll type (considered only on macOS).</param>
             <returns>The result of the operation.</returns>
+            <exception cref="T:System.ObjectDisposedException">The event simulator has been disposed.</exception>
             <remarks>
             <para>
             On Windows, the value <c>120</c> represents the default wheel step. As such, multiples of <c>120</c> can be
@@ -5152,6 +5316,7 @@
             </summary>
             <param name="text">The text to simulate.</param>
             <returns>The result of the operation.</returns>
+            <exception cref="T:System.ObjectDisposedException">The event simulator has been disposed.</exception>
             <remarks>
             <para>
             The text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16 (including
@@ -5180,6 +5345,7 @@
             Initializes a builder for a sequence of events that can be simulated together.
             </summary>
             <returns>A builder for a sequence of events that can be simulated together.</returns>
+            <exception cref="T:System.ObjectDisposedException">The event simulator has been disposed.</exception>
         </member>
         <member name="T:SharpHook.TaskPoolGlobalHook">
             <summary>

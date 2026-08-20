@@ -3,13 +3,17 @@ namespace SharpHook.Simulation;
 /// <summary>
 /// Represents a builder for a sequence of events that can be simulated together.
 /// </summary>
-public interface IEventSimulationSequenceBuilder
+public interface IEventSimulationSequenceBuilder : IStatefulDisposable
 {
     /// <summary>
     /// Adds the specified event to the sequence of events to simulate.
     /// </summary>
     /// <param name="event">The event to add to the sequence.</param>
     /// <returns>The current builder.</returns>
+    /// <exception cref="ArgumentOutOfRangeException">
+    /// <paramref name="event" /> has type <see cref="EventType.KeyTyped" /> or <see cref="EventType.MouseClicked" />.
+    /// </exception>
+    /// <exception cref="ObjectDisposedException">The builder has been disposed.</exception>
     IEventSimulationSequenceBuilder AddEvent(UioHookEvent @event);
 
     /// <summary>
@@ -18,6 +22,11 @@ public interface IEventSimulationSequenceBuilder
     /// <param name="events">The events to add to the sequence.</param>
     /// <returns>The current builder.</returns>
     /// <exception cref="ArgumentNullException"><paramref name="events" /> is <see langword="null" />.</exception>
+    /// <exception cref="ArgumentOutOfRangeException">
+    /// One of <paramref name="events" /> has type <see cref="EventType.KeyTyped" /> or
+    /// <see cref="EventType.MouseClicked" />.
+    /// </exception>
+    /// <exception cref="ObjectDisposedException">The builder has been disposed.</exception>
     IEventSimulationSequenceBuilder AddEvents(params UioHookEvent[] events);
 
     /// <summary>
@@ -26,6 +35,11 @@ public interface IEventSimulationSequenceBuilder
     /// <param name="events">The events to add to the sequence.</param>
     /// <returns>The current builder.</returns>
     /// <exception cref="ArgumentNullException"><paramref name="events" /> is <see langword="null" />.</exception>
+    /// <exception cref="ArgumentOutOfRangeException">
+    /// One of <paramref name="events" /> has type <see cref="EventType.KeyTyped" /> or
+    /// <see cref="EventType.MouseClicked" />.
+    /// </exception>
+    /// <exception cref="ObjectDisposedException">The builder has been disposed.</exception>
     IEventSimulationSequenceBuilder AddEvents(IEnumerable<UioHookEvent> events);
 
     /// <summary>
@@ -33,6 +47,7 @@ public interface IEventSimulationSequenceBuilder
     /// </summary>
     /// <param name="keyCode">The code of the key to press.</param>
     /// <returns>The current builder.</returns>
+    /// <exception cref="ObjectDisposedException">The builder has been disposed.</exception>
     IEventSimulationSequenceBuilder AddKeyPress(KeyCode keyCode);
 
     /// <summary>
@@ -40,6 +55,7 @@ public interface IEventSimulationSequenceBuilder
     /// </summary>
     /// <param name="keyCode">The code of the key to press.</param>
     /// <returns>The current builder.</returns>
+    /// <exception cref="ObjectDisposedException">The builder has been disposed.</exception>
     IEventSimulationSequenceBuilder AddKeyRelease(KeyCode keyCode);
 
     /// <summary>
@@ -47,6 +63,7 @@ public interface IEventSimulationSequenceBuilder
     /// </summary>
     /// <param name="button">The mouse button to press.</param>
     /// <returns>The current builder.</returns>
+    /// <exception cref="ObjectDisposedException">The builder has been disposed.</exception>
     IEventSimulationSequenceBuilder AddMousePress(MouseButton button);
 
     /// <summary>
@@ -55,6 +72,7 @@ public interface IEventSimulationSequenceBuilder
     /// <param name="button">The mouse button to press.</param>
     /// <param name="clicks">The click count (used only on macOS).</param>
     /// <returns>The current builder.</returns>
+    /// <exception cref="ObjectDisposedException">The builder has been disposed.</exception>
     IEventSimulationSequenceBuilder AddMousePress(MouseButton button, ushort clicks);
 
     /// <summary>
@@ -64,6 +82,7 @@ public interface IEventSimulationSequenceBuilder
     /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
     /// <param name="button">The mouse button to press.</param>
     /// <returns>The current builder.</returns>
+    /// <exception cref="ObjectDisposedException">The builder has been disposed.</exception>
     IEventSimulationSequenceBuilder AddMousePress(short x, short y, MouseButton button);
 
     /// <summary>
@@ -74,6 +93,7 @@ public interface IEventSimulationSequenceBuilder
     /// <param name="button">The mouse button to press.</param>
     /// <param name="clicks">The click count (used only on macOS).</param>
     /// <returns>The current builder.</returns>
+    /// <exception cref="ObjectDisposedException">The builder has been disposed.</exception>
     IEventSimulationSequenceBuilder AddMousePress(short x, short y, MouseButton button, ushort clicks);
 
     /// <summary>
@@ -81,6 +101,7 @@ public interface IEventSimulationSequenceBuilder
     /// </summary>
     /// <param name="button">The mouse button to release.</param>
     /// <returns>The current builder.</returns>
+    /// <exception cref="ObjectDisposedException">The builder has been disposed.</exception>
     IEventSimulationSequenceBuilder AddMouseRelease(MouseButton button);
 
     /// <summary>
@@ -89,6 +110,7 @@ public interface IEventSimulationSequenceBuilder
     /// <param name="button">The mouse button to release.</param>
     /// <param name="clicks">The click count (used only on macOS).</param>
     /// <returns>The current builder.</returns>
+    /// <exception cref="ObjectDisposedException">The builder has been disposed.</exception>
     IEventSimulationSequenceBuilder AddMouseRelease(MouseButton button, ushort clicks);
 
     /// <summary>
@@ -98,6 +120,7 @@ public interface IEventSimulationSequenceBuilder
     /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
     /// <param name="button">The mouse button to release.</param>
     /// <returns>The current builder.</returns>
+    /// <exception cref="ObjectDisposedException">The builder has been disposed.</exception>
     IEventSimulationSequenceBuilder AddMouseRelease(short x, short y, MouseButton button);
 
     /// <summary>
@@ -108,6 +131,7 @@ public interface IEventSimulationSequenceBuilder
     /// <param name="button">The mouse button to release.</param>
     /// <param name="clicks">The click count (used only on macOS).</param>
     /// <returns>The current builder.</returns>
+    /// <exception cref="ObjectDisposedException">The builder has been disposed.</exception>
     IEventSimulationSequenceBuilder AddMouseRelease(short x, short y, MouseButton button, ushort clicks);
 
     /// <summary>
@@ -116,6 +140,7 @@ public interface IEventSimulationSequenceBuilder
     /// <param name="x">The target X-coordinate of the mouse pointer.</param>
     /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
     /// <returns>The current builder.</returns>
+    /// <exception cref="ObjectDisposedException">The builder has been disposed.</exception>
     IEventSimulationSequenceBuilder AddMouseMovement(short x, short y);
 
     /// <summary>
@@ -124,6 +149,7 @@ public interface IEventSimulationSequenceBuilder
     /// <param name="x">The X-coordinate offset.</param>
     /// <param name="y">The Y-coordinate offset.</param>
     /// <returns>The current builder.</returns>
+    /// <exception cref="ObjectDisposedException">The builder has been disposed.</exception>
     IEventSimulationSequenceBuilder AddMouseMovementRelative(short x, short y);
 
     /// <summary>
@@ -136,6 +162,7 @@ public interface IEventSimulationSequenceBuilder
     /// <param name="direction">The scroll direction.</param>
     /// <param name="type">The scroll type (considered only on macOS).</param>
     /// <returns>The current builder.</returns>
+    /// <exception cref="ObjectDisposedException">The builder has been disposed.</exception>
     /// <remarks>
     /// <para>
     /// On Windows, the value <c>120</c> represents the default wheel step. As such, multiples of <c>120</c> can be
@@ -161,6 +188,7 @@ public interface IEventSimulationSequenceBuilder
     /// </summary>
     /// <param name="event">The event to remove from the sequence.</param>
     /// <returns>The current builder.</returns>
+    /// <exception cref="ObjectDisposedException">The builder has been disposed.</exception>
     IEventSimulationSequenceBuilder RemoveEvent(UioHookEvent @event);
 
     /// <summary>
@@ -168,17 +196,20 @@ public interface IEventSimulationSequenceBuilder
     /// </summary>
     /// <param name="predicate">The predicate to check if the event should be removed from the sequence.</param>
     /// <returns>The current builder.</returns>
+    /// <exception cref="ObjectDisposedException">The builder has been disposed.</exception>
     IEventSimulationSequenceBuilder RemoveEvents(Func<UioHookEvent, bool> predicate);
 
     /// <summary>
     /// Simulates the events in this sequence.
     /// </summary>
     /// <returns>The result of the operation.</returns>
+    /// <exception cref="ObjectDisposedException">The builder has been disposed.</exception>
     UioHookResult Simulate();
 
     /// <summary>
     /// Creates a template based on the events in this sequence.
     /// </summary>
     /// <returns>A template based on the events in this sequence.</returns>
+    /// <exception cref="ObjectDisposedException">The builder has been disposed.</exception>
     IEventSimulationSequenceTemplate CreateTemplate();
 }

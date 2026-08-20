@@ -2,6 +2,7 @@ namespace SharpHook.Simulation;
 
 public sealed class EventSimulatorTests
 {
+    private const string ApplicationName = "TestApp";
     private const int NanosecondsPerTick = 100;
 
     [Property(DisplayName = "EventSimulator should simulate key presses")]
@@ -10,7 +11,7 @@ public sealed class EventSimulatorTests
         // Arrange
 
         var provider = new TestProvider();
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -36,7 +37,7 @@ public sealed class EventSimulatorTests
             PostEventResult = result.Value
         };
 
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -53,7 +54,7 @@ public sealed class EventSimulatorTests
         // Arrange
 
         var provider = new TestProvider();
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -79,7 +80,7 @@ public sealed class EventSimulatorTests
             PostEventResult = result.Value
         };
 
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -96,7 +97,7 @@ public sealed class EventSimulatorTests
         // Arrange
 
         var provider = new TestProvider();
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -122,7 +123,7 @@ public sealed class EventSimulatorTests
             PostEventResult = result.Value
         };
 
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -139,7 +140,7 @@ public sealed class EventSimulatorTests
         // Arrange
 
         var provider = new TestProvider();
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -167,7 +168,7 @@ public sealed class EventSimulatorTests
             PostEventResult = result.Value
         };
 
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -184,7 +185,7 @@ public sealed class EventSimulatorTests
         // Arrange
 
         var provider = new TestProvider();
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -217,7 +218,7 @@ public sealed class EventSimulatorTests
             PostEventResult = result.Value
         };
 
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -234,7 +235,7 @@ public sealed class EventSimulatorTests
         // Arrange
 
         var provider = new TestProvider();
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -269,7 +270,7 @@ public sealed class EventSimulatorTests
             PostEventResult = result.Value
         };
 
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -286,7 +287,7 @@ public sealed class EventSimulatorTests
         // Arrange
 
         var provider = new TestProvider();
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -312,7 +313,7 @@ public sealed class EventSimulatorTests
             PostEventResult = result.Value
         };
 
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -329,7 +330,7 @@ public sealed class EventSimulatorTests
         // Arrange
 
         var provider = new TestProvider();
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -357,7 +358,7 @@ public sealed class EventSimulatorTests
             PostEventResult = result.Value
         };
 
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -374,7 +375,7 @@ public sealed class EventSimulatorTests
         // Arrange
 
         var provider = new TestProvider();
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -407,7 +408,7 @@ public sealed class EventSimulatorTests
             PostEventResult = result.Value
         };
 
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -424,7 +425,7 @@ public sealed class EventSimulatorTests
         // Arrange
 
         var provider = new TestProvider();
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -460,7 +461,7 @@ public sealed class EventSimulatorTests
             PostEventResult = result.Value
         };
 
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -477,7 +478,7 @@ public sealed class EventSimulatorTests
         // Arrange
 
         var provider = new TestProvider();
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -504,7 +505,7 @@ public sealed class EventSimulatorTests
             PostEventResult = result.Value
         };
 
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -521,7 +522,7 @@ public sealed class EventSimulatorTests
         // Arrange
 
         var provider = new TestProvider();
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -548,7 +549,7 @@ public sealed class EventSimulatorTests
             PostEventResult = result.Value
         };
 
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -568,7 +569,7 @@ public sealed class EventSimulatorTests
         // Arrange
 
         var provider = new TestProvider();
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -600,7 +601,7 @@ public sealed class EventSimulatorTests
             PostEventResult = result.Value
         };
 
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -617,7 +618,7 @@ public sealed class EventSimulatorTests
         // Arrange
 
         var provider = new TestProvider();
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -640,7 +641,7 @@ public sealed class EventSimulatorTests
             PostTextResult = result.Value
         };
 
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -657,22 +658,22 @@ public sealed class EventSimulatorTests
         // Arrange
 
         var provider = new TestProvider();
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act + Assert
 
         Assert.Throws<ArgumentNullException>(() => simulator.SimulateTextEntry(null!));
     }
 
-    [Property(DisplayName = "EventSimulator should return a correct text simulation delay on X11")]
-    public void GetTextSimulationDelayOnX11(ulong delay)
+    [Property(DisplayName = "EventSimulator should return a correct text simulation delay on Linux")]
+    public void GetTextSimulationDelayOnLinux(ulong delay)
     {
         // Arrange
 
         var provider = new TestProvider();
         ((IEventSimulationProvider)provider).PostTextDelayLinux = delay;
 
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act + Assert
 
@@ -681,13 +682,13 @@ public sealed class EventSimulatorTests
             (ulong)(simulator.TextSimulationDelayOnLinux.Ticks * NanosecondsPerTick));
     }
 
-    [Property(DisplayName = "EventSimulator should set a correct text simulation delay on X11 or throw an exception")]
-    public void SetTextSimulationDelayOnX11(TimeSpan timeSpan)
+    [Property(DisplayName = "EventSimulator should set a correct text simulation delay on Linux or throw an exception")]
+    public void SetTextSimulationDelayOnLinux(TimeSpan timeSpan)
     {
         // Arrange
 
         var provider = new TestProvider();
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act + Assert
 
@@ -703,10 +704,18 @@ public sealed class EventSimulatorTests
         }
     }
 
+    [Fact(DisplayName = "EventSimulator should not throw if the application name is null")]
+    public void NullApplicationNameError()
+    {
+        var provider = new TestProvider();
+        var exception = Record.Exception(() => EventSimulator.Create(null!, provider));
+        Assert.Null(exception);
+    }
+
     [Fact(DisplayName = "EventSimulator should not throw if the provider is null")]
     public void NullProviderError()
     {
-        var exception = Record.Exception(() => new EventSimulator(null));
+        var exception = Record.Exception(() => EventSimulator.Create(ApplicationName, null));
         Assert.Null(exception);
     }
 }

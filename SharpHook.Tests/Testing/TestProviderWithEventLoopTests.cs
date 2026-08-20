@@ -2,7 +2,7 @@ namespace SharpHook.Testing;
 
 public sealed class TestProviderWithEventLoopTests
 {
-    private static readonly string ApplicationName = "TestApp";
+    private const string ApplicationName = "TestApp";
 
     [Property(DisplayName = "SetDispatchProc, Run, and PostEvent should work together")]
     public void Run(UioHookEvent eventToPost, nint userData)

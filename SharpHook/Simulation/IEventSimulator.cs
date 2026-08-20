@@ -6,7 +6,7 @@ namespace SharpHook.Simulation;
 /// <remarks>
 /// The methods of this interface correspond to constants defined in the <see cref="EventType" /> enum.
 /// </remarks>
-public interface IEventSimulator
+public interface IEventSimulator : IStatefulDisposable
 {
     /// <summary>
     /// Gets or sets the delay between simulating individual characters when simulating text on Linux.
@@ -36,6 +36,7 @@ public interface IEventSimulator
     /// </summary>
     /// <param name="keyCode">The code of the key to press.</param>
     /// <returns>The result of the operation.</returns>
+    /// <exception cref="ObjectDisposedException">The event simulator has been disposed.</exception>
     UioHookResult SimulateKeyPress(KeyCode keyCode);
 
     /// <summary>
@@ -43,6 +44,7 @@ public interface IEventSimulator
     /// </summary>
     /// <param name="keyCode">The code of the key to release.</param>
     /// <returns>The result of the operation.</returns>
+    /// <exception cref="ObjectDisposedException">The event simulator has been disposed.</exception>
     UioHookResult SimulateKeyRelease(KeyCode keyCode);
 
     /// <summary>
@@ -50,6 +52,7 @@ public interface IEventSimulator
     /// </summary>
     /// <param name="button">The mouse button to press.</param>
     /// <returns>The result of the operation.</returns>
+    /// <exception cref="ObjectDisposedException">The event simulator has been disposed.</exception>
     UioHookResult SimulateMousePress(MouseButton button);
 
     /// <summary>
@@ -58,6 +61,7 @@ public interface IEventSimulator
     /// <param name="button">The mouse button to press.</param>
     /// <param name="clicks">The click count (used only on macOS).</param>
     /// <returns>The result of the operation.</returns>
+    /// <exception cref="ObjectDisposedException">The event simulator has been disposed.</exception>
     UioHookResult SimulateMousePress(MouseButton button, ushort clicks);
 
     /// <summary>
@@ -67,6 +71,7 @@ public interface IEventSimulator
     /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
     /// <param name="button">The mouse button to press.</param>
     /// <returns>The result of the operation.</returns>
+    /// <exception cref="ObjectDisposedException">The event simulator has been disposed.</exception>
     UioHookResult SimulateMousePress(short x, short y, MouseButton button);
 
     /// <summary>
@@ -77,6 +82,7 @@ public interface IEventSimulator
     /// <param name="button">The mouse button to press.</param>
     /// <param name="clicks">The click count (used only on macOS).</param>
     /// <returns>The result of the operation.</returns>
+    /// <exception cref="ObjectDisposedException">The event simulator has been disposed.</exception>
     UioHookResult SimulateMousePress(short x, short y, MouseButton button, ushort clicks);
 
     /// <summary>
@@ -84,6 +90,7 @@ public interface IEventSimulator
     /// </summary>
     /// <param name="button">The mouse button to release.</param>
     /// <returns>The result of the operation.</returns>
+    /// <exception cref="ObjectDisposedException">The event simulator has been disposed.</exception>
     UioHookResult SimulateMouseRelease(MouseButton button);
 
     /// <summary>
@@ -92,6 +99,7 @@ public interface IEventSimulator
     /// <param name="button">The mouse button to release.</param>
     /// <param name="clicks">The click count (used only on macOS).</param>
     /// <returns>The result of the operation.</returns>
+    /// <exception cref="ObjectDisposedException">The event simulator has been disposed.</exception>
     UioHookResult SimulateMouseRelease(MouseButton button, ushort clicks);
 
     /// <summary>
@@ -101,6 +109,7 @@ public interface IEventSimulator
     /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
     /// <param name="button">The mouse button to release.</param>
     /// <returns>The result of the operation.</returns>
+    /// <exception cref="ObjectDisposedException">The event simulator has been disposed.</exception>
     UioHookResult SimulateMouseRelease(short x, short y, MouseButton button);
 
     /// <summary>
@@ -111,6 +120,7 @@ public interface IEventSimulator
     /// <param name="button">The mouse button to release.</param>
     /// <param name="clicks">The click count (used only on macOS).</param>
     /// <returns>The result of the operation.</returns>
+    /// <exception cref="ObjectDisposedException">The event simulator has been disposed.</exception>
     UioHookResult SimulateMouseRelease(short x, short y, MouseButton button, ushort clicks);
 
     /// <summary>
@@ -119,6 +129,7 @@ public interface IEventSimulator
     /// <param name="x">The target X-coordinate of the mouse pointer.</param>
     /// <param name="y">The target Y-coordinate of the mouse pointer.</param>
     /// <returns>The result of the operation.</returns>
+    /// <exception cref="ObjectDisposedException">The event simulator has been disposed.</exception>
     UioHookResult SimulateMouseMovement(short x, short y);
 
     /// <summary>
@@ -127,6 +138,7 @@ public interface IEventSimulator
     /// <param name="x">The X-coordinate offset.</param>
     /// <param name="y">The Y-coordinate offset.</param>
     /// <returns>The result of the operation.</returns>
+    /// <exception cref="ObjectDisposedException">The event simulator has been disposed.</exception>
     UioHookResult SimulateMouseMovementRelative(short x, short y);
 
     /// <summary>
@@ -139,6 +151,7 @@ public interface IEventSimulator
     /// <param name="direction">The scroll direction.</param>
     /// <param name="type">The scroll type (considered only on macOS).</param>
     /// <returns>The result of the operation.</returns>
+    /// <exception cref="ObjectDisposedException">The event simulator has been disposed.</exception>
     /// <remarks>
     /// <para>
     /// On Windows, the value <c>120</c> represents the default wheel step. As such, multiples of <c>120</c> can be
@@ -164,6 +177,7 @@ public interface IEventSimulator
     /// </summary>
     /// <param name="text">The text to simulate.</param>
     /// <returns>The result of the operation.</returns>
+    /// <exception cref="ObjectDisposedException">The event simulator has been disposed.</exception>
     /// <remarks>
     /// <para>
     /// The text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16 (including
@@ -192,5 +206,6 @@ public interface IEventSimulator
     /// Initializes a builder for a sequence of events that can be simulated together.
     /// </summary>
     /// <returns>A builder for a sequence of events that can be simulated together.</returns>
+    /// <exception cref="ObjectDisposedException">The event simulator has been disposed.</exception>
     IEventSimulationSequenceBuilder Sequence();
 }

@@ -108,13 +108,6 @@
             An observable which is emitted when libuiohook logs a message.
             </summary>
         </member>
-        <member name="P:SharpHook.R3.Logging.IR3LogSource.IsDisposed">
-            <summary>
-            Gets the value which indicates whether the log source is disposed.
-            </summary>
-            <value><see langword="true" /> if the log source is disposed. Otherwise, <see langword="false" />.</value>
-            <remarks>The <see cref="P:SharpHook.R3.Logging.IR3LogSource.MessageLogged" /> observable doesn't emit any values in a disposed log source.</remarks>
-        </member>
         <member name="T:SharpHook.R3.Logging.R3LogSourceAdapter">
             <summary>
             Adapts an <see cref="T:SharpHook.Logging.ILogSource" /> to the <see cref="T:SharpHook.R3.Logging.IR3LogSource" /> interface.

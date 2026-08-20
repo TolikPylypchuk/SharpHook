@@ -8,22 +8,13 @@ namespace SharpHook;
 /// should instead extend the <see cref="BasicGlobalHookBase" /> class as it correctly implements the invariants
 /// required for advanced scenarios.
 /// </remarks>
-public interface IBasicGlobalHook : IDisposable
+public interface IBasicGlobalHook : IStatefulDisposable
 {
     /// <summary>
     /// Gets the value which indicates whether the global hook is running.
     /// </summary>
     /// <value><see langword="true" /> if the global hook is running. Otherwise, <see langword="false" />.</value>
     bool IsRunning { get; }
-
-    /// <summary>
-    /// Gets the value which indicates whether the global hook has been disposed.
-    /// </summary>
-    /// <value>
-    /// <see langword="true" /> if the global hook has been disposed. Otherwise, <see langword="false" />.
-    /// </value>
-    /// <remarks>A disposed global hook cannot be started again.</remarks>
-    bool IsDisposed { get; }
 
     /// <summary>
     /// Runs the global hook on the current thread, blocking it. The hook can be stopped temporarily by calling

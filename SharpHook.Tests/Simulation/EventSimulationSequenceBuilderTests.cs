@@ -2,13 +2,21 @@ namespace SharpHook.Simulation;
 
 public sealed class EventSimulationSequenceBuilderTests
 {
+    private const string ApplicationName = "TestApp";
+
     [Property(DisplayName = "AddEvent and Simulate should post an event")]
     public void AddEvent(UioHookEvent @event)
     {
+        if (@event.Type == EventType.KeyTyped || @event.Type == EventType.MouseClicked)
+        {
+            return;
+        }
+
         // Arrange
 
         var provider = new TestProvider();
-        var builder = new EventSimulationSequenceBuilder(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
 
         // Act
 
@@ -26,12 +34,18 @@ public sealed class EventSimulationSequenceBuilderTests
     [Property(DisplayName = "AddEvents and Simulate should post events")]
     public void AddEvents(NonNull<UioHookEvent[]> events)
     {
+        if (events.Get.Any(@event => @event.Type == EventType.KeyTyped || @event.Type == EventType.MouseClicked))
+        {
+            return;
+        }
+
         // Arrange
 
         var eventsToSimulate = events.Get;
 
         var provider = new TestProvider();
-        var builder = new EventSimulationSequenceBuilder(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
 
         // Act
 
@@ -48,12 +62,18 @@ public sealed class EventSimulationSequenceBuilderTests
     [Property(DisplayName = "AddEvents for IEnumerable and Simulate should post events")]
     public void AddEventsEnumerable(NonNull<UioHookEvent[]> events)
     {
+        if (events.Get.Any(@event => @event.Type == EventType.KeyTyped || @event.Type == EventType.MouseClicked))
+        {
+            return;
+        }
+
         // Arrange
 
         var eventsToSimulate = events.Get;
 
         var provider = new TestProvider();
-        var builder = new EventSimulationSequenceBuilder(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
 
         // Act
 
@@ -67,17 +87,86 @@ public sealed class EventSimulationSequenceBuilderTests
         Assert.Equal(UioHookResult.Success, result);
     }
 
+    [Property(DisplayName = "AddEvent should throw if the event has type KeyTyped")]
+    public void AddEventKeyTyped(KeyboardEvent keyboardEvent)
+    {
+        // Arrange
+
+        var @event = keyboardEvent.Value;
+        @event.Type = EventType.KeyTyped;
+
+        var provider = new TestProvider();
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
+
+        // Act + Assert
+
+        Assert.Throws<ArgumentOutOfRangeException>(() => builder.AddEvent(@event));
+    }
+
+    [Property(DisplayName = "AddEvent should throw if the event has type MouseClicked")]
+    public void AddEventMouseClicked(MouseEvent mouseEvent)
+    {
+        // Arrange
+
+        var @event = mouseEvent.Value;
+        @event.Type = EventType.MouseClicked;
+
+        var provider = new TestProvider();
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
+
+        // Act + Assert
+
+        Assert.Throws<ArgumentOutOfRangeException>(() => builder.AddEvent(@event));
+    }
+
     [Fact(DisplayName = "AddEvents should throw if the events array is null")]
     public void AddEventsNull()
     {
         // Arrange
 
         var provider = new TestProvider();
-        var builder = new EventSimulationSequenceBuilder(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
 
         // Act + Assert
 
         Assert.Throws<ArgumentNullException>(() => builder.AddEvents(null!));
+    }
+
+    [Property(DisplayName = "AddEvents should throw if the event has type KeyTyped")]
+    public void AddEventsKeyTyped(KeyboardEvent keyboardEvent)
+    {
+        // Arrange
+
+        var @event = keyboardEvent.Value;
+        @event.Type = EventType.KeyTyped;
+
+        var provider = new TestProvider();
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
+
+        // Act + Assert
+
+        Assert.Throws<ArgumentOutOfRangeException>(() => builder.AddEvents(@event));
+    }
+
+    [Property(DisplayName = "AddEvents should throw if the event has type MouseClicked")]
+    public void AddEventsMouseClicked(MouseEvent mouseEvent)
+    {
+        // Arrange
+
+        var @event = mouseEvent.Value;
+        @event.Type = EventType.MouseClicked;
+
+        var provider = new TestProvider();
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
+
+        // Act + Assert
+
+        Assert.Throws<ArgumentOutOfRangeException>(() => builder.AddEvents(@event));
     }
 
     [Fact(DisplayName = "AddEvents should throw if the events enumerable is null")]
@@ -86,11 +175,46 @@ public sealed class EventSimulationSequenceBuilderTests
         // Arrange
 
         var provider = new TestProvider();
-        var builder = new EventSimulationSequenceBuilder(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
 
         // Act + Assert
 
         Assert.Throws<ArgumentNullException>(() => builder.AddEvents((IEnumerable<UioHookEvent>)null!));
+    }
+
+    [Property(DisplayName = "AddEvents with enumerable should throw if the event has type KeyTyped")]
+    public void AddEventsEnumerableKeyTyped(KeyboardEvent keyboardEvent)
+    {
+        // Arrange
+
+        var @event = keyboardEvent.Value;
+        @event.Type = EventType.KeyTyped;
+
+        var provider = new TestProvider();
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
+
+        // Act + Assert
+
+        Assert.Throws<ArgumentOutOfRangeException>(() => builder.AddEvents([@event]));
+    }
+
+    [Property(DisplayName = "AddEvents with enumerable should throw if the event has type MouseClicked")]
+    public void AddEventsEnumerableMouseClicked(MouseEvent mouseEvent)
+    {
+        // Arrange
+
+        var @event = mouseEvent.Value;
+        @event.Type = EventType.MouseClicked;
+
+        var provider = new TestProvider();
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
+
+        // Act + Assert
+
+        Assert.Throws<ArgumentOutOfRangeException>(() => builder.AddEvents([@event]));
     }
 
     [Property(DisplayName = "AddKeyPress and Simulate should post a key press event")]
@@ -99,7 +223,8 @@ public sealed class EventSimulationSequenceBuilderTests
         // Arrange
 
         var provider = new TestProvider();
-        var builder = new EventSimulationSequenceBuilder(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
 
         // Act
 
@@ -124,7 +249,8 @@ public sealed class EventSimulationSequenceBuilderTests
         // Arrange
 
         var provider = new TestProvider();
-        var builder = new EventSimulationSequenceBuilder(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
 
         // Act
 
@@ -149,7 +275,8 @@ public sealed class EventSimulationSequenceBuilderTests
         // Arrange
 
         var provider = new TestProvider();
-        var builder = new EventSimulationSequenceBuilder(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
 
         // Act
 
@@ -175,7 +302,8 @@ public sealed class EventSimulationSequenceBuilderTests
         // Arrange
 
         var provider = new TestProvider();
-        var builder = new EventSimulationSequenceBuilder(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
 
         // Act
 
@@ -201,7 +329,8 @@ public sealed class EventSimulationSequenceBuilderTests
         // Arrange
 
         var provider = new TestProvider();
-        var builder = new EventSimulationSequenceBuilder(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
 
         // Act
 
@@ -230,7 +359,8 @@ public sealed class EventSimulationSequenceBuilderTests
         // Arrange
 
         var provider = new TestProvider();
-        var builder = new EventSimulationSequenceBuilder(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
 
         // Act
 
@@ -258,7 +388,8 @@ public sealed class EventSimulationSequenceBuilderTests
         // Arrange
 
         var provider = new TestProvider();
-        var builder = new EventSimulationSequenceBuilder(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
 
         // Act
 
@@ -284,7 +415,8 @@ public sealed class EventSimulationSequenceBuilderTests
         // Arrange
 
         var provider = new TestProvider();
-        var builder = new EventSimulationSequenceBuilder(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
 
         // Act
 
@@ -310,7 +442,8 @@ public sealed class EventSimulationSequenceBuilderTests
         // Arrange
 
         var provider = new TestProvider();
-        var builder = new EventSimulationSequenceBuilder(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
 
         // Act
 
@@ -339,7 +472,8 @@ public sealed class EventSimulationSequenceBuilderTests
         // Arrange
 
         var provider = new TestProvider();
-        var builder = new EventSimulationSequenceBuilder(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
 
         // Act
 
@@ -367,7 +501,8 @@ public sealed class EventSimulationSequenceBuilderTests
         // Arrange
 
         var provider = new TestProvider();
-        var builder = new EventSimulationSequenceBuilder(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
 
         // Act
 
@@ -393,7 +528,8 @@ public sealed class EventSimulationSequenceBuilderTests
         // Arrange
 
         var provider = new TestProvider();
-        var builder = new EventSimulationSequenceBuilder(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
 
         // Act
 
@@ -419,7 +555,8 @@ public sealed class EventSimulationSequenceBuilderTests
         // Arrange
 
         var provider = new TestProvider();
-        var builder = new EventSimulationSequenceBuilder(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
 
         // Act
 
@@ -443,10 +580,16 @@ public sealed class EventSimulationSequenceBuilderTests
     [Property(DisplayName = "RemoveEvent should remove an event from the sequence")]
     public void RemoveEvent(UioHookEvent @event)
     {
+        if (@event.Type == EventType.KeyTyped || @event.Type == EventType.MouseClicked)
+        {
+            return;
+        }
+
         // Arrange
 
         var provider = new TestProvider();
-        var builder = new EventSimulationSequenceBuilder(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
 
         // Act
 
@@ -464,12 +607,18 @@ public sealed class EventSimulationSequenceBuilderTests
     [Property(DisplayName = "RemoveEvents should remove events from the sequence")]
     public void RemoveEvents(NonEmptyArray<UioHookEvent> events)
     {
+        if (events.Any(@event => @event.Type == EventType.KeyTyped || @event.Type == EventType.MouseClicked))
+        {
+            return;
+        }
+
         // Arrange
 
         var eventsToSimulate = events.Get;
 
         var provider = new TestProvider();
-        var builder = new EventSimulationSequenceBuilder(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
 
         // Act
 
@@ -494,7 +643,8 @@ public sealed class EventSimulationSequenceBuilderTests
             PostEventResult = failedResult.Value
         };
 
-        var builder = new EventSimulationSequenceBuilder(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
 
         // Act
 
@@ -509,10 +659,16 @@ public sealed class EventSimulationSequenceBuilderTests
     [Property(DisplayName = "CreateTemplate should create a template which posts an event")]
     public void CreateTemplate(UioHookEvent @event)
     {
+        if (@event.Type == EventType.KeyTyped || @event.Type == EventType.MouseClicked)
+        {
+            return;
+        }
+
         // Arrange
 
         var provider = new TestProvider();
-        var builder = new EventSimulationSequenceBuilder(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
 
         // Act
 
@@ -527,4 +683,45 @@ public sealed class EventSimulationSequenceBuilderTests
         Assert.Equal(@event, provider.PostedEvents[0]);
         Assert.Equal(UioHookResult.Success, result);
     }
+
+    [Fact(DisplayName = "EventSimulationSequenceBuilder should be disposed once its owner is disposed")]
+    public void OwnerDisposed()
+    {
+        // Arrange
+
+        var provider = new TestProvider();
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
+
+        // Act
+
+        simulator.Dispose();
+
+        // Assert
+
+        Assert.True(builder.IsDisposed);
+    }
+
+    [Fact(DisplayName = "EventSimulationSequenceBuilder should be disposed instantly if its owner is disposed")]
+    public void OwnerInstantlyDisposed()
+    {
+        // Arrange
+
+        var provider = new TestProvider();
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+
+        // Act
+
+        simulator.Dispose();
+        var builder = new EventSimulationSequenceBuilder(simulator);
+
+        // Assert
+
+        Assert.True(builder.IsDisposed);
+    }
+
+    [Fact(DisplayName = "The EventSimulationSequenceBuilder constructor should throw if the owner is null")]
+    public void NullOwner() =>
+        Assert.Throws<ArgumentNullException>(() => new EventSimulationSequenceBuilder(null!));
+
 }

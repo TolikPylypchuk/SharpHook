@@ -2,13 +2,16 @@ namespace SharpHook.Simulation;
 
 public sealed class EventSimulationExtensionsTests
 {
+    private const string ApplicationName = "TestApp";
+
     [Property(DisplayName = "AddKeyStroke with an array should add events to the sequence")]
     public void AddKeyStrokeArray(KeyCode[] keyCodes)
     {
         // Arrange
 
         var provider = new TestProvider();
-        var builder = new EventSimulationSequenceBuilder(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
 
         // Act
 
@@ -29,7 +32,8 @@ public sealed class EventSimulationExtensionsTests
         // Arrange
 
         var provider = new TestProvider();
-        var builder = new EventSimulationSequenceBuilder(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
+        var builder = new EventSimulationSequenceBuilder(simulator);
 
         // Act
 
@@ -50,7 +54,7 @@ public sealed class EventSimulationExtensionsTests
         // Arrange
 
         var provider = new TestProvider();
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 
@@ -69,7 +73,7 @@ public sealed class EventSimulationExtensionsTests
         // Arrange
 
         var provider = new TestProvider();
-        var simulator = new EventSimulator(provider);
+        var simulator = EventSimulator.Create(ApplicationName, provider);
 
         // Act
 

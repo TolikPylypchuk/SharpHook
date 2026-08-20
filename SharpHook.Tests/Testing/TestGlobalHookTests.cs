@@ -1319,6 +1319,11 @@ public sealed class TestGlobalHookTests
     [Property(DisplayName = "Sequence builder should post an event back to the test global hook")]
     public void SequenceBuilder(UioHookEvent @event)
     {
+        if (@event.Type == EventType.KeyTyped || @event.Type == EventType.MouseClicked)
+        {
+            return;
+        }
+
         // Arrange
 
         var hook = new TestGlobalHook();

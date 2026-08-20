@@ -799,7 +799,8 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// </para>
     /// </remarks>
     public IEventSimulationSequenceBuilder Sequence() =>
-        new EventSimulationSequenceBuilder(new EventSimulationProviderBridge(this));
+        new EventSimulationSequenceBuilder(
+            EventSimulator.Create(String.Empty, new EventSimulationProviderBridge(this)));
 
     private void RunSimple()
     {
