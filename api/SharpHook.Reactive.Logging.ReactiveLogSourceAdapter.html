@@ -103,7 +103,7 @@ Class ReactiveLogSourceAdapter  <a class="header-action link-secondary" title="V
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[ExcludeFromCodeCoverage]
-public sealed class ReactiveLogSourceAdapter : IReactiveLogSource, ILogSource, IDisposable</code></pre>
+public sealed class ReactiveLogSourceAdapter : IReactiveLogSource, ILogSource, IStatefulDisposable, IDisposable</code></pre>
   </div>
 
 
@@ -122,6 +122,7 @@ public sealed class ReactiveLogSourceAdapter : IReactiveLogSource, ILogSource, I
     <dd>
       <div><a class="xref" href="SharpHook.Reactive.Logging.IReactiveLogSource.html">IReactiveLogSource</a></div>
       <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+      <div><a class="xref" href="SharpHook.IStatefulDisposable.html">IStatefulDisposable</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>

@@ -102,7 +102,7 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IEventSimulationSequenceBuilder</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IEventSimulationSequenceBuilder : IStatefulDisposable, IDisposable</code></pre>
   </div>
 
 
@@ -111,6 +111,16 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
 
 
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="SharpHook.IStatefulDisposable.html#SharpHook_IStatefulDisposable_IsDisposed">IStatefulDisposable.IsDisposed</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">IDisposable.Dispose()</a>
+    </div>
+  </dd></dl>
 
   <dl class="typelist extensionMethods">
     <dt>Extension Methods</dt>
@@ -167,6 +177,15 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p><code class="paramref">event</code> has type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a> or <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseClicked">MouseClicked</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>The builder has been disposed.</p>
+</dd>
+  </dl>
 
 
 
@@ -210,6 +229,13 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
     <dd><p><code class="paramref">events</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>One of <code class="paramref">events</code> has type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a> or
+<a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseClicked">MouseClicked</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>The builder has been disposed.</p>
 </dd>
   </dl>
 
@@ -256,6 +282,13 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
     <dd><p><code class="paramref">events</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
 </dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
+    <dd><p>One of <code class="paramref">events</code> has type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a> or
+<a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseClicked">MouseClicked</a>.</p>
+</dd>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>The builder has been disposed.</p>
+</dd>
   </dl>
 
 
@@ -296,6 +329,12 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>The builder has been disposed.</p>
+</dd>
+  </dl>
 
 
 
@@ -335,6 +374,12 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>The builder has been disposed.</p>
+</dd>
+  </dl>
 
 
 
@@ -377,6 +422,12 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>The builder has been disposed.</p>
+</dd>
+  </dl>
 
 
 
@@ -419,6 +470,12 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>The builder has been disposed.</p>
+</dd>
+  </dl>
 
 
 
@@ -458,6 +515,12 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>The builder has been disposed.</p>
+</dd>
+  </dl>
 
 
 
@@ -500,6 +563,12 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>The builder has been disposed.</p>
+</dd>
+  </dl>
 
 
 
@@ -545,6 +614,12 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>The builder has been disposed.</p>
+</dd>
+  </dl>
 
 
 
@@ -593,6 +668,12 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>The builder has been disposed.</p>
+</dd>
+  </dl>
 
 
 
@@ -632,6 +713,12 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>The builder has been disposed.</p>
+</dd>
+  </dl>
 
 
 
@@ -674,6 +761,12 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>The builder has been disposed.</p>
+</dd>
+  </dl>
 
 
 
@@ -719,6 +812,12 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>The builder has been disposed.</p>
+</dd>
+  </dl>
 
 
 
@@ -767,6 +866,12 @@ Interface IEventSimulationSequenceBuilder  <a class="header-action link-secondar
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>The builder has been disposed.</p>
+</dd>
+  </dl>
 
 
 
@@ -828,6 +933,12 @@ On Linux, there is no fixed recommendation, but multiples of <code>100</code> ca
 </p>
 </div>
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>The builder has been disposed.</p>
+</dd>
+  </dl>
 
 
 
@@ -861,6 +972,12 @@ On Linux, there is no fixed recommendation, but multiples of <code>100</code> ca
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>The builder has been disposed.</p>
+</dd>
+  </dl>
 
 
 
@@ -900,6 +1017,12 @@ On Linux, there is no fixed recommendation, but multiples of <code>100</code> ca
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>The builder has been disposed.</p>
+</dd>
+  </dl>
 
 
 
@@ -939,6 +1062,12 @@ On Linux, there is no fixed recommendation, but multiples of <code>100</code> ca
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>The builder has been disposed.</p>
+</dd>
+  </dl>
 
 
 
@@ -972,6 +1101,12 @@ On Linux, there is no fixed recommendation, but multiples of <code>100</code> ca
 
 
 
+  <h4 class="section">Exceptions</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
+    <dd><p>The builder has been disposed.</p>
+</dd>
+  </dl>
 
 
 

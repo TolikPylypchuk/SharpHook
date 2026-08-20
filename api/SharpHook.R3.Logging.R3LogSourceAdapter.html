@@ -103,7 +103,7 @@ Class R3LogSourceAdapter  <a class="header-action link-secondary" title="View so
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[ExcludeFromCodeCoverage]
-public sealed class R3LogSourceAdapter : IR3LogSource, ILogSource, IDisposable</code></pre>
+public sealed class R3LogSourceAdapter : IR3LogSource, ILogSource, IStatefulDisposable, IDisposable</code></pre>
   </div>
 
 
@@ -122,6 +122,7 @@ public sealed class R3LogSourceAdapter : IR3LogSource, ILogSource, IDisposable</
     <dd>
       <div><a class="xref" href="SharpHook.R3.Logging.IR3LogSource.html">IR3LogSource</a></div>
       <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+      <div><a class="xref" href="SharpHook.IStatefulDisposable.html">IStatefulDisposable</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>

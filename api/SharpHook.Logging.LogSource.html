@@ -103,7 +103,7 @@ Class LogSource  <a class="header-action link-secondary" title="View source" hre
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[ExcludeFromCodeCoverage]
-public sealed class LogSource : ILogSource, IDisposable</code></pre>
+public sealed class LogSource : ILogSource, IStatefulDisposable, IDisposable</code></pre>
   </div>
 
 
@@ -121,6 +121,7 @@ public sealed class LogSource : ILogSource, IDisposable</code></pre>
     <dt>Implements</dt>
     <dd>
       <div><a class="xref" href="SharpHook.Logging.ILogSource.html">ILogSource</a></div>
+      <div><a class="xref" href="SharpHook.IStatefulDisposable.html">IStatefulDisposable</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>

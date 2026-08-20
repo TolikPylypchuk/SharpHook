@@ -3115,18 +3115,6 @@ references:
   commentId: T:SharpHook.IBasicGlobalHook
   fullName: SharpHook.IBasicGlobalHook
   nameWithType: IBasicGlobalHook
-- uid: SharpHook.IBasicGlobalHook.IsDisposed
-  name: IsDisposed
-  href: api/SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_IsDisposed
-  commentId: P:SharpHook.IBasicGlobalHook.IsDisposed
-  fullName: SharpHook.IBasicGlobalHook.IsDisposed
-  nameWithType: IBasicGlobalHook.IsDisposed
-- uid: SharpHook.IBasicGlobalHook.IsDisposed*
-  name: IsDisposed
-  href: api/SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_IsDisposed_
-  commentId: Overload:SharpHook.IBasicGlobalHook.IsDisposed
-  fullName: SharpHook.IBasicGlobalHook.IsDisposed
-  nameWithType: IBasicGlobalHook.IsDisposed
 - uid: SharpHook.IBasicGlobalHook.IsRunning
   name: IsRunning
   href: api/SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_IsRunning
@@ -3250,6 +3238,24 @@ references:
   commentId: E:SharpHook.IGlobalHook.MouseWheel
   fullName: SharpHook.IGlobalHook.MouseWheel
   nameWithType: IGlobalHook.MouseWheel
+- uid: SharpHook.IStatefulDisposable
+  name: IStatefulDisposable
+  href: api/SharpHook.IStatefulDisposable.html
+  commentId: T:SharpHook.IStatefulDisposable
+  fullName: SharpHook.IStatefulDisposable
+  nameWithType: IStatefulDisposable
+- uid: SharpHook.IStatefulDisposable.IsDisposed
+  name: IsDisposed
+  href: api/SharpHook.IStatefulDisposable.html#SharpHook_IStatefulDisposable_IsDisposed
+  commentId: P:SharpHook.IStatefulDisposable.IsDisposed
+  fullName: SharpHook.IStatefulDisposable.IsDisposed
+  nameWithType: IStatefulDisposable.IsDisposed
+- uid: SharpHook.IStatefulDisposable.IsDisposed*
+  name: IsDisposed
+  href: api/SharpHook.IStatefulDisposable.html#SharpHook_IStatefulDisposable_IsDisposed_
+  commentId: Overload:SharpHook.IStatefulDisposable.IsDisposed
+  fullName: SharpHook.IStatefulDisposable.IsDisposed
+  nameWithType: IStatefulDisposable.IsDisposed
 - uid: SharpHook.KeyboardHookEventArgs
   name: KeyboardHookEventArgs
   href: api/SharpHook.KeyboardHookEventArgs.html
@@ -3352,18 +3358,6 @@ references:
   commentId: T:SharpHook.Logging.ILogSource
   fullName: SharpHook.Logging.ILogSource
   nameWithType: ILogSource
-- uid: SharpHook.Logging.ILogSource.IsDisposed
-  name: IsDisposed
-  href: api/SharpHook.Logging.ILogSource.html#SharpHook_Logging_ILogSource_IsDisposed
-  commentId: P:SharpHook.Logging.ILogSource.IsDisposed
-  fullName: SharpHook.Logging.ILogSource.IsDisposed
-  nameWithType: ILogSource.IsDisposed
-- uid: SharpHook.Logging.ILogSource.IsDisposed*
-  name: IsDisposed
-  href: api/SharpHook.Logging.ILogSource.html#SharpHook_Logging_ILogSource_IsDisposed_
-  commentId: Overload:SharpHook.Logging.ILogSource.IsDisposed
-  fullName: SharpHook.Logging.ILogSource.IsDisposed
-  nameWithType: ILogSource.IsDisposed
 - uid: SharpHook.Logging.ILogSource.MessageLogged
   name: MessageLogged
   href: api/SharpHook.Logging.ILogSource.html#SharpHook_Logging_ILogSource_MessageLogged
@@ -5317,18 +5311,6 @@ references:
   commentId: T:SharpHook.R3.Logging.IR3LogSource
   fullName: SharpHook.R3.Logging.IR3LogSource
   nameWithType: IR3LogSource
-- uid: SharpHook.R3.Logging.IR3LogSource.IsDisposed
-  name: IsDisposed
-  href: api/SharpHook.R3.Logging.IR3LogSource.html#SharpHook_R3_Logging_IR3LogSource_IsDisposed
-  commentId: P:SharpHook.R3.Logging.IR3LogSource.IsDisposed
-  fullName: SharpHook.R3.Logging.IR3LogSource.IsDisposed
-  nameWithType: IR3LogSource.IsDisposed
-- uid: SharpHook.R3.Logging.IR3LogSource.IsDisposed*
-  name: IsDisposed
-  href: api/SharpHook.R3.Logging.IR3LogSource.html#SharpHook_R3_Logging_IR3LogSource_IsDisposed_
-  commentId: Overload:SharpHook.R3.Logging.IR3LogSource.IsDisposed
-  fullName: SharpHook.R3.Logging.IR3LogSource.IsDisposed
-  nameWithType: IR3LogSource.IsDisposed
 - uid: SharpHook.R3.Logging.IR3LogSource.MessageLogged
   name: MessageLogged
   href: api/SharpHook.R3.Logging.IR3LogSource.html#SharpHook_R3_Logging_IR3LogSource_MessageLogged
@@ -5989,18 +5971,6 @@ references:
   commentId: T:SharpHook.Reactive.Logging.IReactiveLogSource
   fullName: SharpHook.Reactive.Logging.IReactiveLogSource
   nameWithType: IReactiveLogSource
-- uid: SharpHook.Reactive.Logging.IReactiveLogSource.IsDisposed
-  name: IsDisposed
-  href: api/SharpHook.Reactive.Logging.IReactiveLogSource.html#SharpHook_Reactive_Logging_IReactiveLogSource_IsDisposed
-  commentId: P:SharpHook.Reactive.Logging.IReactiveLogSource.IsDisposed
-  fullName: SharpHook.Reactive.Logging.IReactiveLogSource.IsDisposed
-  nameWithType: IReactiveLogSource.IsDisposed
-- uid: SharpHook.Reactive.Logging.IReactiveLogSource.IsDisposed*
-  name: IsDisposed
-  href: api/SharpHook.Reactive.Logging.IReactiveLogSource.html#SharpHook_Reactive_Logging_IReactiveLogSource_IsDisposed_
-  commentId: Overload:SharpHook.Reactive.Logging.IReactiveLogSource.IsDisposed
-  fullName: SharpHook.Reactive.Logging.IReactiveLogSource.IsDisposed
-  nameWithType: IReactiveLogSource.IsDisposed
 - uid: SharpHook.Reactive.Logging.IReactiveLogSource.MessageLogged
   name: MessageLogged
   href: api/SharpHook.Reactive.Logging.IReactiveLogSource.html#SharpHook_Reactive_Logging_IReactiveLogSource_MessageLogged
@@ -6610,15 +6580,15 @@ references:
   commentId: T:SharpHook.Simulation.EventSimulationSequenceBuilder
   fullName: SharpHook.Simulation.EventSimulationSequenceBuilder
   nameWithType: EventSimulationSequenceBuilder
-- uid: SharpHook.Simulation.EventSimulationSequenceBuilder.#ctor(SharpHook.Providers.IEventSimulationProvider)
-  name: EventSimulationSequenceBuilder(IEventSimulationProvider?)
-  href: api/SharpHook.Simulation.EventSimulationSequenceBuilder.html#SharpHook_Simulation_EventSimulationSequenceBuilder__ctor_SharpHook_Providers_IEventSimulationProvider_
-  commentId: M:SharpHook.Simulation.EventSimulationSequenceBuilder.#ctor(SharpHook.Providers.IEventSimulationProvider)
-  name.vb: New(IEventSimulationProvider)
-  fullName: SharpHook.Simulation.EventSimulationSequenceBuilder.EventSimulationSequenceBuilder(SharpHook.Providers.IEventSimulationProvider?)
-  fullName.vb: SharpHook.Simulation.EventSimulationSequenceBuilder.New(SharpHook.Providers.IEventSimulationProvider)
-  nameWithType: EventSimulationSequenceBuilder.EventSimulationSequenceBuilder(IEventSimulationProvider?)
-  nameWithType.vb: EventSimulationSequenceBuilder.New(IEventSimulationProvider)
+- uid: SharpHook.Simulation.EventSimulationSequenceBuilder.#ctor(SharpHook.Simulation.EventSimulator)
+  name: EventSimulationSequenceBuilder(EventSimulator)
+  href: api/SharpHook.Simulation.EventSimulationSequenceBuilder.html#SharpHook_Simulation_EventSimulationSequenceBuilder__ctor_SharpHook_Simulation_EventSimulator_
+  commentId: M:SharpHook.Simulation.EventSimulationSequenceBuilder.#ctor(SharpHook.Simulation.EventSimulator)
+  name.vb: New(EventSimulator)
+  fullName: SharpHook.Simulation.EventSimulationSequenceBuilder.EventSimulationSequenceBuilder(SharpHook.Simulation.EventSimulator)
+  fullName.vb: SharpHook.Simulation.EventSimulationSequenceBuilder.New(SharpHook.Simulation.EventSimulator)
+  nameWithType: EventSimulationSequenceBuilder.EventSimulationSequenceBuilder(EventSimulator)
+  nameWithType.vb: EventSimulationSequenceBuilder.New(EventSimulator)
 - uid: SharpHook.Simulation.EventSimulationSequenceBuilder.#ctor*
   name: EventSimulationSequenceBuilder
   href: api/SharpHook.Simulation.EventSimulationSequenceBuilder.html#SharpHook_Simulation_EventSimulationSequenceBuilder__ctor_
@@ -6823,6 +6793,30 @@ references:
   commentId: Overload:SharpHook.Simulation.EventSimulationSequenceBuilder.CreateTemplate
   fullName: SharpHook.Simulation.EventSimulationSequenceBuilder.CreateTemplate
   nameWithType: EventSimulationSequenceBuilder.CreateTemplate
+- uid: SharpHook.Simulation.EventSimulationSequenceBuilder.Dispose
+  name: Dispose()
+  href: api/SharpHook.Simulation.EventSimulationSequenceBuilder.html#SharpHook_Simulation_EventSimulationSequenceBuilder_Dispose
+  commentId: M:SharpHook.Simulation.EventSimulationSequenceBuilder.Dispose
+  fullName: SharpHook.Simulation.EventSimulationSequenceBuilder.Dispose()
+  nameWithType: EventSimulationSequenceBuilder.Dispose()
+- uid: SharpHook.Simulation.EventSimulationSequenceBuilder.Dispose*
+  name: Dispose
+  href: api/SharpHook.Simulation.EventSimulationSequenceBuilder.html#SharpHook_Simulation_EventSimulationSequenceBuilder_Dispose_
+  commentId: Overload:SharpHook.Simulation.EventSimulationSequenceBuilder.Dispose
+  fullName: SharpHook.Simulation.EventSimulationSequenceBuilder.Dispose
+  nameWithType: EventSimulationSequenceBuilder.Dispose
+- uid: SharpHook.Simulation.EventSimulationSequenceBuilder.IsDisposed
+  name: IsDisposed
+  href: api/SharpHook.Simulation.EventSimulationSequenceBuilder.html#SharpHook_Simulation_EventSimulationSequenceBuilder_IsDisposed
+  commentId: P:SharpHook.Simulation.EventSimulationSequenceBuilder.IsDisposed
+  fullName: SharpHook.Simulation.EventSimulationSequenceBuilder.IsDisposed
+  nameWithType: EventSimulationSequenceBuilder.IsDisposed
+- uid: SharpHook.Simulation.EventSimulationSequenceBuilder.IsDisposed*
+  name: IsDisposed
+  href: api/SharpHook.Simulation.EventSimulationSequenceBuilder.html#SharpHook_Simulation_EventSimulationSequenceBuilder_IsDisposed_
+  commentId: Overload:SharpHook.Simulation.EventSimulationSequenceBuilder.IsDisposed
+  fullName: SharpHook.Simulation.EventSimulationSequenceBuilder.IsDisposed
+  nameWithType: EventSimulationSequenceBuilder.IsDisposed
 - uid: SharpHook.Simulation.EventSimulationSequenceBuilder.RemoveEvent(SharpHook.Data.UioHookEvent)
   name: RemoveEvent(UioHookEvent)
   href: api/SharpHook.Simulation.EventSimulationSequenceBuilder.html#SharpHook_Simulation_EventSimulationSequenceBuilder_RemoveEvent_SharpHook_Data_UioHookEvent_
@@ -6868,15 +6862,15 @@ references:
   commentId: T:SharpHook.Simulation.EventSimulationSequenceTemplate
   fullName: SharpHook.Simulation.EventSimulationSequenceTemplate
   nameWithType: EventSimulationSequenceTemplate
-- uid: SharpHook.Simulation.EventSimulationSequenceTemplate.#ctor(System.Collections.Generic.IEnumerable{SharpHook.Data.UioHookEvent},SharpHook.Providers.IEventSimulationProvider)
-  name: EventSimulationSequenceTemplate(IEnumerable<UioHookEvent>, IEventSimulationProvider?)
-  href: api/SharpHook.Simulation.EventSimulationSequenceTemplate.html#SharpHook_Simulation_EventSimulationSequenceTemplate__ctor_System_Collections_Generic_IEnumerable_SharpHook_Data_UioHookEvent__SharpHook_Providers_IEventSimulationProvider_
-  commentId: M:SharpHook.Simulation.EventSimulationSequenceTemplate.#ctor(System.Collections.Generic.IEnumerable{SharpHook.Data.UioHookEvent},SharpHook.Providers.IEventSimulationProvider)
-  name.vb: New(IEnumerable(Of UioHookEvent), IEventSimulationProvider)
-  fullName: SharpHook.Simulation.EventSimulationSequenceTemplate.EventSimulationSequenceTemplate(System.Collections.Generic.IEnumerable<SharpHook.Data.UioHookEvent>, SharpHook.Providers.IEventSimulationProvider?)
-  fullName.vb: SharpHook.Simulation.EventSimulationSequenceTemplate.New(System.Collections.Generic.IEnumerable(Of SharpHook.Data.UioHookEvent), SharpHook.Providers.IEventSimulationProvider)
-  nameWithType: EventSimulationSequenceTemplate.EventSimulationSequenceTemplate(IEnumerable<UioHookEvent>, IEventSimulationProvider?)
-  nameWithType.vb: EventSimulationSequenceTemplate.New(IEnumerable(Of UioHookEvent), IEventSimulationProvider)
+- uid: SharpHook.Simulation.EventSimulationSequenceTemplate.#ctor(SharpHook.Simulation.EventSimulator,System.Collections.Generic.IEnumerable{SharpHook.Data.UioHookEvent})
+  name: EventSimulationSequenceTemplate(EventSimulator, IEnumerable<UioHookEvent>)
+  href: api/SharpHook.Simulation.EventSimulationSequenceTemplate.html#SharpHook_Simulation_EventSimulationSequenceTemplate__ctor_SharpHook_Simulation_EventSimulator_System_Collections_Generic_IEnumerable_SharpHook_Data_UioHookEvent__
+  commentId: M:SharpHook.Simulation.EventSimulationSequenceTemplate.#ctor(SharpHook.Simulation.EventSimulator,System.Collections.Generic.IEnumerable{SharpHook.Data.UioHookEvent})
+  name.vb: New(EventSimulator, IEnumerable(Of UioHookEvent))
+  fullName: SharpHook.Simulation.EventSimulationSequenceTemplate.EventSimulationSequenceTemplate(SharpHook.Simulation.EventSimulator, System.Collections.Generic.IEnumerable<SharpHook.Data.UioHookEvent>)
+  fullName.vb: SharpHook.Simulation.EventSimulationSequenceTemplate.New(SharpHook.Simulation.EventSimulator, System.Collections.Generic.IEnumerable(Of SharpHook.Data.UioHookEvent))
+  nameWithType: EventSimulationSequenceTemplate.EventSimulationSequenceTemplate(EventSimulator, IEnumerable<UioHookEvent>)
+  nameWithType.vb: EventSimulationSequenceTemplate.New(EventSimulator, IEnumerable(Of UioHookEvent))
 - uid: SharpHook.Simulation.EventSimulationSequenceTemplate.#ctor*
   name: EventSimulationSequenceTemplate
   href: api/SharpHook.Simulation.EventSimulationSequenceTemplate.html#SharpHook_Simulation_EventSimulationSequenceTemplate__ctor_
@@ -6886,6 +6880,30 @@ references:
   fullName.vb: SharpHook.Simulation.EventSimulationSequenceTemplate.New
   nameWithType: EventSimulationSequenceTemplate.EventSimulationSequenceTemplate
   nameWithType.vb: EventSimulationSequenceTemplate.New
+- uid: SharpHook.Simulation.EventSimulationSequenceTemplate.Dispose
+  name: Dispose()
+  href: api/SharpHook.Simulation.EventSimulationSequenceTemplate.html#SharpHook_Simulation_EventSimulationSequenceTemplate_Dispose
+  commentId: M:SharpHook.Simulation.EventSimulationSequenceTemplate.Dispose
+  fullName: SharpHook.Simulation.EventSimulationSequenceTemplate.Dispose()
+  nameWithType: EventSimulationSequenceTemplate.Dispose()
+- uid: SharpHook.Simulation.EventSimulationSequenceTemplate.Dispose*
+  name: Dispose
+  href: api/SharpHook.Simulation.EventSimulationSequenceTemplate.html#SharpHook_Simulation_EventSimulationSequenceTemplate_Dispose_
+  commentId: Overload:SharpHook.Simulation.EventSimulationSequenceTemplate.Dispose
+  fullName: SharpHook.Simulation.EventSimulationSequenceTemplate.Dispose
+  nameWithType: EventSimulationSequenceTemplate.Dispose
+- uid: SharpHook.Simulation.EventSimulationSequenceTemplate.IsDisposed
+  name: IsDisposed
+  href: api/SharpHook.Simulation.EventSimulationSequenceTemplate.html#SharpHook_Simulation_EventSimulationSequenceTemplate_IsDisposed
+  commentId: P:SharpHook.Simulation.EventSimulationSequenceTemplate.IsDisposed
+  fullName: SharpHook.Simulation.EventSimulationSequenceTemplate.IsDisposed
+  nameWithType: EventSimulationSequenceTemplate.IsDisposed
+- uid: SharpHook.Simulation.EventSimulationSequenceTemplate.IsDisposed*
+  name: IsDisposed
+  href: api/SharpHook.Simulation.EventSimulationSequenceTemplate.html#SharpHook_Simulation_EventSimulationSequenceTemplate_IsDisposed_
+  commentId: Overload:SharpHook.Simulation.EventSimulationSequenceTemplate.IsDisposed
+  fullName: SharpHook.Simulation.EventSimulationSequenceTemplate.IsDisposed
+  nameWithType: EventSimulationSequenceTemplate.IsDisposed
 - uid: SharpHook.Simulation.EventSimulationSequenceTemplate.Simulate
   name: Simulate()
   href: api/SharpHook.Simulation.EventSimulationSequenceTemplate.html#SharpHook_Simulation_EventSimulationSequenceTemplate_Simulate
@@ -6904,24 +6922,60 @@ references:
   commentId: T:SharpHook.Simulation.EventSimulator
   fullName: SharpHook.Simulation.EventSimulator
   nameWithType: EventSimulator
-- uid: SharpHook.Simulation.EventSimulator.#ctor(SharpHook.Providers.IEventSimulationProvider)
-  name: EventSimulator(IEventSimulationProvider?)
-  href: api/SharpHook.Simulation.EventSimulator.html#SharpHook_Simulation_EventSimulator__ctor_SharpHook_Providers_IEventSimulationProvider_
-  commentId: M:SharpHook.Simulation.EventSimulator.#ctor(SharpHook.Providers.IEventSimulationProvider)
-  name.vb: New(IEventSimulationProvider)
-  fullName: SharpHook.Simulation.EventSimulator.EventSimulator(SharpHook.Providers.IEventSimulationProvider?)
-  fullName.vb: SharpHook.Simulation.EventSimulator.New(SharpHook.Providers.IEventSimulationProvider)
-  nameWithType: EventSimulator.EventSimulator(IEventSimulationProvider?)
-  nameWithType.vb: EventSimulator.New(IEventSimulationProvider)
-- uid: SharpHook.Simulation.EventSimulator.#ctor*
-  name: EventSimulator
-  href: api/SharpHook.Simulation.EventSimulator.html#SharpHook_Simulation_EventSimulator__ctor_
-  commentId: Overload:SharpHook.Simulation.EventSimulator.#ctor
-  name.vb: New
-  fullName: SharpHook.Simulation.EventSimulator.EventSimulator
-  fullName.vb: SharpHook.Simulation.EventSimulator.New
-  nameWithType: EventSimulator.EventSimulator
-  nameWithType.vb: EventSimulator.New
+- uid: SharpHook.Simulation.EventSimulator.Create(System.String,SharpHook.Providers.IEventSimulationProvider)
+  name: Create(string, IEventSimulationProvider?)
+  href: api/SharpHook.Simulation.EventSimulator.html#SharpHook_Simulation_EventSimulator_Create_System_String_SharpHook_Providers_IEventSimulationProvider_
+  commentId: M:SharpHook.Simulation.EventSimulator.Create(System.String,SharpHook.Providers.IEventSimulationProvider)
+  name.vb: Create(String, IEventSimulationProvider)
+  fullName: SharpHook.Simulation.EventSimulator.Create(string, SharpHook.Providers.IEventSimulationProvider?)
+  fullName.vb: SharpHook.Simulation.EventSimulator.Create(String, SharpHook.Providers.IEventSimulationProvider)
+  nameWithType: EventSimulator.Create(string, IEventSimulationProvider?)
+  nameWithType.vb: EventSimulator.Create(String, IEventSimulationProvider)
+- uid: SharpHook.Simulation.EventSimulator.Create*
+  name: Create
+  href: api/SharpHook.Simulation.EventSimulator.html#SharpHook_Simulation_EventSimulator_Create_
+  commentId: Overload:SharpHook.Simulation.EventSimulator.Create
+  fullName: SharpHook.Simulation.EventSimulator.Create
+  nameWithType: EventSimulator.Create
+- uid: SharpHook.Simulation.EventSimulator.Dispose
+  name: Dispose()
+  href: api/SharpHook.Simulation.EventSimulator.html#SharpHook_Simulation_EventSimulator_Dispose
+  commentId: M:SharpHook.Simulation.EventSimulator.Dispose
+  fullName: SharpHook.Simulation.EventSimulator.Dispose()
+  nameWithType: EventSimulator.Dispose()
+- uid: SharpHook.Simulation.EventSimulator.Dispose*
+  name: Dispose
+  href: api/SharpHook.Simulation.EventSimulator.html#SharpHook_Simulation_EventSimulator_Dispose_
+  commentId: Overload:SharpHook.Simulation.EventSimulator.Dispose
+  fullName: SharpHook.Simulation.EventSimulator.Dispose
+  nameWithType: EventSimulator.Dispose
+- uid: SharpHook.Simulation.EventSimulator.Finalize
+  name: ~EventSimulator()
+  href: api/SharpHook.Simulation.EventSimulator.html#SharpHook_Simulation_EventSimulator_Finalize
+  commentId: M:SharpHook.Simulation.EventSimulator.Finalize
+  name.vb: ''
+  fullName: SharpHook.Simulation.EventSimulator.~EventSimulator()
+  fullName.vb: ''
+  nameWithType: EventSimulator.~EventSimulator()
+  nameWithType.vb: ''
+- uid: SharpHook.Simulation.EventSimulator.Finalize*
+  name: ~EventSimulator
+  href: api/SharpHook.Simulation.EventSimulator.html#SharpHook_Simulation_EventSimulator_Finalize_
+  commentId: Overload:SharpHook.Simulation.EventSimulator.Finalize
+  fullName: SharpHook.Simulation.EventSimulator.~EventSimulator
+  nameWithType: EventSimulator.~EventSimulator
+- uid: SharpHook.Simulation.EventSimulator.IsDisposed
+  name: IsDisposed
+  href: api/SharpHook.Simulation.EventSimulator.html#SharpHook_Simulation_EventSimulator_IsDisposed
+  commentId: P:SharpHook.Simulation.EventSimulator.IsDisposed
+  fullName: SharpHook.Simulation.EventSimulator.IsDisposed
+  nameWithType: EventSimulator.IsDisposed
+- uid: SharpHook.Simulation.EventSimulator.IsDisposed*
+  name: IsDisposed
+  href: api/SharpHook.Simulation.EventSimulator.html#SharpHook_Simulation_EventSimulator_IsDisposed_
+  commentId: Overload:SharpHook.Simulation.EventSimulator.IsDisposed
+  fullName: SharpHook.Simulation.EventSimulator.IsDisposed
+  nameWithType: EventSimulator.IsDisposed
 - uid: SharpHook.Simulation.EventSimulator.Sequence
   name: Sequence()
   href: api/SharpHook.Simulation.EventSimulator.html#SharpHook_Simulation_EventSimulator_Sequence

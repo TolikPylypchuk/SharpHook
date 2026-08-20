@@ -379,6 +379,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.IStatefulDisposable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.IStatefulDisposable.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.IStatefulDisposable",
+      "Summary": "<p sourcefile=\"api/SharpHook.IStatefulDisposable.yml\" sourcestartlinenumber=\"1\">Provides a mechanism for disposing of resources and tracking the disposal state.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SharpHook.KeyboardHookEventArgs.yml",
       "output": {
         ".html": {

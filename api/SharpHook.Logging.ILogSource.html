@@ -102,7 +102,7 @@ Interface ILogSource  <a class="header-action link-secondary" title="View source
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface ILogSource : IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public interface ILogSource : IStatefulDisposable, IDisposable</code></pre>
   </div>
 
 
@@ -115,51 +115,14 @@ Interface ILogSource  <a class="header-action link-secondary" title="View source
     <dt>Inherited Members</dt>
     <dd>
     <div>
+      <a class="xref" href="SharpHook.IStatefulDisposable.html#SharpHook_IStatefulDisposable_IsDisposed">IStatefulDisposable.IsDisposed</a>
+    </div>
+    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">IDisposable.Dispose()</a>
     </div>
   </dd></dl>
 
 
-
-
-
-
-  <h2 class="section" id="properties">Properties
-</h2>
-
-
-  <a id="SharpHook_Logging_ILogSource_IsDisposed_" data-uid="SharpHook.Logging.ILogSource.IsDisposed*"></a>
-
-  <h3 id="SharpHook_Logging_ILogSource_IsDisposed" data-uid="SharpHook.Logging.ILogSource.IsDisposed">
-  IsDisposed
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Logging/ILogSource.cs"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Gets the value which indicates whether the log source is disposed.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">bool IsDisposed { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the log source is disposed. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
-</dd>
-  </dl>
-
-
-
-
-  <h4 class="section" id="SharpHook_Logging_ILogSource_IsDisposed_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>A disposed log source doesn't raise the <a class="xref" href="SharpHook.Logging.ILogSource.html#SharpHook_Logging_ILogSource_MessageLogged">MessageLogged</a> event.</p>
-</div>
 
 
 

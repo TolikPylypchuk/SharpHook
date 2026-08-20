@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-      <title>Interface IEventSimulationSequenceTemplate | SharpHook </title>
+      <title>Interface IStatefulDisposable | SharpHook </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Interface IEventSimulationSequenceTemplate | SharpHook ">
+      <meta name="title" content="Interface IStatefulDisposable | SharpHook ">
       
-      <meta name="description" content="Represents an object that can simulate a predetermined sequence of events.">
+      <meta name="description" content="Provides a mechanism for disposing of resources and tracking the disposal state.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -84,25 +84,25 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="SharpHook.Simulation.IEventSimulationSequenceTemplate">
+        <article data-uid="SharpHook.IStatefulDisposable">
 
 
 
-  <h1 id="SharpHook_Simulation_IEventSimulationSequenceTemplate" data-uid="SharpHook.Simulation.IEventSimulationSequenceTemplate" class="text-break">
-Interface IEventSimulationSequenceTemplate  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Simulation/IEventSimulationSequenceTemplate.cs"><i class="bi bi-code-slash"></i></a>
+  <h1 id="SharpHook_IStatefulDisposable" data-uid="SharpHook.IStatefulDisposable" class="text-break">
+Interface IStatefulDisposable  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IStatefulDisposable.cs"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="SharpHook.html">SharpHook</a>.<a class="xref" href="SharpHook.Simulation.html">Simulation</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SharpHook.html">SharpHook</a></dd></dl>
   <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Represents an object that can simulate a predetermined sequence of events.</p>
+  <div class="markdown summary"><p>Provides a mechanism for disposing of resources and tracking the disposal state.</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IEventSimulationSequenceTemplate : IStatefulDisposable, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IStatefulDisposable : IDisposable</code></pre>
   </div>
 
 
@@ -115,9 +115,6 @@ Interface IEventSimulationSequenceTemplate  <a class="header-action link-seconda
     <dt>Inherited Members</dt>
     <dd>
     <div>
-      <a class="xref" href="SharpHook.IStatefulDisposable.html#SharpHook_IStatefulDisposable_IsDisposed">IStatefulDisposable.IsDisposed</a>
-    </div>
-    <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">IDisposable.Dispose()</a>
     </div>
   </dd></dl>
@@ -127,30 +124,33 @@ Interface IEventSimulationSequenceTemplate  <a class="header-action link-seconda
 
 
 
-  <h2 class="section" id="methods">Methods
+  <h2 class="section" id="properties">Properties
 </h2>
 
 
-  <a id="SharpHook_Simulation_IEventSimulationSequenceTemplate_Simulate_" data-uid="SharpHook.Simulation.IEventSimulationSequenceTemplate.Simulate*"></a>
+  <a id="SharpHook_IStatefulDisposable_IsDisposed_" data-uid="SharpHook.IStatefulDisposable.IsDisposed*"></a>
 
-  <h3 id="SharpHook_Simulation_IEventSimulationSequenceTemplate_Simulate" data-uid="SharpHook.Simulation.IEventSimulationSequenceTemplate.Simulate">
-  Simulate()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Simulation/IEventSimulationSequenceTemplate.cs"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SharpHook_IStatefulDisposable_IsDisposed" data-uid="SharpHook.IStatefulDisposable.IsDisposed">
+  IsDisposed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IStatefulDisposable.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Simulates the predetermined sequence of events.</p>
+  <div class="markdown level1 summary"><p>Gets a value which indicates whether the object has been disposed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">UioHookResult Simulate()</code></pre>
+    <pre><code class="lang-csharp hljs">bool IsDisposed { get; }</code></pre>
   </div>
 
 
-  <h4 class="section">Returns</h4>
+
+
+
+  <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
-    <dd><p>The result of the operation.</p>
+    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the object has been disposed. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
 </dd>
   </dl>
 
@@ -158,15 +158,6 @@ Interface IEventSimulationSequenceTemplate  <a class="header-action link-seconda
 
 
 
-
-
-
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
-    <dd><p>The builder has been disposed.</p>
-</dd>
-  </dl>
 
 
 
@@ -174,7 +165,7 @@ Interface IEventSimulationSequenceTemplate  <a class="header-action link-seconda
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/Simulation/IEventSimulationSequenceTemplate.cs" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IStatefulDisposable.cs" class="edit-link">Edit this page</a>
         </div>
 
 

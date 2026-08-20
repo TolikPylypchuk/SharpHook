@@ -103,7 +103,7 @@ a strategy for handling events and uses a global hook provider (libuiohook by de
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class BasicGlobalHookBase : IBasicGlobalHook, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class BasicGlobalHookBase : IBasicGlobalHook, IStatefulDisposable, IDisposable</code></pre>
   </div>
 
 
@@ -121,6 +121,7 @@ a strategy for handling events and uses a global hook provider (libuiohook by de
     <dt>Implements</dt>
     <dd>
       <div><a class="xref" href="SharpHook.IBasicGlobalHook.html">IBasicGlobalHook</a></div>
+      <div><a class="xref" href="SharpHook.IStatefulDisposable.html">IStatefulDisposable</a></div>
       <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
     </dd>
   </dl>

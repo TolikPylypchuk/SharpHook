@@ -102,7 +102,7 @@ Interface IReactiveGlobalHook  <a class="header-action link-secondary" title="Vi
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IReactiveGlobalHook : IBasicGlobalHook, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IReactiveGlobalHook : IBasicGlobalHook, IStatefulDisposable, IDisposable</code></pre>
   </div>
 
 
@@ -127,7 +127,7 @@ Interface IReactiveGlobalHook  <a class="header-action link-secondary" title="Vi
       <a class="xref" href="SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_IsRunning">IBasicGlobalHook.IsRunning</a>
     </div>
     <div>
-      <a class="xref" href="SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_IsDisposed">IBasicGlobalHook.IsDisposed</a>
+      <a class="xref" href="SharpHook.IStatefulDisposable.html#SharpHook_IStatefulDisposable_IsDisposed">IStatefulDisposable.IsDisposed</a>
     </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">IDisposable.Dispose()</a>

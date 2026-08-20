@@ -102,7 +102,7 @@ Interface IBasicGlobalHook  <a class="header-action link-secondary" title="View 
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IBasicGlobalHook : IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IBasicGlobalHook : IStatefulDisposable, IDisposable</code></pre>
   </div>
 
 
@@ -114,6 +114,9 @@ Interface IBasicGlobalHook  <a class="header-action link-secondary" title="View 
   <dl class="typelist inheritedMembers">
     <dt>Inherited Members</dt>
     <dd>
+    <div>
+      <a class="xref" href="SharpHook.IStatefulDisposable.html#SharpHook_IStatefulDisposable_IsDisposed">IStatefulDisposable.IsDisposed</a>
+    </div>
     <div>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">IDisposable.Dispose()</a>
     </div>
@@ -131,42 +134,6 @@ required for advanced scenarios.</p>
 
   <h2 class="section" id="properties">Properties
 </h2>
-
-
-  <a id="SharpHook_IBasicGlobalHook_IsDisposed_" data-uid="SharpHook.IBasicGlobalHook.IsDisposed*"></a>
-
-  <h3 id="SharpHook_IBasicGlobalHook_IsDisposed" data-uid="SharpHook.IBasicGlobalHook.IsDisposed">
-  IsDisposed
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/SharpHook/IBasicGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"><p>Gets the value which indicates whether the global hook has been disposed.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">bool IsDisposed { get; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the global hook has been disposed. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
-</dd>
-  </dl>
-
-
-
-
-  <h4 class="section" id="SharpHook_IBasicGlobalHook_IsDisposed_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>A disposed global hook cannot be started again.</p>
-</div>
-
-
 
 
   <a id="SharpHook_IBasicGlobalHook_IsRunning_" data-uid="SharpHook.IBasicGlobalHook.IsRunning*"></a>
