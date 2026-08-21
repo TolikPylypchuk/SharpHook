@@ -2614,15 +2614,15 @@ references:
   commentId: T:SharpHook.EventLoopGlobalHook
   fullName: SharpHook.EventLoopGlobalHook
   nameWithType: EventLoopGlobalHook
-- uid: SharpHook.EventLoopGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider)
-  name: EventLoopGlobalHook(IGlobalHookProvider?)
-  href: api/SharpHook.EventLoopGlobalHook.html#SharpHook_EventLoopGlobalHook__ctor_SharpHook_Providers_IGlobalHookProvider_
-  commentId: M:SharpHook.EventLoopGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider)
-  name.vb: New(IGlobalHookProvider)
-  fullName: SharpHook.EventLoopGlobalHook.EventLoopGlobalHook(SharpHook.Providers.IGlobalHookProvider?)
-  fullName.vb: SharpHook.EventLoopGlobalHook.New(SharpHook.Providers.IGlobalHookProvider)
-  nameWithType: EventLoopGlobalHook.EventLoopGlobalHook(IGlobalHookProvider?)
-  nameWithType.vb: EventLoopGlobalHook.New(IGlobalHookProvider)
+- uid: SharpHook.EventLoopGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider,System.Boolean)
+  name: EventLoopGlobalHook(IGlobalHookProvider?, bool)
+  href: api/SharpHook.EventLoopGlobalHook.html#SharpHook_EventLoopGlobalHook__ctor_SharpHook_Providers_IGlobalHookProvider_System_Boolean_
+  commentId: M:SharpHook.EventLoopGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider,System.Boolean)
+  name.vb: New(IGlobalHookProvider, Boolean)
+  fullName: SharpHook.EventLoopGlobalHook.EventLoopGlobalHook(SharpHook.Providers.IGlobalHookProvider?, bool)
+  fullName.vb: SharpHook.EventLoopGlobalHook.New(SharpHook.Providers.IGlobalHookProvider, Boolean)
+  nameWithType: EventLoopGlobalHook.EventLoopGlobalHook(IGlobalHookProvider?, bool)
+  nameWithType.vb: EventLoopGlobalHook.New(IGlobalHookProvider, Boolean)
 - uid: SharpHook.EventLoopGlobalHook.#ctor*
   name: EventLoopGlobalHook
   href: api/SharpHook.EventLoopGlobalHook.html#SharpHook_EventLoopGlobalHook__ctor_
