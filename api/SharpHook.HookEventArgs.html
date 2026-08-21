@@ -172,7 +172,7 @@ Class HookEventArgs  <a class="header-action link-secondary" title="View source"
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/HookEventArgs.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>A base class for event args related to the global hook.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="SharpHook.HookEventArgs.html">HookEventArgs</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -196,15 +196,6 @@ Class HookEventArgs  <a class="header-action link-secondary" title="View source"
 
 
 
-  <dl class="typelist seealso">
-    <dt>See Also</dt>
-    <dd>
-    <div><a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a></div>
-    <div><a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a></div>
-    <div><a class="xref" href="SharpHook.Data.MouseWheelEventData.html">MouseWheelEventData</a></div>
-    <div><a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></div>
-    </dd>
-  </dl>
 
 
   <h2 class="section" id="properties">Properties
@@ -317,8 +308,7 @@ Class HookEventArgs  <a class="header-action link-secondary" title="View source"
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/HookEventArgs.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets or sets whether to suppress the event from further propagation after running the event handler. Events must
-be suppressed synchronously. Suppressing events works only on Windows and macOS.</p>
+  <div class="markdown level1 summary"><p>Gets or sets whether to suppress the event from further propagation after running the event handler.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -340,6 +330,19 @@ be suppressed synchronously. Suppressing events works only on Windows and macOS.
 
 
 
+  <h4 class="section" id="SharpHook_HookEventArgs_SuppressEvent_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Events must be suppressed synchronously, i.e., in the same thread in which the hook itself runs. This means that
+some global hooks, like <a class="xref" href="SharpHook.EventLoopGlobalHook.html">EventLoopGlobalHook</a> or <a class="xref" href="SharpHook.TaskPoolGlobalHook.html">TaskPoolGlobalHook</a>, do not support
+suppressing events.
+</p>
+<p>
+Suppressing events works only on Windows and macOS. You can use
+<a class="xref" href="SharpHook.Providers.IFeatureProvider.html#SharpHook_Providers_IFeatureProvider_GetOptionalFeatureSupport">GetOptionalFeatureSupport()</a> to check whether the current platform supports
+suppresing events. If that method returns <a class="xref" href="SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_EventSuppression">EventSuppression</a> as one of the supported
+features, then it does.
+</p>
+</div>
 
 
 

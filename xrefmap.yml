@@ -2770,12 +2770,24 @@ references:
   commentId: E:SharpHook.GlobalHookBase.MouseDragged
   fullName: SharpHook.GlobalHookBase.MouseDragged
   nameWithType: GlobalHookBase.MouseDragged
+- uid: SharpHook.GlobalHookBase.MouseDraggedRelative
+  name: MouseDraggedRelative
+  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MouseDraggedRelative
+  commentId: E:SharpHook.GlobalHookBase.MouseDraggedRelative
+  fullName: SharpHook.GlobalHookBase.MouseDraggedRelative
+  nameWithType: GlobalHookBase.MouseDraggedRelative
 - uid: SharpHook.GlobalHookBase.MouseMoved
   name: MouseMoved
   href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MouseMoved
   commentId: E:SharpHook.GlobalHookBase.MouseMoved
   fullName: SharpHook.GlobalHookBase.MouseMoved
   nameWithType: GlobalHookBase.MouseMoved
+- uid: SharpHook.GlobalHookBase.MouseMovedRelative
+  name: MouseMovedRelative
+  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MouseMovedRelative
+  commentId: E:SharpHook.GlobalHookBase.MouseMovedRelative
+  fullName: SharpHook.GlobalHookBase.MouseMovedRelative
+  nameWithType: GlobalHookBase.MouseMovedRelative
 - uid: SharpHook.GlobalHookBase.MousePressed
   name: MousePressed
   href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MousePressed
@@ -2878,6 +2890,18 @@ references:
   commentId: Overload:SharpHook.GlobalHookBase.OnMouseDragged
   fullName: SharpHook.GlobalHookBase.OnMouseDragged
   nameWithType: GlobalHookBase.OnMouseDragged
+- uid: SharpHook.GlobalHookBase.OnMouseDraggedRelative(SharpHook.MouseHookEventArgs)
+  name: OnMouseDraggedRelative(MouseHookEventArgs)
+  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_OnMouseDraggedRelative_SharpHook_MouseHookEventArgs_
+  commentId: M:SharpHook.GlobalHookBase.OnMouseDraggedRelative(SharpHook.MouseHookEventArgs)
+  fullName: SharpHook.GlobalHookBase.OnMouseDraggedRelative(SharpHook.MouseHookEventArgs)
+  nameWithType: GlobalHookBase.OnMouseDraggedRelative(MouseHookEventArgs)
+- uid: SharpHook.GlobalHookBase.OnMouseDraggedRelative*
+  name: OnMouseDraggedRelative
+  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_OnMouseDraggedRelative_
+  commentId: Overload:SharpHook.GlobalHookBase.OnMouseDraggedRelative
+  fullName: SharpHook.GlobalHookBase.OnMouseDraggedRelative
+  nameWithType: GlobalHookBase.OnMouseDraggedRelative
 - uid: SharpHook.GlobalHookBase.OnMouseMoved(SharpHook.MouseHookEventArgs)
   name: OnMouseMoved(MouseHookEventArgs)
   href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_OnMouseMoved_SharpHook_MouseHookEventArgs_
@@ -2890,6 +2914,18 @@ references:
   commentId: Overload:SharpHook.GlobalHookBase.OnMouseMoved
   fullName: SharpHook.GlobalHookBase.OnMouseMoved
   nameWithType: GlobalHookBase.OnMouseMoved
+- uid: SharpHook.GlobalHookBase.OnMouseMovedRelative(SharpHook.MouseHookEventArgs)
+  name: OnMouseMovedRelative(MouseHookEventArgs)
+  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_OnMouseMovedRelative_SharpHook_MouseHookEventArgs_
+  commentId: M:SharpHook.GlobalHookBase.OnMouseMovedRelative(SharpHook.MouseHookEventArgs)
+  fullName: SharpHook.GlobalHookBase.OnMouseMovedRelative(SharpHook.MouseHookEventArgs)
+  nameWithType: GlobalHookBase.OnMouseMovedRelative(MouseHookEventArgs)
+- uid: SharpHook.GlobalHookBase.OnMouseMovedRelative*
+  name: OnMouseMovedRelative
+  href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_OnMouseMovedRelative_
+  commentId: Overload:SharpHook.GlobalHookBase.OnMouseMovedRelative
+  fullName: SharpHook.GlobalHookBase.OnMouseMovedRelative
+  nameWithType: GlobalHookBase.OnMouseMovedRelative
 - uid: SharpHook.GlobalHookBase.OnMousePressed(SharpHook.MouseHookEventArgs)
   name: OnMousePressed(MouseHookEventArgs)
   href: api/SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_OnMousePressed_SharpHook_MouseHookEventArgs_
@@ -3220,12 +3256,24 @@ references:
   commentId: E:SharpHook.IGlobalHook.MouseDragged
   fullName: SharpHook.IGlobalHook.MouseDragged
   nameWithType: IGlobalHook.MouseDragged
+- uid: SharpHook.IGlobalHook.MouseDraggedRelative
+  name: MouseDraggedRelative
+  href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_MouseDraggedRelative
+  commentId: E:SharpHook.IGlobalHook.MouseDraggedRelative
+  fullName: SharpHook.IGlobalHook.MouseDraggedRelative
+  nameWithType: IGlobalHook.MouseDraggedRelative
 - uid: SharpHook.IGlobalHook.MouseMoved
   name: MouseMoved
   href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_MouseMoved
   commentId: E:SharpHook.IGlobalHook.MouseMoved
   fullName: SharpHook.IGlobalHook.MouseMoved
   nameWithType: IGlobalHook.MouseMoved
+- uid: SharpHook.IGlobalHook.MouseMovedRelative
+  name: MouseMovedRelative
+  href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_MouseMovedRelative
+  commentId: E:SharpHook.IGlobalHook.MouseMovedRelative
+  fullName: SharpHook.IGlobalHook.MouseMovedRelative
+  nameWithType: IGlobalHook.MouseMovedRelative
 - uid: SharpHook.IGlobalHook.MousePressed
   name: MousePressed
   href: api/SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_MousePressed
@@ -4975,6 +5023,18 @@ references:
   commentId: Overload:SharpHook.R3.IR3GlobalHook.MouseDragged
   fullName: SharpHook.R3.IR3GlobalHook.MouseDragged
   nameWithType: IR3GlobalHook.MouseDragged
+- uid: SharpHook.R3.IR3GlobalHook.MouseDraggedRelative
+  name: MouseDraggedRelative
+  href: api/SharpHook.R3.IR3GlobalHook.html#SharpHook_R3_IR3GlobalHook_MouseDraggedRelative
+  commentId: P:SharpHook.R3.IR3GlobalHook.MouseDraggedRelative
+  fullName: SharpHook.R3.IR3GlobalHook.MouseDraggedRelative
+  nameWithType: IR3GlobalHook.MouseDraggedRelative
+- uid: SharpHook.R3.IR3GlobalHook.MouseDraggedRelative*
+  name: MouseDraggedRelative
+  href: api/SharpHook.R3.IR3GlobalHook.html#SharpHook_R3_IR3GlobalHook_MouseDraggedRelative_
+  commentId: Overload:SharpHook.R3.IR3GlobalHook.MouseDraggedRelative
+  fullName: SharpHook.R3.IR3GlobalHook.MouseDraggedRelative
+  nameWithType: IR3GlobalHook.MouseDraggedRelative
 - uid: SharpHook.R3.IR3GlobalHook.MouseMoved
   name: MouseMoved
   href: api/SharpHook.R3.IR3GlobalHook.html#SharpHook_R3_IR3GlobalHook_MouseMoved
@@ -4987,6 +5047,18 @@ references:
   commentId: Overload:SharpHook.R3.IR3GlobalHook.MouseMoved
   fullName: SharpHook.R3.IR3GlobalHook.MouseMoved
   nameWithType: IR3GlobalHook.MouseMoved
+- uid: SharpHook.R3.IR3GlobalHook.MouseMovedRelative
+  name: MouseMovedRelative
+  href: api/SharpHook.R3.IR3GlobalHook.html#SharpHook_R3_IR3GlobalHook_MouseMovedRelative
+  commentId: P:SharpHook.R3.IR3GlobalHook.MouseMovedRelative
+  fullName: SharpHook.R3.IR3GlobalHook.MouseMovedRelative
+  nameWithType: IR3GlobalHook.MouseMovedRelative
+- uid: SharpHook.R3.IR3GlobalHook.MouseMovedRelative*
+  name: MouseMovedRelative
+  href: api/SharpHook.R3.IR3GlobalHook.html#SharpHook_R3_IR3GlobalHook_MouseMovedRelative_
+  commentId: Overload:SharpHook.R3.IR3GlobalHook.MouseMovedRelative
+  fullName: SharpHook.R3.IR3GlobalHook.MouseMovedRelative
+  nameWithType: IR3GlobalHook.MouseMovedRelative
 - uid: SharpHook.R3.IR3GlobalHook.MousePressed
   name: MousePressed
   href: api/SharpHook.R3.IR3GlobalHook.html#SharpHook_R3_IR3GlobalHook_MousePressed
@@ -5260,6 +5332,18 @@ references:
   commentId: Overload:SharpHook.R3.R3GlobalHook.MouseDragged
   fullName: SharpHook.R3.R3GlobalHook.MouseDragged
   nameWithType: R3GlobalHook.MouseDragged
+- uid: SharpHook.R3.R3GlobalHook.MouseDraggedRelative
+  name: MouseDraggedRelative
+  href: api/SharpHook.R3.R3GlobalHook.html#SharpHook_R3_R3GlobalHook_MouseDraggedRelative
+  commentId: P:SharpHook.R3.R3GlobalHook.MouseDraggedRelative
+  fullName: SharpHook.R3.R3GlobalHook.MouseDraggedRelative
+  nameWithType: R3GlobalHook.MouseDraggedRelative
+- uid: SharpHook.R3.R3GlobalHook.MouseDraggedRelative*
+  name: MouseDraggedRelative
+  href: api/SharpHook.R3.R3GlobalHook.html#SharpHook_R3_R3GlobalHook_MouseDraggedRelative_
+  commentId: Overload:SharpHook.R3.R3GlobalHook.MouseDraggedRelative
+  fullName: SharpHook.R3.R3GlobalHook.MouseDraggedRelative
+  nameWithType: R3GlobalHook.MouseDraggedRelative
 - uid: SharpHook.R3.R3GlobalHook.MouseMoved
   name: MouseMoved
   href: api/SharpHook.R3.R3GlobalHook.html#SharpHook_R3_R3GlobalHook_MouseMoved
@@ -5272,6 +5356,18 @@ references:
   commentId: Overload:SharpHook.R3.R3GlobalHook.MouseMoved
   fullName: SharpHook.R3.R3GlobalHook.MouseMoved
   nameWithType: R3GlobalHook.MouseMoved
+- uid: SharpHook.R3.R3GlobalHook.MouseMovedRelative
+  name: MouseMovedRelative
+  href: api/SharpHook.R3.R3GlobalHook.html#SharpHook_R3_R3GlobalHook_MouseMovedRelative
+  commentId: P:SharpHook.R3.R3GlobalHook.MouseMovedRelative
+  fullName: SharpHook.R3.R3GlobalHook.MouseMovedRelative
+  nameWithType: R3GlobalHook.MouseMovedRelative
+- uid: SharpHook.R3.R3GlobalHook.MouseMovedRelative*
+  name: MouseMovedRelative
+  href: api/SharpHook.R3.R3GlobalHook.html#SharpHook_R3_R3GlobalHook_MouseMovedRelative_
+  commentId: Overload:SharpHook.R3.R3GlobalHook.MouseMovedRelative
+  fullName: SharpHook.R3.R3GlobalHook.MouseMovedRelative
+  nameWithType: R3GlobalHook.MouseMovedRelative
 - uid: SharpHook.R3.R3GlobalHook.MousePressed
   name: MousePressed
   href: api/SharpHook.R3.R3GlobalHook.html#SharpHook_R3_R3GlobalHook_MousePressed
@@ -5452,6 +5548,18 @@ references:
   commentId: Overload:SharpHook.R3.R3GlobalHookAdapter.MouseDragged
   fullName: SharpHook.R3.R3GlobalHookAdapter.MouseDragged
   nameWithType: R3GlobalHookAdapter.MouseDragged
+- uid: SharpHook.R3.R3GlobalHookAdapter.MouseDraggedRelative
+  name: MouseDraggedRelative
+  href: api/SharpHook.R3.R3GlobalHookAdapter.html#SharpHook_R3_R3GlobalHookAdapter_MouseDraggedRelative
+  commentId: P:SharpHook.R3.R3GlobalHookAdapter.MouseDraggedRelative
+  fullName: SharpHook.R3.R3GlobalHookAdapter.MouseDraggedRelative
+  nameWithType: R3GlobalHookAdapter.MouseDraggedRelative
+- uid: SharpHook.R3.R3GlobalHookAdapter.MouseDraggedRelative*
+  name: MouseDraggedRelative
+  href: api/SharpHook.R3.R3GlobalHookAdapter.html#SharpHook_R3_R3GlobalHookAdapter_MouseDraggedRelative_
+  commentId: Overload:SharpHook.R3.R3GlobalHookAdapter.MouseDraggedRelative
+  fullName: SharpHook.R3.R3GlobalHookAdapter.MouseDraggedRelative
+  nameWithType: R3GlobalHookAdapter.MouseDraggedRelative
 - uid: SharpHook.R3.R3GlobalHookAdapter.MouseMoved
   name: MouseMoved
   href: api/SharpHook.R3.R3GlobalHookAdapter.html#SharpHook_R3_R3GlobalHookAdapter_MouseMoved
@@ -5464,6 +5572,18 @@ references:
   commentId: Overload:SharpHook.R3.R3GlobalHookAdapter.MouseMoved
   fullName: SharpHook.R3.R3GlobalHookAdapter.MouseMoved
   nameWithType: R3GlobalHookAdapter.MouseMoved
+- uid: SharpHook.R3.R3GlobalHookAdapter.MouseMovedRelative
+  name: MouseMovedRelative
+  href: api/SharpHook.R3.R3GlobalHookAdapter.html#SharpHook_R3_R3GlobalHookAdapter_MouseMovedRelative
+  commentId: P:SharpHook.R3.R3GlobalHookAdapter.MouseMovedRelative
+  fullName: SharpHook.R3.R3GlobalHookAdapter.MouseMovedRelative
+  nameWithType: R3GlobalHookAdapter.MouseMovedRelative
+- uid: SharpHook.R3.R3GlobalHookAdapter.MouseMovedRelative*
+  name: MouseMovedRelative
+  href: api/SharpHook.R3.R3GlobalHookAdapter.html#SharpHook_R3_R3GlobalHookAdapter_MouseMovedRelative_
+  commentId: Overload:SharpHook.R3.R3GlobalHookAdapter.MouseMovedRelative
+  fullName: SharpHook.R3.R3GlobalHookAdapter.MouseMovedRelative
+  nameWithType: R3GlobalHookAdapter.MouseMovedRelative
 - uid: SharpHook.R3.R3GlobalHookAdapter.MousePressed
   name: MousePressed
   href: api/SharpHook.R3.R3GlobalHookAdapter.html#SharpHook_R3_R3GlobalHookAdapter_MousePressed
@@ -5635,6 +5755,18 @@ references:
   commentId: Overload:SharpHook.Reactive.IReactiveGlobalHook.MouseDragged
   fullName: SharpHook.Reactive.IReactiveGlobalHook.MouseDragged
   nameWithType: IReactiveGlobalHook.MouseDragged
+- uid: SharpHook.Reactive.IReactiveGlobalHook.MouseDraggedRelative
+  name: MouseDraggedRelative
+  href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_MouseDraggedRelative
+  commentId: P:SharpHook.Reactive.IReactiveGlobalHook.MouseDraggedRelative
+  fullName: SharpHook.Reactive.IReactiveGlobalHook.MouseDraggedRelative
+  nameWithType: IReactiveGlobalHook.MouseDraggedRelative
+- uid: SharpHook.Reactive.IReactiveGlobalHook.MouseDraggedRelative*
+  name: MouseDraggedRelative
+  href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_MouseDraggedRelative_
+  commentId: Overload:SharpHook.Reactive.IReactiveGlobalHook.MouseDraggedRelative
+  fullName: SharpHook.Reactive.IReactiveGlobalHook.MouseDraggedRelative
+  nameWithType: IReactiveGlobalHook.MouseDraggedRelative
 - uid: SharpHook.Reactive.IReactiveGlobalHook.MouseMoved
   name: MouseMoved
   href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_MouseMoved
@@ -5647,6 +5779,18 @@ references:
   commentId: Overload:SharpHook.Reactive.IReactiveGlobalHook.MouseMoved
   fullName: SharpHook.Reactive.IReactiveGlobalHook.MouseMoved
   nameWithType: IReactiveGlobalHook.MouseMoved
+- uid: SharpHook.Reactive.IReactiveGlobalHook.MouseMovedRelative
+  name: MouseMovedRelative
+  href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_MouseMovedRelative
+  commentId: P:SharpHook.Reactive.IReactiveGlobalHook.MouseMovedRelative
+  fullName: SharpHook.Reactive.IReactiveGlobalHook.MouseMovedRelative
+  nameWithType: IReactiveGlobalHook.MouseMovedRelative
+- uid: SharpHook.Reactive.IReactiveGlobalHook.MouseMovedRelative*
+  name: MouseMovedRelative
+  href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_MouseMovedRelative_
+  commentId: Overload:SharpHook.Reactive.IReactiveGlobalHook.MouseMovedRelative
+  fullName: SharpHook.Reactive.IReactiveGlobalHook.MouseMovedRelative
+  nameWithType: IReactiveGlobalHook.MouseMovedRelative
 - uid: SharpHook.Reactive.IReactiveGlobalHook.MousePressed
   name: MousePressed
   href: api/SharpHook.Reactive.IReactiveGlobalHook.html#SharpHook_Reactive_IReactiveGlobalHook_MousePressed
@@ -5920,6 +6064,18 @@ references:
   commentId: Overload:SharpHook.Reactive.ReactiveGlobalHook.MouseDragged
   fullName: SharpHook.Reactive.ReactiveGlobalHook.MouseDragged
   nameWithType: ReactiveGlobalHook.MouseDragged
+- uid: SharpHook.Reactive.ReactiveGlobalHook.MouseDraggedRelative
+  name: MouseDraggedRelative
+  href: api/SharpHook.Reactive.ReactiveGlobalHook.html#SharpHook_Reactive_ReactiveGlobalHook_MouseDraggedRelative
+  commentId: P:SharpHook.Reactive.ReactiveGlobalHook.MouseDraggedRelative
+  fullName: SharpHook.Reactive.ReactiveGlobalHook.MouseDraggedRelative
+  nameWithType: ReactiveGlobalHook.MouseDraggedRelative
+- uid: SharpHook.Reactive.ReactiveGlobalHook.MouseDraggedRelative*
+  name: MouseDraggedRelative
+  href: api/SharpHook.Reactive.ReactiveGlobalHook.html#SharpHook_Reactive_ReactiveGlobalHook_MouseDraggedRelative_
+  commentId: Overload:SharpHook.Reactive.ReactiveGlobalHook.MouseDraggedRelative
+  fullName: SharpHook.Reactive.ReactiveGlobalHook.MouseDraggedRelative
+  nameWithType: ReactiveGlobalHook.MouseDraggedRelative
 - uid: SharpHook.Reactive.ReactiveGlobalHook.MouseMoved
   name: MouseMoved
   href: api/SharpHook.Reactive.ReactiveGlobalHook.html#SharpHook_Reactive_ReactiveGlobalHook_MouseMoved
@@ -5932,6 +6088,18 @@ references:
   commentId: Overload:SharpHook.Reactive.ReactiveGlobalHook.MouseMoved
   fullName: SharpHook.Reactive.ReactiveGlobalHook.MouseMoved
   nameWithType: ReactiveGlobalHook.MouseMoved
+- uid: SharpHook.Reactive.ReactiveGlobalHook.MouseMovedRelative
+  name: MouseMovedRelative
+  href: api/SharpHook.Reactive.ReactiveGlobalHook.html#SharpHook_Reactive_ReactiveGlobalHook_MouseMovedRelative
+  commentId: P:SharpHook.Reactive.ReactiveGlobalHook.MouseMovedRelative
+  fullName: SharpHook.Reactive.ReactiveGlobalHook.MouseMovedRelative
+  nameWithType: ReactiveGlobalHook.MouseMovedRelative
+- uid: SharpHook.Reactive.ReactiveGlobalHook.MouseMovedRelative*
+  name: MouseMovedRelative
+  href: api/SharpHook.Reactive.ReactiveGlobalHook.html#SharpHook_Reactive_ReactiveGlobalHook_MouseMovedRelative_
+  commentId: Overload:SharpHook.Reactive.ReactiveGlobalHook.MouseMovedRelative
+  fullName: SharpHook.Reactive.ReactiveGlobalHook.MouseMovedRelative
+  nameWithType: ReactiveGlobalHook.MouseMovedRelative
 - uid: SharpHook.Reactive.ReactiveGlobalHook.MousePressed
   name: MousePressed
   href: api/SharpHook.Reactive.ReactiveGlobalHook.html#SharpHook_Reactive_ReactiveGlobalHook_MousePressed
@@ -6112,6 +6280,18 @@ references:
   commentId: Overload:SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseDragged
   fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseDragged
   nameWithType: ReactiveGlobalHookAdapter.MouseDragged
+- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseDraggedRelative
+  name: MouseDraggedRelative
+  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_MouseDraggedRelative
+  commentId: P:SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseDraggedRelative
+  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseDraggedRelative
+  nameWithType: ReactiveGlobalHookAdapter.MouseDraggedRelative
+- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseDraggedRelative*
+  name: MouseDraggedRelative
+  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_MouseDraggedRelative_
+  commentId: Overload:SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseDraggedRelative
+  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseDraggedRelative
+  nameWithType: ReactiveGlobalHookAdapter.MouseDraggedRelative
 - uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseMoved
   name: MouseMoved
   href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_MouseMoved
@@ -6124,6 +6304,18 @@ references:
   commentId: Overload:SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseMoved
   fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseMoved
   nameWithType: ReactiveGlobalHookAdapter.MouseMoved
+- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseMovedRelative
+  name: MouseMovedRelative
+  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_MouseMovedRelative
+  commentId: P:SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseMovedRelative
+  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseMovedRelative
+  nameWithType: ReactiveGlobalHookAdapter.MouseMovedRelative
+- uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseMovedRelative*
+  name: MouseMovedRelative
+  href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_MouseMovedRelative_
+  commentId: Overload:SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseMovedRelative
+  fullName: SharpHook.Reactive.ReactiveGlobalHookAdapter.MouseMovedRelative
+  nameWithType: ReactiveGlobalHookAdapter.MouseMovedRelative
 - uid: SharpHook.Reactive.ReactiveGlobalHookAdapter.MousePressed
   name: MousePressed
   href: api/SharpHook.Reactive.ReactiveGlobalHookAdapter.html#SharpHook_Reactive_ReactiveGlobalHookAdapter_MousePressed

@@ -233,7 +233,10 @@ public enum EventMask : uint</code></pre>
 </dd>
     <dt id="SharpHook_Data_EventMask_SuppressEvent"><code>SuppressEvent = 2147483648</code></dt>
   <dd><p>If this flag is set in the event handler then the event will be suppressed from further propagation.</p>
-<p>Suppressing events works only on Windows and macOS.</p>
+<p>Suppressing events works only on Windows and macOS. You can use
+<a class="xref" href="SharpHook.Providers.IFeatureProvider.html#SharpHook_Providers_IFeatureProvider_GetOptionalFeatureSupport">GetOptionalFeatureSupport()</a> to check whether the current platform supports
+suppresing events. If that method returns <a class="xref" href="SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_EventSuppression">EventSuppression</a> as one of the supported
+features, then it does.</p>
 </dd>
   
   </dl>
