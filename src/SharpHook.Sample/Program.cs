@@ -48,7 +48,15 @@ hook.MouseMoved
     .Throttle(TimeSpan.FromSeconds(1))
     .Subscribe(OnHookEvent);
 
+hook.MouseMovedRelative
+    .Throttle(TimeSpan.FromSeconds(1))
+    .Subscribe(OnHookEvent);
+
 hook.MouseDragged
+    .Throttle(TimeSpan.FromSeconds(1))
+    .Subscribe(OnHookEvent);
+
+hook.MouseDraggedRelative
     .Throttle(TimeSpan.FromSeconds(1))
     .Subscribe(OnHookEvent);
 

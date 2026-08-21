@@ -20,15 +20,6 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     private readonly List<UioHookEvent> suppressedEvents = [];
     private readonly List<string> simulatedText = [];
 
-    private Func<EventType, DateTimeOffset> eventDateTime = t => DateTimeOffset.UtcNow;
-    private Func<EventType, EventMask> eventMask = t => Data.EventMask.None;
-
-    private Func<KeyCode, IEnumerable<char>> keyCodeToChars = c => [];
-    private Func<KeyCode, ushort> keyCodeToRawCode = c => 1;
-
-    private Func<short> currentMouseX = () => 0;
-    private Func<short> currentMouseY = () => 0;
-
     /// <summary>
     /// Initializes a new instance of <see cref="TestGlobalHook" />.
     /// </summary>
@@ -80,9 +71,9 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <exception cref="ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
     public Func<EventType, DateTimeOffset> EventDateTime
     {
-        get => this.eventDateTime;
-        set => this.eventDateTime = value ?? throw new ArgumentNullException(nameof(value));
-    }
+        get;
+        set => field = value ?? throw new ArgumentNullException(nameof(value));
+    } = t => DateTimeOffset.UtcNow;
 
     /// <summary>
     /// Gets or sets the function which will be called to set the mask of events.
@@ -90,9 +81,9 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <exception cref="ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
     public Func<EventType, EventMask> EventMask
     {
-        get => this.eventMask;
-        set => this.eventMask = value ?? throw new ArgumentNullException(nameof(value));
-    }
+        get;
+        set => field = value ?? throw new ArgumentNullException(nameof(value));
+    } = t => Data.EventMask.None;
 
     /// <summary>
     /// Gets or sets the function which will map key codes to characters.
@@ -101,9 +92,9 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <remarks>By default every key code maps to an empty character sequence.</remarks>
     public Func<KeyCode, IEnumerable<char>> KeyCodeToChars
     {
-        get => this.keyCodeToChars;
-        set => this.keyCodeToChars = value ?? throw new ArgumentNullException(nameof(value));
-    }
+        get;
+        set => field = value ?? throw new ArgumentNullException(nameof(value));
+    } = c => [];
 
     /// <summary>
     /// Gets or sets the function which will map key codes to raw key codes.
@@ -111,9 +102,9 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <exception cref="ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
     public Func<KeyCode, ushort> KeyCodeToRawCode
     {
-        get => this.keyCodeToRawCode;
-        set => this.keyCodeToRawCode = value ?? throw new ArgumentNullException(nameof(value));
-    }
+        get;
+        set => field = value ?? throw new ArgumentNullException(nameof(value));
+    } = c => 1;
 
     /// <summary>
     /// Gets or sets the function which will specify the current mouse X-coordinate.
@@ -121,9 +112,9 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <exception cref="ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
     public Func<short> CurrentMouseX
     {
-        get => this.currentMouseX;
-        set => this.currentMouseX = value ?? throw new ArgumentNullException(nameof(value));
-    }
+        get;
+        set => field = value ?? throw new ArgumentNullException(nameof(value));
+    } = () => 0;
 
     /// <summary>
     /// Gets or sets the function which will specify the current mouse Y-coordinate.
@@ -131,9 +122,9 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// <exception cref="ArgumentNullException"><paramref name="value" /> is <see langword="null" />.</exception>
     public Func<short> CurrentMouseY
     {
-        get => this.currentMouseY;
-        set => this.currentMouseY = value ?? throw new ArgumentNullException(nameof(value));
-    }
+        get;
+        set => field = value ?? throw new ArgumentNullException(nameof(value));
+    } = () => 0;
 
     /// <summary>
     /// Gets or sets the click count for events of type <see cref="EventType.MousePressed" />,
@@ -388,7 +379,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// </remarks>
     public UioHookResult SimulateKeyPress(KeyCode keyCode)
     {
-        ushort rawCode = this.keyCodeToRawCode(keyCode);
+        ushort rawCode = this.KeyCodeToRawCode(keyCode);
 
         var keyPressedEvent = new UioHookEvent
         {
@@ -407,7 +398,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
 
         if (result == UioHookResult.Success)
         {
-            foreach (var ch in this.keyCodeToChars(keyCode) ?? [])
+            foreach (var ch in this.KeyCodeToChars(keyCode) ?? [])
             {
                 var keyTypedEvent = new UioHookEvent
                 {
@@ -443,7 +434,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// </remarks>
     public UioHookResult SimulateKeyRelease(KeyCode keyCode)
     {
-        ushort rawCode = this.keyCodeToRawCode(keyCode);
+        ushort rawCode = this.KeyCodeToRawCode(keyCode);
 
         var keyReleasedEvent = new UioHookEvent
         {
@@ -474,7 +465,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// there.
     /// </remarks>
     public UioHookResult SimulateMousePress(MouseButton button) =>
-        this.SimulateMousePress(this.currentMouseX(), this.currentMouseY(), button);
+        this.SimulateMousePress(this.CurrentMouseX(), this.CurrentMouseY(), button);
 
     /// <summary>
     /// Simulates pressing a mouse button at the current coordinates if <see cref="SimulateMousePressResult" /> is
@@ -490,7 +481,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// there.
     /// </remarks>
     public UioHookResult SimulateMousePress(MouseButton button, ushort clicks) =>
-        this.SimulateMousePress(this.currentMouseX(), this.currentMouseY(), button, clicks);
+        this.SimulateMousePress(this.CurrentMouseX(), this.CurrentMouseY(), button, clicks);
 
     /// <summary>
     /// Simulates pressing a mouse button at the specified coordinates if <see cref="SimulateMousePressResult" /> is
@@ -562,7 +553,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// </para>
     /// </remarks>
     public UioHookResult SimulateMouseRelease(MouseButton button) =>
-        this.SimulateMouseRelease(this.currentMouseX(), this.currentMouseY(), button);
+        this.SimulateMouseRelease(this.CurrentMouseX(), this.CurrentMouseY(), button);
 
     /// <summary>
     /// Simulates releasing a mouse button at the current coordinates if <see cref="SimulateMouseReleaseResult" /> is
@@ -584,7 +575,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// </para>
     /// </remarks>
     public UioHookResult SimulateMouseRelease(MouseButton button, ushort clicks) =>
-        this.SimulateMouseRelease(this.currentMouseX(), this.currentMouseY(), button, clicks);
+        this.SimulateMouseRelease(this.CurrentMouseX(), this.CurrentMouseY(), button, clicks);
 
     /// <summary>
     /// Simulates releasing a mouse button at the specified coordinates if <see cref="SimulateMouseReleaseResult" /> is
@@ -717,7 +708,7 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     /// there.
     /// </remarks>
     public UioHookResult SimulateMouseMovementRelative(short x, short y) =>
-        this.SimulateMouseMovement((short)(this.currentMouseX() + x), (short)(this.currentMouseY() + y));
+        this.SimulateMouseMovement((short)(this.CurrentMouseX() + x), (short)(this.CurrentMouseY() + y));
 
     /// <summary>
     /// Simulates scrolling the mouse wheel if <see cref="SimulateMouseWheelResult" /> is
@@ -995,10 +986,20 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
                 args = mouseMovedArgs;
                 this.MouseMoved?.Invoke(this, mouseMovedArgs);
                 break;
+            case EventType.MouseMovedRelative:
+                var mouseMovedRelativeArgs = new MouseHookEventArgs(@event);
+                args = mouseMovedRelativeArgs;
+                this.MouseMovedRelative?.Invoke(this, mouseMovedRelativeArgs);
+                break;
             case EventType.MouseDragged:
                 var mouseDraggedArgs = new MouseHookEventArgs(@event);
                 args = mouseDraggedArgs;
                 this.MouseDragged?.Invoke(this, mouseDraggedArgs);
+                break;
+            case EventType.MouseDraggedRelative:
+                var mouseDraggedRelativeArgs = new MouseHookEventArgs(@event);
+                args = mouseDraggedRelativeArgs;
+                this.MouseDraggedRelative?.Invoke(this, mouseDraggedRelativeArgs);
                 break;
             case EventType.MouseWheel:
                 var mouseWheelArgs = new MouseWheelHookEventArgs(@event);
@@ -1097,9 +1098,19 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
     public event EventHandler<MouseHookEventArgs>? MouseMoved;
 
     /// <summary>
+    /// An event which is raised when the mouse cursor is moved relatively to its previous position.
+    /// </summary>
+    public event EventHandler<MouseHookEventArgs>? MouseMovedRelative;
+
+    /// <summary>
     /// An event which is raised when the mouse cursor is dragged.
     /// </summary>
     public event EventHandler<MouseHookEventArgs>? MouseDragged;
+
+    /// <summary>
+    /// An event which is raised when the mouse cursor is dragged relatively to its previous position.
+    /// </summary>
+    public event EventHandler<MouseHookEventArgs>? MouseDraggedRelative;
 
     /// <summary>
     /// An event which is raised when the mouse wheel is scrolled.
@@ -1160,7 +1171,8 @@ public sealed class TestGlobalHook : IGlobalHook, IEventSimulator
                 EventType.MouseReleased or EventType.MouseReleasedIgnoreCoordinates =>
                     this.globalHook.SimulateMouseReleaseResult,
 
-                EventType.MouseMoved or EventType.MouseDragged or EventType.MouseMovedRelative =>
+                EventType.MouseMoved or EventType.MouseMovedRelative or
+                EventType.MouseDragged or EventType.MouseDraggedRelative =>
                     this.globalHook.SimulateMouseMovementResult,
 
                 EventType.MouseWheel => this.globalHook.SimulateMouseWheelResult,

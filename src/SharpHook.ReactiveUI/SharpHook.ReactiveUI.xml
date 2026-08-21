@@ -51,6 +51,9 @@
             Represents a reactive global keyboard and mouse hook.
             </summary>
             <seealso cref="T:SharpHook.Reactive.IReactiveGlobalHook" />
+            <seealso cref="T:SharpHook.Providers.IFeatureProvider" />
+            <seealso cref="T:SharpHook.Providers.IGlobalHookProvider" />
+            <seealso cref="T:SharpHook.Providers.UioHookProvider" />
         </member>
         <member name="M:SharpHook.ReactiveUI.ReactiveUIGlobalHook.#ctor(ReactiveUI.Primitives.Concurrency.ISequencer,SharpHook.Providers.IGlobalHookProvider)">
             <summary>
@@ -89,12 +92,29 @@
             Gets an observable which emits a value when a key is typed.
             </summary>
             <value>An observable which emits a value when a key is typed.</value>
+            <remarks>
+            <para>
+            This event is disabled by default. If you want to enable it, you should set the
+            <see cref="P:SharpHook.Providers.IGlobalHookProvider.KeyTypedEnabled" /> property to <see langword="true" />.
+            </para>
+            <para>
+            On Wayland, this event is not supported. You can use <see cref="M:SharpHook.Providers.IFeatureProvider.GetOptionalFeatureSupport" />
+            to check support for this event. If that method returns <see cref="F:SharpHook.Data.UioHookFeature.KeyTypedEvents" /> as one of
+            the supported features, then this event is supported.
+            </para>
+            </remarks>
         </member>
         <member name="P:SharpHook.ReactiveUI.ReactiveUIGlobalHook.KeyPressed">
             <summary>
             Gets an observable which emits a value when a key is pressed.
             </summary>
             <value>An observable which emits a value when a key is pressed.</value>
+            <remarks>
+            On Wayland, this event is not raised repeatedly if the key is kept down. To check whether key auto-repeat events
+            are reported, you can use <see cref="M:SharpHook.Providers.IFeatureProvider.GetOptionalFeatureSupport" />. If that method returns
+            <see cref="F:SharpHook.Data.UioHookFeature.KeyAutoRepeat" /> as one of the supported features, then this event will be raised
+            repeatedly if the key is kept down.
+            </remarks>
         </member>
         <member name="P:SharpHook.ReactiveUI.ReactiveUIGlobalHook.KeyReleased">
             <summary>
@@ -107,36 +127,104 @@
             Gets an observable which emits a value when a mouse button is clicked.
             </summary>
             <value>An observable which emits a value when a mouse button is clicked.</value>
+            <remarks>
+            On Wayland, this event does not include mouse coordinates (they are always set to (0, 0)). To check whether
+            mouse coordinates for this event are available, you can use
+            <see cref="M:SharpHook.Providers.IFeatureProvider.GetOptionalFeatureSupport" />. If that method returns
+            <see cref="F:SharpHook.Data.UioHookFeature.AbsoluteMouseButtonCoordinates" /> as one of the supported features, then this event
+            will contain non-zero mouse coordinates.
+            </remarks>
         </member>
         <member name="P:SharpHook.ReactiveUI.ReactiveUIGlobalHook.MousePressed">
             <summary>
             Gets an observable which emits a value when a mouse button is pressed.
             </summary>
             <value>An observable which emits a value when a mouse button is pressed.</value>
+            <remarks>
+            On Wayland, this event does not include mouse coordinates (they are always set to (0, 0)). To check whether
+            mouse coordinates for this event are available, you can use
+            <see cref="M:SharpHook.Providers.IFeatureProvider.GetOptionalFeatureSupport" />. If that method returns
+            <see cref="F:SharpHook.Data.UioHookFeature.AbsoluteMouseButtonCoordinates" /> as one of the supported features, then this event
+            will contain non-zero mouse coordinates.
+            </remarks>
         </member>
         <member name="P:SharpHook.ReactiveUI.ReactiveUIGlobalHook.MouseReleased">
             <summary>
             Gets an observable which emits a value when a mouse button is released.
             </summary>
             <value>An observable which emits a value when a mouse button is released.</value>
+            <remarks>
+            On Wayland, this event does not include mouse coordinates (they are always set to (0, 0)). To check whether
+            mouse coordinates for this event are available, you can use
+            <see cref="M:SharpHook.Providers.IFeatureProvider.GetOptionalFeatureSupport" />. If that method returns
+            <see cref="F:SharpHook.Data.UioHookFeature.AbsoluteMouseButtonCoordinates" /> as one of the supported features, then this event
+            will contain non-zero mouse coordinates.
+            </remarks>
         </member>
         <member name="P:SharpHook.ReactiveUI.ReactiveUIGlobalHook.MouseMoved">
             <summary>
             Gets an observable which emits a value when the mouse cursor is moved.
             </summary>
             <value>An observable which emits a value when the mouse cursor is moved.</value>
+            <remarks>
+            On Wayland, this event is raised only when using an absolute pointing device (like a touchscreen or a mouse in
+            a virtual machine). Relative pointing devices (like most normal mice) will raise
+            <see cref="P:SharpHook.ReactiveUI.ReactiveUIGlobalHook.MouseMovedRelative" /> instead.
+            </remarks>
+        </member>
+        <member name="P:SharpHook.ReactiveUI.ReactiveUIGlobalHook.MouseMovedRelative">
+            <summary>
+            Gets an observable which emits a value when the mouse cursor is moved relatively to its previous position.
+            </summary>
+            <value>
+            An observable which emits a value when the mouse cursor is moved relatively to its previous position.
+            </value>
+            <remarks>
+            This event is raised only on Wayland when using a relative pointing device (which most normal mice are). To
+            check whether the current platform can raise this event, you can use
+            <see cref="M:SharpHook.Providers.IFeatureProvider.GetOptionalFeatureSupport" />. If that method does not return
+            <see cref="F:SharpHook.Data.UioHookFeature.AbsoluteMouseMovement" /> as one of the supported features, then the current platform
+            may raise this event.
+            </remarks>
         </member>
         <member name="P:SharpHook.ReactiveUI.ReactiveUIGlobalHook.MouseDragged">
             <summary>
             Gets an observable which emits a value when the mouse cursor is dragged.
             </summary>
             <value>An observable which emits a value when the mouse cursor is dragged.</value>
+            <remarks>
+            On Wayland, this event is raised only when using an absolute pointing device (like a touchscreen or a mouse in
+            a virtual machine). Relative pointing devices (like most normal mice) will raise
+            <see cref="P:SharpHook.ReactiveUI.ReactiveUIGlobalHook.MouseDraggedRelative" /> instead.
+            </remarks>
+        </member>
+        <member name="P:SharpHook.ReactiveUI.ReactiveUIGlobalHook.MouseDraggedRelative">
+            <summary>
+            Gets an observable which emits a value when the mouse cursor is dragged relatively to its previous position.
+            </summary>
+            <value>
+            An observable which emits a value when the mouse cursor is dragged relatively to its previous position.
+            </value>
+            <remarks>
+            This event is raised only on Wayland when using a relative pointing device (which most normal mice are). To
+            check whether the current platform can raise this event, you can use
+            <see cref="M:SharpHook.Providers.IFeatureProvider.GetOptionalFeatureSupport" />. If that method does not return
+            <see cref="F:SharpHook.Data.UioHookFeature.AbsoluteMouseMovement" /> as one of the supported features, then the current platform
+            may raise this event.
+            </remarks>
         </member>
         <member name="P:SharpHook.ReactiveUI.ReactiveUIGlobalHook.MouseWheel">
             <summary>
             Gets an observable which emits a value when the mouse wheel is scrolled.
             </summary>
             <value>An observable which emits a value when the mouse wheel is scrolled.</value>
+            <remarks>
+            On Wayland, this event does not include mouse coordinates (they are always set to (0, 0)). To check whether
+            mouse coordinates for this event are available, you can use
+            <see cref="M:SharpHook.Providers.IFeatureProvider.GetOptionalFeatureSupport" />. If that method returns
+            <see cref="F:SharpHook.Data.UioHookFeature.AbsoluteMouseButtonCoordinates" /> as one of the supported features, then this event
+            will contain non-zero mouse coordinates.
+            </remarks>
         </member>
         <member name="M:SharpHook.ReactiveUI.ReactiveUIGlobalHook.HandleHookEvent(SharpHook.Data.UioHookEvent@)">
             <summary>
@@ -160,6 +248,9 @@
             </summary>
             <seealso cref="T:SharpHook.IGlobalHook" />
             <seealso cref="T:SharpHook.Reactive.IReactiveGlobalHook" />
+            <seealso cref="T:SharpHook.Providers.IFeatureProvider" />
+            <seealso cref="T:SharpHook.Providers.IGlobalHookProvider" />
+            <seealso cref="T:SharpHook.Providers.UioHookProvider" />
         </member>
         <member name="M:SharpHook.ReactiveUI.ReactiveUIGlobalHookAdapter.#ctor(SharpHook.IGlobalHook,ReactiveUI.Primitives.Concurrency.ISequencer)">
             <summary>
@@ -209,12 +300,29 @@
             Gets an observable which emits a value when a key is typed.
             </summary>
             <value>An observable which emits a value when a key is typed.</value>
+            <remarks>
+            <para>
+            This event is disabled by default. If you want to enable it, you should set the
+            <see cref="P:SharpHook.Providers.IGlobalHookProvider.KeyTypedEnabled" /> property to <see langword="true" />.
+            </para>
+            <para>
+            On Wayland, this event is not supported. You can use <see cref="M:SharpHook.Providers.IFeatureProvider.GetOptionalFeatureSupport" />
+            to check support for this event. If that method returns <see cref="F:SharpHook.Data.UioHookFeature.KeyTypedEvents" /> as one of
+            the supported features, then this event is supported.
+            </para>
+            </remarks>
         </member>
         <member name="P:SharpHook.ReactiveUI.ReactiveUIGlobalHookAdapter.KeyPressed">
             <summary>
             Gets an observable which emits a value when a key is pressed.
             </summary>
             <value>An observable which emits a value when a key is pressed.</value>
+            <remarks>
+            On Wayland, this event is not raised repeatedly if the key is kept down. To check whether key auto-repeat events
+            are reported, you can use <see cref="M:SharpHook.Providers.IFeatureProvider.GetOptionalFeatureSupport" />. If that method returns
+            <see cref="F:SharpHook.Data.UioHookFeature.KeyAutoRepeat" /> as one of the supported features, then this event will be raised
+            repeatedly if the key is kept down.
+            </remarks>
         </member>
         <member name="P:SharpHook.ReactiveUI.ReactiveUIGlobalHookAdapter.KeyReleased">
             <summary>
@@ -227,36 +335,104 @@
             Gets an observable which emits a value when a mouse button is clicked.
             </summary>
             <value>An observable which emits a value when a mouse button is clicked.</value>
+            <remarks>
+            On Wayland, this event does not include mouse coordinates (they are always set to (0, 0)). To check whether
+            mouse coordinates for this event are available, you can use
+            <see cref="M:SharpHook.Providers.IFeatureProvider.GetOptionalFeatureSupport" />. If that method returns
+            <see cref="F:SharpHook.Data.UioHookFeature.AbsoluteMouseButtonCoordinates" /> as one of the supported features, then this event
+            will contain non-zero mouse coordinates.
+            </remarks>
         </member>
         <member name="P:SharpHook.ReactiveUI.ReactiveUIGlobalHookAdapter.MousePressed">
             <summary>
             Gets an observable which emits a value when a mouse button is pressed.
             </summary>
             <value>An observable which emits a value when a mouse button is pressed.</value>
+            <remarks>
+            On Wayland, this event does not include mouse coordinates (they are always set to (0, 0)). To check whether
+            mouse coordinates for this event are available, you can use
+            <see cref="M:SharpHook.Providers.IFeatureProvider.GetOptionalFeatureSupport" />. If that method returns
+            <see cref="F:SharpHook.Data.UioHookFeature.AbsoluteMouseButtonCoordinates" /> as one of the supported features, then this event
+            will contain non-zero mouse coordinates.
+            </remarks>
         </member>
         <member name="P:SharpHook.ReactiveUI.ReactiveUIGlobalHookAdapter.MouseReleased">
             <summary>
             Gets an observable which emits a value when a mouse button is released.
             </summary>
             <value>An observable which emits a value when a mouse button is released.</value>
+            <remarks>
+            On Wayland, this event does not include mouse coordinates (they are always set to (0, 0)). To check whether
+            mouse coordinates for this event are available, you can use
+            <see cref="M:SharpHook.Providers.IFeatureProvider.GetOptionalFeatureSupport" />. If that method returns
+            <see cref="F:SharpHook.Data.UioHookFeature.AbsoluteMouseButtonCoordinates" /> as one of the supported features, then this event
+            will contain non-zero mouse coordinates.
+            </remarks>
         </member>
         <member name="P:SharpHook.ReactiveUI.ReactiveUIGlobalHookAdapter.MouseMoved">
             <summary>
             Gets an observable which emits a value when the mouse cursor is moved.
             </summary>
             <value>An observable which emits a value when the mouse cursor is moved.</value>
+            <remarks>
+            On Wayland, this event is raised only when using an absolute pointing device (like a touchscreen or a mouse in
+            a virtual machine). Relative pointing devices (like most normal mice) will raise
+            <see cref="P:SharpHook.ReactiveUI.ReactiveUIGlobalHookAdapter.MouseMovedRelative" /> instead.
+            </remarks>
+        </member>
+        <member name="P:SharpHook.ReactiveUI.ReactiveUIGlobalHookAdapter.MouseMovedRelative">
+            <summary>
+            Gets an observable which emits a value when the mouse cursor is moved relatively to its previous position.
+            </summary>
+            <value>
+            An observable which emits a value when the mouse cursor is moved relatively to its previous position.
+            </value>
+            <remarks>
+            This event is raised only on Wayland when using a relative pointing device (which most normal mice are). To
+            check whether the current platform can raise this event, you can use
+            <see cref="M:SharpHook.Providers.IFeatureProvider.GetOptionalFeatureSupport" />. If that method does not return
+            <see cref="F:SharpHook.Data.UioHookFeature.AbsoluteMouseMovement" /> as one of the supported features, then the current platform
+            may raise this event.
+            </remarks>
         </member>
         <member name="P:SharpHook.ReactiveUI.ReactiveUIGlobalHookAdapter.MouseDragged">
             <summary>
             Gets an observable which emits a value when the mouse cursor is dragged.
             </summary>
             <value>An observable which emits a value when the mouse cursor is dragged.</value>
+            <remarks>
+            On Wayland, this event is raised only when using an absolute pointing device (like a touchscreen or a mouse in
+            a virtual machine). Relative pointing devices (like most normal mice) will raise
+            <see cref="P:SharpHook.ReactiveUI.ReactiveUIGlobalHookAdapter.MouseDraggedRelative" /> instead.
+            </remarks>
+        </member>
+        <member name="P:SharpHook.ReactiveUI.ReactiveUIGlobalHookAdapter.MouseDraggedRelative">
+            <summary>
+            Gets an observable which emits a value when the mouse cursor is dragged relatively to its previous position.
+            </summary>
+            <value>
+            An observable which emits a value when the mouse cursor is dragged relatively to its previous position.
+            </value>
+            <remarks>
+            This event is raised only on Wayland when using a relative pointing device (which most normal mice are). To
+            check whether the current platform can raise this event, you can use
+            <see cref="M:SharpHook.Providers.IFeatureProvider.GetOptionalFeatureSupport" />. If that method does not return
+            <see cref="F:SharpHook.Data.UioHookFeature.AbsoluteMouseMovement" /> as one of the supported features, then the current platform
+            may raise this event.
+            </remarks>
         </member>
         <member name="P:SharpHook.ReactiveUI.ReactiveUIGlobalHookAdapter.MouseWheel">
             <summary>
             Gets an observable which emits a value when the mouse wheel is scrolled.
             </summary>
             <value>An observable which emits a value when the mouse wheel is scrolled.</value>
+            <remarks>
+            On Wayland, this event does not include mouse coordinates (they are always set to (0, 0)). To check whether
+            mouse coordinates for this event are available, you can use
+            <see cref="M:SharpHook.Providers.IFeatureProvider.GetOptionalFeatureSupport" />. If that method returns
+            <see cref="F:SharpHook.Data.UioHookFeature.AbsoluteMouseButtonCoordinates" /> as one of the supported features, then this event
+            will contain non-zero mouse coordinates.
+            </remarks>
         </member>
         <member name="M:SharpHook.ReactiveUI.ReactiveUIGlobalHookAdapter.Run(SharpHook.Data.GlobalHookType)">
             <summary>

@@ -553,9 +553,19 @@
             An event which is raised when the mouse cursor is moved.
             </summary>
         </member>
+        <member name="E:SharpHook.Testing.TestGlobalHook.MouseMovedRelative">
+            <summary>
+            An event which is raised when the mouse cursor is moved relatively to its previous position.
+            </summary>
+        </member>
         <member name="E:SharpHook.Testing.TestGlobalHook.MouseDragged">
             <summary>
             An event which is raised when the mouse cursor is dragged.
+            </summary>
+        </member>
+        <member name="E:SharpHook.Testing.TestGlobalHook.MouseDraggedRelative">
+            <summary>
+            An event which is raised when the mouse cursor is dragged relatively to its previous position.
             </summary>
         </member>
         <member name="E:SharpHook.Testing.TestGlobalHook.MouseWheel">

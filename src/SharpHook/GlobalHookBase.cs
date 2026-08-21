@@ -58,13 +58,15 @@ public abstract class GlobalHookBase : BasicGlobalHookBase, IGlobalHook
             EventType.MousePressed => this.MousePressed != null,
             EventType.MouseReleased => this.MouseReleased != null,
             EventType.MouseMoved => this.MouseMoved != null,
+            EventType.MouseMovedRelative => this.MouseMovedRelative != null,
             EventType.MouseDragged => this.MouseDragged != null,
+            EventType.MouseDraggedRelative => this.MouseDraggedRelative != null,
             EventType.MouseWheel => this.MouseWheel != null,
             _ => false
         };
 
     /// <summary>
-    /// Dispatches an event from libuiohook, i.e. raises the appropriate event.
+    /// Dispatches an event from the global hook provider, i.e. raises the appropriate event.
     /// </summary>
     /// <param name="event">The event to dispatch.</param>
     protected void DispatchEvent(ref UioHookEvent @event)
@@ -114,10 +116,20 @@ public abstract class GlobalHookBase : BasicGlobalHookBase, IGlobalHook
                 args = mouseMovedArgs;
                 this.OnMouseMoved(mouseMovedArgs);
                 break;
+            case EventType.MouseMovedRelative:
+                var mouseMovedRelativeArgs = new MouseHookEventArgs(@event);
+                args = mouseMovedRelativeArgs;
+                this.OnMouseMovedRelative(mouseMovedRelativeArgs);
+                break;
             case EventType.MouseDragged:
                 var mouseDraggedArgs = new MouseHookEventArgs(@event);
                 args = mouseDraggedArgs;
                 this.OnMouseDragged(mouseDraggedArgs);
+                break;
+            case EventType.MouseDraggedRelative:
+                var mouseDraggedRelativeArgs = new MouseHookEventArgs(@event);
+                args = mouseDraggedRelativeArgs;
+                this.OnMouseDraggedRelative(mouseDraggedRelativeArgs);
                 break;
             case EventType.MouseWheel:
                 var mouseWheelArgs = new MouseWheelHookEventArgs(@event);
@@ -196,11 +208,25 @@ public abstract class GlobalHookBase : BasicGlobalHookBase, IGlobalHook
         this.MouseMoved?.Invoke(this, args);
 
     /// <summary>
+    /// Raises the <see cref="MouseMovedRelative" /> event with this object as the sender.
+    /// </summary>
+    /// <param name="args">The arguments of the event.</param>
+    protected virtual void OnMouseMovedRelative(MouseHookEventArgs args) =>
+        this.MouseMovedRelative?.Invoke(this, args);
+
+    /// <summary>
     /// Raises the <see cref="MouseDragged" /> event with this object as the sender.
     /// </summary>
     /// <param name="args">The arguments of the event.</param>
     protected virtual void OnMouseDragged(MouseHookEventArgs args) =>
         this.MouseDragged?.Invoke(this, args);
+
+    /// <summary>
+    /// Raises the <see cref="MouseDraggedRelative" /> event with this object as the sender.
+    /// </summary>
+    /// <param name="args">The arguments of the event.</param>
+    protected virtual void OnMouseDraggedRelative(MouseHookEventArgs args) =>
+        this.MouseDraggedRelative?.Invoke(this, args);
 
     /// <summary>
     /// Raises the <see cref="MouseWheel" /> event with this object as the sender.
@@ -227,11 +253,28 @@ public abstract class GlobalHookBase : BasicGlobalHookBase, IGlobalHook
     /// <summary>
     /// An event which is raised when a key is typed.
     /// </summary>
+    /// <remarks>
+    /// <para>
+    /// This event is disabled by default. If you want to enable it, you should set the
+    /// <see cref="IGlobalHookProvider.KeyTypedEnabled" /> property to <see langword="true" />.
+    /// </para>
+    /// <para>
+    /// On Wayland, this event is not supported. You can use <see cref="IFeatureProvider.GetOptionalFeatureSupport" />
+    /// to check support for this event. If that method returns <see cref="UioHookFeature.KeyTypedEvents" /> as one of
+    /// the supported features, then this event is supported.
+    /// </para>
+    /// </remarks>
     public event EventHandler<KeyboardHookEventArgs>? KeyTyped;
 
     /// <summary>
     /// An event which is raised when a key is pressed.
     /// </summary>
+    /// <remarks>
+    /// On Wayland, this event is not raised repeatedly if the key is kept down. To check whether key auto-repeat events
+    /// are reported, you can use <see cref="IFeatureProvider.GetOptionalFeatureSupport" />. If that method returns
+    /// <see cref="UioHookFeature.KeyAutoRepeat" /> as one of the supported features, then this event will be raised
+    /// repeatedly if the key is kept down.
+    /// </remarks>
     public event EventHandler<KeyboardHookEventArgs>? KeyPressed;
 
     /// <summary>
@@ -242,30 +285,92 @@ public abstract class GlobalHookBase : BasicGlobalHookBase, IGlobalHook
     /// <summary>
     /// An event which is raised when a mouse button is clicked.
     /// </summary>
+    /// <remarks>
+    /// On Wayland, this event does not include mouse coordinates (they are always set to (0, 0)). To check whether
+    /// mouse coordinates for this event are available, you can use
+    /// <see cref="IFeatureProvider.GetOptionalFeatureSupport" />. If that method returns
+    /// <see cref="UioHookFeature.AbsoluteMouseButtonCoordinates" /> as one of the supported features, then this event
+    /// will contain non-zero mouse coordinates.
+    /// </remarks>
     public event EventHandler<MouseHookEventArgs>? MouseClicked;
 
     /// <summary>
     /// An event which is raised when a mouse button is pressed.
     /// </summary>
+    /// <remarks>
+    /// On Wayland, this event does not include mouse coordinates (they are always set to (0, 0)). To check whether
+    /// mouse coordinates for this event are available, you can use
+    /// <see cref="IFeatureProvider.GetOptionalFeatureSupport" />. If that method returns
+    /// <see cref="UioHookFeature.AbsoluteMouseButtonCoordinates" /> as one of the supported features, then this event
+    /// will contain non-zero mouse coordinates.
+    /// </remarks>
     public event EventHandler<MouseHookEventArgs>? MousePressed;
 
     /// <summary>
     /// An event which is raised when a mouse button is released.
     /// </summary>
+    /// <remarks>
+    /// On Wayland, this event does not include mouse coordinates (they are always set to (0, 0)). To check whether
+    /// mouse coordinates for this event are available, you can use
+    /// <see cref="IFeatureProvider.GetOptionalFeatureSupport" />. If that method returns
+    /// <see cref="UioHookFeature.AbsoluteMouseButtonCoordinates" /> as one of the supported features, then this event
+    /// will contain non-zero mouse coordinates.
+    /// </remarks>
     public event EventHandler<MouseHookEventArgs>? MouseReleased;
 
     /// <summary>
     /// An event which is raised when the mouse cursor is moved.
     /// </summary>
+    /// <remarks>
+    /// On Wayland, this event is raised only when using an absolute pointing device (like a touchscreen or a mouse in
+    /// a virtual machine). Relative pointing devices (like most normal mice) will raise
+    /// <see cref="MouseMovedRelative" /> instead.
+    /// </remarks>
     public event EventHandler<MouseHookEventArgs>? MouseMoved;
+
+    /// <summary>
+    /// An event which is raised when the mouse cursor is moved relatively to its previous position.
+    /// </summary>
+    /// <remarks>
+    /// This event is raised only on Wayland when using a relative pointing device (which most normal mice are). To
+    /// check whether the current platform can raise this event, you can use
+    /// <see cref="IFeatureProvider.GetOptionalFeatureSupport" />. If that method does not return
+    /// <see cref="UioHookFeature.AbsoluteMouseMovement" /> as one of the supported features, then the current platform
+    /// may raise this event.
+    /// </remarks>
+    public event EventHandler<MouseHookEventArgs>? MouseMovedRelative;
 
     /// <summary>
     /// An event which is raised when the mouse cursor is dragged.
     /// </summary>
+    /// <remarks>
+    /// On Wayland, this event is raised only when using an absolute pointing device (like a touchscreen or a mouse in
+    /// a virtual machine). Relative pointing devices (like most normal mice) will raise
+    /// <see cref="MouseDraggedRelative" /> instead.
+    /// </remarks>
     public event EventHandler<MouseHookEventArgs>? MouseDragged;
+
+    /// <summary>
+    /// An event which is raised when the mouse cursor is dragged relatively to its previous position.
+    /// </summary>
+    /// <remarks>
+    /// This event is raised only on Wayland when using a relative pointing device (which most normal mice are). To
+    /// check whether the current platform can raise this event, you can use
+    /// <see cref="IFeatureProvider.GetOptionalFeatureSupport" />. If that method does not return
+    /// <see cref="UioHookFeature.AbsoluteMouseMovement" /> as one of the supported features, then the current platform
+    /// may raise this event.
+    /// </remarks>
+    public event EventHandler<MouseHookEventArgs>? MouseDraggedRelative;
 
     /// <summary>
     /// An event which is raised when the mouse wheel is turned.
     /// </summary>
+    /// <remarks>
+    /// On Wayland, this event does not include mouse coordinates (they are always set to (0, 0)). To check whether
+    /// mouse coordinates for this event are available, you can use
+    /// <see cref="IFeatureProvider.GetOptionalFeatureSupport" />. If that method returns
+    /// <see cref="UioHookFeature.AbsoluteMouseButtonCoordinates" /> as one of the supported features, then this event
+    /// will contain non-zero mouse coordinates.
+    /// </remarks>
     public event EventHandler<MouseWheelHookEventArgs>? MouseWheel;
 }

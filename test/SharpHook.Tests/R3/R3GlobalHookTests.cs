@@ -524,6 +524,60 @@ public sealed class R3GlobalHookTests
         }
     }
 
+    [Property(DisplayName = "MouseMovedRelative events should be raised only if the global hook type includes mouse")]
+    public void MouseMovedRelative(
+        GlobalHookType globalHookType,
+        short x,
+        short y,
+        DateTimeAfterEpoch dateTime,
+        EventMask mask)
+    {
+        // Arrange
+
+        var provider = new TestProvider();
+        var timeProvider = new FakeTimeProvider();
+
+        using var hook = new R3GlobalHook(timeProvider, provider);
+
+        var @event = new UioHookEvent
+        {
+            Type = EventType.MouseMovedRelative,
+            Time = (ulong)dateTime.Value.ToUnixTimeMilliseconds(),
+            Mask = mask,
+            Mouse = new MouseEventData
+            {
+                X = x,
+                Y = y
+            }
+        };
+
+        MouseHookEventArgs? actualArgs = null;
+
+        hook.MouseMovedRelative.Subscribe(e => actualArgs = e);
+
+        // Act
+
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
+
+        provider.PostEvent(ref @event);
+
+        // Assert
+
+        if (globalHookType != GlobalHookType.Keyboard)
+        {
+            Assert.NotNull(actualArgs);
+
+            Assert.Equal(@event, actualArgs.RawEvent);
+            Assert.Equal(dateTime.Value, actualArgs.EventTime);
+
+            Assert.Equal(x, actualArgs.Data.X);
+            Assert.Equal(y, actualArgs.Data.Y);
+        } else
+        {
+            Assert.Null(actualArgs);
+        }
+    }
+
     [Property(DisplayName = "MouseDragged events should be raised only if the global hook type includes mouse")]
     public void MouseDragged(
         GlobalHookType globalHookType,
@@ -554,6 +608,60 @@ public sealed class R3GlobalHookTests
         MouseHookEventArgs? actualArgs = null;
 
         hook.MouseDragged.Subscribe(e => actualArgs = e);
+
+        // Act
+
+        this.RunHookAndWaitForStart(hook, provider, globalHookType);
+
+        provider.PostEvent(ref @event);
+
+        // Assert
+
+        if (globalHookType != GlobalHookType.Keyboard)
+        {
+            Assert.NotNull(actualArgs);
+
+            Assert.Equal(@event, actualArgs.RawEvent);
+            Assert.Equal(dateTime.Value, actualArgs.EventTime);
+
+            Assert.Equal(x, actualArgs.Data.X);
+            Assert.Equal(y, actualArgs.Data.Y);
+        } else
+        {
+            Assert.Null(actualArgs);
+        }
+    }
+
+    [Property(DisplayName = "MouseDraggedRelative events should be raised only if the global hook type includes mouse")]
+    public void MouseDraggedRelative(
+        GlobalHookType globalHookType,
+        short x,
+        short y,
+        DateTimeAfterEpoch dateTime,
+        EventMask mask)
+    {
+        // Arrange
+
+        var provider = new TestProvider();
+        var timeProvider = new FakeTimeProvider();
+
+        using var hook = new R3GlobalHook(timeProvider, provider);
+
+        var @event = new UioHookEvent
+        {
+            Type = EventType.MouseDraggedRelative,
+            Time = (ulong)dateTime.Value.ToUnixTimeMilliseconds(),
+            Mask = mask,
+            Mouse = new MouseEventData
+            {
+                X = x,
+                Y = y
+            }
+        };
+
+        MouseHookEventArgs? actualArgs = null;
+
+        hook.MouseDraggedRelative.Subscribe(e => actualArgs = e);
 
         // Act
 

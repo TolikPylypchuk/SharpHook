@@ -92,6 +92,11 @@ public enum EventMask : uint
     /// <summary>
     /// If this flag is set in the event handler then the event will be suppressed from further propagation.
     /// </summary>
-    /// <remarks>Suppressing events works only on Windows and macOS.</remarks>
+    /// <remarks>
+    /// Suppressing events works only on Windows and macOS. You can use
+    /// <see cref="IFeatureProvider.GetOptionalFeatureSupport" /> to check whether the current platform supports
+    /// suppresing events. If that method returns <see cref="UioHookFeature.EventSuppression" /> as one of the supported
+    /// features, then it does.
+    /// </remarks>
     SuppressEvent = 1U << 31
 }

@@ -7,6 +7,9 @@ namespace SharpHook.R3;
 /// </summary>
 /// <seealso cref="IGlobalHook" />
 /// <seealso cref="IR3GlobalHook" />
+/// <seealso cref="IFeatureProvider" />
+/// <seealso cref="IGlobalHookProvider" />
+/// <seealso cref="UioHookProvider" />
 public sealed class R3GlobalHookAdapter : IGlobalHook, IR3GlobalHook
 {
     private readonly IGlobalHook hook;
@@ -22,7 +25,9 @@ public sealed class R3GlobalHookAdapter : IGlobalHook, IR3GlobalHook
     private readonly Subject<MouseHookEventArgs> mousePressedSubject = new();
     private readonly Subject<MouseHookEventArgs> mouseReleasedSubject = new();
     private readonly Subject<MouseHookEventArgs> mouseMovedSubject = new();
+    private readonly Subject<MouseHookEventArgs> mouseMovedRelativeSubject = new();
     private readonly Subject<MouseHookEventArgs> mouseDraggedSubject = new();
+    private readonly Subject<MouseHookEventArgs> mouseDraggedRelativeSubject = new();
 
     private readonly Subject<MouseWheelHookEventArgs> mouseWheelSubject = new();
 
@@ -100,9 +105,21 @@ public sealed class R3GlobalHookAdapter : IGlobalHook, IR3GlobalHook
 
         subscriptions.Add(
             Observable.FromEventHandler<MouseHookEventArgs>(
+                h => this.hook.MouseMovedRelative += h, h => this.hook.MouseMovedRelative -= h)
+                .Select(this.SelectEventArgs)
+                .Subscribe(this.mouseMovedRelativeSubject.AsObserver()));
+
+        subscriptions.Add(
+            Observable.FromEventHandler<MouseHookEventArgs>(
                 h => this.hook.MouseDragged += h, h => this.hook.MouseDragged -= h)
                 .Select(this.SelectEventArgs)
                 .Subscribe(this.mouseDraggedSubject.AsObserver()));
+
+        subscriptions.Add(
+            Observable.FromEventHandler<MouseHookEventArgs>(
+                h => this.hook.MouseDraggedRelative += h, h => this.hook.MouseDraggedRelative -= h)
+                .Select(this.SelectEventArgs)
+                .Subscribe(this.mouseDraggedRelativeSubject.AsObserver()));
 
         subscriptions.Add(
             Observable.FromEventHandler<MouseWheelHookEventArgs>(
@@ -123,7 +140,9 @@ public sealed class R3GlobalHookAdapter : IGlobalHook, IR3GlobalHook
         this.MousePressed = this.mousePressedSubject.ObserveOn(defaultTimeProvider);
         this.MouseReleased = this.mouseReleasedSubject.ObserveOn(defaultTimeProvider);
         this.MouseMoved = this.mouseMovedSubject.ObserveOn(defaultTimeProvider);
+        this.MouseMovedRelative = this.mouseMovedRelativeSubject.ObserveOn(defaultTimeProvider);
         this.MouseDragged = this.mouseDraggedSubject.ObserveOn(defaultTimeProvider);
+        this.MouseDraggedRelative = this.mouseDraggedRelativeSubject.ObserveOn(defaultTimeProvider);
 
         this.MouseWheel = this.mouseWheelSubject.ObserveOn(defaultTimeProvider);
     }
@@ -165,12 +184,29 @@ public sealed class R3GlobalHookAdapter : IGlobalHook, IR3GlobalHook
     /// Gets an observable which emits a value when a key is typed.
     /// </summary>
     /// <value>An observable which emits a value when a key is typed.</value>
+    /// <remarks>
+    /// <para>
+    /// This event is disabled by default. If you want to enable it, you should set the
+    /// <see cref="IGlobalHookProvider.KeyTypedEnabled" /> property to <see langword="true" />.
+    /// </para>
+    /// <para>
+    /// On Wayland, this event is not supported. You can use <see cref="IFeatureProvider.GetOptionalFeatureSupport" />
+    /// to check support for this event. If that method returns <see cref="UioHookFeature.KeyTypedEvents" /> as one of
+    /// the supported features, then this event is supported.
+    /// </para>
+    /// </remarks>
     public Observable<KeyboardHookEventArgs> KeyTyped { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when a key is pressed.
     /// </summary>
     /// <value>An observable which emits a value when a key is pressed.</value>
+    /// <remarks>
+    /// On Wayland, this event is not raised repeatedly if the key is kept down. To check whether key auto-repeat events
+    /// are reported, you can use <see cref="IFeatureProvider.GetOptionalFeatureSupport" />. If that method returns
+    /// <see cref="UioHookFeature.KeyAutoRepeat" /> as one of the supported features, then this event will be raised
+    /// repeatedly if the key is kept down.
+    /// </remarks>
     public Observable<KeyboardHookEventArgs> KeyPressed { get; }
 
     /// <summary>
@@ -183,36 +219,104 @@ public sealed class R3GlobalHookAdapter : IGlobalHook, IR3GlobalHook
     /// Gets an observable which emits a value when a mouse button is clicked.
     /// </summary>
     /// <value>An observable which emits a value when a mouse button is clicked.</value>
+    /// <remarks>
+    /// On Wayland, this event does not include mouse coordinates (they are always set to (0, 0)). To check whether
+    /// mouse coordinates for this event are available, you can use
+    /// <see cref="IFeatureProvider.GetOptionalFeatureSupport" />. If that method returns
+    /// <see cref="UioHookFeature.AbsoluteMouseButtonCoordinates" /> as one of the supported features, then this event
+    /// will contain non-zero mouse coordinates.
+    /// </remarks>
     public Observable<MouseHookEventArgs> MouseClicked { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when a mouse button is pressed.
     /// </summary>
     /// <value>An observable which emits a value when a mouse button is pressed.</value>
+    /// <remarks>
+    /// On Wayland, this event does not include mouse coordinates (they are always set to (0, 0)). To check whether
+    /// mouse coordinates for this event are available, you can use
+    /// <see cref="IFeatureProvider.GetOptionalFeatureSupport" />. If that method returns
+    /// <see cref="UioHookFeature.AbsoluteMouseButtonCoordinates" /> as one of the supported features, then this event
+    /// will contain non-zero mouse coordinates.
+    /// </remarks>
     public Observable<MouseHookEventArgs> MousePressed { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when a mouse button is released.
     /// </summary>
     /// <value>An observable which emits a value when a mouse button is released.</value>
+    /// <remarks>
+    /// On Wayland, this event does not include mouse coordinates (they are always set to (0, 0)). To check whether
+    /// mouse coordinates for this event are available, you can use
+    /// <see cref="IFeatureProvider.GetOptionalFeatureSupport" />. If that method returns
+    /// <see cref="UioHookFeature.AbsoluteMouseButtonCoordinates" /> as one of the supported features, then this event
+    /// will contain non-zero mouse coordinates.
+    /// </remarks>
     public Observable<MouseHookEventArgs> MouseReleased { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when the mouse cursor is moved.
     /// </summary>
     /// <value>An observable which emits a value when the mouse cursor is moved.</value>
+    /// <remarks>
+    /// On Wayland, this event is raised only when using an absolute pointing device (like a touchscreen or a mouse in
+    /// a virtual machine). Relative pointing devices (like most normal mice) will raise
+    /// <see cref="MouseMovedRelative" /> instead.
+    /// </remarks>
     public Observable<MouseHookEventArgs> MouseMoved { get; }
+
+    /// <summary>
+    /// Gets an observable which emits a value when the mouse cursor is moved relatively to its previous position.
+    /// </summary>
+    /// <value>
+    /// An observable which emits a value when the mouse cursor is moved relatively to its previous position.
+    /// </value>
+    /// <remarks>
+    /// This event is raised only on Wayland when using a relative pointing device (which most normal mice are). To
+    /// check whether the current platform can raise this event, you can use
+    /// <see cref="IFeatureProvider.GetOptionalFeatureSupport" />. If that method does not return
+    /// <see cref="UioHookFeature.AbsoluteMouseMovement" /> as one of the supported features, then the current platform
+    /// may raise this event.
+    /// </remarks>
+    public Observable<MouseHookEventArgs> MouseMovedRelative { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when the mouse cursor is dragged.
     /// </summary>
     /// <value>An observable which emits a value when the mouse cursor is dragged.</value>
+    /// <remarks>
+    /// On Wayland, this event is raised only when using an absolute pointing device (like a touchscreen or a mouse in
+    /// a virtual machine). Relative pointing devices (like most normal mice) will raise
+    /// <see cref="MouseDraggedRelative" /> instead.
+    /// </remarks>
     public Observable<MouseHookEventArgs> MouseDragged { get; }
+
+    /// <summary>
+    /// Gets an observable which emits a value when the mouse cursor is dragged relatively to its previous position.
+    /// </summary>
+    /// <value>
+    /// An observable which emits a value when the mouse cursor is dragged relatively to its previous position.
+    /// </value>
+    /// <remarks>
+    /// This event is raised only on Wayland when using a relative pointing device (which most normal mice are). To
+    /// check whether the current platform can raise this event, you can use
+    /// <see cref="IFeatureProvider.GetOptionalFeatureSupport" />. If that method does not return
+    /// <see cref="UioHookFeature.AbsoluteMouseMovement" /> as one of the supported features, then the current platform
+    /// may raise this event.
+    /// </remarks>
+    public Observable<MouseHookEventArgs> MouseDraggedRelative { get; }
 
     /// <summary>
     /// Gets an observable which emits a value when the mouse wheel is scrolled.
     /// </summary>
     /// <value>An observable which emits a value when the mouse wheel is scrolled.</value>
+    /// <remarks>
+    /// On Wayland, this event does not include mouse coordinates (they are always set to (0, 0)). To check whether
+    /// mouse coordinates for this event are available, you can use
+    /// <see cref="IFeatureProvider.GetOptionalFeatureSupport" />. If that method returns
+    /// <see cref="UioHookFeature.AbsoluteMouseButtonCoordinates" /> as one of the supported features, then this event
+    /// will contain non-zero mouse coordinates.
+    /// </remarks>
     public Observable<MouseWheelHookEventArgs> MouseWheel { get; }
 
     /// <summary>
@@ -316,7 +420,9 @@ public sealed class R3GlobalHookAdapter : IGlobalHook, IR3GlobalHook
         this.mousePressedSubject.OnCompleted();
         this.mouseReleasedSubject.OnCompleted();
         this.mouseMovedSubject.OnCompleted();
+        this.mouseMovedRelativeSubject.OnCompleted();
         this.mouseDraggedSubject.OnCompleted();
+        this.mouseDraggedRelativeSubject.OnCompleted();
 
         this.mouseWheelSubject.OnCompleted();
     }
@@ -392,10 +498,22 @@ public sealed class R3GlobalHookAdapter : IGlobalHook, IR3GlobalHook
         remove => this.hook.MouseMoved -= value;
     }
 
+    event EventHandler<MouseHookEventArgs> IGlobalHook.MouseMovedRelative
+    {
+        add => this.hook.MouseMovedRelative += value;
+        remove => this.hook.MouseMovedRelative -= value;
+    }
+
     event EventHandler<MouseHookEventArgs> IGlobalHook.MouseDragged
     {
         add => this.hook.MouseDragged += value;
         remove => this.hook.MouseDragged -= value;
+    }
+
+    event EventHandler<MouseHookEventArgs> IGlobalHook.MouseDraggedRelative
+    {
+        add => this.hook.MouseDraggedRelative += value;
+        remove => this.hook.MouseDraggedRelative -= value;
     }
 
     event EventHandler<MouseWheelHookEventArgs> IGlobalHook.MouseWheel
