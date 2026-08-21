@@ -2048,12 +2048,15 @@
             <seealso cref="T:SharpHook.SimpleGlobalHook" />
             <seealso cref="T:SharpHook.TaskPoolGlobalHook" />
         </member>
-        <member name="M:SharpHook.EventLoopGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider)">
+        <member name="M:SharpHook.EventLoopGlobalHook.#ctor(SharpHook.Providers.IGlobalHookProvider,System.Boolean)">
             <summary>
             Initializes a new instance of <see cref="T:SharpHook.EventLoopGlobalHook" />.
             </summary>
             <param name="globalHookProvider">
             The underlying global hook provider, or <see langword="null" /> to use the default one.
+            </param>
+            <param name="useBackgroundThreadForEventLoop">
+            A value which indicates whether to use a background thread for the event loop.
             </param>
         </member>
         <member name="M:SharpHook.EventLoopGlobalHook.BeforeRun">

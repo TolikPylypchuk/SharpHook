@@ -30,6 +30,7 @@ public sealed class EventLoopGlobalHook : GlobalHookBase
 #endif
 
     private readonly BlockingCollection<UioHookEvent> eventLoop = [];
+    private readonly bool useBackgroundThreadForEventLoop;
     private bool eventLoopStarted = false;
 
     /// <summary>
@@ -38,11 +39,16 @@ public sealed class EventLoopGlobalHook : GlobalHookBase
     /// <param name="globalHookProvider">
     /// The underlying global hook provider, or <see langword="null" /> to use the default one.
     /// </param>
+    /// <param name="useBackgroundThreadForEventLoop">
+    /// A value which indicates whether to use a background thread for the event loop.
+    /// </param>
     [SuppressMessage(
         "Style", "IDE0290:Use primary constructor", Justification = "Primary constructors don't support XML comments")]
-    public EventLoopGlobalHook(IGlobalHookProvider? globalHookProvider = null)
-        : base(globalHookProvider)
-    { }
+    public EventLoopGlobalHook(
+        IGlobalHookProvider? globalHookProvider = null,
+        bool useBackgroundThreadForEventLoop = false)
+        : base(globalHookProvider) =>
+        this.useBackgroundThreadForEventLoop = useBackgroundThreadForEventLoop;
 
     /// <summary>
     /// Starts the event loop.
@@ -55,7 +61,7 @@ public sealed class EventLoopGlobalHook : GlobalHookBase
             {
                 if (!this.eventLoopStarted)
                 {
-                    new Thread(this.RunEventLoop).Start();
+                    new Thread(this.RunEventLoop) { IsBackground = useBackgroundThreadForEventLoop }.Start();
                     this.eventLoopStarted = true;
                 }
             }
