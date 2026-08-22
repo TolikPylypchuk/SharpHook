@@ -110,14 +110,15 @@ public struct UioHookEvent : IEquatable<UioHookEvent>
             this.Mask == @event.Mask &&
             this.Type switch
             {
-                EventType.KeyTyped or
-                EventType.KeyPressed or
-                EventType.KeyReleased => this.Keyboard == @event.Keyboard,
-                EventType.MouseClicked or
-                EventType.MousePressed or
-                EventType.MouseReleased or
-                EventType.MouseMoved => this.Mouse == @event.Mouse,
-                EventType.MouseWheel => this.Wheel == @event.Wheel,
+                EventType.KeyTyped or EventType.KeyPressed or EventType.KeyReleased =>
+                    this.Keyboard == @event.Keyboard,
+                EventType.MouseClicked or EventType.MousePressed or EventType.MouseReleased or
+                EventType.MousePressedIgnoreCoordinates or EventType.MouseReleasedIgnoreCoordinates or
+                EventType.MouseMoved or EventType.MouseMovedRelative or
+                EventType.MouseDragged or EventType.MouseMovedRelative =>
+                    this.Mouse == @event.Mouse,
+                EventType.MouseWheel =>
+                    this.Wheel == @event.Wheel,
                 _ => true
             };
 
@@ -128,14 +129,15 @@ public struct UioHookEvent : IEquatable<UioHookEvent>
     public readonly override int GetHashCode() =>
         this.Type switch
         {
-            EventType.KeyTyped => HashCodeUtil.GetHashCode(this.Type, this.Time, this.Mask, this.Keyboard),
-            EventType.KeyPressed => HashCodeUtil.GetHashCode(this.Type, this.Time, this.Mask, this.Keyboard),
-            EventType.KeyReleased => HashCodeUtil.GetHashCode(this.Type, this.Time, this.Mask, this.Keyboard),
-            EventType.MouseClicked => HashCodeUtil.GetHashCode(this.Type, this.Time, this.Mask, this.Mouse),
-            EventType.MousePressed => HashCodeUtil.GetHashCode(this.Type, this.Time, this.Mask, this.Mouse),
-            EventType.MouseReleased => HashCodeUtil.GetHashCode(this.Type, this.Time, this.Mask, this.Mouse),
-            EventType.MouseMoved => HashCodeUtil.GetHashCode(this.Type, this.Time, this.Mask, this.Mouse),
-            EventType.MouseWheel => HashCodeUtil.GetHashCode(this.Type, this.Time, this.Mask, this.Wheel),
+            EventType.KeyTyped or EventType.KeyPressed or EventType.KeyReleased =>
+                HashCodeUtil.GetHashCode(this.Type, this.Time, this.Mask, this.Keyboard),
+            EventType.MouseClicked or EventType.MousePressed or EventType.MouseReleased or
+            EventType.MousePressedIgnoreCoordinates or EventType.MouseReleasedIgnoreCoordinates or
+            EventType.MouseMoved or EventType.MouseMovedRelative or
+            EventType.MouseDragged or EventType.MouseMovedRelative =>
+                HashCodeUtil.GetHashCode(this.Type, this.Time, this.Mask, this.Mouse),
+            EventType.MouseWheel =>
+                HashCodeUtil.GetHashCode(this.Type, this.Time, this.Mask, this.Wheel),
             _ => HashCodeUtil.GetHashCode(this.Type, this.Time, this.Mask)
         };
 
@@ -148,18 +150,15 @@ public struct UioHookEvent : IEquatable<UioHookEvent>
         $"{nameof(this.Mask)} = {this.Mask}" +
         this.Type switch
         {
-            EventType.KeyTyped => $"; {nameof(this.Keyboard)} = {this.Keyboard}",
-            EventType.KeyPressed => $"; {nameof(this.Keyboard)} = {this.Keyboard}",
-            EventType.KeyReleased => $"; {nameof(this.Keyboard)} = {this.Keyboard}",
-            EventType.MouseClicked => $"; {nameof(this.Mouse)} = {this.Mouse}",
-            EventType.MousePressed => $"; {nameof(this.Mouse)} = {this.Mouse}",
-            EventType.MouseReleased => $"; {nameof(this.Mouse)} = {this.Mouse}",
-            EventType.MousePressedIgnoreCoordinates => $"; {nameof(this.Mouse)} = {this.Mouse}",
-            EventType.MouseReleasedIgnoreCoordinates => $"; {nameof(this.Mouse)} = {this.Mouse}",
-            EventType.MouseMoved => $"; {nameof(this.Mouse)} = {this.Mouse}",
-            EventType.MouseDragged => $"; {nameof(this.Mouse)} = {this.Mouse}",
-            EventType.MouseMovedRelative => $"; {nameof(this.Mouse)} = {this.Mouse}",
-            EventType.MouseWheel => $"; {nameof(this.Wheel)} = {this.Wheel}",
+            EventType.KeyTyped or EventType.KeyPressed or EventType.KeyReleased =>
+                $"; {nameof(this.Keyboard)} = {this.Keyboard}",
+            EventType.MouseClicked or EventType.MousePressed or EventType.MouseReleased or
+            EventType.MousePressedIgnoreCoordinates or EventType.MouseReleasedIgnoreCoordinates or
+            EventType.MouseMoved or EventType.MouseMovedRelative or
+            EventType.MouseDragged or EventType.MouseDraggedRelative =>
+                $"; {nameof(this.Mouse)} = {this.Mouse}",
+            EventType.MouseWheel =>
+                $"; {nameof(this.Wheel)} = {this.Wheel}",
             _ => String.Empty
         };
 
