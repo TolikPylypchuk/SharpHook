@@ -2694,7 +2694,6 @@
             <summary>
             Event args for keyboard-related hook events.
             </summary>
-            <param name="rawEvent">The raw event data.</param>
             <seealso cref="T:SharpHook.HookEventArgs" />
             <seealso cref="T:SharpHook.MouseHookEventArgs" />
             <seealso cref="T:SharpHook.MouseWheelHookEventArgs" />
@@ -2702,13 +2701,9 @@
         </member>
         <member name="M:SharpHook.KeyboardHookEventArgs.#ctor(SharpHook.Data.UioHookEvent)">
             <summary>
-            Event args for keyboard-related hook events.
+            Initializes a new instance of the <see cref="T:SharpHook.KeyboardHookEventArgs" /> class.
             </summary>
             <param name="rawEvent">The raw event data.</param>
-            <seealso cref="T:SharpHook.HookEventArgs" />
-            <seealso cref="T:SharpHook.MouseHookEventArgs" />
-            <seealso cref="T:SharpHook.MouseWheelHookEventArgs" />
-            <seealso cref="T:SharpHook.Data.KeyboardEventData" />
         </member>
         <member name="P:SharpHook.KeyboardHookEventArgs.Data">
             <summary>
@@ -3063,7 +3058,6 @@
             <summary>
             Event args for mouse-related hook events.
             </summary>
-            <param name="rawEvent">The raw event data.</param>
             <seealso cref="T:SharpHook.HookEventArgs" />
             <seealso cref="T:SharpHook.KeyboardHookEventArgs" />
             <seealso cref="T:SharpHook.MouseWheelHookEventArgs" />
@@ -3071,13 +3065,9 @@
         </member>
         <member name="M:SharpHook.MouseHookEventArgs.#ctor(SharpHook.Data.UioHookEvent)">
             <summary>
-            Event args for mouse-related hook events.
+            Initializes a new instance of the <see cref="T:SharpHook.MouseHookEventArgs" /> class.
             </summary>
             <param name="rawEvent">The raw event data.</param>
-            <seealso cref="T:SharpHook.HookEventArgs" />
-            <seealso cref="T:SharpHook.KeyboardHookEventArgs" />
-            <seealso cref="T:SharpHook.MouseWheelHookEventArgs" />
-            <seealso cref="T:SharpHook.Data.MouseEventData" />
         </member>
         <member name="P:SharpHook.MouseHookEventArgs.Data">
             <summary>
@@ -3089,7 +3079,6 @@
             <summary>
             Event args for mouse wheel-related hook events.
             </summary>
-            <param name="rawEvent">The raw event data.</param>
             <seealso cref="T:SharpHook.HookEventArgs" />
             <seealso cref="T:SharpHook.KeyboardHookEventArgs" />
             <seealso cref="T:SharpHook.MouseHookEventArgs" />
@@ -3097,13 +3086,9 @@
         </member>
         <member name="M:SharpHook.MouseWheelHookEventArgs.#ctor(SharpHook.Data.UioHookEvent)">
             <summary>
-            Event args for mouse wheel-related hook events.
+            Initializes a new instance of the <see cref="T:SharpHook.MouseWheelHookEventArgs" /> class.
             </summary>
             <param name="rawEvent">The raw event data.</param>
-            <seealso cref="T:SharpHook.HookEventArgs" />
-            <seealso cref="T:SharpHook.KeyboardHookEventArgs" />
-            <seealso cref="T:SharpHook.MouseHookEventArgs" />
-            <seealso cref="T:SharpHook.Data.MouseWheelEventData" />
         </member>
         <member name="P:SharpHook.MouseWheelHookEventArgs.Data">
             <summary>
