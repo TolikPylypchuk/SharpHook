@@ -49,7 +49,9 @@ hook.MouseMoved
     .Subscribe(OnHookEvent);
 
 hook.MouseMovedRelative
-    .Throttle(TimeSpan.FromSeconds(1))
+    .Buffer(() => hook.MouseMovedRelative.Throttle(TimeSpan.FromSeconds(1)))
+    .Where(buffer => buffer.Count > 0)
+    .Select(buffer => buffer.Aggregate(AddMouseCoordinates))
     .Subscribe(OnHookEvent);
 
 hook.MouseDragged
@@ -57,7 +59,9 @@ hook.MouseDragged
     .Subscribe(OnHookEvent);
 
 hook.MouseDraggedRelative
-    .Throttle(TimeSpan.FromSeconds(1))
+    .Buffer(() => hook.MouseDraggedRelative.Throttle(TimeSpan.FromSeconds(1)))
+    .Where(buffer => buffer.Count > 0)
+    .Select(buffer => buffer.Aggregate(AddMouseCoordinates))
     .Subscribe(OnHookEvent);
 
 hook.MouseWheel.Subscribe(OnHookEvent);
@@ -85,6 +89,12 @@ static void OnKeyReleased(KeyboardHookEventArgs e, IReactiveGlobalHook hook)
         hook.Stop();
     }
 }
+
+static MouseHookEventArgs AddMouseCoordinates(MouseHookEventArgs e1, MouseHookEventArgs e2) =>
+    new(e2.RawEvent with
+    {
+        Mouse = e2.Data with { X = (short)(e1.Data.X + e2.Data.X), Y = (short)(e1.Data.Y + e2.Data.Y) }
+    });
 
 static void OnMessageLogged(LogEntry logEntry) =>
     Console.WriteLine($"{Enum.GetName(logEntry.Level)?.ToUpper()}: {logEntry.FullText}");
