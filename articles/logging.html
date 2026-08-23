@@ -88,7 +88,8 @@
 <h1 id="logging">Logging</h1>
 
 <p>libuiohook can log messages throughout its execution. By default the messages are not logged anywhere, but you can get
-these logs by using <code>UioHook.SetLoggerProc</code>, or the <code>ILogSource</code> interface and its default implementation, <code>LogSource</code>.</p>
+these logs using the <code>ILogSource</code> interface and its default implementation, <code>LogSource</code>, or by using
+<code>ILoggingProvider.SetLoggerProc</code>.</p>
 <p>libuiohook logs contain the log level (debug, info, warning, error), message format, and message arguments.</p>
 <p>The message structure is the following:</p>
 <pre><code>function [line]: message
