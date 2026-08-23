@@ -60,21 +60,4 @@ public class HookEventArgs : EventArgs
     /// </para>
     /// </remarks>
     public bool SuppressEvent { get; set; }
-
-    /// <summary>
-    /// Creates a new instance of the <see cref="HookEventArgs" /> class or a derived class, depending on the
-    /// event type.
-    /// </summary>
-    /// <param name="rawEvent">The raw event data.</param>
-    public static HookEventArgs FromEvent(UioHookEvent rawEvent) =>
-        rawEvent.Type switch
-        {
-            EventType.KeyPressed or EventType.KeyReleased or EventType.KeyTyped => new KeyboardHookEventArgs(rawEvent),
-            EventType.MousePressed or EventType.MouseReleased or EventType.MouseClicked or
-                EventType.MousePressedIgnoreCoordinates or EventType.MouseReleasedIgnoreCoordinates or
-                EventType.MouseMoved or EventType.MouseMovedRelative or
-                EventType.MouseDragged or EventType.MouseDraggedRelative => new MouseHookEventArgs(rawEvent),
-            EventType.MouseWheel => new MouseWheelHookEventArgs(rawEvent),
-            _ => new HookEventArgs(rawEvent)
-        };
 }

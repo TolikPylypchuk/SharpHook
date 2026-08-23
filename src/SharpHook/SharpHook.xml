@@ -2406,13 +2406,6 @@
             </para>
             </remarks>
         </member>
-        <member name="M:SharpHook.HookEventArgs.FromEvent(SharpHook.Data.UioHookEvent)">
-            <summary>
-            Creates a new instance of the <see cref="T:SharpHook.HookEventArgs" /> class or a derived class, depending on the
-            event type.
-            </summary>
-            <param name="rawEvent">The raw event data.</param>
-        </member>
         <member name="T:SharpHook.HookException">
             <summary>
             Represents an exception related to global hooks.
