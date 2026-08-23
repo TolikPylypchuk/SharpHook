@@ -40,6 +40,14 @@
     <File Path="LICENSE" />
     <File Path="README.md" />
   </Folder>
+  <Folder Name="/samples/">
+    <Project Path="samples/SharpHook.Sample/SharpHook.Sample.csproj">
+      <Platform Solution="*|ARM32" Project="ARM32" />
+      <Platform Solution="*|ARM64" Project="ARM64" />
+      <Platform Solution="*|x64" Project="x64" />
+      <Platform Solution="*|x86" Project="x86" />
+    </Project>
+  </Folder>
   <Folder Name="/src/">
     <Project Path="src/SharpHook.R3/SharpHook.R3.csproj" Id="2d4e4ce3-36c6-4b74-97fd-4b28bc1ec8bf">
       <Platform Solution="*|ARM32" Project="ARM32" />
@@ -54,12 +62,6 @@
       <Platform Solution="*|x86" Project="x86" />
     </Project>
     <Project Path="src/SharpHook.ReactiveUI/SharpHook.ReactiveUI.csproj" Id="ef9eb357-2cde-429c-b17e-5a72c970493e">
-      <Platform Solution="*|ARM32" Project="ARM32" />
-      <Platform Solution="*|ARM64" Project="ARM64" />
-      <Platform Solution="*|x64" Project="x64" />
-      <Platform Solution="*|x86" Project="x86" />
-    </Project>
-    <Project Path="src/SharpHook.Sample/SharpHook.Sample.csproj">
       <Platform Solution="*|ARM32" Project="ARM32" />
       <Platform Solution="*|ARM64" Project="ARM64" />
       <Platform Solution="*|x64" Project="x64" />

@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks></TargetFrameworks>
+    <TargetFramework>net10.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <PublishTrimmed>true</PublishTrimmed>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\SharpHook\SharpHook.csproj" />
+    <ProjectReference Include="..\..\src\SharpHook.R3\SharpHook.R3.csproj" />
+    <ProjectReference Include="..\..\src\SharpHook.Reactive\SharpHook.Reactive.csproj" />
+    <ProjectReference Include="..\..\src\SharpHook.ReactiveUI\SharpHook.ReactiveUI.csproj" />
+    <ProjectReference Include="..\..\src\SharpHook.Testing\SharpHook.Testing.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TrimmerRootAssembly Include="SharpHook" />
+    <TrimmerRootAssembly Include="SharpHook.R3" />
+    <TrimmerRootAssembly Include="SharpHook.Reactive" />
+    <TrimmerRootAssembly Include="SharpHook.ReactiveUI" />
+    <TrimmerRootAssembly Include="SharpHook.Testing" />
+  </ItemGroup>
+
+</Project>
