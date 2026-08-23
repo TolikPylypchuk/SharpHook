@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface IDeviceProcsProvider | SharpHook ">
       
-      <meta name="description" content="Represents a provider of low-level device functionality.">
+      
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,8 +97,7 @@ Interface IDeviceProcsProvider  <a class="header-action link-secondary" title="V
   <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Represents a provider of low-level device functionality.</p>
-</div>
+  <div class="markdown summary"></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -128,10 +127,7 @@ Interface IDeviceProcsProvider  <a class="header-action link-secondary" title="V
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Providers/IDeviceProcsProvider.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Sets the functions to open and close privieged devices. This can be used to provide a custom way of opening and
-closing devices on Linux without requiring direct file access to them. This is an advanced scenario and should
-generally be avoided.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -141,14 +137,11 @@ generally be avoided.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>openProc</code> <a class="xref" href="SharpHook.Native.OpenDeviceProc.html">OpenDeviceProc</a></dt>
-    <dd><p>The function to use when opening a privileged device, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to use the default method.</p>
-</dd>
+    <dd></dd>
     <dt><code>closeProc</code> <a class="xref" href="SharpHook.Native.CloseDeviceProc.html">CloseDeviceProc</a></dt>
-    <dd><p>The function to use when closing a privileged device, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to use the default method.</p>
-</dd>
+    <dd></dd>
     <dt><code>userData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd><p>The data to pass to the device functions.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -158,9 +151,6 @@ generally be avoided.</p>
 
 
 
-  <h4 class="section" id="SharpHook_Providers_IDeviceProcsProvider_SetDeviceProcs_SharpHook_Native_OpenDeviceProc_SharpHook_Native_CloseDeviceProc_System_IntPtr__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>These functions are used only on Linux, and only when the loaded backend uses libinput and uinput.</p>
-</div>
 
 
 

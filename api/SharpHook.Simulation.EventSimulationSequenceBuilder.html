@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class EventSimulationSequenceBuilder | SharpHook ">
       
-      <meta name="description" content="Represents a builder for a sequence of events that can be simulated together.">
+      
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,8 +97,7 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Represents a builder for a sequence of events that can be simulated together.</p>
-</div>
+  <div class="markdown summary"></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -175,8 +174,7 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Simulation/EventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="SharpHook.Simulation.EventSimulationSequenceBuilder.html">EventSimulationSequenceBuilder</a> class.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -186,8 +184,7 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>owner</code> <a class="xref" href="SharpHook.Simulation.EventSimulator.html">EventSimulator</a></dt>
-    <dd><p>This owner of this builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -197,16 +194,7 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
 
 
 
-  <h4 class="section" id="SharpHook_Simulation_EventSimulationSequenceBuilder__ctor_SharpHook_Simulation_EventSimulator__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>If <code class="paramref">owner</code> is disposed, then this instance becomes instantly disposed as well.</p>
-</div>
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
-    <dd><p><code class="paramref">owner</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
-</dd>
-  </dl>
 
 
 
@@ -221,8 +209,7 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Simulation/EventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Gets the value which indicates whether the builder has been disposed.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -236,16 +223,12 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the builder has been disposed. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
 
 
-  <h4 class="section" id="SharpHook_Simulation_EventSimulationSequenceBuilder_IsDisposed_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>A disposed builder cannot be used to simulate events.</p>
-</div>
 
 
 
@@ -261,8 +244,7 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Simulation/EventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds the specified event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -272,15 +254,13 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>event</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></dt>
-    <dd><p>The event to add to the sequence.</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Simulation.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -290,15 +270,6 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
 
 
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
-    <dd><p><code class="paramref">event</code> has type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a> or <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseClicked">MouseClicked</a>.</p>
-</dd>
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
-    <dd><p>The builder has been disposed.</p>
-</dd>
-  </dl>
 
 
 
@@ -309,8 +280,7 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Simulation/EventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds the specified events to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -320,15 +290,13 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>events</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a>[]</dt>
-    <dd><p>The events to add to the sequence.</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Simulation.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -338,19 +306,6 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
 
 
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
-    <dd><p><code class="paramref">events</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
-</dd>
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
-    <dd><p>One of <code class="paramref">events</code> has type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a> or
-<a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseClicked">MouseClicked</a>.</p>
-</dd>
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
-    <dd><p>The builder has been disposed.</p>
-</dd>
-  </dl>
 
 
 
@@ -361,8 +316,7 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Simulation/EventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds the specified events to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -372,15 +326,13 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>events</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a>&gt;</dt>
-    <dd><p>The events to add to the sequence.</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Simulation.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -390,19 +342,6 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
 
 
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
-    <dd><p><code class="paramref">events</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.</p>
-</dd>
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception">ArgumentOutOfRangeException</a></dt>
-    <dd><p>One of <code class="paramref">events</code> has type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a> or
-<a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_MouseClicked">MouseClicked</a>.</p>
-</dd>
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
-    <dd><p>The builder has been disposed.</p>
-</dd>
-  </dl>
 
 
 
@@ -413,8 +352,7 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Simulation/EventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a key press event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -424,15 +362,13 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>keyCode</code> <a class="xref" href="SharpHook.Data.KeyCode.html">KeyCode</a></dt>
-    <dd><p>The code of the key to press.</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Simulation.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -442,12 +378,6 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
 
 
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
-    <dd><p>The builder has been disposed.</p>
-</dd>
-  </dl>
 
 
 
@@ -458,8 +388,7 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Simulation/EventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a key release event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -469,15 +398,13 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>keyCode</code> <a class="xref" href="SharpHook.Data.KeyCode.html">KeyCode</a></dt>
-    <dd><p>The code of the key to press.</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Simulation.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -487,12 +414,6 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
 
 
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
-    <dd><p>The builder has been disposed.</p>
-</dd>
-  </dl>
 
 
 
@@ -503,8 +424,7 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Simulation/EventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a mouse movement event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -514,18 +434,15 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The target X-coordinate of the mouse pointer.</p>
-</dd>
+    <dd></dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The target Y-coordinate of the mouse pointer.</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Simulation.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -535,12 +452,6 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
 
 
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
-    <dd><p>The builder has been disposed.</p>
-</dd>
-  </dl>
 
 
 
@@ -551,8 +462,7 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Simulation/EventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a relative mouse movement event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -562,18 +472,15 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The X-coordinate offset.</p>
-</dd>
+    <dd></dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The Y-coordinate offset.</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Simulation.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -583,12 +490,6 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
 
 
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
-    <dd><p>The builder has been disposed.</p>
-</dd>
-  </dl>
 
 
 
@@ -599,8 +500,7 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Simulation/EventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a mouse button press event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -610,15 +510,13 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>button</code> <a class="xref" href="SharpHook.Data.MouseButton.html">MouseButton</a></dt>
-    <dd><p>The mouse button to press.</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Simulation.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -628,12 +526,6 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
 
 
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
-    <dd><p>The builder has been disposed.</p>
-</dd>
-  </dl>
 
 
 
@@ -644,8 +536,7 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Simulation/EventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a mouse button press event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -655,18 +546,15 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>button</code> <a class="xref" href="SharpHook.Data.MouseButton.html">MouseButton</a></dt>
-    <dd><p>The mouse button to press.</p>
-</dd>
+    <dd></dd>
     <dt><code>clicks</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
-    <dd><p>The click count (used only on macOS).</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Simulation.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -676,12 +564,6 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
 
 
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
-    <dd><p>The builder has been disposed.</p>
-</dd>
-  </dl>
 
 
 
@@ -692,8 +574,7 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Simulation/EventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a mouse button press event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -703,21 +584,17 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The target X-coordinate of the mouse pointer.</p>
-</dd>
+    <dd></dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The target Y-coordinate of the mouse pointer.</p>
-</dd>
+    <dd></dd>
     <dt><code>button</code> <a class="xref" href="SharpHook.Data.MouseButton.html">MouseButton</a></dt>
-    <dd><p>The mouse button to press.</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Simulation.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -727,12 +604,6 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
 
 
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
-    <dd><p>The builder has been disposed.</p>
-</dd>
-  </dl>
 
 
 
@@ -743,8 +614,7 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Simulation/EventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a mouse button press event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -754,24 +624,19 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The target X-coordinate of the mouse pointer.</p>
-</dd>
+    <dd></dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The target Y-coordinate of the mouse pointer.</p>
-</dd>
+    <dd></dd>
     <dt><code>button</code> <a class="xref" href="SharpHook.Data.MouseButton.html">MouseButton</a></dt>
-    <dd><p>The mouse button to press.</p>
-</dd>
+    <dd></dd>
     <dt><code>clicks</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
-    <dd><p>The click count (used only on macOS).</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Simulation.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -791,8 +656,7 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Simulation/EventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a mouse button release event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -802,15 +666,13 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>button</code> <a class="xref" href="SharpHook.Data.MouseButton.html">MouseButton</a></dt>
-    <dd><p>The mouse button to release.</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Simulation.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -820,12 +682,6 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
 
 
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
-    <dd><p>The builder has been disposed.</p>
-</dd>
-  </dl>
 
 
 
@@ -836,8 +692,7 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Simulation/EventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a mouse button release event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -847,18 +702,15 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>button</code> <a class="xref" href="SharpHook.Data.MouseButton.html">MouseButton</a></dt>
-    <dd><p>The mouse button to release.</p>
-</dd>
+    <dd></dd>
     <dt><code>clicks</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
-    <dd><p>The click count (used only on macOS).</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Simulation.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -868,12 +720,6 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
 
 
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
-    <dd><p>The builder has been disposed.</p>
-</dd>
-  </dl>
 
 
 
@@ -884,8 +730,7 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Simulation/EventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a mouse button release event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -895,21 +740,17 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The target X-coordinate of the mouse pointer.</p>
-</dd>
+    <dd></dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The target Y-coordinate of the mouse pointer.</p>
-</dd>
+    <dd></dd>
     <dt><code>button</code> <a class="xref" href="SharpHook.Data.MouseButton.html">MouseButton</a></dt>
-    <dd><p>The mouse button to release.</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Simulation.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -919,12 +760,6 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
 
 
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
-    <dd><p>The builder has been disposed.</p>
-</dd>
-  </dl>
 
 
 
@@ -935,8 +770,7 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Simulation/EventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a mouse button release event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -946,24 +780,19 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>x</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The target X-coordinate of the mouse pointer.</p>
-</dd>
+    <dd></dd>
     <dt><code>y</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The target Y-coordinate of the mouse pointer.</p>
-</dd>
+    <dd></dd>
     <dt><code>button</code> <a class="xref" href="SharpHook.Data.MouseButton.html">MouseButton</a></dt>
-    <dd><p>The mouse button to release.</p>
-</dd>
+    <dd></dd>
     <dt><code>clicks</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uint16">ushort</a></dt>
-    <dd><p>The click count (used only on macOS).</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Simulation.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -973,12 +802,6 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
 
 
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
-    <dd><p>The builder has been disposed.</p>
-</dd>
-  </dl>
 
 
 
@@ -989,8 +812,7 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Simulation/EventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Adds a mouse wheel scroll event to the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1000,22 +822,17 @@ Class EventSimulationSequenceBuilder  <a class="header-action link-secondary" ti
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>rotation</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int16">short</a></dt>
-    <dd><p>The wheel rotation. A positive value indicates that the wheel will be rotated up or left,
-and a negative value indicates that the wheel will be rotated down or right.</p>
-</dd>
+    <dd></dd>
     <dt><code>direction</code> <a class="xref" href="SharpHook.Data.MouseWheelScrollDirection.html">MouseWheelScrollDirection</a></dt>
-    <dd><p>The scroll direction.</p>
-</dd>
+    <dd></dd>
     <dt><code>type</code> <a class="xref" href="SharpHook.Data.MouseWheelScrollType.html">MouseWheelScrollType</a></dt>
-    <dd><p>The scroll type (considered only on macOS).</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Simulation.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -1024,28 +841,7 @@ and a negative value indicates that the wheel will be rotated down or right.</p>
 
 
 
-  <h4 class="section" id="SharpHook_Simulation_EventSimulationSequenceBuilder_AddMouseWheel_System_Int16_SharpHook_Data_MouseWheelScrollDirection_SharpHook_Data_MouseWheelScrollType__remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>
-On Windows, the value <code>120</code> represents the default wheel step. As such, multiples of <code>120</code> can be
-used, but it's not required. The value of <code class="paramref">type</code> is ignored.
-</p>
-<p>
-On macOS, it's recommended to use values between <code>-10</code> and <code>10</code>. This will result in quite a small
-scroll amount with pixel scrolling, so <a class="xref" href="SharpHook.Data.MouseWheelScrollType.html#SharpHook_Data_MouseWheelScrollType_BlockScroll">BlockScroll</a> is recommended for line
-scrolling instead of pixel scrolling.
-</p>
-<p>
-On Linux, like Windows, multiples of <code>120</code> should generally be used. The value of <code class="paramref">type</code>
-is ignored.
-</p>
-</div>
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
-    <dd><p>The builder has been disposed.</p>
-</dd>
-  </dl>
 
 
 
@@ -1056,8 +852,7 @@ is ignored.
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Simulation/EventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Creates a template based on the events in this sequence.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1068,8 +863,7 @@ is ignored.
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Simulation.IEventSimulationSequenceTemplate.html">IEventSimulationSequenceTemplate</a></dt>
-    <dd><p>A template based on the events in this sequence.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -1079,12 +873,6 @@ is ignored.
 
 
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
-    <dd><p>The builder has been disposed.</p>
-</dd>
-  </dl>
 
 
 
@@ -1095,8 +883,7 @@ is ignored.
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Simulation/EventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Disposes of this builder.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1122,8 +909,7 @@ is ignored.
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Simulation/EventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Removes the specified event from the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1133,15 +919,13 @@ is ignored.
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>event</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></dt>
-    <dd><p>The event to remove from the sequence.</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Simulation.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -1151,12 +935,6 @@ is ignored.
 
 
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
-    <dd><p>The builder has been disposed.</p>
-</dd>
-  </dl>
 
 
 
@@ -1167,8 +945,7 @@ is ignored.
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Simulation/EventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Removes the specified events from the sequence of events to simulate.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1178,15 +955,13 @@ is ignored.
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>predicate</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</dt>
-    <dd><p>The predicate to check if the event should be removed from the sequence.</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Simulation.IEventSimulationSequenceBuilder.html">IEventSimulationSequenceBuilder</a></dt>
-    <dd><p>The current builder.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -1196,12 +971,6 @@ is ignored.
 
 
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
-    <dd><p>The builder has been disposed.</p>
-</dd>
-  </dl>
 
 
 
@@ -1212,8 +981,7 @@ is ignored.
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Simulation/EventSimulationSequenceBuilder.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Simulates the events in this sequence.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1224,8 +992,7 @@ is ignored.
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.UioHookResult.html">UioHookResult</a></dt>
-    <dd><p>The result of the operation.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -1235,12 +1002,6 @@ is ignored.
 
 
 
-  <h4 class="section">Exceptions</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.objectdisposedexception">ObjectDisposedException</a></dt>
-    <dd><p>The builder has been disposed.</p>
-</dd>
-  </dl>
 
 
 

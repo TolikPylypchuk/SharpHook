@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class GlobalHookBase | SharpHook ">
       
-      <meta name="description" content="Represents an abstract implementation of  which defines everything needed except for a strategy for dispatching events and uses a global hook provider (libuiohook by default).">
+      
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,9 +97,7 @@ Class GlobalHookBase  <a class="header-action link-secondary" title="View source
   <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Represents an abstract implementation of <a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a> which defines everything needed except for
-a strategy for dispatching events and uses a global hook provider (libuiohook by default).</p>
-</div>
+  <div class="markdown summary"></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -209,8 +207,7 @@ a strategy for dispatching events and uses a global hook provider (libuiohook by
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes a new instance of <a class="xref" href="SharpHook.GlobalHookBase.html">GlobalHookBase</a>.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -220,8 +217,7 @@ a strategy for dispatching events and uses a global hook provider (libuiohook by
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>globalHookProvider</code> <a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html">IGlobalHookProvider</a></dt>
-    <dd><p>The underlying global hook provider, or <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a> to use the default one.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -246,8 +242,7 @@ a strategy for dispatching events and uses a global hook provider (libuiohook by
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Dispatches an event from the global hook provider, i.e. raises the appropriate event.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -257,8 +252,7 @@ a strategy for dispatching events and uses a global hook provider (libuiohook by
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>event</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></dt>
-    <dd><p>The event to dispatch.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -279,8 +273,7 @@ a strategy for dispatching events and uses a global hook provider (libuiohook by
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>When implemented in a derived class, represents a strategy for handling a hook event.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -290,8 +283,7 @@ a strategy for dispatching events and uses a global hook provider (libuiohook by
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>event</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></dt>
-    <dd><p>The event to handle.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -301,11 +293,6 @@ a strategy for dispatching events and uses a global hook provider (libuiohook by
 
 
 
-  <h4 class="section" id="SharpHook_GlobalHookBase_HandleHookEvent_SharpHook_Data_UioHookEvent___remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>Derived classes should call <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_DispatchEvent_SharpHook_Data_UioHookEvent__">DispatchEvent(ref UioHookEvent)</a> inside this method to raise the
-appropriate event. They can also call <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_ShouldDispatchEvent_SharpHook_Data_UioHookEvent__">ShouldDispatchEvent(ref UioHookEvent)</a> to determine whether
-to attempt dispatching the event at all.</p>
-</div>
 
 
 
@@ -317,8 +304,7 @@ to attempt dispatching the event at all.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_HookDisabled">HookDisabled</a> event with this object as the sender.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -328,8 +314,7 @@ to attempt dispatching the event at all.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="SharpHook.HookEventArgs.html">HookEventArgs</a></dt>
-    <dd><p>The arguments of the event.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -350,8 +335,7 @@ to attempt dispatching the event at all.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_HookEnabled">HookEnabled</a> event with this object as the sender.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -361,8 +345,7 @@ to attempt dispatching the event at all.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="SharpHook.HookEventArgs.html">HookEventArgs</a></dt>
-    <dd><p>The arguments of the event.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -383,8 +366,7 @@ to attempt dispatching the event at all.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_KeyPressed">KeyPressed</a> event with this object as the sender.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -394,8 +376,7 @@ to attempt dispatching the event at all.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a></dt>
-    <dd><p>The arguments of the event.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -416,8 +397,7 @@ to attempt dispatching the event at all.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_KeyReleased">KeyReleased</a> event with this object as the sender.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -427,8 +407,7 @@ to attempt dispatching the event at all.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a></dt>
-    <dd><p>The arguments of the event.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -449,8 +428,7 @@ to attempt dispatching the event at all.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_KeyTyped">KeyTyped</a> event with this object as the sender.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -460,8 +438,7 @@ to attempt dispatching the event at all.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a></dt>
-    <dd><p>The arguments of the event.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -482,8 +459,7 @@ to attempt dispatching the event at all.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MouseClicked">MouseClicked</a> event with this object as the sender.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -493,8 +469,7 @@ to attempt dispatching the event at all.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a></dt>
-    <dd><p>The arguments of the event.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -515,8 +490,7 @@ to attempt dispatching the event at all.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MouseDragged">MouseDragged</a> event with this object as the sender.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -526,8 +500,7 @@ to attempt dispatching the event at all.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a></dt>
-    <dd><p>The arguments of the event.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -548,8 +521,7 @@ to attempt dispatching the event at all.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MouseDraggedRelative">MouseDraggedRelative</a> event with this object as the sender.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -559,8 +531,7 @@ to attempt dispatching the event at all.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a></dt>
-    <dd><p>The arguments of the event.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -581,8 +552,7 @@ to attempt dispatching the event at all.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MouseMoved">MouseMoved</a> event with this object as the sender.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -592,8 +562,7 @@ to attempt dispatching the event at all.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a></dt>
-    <dd><p>The arguments of the event.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -614,8 +583,7 @@ to attempt dispatching the event at all.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MouseMovedRelative">MouseMovedRelative</a> event with this object as the sender.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -625,8 +593,7 @@ to attempt dispatching the event at all.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a></dt>
-    <dd><p>The arguments of the event.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -647,8 +614,7 @@ to attempt dispatching the event at all.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MousePressed">MousePressed</a> event with this object as the sender.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -658,8 +624,7 @@ to attempt dispatching the event at all.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a></dt>
-    <dd><p>The arguments of the event.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -680,8 +645,7 @@ to attempt dispatching the event at all.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MouseReleased">MouseReleased</a> event with this object as the sender.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -691,8 +655,7 @@ to attempt dispatching the event at all.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a></dt>
-    <dd><p>The arguments of the event.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -713,8 +676,7 @@ to attempt dispatching the event at all.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Raises the <a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MouseWheel">MouseWheel</a> event with this object as the sender.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -724,8 +686,7 @@ to attempt dispatching the event at all.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>args</code> <a class="xref" href="SharpHook.MouseWheelHookEventArgs.html">MouseWheelHookEventArgs</a></dt>
-    <dd><p>The arguments of the event.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -746,9 +707,7 @@ to attempt dispatching the event at all.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Returns a value which indicates whether there are any subscribers to an event which corresponds to the hook
-event type.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -758,16 +717,13 @@ event type.</p>
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>event</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></dt>
-    <dd><p>The event to check.</p>
-</dd>
+    <dd></dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if there are any subscribers to an event which corresponds to the hook event type.
-Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
-</dd>
+    <dd></dd>
   </dl>
 
 
@@ -776,9 +732,6 @@ Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference
 
 
 
-  <h4 class="section" id="SharpHook_GlobalHookBase_ShouldDispatchEvent_SharpHook_Data_UioHookEvent___remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>Derived classes may call this method as an optimization before attempting to dispatch the hook event.</p>
-</div>
 
 
 
@@ -793,8 +746,7 @@ Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An event which is raised when the global hook is disabled.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -814,9 +766,6 @@ Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference
 
 
 
-  <h4 class="section" id="SharpHook_GlobalHookBase_HookDisabled_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>This event is raised when the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">Dispose()</a> method is called.</p>
-</div>
 
 
 
@@ -827,8 +776,7 @@ Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An event which is raised when the global hook is enabled.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -848,10 +796,6 @@ Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference
 
 
 
-  <h4 class="section" id="SharpHook_GlobalHookBase_HookEnabled_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>This event is raised when the <a class="xref" href="SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_Run_SharpHook_Data_GlobalHookType_">Run(GlobalHookType)</a> or <a class="xref" href="SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_RunAsync_SharpHook_Data_GlobalHookType_System_Boolean_">RunAsync(GlobalHookType, bool)</a>
-method is called.</p>
-</div>
 
 
 
@@ -862,8 +806,7 @@ method is called.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An event which is raised when a key is pressed.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -883,12 +826,6 @@ method is called.</p>
 
 
 
-  <h4 class="section" id="SharpHook_GlobalHookBase_KeyPressed_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>On Wayland, this event is not raised repeatedly if the key is kept down. To check whether key auto-repeat events
-are reported, you can use <a class="xref" href="SharpHook.Providers.IFeatureProvider.html#SharpHook_Providers_IFeatureProvider_GetOptionalFeatureSupport">GetOptionalFeatureSupport()</a>. If that method returns
-<a class="xref" href="SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_KeyAutoRepeat">KeyAutoRepeat</a> as one of the supported features, then this event will be raised
-repeatedly if the key is kept down.</p>
-</div>
 
 
 
@@ -899,8 +836,7 @@ repeatedly if the key is kept down.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An event which is raised when a key is released.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -930,8 +866,7 @@ repeatedly if the key is kept down.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An event which is raised when a key is typed.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -951,17 +886,6 @@ repeatedly if the key is kept down.</p>
 
 
 
-  <h4 class="section" id="SharpHook_GlobalHookBase_KeyTyped_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>
-This event is disabled by default. If you want to enable it, you should set the
-<a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html#SharpHook_Providers_IGlobalHookProvider_KeyTypedEnabled">KeyTypedEnabled</a> property to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
-</p>
-<p>
-On Wayland, this event is not supported. You can use <a class="xref" href="SharpHook.Providers.IFeatureProvider.html#SharpHook_Providers_IFeatureProvider_GetOptionalFeatureSupport">GetOptionalFeatureSupport()</a>
-to check support for this event. If that method returns <a class="xref" href="SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_KeyTypedEvents">KeyTypedEvents</a> as one of
-the supported features, then this event is supported.
-</p>
-</div>
 
 
 
@@ -972,8 +896,7 @@ the supported features, then this event is supported.
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An event which is raised when a mouse button is clicked.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -993,13 +916,6 @@ the supported features, then this event is supported.
 
 
 
-  <h4 class="section" id="SharpHook_GlobalHookBase_MouseClicked_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>On Wayland, this event does not include mouse coordinates (they are always set to (0, 0)). To check whether
-mouse coordinates for this event are available, you can use
-<a class="xref" href="SharpHook.Providers.IFeatureProvider.html#SharpHook_Providers_IFeatureProvider_GetOptionalFeatureSupport">GetOptionalFeatureSupport()</a>. If that method returns
-<a class="xref" href="SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_AbsoluteMouseButtonCoordinates">AbsoluteMouseButtonCoordinates</a> as one of the supported features, then this event
-will contain non-zero mouse coordinates.</p>
-</div>
 
 
 
@@ -1010,8 +926,7 @@ will contain non-zero mouse coordinates.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An event which is raised when the mouse cursor is dragged.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1031,11 +946,6 @@ will contain non-zero mouse coordinates.</p>
 
 
 
-  <h4 class="section" id="SharpHook_GlobalHookBase_MouseDragged_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>On Wayland, this event is raised only when using an absolute pointing device (like a touchscreen or a mouse in
-a virtual machine). Relative pointing devices (like most normal mice) will raise
-<a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MouseDraggedRelative">MouseDraggedRelative</a> instead.</p>
-</div>
 
 
 
@@ -1046,8 +956,7 @@ a virtual machine). Relative pointing devices (like most normal mice) will raise
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An event which is raised when the mouse cursor is dragged relatively to its previous position.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1067,13 +976,6 @@ a virtual machine). Relative pointing devices (like most normal mice) will raise
 
 
 
-  <h4 class="section" id="SharpHook_GlobalHookBase_MouseDraggedRelative_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>This event is raised only on Wayland when using a relative pointing device (which most normal mice are). To
-check whether the current platform can raise this event, you can use
-<a class="xref" href="SharpHook.Providers.IFeatureProvider.html#SharpHook_Providers_IFeatureProvider_GetOptionalFeatureSupport">GetOptionalFeatureSupport()</a>. If that method does not return
-<a class="xref" href="SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_AbsoluteMouseMovement">AbsoluteMouseMovement</a> as one of the supported features, then the current platform
-may raise this event.</p>
-</div>
 
 
 
@@ -1084,8 +986,7 @@ may raise this event.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An event which is raised when the mouse cursor is moved.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1105,11 +1006,6 @@ may raise this event.</p>
 
 
 
-  <h4 class="section" id="SharpHook_GlobalHookBase_MouseMoved_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>On Wayland, this event is raised only when using an absolute pointing device (like a touchscreen or a mouse in
-a virtual machine). Relative pointing devices (like most normal mice) will raise
-<a class="xref" href="SharpHook.GlobalHookBase.html#SharpHook_GlobalHookBase_MouseMovedRelative">MouseMovedRelative</a> instead.</p>
-</div>
 
 
 
@@ -1120,8 +1016,7 @@ a virtual machine). Relative pointing devices (like most normal mice) will raise
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An event which is raised when the mouse cursor is moved relatively to its previous position.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1141,13 +1036,6 @@ a virtual machine). Relative pointing devices (like most normal mice) will raise
 
 
 
-  <h4 class="section" id="SharpHook_GlobalHookBase_MouseMovedRelative_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>This event is raised only on Wayland when using a relative pointing device (which most normal mice are). To
-check whether the current platform can raise this event, you can use
-<a class="xref" href="SharpHook.Providers.IFeatureProvider.html#SharpHook_Providers_IFeatureProvider_GetOptionalFeatureSupport">GetOptionalFeatureSupport()</a>. If that method does not return
-<a class="xref" href="SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_AbsoluteMouseMovement">AbsoluteMouseMovement</a> as one of the supported features, then the current platform
-may raise this event.</p>
-</div>
 
 
 
@@ -1158,8 +1046,7 @@ may raise this event.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An event which is raised when a mouse button is pressed.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1179,13 +1066,6 @@ may raise this event.</p>
 
 
 
-  <h4 class="section" id="SharpHook_GlobalHookBase_MousePressed_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>On Wayland, this event does not include mouse coordinates (they are always set to (0, 0)). To check whether
-mouse coordinates for this event are available, you can use
-<a class="xref" href="SharpHook.Providers.IFeatureProvider.html#SharpHook_Providers_IFeatureProvider_GetOptionalFeatureSupport">GetOptionalFeatureSupport()</a>. If that method returns
-<a class="xref" href="SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_AbsoluteMouseButtonCoordinates">AbsoluteMouseButtonCoordinates</a> as one of the supported features, then this event
-will contain non-zero mouse coordinates.</p>
-</div>
 
 
 
@@ -1196,8 +1076,7 @@ will contain non-zero mouse coordinates.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An event which is raised when a mouse button is released.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1217,13 +1096,6 @@ will contain non-zero mouse coordinates.</p>
 
 
 
-  <h4 class="section" id="SharpHook_GlobalHookBase_MouseReleased_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>On Wayland, this event does not include mouse coordinates (they are always set to (0, 0)). To check whether
-mouse coordinates for this event are available, you can use
-<a class="xref" href="SharpHook.Providers.IFeatureProvider.html#SharpHook_Providers_IFeatureProvider_GetOptionalFeatureSupport">GetOptionalFeatureSupport()</a>. If that method returns
-<a class="xref" href="SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_AbsoluteMouseButtonCoordinates">AbsoluteMouseButtonCoordinates</a> as one of the supported features, then this event
-will contain non-zero mouse coordinates.</p>
-</div>
 
 
 
@@ -1234,8 +1106,7 @@ will contain non-zero mouse coordinates.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/GlobalHookBase.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An event which is raised when the mouse wheel is turned.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -1255,25 +1126,10 @@ will contain non-zero mouse coordinates.</p>
 
 
 
-  <h4 class="section" id="SharpHook_GlobalHookBase_MouseWheel_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>On Wayland, this event does not include mouse coordinates (they are always set to (0, 0)). To check whether
-mouse coordinates for this event are available, you can use
-<a class="xref" href="SharpHook.Providers.IFeatureProvider.html#SharpHook_Providers_IFeatureProvider_GetOptionalFeatureSupport">GetOptionalFeatureSupport()</a>. If that method returns
-<a class="xref" href="SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_AbsoluteMouseButtonCoordinates">AbsoluteMouseButtonCoordinates</a> as one of the supported features, then this event
-will contain non-zero mouse coordinates.</p>
-</div>
 
 
 
 
-  <h2 id="seealso">See Also</h2>
-  <div class="seealso">
-      <div><a class="xref" href="SharpHook.IGlobalHook.html">IGlobalHook</a></div>
-      <div><a class="xref" href="SharpHook.SimpleGlobalHook.html">SimpleGlobalHook</a></div>
-      <div><a class="xref" href="SharpHook.EventLoopGlobalHook.html">EventLoopGlobalHook</a></div>
-      <div><a class="xref" href="SharpHook.TaskPoolGlobalHook.html">TaskPoolGlobalHook</a></div>
-      <div><a class="xref" href="SharpHook.BasicGlobalHookBase.html">BasicGlobalHookBase</a></div>
-  </div>
 
 </article>
 

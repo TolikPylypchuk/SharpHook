@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface IGlobalHook | SharpHook ">
       
-      <meta name="description" content="Represents a global keyboard and mouse hook.">
+      
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,8 +97,7 @@ Interface IGlobalHook  <a class="header-action link-secondary" title="View sourc
   <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Represents a global keyboard and mouse hook.</p>
-</div>
+  <div class="markdown summary"></div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -137,11 +136,6 @@ Interface IGlobalHook  <a class="header-action link-secondary" title="View sourc
 
 
 
-  <h2 id="SharpHook_IGlobalHook_remarks">Remarks</h2>
-  <div class="markdown level0 remarks"><p>It is highly recommended not to implement this interface directly. If you want to create a custom global hook, you
-should instead extend the <a class="xref" href="SharpHook.GlobalHookBase.html">GlobalHookBase</a> class as it correctly implements the invariants required for
-advanced scenarios.</p>
-</div>
 
 
   <h2 class="section" id="events">Events
@@ -154,8 +148,7 @@ advanced scenarios.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An event which is raised when the global hook is disabled.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -175,9 +168,6 @@ advanced scenarios.</p>
 
 
 
-  <h4 class="section" id="SharpHook_IGlobalHook_HookDisabled_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>This event is raised when the <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable.dispose">Dispose()</a> method is called.</p>
-</div>
 
 
 
@@ -188,8 +178,7 @@ advanced scenarios.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An event which is raised when the global hook is enabled.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -209,10 +198,6 @@ advanced scenarios.</p>
 
 
 
-  <h4 class="section" id="SharpHook_IGlobalHook_HookEnabled_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>This event is raised when the <a class="xref" href="SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_Run_SharpHook_Data_GlobalHookType_">Run(GlobalHookType)</a> or <a class="xref" href="SharpHook.IBasicGlobalHook.html#SharpHook_IBasicGlobalHook_RunAsync_SharpHook_Data_GlobalHookType_System_Boolean_">RunAsync(GlobalHookType, bool)</a>
-method is called.</p>
-</div>
 
 
 
@@ -223,8 +208,7 @@ method is called.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An event which is raised when a key is pressed.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -244,12 +228,6 @@ method is called.</p>
 
 
 
-  <h4 class="section" id="SharpHook_IGlobalHook_KeyPressed_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>On Wayland, this event is not raised repeatedly if the key is kept down. To check whether key auto-repeat events
-are reported, you can use <a class="xref" href="SharpHook.Providers.IFeatureProvider.html#SharpHook_Providers_IFeatureProvider_GetOptionalFeatureSupport">GetOptionalFeatureSupport()</a>. If that method returns
-<a class="xref" href="SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_KeyAutoRepeat">KeyAutoRepeat</a> as one of the supported features, then this event will be raised
-repeatedly if the key is kept down.</p>
-</div>
 
 
 
@@ -260,8 +238,7 @@ repeatedly if the key is kept down.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An event which is raised when a key is released.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -291,8 +268,7 @@ repeatedly if the key is kept down.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An event which is raised when a character is typed.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -312,17 +288,6 @@ repeatedly if the key is kept down.</p>
 
 
 
-  <h4 class="section" id="SharpHook_IGlobalHook_KeyTyped_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>
-This event is disabled by default. If you want to enable it, you should set the
-<a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html#SharpHook_Providers_IGlobalHookProvider_KeyTypedEnabled">KeyTypedEnabled</a> property to <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a>.
-</p>
-<p>
-On Wayland, this event is not supported. You can use <a class="xref" href="SharpHook.Providers.IFeatureProvider.html#SharpHook_Providers_IFeatureProvider_GetOptionalFeatureSupport">GetOptionalFeatureSupport()</a>
-to check support for this event. If that method returns <a class="xref" href="SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_KeyTypedEvents">KeyTypedEvents</a> as one of
-the supported features, then this event is supported.
-</p>
-</div>
 
 
 
@@ -333,8 +298,7 @@ the supported features, then this event is supported.
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An event which is raised when a mouse button is clicked.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -354,13 +318,6 @@ the supported features, then this event is supported.
 
 
 
-  <h4 class="section" id="SharpHook_IGlobalHook_MouseClicked_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>On Wayland, this event does not include mouse coordinates (they are always set to (0, 0)). To check whether
-mouse coordinates for this event are available, you can use
-<a class="xref" href="SharpHook.Providers.IFeatureProvider.html#SharpHook_Providers_IFeatureProvider_GetOptionalFeatureSupport">GetOptionalFeatureSupport()</a>. If that method returns
-<a class="xref" href="SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_AbsoluteMouseButtonCoordinates">AbsoluteMouseButtonCoordinates</a> as one of the supported features, then this event
-will contain non-zero mouse coordinates.</p>
-</div>
 
 
 
@@ -371,8 +328,7 @@ will contain non-zero mouse coordinates.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An event which is raised when the mouse cursor is dragged.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -392,11 +348,6 @@ will contain non-zero mouse coordinates.</p>
 
 
 
-  <h4 class="section" id="SharpHook_IGlobalHook_MouseDragged_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>On Wayland, this event is raised only when using an absolute pointing device (like a touchscreen or a mouse in
-a virtual machine). Relative pointing devices (like most normal mice) will raise
-<a class="xref" href="SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_MouseDraggedRelative">MouseDraggedRelative</a> instead.</p>
-</div>
 
 
 
@@ -407,8 +358,7 @@ a virtual machine). Relative pointing devices (like most normal mice) will raise
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An event which is raised when the mouse cursor is dragged relatively to its previous position.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -428,13 +378,6 @@ a virtual machine). Relative pointing devices (like most normal mice) will raise
 
 
 
-  <h4 class="section" id="SharpHook_IGlobalHook_MouseDraggedRelative_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>This event is raised only on Wayland when using a relative pointing device (which most normal mice are). To
-check whether the current platform can raise this event, you can use
-<a class="xref" href="SharpHook.Providers.IFeatureProvider.html#SharpHook_Providers_IFeatureProvider_GetOptionalFeatureSupport">GetOptionalFeatureSupport()</a>. If that method does not return
-<a class="xref" href="SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_AbsoluteMouseMovement">AbsoluteMouseMovement</a> as one of the supported features, then the current platform
-may raise this event.</p>
-</div>
 
 
 
@@ -445,8 +388,7 @@ may raise this event.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An event which is raised when the mouse cursor is moved.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -466,11 +408,6 @@ may raise this event.</p>
 
 
 
-  <h4 class="section" id="SharpHook_IGlobalHook_MouseMoved_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>On Wayland, this event is raised only when using an absolute pointing device (like a touchscreen or a mouse in
-a virtual machine). Relative pointing devices (like most normal mice) will raise
-<a class="xref" href="SharpHook.IGlobalHook.html#SharpHook_IGlobalHook_MouseMovedRelative">MouseMovedRelative</a> instead.</p>
-</div>
 
 
 
@@ -481,8 +418,7 @@ a virtual machine). Relative pointing devices (like most normal mice) will raise
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An event which is raised when the mouse cursor is moved relatively to its previous position.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -502,13 +438,6 @@ a virtual machine). Relative pointing devices (like most normal mice) will raise
 
 
 
-  <h4 class="section" id="SharpHook_IGlobalHook_MouseMovedRelative_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>This event is raised only on Wayland when using a relative pointing device (which most normal mice are). To
-check whether the current platform can raise this event, you can use
-<a class="xref" href="SharpHook.Providers.IFeatureProvider.html#SharpHook_Providers_IFeatureProvider_GetOptionalFeatureSupport">GetOptionalFeatureSupport()</a>. If that method does not return
-<a class="xref" href="SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_AbsoluteMouseMovement">AbsoluteMouseMovement</a> as one of the supported features, then the current platform
-may raise this event.</p>
-</div>
 
 
 
@@ -519,8 +448,7 @@ may raise this event.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An event which is raised when a mouse button is pressed.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -540,13 +468,6 @@ may raise this event.</p>
 
 
 
-  <h4 class="section" id="SharpHook_IGlobalHook_MousePressed_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>On Wayland, this event does not include mouse coordinates (they are always set to (0, 0)). To check whether
-mouse coordinates for this event are available, you can use
-<a class="xref" href="SharpHook.Providers.IFeatureProvider.html#SharpHook_Providers_IFeatureProvider_GetOptionalFeatureSupport">GetOptionalFeatureSupport()</a>. If that method returns
-<a class="xref" href="SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_AbsoluteMouseButtonCoordinates">AbsoluteMouseButtonCoordinates</a> as one of the supported features, then this event
-will contain non-zero mouse coordinates.</p>
-</div>
 
 
 
@@ -557,8 +478,7 @@ will contain non-zero mouse coordinates.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An event which is raised when a mouse button is released.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -578,13 +498,6 @@ will contain non-zero mouse coordinates.</p>
 
 
 
-  <h4 class="section" id="SharpHook_IGlobalHook_MouseReleased_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>On Wayland, this event does not include mouse coordinates (they are always set to (0, 0)). To check whether
-mouse coordinates for this event are available, you can use
-<a class="xref" href="SharpHook.Providers.IFeatureProvider.html#SharpHook_Providers_IFeatureProvider_GetOptionalFeatureSupport">GetOptionalFeatureSupport()</a>. If that method returns
-<a class="xref" href="SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_AbsoluteMouseButtonCoordinates">AbsoluteMouseButtonCoordinates</a> as one of the supported features, then this event
-will contain non-zero mouse coordinates.</p>
-</div>
 
 
 
@@ -595,8 +508,7 @@ will contain non-zero mouse coordinates.</p>
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/IGlobalHook.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>An event which is raised when the mouse wheel is scrolled.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -616,27 +528,10 @@ will contain non-zero mouse coordinates.</p>
 
 
 
-  <h4 class="section" id="SharpHook_IGlobalHook_MouseWheel_remarks">Remarks</h4>
-  <div class="markdown level1 remarks"><p>On Wayland, this event does not include mouse coordinates (they are always set to (0, 0)). To check whether
-mouse coordinates for this event are available, you can use
-<a class="xref" href="SharpHook.Providers.IFeatureProvider.html#SharpHook_Providers_IFeatureProvider_GetOptionalFeatureSupport">GetOptionalFeatureSupport()</a>. If that method returns
-<a class="xref" href="SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_AbsoluteMouseButtonCoordinates">AbsoluteMouseButtonCoordinates</a> as one of the supported features, then this event
-will contain non-zero mouse coordinates.</p>
-</div>
 
 
 
 
-  <h2 id="seealso">See Also</h2>
-  <div class="seealso">
-      <div><a class="xref" href="SharpHook.GlobalHookBase.html">GlobalHookBase</a></div>
-      <div><a class="xref" href="SharpHook.SimpleGlobalHook.html">SimpleGlobalHook</a></div>
-      <div><a class="xref" href="SharpHook.EventLoopGlobalHook.html">EventLoopGlobalHook</a></div>
-      <div><a class="xref" href="SharpHook.TaskPoolGlobalHook.html">TaskPoolGlobalHook</a></div>
-      <div><a class="xref" href="SharpHook.Providers.IFeatureProvider.html">IFeatureProvider</a></div>
-      <div><a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html">IGlobalHookProvider</a></div>
-      <div><a class="xref" href="SharpHook.Providers.UioHookProvider.html">UioHookProvider</a></div>
-  </div>
 
 </article>
 
