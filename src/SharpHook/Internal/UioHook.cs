@@ -250,23 +250,6 @@ internal static partial class UioHook
     public static extern void SetDeviceProcs(OpenDeviceProc? openProc, CloseDeviceProc? closeProc, nint userData);
 #endif
 
-    public static ScreenData[] CreateScreenInfo()
-    {
-        nint screens = CreateScreenInfo(out byte count);
-
-        var result = new ScreenData[count];
-        int size = Marshal.SizeOf<ScreenData>();
-
-        for (int i = 0; i < count; i++)
-        {
-            result[i] = Marshal.PtrToStructure<ScreenData>((nint)((long)screens + i * size));
-        }
-
-        Marshal.FreeHGlobal(screens);
-
-        return result;
-    }
-
 #if NET7_0_OR_GREATER
     [LibraryImport(LibUioHook, EntryPoint = "hook_create_screen_info")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]

@@ -449,8 +449,22 @@ public sealed class UioHookProvider :
     /// Gets the information about screens.
     /// </summary>
     /// <returns>The information about screens.</returns>
-    public ScreenData[] CreateScreenInfo() =>
-        UioHook.CreateScreenInfo();
+    public ScreenData[] CreateScreenInfo()
+    {
+        nint screens = UioHook.CreateScreenInfo(out byte count);
+
+        var result = new ScreenData[count];
+        int size = Marshal.SizeOf<ScreenData>();
+
+        for (int i = 0; i < count; i++)
+        {
+            result[i] = Marshal.PtrToStructure<ScreenData>((nint)((long)screens + i * size));
+        }
+
+        Marshal.FreeHGlobal(screens);
+
+        return result;
+    }
 
     /// <summary>
     /// Gets the key auto-repeat rate.
