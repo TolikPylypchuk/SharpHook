@@ -30,6 +30,7 @@ public sealed partial class LogEntryParser
     /// <summary>
     /// Gets the single instance of <see cref="LogEntryParser" />.
     /// </summary>
+    /// <value>The single instance of <see cref="LogEntryParser" />.</value>
     public static LogEntryParser Instance { get; } = new();
 
     /// <summary>
@@ -92,15 +93,15 @@ public sealed partial class LogEntryParser
         {
             nextIndex = message.IndexOf(rawParts[i + 1], nextIndex + rawParts[i].Length);
 
-            var placeholder = matches[i].Value;
-            var argument = message.Substring(index, nextIndex - index);
+            string? placeholder = matches[i].Value;
+            string? argument = message.Substring(index, nextIndex - index);
 
             arguments.Add(this.ParseArgument(placeholder, argument));
             rawArguments.Add(argument);
             placeholders.Add(placeholder);
         }
 
-        var format = Enumerable.Range(1, rawParts.Length - 1).Aggregate(
+        string? format = Enumerable.Range(1, rawParts.Length - 1).Aggregate(
             this.NormalizeFormat(rawParts[0]),
             (acc, index) => $"{acc}{{{index - 1}}}{this.NormalizeFormat(rawParts[index])}");
 
@@ -192,14 +193,14 @@ public sealed partial class LogEntryParser
 
     private string GetDefaultString(nint format, nint args)
     {
-        var byteLength = Vsnprintf(IntPtr.Zero, UIntPtr.Zero, format, args) + 1;
+        int byteLength = Vsnprintf(IntPtr.Zero, UIntPtr.Zero, format, args) + 1;
 
         if (byteLength <= 1)
         {
             return String.Empty;
         }
 
-        var buffer = IntPtr.Zero;
+        nint buffer = IntPtr.Zero;
 
         try
         {
@@ -214,10 +215,10 @@ public sealed partial class LogEntryParser
 
     private string GetMacString(nint format, nint args)
     {
-        var buffer = IntPtr.Zero;
+        nint buffer = IntPtr.Zero;
         try
         {
-            var count = NativeStringFunctions.MacVasprintf(ref buffer, format, args);
+            int count = NativeStringFunctions.MacVasprintf(ref buffer, format, args);
             return count != -1 ? buffer.ToStringFromUtf8() : String.Empty;
         } finally
         {
@@ -228,14 +229,11 @@ public sealed partial class LogEntryParser
     private string GetLinux64String<T>(nint format, T listStructure)
         where T : notnull
     {
-        var byteLength = 0;
+        int byteLength = UseStructurePointer(
+            listStructure,
+            listPointer => NativeStringFunctions.LinuxVsnprintf(IntPtr.Zero, UIntPtr.Zero, format, listPointer) + 1);
 
-        UseStructurePointer(listStructure, listPointer =>
-        {
-            byteLength = NativeStringFunctions.LinuxVsnprintf(IntPtr.Zero, UIntPtr.Zero, format, listPointer) + 1;
-        });
-
-        var utf8Buffer = IntPtr.Zero;
+        nint utf8Buffer = IntPtr.Zero;
 
         try
         {
@@ -254,26 +252,12 @@ public sealed partial class LogEntryParser
 
     private R UseStructurePointer<T, R>(T structure, Func<nint, R> action) where T : notnull
     {
-        var structurePointer = IntPtr.Zero;
+        nint structurePointer = IntPtr.Zero;
         try
         {
             structurePointer = Marshal.AllocHGlobal(Marshal.SizeOf(structure));
             Marshal.StructureToPtr(structure, structurePointer, false);
             return action(structurePointer);
-        } finally
-        {
-            Marshal.FreeHGlobal(structurePointer);
-        }
-    }
-
-    private void UseStructurePointer<T>(T structure, Action<nint> action) where T : notnull
-    {
-        var structurePointer = IntPtr.Zero;
-        try
-        {
-            structurePointer = Marshal.AllocHGlobal(Marshal.SizeOf(structure));
-            Marshal.StructureToPtr(structure, structurePointer, false);
-            action(structurePointer);
         } finally
         {
             Marshal.FreeHGlobal(structurePointer);

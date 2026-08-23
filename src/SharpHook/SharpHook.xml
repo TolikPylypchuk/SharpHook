@@ -2948,6 +2948,7 @@
             <summary>
             Gets the single instance of <see cref="T:SharpHook.Logging.LogEntryParser" />.
             </summary>
+            <value>The single instance of <see cref="T:SharpHook.Logging.LogEntryParser" />.</value>
         </member>
         <member name="M:SharpHook.Logging.LogEntryParser.ParseNativeLogEntry(SharpHook.Data.LogLevel,System.IntPtr,System.IntPtr)">
             <summary>
