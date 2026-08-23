@@ -913,8 +913,9 @@ public sealed class TestGlobalHookWithEventLoopTests
 
         // Assert
 
-        Assert.Single(hook.SimulatedText);
-        Assert.Equal(text.Get, hook.SimulatedText[0]);
+        var simulatedText = Assert.Single(hook.SimulatedText);
+
+        Assert.Equal(text.Get, simulatedText);
         Assert.Equal(UioHookResult.Success, actualResult);
     }
 
@@ -1363,8 +1364,8 @@ public sealed class TestGlobalHookWithEventLoopTests
             Assert.Empty(hook.SimulatedEvents);
         } else
         {
-            Assert.Single(hook.SimulatedEvents);
-            Assert.Equal(@event, hook.SimulatedEvents[0]);
+            var simulatedEvent = Assert.Single(hook.SimulatedEvents);
+            Assert.Equal(@event, simulatedEvent);
         }
 
         Assert.Equal(UioHookResult.Success, result);
@@ -1397,8 +1398,8 @@ public sealed class TestGlobalHookWithEventLoopTests
 
         // Assert
 
-        Assert.Single(hook.SimulatedEvents);
-        Assert.Equal(keyboardEvent.Value, hook.SimulatedEvents[0]);
+        var simulatedEvent = Assert.Single(hook.SimulatedEvents);
+        Assert.Equal(keyboardEvent.Value, simulatedEvent);
 
         Assert.Equal(expectedResult, actualResult);
     }
@@ -1534,14 +1535,14 @@ public sealed class TestGlobalHookWithEventLoopTests
     private void AssertSimulatedEvents(TestGlobalHook hook, HookEventArgs actualEventArgs, int eventCount = 1)
     {
         Assert.Equal(eventCount, hook.SimulatedEvents.Count);
-        Assert.Single(hook.SuppressedEvents);
 
         var actualEvent = hook.SimulatedEvents[^1];
         Assert.False(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
         Assert.Equal(actualEventArgs.RawEvent, actualEvent);
 
-        var suppressedEvent = hook.SuppressedEvents[0];
+        var suppressedEvent = Assert.Single(hook.SuppressedEvents);
         Assert.True(suppressedEvent.Mask.HasFlag(EventMask.SuppressEvent));
+
         suppressedEvent.Mask &= ~EventMask.SuppressEvent;
         Assert.Equal(actualEventArgs.RawEvent, suppressedEvent);
     }

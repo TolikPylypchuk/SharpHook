@@ -41,8 +41,8 @@ public sealed class TestProviderTests
         Assert.Equal(eventToPost, actualEvent);
         Assert.Equal(userData, actualUserData);
 
-        Assert.Single(provider.PostedEvents);
-        Assert.Equal(eventToPost, provider.PostedEvents[0]);
+        var postedEvent = Assert.Single(provider.PostedEvents);
+        Assert.Equal(eventToPost, postedEvent);
 
         // Clean up
 
@@ -86,8 +86,8 @@ public sealed class TestProviderTests
         Assert.Equal(eventToPost, actualEvent);
         Assert.Equal(userData, actualUserData);
 
-        Assert.Single(provider.PostedEvents);
-        Assert.Equal(eventToPost, provider.PostedEvents[0]);
+        var postedEvent = Assert.Single(provider.PostedEvents);
+        Assert.Equal(eventToPost, postedEvent);
 
         // Clean up
 
@@ -110,8 +110,8 @@ public sealed class TestProviderTests
 
         // Assert
 
-        Assert.Single(provider.PostedEvents);
-        Assert.Equal(eventToPost, provider.PostedEvents[0]);
+        var postedEvent = Assert.Single(provider.PostedEvents);
+        Assert.Equal(eventToPost, postedEvent);
 
         // Clean up
 
@@ -133,8 +133,8 @@ public sealed class TestProviderTests
 
         // Assert
 
-        Assert.Single(provider.PostedEvents);
-        Assert.Equal(eventToPost, provider.PostedEvents[0]);
+        var postedEvent = Assert.Single(provider.PostedEvents);
+        Assert.Equal(eventToPost, postedEvent);
 
         // Clean up
 
@@ -237,9 +237,8 @@ public sealed class TestProviderTests
 
         // Assert
 
-        Assert.Single(provider.PostedEvents);
+        var actualEvent = Assert.Single(provider.PostedEvents);
 
-        var actualEvent = provider.PostedEvents[0];
         Assert.True(actualEvent.Mask.HasFlag(EventMask.SuppressEvent));
         Assert.Equal(eventToPost, actualEvent);
 
@@ -490,8 +489,9 @@ public sealed class TestProviderTests
         // Assert
 
         Assert.Equal(UioHookResult.Success, actualResult);
-        Assert.Single(provider.PostedEvents);
-        Assert.Equal(eventToPost, provider.PostedEvents[0]);
+
+        var postedEvent = Assert.Single(provider.PostedEvents);
+        Assert.Equal(eventToPost, postedEvent);
     }
 
     [Property(DisplayName = "PostEvent should return an error if configured to do so")]
@@ -623,8 +623,9 @@ public sealed class TestProviderTests
         // Assert
 
         Assert.Equal(UioHookResult.Success, actualResult);
-        Assert.Single(provider.PostedText);
-        Assert.Equal(text.Get, provider.PostedText[0]);
+
+        var postedEvent = Assert.Single(provider.PostedText);
+        Assert.Equal(text.Get, postedEvent);
     }
 
     [Property(DisplayName = "PostText should return an error if configured to do so")]
@@ -995,14 +996,13 @@ public sealed class TestProviderTests
 
         // Assert
 
-        Assert.Single(provider.ScreenInfo);
-        Assert.Equal(screenInfo[0], provider.ScreenInfo[0]);
+        var actualScreenInfo = Assert.Single(provider.ScreenInfo);
+        Assert.Equal(screenInfo[0], actualScreenInfo);
 
         var createdScreenInfo = ((IScreenInfoProvider)provider).CreateScreenInfo();
 
-        Assert.Single(createdScreenInfo);
-        Assert.Equal(screenInfo[0], createdScreenInfo[0]);
-
+        var actualCreatedScreenInfo = Assert.Single(createdScreenInfo);
+        Assert.Equal(screenInfo[0], actualCreatedScreenInfo);
     }
 
     [Fact(DisplayName = "Screen info should not be settable to null")]

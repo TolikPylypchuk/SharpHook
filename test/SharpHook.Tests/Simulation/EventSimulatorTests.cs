@@ -20,9 +20,9 @@ public sealed class EventSimulatorTests
         // Assert
 
         Assert.Equal(UioHookResult.Success, result);
-        Assert.Single(provider.PostedEvents);
 
-        var postedEvent = provider.PostedEvents[0];
+        var postedEvent = Assert.Single(provider.PostedEvents);
+
         Assert.Equal(EventType.KeyPressed, postedEvent.Type);
         Assert.Equal(keyCode, postedEvent.Keyboard.KeyCode);
     }
@@ -63,9 +63,9 @@ public sealed class EventSimulatorTests
         // Assert
 
         Assert.Equal(UioHookResult.Success, result);
-        Assert.Single(provider.PostedEvents);
 
-        var postedEvent = provider.PostedEvents[0];
+        var postedEvent = Assert.Single(provider.PostedEvents);
+
         Assert.Equal(EventType.KeyReleased, postedEvent.Type);
         Assert.Equal(keyCode, postedEvent.Keyboard.KeyCode);
     }
@@ -106,9 +106,9 @@ public sealed class EventSimulatorTests
         // Assert
 
         Assert.Equal(UioHookResult.Success, result);
-        Assert.Single(provider.PostedEvents);
 
-        var postedEvent = provider.PostedEvents[0];
+        var postedEvent = Assert.Single(provider.PostedEvents);
+
         Assert.Equal(EventType.MousePressedIgnoreCoordinates, postedEvent.Type);
         Assert.Equal(button, postedEvent.Mouse.Button);
     }
@@ -149,9 +149,9 @@ public sealed class EventSimulatorTests
         // Assert
 
         Assert.Equal(UioHookResult.Success, result);
-        Assert.Single(provider.PostedEvents);
 
-        var postedEvent = provider.PostedEvents[0];
+        var postedEvent = Assert.Single(provider.PostedEvents);
+
         Assert.Equal(EventType.MousePressedIgnoreCoordinates, postedEvent.Type);
         Assert.Equal(button, postedEvent.Mouse.Button);
         Assert.Equal(clicks, postedEvent.Mouse.Clicks);
@@ -194,9 +194,9 @@ public sealed class EventSimulatorTests
         // Assert
 
         Assert.Equal(UioHookResult.Success, result);
-        Assert.Single(provider.PostedEvents);
 
-        var postedEvent = provider.PostedEvents[0];
+        var postedEvent = Assert.Single(provider.PostedEvents);
+
         Assert.Equal(EventType.MousePressed, postedEvent.Type);
         Assert.Equal(x, postedEvent.Mouse.X);
         Assert.Equal(y, postedEvent.Mouse.Y);
@@ -244,9 +244,9 @@ public sealed class EventSimulatorTests
         // Assert
 
         Assert.Equal(UioHookResult.Success, result);
-        Assert.Single(provider.PostedEvents);
 
-        var postedEvent = provider.PostedEvents[0];
+        var postedEvent = Assert.Single(provider.PostedEvents);
+
         Assert.Equal(EventType.MousePressed, postedEvent.Type);
         Assert.Equal(x, postedEvent.Mouse.X);
         Assert.Equal(y, postedEvent.Mouse.Y);
@@ -296,9 +296,9 @@ public sealed class EventSimulatorTests
         // Assert
 
         Assert.Equal(UioHookResult.Success, result);
-        Assert.Single(provider.PostedEvents);
 
-        var postedEvent = provider.PostedEvents[0];
+        var postedEvent = Assert.Single(provider.PostedEvents);
+
         Assert.Equal(EventType.MouseReleasedIgnoreCoordinates, postedEvent.Type);
         Assert.Equal(button, postedEvent.Mouse.Button);
     }
@@ -339,9 +339,9 @@ public sealed class EventSimulatorTests
         // Assert
 
         Assert.Equal(UioHookResult.Success, result);
-        Assert.Single(provider.PostedEvents);
 
-        var postedEvent = provider.PostedEvents[0];
+        var postedEvent = Assert.Single(provider.PostedEvents);
+
         Assert.Equal(EventType.MouseReleasedIgnoreCoordinates, postedEvent.Type);
         Assert.Equal(button, postedEvent.Mouse.Button);
         Assert.Equal(clicks, postedEvent.Mouse.Clicks);
@@ -384,9 +384,9 @@ public sealed class EventSimulatorTests
         // Assert
 
         Assert.Equal(UioHookResult.Success, result);
-        Assert.Single(provider.PostedEvents);
 
-        var postedEvent = provider.PostedEvents[0];
+        var postedEvent = Assert.Single(provider.PostedEvents);
+
         Assert.Equal(EventType.MouseReleased, postedEvent.Type);
         Assert.Equal(x, postedEvent.Mouse.X);
         Assert.Equal(y, postedEvent.Mouse.Y);
@@ -434,9 +434,9 @@ public sealed class EventSimulatorTests
         // Assert
 
         Assert.Equal(UioHookResult.Success, result);
-        Assert.Single(provider.PostedEvents);
 
-        var postedEvent = provider.PostedEvents[0];
+        var postedEvent = Assert.Single(provider.PostedEvents);
+
         Assert.Equal(EventType.MouseReleased, postedEvent.Type);
         Assert.Equal(x, postedEvent.Mouse.X);
         Assert.Equal(y, postedEvent.Mouse.Y);
@@ -487,9 +487,9 @@ public sealed class EventSimulatorTests
         // Assert
 
         Assert.Equal(UioHookResult.Success, result);
-        Assert.Single(provider.PostedEvents);
 
-        var postedEvent = provider.PostedEvents[0];
+        var postedEvent = Assert.Single(provider.PostedEvents);
+
         Assert.Equal(EventType.MouseMoved, postedEvent.Type);
         Assert.Equal(x, postedEvent.Mouse.X);
         Assert.Equal(y, postedEvent.Mouse.Y);
@@ -531,9 +531,9 @@ public sealed class EventSimulatorTests
         // Assert
 
         Assert.Equal(UioHookResult.Success, result);
-        Assert.Single(provider.PostedEvents);
 
-        var postedEvent = provider.PostedEvents[0];
+        var postedEvent = Assert.Single(provider.PostedEvents);
+
         Assert.Equal(EventType.MouseMovedRelative, postedEvent.Type);
         Assert.Equal(x, postedEvent.Mouse.X);
         Assert.Equal(y, postedEvent.Mouse.Y);
@@ -578,9 +578,9 @@ public sealed class EventSimulatorTests
         // Assert
 
         Assert.Equal(UioHookResult.Success, result);
-        Assert.Single(provider.PostedEvents);
 
-        var postedEvent = provider.PostedEvents[0];
+        var postedEvent = Assert.Single(provider.PostedEvents);
+
         Assert.Equal(EventType.MouseWheel, postedEvent.Type);
         Assert.Equal(rotation, postedEvent.Wheel.Rotation);
         Assert.Equal(direction, postedEvent.Wheel.Direction);
@@ -627,8 +627,10 @@ public sealed class EventSimulatorTests
         // Assert
 
         Assert.Equal(UioHookResult.Success, result);
-        Assert.Single(provider.PostedText);
-        Assert.Equal(text.Get, provider.PostedText[0]);
+
+        var postedText = Assert.Single(provider.PostedText);
+
+        Assert.Equal(text.Get, postedText);
     }
 
     [Property(DisplayName = "EventSimulator should return an error if simulating text entry fails")]

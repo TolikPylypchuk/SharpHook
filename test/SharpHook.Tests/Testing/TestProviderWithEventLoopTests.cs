@@ -43,8 +43,8 @@ public sealed class TestProviderWithEventLoopTests
         Assert.Equal(eventToPost, actualEvent);
         Assert.Equal(userData, actualUserData);
 
-        Assert.Single(provider.PostedEvents);
-        Assert.Equal(eventToPost, provider.PostedEvents[0]);
+        var postedEvent = Assert.Single(provider.PostedEvents);
+        Assert.Equal(eventToPost, postedEvent);
     }
 
     [Property(DisplayName = "SetDispatchProc, RunAsync, and PostEvent should work together")]
@@ -87,8 +87,8 @@ public sealed class TestProviderWithEventLoopTests
         Assert.Equal(eventToPost, actualEvent);
         Assert.Equal(userData, actualUserData);
 
-        Assert.Single(provider.PostedEvents);
-        Assert.Equal(eventToPost, provider.PostedEvents[0]);
+        var postedEvent = Assert.Single(provider.PostedEvents);
+        Assert.Equal(eventToPost, postedEvent);
     }
 
     [Property(DisplayName = "Run and PostEvent should work without SetDispatchProc")]
@@ -108,8 +108,8 @@ public sealed class TestProviderWithEventLoopTests
 
         // Assert
 
-        Assert.Single(provider.PostedEvents);
-        Assert.Equal(eventToPost, provider.PostedEvents[0]);
+        var postedEvent = Assert.Single(provider.PostedEvents);
+        Assert.Equal(eventToPost, postedEvent);
     }
 
     [Property(DisplayName = "RunAsync and PostEvent should work without SetDispatchProc")]
@@ -130,8 +130,8 @@ public sealed class TestProviderWithEventLoopTests
 
         // Assert
 
-        Assert.Single(provider.PostedEvents);
-        Assert.Equal(eventToPost, provider.PostedEvents[0]);
+        var postedEvent = Assert.Single(provider.PostedEvents);
+        Assert.Equal(eventToPost, postedEvent);
     }
 
     [Property(DisplayName = "RunKeyboard should not dispatch mouse events")]
@@ -235,8 +235,8 @@ public sealed class TestProviderWithEventLoopTests
 
         actualEvent.Mask |= EventMask.SuppressEvent;
 
-        Assert.Single(provider.SuppressedEvents);
-        Assert.Equal(actualEvent, provider.SuppressedEvents[0]);
+        var suppressEvent = Assert.Single(provider.SuppressedEvents);
+        Assert.Equal(actualEvent, suppressEvent);
     }
 
     [Fact(DisplayName = "Run and Stop should change the state of the provider")]
@@ -473,8 +473,9 @@ public sealed class TestProviderWithEventLoopTests
         // Assert
 
         Assert.Equal(UioHookResult.Success, actualResult);
-        Assert.Single(provider.PostedEvents);
-        Assert.Equal(eventToPost, provider.PostedEvents[0]);
+
+        var postedEvent = Assert.Single(provider.PostedEvents);
+        Assert.Equal(eventToPost, postedEvent);
     }
 
     [Property(DisplayName = "PostEvent should return an error if configured to do so")]
@@ -618,8 +619,9 @@ public sealed class TestProviderWithEventLoopTests
         // Assert
 
         Assert.Equal(UioHookResult.Success, actualResult);
-        Assert.Single(provider.PostedText);
-        Assert.Equal(text.Get, provider.PostedText[0]);
+
+        var postedEvent = Assert.Single(provider.PostedText);
+        Assert.Equal(text.Get, postedEvent);
     }
 
     [Property(DisplayName = "PostText should return an error if configured to do so")]
@@ -990,14 +992,13 @@ public sealed class TestProviderWithEventLoopTests
 
         // Assert
 
-        Assert.Single(provider.ScreenInfo);
-        Assert.Equal(screenInfo[0], provider.ScreenInfo[0]);
+        var actualScreenInfo = Assert.Single(provider.ScreenInfo);
+        Assert.Equal(screenInfo[0], actualScreenInfo);
 
         var createdScreenInfo = ((IScreenInfoProvider)provider).CreateScreenInfo();
 
-        Assert.Single(createdScreenInfo);
-        Assert.Equal(screenInfo[0], createdScreenInfo[0]);
-
+        var actualCreatedScreenInfo = Assert.Single(createdScreenInfo);
+        Assert.Equal(screenInfo[0], actualCreatedScreenInfo);
     }
 
     [Fact(DisplayName = "Screen info should not be settable to null")]
