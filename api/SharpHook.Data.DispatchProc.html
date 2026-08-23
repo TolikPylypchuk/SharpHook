@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-      <title>Delegate OpenDeviceProc | SharpHook </title>
+      <title>Delegate DispatchProc | SharpHook </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Delegate OpenDeviceProc | SharpHook ">
+      <meta name="title" content="Delegate DispatchProc | SharpHook ">
       
-      <meta name="description" content="Represents a function which opens a privileged device and provides a file descriptor.">
+      <meta name="description" content="Represents a function which is called when an event occurs.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -84,46 +84,38 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="SharpHook.Native.OpenDeviceProc">
+        <article data-uid="SharpHook.Data.DispatchProc">
 
 
 
-  <h1 id="SharpHook_Native_OpenDeviceProc" data-uid="SharpHook.Native.OpenDeviceProc" class="text-break">
-Delegate OpenDeviceProc  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Native/OpenDeviceProc.cs"><i class="bi bi-code-slash"></i></a>
+  <h1 id="SharpHook_Data_DispatchProc" data-uid="SharpHook.Data.DispatchProc" class="text-break">
+Delegate DispatchProc  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Data/DispatchProc.cs"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><a class="xref" href="SharpHook.html">SharpHook</a>.<a class="xref" href="SharpHook.Native.html">Native</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="SharpHook.html">SharpHook</a>.<a class="xref" href="SharpHook.Data.html">Data</a></dd></dl>
   <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Represents a function which opens a privileged device and provides a file descriptor.</p>
+  <div class="markdown summary"><p>Represents a function which is called when an event occurs.</p>
 </div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public delegate int OpenDeviceProc(string path, int flags, nint userData)</code></pre>
+    <pre><code class="lang-csharp hljs">public delegate void DispatchProc(ref UioHookEvent @event, nint userData)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd><p>The path to the device to open.</p>
-</dd>
-    <dt><code>flags</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd><p>The flags to use when opening the device.</p>
+    <dt><code>event</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></dt>
+    <dd><p>The event that has occured.</p>
 </dd>
     <dt><code>userData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
-    <dd><p>The data that was passed to
-<a class="xref" href="SharpHook.Providers.IDeviceProcsProvider.html#SharpHook_Providers_IDeviceProcsProvider_SetDeviceProcs_SharpHook_Native_OpenDeviceProc_SharpHook_Native_CloseDeviceProc_System_IntPtr_">SetDeviceProcs(OpenDeviceProc?, CloseDeviceProc?, nint)</a>.</p>
+    <dd><p>The data that was passed to <a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html#SharpHook_Providers_IGlobalHookProvider_SetDispatchProc_SharpHook_Data_DispatchProc_System_IntPtr_">SetDispatchProc(DispatchProc?, nint)</a>.
+Usually should not be used.</p>
 </dd>
   </dl>
 
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd>Represents a function which opens a privileged device and provides a file descriptor.</dd>
-  </dl>
 
 
 
@@ -139,18 +131,18 @@ Delegate OpenDeviceProc  <a class="header-action link-secondary" title="View sou
 </h2>
 
 
-  <a id="SharpHook_Native_OpenDeviceProc__ctor_" data-uid="SharpHook.Native.OpenDeviceProc.#ctor*"></a>
+  <a id="SharpHook_Data_DispatchProc__ctor_" data-uid="SharpHook.Data.DispatchProc.#ctor*"></a>
 
-  <h3 id="SharpHook_Native_OpenDeviceProc__ctor_System_Object_System_IntPtr_" data-uid="SharpHook.Native.OpenDeviceProc.#ctor(System.Object,System.IntPtr)">
-  OpenDeviceProc(object, nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Native/OpenDeviceProc.cs"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SharpHook_Data_DispatchProc__ctor_System_Object_System_IntPtr_" data-uid="SharpHook.Data.DispatchProc.#ctor(System.Object,System.IntPtr)">
+  DispatchProc(object, nint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Data/DispatchProc.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public OpenDeviceProc(object @object, nint method)</code></pre>
+    <pre><code class="lang-csharp hljs">public DispatchProc(object @object, nint method)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -176,25 +168,23 @@ Delegate OpenDeviceProc  <a class="header-action link-secondary" title="View sou
 </h2>
 
 
-  <a id="SharpHook_Native_OpenDeviceProc_BeginInvoke_" data-uid="SharpHook.Native.OpenDeviceProc.BeginInvoke*"></a>
+  <a id="SharpHook_Data_DispatchProc_BeginInvoke_" data-uid="SharpHook.Data.DispatchProc.BeginInvoke*"></a>
 
-  <h3 id="SharpHook_Native_OpenDeviceProc_BeginInvoke_System_String_System_Int32_System_IntPtr_System_AsyncCallback_System_Object_" data-uid="SharpHook.Native.OpenDeviceProc.BeginInvoke(System.String,System.Int32,System.IntPtr,System.AsyncCallback,System.Object)">
-  BeginInvoke(string, int, nint, AsyncCallback, object)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Native/OpenDeviceProc.cs"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SharpHook_Data_DispatchProc_BeginInvoke_SharpHook_Data_UioHookEvent__System_IntPtr_System_AsyncCallback_System_Object_" data-uid="SharpHook.Data.DispatchProc.BeginInvoke(SharpHook.Data.UioHookEvent@,System.IntPtr,System.AsyncCallback,System.Object)">
+  BeginInvoke(ref UioHookEvent, nint, AsyncCallback, object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Data/DispatchProc.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual IAsyncResult BeginInvoke(string path, int flags, nint userData, AsyncCallback callback, object @object)</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual IAsyncResult BeginInvoke(ref UioHookEvent @event, nint userData, AsyncCallback callback, object @object)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-    <dt><code>flags</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><code>event</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></dt>
     <dd></dd>
     <dt><code>userData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
     <dd></dd>
@@ -220,31 +210,28 @@ Delegate OpenDeviceProc  <a class="header-action link-secondary" title="View sou
 
 
 
-  <a id="SharpHook_Native_OpenDeviceProc_EndInvoke_" data-uid="SharpHook.Native.OpenDeviceProc.EndInvoke*"></a>
+  <a id="SharpHook_Data_DispatchProc_EndInvoke_" data-uid="SharpHook.Data.DispatchProc.EndInvoke*"></a>
 
-  <h3 id="SharpHook_Native_OpenDeviceProc_EndInvoke_System_IAsyncResult_" data-uid="SharpHook.Native.OpenDeviceProc.EndInvoke(System.IAsyncResult)">
-  EndInvoke(IAsyncResult)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Native/OpenDeviceProc.cs"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SharpHook_Data_DispatchProc_EndInvoke_SharpHook_Data_UioHookEvent__System_IAsyncResult_" data-uid="SharpHook.Data.DispatchProc.EndInvoke(SharpHook.Data.UioHookEvent@,System.IAsyncResult)">
+  EndInvoke(ref UioHookEvent, IAsyncResult)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Data/DispatchProc.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual int EndInvoke(IAsyncResult result)</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual void EndInvoke(ref UioHookEvent @event, IAsyncResult result)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
+    <dt><code>event</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></dt>
+    <dd></dd>
     <dt><code>result</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iasyncresult">IAsyncResult</a></dt>
     <dd></dd>
   </dl>
 
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
 
 
 
@@ -256,35 +243,28 @@ Delegate OpenDeviceProc  <a class="header-action link-secondary" title="View sou
 
 
 
-  <a id="SharpHook_Native_OpenDeviceProc_Invoke_" data-uid="SharpHook.Native.OpenDeviceProc.Invoke*"></a>
+  <a id="SharpHook_Data_DispatchProc_Invoke_" data-uid="SharpHook.Data.DispatchProc.Invoke*"></a>
 
-  <h3 id="SharpHook_Native_OpenDeviceProc_Invoke_System_String_System_Int32_System_IntPtr_" data-uid="SharpHook.Native.OpenDeviceProc.Invoke(System.String,System.Int32,System.IntPtr)">
-  Invoke(string, int, nint)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Native/OpenDeviceProc.cs"><i class="bi bi-code-slash"></i></a>
+  <h3 id="SharpHook_Data_DispatchProc_Invoke_SharpHook_Data_UioHookEvent__System_IntPtr_" data-uid="SharpHook.Data.DispatchProc.Invoke(SharpHook.Data.UioHookEvent@,System.IntPtr)">
+  Invoke(ref UioHookEvent, nint)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Data/DispatchProc.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual int Invoke(string path, int flags, nint userData)</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual void Invoke(ref UioHookEvent @event, nint userData)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>path</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
-    <dd></dd>
-    <dt><code>flags</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
+    <dt><code>event</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></dt>
     <dd></dd>
     <dt><code>userData</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a></dt>
     <dd></dd>
   </dl>
 
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></dt>
-    <dd></dd>
-  </dl>
 
 
 
@@ -298,13 +278,13 @@ Delegate OpenDeviceProc  <a class="header-action link-secondary" title="View sou
 
   <h2 id="seealso">See Also</h2>
   <div class="seealso">
-      <div><a class="xref" href="SharpHook.Providers.IDeviceProcsProvider.html#SharpHook_Providers_IDeviceProcsProvider_SetDeviceProcs_SharpHook_Native_OpenDeviceProc_SharpHook_Native_CloseDeviceProc_System_IntPtr_">SetDeviceProcs</a>(<a class="xref" href="SharpHook.Native.OpenDeviceProc.html">OpenDeviceProc</a>, <a class="xref" href="SharpHook.Native.CloseDeviceProc.html">CloseDeviceProc</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a>)</div>
+      <div><a class="xref" href="SharpHook.Providers.IGlobalHookProvider.html#SharpHook_Providers_IGlobalHookProvider_SetDispatchProc_SharpHook_Data_DispatchProc_System_IntPtr_">SetDispatchProc</a>(<a class="xref" href="SharpHook.Data.DispatchProc.html">DispatchProc</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.intptr">nint</a>)</div>
   </div>
 
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Native/OpenDeviceProc.cs" class="edit-link">Edit this page</a>
+          <a href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/Data/DispatchProc.cs" class="edit-link">Edit this page</a>
         </div>
 
 

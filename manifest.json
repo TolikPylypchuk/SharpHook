@@ -29,6 +29,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Data.CloseDeviceProc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Data.CloseDeviceProc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Data.CloseDeviceProc",
+      "Summary": "<p sourcefile=\"api/SharpHook.Data.CloseDeviceProc.yml\" sourcestartlinenumber=\"1\">Represents a function which closes a privileged device using a provided file descriptor.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Data.DispatchProc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Data.DispatchProc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Data.DispatchProc",
+      "Summary": "<p sourcefile=\"api/SharpHook.Data.DispatchProc.yml\" sourcestartlinenumber=\"1\">Represents a function which is called when an event occurs.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SharpHook.Data.EventMask.yml",
       "output": {
         ".html": {
@@ -155,6 +183,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Data.LoggerProc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Data.LoggerProc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Data.LoggerProc",
+      "Summary": "<p sourcefile=\"api/SharpHook.Data.LoggerProc.yml\" sourcestartlinenumber=\"1\">Represents a function which is called when a logging event occurs.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/SharpHook.Data.MouseButton.yml",
       "output": {
         ".html": {
@@ -222,6 +264,20 @@
       "IsMRef": true,
       "Title": "SharpHook.Data.MouseWheelScrollType",
       "Summary": "<p sourcefile=\"api/SharpHook.Data.MouseWheelScrollType.yml\" sourcestartlinenumber=\"1\">Represents a mouse wheel scroll type.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/SharpHook.Data.OpenDeviceProc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/SharpHook.Data.OpenDeviceProc.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "SharpHook.Data.OpenDeviceProc",
+      "Summary": "<p sourcefile=\"api/SharpHook.Data.OpenDeviceProc.yml\" sourcestartlinenumber=\"1\">Represents a function which opens a privileged device and provides a file descriptor.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -530,76 +586,6 @@
       "IsMRef": true,
       "Title": "SharpHook.MouseWheelHookEventArgs",
       "Summary": "<p sourcefile=\"api/SharpHook.MouseWheelHookEventArgs.yml\" sourcestartlinenumber=\"1\">Event args for mouse wheel-related hook events.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Native.CloseDeviceProc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.Native.CloseDeviceProc.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.Native.CloseDeviceProc",
-      "Summary": "<p sourcefile=\"api/SharpHook.Native.CloseDeviceProc.yml\" sourcestartlinenumber=\"1\">Represents a function which closes a privileged device using a provided file descriptor.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Native.DispatchProc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.Native.DispatchProc.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.Native.DispatchProc",
-      "Summary": "<p sourcefile=\"api/SharpHook.Native.DispatchProc.yml\" sourcestartlinenumber=\"1\">Represents a function which is called when an event occurs.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Native.LoggerProc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.Native.LoggerProc.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.Native.LoggerProc",
-      "Summary": "<p sourcefile=\"api/SharpHook.Native.LoggerProc.yml\" sourcestartlinenumber=\"1\">Represents a function which is called when a logging event occurs.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Native.OpenDeviceProc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.Native.OpenDeviceProc.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.Native.OpenDeviceProc",
-      "Summary": "<p sourcefile=\"api/SharpHook.Native.OpenDeviceProc.yml\" sourcestartlinenumber=\"1\">Represents a function which opens a privileged device and provides a file descriptor.</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/SharpHook.Native.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/SharpHook.Native.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "SharpHook.Native",
-      "Summary": null
     },
     {
       "type": "ManagedReference",

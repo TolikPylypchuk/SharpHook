@@ -190,6 +190,141 @@ references:
   commentId: N:SharpHook.Data
   fullName: SharpHook.Data
   nameWithType: SharpHook.Data
+- uid: SharpHook.Data.CloseDeviceProc
+  name: CloseDeviceProc
+  href: api/SharpHook.Data.CloseDeviceProc.html
+  commentId: T:SharpHook.Data.CloseDeviceProc
+  fullName: SharpHook.Data.CloseDeviceProc
+  nameWithType: CloseDeviceProc
+- uid: SharpHook.Data.CloseDeviceProc.#ctor(System.Object,System.IntPtr)
+  name: CloseDeviceProc(object, nint)
+  href: api/SharpHook.Data.CloseDeviceProc.html#SharpHook_Data_CloseDeviceProc__ctor_System_Object_System_IntPtr_
+  commentId: M:SharpHook.Data.CloseDeviceProc.#ctor(System.Object,System.IntPtr)
+  name.vb: New(Object, IntPtr)
+  fullName: SharpHook.Data.CloseDeviceProc.CloseDeviceProc(object, nint)
+  fullName.vb: SharpHook.Data.CloseDeviceProc.New(Object, System.IntPtr)
+  nameWithType: CloseDeviceProc.CloseDeviceProc(object, nint)
+  nameWithType.vb: CloseDeviceProc.New(Object, IntPtr)
+- uid: SharpHook.Data.CloseDeviceProc.#ctor*
+  name: CloseDeviceProc
+  href: api/SharpHook.Data.CloseDeviceProc.html#SharpHook_Data_CloseDeviceProc__ctor_
+  commentId: Overload:SharpHook.Data.CloseDeviceProc.#ctor
+  name.vb: New
+  fullName: SharpHook.Data.CloseDeviceProc.CloseDeviceProc
+  fullName.vb: SharpHook.Data.CloseDeviceProc.New
+  nameWithType: CloseDeviceProc.CloseDeviceProc
+  nameWithType.vb: CloseDeviceProc.New
+- uid: SharpHook.Data.CloseDeviceProc.BeginInvoke(System.Int32,System.IntPtr,System.AsyncCallback,System.Object)
+  name: BeginInvoke(int, nint, AsyncCallback, object)
+  href: api/SharpHook.Data.CloseDeviceProc.html#SharpHook_Data_CloseDeviceProc_BeginInvoke_System_Int32_System_IntPtr_System_AsyncCallback_System_Object_
+  commentId: M:SharpHook.Data.CloseDeviceProc.BeginInvoke(System.Int32,System.IntPtr,System.AsyncCallback,System.Object)
+  name.vb: BeginInvoke(Integer, IntPtr, AsyncCallback, Object)
+  fullName: SharpHook.Data.CloseDeviceProc.BeginInvoke(int, nint, System.AsyncCallback, object)
+  fullName.vb: SharpHook.Data.CloseDeviceProc.BeginInvoke(Integer, System.IntPtr, System.AsyncCallback, Object)
+  nameWithType: CloseDeviceProc.BeginInvoke(int, nint, AsyncCallback, object)
+  nameWithType.vb: CloseDeviceProc.BeginInvoke(Integer, IntPtr, AsyncCallback, Object)
+- uid: SharpHook.Data.CloseDeviceProc.BeginInvoke*
+  name: BeginInvoke
+  href: api/SharpHook.Data.CloseDeviceProc.html#SharpHook_Data_CloseDeviceProc_BeginInvoke_
+  commentId: Overload:SharpHook.Data.CloseDeviceProc.BeginInvoke
+  fullName: SharpHook.Data.CloseDeviceProc.BeginInvoke
+  nameWithType: CloseDeviceProc.BeginInvoke
+- uid: SharpHook.Data.CloseDeviceProc.EndInvoke(System.IAsyncResult)
+  name: EndInvoke(IAsyncResult)
+  href: api/SharpHook.Data.CloseDeviceProc.html#SharpHook_Data_CloseDeviceProc_EndInvoke_System_IAsyncResult_
+  commentId: M:SharpHook.Data.CloseDeviceProc.EndInvoke(System.IAsyncResult)
+  fullName: SharpHook.Data.CloseDeviceProc.EndInvoke(System.IAsyncResult)
+  nameWithType: CloseDeviceProc.EndInvoke(IAsyncResult)
+- uid: SharpHook.Data.CloseDeviceProc.EndInvoke*
+  name: EndInvoke
+  href: api/SharpHook.Data.CloseDeviceProc.html#SharpHook_Data_CloseDeviceProc_EndInvoke_
+  commentId: Overload:SharpHook.Data.CloseDeviceProc.EndInvoke
+  fullName: SharpHook.Data.CloseDeviceProc.EndInvoke
+  nameWithType: CloseDeviceProc.EndInvoke
+- uid: SharpHook.Data.CloseDeviceProc.Invoke(System.Int32,System.IntPtr)
+  name: Invoke(int, nint)
+  href: api/SharpHook.Data.CloseDeviceProc.html#SharpHook_Data_CloseDeviceProc_Invoke_System_Int32_System_IntPtr_
+  commentId: M:SharpHook.Data.CloseDeviceProc.Invoke(System.Int32,System.IntPtr)
+  name.vb: Invoke(Integer, IntPtr)
+  fullName: SharpHook.Data.CloseDeviceProc.Invoke(int, nint)
+  fullName.vb: SharpHook.Data.CloseDeviceProc.Invoke(Integer, System.IntPtr)
+  nameWithType: CloseDeviceProc.Invoke(int, nint)
+  nameWithType.vb: CloseDeviceProc.Invoke(Integer, IntPtr)
+- uid: SharpHook.Data.CloseDeviceProc.Invoke*
+  name: Invoke
+  href: api/SharpHook.Data.CloseDeviceProc.html#SharpHook_Data_CloseDeviceProc_Invoke_
+  commentId: Overload:SharpHook.Data.CloseDeviceProc.Invoke
+  fullName: SharpHook.Data.CloseDeviceProc.Invoke
+  nameWithType: CloseDeviceProc.Invoke
+- uid: SharpHook.Data.DispatchProc
+  name: DispatchProc
+  href: api/SharpHook.Data.DispatchProc.html
+  commentId: T:SharpHook.Data.DispatchProc
+  fullName: SharpHook.Data.DispatchProc
+  nameWithType: DispatchProc
+- uid: SharpHook.Data.DispatchProc.#ctor(System.Object,System.IntPtr)
+  name: DispatchProc(object, nint)
+  href: api/SharpHook.Data.DispatchProc.html#SharpHook_Data_DispatchProc__ctor_System_Object_System_IntPtr_
+  commentId: M:SharpHook.Data.DispatchProc.#ctor(System.Object,System.IntPtr)
+  name.vb: New(Object, IntPtr)
+  fullName: SharpHook.Data.DispatchProc.DispatchProc(object, nint)
+  fullName.vb: SharpHook.Data.DispatchProc.New(Object, System.IntPtr)
+  nameWithType: DispatchProc.DispatchProc(object, nint)
+  nameWithType.vb: DispatchProc.New(Object, IntPtr)
+- uid: SharpHook.Data.DispatchProc.#ctor*
+  name: DispatchProc
+  href: api/SharpHook.Data.DispatchProc.html#SharpHook_Data_DispatchProc__ctor_
+  commentId: Overload:SharpHook.Data.DispatchProc.#ctor
+  name.vb: New
+  fullName: SharpHook.Data.DispatchProc.DispatchProc
+  fullName.vb: SharpHook.Data.DispatchProc.New
+  nameWithType: DispatchProc.DispatchProc
+  nameWithType.vb: DispatchProc.New
+- uid: SharpHook.Data.DispatchProc.BeginInvoke(SharpHook.Data.UioHookEvent@,System.IntPtr,System.AsyncCallback,System.Object)
+  name: BeginInvoke(ref UioHookEvent, nint, AsyncCallback, object)
+  href: api/SharpHook.Data.DispatchProc.html#SharpHook_Data_DispatchProc_BeginInvoke_SharpHook_Data_UioHookEvent__System_IntPtr_System_AsyncCallback_System_Object_
+  commentId: M:SharpHook.Data.DispatchProc.BeginInvoke(SharpHook.Data.UioHookEvent@,System.IntPtr,System.AsyncCallback,System.Object)
+  name.vb: BeginInvoke(UioHookEvent, IntPtr, AsyncCallback, Object)
+  fullName: SharpHook.Data.DispatchProc.BeginInvoke(ref SharpHook.Data.UioHookEvent, nint, System.AsyncCallback, object)
+  fullName.vb: SharpHook.Data.DispatchProc.BeginInvoke(SharpHook.Data.UioHookEvent, System.IntPtr, System.AsyncCallback, Object)
+  nameWithType: DispatchProc.BeginInvoke(ref UioHookEvent, nint, AsyncCallback, object)
+  nameWithType.vb: DispatchProc.BeginInvoke(UioHookEvent, IntPtr, AsyncCallback, Object)
+- uid: SharpHook.Data.DispatchProc.BeginInvoke*
+  name: BeginInvoke
+  href: api/SharpHook.Data.DispatchProc.html#SharpHook_Data_DispatchProc_BeginInvoke_
+  commentId: Overload:SharpHook.Data.DispatchProc.BeginInvoke
+  fullName: SharpHook.Data.DispatchProc.BeginInvoke
+  nameWithType: DispatchProc.BeginInvoke
+- uid: SharpHook.Data.DispatchProc.EndInvoke(SharpHook.Data.UioHookEvent@,System.IAsyncResult)
+  name: EndInvoke(ref UioHookEvent, IAsyncResult)
+  href: api/SharpHook.Data.DispatchProc.html#SharpHook_Data_DispatchProc_EndInvoke_SharpHook_Data_UioHookEvent__System_IAsyncResult_
+  commentId: M:SharpHook.Data.DispatchProc.EndInvoke(SharpHook.Data.UioHookEvent@,System.IAsyncResult)
+  name.vb: EndInvoke(UioHookEvent, IAsyncResult)
+  fullName: SharpHook.Data.DispatchProc.EndInvoke(ref SharpHook.Data.UioHookEvent, System.IAsyncResult)
+  fullName.vb: SharpHook.Data.DispatchProc.EndInvoke(SharpHook.Data.UioHookEvent, System.IAsyncResult)
+  nameWithType: DispatchProc.EndInvoke(ref UioHookEvent, IAsyncResult)
+  nameWithType.vb: DispatchProc.EndInvoke(UioHookEvent, IAsyncResult)
+- uid: SharpHook.Data.DispatchProc.EndInvoke*
+  name: EndInvoke
+  href: api/SharpHook.Data.DispatchProc.html#SharpHook_Data_DispatchProc_EndInvoke_
+  commentId: Overload:SharpHook.Data.DispatchProc.EndInvoke
+  fullName: SharpHook.Data.DispatchProc.EndInvoke
+  nameWithType: DispatchProc.EndInvoke
+- uid: SharpHook.Data.DispatchProc.Invoke(SharpHook.Data.UioHookEvent@,System.IntPtr)
+  name: Invoke(ref UioHookEvent, nint)
+  href: api/SharpHook.Data.DispatchProc.html#SharpHook_Data_DispatchProc_Invoke_SharpHook_Data_UioHookEvent__System_IntPtr_
+  commentId: M:SharpHook.Data.DispatchProc.Invoke(SharpHook.Data.UioHookEvent@,System.IntPtr)
+  name.vb: Invoke(UioHookEvent, IntPtr)
+  fullName: SharpHook.Data.DispatchProc.Invoke(ref SharpHook.Data.UioHookEvent, nint)
+  fullName.vb: SharpHook.Data.DispatchProc.Invoke(SharpHook.Data.UioHookEvent, System.IntPtr)
+  nameWithType: DispatchProc.Invoke(ref UioHookEvent, nint)
+  nameWithType.vb: DispatchProc.Invoke(UioHookEvent, IntPtr)
+- uid: SharpHook.Data.DispatchProc.Invoke*
+  name: Invoke
+  href: api/SharpHook.Data.DispatchProc.html#SharpHook_Data_DispatchProc_Invoke_
+  commentId: Overload:SharpHook.Data.DispatchProc.Invoke
+  fullName: SharpHook.Data.DispatchProc.Invoke
+  nameWithType: DispatchProc.Invoke
 - uid: SharpHook.Data.EventMask
   name: EventMask
   href: api/SharpHook.Data.EventMask.html
@@ -1804,6 +1939,72 @@ references:
   commentId: F:SharpHook.Data.LogLevel.Warn
   fullName: SharpHook.Data.LogLevel.Warn
   nameWithType: LogLevel.Warn
+- uid: SharpHook.Data.LoggerProc
+  name: LoggerProc
+  href: api/SharpHook.Data.LoggerProc.html
+  commentId: T:SharpHook.Data.LoggerProc
+  fullName: SharpHook.Data.LoggerProc
+  nameWithType: LoggerProc
+- uid: SharpHook.Data.LoggerProc.#ctor(System.Object,System.IntPtr)
+  name: LoggerProc(object, nint)
+  href: api/SharpHook.Data.LoggerProc.html#SharpHook_Data_LoggerProc__ctor_System_Object_System_IntPtr_
+  commentId: M:SharpHook.Data.LoggerProc.#ctor(System.Object,System.IntPtr)
+  name.vb: New(Object, IntPtr)
+  fullName: SharpHook.Data.LoggerProc.LoggerProc(object, nint)
+  fullName.vb: SharpHook.Data.LoggerProc.New(Object, System.IntPtr)
+  nameWithType: LoggerProc.LoggerProc(object, nint)
+  nameWithType.vb: LoggerProc.New(Object, IntPtr)
+- uid: SharpHook.Data.LoggerProc.#ctor*
+  name: LoggerProc
+  href: api/SharpHook.Data.LoggerProc.html#SharpHook_Data_LoggerProc__ctor_
+  commentId: Overload:SharpHook.Data.LoggerProc.#ctor
+  name.vb: New
+  fullName: SharpHook.Data.LoggerProc.LoggerProc
+  fullName.vb: SharpHook.Data.LoggerProc.New
+  nameWithType: LoggerProc.LoggerProc
+  nameWithType.vb: LoggerProc.New
+- uid: SharpHook.Data.LoggerProc.BeginInvoke(SharpHook.Data.LogLevel,System.IntPtr,System.IntPtr,System.IntPtr,System.AsyncCallback,System.Object)
+  name: BeginInvoke(LogLevel, nint, nint, nint, AsyncCallback, object)
+  href: api/SharpHook.Data.LoggerProc.html#SharpHook_Data_LoggerProc_BeginInvoke_SharpHook_Data_LogLevel_System_IntPtr_System_IntPtr_System_IntPtr_System_AsyncCallback_System_Object_
+  commentId: M:SharpHook.Data.LoggerProc.BeginInvoke(SharpHook.Data.LogLevel,System.IntPtr,System.IntPtr,System.IntPtr,System.AsyncCallback,System.Object)
+  name.vb: BeginInvoke(LogLevel, IntPtr, IntPtr, IntPtr, AsyncCallback, Object)
+  fullName: SharpHook.Data.LoggerProc.BeginInvoke(SharpHook.Data.LogLevel, nint, nint, nint, System.AsyncCallback, object)
+  fullName.vb: SharpHook.Data.LoggerProc.BeginInvoke(SharpHook.Data.LogLevel, System.IntPtr, System.IntPtr, System.IntPtr, System.AsyncCallback, Object)
+  nameWithType: LoggerProc.BeginInvoke(LogLevel, nint, nint, nint, AsyncCallback, object)
+  nameWithType.vb: LoggerProc.BeginInvoke(LogLevel, IntPtr, IntPtr, IntPtr, AsyncCallback, Object)
+- uid: SharpHook.Data.LoggerProc.BeginInvoke*
+  name: BeginInvoke
+  href: api/SharpHook.Data.LoggerProc.html#SharpHook_Data_LoggerProc_BeginInvoke_
+  commentId: Overload:SharpHook.Data.LoggerProc.BeginInvoke
+  fullName: SharpHook.Data.LoggerProc.BeginInvoke
+  nameWithType: LoggerProc.BeginInvoke
+- uid: SharpHook.Data.LoggerProc.EndInvoke(System.IAsyncResult)
+  name: EndInvoke(IAsyncResult)
+  href: api/SharpHook.Data.LoggerProc.html#SharpHook_Data_LoggerProc_EndInvoke_System_IAsyncResult_
+  commentId: M:SharpHook.Data.LoggerProc.EndInvoke(System.IAsyncResult)
+  fullName: SharpHook.Data.LoggerProc.EndInvoke(System.IAsyncResult)
+  nameWithType: LoggerProc.EndInvoke(IAsyncResult)
+- uid: SharpHook.Data.LoggerProc.EndInvoke*
+  name: EndInvoke
+  href: api/SharpHook.Data.LoggerProc.html#SharpHook_Data_LoggerProc_EndInvoke_
+  commentId: Overload:SharpHook.Data.LoggerProc.EndInvoke
+  fullName: SharpHook.Data.LoggerProc.EndInvoke
+  nameWithType: LoggerProc.EndInvoke
+- uid: SharpHook.Data.LoggerProc.Invoke(SharpHook.Data.LogLevel,System.IntPtr,System.IntPtr,System.IntPtr)
+  name: Invoke(LogLevel, nint, nint, nint)
+  href: api/SharpHook.Data.LoggerProc.html#SharpHook_Data_LoggerProc_Invoke_SharpHook_Data_LogLevel_System_IntPtr_System_IntPtr_System_IntPtr_
+  commentId: M:SharpHook.Data.LoggerProc.Invoke(SharpHook.Data.LogLevel,System.IntPtr,System.IntPtr,System.IntPtr)
+  name.vb: Invoke(LogLevel, IntPtr, IntPtr, IntPtr)
+  fullName: SharpHook.Data.LoggerProc.Invoke(SharpHook.Data.LogLevel, nint, nint, nint)
+  fullName.vb: SharpHook.Data.LoggerProc.Invoke(SharpHook.Data.LogLevel, System.IntPtr, System.IntPtr, System.IntPtr)
+  nameWithType: LoggerProc.Invoke(LogLevel, nint, nint, nint)
+  nameWithType.vb: LoggerProc.Invoke(LogLevel, IntPtr, IntPtr, IntPtr)
+- uid: SharpHook.Data.LoggerProc.Invoke*
+  name: Invoke
+  href: api/SharpHook.Data.LoggerProc.html#SharpHook_Data_LoggerProc_Invoke_
+  commentId: Overload:SharpHook.Data.LoggerProc.Invoke
+  fullName: SharpHook.Data.LoggerProc.Invoke
+  nameWithType: LoggerProc.Invoke
 - uid: SharpHook.Data.MouseButton
   name: MouseButton
   href: api/SharpHook.Data.MouseButton.html
@@ -2116,6 +2317,72 @@ references:
   commentId: F:SharpHook.Data.MouseWheelScrollType.UnitScroll
   fullName: SharpHook.Data.MouseWheelScrollType.UnitScroll
   nameWithType: MouseWheelScrollType.UnitScroll
+- uid: SharpHook.Data.OpenDeviceProc
+  name: OpenDeviceProc
+  href: api/SharpHook.Data.OpenDeviceProc.html
+  commentId: T:SharpHook.Data.OpenDeviceProc
+  fullName: SharpHook.Data.OpenDeviceProc
+  nameWithType: OpenDeviceProc
+- uid: SharpHook.Data.OpenDeviceProc.#ctor(System.Object,System.IntPtr)
+  name: OpenDeviceProc(object, nint)
+  href: api/SharpHook.Data.OpenDeviceProc.html#SharpHook_Data_OpenDeviceProc__ctor_System_Object_System_IntPtr_
+  commentId: M:SharpHook.Data.OpenDeviceProc.#ctor(System.Object,System.IntPtr)
+  name.vb: New(Object, IntPtr)
+  fullName: SharpHook.Data.OpenDeviceProc.OpenDeviceProc(object, nint)
+  fullName.vb: SharpHook.Data.OpenDeviceProc.New(Object, System.IntPtr)
+  nameWithType: OpenDeviceProc.OpenDeviceProc(object, nint)
+  nameWithType.vb: OpenDeviceProc.New(Object, IntPtr)
+- uid: SharpHook.Data.OpenDeviceProc.#ctor*
+  name: OpenDeviceProc
+  href: api/SharpHook.Data.OpenDeviceProc.html#SharpHook_Data_OpenDeviceProc__ctor_
+  commentId: Overload:SharpHook.Data.OpenDeviceProc.#ctor
+  name.vb: New
+  fullName: SharpHook.Data.OpenDeviceProc.OpenDeviceProc
+  fullName.vb: SharpHook.Data.OpenDeviceProc.New
+  nameWithType: OpenDeviceProc.OpenDeviceProc
+  nameWithType.vb: OpenDeviceProc.New
+- uid: SharpHook.Data.OpenDeviceProc.BeginInvoke(System.String,System.Int32,System.IntPtr,System.AsyncCallback,System.Object)
+  name: BeginInvoke(string, int, nint, AsyncCallback, object)
+  href: api/SharpHook.Data.OpenDeviceProc.html#SharpHook_Data_OpenDeviceProc_BeginInvoke_System_String_System_Int32_System_IntPtr_System_AsyncCallback_System_Object_
+  commentId: M:SharpHook.Data.OpenDeviceProc.BeginInvoke(System.String,System.Int32,System.IntPtr,System.AsyncCallback,System.Object)
+  name.vb: BeginInvoke(String, Integer, IntPtr, AsyncCallback, Object)
+  fullName: SharpHook.Data.OpenDeviceProc.BeginInvoke(string, int, nint, System.AsyncCallback, object)
+  fullName.vb: SharpHook.Data.OpenDeviceProc.BeginInvoke(String, Integer, System.IntPtr, System.AsyncCallback, Object)
+  nameWithType: OpenDeviceProc.BeginInvoke(string, int, nint, AsyncCallback, object)
+  nameWithType.vb: OpenDeviceProc.BeginInvoke(String, Integer, IntPtr, AsyncCallback, Object)
+- uid: SharpHook.Data.OpenDeviceProc.BeginInvoke*
+  name: BeginInvoke
+  href: api/SharpHook.Data.OpenDeviceProc.html#SharpHook_Data_OpenDeviceProc_BeginInvoke_
+  commentId: Overload:SharpHook.Data.OpenDeviceProc.BeginInvoke
+  fullName: SharpHook.Data.OpenDeviceProc.BeginInvoke
+  nameWithType: OpenDeviceProc.BeginInvoke
+- uid: SharpHook.Data.OpenDeviceProc.EndInvoke(System.IAsyncResult)
+  name: EndInvoke(IAsyncResult)
+  href: api/SharpHook.Data.OpenDeviceProc.html#SharpHook_Data_OpenDeviceProc_EndInvoke_System_IAsyncResult_
+  commentId: M:SharpHook.Data.OpenDeviceProc.EndInvoke(System.IAsyncResult)
+  fullName: SharpHook.Data.OpenDeviceProc.EndInvoke(System.IAsyncResult)
+  nameWithType: OpenDeviceProc.EndInvoke(IAsyncResult)
+- uid: SharpHook.Data.OpenDeviceProc.EndInvoke*
+  name: EndInvoke
+  href: api/SharpHook.Data.OpenDeviceProc.html#SharpHook_Data_OpenDeviceProc_EndInvoke_
+  commentId: Overload:SharpHook.Data.OpenDeviceProc.EndInvoke
+  fullName: SharpHook.Data.OpenDeviceProc.EndInvoke
+  nameWithType: OpenDeviceProc.EndInvoke
+- uid: SharpHook.Data.OpenDeviceProc.Invoke(System.String,System.Int32,System.IntPtr)
+  name: Invoke(string, int, nint)
+  href: api/SharpHook.Data.OpenDeviceProc.html#SharpHook_Data_OpenDeviceProc_Invoke_System_String_System_Int32_System_IntPtr_
+  commentId: M:SharpHook.Data.OpenDeviceProc.Invoke(System.String,System.Int32,System.IntPtr)
+  name.vb: Invoke(String, Integer, IntPtr)
+  fullName: SharpHook.Data.OpenDeviceProc.Invoke(string, int, nint)
+  fullName.vb: SharpHook.Data.OpenDeviceProc.Invoke(String, Integer, System.IntPtr)
+  nameWithType: OpenDeviceProc.Invoke(string, int, nint)
+  nameWithType.vb: OpenDeviceProc.Invoke(String, Integer, IntPtr)
+- uid: SharpHook.Data.OpenDeviceProc.Invoke*
+  name: Invoke
+  href: api/SharpHook.Data.OpenDeviceProc.html#SharpHook_Data_OpenDeviceProc_Invoke_
+  commentId: Overload:SharpHook.Data.OpenDeviceProc.Invoke
+  fullName: SharpHook.Data.OpenDeviceProc.Invoke
+  nameWithType: OpenDeviceProc.Invoke
 - uid: SharpHook.Data.ScreenData
   name: ScreenData
   href: api/SharpHook.Data.ScreenData.html
@@ -3838,279 +4105,6 @@ references:
   commentId: Overload:SharpHook.MouseWheelHookEventArgs.Data
   fullName: SharpHook.MouseWheelHookEventArgs.Data
   nameWithType: MouseWheelHookEventArgs.Data
-- uid: SharpHook.Native
-  name: SharpHook.Native
-  href: api/SharpHook.Native.html
-  commentId: N:SharpHook.Native
-  fullName: SharpHook.Native
-  nameWithType: SharpHook.Native
-- uid: SharpHook.Native.CloseDeviceProc
-  name: CloseDeviceProc
-  href: api/SharpHook.Native.CloseDeviceProc.html
-  commentId: T:SharpHook.Native.CloseDeviceProc
-  fullName: SharpHook.Native.CloseDeviceProc
-  nameWithType: CloseDeviceProc
-- uid: SharpHook.Native.CloseDeviceProc.#ctor(System.Object,System.IntPtr)
-  name: CloseDeviceProc(object, nint)
-  href: api/SharpHook.Native.CloseDeviceProc.html#SharpHook_Native_CloseDeviceProc__ctor_System_Object_System_IntPtr_
-  commentId: M:SharpHook.Native.CloseDeviceProc.#ctor(System.Object,System.IntPtr)
-  name.vb: New(Object, IntPtr)
-  fullName: SharpHook.Native.CloseDeviceProc.CloseDeviceProc(object, nint)
-  fullName.vb: SharpHook.Native.CloseDeviceProc.New(Object, System.IntPtr)
-  nameWithType: CloseDeviceProc.CloseDeviceProc(object, nint)
-  nameWithType.vb: CloseDeviceProc.New(Object, IntPtr)
-- uid: SharpHook.Native.CloseDeviceProc.#ctor*
-  name: CloseDeviceProc
-  href: api/SharpHook.Native.CloseDeviceProc.html#SharpHook_Native_CloseDeviceProc__ctor_
-  commentId: Overload:SharpHook.Native.CloseDeviceProc.#ctor
-  name.vb: New
-  fullName: SharpHook.Native.CloseDeviceProc.CloseDeviceProc
-  fullName.vb: SharpHook.Native.CloseDeviceProc.New
-  nameWithType: CloseDeviceProc.CloseDeviceProc
-  nameWithType.vb: CloseDeviceProc.New
-- uid: SharpHook.Native.CloseDeviceProc.BeginInvoke(System.Int32,System.IntPtr,System.AsyncCallback,System.Object)
-  name: BeginInvoke(int, nint, AsyncCallback, object)
-  href: api/SharpHook.Native.CloseDeviceProc.html#SharpHook_Native_CloseDeviceProc_BeginInvoke_System_Int32_System_IntPtr_System_AsyncCallback_System_Object_
-  commentId: M:SharpHook.Native.CloseDeviceProc.BeginInvoke(System.Int32,System.IntPtr,System.AsyncCallback,System.Object)
-  name.vb: BeginInvoke(Integer, IntPtr, AsyncCallback, Object)
-  fullName: SharpHook.Native.CloseDeviceProc.BeginInvoke(int, nint, System.AsyncCallback, object)
-  fullName.vb: SharpHook.Native.CloseDeviceProc.BeginInvoke(Integer, System.IntPtr, System.AsyncCallback, Object)
-  nameWithType: CloseDeviceProc.BeginInvoke(int, nint, AsyncCallback, object)
-  nameWithType.vb: CloseDeviceProc.BeginInvoke(Integer, IntPtr, AsyncCallback, Object)
-- uid: SharpHook.Native.CloseDeviceProc.BeginInvoke*
-  name: BeginInvoke
-  href: api/SharpHook.Native.CloseDeviceProc.html#SharpHook_Native_CloseDeviceProc_BeginInvoke_
-  commentId: Overload:SharpHook.Native.CloseDeviceProc.BeginInvoke
-  fullName: SharpHook.Native.CloseDeviceProc.BeginInvoke
-  nameWithType: CloseDeviceProc.BeginInvoke
-- uid: SharpHook.Native.CloseDeviceProc.EndInvoke(System.IAsyncResult)
-  name: EndInvoke(IAsyncResult)
-  href: api/SharpHook.Native.CloseDeviceProc.html#SharpHook_Native_CloseDeviceProc_EndInvoke_System_IAsyncResult_
-  commentId: M:SharpHook.Native.CloseDeviceProc.EndInvoke(System.IAsyncResult)
-  fullName: SharpHook.Native.CloseDeviceProc.EndInvoke(System.IAsyncResult)
-  nameWithType: CloseDeviceProc.EndInvoke(IAsyncResult)
-- uid: SharpHook.Native.CloseDeviceProc.EndInvoke*
-  name: EndInvoke
-  href: api/SharpHook.Native.CloseDeviceProc.html#SharpHook_Native_CloseDeviceProc_EndInvoke_
-  commentId: Overload:SharpHook.Native.CloseDeviceProc.EndInvoke
-  fullName: SharpHook.Native.CloseDeviceProc.EndInvoke
-  nameWithType: CloseDeviceProc.EndInvoke
-- uid: SharpHook.Native.CloseDeviceProc.Invoke(System.Int32,System.IntPtr)
-  name: Invoke(int, nint)
-  href: api/SharpHook.Native.CloseDeviceProc.html#SharpHook_Native_CloseDeviceProc_Invoke_System_Int32_System_IntPtr_
-  commentId: M:SharpHook.Native.CloseDeviceProc.Invoke(System.Int32,System.IntPtr)
-  name.vb: Invoke(Integer, IntPtr)
-  fullName: SharpHook.Native.CloseDeviceProc.Invoke(int, nint)
-  fullName.vb: SharpHook.Native.CloseDeviceProc.Invoke(Integer, System.IntPtr)
-  nameWithType: CloseDeviceProc.Invoke(int, nint)
-  nameWithType.vb: CloseDeviceProc.Invoke(Integer, IntPtr)
-- uid: SharpHook.Native.CloseDeviceProc.Invoke*
-  name: Invoke
-  href: api/SharpHook.Native.CloseDeviceProc.html#SharpHook_Native_CloseDeviceProc_Invoke_
-  commentId: Overload:SharpHook.Native.CloseDeviceProc.Invoke
-  fullName: SharpHook.Native.CloseDeviceProc.Invoke
-  nameWithType: CloseDeviceProc.Invoke
-- uid: SharpHook.Native.DispatchProc
-  name: DispatchProc
-  href: api/SharpHook.Native.DispatchProc.html
-  commentId: T:SharpHook.Native.DispatchProc
-  fullName: SharpHook.Native.DispatchProc
-  nameWithType: DispatchProc
-- uid: SharpHook.Native.DispatchProc.#ctor(System.Object,System.IntPtr)
-  name: DispatchProc(object, nint)
-  href: api/SharpHook.Native.DispatchProc.html#SharpHook_Native_DispatchProc__ctor_System_Object_System_IntPtr_
-  commentId: M:SharpHook.Native.DispatchProc.#ctor(System.Object,System.IntPtr)
-  name.vb: New(Object, IntPtr)
-  fullName: SharpHook.Native.DispatchProc.DispatchProc(object, nint)
-  fullName.vb: SharpHook.Native.DispatchProc.New(Object, System.IntPtr)
-  nameWithType: DispatchProc.DispatchProc(object, nint)
-  nameWithType.vb: DispatchProc.New(Object, IntPtr)
-- uid: SharpHook.Native.DispatchProc.#ctor*
-  name: DispatchProc
-  href: api/SharpHook.Native.DispatchProc.html#SharpHook_Native_DispatchProc__ctor_
-  commentId: Overload:SharpHook.Native.DispatchProc.#ctor
-  name.vb: New
-  fullName: SharpHook.Native.DispatchProc.DispatchProc
-  fullName.vb: SharpHook.Native.DispatchProc.New
-  nameWithType: DispatchProc.DispatchProc
-  nameWithType.vb: DispatchProc.New
-- uid: SharpHook.Native.DispatchProc.BeginInvoke(SharpHook.Data.UioHookEvent@,System.IntPtr,System.AsyncCallback,System.Object)
-  name: BeginInvoke(ref UioHookEvent, nint, AsyncCallback, object)
-  href: api/SharpHook.Native.DispatchProc.html#SharpHook_Native_DispatchProc_BeginInvoke_SharpHook_Data_UioHookEvent__System_IntPtr_System_AsyncCallback_System_Object_
-  commentId: M:SharpHook.Native.DispatchProc.BeginInvoke(SharpHook.Data.UioHookEvent@,System.IntPtr,System.AsyncCallback,System.Object)
-  name.vb: BeginInvoke(UioHookEvent, IntPtr, AsyncCallback, Object)
-  fullName: SharpHook.Native.DispatchProc.BeginInvoke(ref SharpHook.Data.UioHookEvent, nint, System.AsyncCallback, object)
-  fullName.vb: SharpHook.Native.DispatchProc.BeginInvoke(SharpHook.Data.UioHookEvent, System.IntPtr, System.AsyncCallback, Object)
-  nameWithType: DispatchProc.BeginInvoke(ref UioHookEvent, nint, AsyncCallback, object)
-  nameWithType.vb: DispatchProc.BeginInvoke(UioHookEvent, IntPtr, AsyncCallback, Object)
-- uid: SharpHook.Native.DispatchProc.BeginInvoke*
-  name: BeginInvoke
-  href: api/SharpHook.Native.DispatchProc.html#SharpHook_Native_DispatchProc_BeginInvoke_
-  commentId: Overload:SharpHook.Native.DispatchProc.BeginInvoke
-  fullName: SharpHook.Native.DispatchProc.BeginInvoke
-  nameWithType: DispatchProc.BeginInvoke
-- uid: SharpHook.Native.DispatchProc.EndInvoke(SharpHook.Data.UioHookEvent@,System.IAsyncResult)
-  name: EndInvoke(ref UioHookEvent, IAsyncResult)
-  href: api/SharpHook.Native.DispatchProc.html#SharpHook_Native_DispatchProc_EndInvoke_SharpHook_Data_UioHookEvent__System_IAsyncResult_
-  commentId: M:SharpHook.Native.DispatchProc.EndInvoke(SharpHook.Data.UioHookEvent@,System.IAsyncResult)
-  name.vb: EndInvoke(UioHookEvent, IAsyncResult)
-  fullName: SharpHook.Native.DispatchProc.EndInvoke(ref SharpHook.Data.UioHookEvent, System.IAsyncResult)
-  fullName.vb: SharpHook.Native.DispatchProc.EndInvoke(SharpHook.Data.UioHookEvent, System.IAsyncResult)
-  nameWithType: DispatchProc.EndInvoke(ref UioHookEvent, IAsyncResult)
-  nameWithType.vb: DispatchProc.EndInvoke(UioHookEvent, IAsyncResult)
-- uid: SharpHook.Native.DispatchProc.EndInvoke*
-  name: EndInvoke
-  href: api/SharpHook.Native.DispatchProc.html#SharpHook_Native_DispatchProc_EndInvoke_
-  commentId: Overload:SharpHook.Native.DispatchProc.EndInvoke
-  fullName: SharpHook.Native.DispatchProc.EndInvoke
-  nameWithType: DispatchProc.EndInvoke
-- uid: SharpHook.Native.DispatchProc.Invoke(SharpHook.Data.UioHookEvent@,System.IntPtr)
-  name: Invoke(ref UioHookEvent, nint)
-  href: api/SharpHook.Native.DispatchProc.html#SharpHook_Native_DispatchProc_Invoke_SharpHook_Data_UioHookEvent__System_IntPtr_
-  commentId: M:SharpHook.Native.DispatchProc.Invoke(SharpHook.Data.UioHookEvent@,System.IntPtr)
-  name.vb: Invoke(UioHookEvent, IntPtr)
-  fullName: SharpHook.Native.DispatchProc.Invoke(ref SharpHook.Data.UioHookEvent, nint)
-  fullName.vb: SharpHook.Native.DispatchProc.Invoke(SharpHook.Data.UioHookEvent, System.IntPtr)
-  nameWithType: DispatchProc.Invoke(ref UioHookEvent, nint)
-  nameWithType.vb: DispatchProc.Invoke(UioHookEvent, IntPtr)
-- uid: SharpHook.Native.DispatchProc.Invoke*
-  name: Invoke
-  href: api/SharpHook.Native.DispatchProc.html#SharpHook_Native_DispatchProc_Invoke_
-  commentId: Overload:SharpHook.Native.DispatchProc.Invoke
-  fullName: SharpHook.Native.DispatchProc.Invoke
-  nameWithType: DispatchProc.Invoke
-- uid: SharpHook.Native.LoggerProc
-  name: LoggerProc
-  href: api/SharpHook.Native.LoggerProc.html
-  commentId: T:SharpHook.Native.LoggerProc
-  fullName: SharpHook.Native.LoggerProc
-  nameWithType: LoggerProc
-- uid: SharpHook.Native.LoggerProc.#ctor(System.Object,System.IntPtr)
-  name: LoggerProc(object, nint)
-  href: api/SharpHook.Native.LoggerProc.html#SharpHook_Native_LoggerProc__ctor_System_Object_System_IntPtr_
-  commentId: M:SharpHook.Native.LoggerProc.#ctor(System.Object,System.IntPtr)
-  name.vb: New(Object, IntPtr)
-  fullName: SharpHook.Native.LoggerProc.LoggerProc(object, nint)
-  fullName.vb: SharpHook.Native.LoggerProc.New(Object, System.IntPtr)
-  nameWithType: LoggerProc.LoggerProc(object, nint)
-  nameWithType.vb: LoggerProc.New(Object, IntPtr)
-- uid: SharpHook.Native.LoggerProc.#ctor*
-  name: LoggerProc
-  href: api/SharpHook.Native.LoggerProc.html#SharpHook_Native_LoggerProc__ctor_
-  commentId: Overload:SharpHook.Native.LoggerProc.#ctor
-  name.vb: New
-  fullName: SharpHook.Native.LoggerProc.LoggerProc
-  fullName.vb: SharpHook.Native.LoggerProc.New
-  nameWithType: LoggerProc.LoggerProc
-  nameWithType.vb: LoggerProc.New
-- uid: SharpHook.Native.LoggerProc.BeginInvoke(SharpHook.Data.LogLevel,System.IntPtr,System.IntPtr,System.IntPtr,System.AsyncCallback,System.Object)
-  name: BeginInvoke(LogLevel, nint, nint, nint, AsyncCallback, object)
-  href: api/SharpHook.Native.LoggerProc.html#SharpHook_Native_LoggerProc_BeginInvoke_SharpHook_Data_LogLevel_System_IntPtr_System_IntPtr_System_IntPtr_System_AsyncCallback_System_Object_
-  commentId: M:SharpHook.Native.LoggerProc.BeginInvoke(SharpHook.Data.LogLevel,System.IntPtr,System.IntPtr,System.IntPtr,System.AsyncCallback,System.Object)
-  name.vb: BeginInvoke(LogLevel, IntPtr, IntPtr, IntPtr, AsyncCallback, Object)
-  fullName: SharpHook.Native.LoggerProc.BeginInvoke(SharpHook.Data.LogLevel, nint, nint, nint, System.AsyncCallback, object)
-  fullName.vb: SharpHook.Native.LoggerProc.BeginInvoke(SharpHook.Data.LogLevel, System.IntPtr, System.IntPtr, System.IntPtr, System.AsyncCallback, Object)
-  nameWithType: LoggerProc.BeginInvoke(LogLevel, nint, nint, nint, AsyncCallback, object)
-  nameWithType.vb: LoggerProc.BeginInvoke(LogLevel, IntPtr, IntPtr, IntPtr, AsyncCallback, Object)
-- uid: SharpHook.Native.LoggerProc.BeginInvoke*
-  name: BeginInvoke
-  href: api/SharpHook.Native.LoggerProc.html#SharpHook_Native_LoggerProc_BeginInvoke_
-  commentId: Overload:SharpHook.Native.LoggerProc.BeginInvoke
-  fullName: SharpHook.Native.LoggerProc.BeginInvoke
-  nameWithType: LoggerProc.BeginInvoke
-- uid: SharpHook.Native.LoggerProc.EndInvoke(System.IAsyncResult)
-  name: EndInvoke(IAsyncResult)
-  href: api/SharpHook.Native.LoggerProc.html#SharpHook_Native_LoggerProc_EndInvoke_System_IAsyncResult_
-  commentId: M:SharpHook.Native.LoggerProc.EndInvoke(System.IAsyncResult)
-  fullName: SharpHook.Native.LoggerProc.EndInvoke(System.IAsyncResult)
-  nameWithType: LoggerProc.EndInvoke(IAsyncResult)
-- uid: SharpHook.Native.LoggerProc.EndInvoke*
-  name: EndInvoke
-  href: api/SharpHook.Native.LoggerProc.html#SharpHook_Native_LoggerProc_EndInvoke_
-  commentId: Overload:SharpHook.Native.LoggerProc.EndInvoke
-  fullName: SharpHook.Native.LoggerProc.EndInvoke
-  nameWithType: LoggerProc.EndInvoke
-- uid: SharpHook.Native.LoggerProc.Invoke(SharpHook.Data.LogLevel,System.IntPtr,System.IntPtr,System.IntPtr)
-  name: Invoke(LogLevel, nint, nint, nint)
-  href: api/SharpHook.Native.LoggerProc.html#SharpHook_Native_LoggerProc_Invoke_SharpHook_Data_LogLevel_System_IntPtr_System_IntPtr_System_IntPtr_
-  commentId: M:SharpHook.Native.LoggerProc.Invoke(SharpHook.Data.LogLevel,System.IntPtr,System.IntPtr,System.IntPtr)
-  name.vb: Invoke(LogLevel, IntPtr, IntPtr, IntPtr)
-  fullName: SharpHook.Native.LoggerProc.Invoke(SharpHook.Data.LogLevel, nint, nint, nint)
-  fullName.vb: SharpHook.Native.LoggerProc.Invoke(SharpHook.Data.LogLevel, System.IntPtr, System.IntPtr, System.IntPtr)
-  nameWithType: LoggerProc.Invoke(LogLevel, nint, nint, nint)
-  nameWithType.vb: LoggerProc.Invoke(LogLevel, IntPtr, IntPtr, IntPtr)
-- uid: SharpHook.Native.LoggerProc.Invoke*
-  name: Invoke
-  href: api/SharpHook.Native.LoggerProc.html#SharpHook_Native_LoggerProc_Invoke_
-  commentId: Overload:SharpHook.Native.LoggerProc.Invoke
-  fullName: SharpHook.Native.LoggerProc.Invoke
-  nameWithType: LoggerProc.Invoke
-- uid: SharpHook.Native.OpenDeviceProc
-  name: OpenDeviceProc
-  href: api/SharpHook.Native.OpenDeviceProc.html
-  commentId: T:SharpHook.Native.OpenDeviceProc
-  fullName: SharpHook.Native.OpenDeviceProc
-  nameWithType: OpenDeviceProc
-- uid: SharpHook.Native.OpenDeviceProc.#ctor(System.Object,System.IntPtr)
-  name: OpenDeviceProc(object, nint)
-  href: api/SharpHook.Native.OpenDeviceProc.html#SharpHook_Native_OpenDeviceProc__ctor_System_Object_System_IntPtr_
-  commentId: M:SharpHook.Native.OpenDeviceProc.#ctor(System.Object,System.IntPtr)
-  name.vb: New(Object, IntPtr)
-  fullName: SharpHook.Native.OpenDeviceProc.OpenDeviceProc(object, nint)
-  fullName.vb: SharpHook.Native.OpenDeviceProc.New(Object, System.IntPtr)
-  nameWithType: OpenDeviceProc.OpenDeviceProc(object, nint)
-  nameWithType.vb: OpenDeviceProc.New(Object, IntPtr)
-- uid: SharpHook.Native.OpenDeviceProc.#ctor*
-  name: OpenDeviceProc
-  href: api/SharpHook.Native.OpenDeviceProc.html#SharpHook_Native_OpenDeviceProc__ctor_
-  commentId: Overload:SharpHook.Native.OpenDeviceProc.#ctor
-  name.vb: New
-  fullName: SharpHook.Native.OpenDeviceProc.OpenDeviceProc
-  fullName.vb: SharpHook.Native.OpenDeviceProc.New
-  nameWithType: OpenDeviceProc.OpenDeviceProc
-  nameWithType.vb: OpenDeviceProc.New
-- uid: SharpHook.Native.OpenDeviceProc.BeginInvoke(System.String,System.Int32,System.IntPtr,System.AsyncCallback,System.Object)
-  name: BeginInvoke(string, int, nint, AsyncCallback, object)
-  href: api/SharpHook.Native.OpenDeviceProc.html#SharpHook_Native_OpenDeviceProc_BeginInvoke_System_String_System_Int32_System_IntPtr_System_AsyncCallback_System_Object_
-  commentId: M:SharpHook.Native.OpenDeviceProc.BeginInvoke(System.String,System.Int32,System.IntPtr,System.AsyncCallback,System.Object)
-  name.vb: BeginInvoke(String, Integer, IntPtr, AsyncCallback, Object)
-  fullName: SharpHook.Native.OpenDeviceProc.BeginInvoke(string, int, nint, System.AsyncCallback, object)
-  fullName.vb: SharpHook.Native.OpenDeviceProc.BeginInvoke(String, Integer, System.IntPtr, System.AsyncCallback, Object)
-  nameWithType: OpenDeviceProc.BeginInvoke(string, int, nint, AsyncCallback, object)
-  nameWithType.vb: OpenDeviceProc.BeginInvoke(String, Integer, IntPtr, AsyncCallback, Object)
-- uid: SharpHook.Native.OpenDeviceProc.BeginInvoke*
-  name: BeginInvoke
-  href: api/SharpHook.Native.OpenDeviceProc.html#SharpHook_Native_OpenDeviceProc_BeginInvoke_
-  commentId: Overload:SharpHook.Native.OpenDeviceProc.BeginInvoke
-  fullName: SharpHook.Native.OpenDeviceProc.BeginInvoke
-  nameWithType: OpenDeviceProc.BeginInvoke
-- uid: SharpHook.Native.OpenDeviceProc.EndInvoke(System.IAsyncResult)
-  name: EndInvoke(IAsyncResult)
-  href: api/SharpHook.Native.OpenDeviceProc.html#SharpHook_Native_OpenDeviceProc_EndInvoke_System_IAsyncResult_
-  commentId: M:SharpHook.Native.OpenDeviceProc.EndInvoke(System.IAsyncResult)
-  fullName: SharpHook.Native.OpenDeviceProc.EndInvoke(System.IAsyncResult)
-  nameWithType: OpenDeviceProc.EndInvoke(IAsyncResult)
-- uid: SharpHook.Native.OpenDeviceProc.EndInvoke*
-  name: EndInvoke
-  href: api/SharpHook.Native.OpenDeviceProc.html#SharpHook_Native_OpenDeviceProc_EndInvoke_
-  commentId: Overload:SharpHook.Native.OpenDeviceProc.EndInvoke
-  fullName: SharpHook.Native.OpenDeviceProc.EndInvoke
-  nameWithType: OpenDeviceProc.EndInvoke
-- uid: SharpHook.Native.OpenDeviceProc.Invoke(System.String,System.Int32,System.IntPtr)
-  name: Invoke(string, int, nint)
-  href: api/SharpHook.Native.OpenDeviceProc.html#SharpHook_Native_OpenDeviceProc_Invoke_System_String_System_Int32_System_IntPtr_
-  commentId: M:SharpHook.Native.OpenDeviceProc.Invoke(System.String,System.Int32,System.IntPtr)
-  name.vb: Invoke(String, Integer, IntPtr)
-  fullName: SharpHook.Native.OpenDeviceProc.Invoke(string, int, nint)
-  fullName.vb: SharpHook.Native.OpenDeviceProc.Invoke(String, Integer, System.IntPtr)
-  nameWithType: OpenDeviceProc.Invoke(string, int, nint)
-  nameWithType.vb: OpenDeviceProc.Invoke(String, Integer, IntPtr)
-- uid: SharpHook.Native.OpenDeviceProc.Invoke*
-  name: Invoke
-  href: api/SharpHook.Native.OpenDeviceProc.html#SharpHook_Native_OpenDeviceProc_Invoke_
-  commentId: Overload:SharpHook.Native.OpenDeviceProc.Invoke
-  fullName: SharpHook.Native.OpenDeviceProc.Invoke
-  nameWithType: OpenDeviceProc.Invoke
 - uid: SharpHook.Providers
   name: SharpHook.Providers
   href: api/SharpHook.Providers.html
@@ -4168,13 +4162,13 @@ references:
   commentId: T:SharpHook.Providers.IDeviceProcsProvider
   fullName: SharpHook.Providers.IDeviceProcsProvider
   nameWithType: IDeviceProcsProvider
-- uid: SharpHook.Providers.IDeviceProcsProvider.SetDeviceProcs(SharpHook.Native.OpenDeviceProc,SharpHook.Native.CloseDeviceProc,System.IntPtr)
+- uid: SharpHook.Providers.IDeviceProcsProvider.SetDeviceProcs(SharpHook.Data.OpenDeviceProc,SharpHook.Data.CloseDeviceProc,System.IntPtr)
   name: SetDeviceProcs(OpenDeviceProc?, CloseDeviceProc?, nint)
-  href: api/SharpHook.Providers.IDeviceProcsProvider.html#SharpHook_Providers_IDeviceProcsProvider_SetDeviceProcs_SharpHook_Native_OpenDeviceProc_SharpHook_Native_CloseDeviceProc_System_IntPtr_
-  commentId: M:SharpHook.Providers.IDeviceProcsProvider.SetDeviceProcs(SharpHook.Native.OpenDeviceProc,SharpHook.Native.CloseDeviceProc,System.IntPtr)
+  href: api/SharpHook.Providers.IDeviceProcsProvider.html#SharpHook_Providers_IDeviceProcsProvider_SetDeviceProcs_SharpHook_Data_OpenDeviceProc_SharpHook_Data_CloseDeviceProc_System_IntPtr_
+  commentId: M:SharpHook.Providers.IDeviceProcsProvider.SetDeviceProcs(SharpHook.Data.OpenDeviceProc,SharpHook.Data.CloseDeviceProc,System.IntPtr)
   name.vb: SetDeviceProcs(OpenDeviceProc, CloseDeviceProc, IntPtr)
-  fullName: SharpHook.Providers.IDeviceProcsProvider.SetDeviceProcs(SharpHook.Native.OpenDeviceProc?, SharpHook.Native.CloseDeviceProc?, nint)
-  fullName.vb: SharpHook.Providers.IDeviceProcsProvider.SetDeviceProcs(SharpHook.Native.OpenDeviceProc, SharpHook.Native.CloseDeviceProc, System.IntPtr)
+  fullName: SharpHook.Providers.IDeviceProcsProvider.SetDeviceProcs(SharpHook.Data.OpenDeviceProc?, SharpHook.Data.CloseDeviceProc?, nint)
+  fullName.vb: SharpHook.Providers.IDeviceProcsProvider.SetDeviceProcs(SharpHook.Data.OpenDeviceProc, SharpHook.Data.CloseDeviceProc, System.IntPtr)
   nameWithType: IDeviceProcsProvider.SetDeviceProcs(OpenDeviceProc?, CloseDeviceProc?, nint)
   nameWithType.vb: IDeviceProcsProvider.SetDeviceProcs(OpenDeviceProc, CloseDeviceProc, IntPtr)
 - uid: SharpHook.Providers.IDeviceProcsProvider.SetDeviceProcs*
@@ -4345,13 +4339,13 @@ references:
   commentId: Overload:SharpHook.Providers.IGlobalHookProvider.RunMouse
   fullName: SharpHook.Providers.IGlobalHookProvider.RunMouse
   nameWithType: IGlobalHookProvider.RunMouse
-- uid: SharpHook.Providers.IGlobalHookProvider.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)
+- uid: SharpHook.Providers.IGlobalHookProvider.SetDispatchProc(SharpHook.Data.DispatchProc,System.IntPtr)
   name: SetDispatchProc(DispatchProc?, nint)
-  href: api/SharpHook.Providers.IGlobalHookProvider.html#SharpHook_Providers_IGlobalHookProvider_SetDispatchProc_SharpHook_Native_DispatchProc_System_IntPtr_
-  commentId: M:SharpHook.Providers.IGlobalHookProvider.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)
+  href: api/SharpHook.Providers.IGlobalHookProvider.html#SharpHook_Providers_IGlobalHookProvider_SetDispatchProc_SharpHook_Data_DispatchProc_System_IntPtr_
+  commentId: M:SharpHook.Providers.IGlobalHookProvider.SetDispatchProc(SharpHook.Data.DispatchProc,System.IntPtr)
   name.vb: SetDispatchProc(DispatchProc, IntPtr)
-  fullName: SharpHook.Providers.IGlobalHookProvider.SetDispatchProc(SharpHook.Native.DispatchProc?, nint)
-  fullName.vb: SharpHook.Providers.IGlobalHookProvider.SetDispatchProc(SharpHook.Native.DispatchProc, System.IntPtr)
+  fullName: SharpHook.Providers.IGlobalHookProvider.SetDispatchProc(SharpHook.Data.DispatchProc?, nint)
+  fullName.vb: SharpHook.Providers.IGlobalHookProvider.SetDispatchProc(SharpHook.Data.DispatchProc, System.IntPtr)
   nameWithType: IGlobalHookProvider.SetDispatchProc(DispatchProc?, nint)
   nameWithType.vb: IGlobalHookProvider.SetDispatchProc(DispatchProc, IntPtr)
 - uid: SharpHook.Providers.IGlobalHookProvider.SetDispatchProc*
@@ -4450,13 +4444,13 @@ references:
   commentId: T:SharpHook.Providers.ILoggingProvider
   fullName: SharpHook.Providers.ILoggingProvider
   nameWithType: ILoggingProvider
-- uid: SharpHook.Providers.ILoggingProvider.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)
+- uid: SharpHook.Providers.ILoggingProvider.SetLoggerProc(SharpHook.Data.LoggerProc,System.IntPtr)
   name: SetLoggerProc(LoggerProc?, nint)
-  href: api/SharpHook.Providers.ILoggingProvider.html#SharpHook_Providers_ILoggingProvider_SetLoggerProc_SharpHook_Native_LoggerProc_System_IntPtr_
-  commentId: M:SharpHook.Providers.ILoggingProvider.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)
+  href: api/SharpHook.Providers.ILoggingProvider.html#SharpHook_Providers_ILoggingProvider_SetLoggerProc_SharpHook_Data_LoggerProc_System_IntPtr_
+  commentId: M:SharpHook.Providers.ILoggingProvider.SetLoggerProc(SharpHook.Data.LoggerProc,System.IntPtr)
   name.vb: SetLoggerProc(LoggerProc, IntPtr)
-  fullName: SharpHook.Providers.ILoggingProvider.SetLoggerProc(SharpHook.Native.LoggerProc?, nint)
-  fullName.vb: SharpHook.Providers.ILoggingProvider.SetLoggerProc(SharpHook.Native.LoggerProc, System.IntPtr)
+  fullName: SharpHook.Providers.ILoggingProvider.SetLoggerProc(SharpHook.Data.LoggerProc?, nint)
+  fullName.vb: SharpHook.Providers.ILoggingProvider.SetLoggerProc(SharpHook.Data.LoggerProc, System.IntPtr)
   nameWithType: ILoggingProvider.SetLoggerProc(LoggerProc?, nint)
   nameWithType.vb: ILoggingProvider.SetLoggerProc(LoggerProc, IntPtr)
 - uid: SharpHook.Providers.ILoggingProvider.SetLoggerProc*
@@ -4846,13 +4840,13 @@ references:
   commentId: Overload:SharpHook.Providers.UioHookProvider.RunMouse
   fullName: SharpHook.Providers.UioHookProvider.RunMouse
   nameWithType: UioHookProvider.RunMouse
-- uid: SharpHook.Providers.UioHookProvider.SetDeviceProcs(SharpHook.Native.OpenDeviceProc,SharpHook.Native.CloseDeviceProc,System.IntPtr)
+- uid: SharpHook.Providers.UioHookProvider.SetDeviceProcs(SharpHook.Data.OpenDeviceProc,SharpHook.Data.CloseDeviceProc,System.IntPtr)
   name: SetDeviceProcs(OpenDeviceProc?, CloseDeviceProc?, nint)
-  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_SetDeviceProcs_SharpHook_Native_OpenDeviceProc_SharpHook_Native_CloseDeviceProc_System_IntPtr_
-  commentId: M:SharpHook.Providers.UioHookProvider.SetDeviceProcs(SharpHook.Native.OpenDeviceProc,SharpHook.Native.CloseDeviceProc,System.IntPtr)
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_SetDeviceProcs_SharpHook_Data_OpenDeviceProc_SharpHook_Data_CloseDeviceProc_System_IntPtr_
+  commentId: M:SharpHook.Providers.UioHookProvider.SetDeviceProcs(SharpHook.Data.OpenDeviceProc,SharpHook.Data.CloseDeviceProc,System.IntPtr)
   name.vb: SetDeviceProcs(OpenDeviceProc, CloseDeviceProc, IntPtr)
-  fullName: SharpHook.Providers.UioHookProvider.SetDeviceProcs(SharpHook.Native.OpenDeviceProc?, SharpHook.Native.CloseDeviceProc?, nint)
-  fullName.vb: SharpHook.Providers.UioHookProvider.SetDeviceProcs(SharpHook.Native.OpenDeviceProc, SharpHook.Native.CloseDeviceProc, System.IntPtr)
+  fullName: SharpHook.Providers.UioHookProvider.SetDeviceProcs(SharpHook.Data.OpenDeviceProc?, SharpHook.Data.CloseDeviceProc?, nint)
+  fullName.vb: SharpHook.Providers.UioHookProvider.SetDeviceProcs(SharpHook.Data.OpenDeviceProc, SharpHook.Data.CloseDeviceProc, System.IntPtr)
   nameWithType: UioHookProvider.SetDeviceProcs(OpenDeviceProc?, CloseDeviceProc?, nint)
   nameWithType.vb: UioHookProvider.SetDeviceProcs(OpenDeviceProc, CloseDeviceProc, IntPtr)
 - uid: SharpHook.Providers.UioHookProvider.SetDeviceProcs*
@@ -4861,13 +4855,13 @@ references:
   commentId: Overload:SharpHook.Providers.UioHookProvider.SetDeviceProcs
   fullName: SharpHook.Providers.UioHookProvider.SetDeviceProcs
   nameWithType: UioHookProvider.SetDeviceProcs
-- uid: SharpHook.Providers.UioHookProvider.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)
+- uid: SharpHook.Providers.UioHookProvider.SetDispatchProc(SharpHook.Data.DispatchProc,System.IntPtr)
   name: SetDispatchProc(DispatchProc?, nint)
-  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_SetDispatchProc_SharpHook_Native_DispatchProc_System_IntPtr_
-  commentId: M:SharpHook.Providers.UioHookProvider.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_SetDispatchProc_SharpHook_Data_DispatchProc_System_IntPtr_
+  commentId: M:SharpHook.Providers.UioHookProvider.SetDispatchProc(SharpHook.Data.DispatchProc,System.IntPtr)
   name.vb: SetDispatchProc(DispatchProc, IntPtr)
-  fullName: SharpHook.Providers.UioHookProvider.SetDispatchProc(SharpHook.Native.DispatchProc?, nint)
-  fullName.vb: SharpHook.Providers.UioHookProvider.SetDispatchProc(SharpHook.Native.DispatchProc, System.IntPtr)
+  fullName: SharpHook.Providers.UioHookProvider.SetDispatchProc(SharpHook.Data.DispatchProc?, nint)
+  fullName.vb: SharpHook.Providers.UioHookProvider.SetDispatchProc(SharpHook.Data.DispatchProc, System.IntPtr)
   nameWithType: UioHookProvider.SetDispatchProc(DispatchProc?, nint)
   nameWithType.vb: UioHookProvider.SetDispatchProc(DispatchProc, IntPtr)
 - uid: SharpHook.Providers.UioHookProvider.SetDispatchProc*
@@ -4888,13 +4882,13 @@ references:
   commentId: Overload:SharpHook.Providers.UioHookProvider.SetLinuxMode
   fullName: SharpHook.Providers.UioHookProvider.SetLinuxMode
   nameWithType: UioHookProvider.SetLinuxMode
-- uid: SharpHook.Providers.UioHookProvider.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)
+- uid: SharpHook.Providers.UioHookProvider.SetLoggerProc(SharpHook.Data.LoggerProc,System.IntPtr)
   name: SetLoggerProc(LoggerProc?, nint)
-  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_SetLoggerProc_SharpHook_Native_LoggerProc_System_IntPtr_
-  commentId: M:SharpHook.Providers.UioHookProvider.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)
+  href: api/SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_SetLoggerProc_SharpHook_Data_LoggerProc_System_IntPtr_
+  commentId: M:SharpHook.Providers.UioHookProvider.SetLoggerProc(SharpHook.Data.LoggerProc,System.IntPtr)
   name.vb: SetLoggerProc(LoggerProc, IntPtr)
-  fullName: SharpHook.Providers.UioHookProvider.SetLoggerProc(SharpHook.Native.LoggerProc?, nint)
-  fullName.vb: SharpHook.Providers.UioHookProvider.SetLoggerProc(SharpHook.Native.LoggerProc, System.IntPtr)
+  fullName: SharpHook.Providers.UioHookProvider.SetLoggerProc(SharpHook.Data.LoggerProc?, nint)
+  fullName.vb: SharpHook.Providers.UioHookProvider.SetLoggerProc(SharpHook.Data.LoggerProc, System.IntPtr)
   nameWithType: UioHookProvider.SetLoggerProc(LoggerProc?, nint)
   nameWithType.vb: UioHookProvider.SetLoggerProc(LoggerProc, IntPtr)
 - uid: SharpHook.Providers.UioHookProvider.SetLoggerProc*
