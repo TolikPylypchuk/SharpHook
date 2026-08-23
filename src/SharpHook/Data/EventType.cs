@@ -4,7 +4,6 @@ namespace SharpHook.Data;
 /// Represents the type of an input event which can be raised from a global hook or posted as a fake event.
 /// </summary>
 /// <seealso cref="UioHookEvent" />
-/// <seealso cref="UioHook.PostEvent" />
 public enum EventType : ushort
 {
     /// <summary>

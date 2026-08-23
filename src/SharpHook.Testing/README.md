@@ -83,8 +83,8 @@ events. Since these actions are done in different threads, it is not guaranteed 
 immediately after it is simulated. `Run` and the task returned by `RunAsync` will complete after every event has been
 dispatched.
 
-All classes in SharpHook use providers instead of directly using the `UioHook` class for low-level functionality.
-The providers are selectable, so e.g., the following global hook can be used for testing:
+All classes in SharpHook use providers for low-level functionality, and the providers are selectable, so e.g., the
+following global hook can be used for testing:
 
 ```csharp
 var testProvider = new TestProvider();

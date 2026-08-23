@@ -358,7 +358,6 @@
             Represents the type of an input event which can be raised from a global hook or posted as a fake event.
             </summary>
             <seealso cref="T:SharpHook.Data.UioHookEvent" />
-            <seealso cref="M:SharpHook.Internal.UioHook.PostEvent(SharpHook.Data.UioHookEvent@)" />
         </member>
         <member name="F:SharpHook.Data.EventType.HookEnabled">
             <summary>
@@ -1885,8 +1884,8 @@
         </member>
         <member name="F:SharpHook.Data.UioHookFeature.PostText">
             <summary>
-            Posting text via <see cref="M:SharpHook.Internal.UioHook.PostText(System.String)" />. Supported on Windows, macOS, and X11. Not supported on
-            Wayland.
+            Posting text via <see cref="M:SharpHook.Providers.IEventSimulationProvider.PostText(System.String)" />. Supported on Windows, macOS, and X11.
+            Not supported on Wayland.
             </summary>
         </member>
         <member name="F:SharpHook.Data.UioHookFeature.KeyAutoRepeat">
@@ -1909,9 +1908,10 @@
         </member>
         <member name="F:SharpHook.Data.UioHookFeature.PointerProperties">
             <summary>
-            If this feature is enabled, then <see cref="M:SharpHook.Internal.UioHook.GetPointerAccelerationMultiplier" />,
-            <see cref="M:SharpHook.Internal.UioHook.GetPointerAccelerationThreshold" />, and <see cref="M:SharpHook.Internal.UioHook.GetPointerSensitivity" /> are
-            supported. Supported on Windows, macOS, and X11. Not supported on Wayland.
+            If this feature is enabled, then <see cref="M:SharpHook.Providers.IMouseInfoProvider.GetPointerAccelerationMultiplier" />,
+            <see cref="M:SharpHook.Providers.IMouseInfoProvider.GetPointerAccelerationThreshold" />, and
+            <see cref="M:SharpHook.Providers.IMouseInfoProvider.GetPointerSensitivity" /> are supported. Supported on Windows, macOS, and X11. Not
+            supported on Wayland.
             </summary>
         </member>
         <member name="T:SharpHook.Data.UioHookResult">

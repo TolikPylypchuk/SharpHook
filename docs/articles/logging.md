@@ -1,7 +1,8 @@
 # Logging
 
 libuiohook can log messages throughout its execution. By default the messages are not logged anywhere, but you can get
-these logs by using `UioHook.SetLoggerProc`, or the `ILogSource` interface and its default implementation, `LogSource`.
+these logs using the `ILogSource` interface and its default implementation, `LogSource`, or by using
+`ILoggingProvider.SetLoggerProc`.
 
 libuiohook logs contain the log level (debug, info, warning, error), message format, and message arguments.
 

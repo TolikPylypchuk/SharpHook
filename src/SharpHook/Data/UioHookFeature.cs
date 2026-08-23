@@ -23,8 +23,8 @@ public enum UioHookFeature : uint
     KeyTypedEvents = 1 << 1,
 
     /// <summary>
-    /// Posting text via <see cref="UioHook.PostText(string)" />. Supported on Windows, macOS, and X11. Not supported on
-    /// Wayland.
+    /// Posting text via <see cref="IEventSimulationProvider.PostText(string)" />. Supported on Windows, macOS, and X11.
+    /// Not supported on Wayland.
     /// </summary>
     PostText = 1 << 2,
 
@@ -47,9 +47,10 @@ public enum UioHookFeature : uint
     AbsoluteMouseButtonCoordinates = 1 << 5,
 
     /// <summary>
-    /// If this feature is enabled, then <see cref="UioHook.GetPointerAccelerationMultiplier" />,
-    /// <see cref="UioHook.GetPointerAccelerationThreshold" />, and <see cref="UioHook.GetPointerSensitivity" /> are
-    /// supported. Supported on Windows, macOS, and X11. Not supported on Wayland.
+    /// If this feature is enabled, then <see cref="IMouseInfoProvider.GetPointerAccelerationMultiplier" />,
+    /// <see cref="IMouseInfoProvider.GetPointerAccelerationThreshold" />, and
+    /// <see cref="IMouseInfoProvider.GetPointerSensitivity" /> are supported. Supported on Windows, macOS, and X11. Not
+    /// supported on Wayland.
     /// </summary>
     PointerProperties = 1 << 6,
 }
