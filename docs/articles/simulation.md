@@ -70,7 +70,7 @@ but it's not required. The value of `type` is ignored.
 On macOS, it's recommended to use values between -10 and 10. This will result in quite a small scroll amount with pixel
 scrolling, so `MouseWheelScrollType.BlockScroll` is recommended for line scrolling instead of pixel scrolling.
 
-On Linux, there is no fixed recommendation, but multiples of 100 can be used. The value of `type` is ignored.
+On Linux, like Windows, multiples of 120 should generally be used. The value of `Type` is ignored.
 
 ### Simulating a Sequence of Events
 

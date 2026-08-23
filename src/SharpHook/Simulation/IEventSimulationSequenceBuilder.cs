@@ -174,8 +174,8 @@ public interface IEventSimulationSequenceBuilder : IStatefulDisposable
     /// scrolling instead of pixel scrolling.
     /// </para>
     /// <para>
-    /// On Linux, there is no fixed recommendation, but multiples of <c>100</c> can be used. The value of
-    /// <paramref name="type" /> is ignored.
+    /// On Linux, like Windows, multiples of <c>120</c> should generally be used. The value of <paramref name="type" />
+    /// is ignored.
     /// </para>
     /// </remarks>
     IEventSimulationSequenceBuilder AddMouseWheel(
