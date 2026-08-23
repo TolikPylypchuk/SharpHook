@@ -28,8 +28,6 @@ Here's a usage example:
 using SharpHook.Data;
 using SharpHook.Logging;
 
-// ...
-
 var logSource = LogSource.RegisterOrGet(minLevel: LogLevel.Info);
 logSource.MessageLogged += this.OnMessageLogged;
 
@@ -47,52 +45,65 @@ The `MessageLogged` event contains event args of type `LogEventArgs` which conta
 The simplest way to use `LogEntry` is to use its `Level` and `FullText` properties. `FullText` is created using the log
 message format and arguments so you don't have to do it yourself.
 
-SharpHook.Reactive contains the `IReactiveLogSource` and its implementation – `ReactiveLogSourceAdapter`. Here's a
-usage example:
+SharpHook also contains the `IReactiveLogSource` interface so you can use logging in a more reactive way. Its
+implementations live in SharpHook.Reactive and SharpHook.ReactiveUI. `IReactiveLogSource` is basically the same as
+`ILogSource`, but `MessageLogged` is an observable of `LogEntry` instead of an event.
+
+SharpHook.Reactive contains the `ReactiveLogSourceAdapter` class:
 
 ```csharp
+using SharpHook.Data;
 using SharpHook.Logging;
-using SharpHook.Native;
 using SharpHook.Reactive.Logging;
-
-// ...
 
 var logSource = LogSource.RegisterOrGet(minLevel: LogLevel.Info);
 var reactiveLogSource = new ReactiveLogSourceAdapter(logSource);
 reactiveLogSource.MessageLogged.Subscribe(this.OnMessageLogged);
 ```
 
-`IReactiveLogSource` is basically the same as `ILogSource`, but `MessageLogged` is an observable of `LogEntry` instead
-of an event. `ReactiveLogSourceAdapter` adapts an `ILogSource` to the `IReactiveLogSource` interface. A default
-scheduler can be set for the `MessageLogged` observable.
+`ReactiveLogSourceAdapter` adapts an `ILogSource` to the `IReactiveLogSource` interface. A default scheduler can be set
+for the `MessageLogged` observable.
 
-SharpHook.R3 contains the `IR3LogSource` and its implementation – `R3LogSourceAdapter`. Here's a usage example:
+SharpHook.ReactiveUI contains the `ReactiveUILogSourceAdapter` class:
 
 ```csharp
+using SharpHook.Data;
 using SharpHook.Logging;
-using SharpHook.Native;
-using SharpHook.R3.Logging;
+using SharpHook.ReactiveUI.Logging;
 
-// ...
+var logSource = LogSource.RegisterOrGet(minLevel: LogLevel.Info);
+var reactiveLogSource = new ReactiveUILogSourceAdapter(logSource);
+reactiveLogSource.MessageLogged.Subscribe(this.OnMessageLogged);
+```
+
+`ReactiveUILogSourceAdapter` also adapts an `ILogSource` to the `IReactiveLogSource` interface. A default sequencer can
+be set for the `MessageLogged` observable.
+
+SharpHook.R3 contains the `IR3LogSource` interface and its implementation – `R3LogSourceAdapter`. Here's a usage
+example:
+
+```csharp
+using SharpHook.Data;
+using SharpHook.Logging;
+using SharpHook.R3.Logging;
 
 var logSource = LogSource.RegisterOrGet(minLevel: LogLevel.Info);
 var reactiveLogSource = new R3LogSourceAdapter(logSource);
 reactiveLogSource.MessageLogged.Subscribe(this.OnMessageLogged);
 ```
 
-`IR3LogSource` is basically the same as `ILogSource`, but `MessageLogged` is an observable of `LogEntry` instead of an
-event. `R3LogSourceAdapter` adapts an `ILogSource` to the `IR3LogSource` interface. A default time provider can be set
-for the `MessageLogged` observable.
+Like `IReactiveLogSource`, `IR3LogSource` contains `MessageLogged` which is an observable of `LogEntry`.
+`R3LogSourceAdapter` adapts an `ILogSource` to the `IR3LogSource` interface. A default time provider can be set for the
+`MessageLogged` observable.
 
 ## Using the Low-Level Functionality
 
 ### Calling the `SetLoggerProc` Method
 
-The logging functionality works by using `ILoggingProvider.SetLoggerProc` (which in turn uses `UioHook.SetLoggerProc` by
-default). This method sets the log callback – a delegate of type `LoggerProc` which will be called to log the messages
-of libuiohook. `LoggerProc` receives the log level, a pointer to the message format, and a pointer to the message
-arguments. It also receives user-supplied data as an `IntPtr` (which is set in the `UioHook.SetLoggerProc`), but you
-usually shouldn't use it.
+The logging functionality works by using `ILoggingProvider.SetLoggerProc`. This method sets the log callback – a
+delegate of type `LoggerProc` which will be called to log the messages of libuiohook. `LoggerProc` receives the log
+level, a pointer to the message format, and a pointer to the message arguments. It also receives user-supplied data as
+an `IntPtr` (which is set in the `ILoggingProvider.SetLoggerProc`), but you usually shouldn't use it.
 
 When calling `SetLoggerProc`, the function must be wrapped into a delegate reference and the reference must be stored
 to prevent garbage collection. This is because the following code:
@@ -125,9 +136,9 @@ Additionally, if you need to support Mac Catalyst, there are two conditions that
 
 It is highly recommended to use `LogEntryParser` in order to create a log entry out of the pointers to the message
 format and arguments. This way you won't have to handle these pointers directly. The problem with handling them directly
-is that the log callback receives a variable number of arguments. In C# you can use the `params` keyword for that, but
+is that the log callback receives a variable number of arguments. In C#, you can use the `params` keyword for that, but
 native functions do that in an entirely different way, and .NET doesn't have a default way to handle that (there is an
-undocumented `__arglist` keyword, but it can't be used in delegates and callbacks). `LogEntryParser` handles all that -
+undocumented `__arglist` keyword, but it can't be used in delegates and callbacks). `LogEntryParser` handles all that –
 its code is based on the log handling code of [LibVLCSharp](https://github.com/videolan/libvlcsharp). Basically it calls
 the native `vsprintf` function from the C runtime and lets it deal with formatting the log message with native variable
 arguments. It then parses the log message and the log format and extracts the arguments.

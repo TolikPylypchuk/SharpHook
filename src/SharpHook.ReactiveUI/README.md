@@ -17,13 +17,11 @@ Refer to the [SharpHook](https://www.nuget.org/packages/SharpHook) package for t
 
 The base SharpHook package provides the `IReactiveGlobalHook` interface.
 
-SharpHook.ReactiveUI provides a default implementation for `IReactiveGlobalHook` and an adapter which you can use to use
-to control the global hook and subscribe to its observables. Here's a basic example:
+SharpHook.ReactiveUI provides an implementation of `IReactiveGlobalHook` which you can use to use to control the hook
+and subscribe to its observables. Here's a basic example:
 
 ```csharp
 using SharpHook.ReactiveUI;
-
-// ...
 
 var hook = new ReactiveUIGlobalHook();
 
@@ -37,14 +35,10 @@ hook.KeyReleased.Subscribe(OnKeyReleased);
 hook.MouseClicked.Subscribe(OnMouseClicked);
 hook.MousePressed.Subscribe(OnMousePressed);
 hook.MouseReleased.Subscribe(OnMouseReleased);
-
-hook.MouseMoved
-    .Throttle(TimeSpan.FromSeconds(0.5))
-    .Subscribe(OnMouseMoved);
-
-hook.MouseDragged
-    .Throttle(TimeSpan.FromSeconds(0.5))
-    .Subscribe(OnMouseDragged);
+hook.MouseMoved.Subscribe(OnMouseMoved);
+hook.MouseMovedRelative.Subscribe(OnMouseMovedRelative);
+hook.MouseDragged.Subscribe(OnMouseDragged);
+hook.MouseDraggedRelative.Subscribe(OnMouseDraggedRelative);
 
 hook.MouseWheel.Subscribe(OnMouseWheel);
 
@@ -73,8 +67,6 @@ SharpHook.ReactiveUI contains `ReactiveUILogSourceAdapter` which adapts an `ILog
 ```csharp
 using SharpHook.Logging;
 using SharpHook.ReactiveUI.Logging;
-
-// ...
 
 var logSource = LogSource.RegisterOrGet();
 var reactiveLogSource = new ReactiveUILogSourceAdapter(logSource);

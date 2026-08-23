@@ -1,11 +1,9 @@
 # Testing
 
-SharpHook provides two classes which make testing easier. They aren't required since mocks can be used instead, but
-unlike mocks, no setup is required to use these classes, and they respect the invariants of their real counterparts.
+This article describes how to use the testing utility classes provided by SharpHook.
 
-> [!NOTE]
-> Testing classes are contained directly in the `SharpHook` package. This increases the package size, but these classes
-> will be removed if trimming is enabled.
+SharpHook.Testing provides two classes which make testing easier. They aren't required since mocks can be used instead,
+but unlike mocks, no setup is required to use these classes, and they respect the invariants of their real counterparts.
 
 ## Test Global Hook
 
@@ -53,17 +51,15 @@ dispatched.
 Other than that, members of `TestGlobalHook` are quite straightforward; the API reference should be viewed for more
 info.
 
-If an `IReactiveGlobalHook` is needed for testing, then `ReactiveGlobalHookAdapter` can be used to adapt an instance of
-`TestGlobalHook`.
-
-If an `IR3GlobalHook` is needed for testing, then `R3GlobalHookAdapter` can be used to adapt an instance of
-`TestGlobalHook`.
+If an `IReactiveGlobalHook` is needed for testing, then `ReactiveGlobalHookAdapter` or `ReactiveUIGlobalHookAdapter` can
+be used to adapt an instance of `TestGlobalHook`. If an `IR3GlobalHook` is needed for testing, then
+`R3GlobalHookAdapter` can be used to adapt an instance of `TestGlobalHook`.
 
 ## Test Low-Level Functionality Provider
 
 If the low-level functionality of SharpHook should be mocked, or mocking should be pushed as far away as possible,
 then `SharpHook.Testing.TestProvider` can be used. It implements every interface in the `SharpHook.Providers` namespace,
-and as such, it can be used instead of normal low-level functionality providers.
+so it can be used instead of normal low-level functionality providers.
 
 Like `TestProvider`, this class can post events using the `PostEvent` method and dispatch them if `Run` has been
 called. It also contains the `PostedEvents` property.
@@ -81,17 +77,17 @@ events. Since these actions are done in different threads, it is not guaranteed 
 immediately after it is simulated. `Run` and the task returned by `RunAsync` will complete after every event has been
 dispatched.
 
-All classes in SharpHook use providers instead of directly using the `UioHook` class for low-level functionality.
-The providers are selectable, so e.g., the following global hook can be used for testing:
+All classes in SharpHook use providers for low-level functionality, and the providers are selectable, so e.g., the
+following global hook can be used for testing:
 
 ```csharp
 var testProvider = new TestProvider();
 
 // Calls to methods in testProvider will be reflected in the hook
-var hook = new SimpleGlobalHook(globalHookProvider: testProvider);
+var hook = new SimpleGlobalHook(testProvider);
 
 // Calls to methods in testProvider will be reflected in the simulator
-var simulator = new EventSimulator(simulationProvider: testProvider);
+var simulator = EventSimulator.Create("Test app", testProvider);
 ```
 
 > [!NOTE]

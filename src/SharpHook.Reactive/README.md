@@ -17,13 +17,11 @@ Refer to the [SharpHook](https://www.nuget.org/packages/SharpHook) package for t
 
 The base SharpHook package provides the `IReactiveGlobalHook` interface.
 
-SharpHook.Reactive provides a default implementation for `IReactiveGlobalHook` and an adapter which you can use to use
-to control the global hook and subscribe to its observables. Here's a basic example:
+SharpHook.Reactive provides an implementation of `IReactiveGlobalHook` which you can use to use to control the hook and
+subscribe to its observables. Here's a basic example:
 
 ```csharp
 using SharpHook.Reactive;
-
-// ...
 
 var hook = new ReactiveGlobalHook();
 
@@ -37,14 +35,10 @@ hook.KeyReleased.Subscribe(OnKeyReleased);
 hook.MouseClicked.Subscribe(OnMouseClicked);
 hook.MousePressed.Subscribe(OnMousePressed);
 hook.MouseReleased.Subscribe(OnMouseReleased);
-
-hook.MouseMoved
-    .Throttle(TimeSpan.FromSeconds(0.5))
-    .Subscribe(OnMouseMoved);
-
-hook.MouseDragged
-    .Throttle(TimeSpan.FromSeconds(0.5))
-    .Subscribe(OnMouseDragged);
+hook.MouseMoved.Subscribe(OnMouseMoved);
+hook.MouseMovedRelative.Subscribe(OnMouseMovedRelative);
+hook.MouseDragged.Subscribe(OnMouseDragged);
+hook.MouseDraggedRelative.Subscribe(OnMouseDraggedRelative);
 
 hook.MouseWheel.Subscribe(OnMouseWheel);
 
@@ -74,23 +68,21 @@ SharpHook.Reactive contains `ReactiveLogSourceAdapter` which adapts an `ILogSour
 using SharpHook.Logging;
 using SharpHook.Reactive.Logging;
 
-// ...
-
 var logSource = LogSource.RegisterOrGet();
 var reactiveLogSource = new ReactiveLogSourceAdapter(logSource);
 reactiveLogSource.MessageLogged.Subscribe(this.OnMessageLogged);
 ```
-
-### R3 Integration
-
-As an alternative, SharpHook also provides integration with [R3](https://github.com/Cysharp/R3) in the
-[SharpHook.R3](https://www.nuget.org/packages/SharpHook.R3) package.
 
 ### ReactiveUI.Primitives Integration
 
 As an alternative, SharpHook also provides integration with
 [ReactiveUI.Primitives](https://github.com/reactiveui/Primitives) in the
 [SharpHook.ReactiveUI](https://www.nuget.org/packages/SharpHook.ReactiveUI) package.
+
+### R3 Integration
+
+As an alternative, SharpHook also provides integration with [R3](https://github.com/Cysharp/R3) in the
+[SharpHook.R3](https://www.nuget.org/packages/SharpHook.R3) package.
 
 ## Icon
 

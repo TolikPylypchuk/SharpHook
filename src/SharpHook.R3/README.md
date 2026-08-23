@@ -15,13 +15,11 @@ Refer to the [SharpHook](https://www.nuget.org/packages/SharpHook) package for t
 
 ### R3 Global Hooks
 
-SharpHook.R3 provides the `IR3GlobalHook` interface along with a default implementation and an adapter which you can use
-to use to control the global hook and subscribe to its observables. Here's a basic example:
+SharpHook.R3 provides the `SharpHook.R3.IR3GlobalHook` interface along with a default implementation which you can use
+to use to control the hook and subscribe to its observables. Here's a basic example:
 
 ```csharp
 using SharpHook.R3;
-
-// ...
 
 var hook = new R3GlobalHook();
 
@@ -35,14 +33,10 @@ hook.KeyReleased.Subscribe(OnKeyReleased);
 hook.MouseClicked.Subscribe(OnMouseClicked);
 hook.MousePressed.Subscribe(OnMousePressed);
 hook.MouseReleased.Subscribe(OnMouseReleased);
-
-hook.MouseMoved
-    .Debouce(TimeSpan.FromSeconds(0.5))
-    .Subscribe(OnMouseMoved);
-
-hook.MouseDragged
-    .Debouce(TimeSpan.FromSeconds(0.5))
-    .Subscribe(OnMouseDragged);
+hook.MouseMoved.Subscribe(OnMouseMoved);
+hook.MouseMovedRelative.Subscribe(OnMouseMovedRelative);
+hook.MouseDragged.Subscribe(OnMouseDragged);
+hook.MouseDraggedRelative.Subscribe(OnMouseDraggedRelative);
 
 hook.MouseWheel.Subscribe(OnMouseWheel);
 
@@ -52,6 +46,9 @@ await hook.RunAsync();
 ```
 
 R3 global hooks are basically the same as the default global hooks and the same rules apply to them.
+
+Note that SharpHook.R3 uses its own interface instead of implementing `IReactiveGlobalHook` since R3's implementation is
+incompatible with the interface.
 
 SharpHook.R3 provides two implementations of `IR3GlobalHook`:
 
@@ -69,8 +66,6 @@ SharpHook.R3 contains `IR3LogSource` and `R3LogSourceAdapter` so you can use the
 ```csharp
 using SharpHook.Logging;
 using SharpHook.R3.Logging;
-
-// ...
 
 var logSource = LogSource.RegisterOrGet();
 var r3LogSource = new R3LogSourceAdapter(logSource);

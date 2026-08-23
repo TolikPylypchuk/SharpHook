@@ -1,8 +1,6 @@
 items:
   - name: Introduction
     href: ../index.md
-  - name: Native Functions
-    href: native.md
   - name: Global Hooks
     href: hooks.md
   - name: Reactive Global Hooks
@@ -11,6 +9,8 @@ items:
     href: custom.md
   - name: Event and Text Entry Simulation
     href: simulation.md
+  - name: Low-Level Functionality
+    href: native.md
   - name: Logging
     href: logging.md
   - name: Testing

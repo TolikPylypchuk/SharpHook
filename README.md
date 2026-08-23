@@ -2,7 +2,9 @@
 
 [![NuGet](https://img.shields.io/nuget/v/SharpHook.svg?label=SharpHook)](https://www.nuget.org/packages/SharpHook)
 [![NuGet](https://img.shields.io/nuget/v/SharpHook.Reactive.svg?label=SharpHook.Reactive)](https://www.nuget.org/packages/SharpHook.Reactive)
+[![NuGet](https://img.shields.io/nuget/v/SharpHook.ReactiveUI.svg?label=SharpHook.ReactiveUI)](https://www.nuget.org/packages/SharpHook.ReactiveUI)
 [![NuGet](https://img.shields.io/nuget/v/SharpHook.R3.svg?label=SharpHook.R3)](https://www.nuget.org/packages/SharpHook.R3)
+[![NuGet](https://img.shields.io/nuget/v/SharpHook.Testing.svg?label=SharpHook.Testing)](https://www.nuget.org/packages/SharpHook.Testing)
 
 SharpHook provides a cross-platform global keyboard and mouse hook, event simulation, and text entry simulation for
 .NET. It is a wrapper of [libuiohook](https://github.com/TolikPylypchuk/libuiohook) and provides direct access to its
@@ -13,7 +15,9 @@ features as well as higher-level types to work with it.
 ```
 dotnet add package SharpHook
 dotnet add package SharpHook.Reactive
+dotnet add package SharpHook.ReactiveUI
 dotnet add package SharpHook.R3
+dotnet add package SharpHook.Testing
 ```
 
 ## Upgrading
@@ -28,7 +32,7 @@ You can find more information (including the API reference) in the docs at
 
 ## Supported Platforms
 
-SharpHook targets .NET 8+, .NET Framework 4.7.2+, and .NET Standard 2.0. The following table describes
+SharpHook targets .NET 10+, .NET Framework 4.7.2+, and .NET Standard 2.0. The following table describes
 the availability of SharpHook on various platforms:
 
 <table>
@@ -66,65 +70,23 @@ the availability of SharpHook on various platforms:
 
 Platform support notes:
 
-- Windows 10/11 is supported. Support for Windows on Arm32 was removed in version 5.0 since it was
+- Windows 11 is supported, though SharpHook should work on older versions of Windows as well. Support for Windows on
+Arm32 was removed in version 5.0 since it was
 [removed in .NET 5](https://github.com/dotnet/core/blob/main/release-notes/5.0/5.0-supported-os.md).
 
-- macOS 10.15+ is supported. Mac Catalyst 13.1+ is also supported. macOS requires that the access to the Accessibility
-API be enabled for the application if it wants to create a global hook or simulate events.
+- macOS 10.15+ is required, though only the currently supported macOS versions are supported by SharpHook. Mac Catalyst
+is also supported, and version 13.1+ is required. macOS requires that the access to the Accessibility API be enabled for
+the application if it wants to create a global hook or simulate events.
 
 - Linux distributions supported by .NET are supported by SharpHook. Linux on x86 is
-[not supported](https://github.com/dotnet/runtime/issues/7335) by .NET itself. Only X11 is supported – Wayland support
-[is coming](https://github.com/TolikPylypchuk/SharpHook/discussions/175), but it's not yet here.
-
-> [!IMPORTANT]
-> The next major version of SharpHook will most probably require elevated privileges on Linux. Read more in the Wayland
-> discussion linked above.
-
-> [!NOTE]
-> Support for versions of the OSes that are out of official support will be provided on a best-effort basis only and
-> some issues that only affect older versions might not be fixed.
+[not supported](https://github.com/dotnet/runtime/issues/7335) by .NET itself. Both X11 and Wayland are supported, but
+Wayland support lacks several features and requires elevated privileges. On Linux, multiple libuiohook backends are
+present and the backend choice can be customized.
 
 More info on OS support can be found in
 [an article on OS-specific constraints](https://sharphook.tolik.io/articles/os-constraints.html).
 
 ## Usage
-
-### Native Functions of libuiohook
-
-SharpHook exposes the functions of libuiohook in the `SharpHook.Native.UioHook` class. The `SharpHook.Data` namespace
-contains types which represent the data used by libuiohook.
-
-In general, you don't need to use the native methods directly. Instead, use the higher-level interfaces and classes
-provided by SharpHook. However, you should still read this section to know how the high-level features work under
-the hood.
-
-If you want to use the low-level functionality, you don't need to use the `UioHook` class directly. Instead you can use
-interfaces in the `SharpHook.Providers` namespace. The methods in those interfaces are the same as in the `UioHook`
-class. `SharpHook.Providers.UioHookProvider` implements all of these interfaces and simply calls the corresponding
-methods in `UioHook`. This should be done to decouple your code from `UioHook` and make testing easier.
-
-`UioHook` contains the following methods for working with the global hook:
-
-- `SetDispatchProc` – sets the function which will be called when an event is raised by libuiohook.
-- `Run` – creates a keyboard and mouse global hook and runs it on the current thread, blocking it until `Stop` is
-called.
-- `RunKeyboard` – creates a keyboard-only global hook and runs it on the current thread, blocking it until `Stop` is
-called.
-- `RunMouse` – creates a mouse-only global hook and runs it on the current thread, blocking it until `Stop` is called.
-- `Stop` – stops the global hook.
-
-> [!IMPORTANT]
-> You have to remember that only one global hook can exist at a time since calling `SetDispatchProc` will override the
-> previously set one. Also, running a global hook when another global hook is already running will corrupt the internal
-> global state of libuiohook.
-
-Additionally, `UioHook` contains the `PostEvent` method for simulating input events.
-
-`UioHook` also contains the `PostText` method which simulates text entry. The text to simulate doesn't depend on the
-current keyboard layout. The full range of UTF-16 (including surrogate pairs, e.g. emojis) is supported.
-
-libuiohook also provides functions to get various system properties. The corresponding methods are also present in
-`UioHook`.
 
 ### Global Hooks
 
@@ -133,27 +95,29 @@ hook and subscribe to its events. Here's a basic usage example:
 
 ```csharp
 using SharpHook;
-using SharpHook.Providers;
-
-// KeyTyped events may cause system-wide side effects, so they should be disabled if unused.
-UioHookProvider.Instance.KeyTypedEnabled = false; // or true
 
 var hook = new EventLoopGlobalHook();
 
-hook.HookEnabled += OnHookEnabled;     // EventHandler<HookEventArgs>
-hook.HookDisabled += OnHookDisabled;   // EventHandler<HookEventArgs>
+// Events of type EventHandler<HookEventArgs>:
+hook.HookEnabled += OnHookEnabled;
+hook.HookDisabled += OnHookDisabled;
 
-hook.KeyTyped += OnKeyTyped;           // EventHandler<KeyboardHookEventArgs>
-hook.KeyPressed += OnKeyPressed;       // EventHandler<KeyboardHookEventArgs>
-hook.KeyReleased += OnKeyReleased;     // EventHandler<KeyboardHookEventArgs>
+// Events of type EventHandler<KeyboardHookEventArgs>:
+hook.KeyTyped += OnKeyTyped; // Disabled by default
+hook.KeyPressed += OnKeyPressed;
+hook.KeyReleased += OnKeyReleased;
 
-hook.MouseClicked += OnMouseClicked;   // EventHandler<MouseHookEventArgs>
-hook.MousePressed += OnMousePressed;   // EventHandler<MouseHookEventArgs>
-hook.MouseReleased += OnMouseReleased; // EventHandler<MouseHookEventArgs>
-hook.MouseMoved += OnMouseMoved;       // EventHandler<MouseHookEventArgs>
-hook.MouseDragged += OnMouseDragged;   // EventHandler<MouseHookEventArgs>
+// Events of type EventHandler<MouseHookEventArgs>:
+hook.MouseClicked += OnMouseClicked;
+hook.MousePressed += OnMousePressed;
+hook.MouseReleased += OnMouseReleased;
+hook.MouseMoved += OnMouseMoved;
+hook.MouseMovedRelative += OnMouseMovedRelative;
+hook.MouseDragged += OnMouseDragged;
+hook.MouseDraggedRelative += OnMouseDraggedRelative;
 
-hook.MouseWheel += OnMouseWheel;       // EventHandler<MouseWheelHookEventArgs>
+// Events of type EventHandler<MouseWheelHookEventArgs>:
+hook.MouseWheel += OnMouseWheel;
 
 hook.Run();
 // or
@@ -181,10 +145,14 @@ the `EventTime` and `IsEventSimulated` properties respectively.
 > method to set the hook callback for libuiohook, so there may only be one callback at a time. Running a global hook
 > when another global hook is already running will corrupt the internal global state of libuiohook.
 
-You can create a keyboard-only or a mouse-only hook by passing a `GlobalHookType` to the hook's constructor. This makes
-a real difference only on Windows where there are two different global hooks – a keyboard hook and a mouse hook. On
-macOS and Linux, there is one hook for all events, and this simply enables filtering keyboard or mouse events out on
-these OSes.
+You can run a keyboard-only or a mouse-only hook by passing a `GlobalHookType` to the hook's `Run` and `RunAsync`
+methods. This makes a real difference only on Windows where there are two different global hooks – a keyboard hook and a
+mouse hook. On macOS and Linux, there is one hook for all events, and this simply enables filtering keyboard or mouse
+events out on these OSes.
+
+On Wayland, absolute mouse position is usually not available, so you should subscribe to the `MouseMovedRelative` and
+`MouseDraggedRelative` in addition to `MouseMoved` and `MouseDragged` if you want to listen to mouse movement. On other
+platforms, relative motion events are never raised.
 
 SharpHook provides three implementations of `IGlobalHook`:
 
@@ -195,14 +163,14 @@ they run for too long.
 - `SharpHook.EventLoopGlobalHook` runs all of its event handlers on a separate dedicated thread. On backpressure it will
 queue the remaining events which means that the hook will be able to process all events. This implementation should be
 preferred to `SimpleGlobalHook` except for very simple use-cases. But it has a downside – suppressing event propagation
-will be ignored since event handlers are run on another thread.
+will be ignored since event handlers are executed on another thread.
 
 - `SharpHook.TaskPoolGlobalHook` runs all of its event handlers on other threads inside the default thread pool for
 tasks. The parallelism level of the handlers can be configured. On backpressure it will queue the remaining events which
-means that the hook will be able to process all events. This implementation should be preferred to `SimpleGlobalHook`
-except for very simple use-cases. But it has a downside – suppressing event propagation will be ignored since event
-handlers are run on other threads. In general, `EventLoopGlobalHook` should be preferred instead, as this class provides
-benefits only if events should be processed in parallel, which is rarely the case.
+means that the hook will be able to process all events. Like with `EventLoopGlobalHook`, suppressing event propagation
+will be ignored since event handlers are executed on other threads. In general, `EventLoopGlobalHook` should be
+preferred instead, as this class provides benefits only if events should be processed in parallel, which is rarely the
+case.
 
 The library also provides the `SharpHook.GlobalHookBase` class which you can extend to create your own implementation
 of the global hook. It calls the appropriate event handlers, and you only need to implement a strategy for dispatching
@@ -227,8 +195,6 @@ subscribe to its observables. Here's a basic example:
 ```csharp
 using SharpHook.Reactive;
 
-// ...
-
 var hook = new ReactiveGlobalHook();
 
 hook.HookEnabled.Subscribe(OnHookEnabled);
@@ -241,14 +207,10 @@ hook.KeyReleased.Subscribe(OnKeyReleased);
 hook.MouseClicked.Subscribe(OnMouseClicked);
 hook.MousePressed.Subscribe(OnMousePressed);
 hook.MouseReleased.Subscribe(OnMouseReleased);
-
-hook.MouseMoved
-    .Throttle(TimeSpan.FromSeconds(0.5))
-    .Subscribe(OnMouseMoved);
-
-hook.MouseDragged
-    .Throttle(TimeSpan.FromSeconds(0.5))
-    .Subscribe(OnMouseDragged);
+hook.MouseMoved.Subscribe(OnMouseMoved);
+hook.MouseMovedRelative.Subscribe(OnMouseMovedRelative);
+hook.MouseDragged.Subscribe(OnMouseDragged);
+hook.MouseDraggedRelative.Subscribe(OnMouseDraggedRelative);
 
 hook.MouseWheel.Subscribe(OnMouseWheel);
 
@@ -268,6 +230,52 @@ to handle the events through schedulers. A default scheduler can be specified fo
 subscriptions and changes are propagated to the adapted hook. There is no default adapter from `IReactiveGlobalHook`
 to `IGlobalHook`. A default scheduler can be specified for all observables.
 
+#### ReactiveUI.Primitives
+
+If you're using [ReactiveUI.Primitives](https://github.com/reactiveui/Primitives), you can use the SharpHook.ReactiveUI
+package to integrate SharpHook with it.
+
+SharpHook.ReactiveUI provides an implementation of `IReactiveGlobalHook` which you can use to use to control the hook
+and subscribe to its observables. Here's a basic example:
+
+```csharp
+using SharpHook.ReactiveUI;
+
+var hook = new ReactiveUIGlobalHook();
+
+hook.HookEnabled.Subscribe(OnHookEnabled);
+hook.HookDisabled.Subscribe(OnHookDisabled);
+
+hook.KeyTyped.Subscribe(OnKeyTyped);
+hook.KeyPressed.Subscribe(OnKeyPressed);
+hook.KeyReleased.Subscribe(OnKeyReleased);
+
+hook.MouseClicked.Subscribe(OnMouseClicked);
+hook.MousePressed.Subscribe(OnMousePressed);
+hook.MouseReleased.Subscribe(OnMouseReleased);
+hook.MouseMoved.Subscribe(OnMouseMoved);
+hook.MouseMovedRelative.Subscribe(OnMouseMovedRelative);
+hook.MouseDragged.Subscribe(OnMouseDragged);
+hook.MouseDraggedRelative.Subscribe(OnMouseDraggedRelative);
+
+hook.MouseWheel.Subscribe(OnMouseWheel);
+
+hook.Run();
+// or
+await hook.RunAsync();
+```
+
+Reactive global hooks are basically the same as the default global hooks and the same rules apply to them.
+
+SharpHook.ReactiveUI provides two implementations of `IReactiveGlobalHook`:
+
+- `SharpHook.ReactiveUI.ReactiveUIGlobalHook`. Since we're dealing with observables, it's up to you to decide when and
+where to handle the events through sequencers. A default sequencer can be specified for all observables.
+
+- `SharpHook.ReactiveUI.ReactiveUIGlobalHookAdapter` adapts an `IGlobalHook` to `IReactiveGlobalHook`. All
+subscriptions and changes are propagated to the adapted hook. There is no default adapter from `IReactiveGlobalHook`
+to `IGlobalHook`. A default sequencer can be specified for all observables.
+
 #### R3
 
 If you're using [R3](https://github.com/Cysharp/R3), you can use the SharpHook.R3 package to integrate SharpHook with
@@ -278,8 +286,6 @@ to use to control the hook and subscribe to its observables. Here's a basic exam
 
 ```csharp
 using SharpHook.R3;
-
-// ...
 
 var hook = new R3GlobalHook();
 
@@ -293,14 +299,10 @@ hook.KeyReleased.Subscribe(OnKeyReleased);
 hook.MouseClicked.Subscribe(OnMouseClicked);
 hook.MousePressed.Subscribe(OnMousePressed);
 hook.MouseReleased.Subscribe(OnMouseReleased);
-
-hook.MouseMoved
-    .Debouce(TimeSpan.FromSeconds(0.5))
-    .Subscribe(OnMouseMoved);
-
-hook.MouseDragged
-    .Debouce(TimeSpan.FromSeconds(0.5))
-    .Subscribe(OnMouseDragged);
+hook.MouseMoved.Subscribe(OnMouseMoved);
+hook.MouseMovedRelative.Subscribe(OnMouseMovedRelative);
+hook.MouseDragged.Subscribe(OnMouseDragged);
+hook.MouseDraggedRelative.Subscribe(OnMouseDraggedRelative);
 
 hook.MouseWheel.Subscribe(OnMouseWheel);
 
@@ -323,58 +325,6 @@ the events through time providers. A default time provider can be specified for 
 propagated to the adapted hook. There is no default adapter from `IR3GlobalHook` to `IGlobalHook`. A default time
 provider can be specified for all observables.
 
-#### ReactiveUI.Primitives
-
-If you're using [ReactiveUI.Primitives](https://github.com/reactiveui/Primitives), you can use the SharpHook.ReactiveUI
-package to integrate SharpHook with it.
-
-SharpHook.ReactiveUI provides an implementation of `IReactiveGlobalHook` which you can use to use to control the hook and
-subscribe to its observables. Here's a basic example:
-
-```csharp
-using SharpHook.ReactiveUI;
-
-// ...
-
-var hook = new ReactiveUIGlobalHook();
-
-hook.HookEnabled.Subscribe(OnHookEnabled);
-hook.HookDisabled.Subscribe(OnHookDisabled);
-
-hook.KeyTyped.Subscribe(OnKeyTyped);
-hook.KeyPressed.Subscribe(OnKeyPressed);
-hook.KeyReleased.Subscribe(OnKeyReleased);
-
-hook.MouseClicked.Subscribe(OnMouseClicked);
-hook.MousePressed.Subscribe(OnMousePressed);
-hook.MouseReleased.Subscribe(OnMouseReleased);
-
-hook.MouseMoved
-    .Throttle(TimeSpan.FromSeconds(0.5))
-    .Subscribe(OnMouseMoved);
-
-hook.MouseDragged
-    .Throttle(TimeSpan.FromSeconds(0.5))
-    .Subscribe(OnMouseDragged);
-
-hook.MouseWheel.Subscribe(OnMouseWheel);
-
-hook.Run();
-// or
-await hook.RunAsync();
-```
-
-Reactive global hooks are basically the same as the default global hooks and the same rules apply to them.
-
-SharpHook.ReactiveUI provides two implementations of `IReactiveGlobalHook`:
-
-- `SharpHook.ReactiveUI.ReactiveUIGlobalHook`. Since we're dealing with observables, it's up to you to decide when and
-where to handle the events through sequencers. A default sequencer can be specified for all observables.
-
-- `SharpHook.ReactiveUI.ReactiveUIGlobalHookAdapter` adapts an `IGlobalHook` to `IReactiveGlobalHook`. All
-subscriptions and changes are propagated to the adapted hook. There is no default adapter from `IReactiveGlobalHook`
-to `IGlobalHook`. A default sequencer can be specified for all observables.
-
 ### Event Simulation
 
 SharpHook provides the ability to simulate keyboard and mouse events in a cross-platform way as well. Here's a quick
@@ -382,11 +332,9 @@ example:
 
 ```csharp
 using SharpHook;
-using SharpHook.Native;
+using SharpHook.Data;
 
-// ...
-
-var simulator = new EventSimulator();
+using var simulator = EventSimulator.Create("You application name");
 
 // Press Ctrl+C
 simulator.SimulateKeyPress(KeyCode.VcLeftControl);
@@ -424,8 +372,7 @@ simulator.SimulateMouseWheel(
     type: MouseWheelScrollType.UnitScroll); // UnitScroll by default
 ```
 
-SharpHook provides the `IEventSimulator` interface, and the default implementation, `EventSimulator`, which by default
-calls `UioHook.PostEvent` to simulate the events.
+SharpHook provides the `IEventSimulator` interface, and the default implementation, `EventSimulator`.
 
 ### Text Entry Simulation
 
@@ -433,15 +380,91 @@ SharpHook also provides text entry simulation. `IEventSimulator` contains the `S
 a `string`. The text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16 (including
 surrogate pairs, e.g., emojis) is supported.
 
+Note that on Wayland, text entry simulation is not supported.
+
+### Low-Level Functionality
+
+SharpHook exposes the functionality of libuiohook through low-level providers in the `SharpHook.Providers` namespace.
+The `SharpHook.Data` namespace contains types which represent the data used by libuiohook.
+
+> [!NOTE]
+> In general, you don't need to use the low-level types directly. Instead, use the higher-level interfaces and classes
+> provided by SharpHook. However, you should still read this section to know how the high-level features work under
+> the hood.
+
+There are multiple interfaces in `SharpHook.Providers`, each of which represents a part of libuiohook's functionality.
+`SharpHook.Providers.UioHookProvider` implements all of these interfaces and simply calls the corresponding functions in
+libuiohook. In order to use this class, use `UioHookProvider.Instance` – its single instance.
+
+`IGlobalHookProvider` contains the following members for working with the global hook:
+
+- `SetDispatchProc` – sets the function which will be called when an event is raised by libuiohook.
+- `Run` – creates a keyboard and mouse global hook and runs it on the current thread, blocking it until `Stop` is
+called.
+- `RunKeyboard` – creates a keyboard-only global hook and runs it on the current thread, blocking it until `Stop` is
+called.
+- `RunMouse` – creates a mouse-only global hook and runs it on the current thread, blocking it until `Stop` is called.
+- `Stop` – stops the global hook.
+- `KeyTypedEnabled` - gets or sets the value which specifies whether events of type `KeyTyped` are enabled.
+
+> [!IMPORTANT]
+> You have to remember that only one global hook can exist at a time since calling `SetDispatchProc` will override the
+> previously set one. Also, running a global hook when another global hook is already running will corrupt the internal
+> global state of libuiohook.
+
+`IEventSimulationProvider` contains the `PostEvent` method for simulating input events. It also contains the `PostText`
+method which simulates text entry. On Linux, it's required to create virtual input devices before simulating input
+events. `IEventSimulationProvider` contains the `InitializeVirtualDevices` and `DestroyVirtualDevices` methods for that.
+
+All higher-level classes accept low-level providers in their constructors. By default, they use `UioHookProvider`, but
+it can be swapped for a fake provider in testing, for example.
+
+Here's the list of all interfaces in `SharpHook.Providers`:
+
+- `IAccessibilityProvider` – provides configuration for the macOS Accessibility API.
+- `IDeviceProcsProvider` – provides a way to override privileged device opening/closing functions on Linux.
+- `IEventSimulationProvider` – provides the event simulation functionality.
+- `IFeatureProvider` – provides information on optional features supported by the current platform.
+- `IGlobalHookProvider` – provides the global hook functionality.
+- `IKeyboardInfoProvider` – provides low-level information about the keyboard.
+- `ILinuxBackendProvider` – provides the Linux backend configuration.
+- `ILoggingProvider` – provides the libuiohook logging functionality.
+- `IMouseInfoProvider` – provides low-level information about the mouse.
+- `IScreenInfoProvider` – provides low-level information about screens.
+
+### Querying Optional Feature Support
+
+Some libuiohook features are considered 'optional' and are not supported on all platforms. The `IFeatureProvider`
+interface has the `GetOptionalFeatureSupport` method which returns `UioHookFeature` – a flag enum which represents the
+optional features and has the following values:
+
+- `EventSuppression` – if this feature is supported, then event suppression works.
+- `KeyTypedEvents` – if this feature is supported, then events of type `KeyTyped` work. If not, then calling
+`UioHookProvider.Instance.KeyTypedEnabled = true` does nothing.
+- `PostText` – if this feature is supported, then simulating text entry works.
+- `KeyAutoRepeat` – if this feature is supported, then keeping a key pressed will raise repeated `KeyPressed` events.
+If not, the only one `KeyPressed` event will be raised.
+- `AbsoluteMouseMovement` – if this feature is supported, then mouse motion events will always include absolute mouse
+coordinates, so `MouseMoved` or `MouseDragged` will always be raised. If not, then `MouseMovedRelative` or
+`MouseDraggedRelative` may be raised instead.
+- `AbsoluteMouseButtonCoordinates` – if this feature is supported, then mouse coordinates will be present in
+`MousePressed`, `MouseReleased`, `MouseClicked`, and `MouseWheel` events. If not, then the coordinates will always be
+(0, 0).
+- `PointerProperties` – if this feature is supported, then the `GetPointerAccelerationMultiplier`,
+`GetPointerAccelerationThreshold`, and `GetPointerSensitivity` methods in `IMouseInfoProvider` work. If not, then they
+always return -1.
+
+Windows and macOS support all of these features. X11 supports all of them, except `EventSuppression`. Wayland supports
+none of these features.
+
 ### Logging
 
-libuiohook can log messages throughout its execution. By default the messages are not logged anywhere, but you can get
+libuiohook can log messages throughout its execution. By default, the messages are not logged anywhere, but you can get
 these logs by using the `ILogSource` interface and its default implementation, `LogSource`:
 
 ```csharp
+using SharpHook.Data;
 using SharpHook.Logging;
-
-// ...
 
 var logSource = LogSource.RegisterOrGet(minLevel: LogLevel.Info);
 logSource.MessageLogged += this.OnMessageLogged;
@@ -456,27 +479,39 @@ to stop receiving libuiohook messages.
 An `EmptyLogSource` class is also available – this class doesn't listen to the libuiohook logs and can be used instead
 of `LogSource` in release builds.
 
-SharpHook.Reactive contains the `IReactiveLogSource` and `ReactiveLogSourceAdapter` so you can use them in a more
-reactive way:
+SharpHook also contains the `IReactiveLogSource` interface so you can use logging in a more reactive way. Its
+implementations live in SharpHook.Reactive and SharpHook.ReactiveUI.
+
+SharpHook.Reactive contains the `ReactiveLogSourceAdapter` class:
 
 ```csharp
+using SharpHook.Data;
 using SharpHook.Logging;
 using SharpHook.Reactive.Logging;
-
-// ...
 
 var logSource = LogSource.RegisterOrGet(minLevel: LogLevel.Info);
 var reactiveLogSource = new ReactiveLogSourceAdapter(logSource);
 reactiveLogSource.MessageLogged.Subscribe(this.OnMessageLogged);
 ```
 
-SharpHook.R3 contains the `IR3LogSource` and `R3LogSourceAdapter` so you can use them in a more reactive way as well:
+SharpHook.ReactiveUI contains the `ReactiveUILogSourceAdapter` class:
+
+```csharp
+using SharpHook.Data;
+using SharpHook.Logging;
+using SharpHook.ReactiveUI.Logging;
+
+var logSource = LogSource.RegisterOrGet(minLevel: LogLevel.Info);
+var reactiveLogSource = new ReactiveUILogSourceAdapter(logSource);
+reactiveLogSource.MessageLogged.Subscribe(this.OnMessageLogged);
+```
+
+SharpHook.R3 contains the `IR3LogSource` interface and the `R3LogSourceAdapter` class so you can use logging in a more
+reactive way as well:
 
 ```csharp
 using SharpHook.Logging;
 using SharpHook.R3.Logging;
-
-// ...
 
 var logSource = LogSource.RegisterOrGet(minLevel: LogLevel.Info);
 var reactiveLogSource = new R3LogSourceAdapter(logSource);
@@ -485,8 +520,8 @@ reactiveLogSource.MessageLogged.Subscribe(this.OnMessageLogged);
 
 ### Testing
 
-SharpHook provides two classes which make testing easier. They aren't required since mocks can be used instead, but
-unlike mocks, no setup is required to use these classes.
+The SharpHook.Testing package provides two classes which make testing easier. They aren't required since mocks can be
+used instead, but unlike mocks, no setup is required to use these classes.
 
 `SharpHook.Testing.TestGlobalHook` provides an implementation of `IGlobalHook` and `IEventSimulator` which can be used
 for testing. When the `Run` or `RunAsync` method is called, it will dispatch events using the various `Simulate` methods
@@ -495,15 +530,13 @@ from `IEventSimulator`.
 If this class is used as an `IEventSimulator` in the tested code, then the `SimulatedEvents` property can be checked to
 see which events were simulated using the test instance.
 
-If an `IReactiveGlobalHook` is needed for testing, then `ReactiveGlobalHookAdapter` can be used to adapt an instance of
-`TestGlobalHook`.
-
-If an `IR3GlobalHook` is needed for testing, then `R3GlobalHookAdapter` can be used to adapt an instance of
-`TestGlobalHook`.
+If an `IReactiveGlobalHook` is needed for testing, then `ReactiveGlobalHookAdapter` or `ReactiveUIGlobalHookAdapter` can
+be used to adapt an instance of `TestGlobalHook`. If an `IR3GlobalHook` is needed for testing, then
+`R3GlobalHookAdapter` can be used to adapt an instance of `TestGlobalHook`.
 
 If the low-level functionality of SharpHook should be mocked, or mocking should be pushed as far away as possible,
-then `SharpHook.Testing.TestProvider` can be used. It implements every interface in the `SharpHook.Providers` namespace
-and as such it can be used instead of a normal low-level functionality provider.
+then `SharpHook.Testing.TestProvider` can be used. It implements every interface in the `SharpHook.Providers` namespace,
+so it can be used instead of normal low-level functionality providers.
 
 Like `TestGlobalHook`, this class can post events using the `PostEvent` method and dispatch them if `Run` was called.
 It also contains the `PostedEvents` property.
@@ -518,8 +551,8 @@ I'm not giving up on this library any time soon.
 In order to build this library, you'll first need to get libuiohook binaries. You you can get a
 [nightly build from this repository](https://github.com/TolikPylypchuk/SharpHook/actions/workflows/build.yml), or you
 can build them yourself as instructed in the [libuiohook fork](https://github.com/TolikPylypchuk/libuiohook) that
-SharpHook uses (not recommended as it's non-trivial, and you should most probably use the same options that the build in
-this repository uses anyway).
+SharpHook uses – you should most probably use the same build steps as specified in SharpHook's GitHub Actions
+definition.
 
 Place the binaries into the appropriate directories in the `SharpHook` project, as described in the following table:
 
@@ -556,8 +589,8 @@ Place the binaries into the appropriate directories in the `SharpHook` project, 
   </tr>
 </table>
 
-With libuiohook in place, you can build SharpHook using your usual methods, e.g. with Visual Studio or the `dotnet` CLI.
-You need .NET 9 to build SharpHook.
+Note that on Linux, there are four libuiohook files per platform. With libuiohook in place, you can build SharpHook
+using your usual methods, e.g. with Visual Studio or the `dotnet` CLI. You need .NET 10 to build SharpHook.
 
 ## Icon
 

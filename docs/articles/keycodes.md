@@ -571,7 +571,7 @@ Sources:
       <td><code>KEY_SPACE</code></td>
     </tr>
     <tr>
-      <td><code>Vc102</code></td>
+      <td><code>VcSection</code></td>
       <td><code>VK_OEM_102</code></td>
       <td><code>kVK_ISO_Section</code></td>
       <td><code>LSGT</code></td>

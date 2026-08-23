@@ -1,9 +1,11 @@
 # Event and Text Entry Simulation
 
+This article describes how to use event simulation features provided by SharpHook.
+
 SharpHook provides the ability to simulate keyboard and mouse events, as well as text entry, in a cross-platform way as
 well. It provides the `IEventSimulator` interface, and the default implementation, `EventSimulator`, which calls
-`UioHook.PostEvent` to simulate the events by default (though it's configurable). The methods in this interface return
-a `UioHookResult` to specify whether the events were simulated successfully or not.
+`IEventSimulationProvider.PostEvent` to simulate the events. The methods in this interface return a `UioHookResult` to
+specify whether the events were simulated successfully or not.
 
 Simulated events can be distinguished from real ones in a global hook handler with the `HookEventArgs.IsEventSimulated`
 property.
@@ -18,9 +20,7 @@ Input event simulation is quite straightforward. Here's a quick example:
 using SharpHook;
 using SharpHook.Data;
 
-// ...
-
-var simulator = new EventSimulator();
+using var simulator = EventSimulator.Create("You application name");
 
 // Press Ctrl+C
 simulator.SimulateKeyPress(KeyCode.VcLeftControl);
@@ -58,6 +58,24 @@ simulator.SimulateMouseWheel(
     type: MouseWheelScrollType.UnitScroll); // UnitScroll by default
 ```
 
+### Virtual Input Devices
+
+On Linux low-level backends, virtual input devices are required to simulate events. `EventSimulator.Create` initializes
+these devices. The application name is used to easily identify these devices in case debugging is needed. The name can
+technically be `null` or empty, but it's discouraged since the devices will not be easily identifyable. The name will
+also be truncated if its length is more than 62 characters.
+
+`IEventSimulator` extends `IDisposable`. When you dispose the event simulator, it destroys the virtual input devices. A
+disposed simulator cannot be used anymore to simulate events.
+
+On Windows and macOS, initializing and destroying virtual devices is a no-op, so the application name is not used at
+all.
+
+It's recommended to create a single instance of `EventSimulator` and reuse it since initializing virtual input devices
+is expensive. If `EventSimulator.Create` is called while there already exists an active instance of `EventSimulator`,
+new virtual devices will not be initialzed anew. Instead, a reference counter will be incremented, and then decremented
+when disposing a simulator. The devices will subsequently be destroyed when the reference counter reaches zero.
+
 ### Mouse Wheel Simulation
 
 Mouse wheel simulation is a little more complex than other events.
@@ -70,7 +88,7 @@ but it's not required. The value of `type` is ignored.
 On macOS, it's recommended to use values between -10 and 10. This will result in quite a small scroll amount with pixel
 scrolling, so `MouseWheelScrollType.BlockScroll` is recommended for line scrolling instead of pixel scrolling.
 
-On Linux, like Windows, multiples of 120 should generally be used. The value of `Type` is ignored.
+On Linux, like Windows, multiples of 120 should generally be used. The value of `type` is ignored.
 
 ### Simulating a Sequence of Events
 
@@ -111,6 +129,9 @@ diagonalScrollTemplate.Simulate();
 diagonalScrollTemplate.Simulate();
 ```
 
+`IEventSimulationSequenceBuilder` and `IEventSimulationSequenceTemplate` also extend `IDisposable`, and are disposed
+when the `EventSimulator` instance that owns them gets disposed.
+
 `IEventSimulationSequenceBuilder` has the `AddKeyStroke` extension method which adds a sequence of key presses and a
 reversed sequence of key releases. For example, these two snippets will have equivalent results:
 
@@ -140,6 +161,11 @@ character, and then key press/release is simulated. Since the receiving applicat
 may not do so instantaneously, a delay is needed for accurate simulation. This means that text simulation on Linux works
 slowly and is not guaranteed to be correct.
 
-`IEventSimulator` contains the `TextSimulationDelayOnX11` property to get or set the delay if needed – longer delays add
-consistency but may be more jarring to end users. The default is 50 milliseconds. Delays are configurable on a
+`IEventSimulator` contains the `TextSimulationDelayOnLinux` property to get or set the delay if needed – longer delays
+add consistency but may be more jarring to end users. The default is 50 milliseconds. Delays are configurable on a
 nanosecond level. On Windows and macOS, setting this property does nothing, and it always returns 0.
+
+On Wayland, text entry simulation is not supported at all.
+
+You can query support for text entry simulation with `IFeatureProvider.GetOptionalFeatureSupport` – if it returns
+`PostText` as one of the supported features, then you can simulate text entry.

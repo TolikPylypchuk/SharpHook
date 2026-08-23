@@ -1,5 +1,7 @@
 # Custom Global Hooks
 
+This article describes how to create custom global hooks.
+
 ## Custom Implementations of `IGlobalHook`
 
 If you want an `IGlobalHook` with a custom dispatch logic, you should extend the `SharpHook.GlobalHookBase` class. It
@@ -16,11 +18,8 @@ namespace SharpHook;
 
 public sealed class SimpleGlobalHook : GlobalHookBase
 {
-    public SimpleGlobalHook(
-        GlobalHookType globalHookType = GlobalHookType.All,
-        IGlobalHookProvider? globalHookProvider = null,
-        bool runAsyncOnBackgroundThread = false)
-        : base(globalHookType, globalHookProvider, runAsyncOnBackgroundThread)
+    public SimpleGlobalHook(IGlobalHookProvider? globalHookProvider = null)
+        : base(globalHookProvider)
     { }
 
     protected override void HandleHookEvent(ref UioHookEvent e) =>
@@ -73,6 +72,8 @@ public sealed class StraightforwardGlobalHook : BasicGlobalHookBase
 As mentioned above, it's highly recommended to extend `BasicGlobalHookBase` if you want to implement a custom global
 hook, but you may nonetheless want to implement everything from scratch. You can read more about that in the article on
 [low-level functionality](native.md).
+
+All the low-level hook functionality is defined in `IGlobalHookProvider` and implemented in `UioHookProvider`.
 
 When calling `SetDispatchProc`, the function must be wrapped into a delegate reference and the reference must be stored
 to prevent garbage collection. This is because the following code:
