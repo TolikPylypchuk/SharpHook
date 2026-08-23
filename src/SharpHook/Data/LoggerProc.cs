@@ -1,4 +1,4 @@
-namespace SharpHook.Native;
+namespace SharpHook.Data;
 
 /// <summary>
 /// Represents a function which is called when a logging event occurs.

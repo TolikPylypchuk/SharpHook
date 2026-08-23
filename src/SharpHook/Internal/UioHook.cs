@@ -1,4 +1,4 @@
-namespace SharpHook.Native;
+namespace SharpHook.Internal;
 
 [ExcludeFromCodeCoverage]
 internal static partial class UioHook

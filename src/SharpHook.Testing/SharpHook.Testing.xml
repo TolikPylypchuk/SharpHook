@@ -728,7 +728,7 @@
             </summary>
             <returns>The multi-click time.</returns>
         </member>
-        <member name="M:SharpHook.Testing.TestProvider.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)">
+        <member name="M:SharpHook.Testing.TestProvider.SetDispatchProc(SharpHook.Data.DispatchProc,System.IntPtr)">
             <summary>
             Sets the hook callback function for testing.
             </summary>

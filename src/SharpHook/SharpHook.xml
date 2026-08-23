@@ -115,6 +115,28 @@
             </summary>
             <param name="method">The method which calls this method.</param>
         </member>
+        <member name="T:SharpHook.Data.CloseDeviceProc">
+            <summary>
+            Represents a function which closes a privileged device using a provided file descriptor.
+            </summary>
+            <param name="fd">The file descriptor of the device to close.</param>
+            <param name="userData">
+            The data that was passed to
+            <see cref="M:SharpHook.Providers.IDeviceProcsProvider.SetDeviceProcs(SharpHook.Data.OpenDeviceProc,SharpHook.Data.CloseDeviceProc,System.IntPtr)" />.
+            </param>
+            <seealso cref="M:SharpHook.Providers.IDeviceProcsProvider.SetDeviceProcs(SharpHook.Data.OpenDeviceProc,SharpHook.Data.CloseDeviceProc,System.IntPtr)" />
+        </member>
+        <member name="T:SharpHook.Data.DispatchProc">
+            <summary>
+            Represents a function which is called when an event occurs.
+            </summary>
+            <param name="event">The event that has occured.</param>
+            <param name="userData">
+            The data that was passed to <see cref="M:SharpHook.Providers.IGlobalHookProvider.SetDispatchProc(SharpHook.Data.DispatchProc,System.IntPtr)" />.
+            Usually should not be used.
+            </param>
+            <seealso cref="M:SharpHook.Providers.IGlobalHookProvider.SetDispatchProc(SharpHook.Data.DispatchProc,System.IntPtr)" />
+        </member>
         <member name="T:SharpHook.Data.EventMask">
             <summary>
             Represents the mask of a <see cref="T:SharpHook.Data.UioHookEvent" /> and contains modifiers and other information.
@@ -336,7 +358,7 @@
             Represents the type of an input event which can be raised from a global hook or posted as a fake event.
             </summary>
             <seealso cref="T:SharpHook.Data.UioHookEvent" />
-            <seealso cref="M:SharpHook.Native.UioHook.PostEvent(SharpHook.Data.UioHookEvent@)" />
+            <seealso cref="M:SharpHook.Internal.UioHook.PostEvent(SharpHook.Data.UioHookEvent@)" />
         </member>
         <member name="F:SharpHook.Data.EventType.HookEnabled">
             <summary>
@@ -1318,6 +1340,19 @@
             If this mode is selected, the libuiohook will load the Wayland backend, even if the current session is X11.
             </summary>
         </member>
+        <member name="T:SharpHook.Data.LoggerProc">
+            <summary>
+            Represents a function which is called when a logging event occurs.
+            </summary>
+            <param name="level">The log level.</param>
+            <param name="userData">
+            The data that was passed to <see cref="M:SharpHook.Providers.ILoggingProvider.SetLoggerProc(SharpHook.Data.LoggerProc,System.IntPtr)" />. Usually should not be
+            used.
+            </param>
+            <param name="format">The format of the log message.</param>
+            <param name="args">The arguments of the log message.</param>
+            <seealso cref="M:SharpHook.Providers.ILoggingProvider.SetLoggerProc(SharpHook.Data.LoggerProc,System.IntPtr)" />
+        </member>
         <member name="T:SharpHook.Data.LogLevel">
             <summary>
             Represents a log level.
@@ -1601,6 +1636,18 @@
             The page scroll type on Windows, and the line scroll type on macOS. Not available on Linux.
             </summary>
         </member>
+        <member name="T:SharpHook.Data.OpenDeviceProc">
+            <summary>
+            Represents a function which opens a privileged device and provides a file descriptor.
+            </summary>
+            <param name="path">The path to the device to open.</param>
+            <param name="flags">The flags to use when opening the device.</param>
+            <param name="userData">
+            The data that was passed to
+            <see cref="M:SharpHook.Providers.IDeviceProcsProvider.SetDeviceProcs(SharpHook.Data.OpenDeviceProc,SharpHook.Data.CloseDeviceProc,System.IntPtr)" />.
+            </param>
+            <seealso cref="M:SharpHook.Providers.IDeviceProcsProvider.SetDeviceProcs(SharpHook.Data.OpenDeviceProc,SharpHook.Data.CloseDeviceProc,System.IntPtr)" />
+        </member>
         <member name="T:SharpHook.Data.ScreenData">
             <summary>
             Represents screen-related data.
@@ -1838,7 +1885,7 @@
         </member>
         <member name="F:SharpHook.Data.UioHookFeature.PostText">
             <summary>
-            Posting text via <see cref="M:SharpHook.Native.UioHook.PostText(System.String)" />. Supported on Windows, macOS, and X11. Not supported on
+            Posting text via <see cref="M:SharpHook.Internal.UioHook.PostText(System.String)" />. Supported on Windows, macOS, and X11. Not supported on
             Wayland.
             </summary>
         </member>
@@ -1862,8 +1909,8 @@
         </member>
         <member name="F:SharpHook.Data.UioHookFeature.PointerProperties">
             <summary>
-            If this feature is enabled, then <see cref="M:SharpHook.Native.UioHook.GetPointerAccelerationMultiplier" />,
-            <see cref="M:SharpHook.Native.UioHook.GetPointerAccelerationThreshold" />, and <see cref="M:SharpHook.Native.UioHook.GetPointerSensitivity" /> are
+            If this feature is enabled, then <see cref="M:SharpHook.Internal.UioHook.GetPointerAccelerationMultiplier" />,
+            <see cref="M:SharpHook.Internal.UioHook.GetPointerAccelerationThreshold" />, and <see cref="M:SharpHook.Internal.UioHook.GetPointerSensitivity" /> are
             supported. Supported on Windows, macOS, and X11. Not supported on Wayland.
             </summary>
         </member>
@@ -3126,53 +3173,6 @@
             </summary>
             <value>The event data.</value>
         </member>
-        <member name="T:SharpHook.Native.CloseDeviceProc">
-            <summary>
-            Represents a function which closes a privileged device using a provided file descriptor.
-            </summary>
-            <param name="fd">The file descriptor of the device to close.</param>
-            <param name="userData">
-            The data that was passed to
-            <see cref="M:SharpHook.Providers.IDeviceProcsProvider.SetDeviceProcs(SharpHook.Native.OpenDeviceProc,SharpHook.Native.CloseDeviceProc,System.IntPtr)" />.
-            </param>
-            <seealso cref="M:SharpHook.Providers.IDeviceProcsProvider.SetDeviceProcs(SharpHook.Native.OpenDeviceProc,SharpHook.Native.CloseDeviceProc,System.IntPtr)" />
-        </member>
-        <member name="T:SharpHook.Native.DispatchProc">
-            <summary>
-            Represents a function which is called when an event occurs.
-            </summary>
-            <param name="event">The event that has occured.</param>
-            <param name="userData">
-            The data that was passed to <see cref="M:SharpHook.Providers.IGlobalHookProvider.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)" />.
-            Usually should not be used.
-            </param>
-            <seealso cref="M:SharpHook.Providers.IGlobalHookProvider.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)" />
-        </member>
-        <member name="T:SharpHook.Native.LoggerProc">
-            <summary>
-            Represents a function which is called when a logging event occurs.
-            </summary>
-            <param name="level">The log level.</param>
-            <param name="userData">
-            The data that was passed to <see cref="M:SharpHook.Providers.ILoggingProvider.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)" />. Usually should not be
-            used.
-            </param>
-            <param name="format">The format of the log message.</param>
-            <param name="args">The arguments of the log message.</param>
-            <seealso cref="M:SharpHook.Providers.ILoggingProvider.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)" />
-        </member>
-        <member name="T:SharpHook.Native.OpenDeviceProc">
-            <summary>
-            Represents a function which opens a privileged device and provides a file descriptor.
-            </summary>
-            <param name="path">The path to the device to open.</param>
-            <param name="flags">The flags to use when opening the device.</param>
-            <param name="userData">
-            The data that was passed to
-            <see cref="M:SharpHook.Providers.IDeviceProcsProvider.SetDeviceProcs(SharpHook.Native.OpenDeviceProc,SharpHook.Native.CloseDeviceProc,System.IntPtr)" />.
-            </param>
-            <seealso cref="M:SharpHook.Providers.IDeviceProcsProvider.SetDeviceProcs(SharpHook.Native.OpenDeviceProc,SharpHook.Native.CloseDeviceProc,System.IntPtr)" />
-        </member>
         <member name="T:SharpHook.Providers.IAccessibilityProvider">
             <summary>
             Represents a provider of low-level macOS Accessibility API functionality.
@@ -3223,7 +3223,7 @@
             Represents a provider of low-level device functionality.
             </summary>
         </member>
-        <member name="M:SharpHook.Providers.IDeviceProcsProvider.SetDeviceProcs(SharpHook.Native.OpenDeviceProc,SharpHook.Native.CloseDeviceProc,System.IntPtr)">
+        <member name="M:SharpHook.Providers.IDeviceProcsProvider.SetDeviceProcs(SharpHook.Data.OpenDeviceProc,SharpHook.Data.CloseDeviceProc,System.IntPtr)">
             <summary>
             Sets the functions to open and close privieged devices. This can be used to provide a custom way of opening and
             closing devices on Linux without requiring direct file access to them. This is an advanced scenario and should
@@ -3488,7 +3488,7 @@
             </para>
             </remarks>
         </member>
-        <member name="M:SharpHook.Providers.IGlobalHookProvider.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)">
+        <member name="M:SharpHook.Providers.IGlobalHookProvider.SetDispatchProc(SharpHook.Data.DispatchProc,System.IntPtr)">
             <summary>
             Sets the hook callback function.
             </summary>
@@ -3590,7 +3590,7 @@
             Represents a provider of low-level logging functionality.
             </summary>
         </member>
-        <member name="M:SharpHook.Providers.ILoggingProvider.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)">
+        <member name="M:SharpHook.Providers.ILoggingProvider.SetLoggerProc(SharpHook.Data.LoggerProc,System.IntPtr)">
             <summary>
             Sets the log callback function.
             </summary>
@@ -3740,7 +3740,7 @@
             On Windows and Linux, this property does nothing and always returns <c>0</c>.
             </remarks>
         </member>
-        <member name="M:SharpHook.Providers.UioHookProvider.SetLoggerProc(SharpHook.Native.LoggerProc,System.IntPtr)">
+        <member name="M:SharpHook.Providers.UioHookProvider.SetLoggerProc(SharpHook.Data.LoggerProc,System.IntPtr)">
             <summary>
             Sets the log callback function.
             </summary>
@@ -3751,9 +3751,9 @@
             Custom data to pass to the callback. Should not be used to pass pointers to objects,
             and <see cref="F:System.IntPtr.Zero" /> should usually be passed.
             </param>
-            <seealso cref="T:SharpHook.Native.LoggerProc" />
+            <seealso cref="T:SharpHook.Data.LoggerProc" />
         </member>
-        <member name="M:SharpHook.Providers.UioHookProvider.SetDispatchProc(SharpHook.Native.DispatchProc,System.IntPtr)">
+        <member name="M:SharpHook.Providers.UioHookProvider.SetDispatchProc(SharpHook.Data.DispatchProc,System.IntPtr)">
             <summary>
             Sets the hook callback function.
             </summary>
@@ -3764,7 +3764,7 @@
             Custom data to pass to the callback. Should not be used to pass pointers to objects,
             and <see cref="F:System.IntPtr.Zero" /> should usually be passed.
             </param>
-            <seealso cref="T:SharpHook.Native.DispatchProc" />
+            <seealso cref="T:SharpHook.Data.DispatchProc" />
         </member>
         <member name="M:SharpHook.Providers.UioHookProvider.Run">
             <summary>
@@ -4041,7 +4041,7 @@
             On Windows and macOS, this method always returns <see cref="F:SharpHook.Data.LinuxBackend.None" />.
             </remarks>
         </member>
-        <member name="M:SharpHook.Providers.UioHookProvider.SetDeviceProcs(SharpHook.Native.OpenDeviceProc,SharpHook.Native.CloseDeviceProc,System.IntPtr)">
+        <member name="M:SharpHook.Providers.UioHookProvider.SetDeviceProcs(SharpHook.Data.OpenDeviceProc,SharpHook.Data.CloseDeviceProc,System.IntPtr)">
             <summary>
             Sets the functions to open and close privieged devices. This can be used to provide a custom way of opening and
             closing devices on Linux without requiring direct file access to them. This is an advanced scenario and should

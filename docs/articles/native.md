@@ -46,7 +46,7 @@ You have to remember that only one global hook can exist at a time since calling
 previously set one. Also, running a global hook when another global hook is already running will corrupt the internal
 global state of libuiohook.
 
-`SetDispatchProc` accepts a delegate of type `SharpHook.Native.DispatchProc`. This delegate in turn accepts a
+`SetDispatchProc` accepts a delegate of type `SharpHook.Data.DispatchProc`. This delegate in turn accepts a
 `SharpHook.Data.UioHookEvent` by reference, and returns nothing. You can pass `null` to `SetDispatchProc` in order
 to unset the callback function.
 
@@ -373,7 +373,7 @@ none of these features.
 libuiohook can log messages throughout its execution. By default, it doesn't log anything, but `ILoggingProvider`
 contains the `SetLoggerProc` method to set the log callback function – it will be called by libuiohook to log messages.
 
-`SetLoggerProc` accepts a delegate of type `SharpHook.Native.LoggerProc`. This delegate in turn accepts a log level,
+`SetLoggerProc` accepts a delegate of type `SharpHook.Data.LoggerProc`. This delegate in turn accepts a log level,
 the message format (as a pointer) and arguments (also as a pointer).
 
 > [!NOTE]

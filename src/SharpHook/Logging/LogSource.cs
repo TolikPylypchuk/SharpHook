@@ -1,5 +1,7 @@
 #if MACCATALYST
 using ObjCRuntime;
+
+using SharpHook.Data;
 #endif
 
 namespace SharpHook.Logging;
