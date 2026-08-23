@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Enum UioHookFeature | SharpHook ">
       
-      
+      <meta name="description" content="Represents an optional feature of libuiohook that is not supported on all platforms.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -98,7 +98,8 @@ Enum UioHookFeature  <a class="header-action link-secondary" title="View source"
   <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Represents an optional feature of libuiohook that is not supported on all platforms.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -119,28 +120,43 @@ public enum UioHookFeature : uint</code></pre>
   <dl class="parameters">
     <dt id="SharpHook_Data_UioHookFeature_AbsoluteMouseButtonCoordinates"><code>AbsoluteMouseButtonCoordinates = 32</code></dt>
   
-  <dd></dd>
+  <dd><p>If this feature is enabled, then mouse button and wheel events report their absolute coordinates. Supported on
+Windows, macOS, and X11. Not supported on Wayland.</p>
+</dd>
     <dt id="SharpHook_Data_UioHookFeature_AbsoluteMouseMovement"><code>AbsoluteMouseMovement = 16</code></dt>
   
-  <dd></dd>
+  <dd><p>If this feature is enabled, then mouse movement events always report absolute coordinates. Supported on Windows,
+macOS, and X11. Not supported on Wayland.</p>
+</dd>
     <dt id="SharpHook_Data_UioHookFeature_EventSuppression"><code>EventSuppression = 1</code></dt>
   
-  <dd></dd>
+  <dd><p>Event suppression. Supported on Windows and macOS. Not supported on Linux – neither on X11 nor on Wayland.</p>
+</dd>
     <dt id="SharpHook_Data_UioHookFeature_KeyAutoRepeat"><code>KeyAutoRepeat = 8</code></dt>
   
-  <dd></dd>
+  <dd><p>If this feature is enabled, then auto-repeated key-down events are raised by global hooks. Supported on Windows,
+macOS, and the XRecord-based X11 backend. Not supported on the libinput/uinput Linux backends.</p>
+</dd>
     <dt id="SharpHook_Data_UioHookFeature_KeyTypedEvents"><code>KeyTypedEvents = 2</code></dt>
   
-  <dd></dd>
+  <dd><p>Events of type <a class="xref" href="SharpHook.Data.EventType.html#SharpHook_Data_EventType_KeyTyped">KeyTyped</a>. Supported on Windows, macOS, and X11. Not supported on
+Wayland.</p>
+</dd>
     <dt id="SharpHook_Data_UioHookFeature_None"><code>None = 0</code></dt>
   
-  <dd></dd>
+  <dd><p>Used if the current platform supports no optional features</p>
+</dd>
     <dt id="SharpHook_Data_UioHookFeature_PointerProperties"><code>PointerProperties = 64</code></dt>
   
-  <dd></dd>
+  <dd><p>If this feature is enabled, then <span class="xref">SharpHook.Native.UioHook.GetPointerAccelerationMultiplier()</span>,
+<span class="xref">SharpHook.Native.UioHook.GetPointerAccelerationThreshold()</span>, and <span class="xref">SharpHook.Native.UioHook.GetPointerSensitivity()</span> are
+supported. Supported on Windows, macOS, and X11. Not supported on Wayland.</p>
+</dd>
     <dt id="SharpHook_Data_UioHookFeature_PostText"><code>PostText = 4</code></dt>
   
-  <dd></dd>
+  <dd><p>Posting text via <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">PostText(string)</a>. Supported on Windows, macOS, and X11. Not supported on
+Wayland.</p>
+</dd>
   </dl>
 
 

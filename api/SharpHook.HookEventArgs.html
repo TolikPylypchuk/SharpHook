@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class HookEventArgs | SharpHook ">
       
-      
+      <meta name="description" content="A base class for event args related to the global hook.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -97,7 +97,8 @@ Class HookEventArgs  <a class="header-action link-secondary" title="View source"
   <dl><dt>Assembly</dt><dd>SharpHook.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>A base class for event args related to the global hook.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -171,7 +172,8 @@ Class HookEventArgs  <a class="header-action link-secondary" title="View source"
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/HookEventArgs.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="SharpHook.HookEventArgs.html">HookEventArgs</a> class.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -181,7 +183,8 @@ Class HookEventArgs  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
     <dt><code>rawEvent</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></dt>
-    <dd></dd>
+    <dd><p>The raw event data.</p>
+</dd>
   </dl>
 
 
@@ -206,7 +209,8 @@ Class HookEventArgs  <a class="header-action link-secondary" title="View source"
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/HookEventArgs.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the date and time of the event (in UTC), derived from the event's UNIX timestamp.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -220,7 +224,8 @@ Class HookEventArgs  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.datetimeoffset">DateTimeOffset</a></dt>
-    <dd></dd>
+    <dd><p>The date and time of the event.</p>
+</dd>
   </dl>
 
 
@@ -237,7 +242,8 @@ Class HookEventArgs  <a class="header-action link-secondary" title="View source"
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/HookEventArgs.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the value which indicates whether the event has been simulated.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -251,7 +257,8 @@ Class HookEventArgs  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> is the event has been simulated. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
   </dl>
 
 
@@ -268,7 +275,8 @@ Class HookEventArgs  <a class="header-action link-secondary" title="View source"
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/HookEventArgs.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets the raw event data.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -282,7 +290,8 @@ Class HookEventArgs  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></dt>
-    <dd></dd>
+    <dd><p>The raw event data.</p>
+</dd>
   </dl>
 
 
@@ -299,7 +308,8 @@ Class HookEventArgs  <a class="header-action link-secondary" title="View source"
   <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/HookEventArgs.cs"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gets or sets whether to suppress the event from further propagation after running the event handler.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
@@ -313,56 +323,37 @@ Class HookEventArgs  <a class="header-action link-secondary" title="View source"
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
     <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
-    <dd></dd>
+    <dd><p><a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the event propagation should be suppressed. Otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.</p>
+</dd>
   </dl>
 
 
 
 
+  <h4 class="section" id="SharpHook_HookEventArgs_SuppressEvent_remarks">Remarks</h4>
+  <div class="markdown level1 remarks"><p>
+Events must be suppressed synchronously, i.e., in the same thread in which the hook itself runs. This means that
+some global hooks, like <a class="xref" href="SharpHook.EventLoopGlobalHook.html">EventLoopGlobalHook</a> or <a class="xref" href="SharpHook.TaskPoolGlobalHook.html">TaskPoolGlobalHook</a>, do not support
+suppressing events.
+</p>
+<p>
+Suppressing events works only on Windows and macOS. You can use
+<a class="xref" href="SharpHook.Providers.IFeatureProvider.html#SharpHook_Providers_IFeatureProvider_GetOptionalFeatureSupport">GetOptionalFeatureSupport()</a> to check whether the current platform supports
+suppresing events. If that method returns <a class="xref" href="SharpHook.Data.UioHookFeature.html#SharpHook_Data_UioHookFeature_EventSuppression">EventSuppression</a> as one of the supported
+features, then it does.
+</p>
+</div>
 
 
 
 
-  <h2 class="section" id="methods">Methods
-</h2>
-
-
-  <a id="SharpHook_HookEventArgs_FromEvent_" data-uid="SharpHook.HookEventArgs.FromEvent*"></a>
-
-  <h3 id="SharpHook_HookEventArgs_FromEvent_SharpHook_Data_UioHookEvent_" data-uid="SharpHook.HookEventArgs.FromEvent(SharpHook.Data.UioHookEvent)">
-  FromEvent(UioHookEvent)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/TolikPylypchuk/SharpHook/blob/main/src/SharpHook/HookEventArgs.cs"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static HookEventArgs FromEvent(UioHookEvent rawEvent)</code></pre>
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="SharpHook.KeyboardHookEventArgs.html">KeyboardHookEventArgs</a></div>
+      <div><a class="xref" href="SharpHook.MouseHookEventArgs.html">MouseHookEventArgs</a></div>
+      <div><a class="xref" href="SharpHook.Data.MouseWheelEventData.html">MouseWheelEventData</a></div>
+      <div><a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></div>
   </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>rawEvent</code> <a class="xref" href="SharpHook.Data.UioHookEvent.html">UioHookEvent</a></dt>
-    <dd></dd>
-  </dl>
-
-  <h4 class="section">Returns</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="SharpHook.HookEventArgs.html">HookEventArgs</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
 
 </article>
 

@@ -3013,18 +3013,6 @@ references:
   commentId: Overload:SharpHook.HookEventArgs.EventTime
   fullName: SharpHook.HookEventArgs.EventTime
   nameWithType: HookEventArgs.EventTime
-- uid: SharpHook.HookEventArgs.FromEvent(SharpHook.Data.UioHookEvent)
-  name: FromEvent(UioHookEvent)
-  href: api/SharpHook.HookEventArgs.html#SharpHook_HookEventArgs_FromEvent_SharpHook_Data_UioHookEvent_
-  commentId: M:SharpHook.HookEventArgs.FromEvent(SharpHook.Data.UioHookEvent)
-  fullName: SharpHook.HookEventArgs.FromEvent(SharpHook.Data.UioHookEvent)
-  nameWithType: HookEventArgs.FromEvent(UioHookEvent)
-- uid: SharpHook.HookEventArgs.FromEvent*
-  name: FromEvent
-  href: api/SharpHook.HookEventArgs.html#SharpHook_HookEventArgs_FromEvent_
-  commentId: Overload:SharpHook.HookEventArgs.FromEvent
-  fullName: SharpHook.HookEventArgs.FromEvent
-  nameWithType: HookEventArgs.FromEvent
 - uid: SharpHook.HookEventArgs.IsEventSimulated
   name: IsEventSimulated
   href: api/SharpHook.HookEventArgs.html#SharpHook_HookEventArgs_IsEventSimulated
