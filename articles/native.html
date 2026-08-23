@@ -279,8 +279,7 @@ down or right.</p>
 rotation value, but it's not required. The value of <code>MouseWheelEventData.Type</code> is ignored.</p>
 <p>On macOS, it's recommended to use values between -10 and 10. This will result in quite a small scroll amount with pixel
 scrolling, so <code>MouseWheelScrollType.BlockScroll</code> is recommended for line scrolling instead of pixel scrolling.</p>
-<p>On Linux, there is no fixed recommendation, but multiples of 100 can be used. The value of <code>MouseWheelEventData.Type</code>
-is ignored.</p>
+<p>On Linux, like Windows, multiples of 120 should generally be used. The value of <code>MouseWheelEventData.Type</code> is ignored.</p>
 <h2 id="simulating-text-entry">Simulating Text Entry</h2>
 <p>SharpHook also provides text entry simulation. <code>UioHook</code> contains the <code>PostText</code> method which accepts a <code>string</code>. The
 text to simulate doesn't depend on the current keyboard layout. The full range of UTF-16 (including surrogate pairs,

@@ -145,7 +145,7 @@ simulator.SimulateMouseWheel(
 but it's not required. The value of <code>type</code> is ignored.</p>
 <p>On macOS, it's recommended to use values between -10 and 10. This will result in quite a small scroll amount with pixel
 scrolling, so <code>MouseWheelScrollType.BlockScroll</code> is recommended for line scrolling instead of pixel scrolling.</p>
-<p>On Linux, there is no fixed recommendation, but multiples of 100 can be used. The value of <code>type</code> is ignored.</p>
+<p>On Linux, like Windows, multiples of 120 should generally be used. The value of <code>Type</code> is ignored.</p>
 <h3 id="simulating-a-sequence-of-events">Simulating a Sequence of Events</h3>
 <p><code>IEventSimulator</code> contains the <code>Sequence</code> method which returns an <code>IEventSimulationSequenceBuilder</code>. This object can be
 used to build a sequence of events that will be simulated together. If contains several methods like <code>AddKeyPress</code> and
