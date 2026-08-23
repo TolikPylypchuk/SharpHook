@@ -87,13 +87,9 @@
         <article data-uid="">
 <h1 id="testing">Testing</h1>
 
-<p>SharpHook provides two classes which make testing easier. They aren't required since mocks can be used instead, but
-unlike mocks, no setup is required to use these classes, and they respect the invariants of their real counterparts.</p>
-<div class="NOTE">
-<h5>Note</h5>
-<p>Testing classes are contained directly in the <code>SharpHook</code> package. This increases the package size, but these classes
-will be removed if trimming is enabled.</p>
-</div>
+<p>This article describes how to use the testing utility classes provided by SharpHook.</p>
+<p>SharpHook.Testing provides two classes which make testing easier. They aren't required since mocks can be used instead,
+but unlike mocks, no setup is required to use these classes, and they respect the invariants of their real counterparts.</p>
 <h2 id="test-global-hook">Test Global Hook</h2>
 <p><code>SharpHook.Testing.TestGlobalHook</code> provides an implementation of <code>IGlobalHook</code> and <code>IEventSimulator</code> which can be used
 for testing. When the <code>Run</code> or <code>RunAsync</code> method is called, it will dispatch events using the various <code>Simulate</code> methods
@@ -130,14 +126,13 @@ immediately after it is simulated. <code>Run</code> and the task returned by <co
 dispatched.</p>
 <p>Other than that, members of <code>TestGlobalHook</code> are quite straightforward; the API reference should be viewed for more
 info.</p>
-<p>If an <code>IReactiveGlobalHook</code> is needed for testing, then <code>ReactiveGlobalHookAdapter</code> can be used to adapt an instance of
-<code>TestGlobalHook</code>.</p>
-<p>If an <code>IR3GlobalHook</code> is needed for testing, then <code>R3GlobalHookAdapter</code> can be used to adapt an instance of
-<code>TestGlobalHook</code>.</p>
+<p>If an <code>IReactiveGlobalHook</code> is needed for testing, then <code>ReactiveGlobalHookAdapter</code> or <code>ReactiveUIGlobalHookAdapter</code> can
+be used to adapt an instance of <code>TestGlobalHook</code>. If an <code>IR3GlobalHook</code> is needed for testing, then
+<code>R3GlobalHookAdapter</code> can be used to adapt an instance of <code>TestGlobalHook</code>.</p>
 <h2 id="test-low-level-functionality-provider">Test Low-Level Functionality Provider</h2>
 <p>If the low-level functionality of SharpHook should be mocked, or mocking should be pushed as far away as possible,
 then <code>SharpHook.Testing.TestProvider</code> can be used. It implements every interface in the <code>SharpHook.Providers</code> namespace,
-and as such, it can be used instead of normal low-level functionality providers.</p>
+so it can be used instead of normal low-level functionality providers.</p>
 <p>Like <code>TestProvider</code>, this class can post events using the <code>PostEvent</code> method and dispatch them if <code>Run</code> has been
 called. It also contains the <code>PostedEvents</code> property.</p>
 <p><code>TestProvider</code> can be used with two different threading modes – the simple mode and the event loop mode.</p>
@@ -150,15 +145,15 @@ which the hook itself is running. It's recommended to stop the provider and wait
 events. Since these actions are done in different threads, it is not guaranteed that an event will be dispatched
 immediately after it is simulated. <code>Run</code> and the task returned by <code>RunAsync</code> will complete after every event has been
 dispatched.</p>
-<p>All classes in SharpHook use providers instead of directly using the <code>UioHook</code> class for low-level functionality.
-The providers are selectable, so e.g., the following global hook can be used for testing:</p>
+<p>All classes in SharpHook use providers for low-level functionality, and the providers are selectable, so e.g., the
+following global hook can be used for testing:</p>
 <pre><code class="lang-csharp">var testProvider = new TestProvider();
 
 // Calls to methods in testProvider will be reflected in the hook
-var hook = new SimpleGlobalHook(globalHookProvider: testProvider);
+var hook = new SimpleGlobalHook(testProvider);
 
 // Calls to methods in testProvider will be reflected in the simulator
-var simulator = new EventSimulator(simulationProvider: testProvider);
+var simulator = EventSimulator.Create(&quot;Test app&quot;, testProvider);
 </code></pre>
 <div class="NOTE">
 <h5>Note</h5>

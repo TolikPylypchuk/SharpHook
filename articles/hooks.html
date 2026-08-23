@@ -87,32 +87,34 @@
         <article data-uid="">
 <h1 id="global-hooks">Global Hooks</h1>
 
+<p>This article describes how to use global hooks provided by SharpHook.</p>
 <h2 id="the-interface">The Interface</h2>
-<p>SharpHook provides the <code>SharpHook.IGlobalHook</code> interface along with three default implementations which you can use to
-control the hook and subscribe to its events. This way is preferred to using native functions since it's more
-convenient. Here's a basic usage example:</p>
+<p>SharpHook provides the <code>IGlobalHook</code> interface along with three default implementations which you can use to control the
+hook and subscribe to its events. Here's a basic usage example:</p>
 <pre><code class="lang-csharp">using SharpHook;
-using SharpHook.Providers;
-
-// KeyTyped events may cause system-wide side effects, so they should be disabled if unused.
-UioHookProvider.Instance.KeyTypedEnabled = false; // or true
 
 var hook = new EventLoopGlobalHook();
 
-hook.HookEnabled += OnHookEnabled;     // EventHandler&lt;HookEventArgs&gt;
-hook.HookDisabled += OnHookDisabled;   // EventHandler&lt;HookEventArgs&gt;
+// Events of type EventHandler&lt;HookEventArgs&gt;:
+hook.HookEnabled += OnHookEnabled;
+hook.HookDisabled += OnHookDisabled;
 
-hook.KeyTyped += OnKeyTyped;           // EventHandler&lt;KeyboardHookEventArgs&gt;
-hook.KeyPressed += OnKeyPressed;       // EventHandler&lt;KeyboardHookEventArgs&gt;
-hook.KeyReleased += OnKeyReleased;     // EventHandler&lt;KeyboardHookEventArgs&gt;
+// Events of type EventHandler&lt;KeyboardHookEventArgs&gt;:
+hook.KeyTyped += OnKeyTyped; // Disabled by default
+hook.KeyPressed += OnKeyPressed;
+hook.KeyReleased += OnKeyReleased;
 
-hook.MouseClicked += OnMouseClicked;   // EventHandler&lt;MouseHookEventArgs&gt;
-hook.MousePressed += OnMousePressed;   // EventHandler&lt;MouseHookEventArgs&gt;
-hook.MouseReleased += OnMouseReleased; // EventHandler&lt;MouseHookEventArgs&gt;
-hook.MouseMoved += OnMouseMoved;       // EventHandler&lt;MouseHookEventArgs&gt;
-hook.MouseDragged += OnMouseDragged;   // EventHandler&lt;MouseHookEventArgs&gt;
+// Events of type EventHandler&lt;MouseHookEventArgs&gt;:
+hook.MouseClicked += OnMouseClicked;
+hook.MousePressed += OnMousePressed;
+hook.MouseReleased += OnMouseReleased;
+hook.MouseMoved += OnMouseMoved;
+hook.MouseMovedRelative += OnMouseMovedRelative;
+hook.MouseDragged += OnMouseDragged;
+hook.MouseDraggedRelative += OnMouseDraggedRelative;
 
-hook.MouseWheel += OnMouseWheel;       // EventHandler&lt;MouseWheelHookEventArgs&gt;
+// Events of type EventHandler&lt;MouseWheelHookEventArgs&gt;:
+hook.MouseWheel += OnMouseWheel;
 
 hook.Run();
 // or
@@ -121,13 +123,13 @@ await hook.RunAsync();
 <p><code>IGlobalHook</code> contains separate events for every event type that can be raised by libuiohook. The sender of these
 events is the <code>IGlobalHook</code> itself.</p>
 <p>It also contains the <code>Run</code> and <code>RunAsync</code> methods which run the global hook. <code>Run</code> runs it on the current thread,
-blocking it until the global hook is disposed. <code>RunAsync</code> runs the global hook in a non-blocking way and returns a
+blocking it until the global hook is stopped. <code>RunAsync</code> runs the global hook in a non-blocking way and returns a
 <code>Task</code> – this task is finished when the hook is stopped or disposed. Since the underlying native API is blocking, the
 only way to run the hook in a non-blocking way is to run it on a separate thread, and all default implementations do
 just that.</p>
-<p>You can specify in the hook constructors whether <code>RunAsync</code> should create a background thread or not. Background threads
-don't block the application from exiting if all other threads have finished executing. By default the created thread
-will not be a background thread.</p>
+<p>You can specify whether <code>RunAsync</code> should create a background thread or not. Background threads don't block the
+application from exiting if all other threads have finished executing. By default, the created thread will not be a
+background thread.</p>
 <p>You can subscribe to events after the hook is started.</p>
 <p>If you run the hook when it's already running, then an exception will be thrown. You can check whether a hook is running
 using its <code>IsRunning</code> property.</p>
@@ -149,7 +151,7 @@ the <code>EventTime</code> and <code>IsEventSimulated</code> properties respecti
 method to set the hook callback for libuiohook, so there may only be one callback at a time. Running a global hook
 when another global hook is already running will corrupt the internal global state of libuiohook.</p>
 </div>
-<p>You can create a keyboard-only or a mouse-only hook by passing a <code>GlobalHookType</code> to the hook's constructor. This makes
+<p>You can create a keyboard-only or a mouse-only hook by passing a <code>GlobalHookType</code> to <code>Run</code> or <code>RunAsync</code>. This makes
 a real difference only on Windows where there are two different global hooks – a keyboard hook and a mouse hook. On
 macOS and Linux, there is one hook for all events, and this simply enables filtering keyboard or mouse events out on
 these OSes.</p>
@@ -163,16 +165,29 @@ they run for too long.</p>
 <li><p><code>SharpHook.EventLoopGlobalHook</code> runs all of its event handlers on a separate dedicated thread. On backpressure it will
 queue the remaining events which means that the hook will be able to process all events. This implementation should be
 preferred to <code>SimpleGlobalHook</code> except for very simple use-cases. But it has a downside – suppressing event propagation
-will be ignored since event handlers are run on another thread.</p>
+will be ignored since event handlers are executed on another thread.</p>
 </li>
 <li><p><code>SharpHook.TaskPoolGlobalHook</code> runs all of its event handlers on other threads inside the default thread pool for
 tasks. The parallelism level of the handlers can be configured. On backpressure it will queue the remaining events which
-means that the hook will be able to process all events. This implementation should be preferred to <code>SimpleGlobalHook</code>
-except for very simple use-cases. But it has a downside – suppressing event propagation will be ignored since event
-handlers are run on other threads. In general, <code>EventLoopGlobalHook</code> should be preferred instead, as this class provides
-benefits only if events should be processed in parallel, which is rarely the case.</p>
+means that the hook will be able to process all events. Like with <code>EventLoopGlobalHook</code>, suppressing event propagation
+will be ignored since event handlers are executed on other threads. In general, <code>EventLoopGlobalHook</code> should be
+preferred instead, as this class provides benefits only if events should be processed in parallel, which is rarely the
+case.</p>
 </li>
 </ul>
+<h2 id="mouse-events-on-wayland">Mouse Events on Wayland</h2>
+<p>On Wayland, absolute mouse position is usually not available, so you should subscribe to the <code>MouseMovedRelative</code> and
+<code>MouseDraggedRelative</code> in addition to <code>MouseMoved</code> and <code>MouseDragged</code> if you want to listen to mouse movement. Mice are
+relative pointer devices, so they only raise relative motion events. Absolute motion events will only be raised by
+absolute pointer devices like touchscreens, or in virtual machines.</p>
+<p>On other platforms, relative motion events are never raised.</p>
+<p>Also, events of type <code>MousePressed</code>, <code>MouseReleased</code>, <code>MouseClicked</code>, and <code>MouseWheel</code> don't include mouse coordinates –
+they are always set to (0, 0).</p>
+<p>You can query support for absolute mouse coordinates with <code>IFeatureProvider.GetOptionalFeatureSupport</code> – if it returns
+<code>AbsoluteMouseMovement</code> as one of the supported features, then mouse motion events will always be absolute. If not, then
+you should subscribe to <code>MouseMovedRelative</code> and <code>MouseDraggedRelative</code>. If it returns <code>AbsoluteMouseButtonCoordinates</code>
+as one of the supported features, then the cursor position will be included in <code>MousePressed</code>, <code>MouseReleased</code>,
+<code>MouseClicked</code>, and <code>MouseWheel</code> events. If not, then the coordinates will always be set to (0, 0).</p>
 
 </article>
 

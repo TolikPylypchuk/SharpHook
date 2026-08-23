@@ -87,6 +87,7 @@
         <article data-uid="">
 <h1 id="custom-global-hooks">Custom Global Hooks</h1>
 
+<p>This article describes how to create custom global hooks.</p>
 <h2 id="custom-implementations-of-iglobalhook">Custom Implementations of <code>IGlobalHook</code></h2>
 <p>If you want an <code>IGlobalHook</code> with a custom dispatch logic, you should extend the <code>SharpHook.GlobalHookBase</code> class. It
 implements the logic for running, stopping, and disposing of the global hook, as well as raising appropriate events.
@@ -99,11 +100,8 @@ subscribers).</p>
 
 public sealed class SimpleGlobalHook : GlobalHookBase
 {
-    public SimpleGlobalHook(
-        GlobalHookType globalHookType = GlobalHookType.All,
-        IGlobalHookProvider? globalHookProvider = null,
-        bool runAsyncOnBackgroundThread = false)
-        : base(globalHookType, globalHookProvider, runAsyncOnBackgroundThread)
+    public SimpleGlobalHook(IGlobalHookProvider? globalHookProvider = null)
+        : base(globalHookProvider)
     { }
 
     protected override void HandleHookEvent(ref UioHookEvent e) =&gt;
@@ -143,6 +141,7 @@ event type:</p>
 <p>As mentioned above, it's highly recommended to extend <code>BasicGlobalHookBase</code> if you want to implement a custom global
 hook, but you may nonetheless want to implement everything from scratch. You can read more about that in the article on
 <a href="native.html">low-level functionality</a>.</p>
+<p>All the low-level hook functionality is defined in <code>IGlobalHookProvider</code> and implemented in <code>UioHookProvider</code>.</p>
 <p>When calling <code>SetDispatchProc</code>, the function must be wrapped into a delegate reference and the reference must be stored
 to prevent garbage collection. This is because the following code:</p>
 <pre><code class="lang-csharp">provider.SetDispatchProc(someObj.SomeMethod, IntPtr.Zero);
