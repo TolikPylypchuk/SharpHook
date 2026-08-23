@@ -12,11 +12,17 @@ namespace SharpHook.Logging;
 /// installed.
 /// </remarks>
 [ExcludeFromCodeCoverage]
-public sealed class LogEntryParser
+public sealed partial class LogEntryParser
 {
-    private static readonly Regex ArgumentRegex = new(
-        @"%\+?\-? ?#?0?(?:[1-9][0-9]*|\*)?(?:\.(?:[1-9][0-9]*|\*))?(?:hh|ll|[hljztL])?[diuoxXfFeEgGaAcspn]",
-        RegexOptions.Compiled);
+    private const string ArgumentPattern =
+        @"%\+?\-? ?#?0?(?:[1-9][0-9]*|\*)?(?:\.(?:[1-9][0-9]*|\*))?(?:hh|ll|[hljztL])?[diuoxXfFeEgGaAcspn]";
+
+    private static readonly Regex ArgumentRegex =
+#if NET7_0_OR_GREATER
+        GetArgumentRegex();
+#else
+        new(ArgumentPattern, RegexOptions.Compiled);
+#endif
 
     private LogEntryParser()
     { }
@@ -58,7 +64,9 @@ public sealed class LogEntryParser
 
         if (PlatformDetector.IsLinux && Environment.Is64BitProcess)
         {
-            return this.GetLinuxX64String(format, args);
+            return RuntimeInformation.ProcessArchitecture == Architecture.Arm64
+                ? this.GetLinux64String(format, Marshal.PtrToStructure<VaListLinuxArm64>(args))
+                : this.GetLinux64String(format, Marshal.PtrToStructure<VaListLinuxX64>(args));
         }
 
         return this.GetDefaultString(format, args);
@@ -217,10 +225,9 @@ public sealed class LogEntryParser
         }
     }
 
-    private string GetLinuxX64String(nint format, nint args)
+    private string GetLinux64String<T>(nint format, T listStructure)
+        where T : notnull
     {
-        var listStructure = Marshal.PtrToStructure<VaListLinuxX64>(args);
-
         var byteLength = 0;
 
         UseStructurePointer(listStructure, listPointer =>
@@ -303,6 +310,11 @@ public sealed class LogEntryParser
         internal IReadOnlyList<string> ArgumentPlaceholders { get; }
     }
 
+#if NET7_0_OR_GREATER
+    [GeneratedRegex(ArgumentPattern, RegexOptions.Compiled)]
+    private static partial Regex GetArgumentRegex();
+#endif
+
     private enum ArgumentLength
     {
         None,
@@ -318,5 +330,15 @@ public sealed class LogEntryParser
         internal uint FpOffset;
         internal nint OverflowArgArea;
         internal nint RegSaveArea;
+    }
+
+    [StructLayout(LayoutKind.Sequential, Pack = 8)]
+    private struct VaListLinuxArm64
+    {
+        internal nint Stack;
+        internal nint GrTop;
+        internal nint VrTop;
+        internal int GrOffs;
+        internal int VrOffs;
     }
 }

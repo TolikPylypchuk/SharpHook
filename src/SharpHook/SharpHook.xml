@@ -2958,6 +2958,42 @@
             <param name="args">A pointer to the native arguments of the log message.</param>
             <returns>A log entry represented by the level, format, and argumets.</returns>
         </member>
+        <member name="M:SharpHook.Logging.LogEntryParser.GetArgumentRegex">
+            <remarks>
+            Pattern:<br/>
+            <code>%\\+?\\-? ?#?0?(?:[1-9][0-9]*|\\*)?(?:\\.(?:[1-9][0-9]*|\\*))?(?:hh|ll|[hljztL])?[diuoxXfFeEgGaAcspn]</code><br/>
+            Options:<br/>
+            <code>RegexOptions.Compiled</code><br/>
+            Explanation:<br/>
+            <code>
+            ○ Match '%'.<br/>
+            ○ Match '+' greedily, optionally.<br/>
+            ○ Match '-' greedily, optionally.<br/>
+            ○ Match ' ' greedily, optionally.<br/>
+            ○ Match '#' greedily, optionally.<br/>
+            ○ Match '0' greedily, optionally.<br/>
+            ○ Optional (greedy).<br/>
+                ○ Match with 2 alternative expressions.<br/>
+                    ○ Match a sequence of expressions.<br/>
+                        ○ Match a character in the set [1-9].<br/>
+                        ○ Match a character in the set [0-9] greedily any number of times.<br/>
+                    ○ Match '*'.<br/>
+            ○ Optional (greedy).<br/>
+                ○ Match '.'.<br/>
+                ○ Match with 2 alternative expressions.<br/>
+                    ○ Match a sequence of expressions.<br/>
+                        ○ Match a character in the set [1-9].<br/>
+                        ○ Match a character in the set [0-9] greedily any number of times.<br/>
+                    ○ Match '*'.<br/>
+            ○ Optional (greedy).<br/>
+                ○ Match with 3 alternative expressions.<br/>
+                    ○ Match the string "hh".<br/>
+                    ○ Match the string "ll".<br/>
+                    ○ Match a character in the set [Lhjltz].<br/>
+            ○ Match a character in the set [AE-GXac-gin-psux].<br/>
+            </code>
+            </remarks>
+        </member>
         <member name="T:SharpHook.Logging.LogEventArgs">
             <summary>
             Event args for logging events.
@@ -5425,6 +5461,56 @@
             After calling this method, the hook cannot be started again. If you want to do that, create a new instance
             of <see cref="T:SharpHook.IGlobalHook" />.
             </remarks>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.GetArgumentRegex_0">
+            <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the GetArgumentRegex method.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.GetArgumentRegex_0.Instance">
+            <summary>Cached, thread-safe singleton instance.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.GetArgumentRegex_0.#ctor">
+            <summary>Initializes the instance.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.GetArgumentRegex_0.RunnerFactory">
+            <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.GetArgumentRegex_0.RunnerFactory.CreateInstance">
+            <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.GetArgumentRegex_0.RunnerFactory.Runner">
+            <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.GetArgumentRegex_0.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+            <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.GetArgumentRegex_0.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if a possible match was found; false if no more matches are possible.</returns>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.GetArgumentRegex_0.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.Utilities">
+            <summary>Helper methods used by generated <see cref="T:System.Text.RegularExpressions.Regex"/>-derived implementations.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_defaultTimeout">
+            <summary>Default timeout value set in <see cref="T:System.AppContext"/>, or <see cref="F:System.Text.RegularExpressions.Regex.InfiniteMatchTimeout"/> if none was set.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_hasTimeout">
+            <summary>Whether <see cref="F:System.Text.RegularExpressions.Generated.Utilities.s_defaultTimeout"/> is non-infinite.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.Utilities.StackPop(System.Int32[],System.Int32@,System.Int32@,System.Int32@)">
+            <summary>Pops 2 values from the backtracking stack.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.Utilities.StackPush(System.Int32[]@,System.Int32@,System.Int32)">
+            <summary>Pushes 1 value onto the backtracking stack.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.Utilities.StackPush(System.Int32[]@,System.Int32@,System.Int32,System.Int32)">
+            <summary>Pushes 2 values onto the backtracking stack.</summary>
         </member>
     </members>
 </doc>
