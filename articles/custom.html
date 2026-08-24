@@ -104,8 +104,8 @@ public sealed class SimpleGlobalHook : GlobalHookBase
         : base(globalHookProvider)
     { }
 
-    protected override void HandleHookEvent(ref UioHookEvent e) =&gt;
-        this.DispatchEvent(ref e);
+    protected override void HandleHookEvent(ref UioHookEvent @event) =&gt;
+        this.DispatchEvent(ref @event);
 }
 </code></pre>
 <p>As you can see, it really is exceedingly simple!</p>
@@ -131,8 +131,8 @@ itself extends: <code>HandleHookEvent</code>, <code>BeforeRun</code>, <code>Afte
 event type:</p>
 <pre><code class="lang-csharp">public sealed class StraightforwardGlobalHook : BasicGlobalHookBase
 {
-    protected override void HandleHookEvent(ref UioHookEvent e) =&gt;
-        this.HookEvent?.Invoke(this, e);
+    protected override void HandleHookEvent(ref UioHookEvent @event) =&gt;
+        this.HookEvent?.Invoke(this, @event);
 
     public event EventHandler&lt;UioHookEvent&gt;? HookEvent;
 }

@@ -144,7 +144,7 @@ subscriptions and changes are propagated to the adapted hook. There is no defaul
 to <code>IGlobalHook</code>. A default scheduler can be specified for all observables.</p>
 </li>
 </ul>
-<h4 id="reactiveuiprimitives">ReactiveUI.Primitives</h4>
+<h2 id="reactiveuiprimitives">ReactiveUI.Primitives</h2>
 <p>If you're using <a href="https://github.com/reactiveui/Primitives">ReactiveUI.Primitives</a>, you can use the SharpHook.ReactiveUI
 package to integrate SharpHook with it.</p>
 <p>SharpHook.ReactiveUI provides an implementation of <code>IReactiveGlobalHook</code> which you can use to use to control the hook
@@ -174,8 +174,6 @@ hook.Run();
 // or
 await hook.RunAsync();
 </code></pre>
-<p>Note that SharpHook.R3 uses its own interface instead of implementing <code>IReactiveGlobalHook</code> since R3's implementation is
-incompatible with the interface.</p>
 <p>The observables for events emit the <code>EventArgs</code>-derived types which are the same as in the events of <code>IGlobalHook</code>.</p>
 <p>The <code>Run</code> and <code>RunAsync</code> methods are basically the same as in <code>IGlobalHook</code>. Running the hook when it's already running
 is also not allowed, and the <code>IsRunning</code> property is also available.</p>
@@ -230,6 +228,8 @@ hook.Run();
 // or
 await hook.RunAsync();
 </code></pre>
+<p>Note that SharpHook.R3 uses its own interface instead of implementing <code>IReactiveGlobalHook</code> since R3's implementation is
+incompatible with the interface.</p>
 <p>The observables for events emit the <code>EventArgs</code>-derived types which are the same as in the events of <code>IGlobalHook</code>.</p>
 <p>The <code>Run</code> and <code>RunAsync</code> methods are basically the same as in <code>IGlobalHook</code>. Running the hook when it's already running
 is also not allowed, and the <code>IsRunning</code> property is also available.</p>

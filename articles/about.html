@@ -92,12 +92,13 @@
 <p>If you've noticed that this library hasn't gotten new commits in some time, rest assured that it's not abandoned!
 I'm not giving up on this library any time soon.</p>
 <h2 id="building-from-source">Building from Source</h2>
-<p>In order to build this library, you'll first need to get libuiohook binaries. You you can get a
-<a href="https://github.com/TolikPylypchuk/SharpHook/actions/workflows/build.yml">nightly build from this repository</a>, or you
-can build them yourself as instructed in the <a href="https://github.com/TolikPylypchuk/libuiohook">libuiohook fork</a> that
-SharpHook uses – you should most probably use the same build steps as specified in SharpHook's GitHub Actions
-definition.</p>
-<p>Place the binaries into the appropriate directories in the <code>SharpHook</code> project, as described in the following table:</p>
+<p>In order to build this library, you'll first need to get libuiohook binaries. You can get a
+<a href="https://github.com/TolikPylypchuk/SharpHook/actions/workflows/build.yml">nightly build from this repository</a>, you can
+extract them from the SharpHook package, or you can build them yourself as instructed in the
+<a href="https://github.com/TolikPylypchuk/libuiohook">libuiohook fork</a> that SharpHook uses – you should most probably use the
+same build steps as specified in SharpHook's GitHub Actions definition.</p>
+<p>Place the binaries into the appropriate directories in the <code>SharpHook</code> project, as described in the following table.
+Note that on Linux, there are four libuiohook files per platform.</p>
 <table>
   <tr>
     <th>OS</th>
@@ -130,12 +131,113 @@ definition.</p>
     <td>lib/linux-&lt;platform&gt;</td>
   </tr>
 </table>
-<p>Note that on Linux, there are four libuiohook files per platform. With libuiohook in place, you can build SharpHook
-using your usual methods, e.g. with Visual Studio or the <code>dotnet</code> CLI. You need .NET 10 with the <code>maccatalyst</code> workload
-to build SharpHook. If you are building on Linux where the <code>maccatalyst</code> workload is not supported, or if you don't want
-to install it, you can set the <code>SHARPHOOK_SKIP_MACCATALYST</code> environment variable to anything other than <code>false</code>
-(case-insensitive), and the Mac Catalyst targets will be skipped.</p>
+<p>With libuiohook in place, you can build SharpHook using your usual methods, e.g. with Visual Studio or the <code>dotnet</code> CLI.
+You need .NET 10 with the <code>maccatalyst</code> workload to build SharpHook. If you are building on Linux where the
+<code>maccatalyst</code> workload is not supported, or if you don't want to install it, you can set the
+<code>SHARPHOOK_SKIP_MACCATALYST</code> environment variable to anything other than <code>false</code> (case-insensitive), and the Mac
+Catalyst targets will be skipped.</p>
 <h2 id="changelog">Changelog</h2>
+<h3 id="v800-august-24-2026"><a href="https://github.com/TolikPylypchuk/SharpHook/releases/tag/v8.0.0">v8.0.0</a> (August 24, 2026)</h3>
+<h4 id="breaking-changes">Breaking Changes</h4>
+<ul>
+<li><p>When running on Wayland, SharpHook doesn't use X11 APIs by default anymore.</p>
+</li>
+<li><p>SharpHook now provides 4 libuiohook binaries on Linux - libuiohook.so, libuiohook-xrecord.so, libuiohook-x11.so, and
+libuiohook-wayland.so – all 4 should generally be packaged with your application.</p>
+</li>
+<li><p>The <code>UioHook</code> class is now internal – <code>UioHookProvider.Instance</code> should be used instead.</p>
+</li>
+<li><p><code>TestGlobalHook</code>, <code>TestProvider</code>, and <code>TestThreadingMode</code> were moved to the separate SharpHook.Testing package.</p>
+</li>
+<li><p><code>KeyTyped</code> events are disabled by default now.</p>
+</li>
+<li><p>All classes and interfaces related to event simulation were moved to the <code>SharpHook.Simulation</code> namespace.</p>
+</li>
+<li><p><code>IEventSimulator</code> is now disposable, and instances of <code>EventSimulator</code> must be disposed after usage.</p>
+</li>
+<li><p><code>EventSimulator.Create</code> should be used instead of <code>new EventSimulator()</code>.</p>
+</li>
+<li><p><code>EventSimulationSequenceBuilder</code> and <code>EventSimulationSequenceTemplate</code> now accept <code>EventSimulator</code> instead of
+<code>IEventSimulationProvider</code> in their constructors.</p>
+</li>
+<li><p><code>IReactiveGlobalHook</code> and <code>IReactiveLogSource</code> were moved from SharpHook.Reactive to SharpHook, but they retain their
+namespace.</p>
+</li>
+<li><p>Delegates from <code>SharpHook.Native</code> were moved to <code>SharpHook.Data</code>. The former namespace does not exist anymore.</p>
+</li>
+<li><p><code>GetAutoRepeatRate</code> and <code>GetAutoRepeatDelay</code> were moved from <code>IMouseInfoProvider</code> into a new <code>IKeyboardInfoProvider</code>.</p>
+</li>
+<li><p>Many values across multiple enums in <code>SharpHook.Data</code> were changed, in particular, <code>KeyCode</code>.</p>
+</li>
+<li><p><code>EventType</code> is now <code>ushort</code>. <code>MouseMovedRelativeToCursor</code> was renamed to <code>MouseMovedRelative</code>. <code>MouseDraggedRelative</code>
+was added.</p>
+</li>
+<li><p><code>KeyCode</code>: <code>Vc102</code> was renamed to <code>VcSection</code>. <code>VcKanji</code> and <code>VcHangul</code> were removed – use <code>VcHanja</code> and <code>VcKana</code>
+respectively instead.</p>
+</li>
+<li><p><code>UioHookResult</code>: <code>ErrorPostTextNull</code> was removed and <code>ErrorNull</code> should be used instead.</p>
+</li>
+<li><p><code>globalHookType</code> and <code>runAsyncOnBackgroundThread</code> were dropped from global hook constructors. Instead,
+<code>globalHookType</code> and <code>useBackgroundThread</code> should be passed directly into the <code>Run</code> and <code>RunAsync</code> methods.</p>
+</li>
+<li><p>Constructors in <code>EventSimulator</code>, <code>TestGlobalHook</code>, and <code>TestProvider</code> were merged to use a parameter with a default
+value instead of 2 different constructors.</p>
+</li>
+<li><p><code>IEventSimulator.TextSimulationDelayOnX11</code> and <code>IEventSimulationProvider.PostTextDelayX11</code> were renamed to
+<code>TextSimulationDelayOnLinux</code> and <code>PostTextDelayLinux</code> respectively.</p>
+</li>
+<li><p>All method parameters named <code>e</code> that had the type of <code>UioHookEvent</code> were renamed to <code>@event</code>.</p>
+</li>
+<li><p>The static <code>HookEventArgs.FromEvent</code> method was removed as it was unused.</p>
+</li>
+</ul>
+<h4 id="new-features">New Features</h4>
+<ul>
+<li><p>SharpHook has support for Wayland now, though several features are limited or missing. It also requires elevated
+privileges on Wayland.</p>
+</li>
+<li><p>It's possible to select a Linux backend of libuohook through <code>ILinuxBackendProvider</code>.</p>
+</li>
+<li><p>SharpHook.ReactiveUI – a new package for integration with ReactiveUI.Primitives was added.</p>
+</li>
+<li><p>Support for features that are not available on all platforms can now be queried using <code>IFeatureProvider</code>.</p>
+</li>
+<li><p>Relative mouse movement events were added to global hooks. These events are only raised on Wayland.</p>
+</li>
+<li><p><code>EventLoopGlobalHook</code> can now make its event loop thread a background thread.</p>
+</li>
+</ul>
+<h4 id="bug-fixes">Bug Fixes</h4>
+<ul>
+<li><p><code>EventSimulationSequenceBuilder</code> and <code>EventSimulationSequenceTemplate</code> don't accept events of type <code>KeyTyped</code> and
+<code>MouseClicked</code> anymore – simulating these events was always invalid in libuiohook.</p>
+</li>
+<li><p>Mouse wheel event rotation values were fixed on Windows and Linux again.</p>
+</li>
+<li><p>Logging support was fixed on Linux on ARM64</p>
+</li>
+</ul>
+<h4 id="other-changes">Other Changes</h4>
+<ul>
+<li><p>libuiohook is now at version <a href="https://github.com/TolikPylypchuk/libuiohook/tree/2.0.0">2.0.0</a>. This release and future
+releases of SharpHook will use libuiohook tags instead of raw commits.</p>
+</li>
+<li><p>Observable sequences are not disposed anymore when reactive hooks are disposed, they are only completed.</p>
+</li>
+<li><p>Mouse wheel rotation now uses multiples of 120 on Linux, like on Windows, instead of multiples of 100.</p>
+</li>
+<li><p>The field order in <code>UioHookEvent</code> and <code>MouseWheelEventData</code> was changed to make <code>UioHookEvent</code> take up less space in
+memory.</p>
+</li>
+<li><p>Calling <code>base.BeforeRun</code> and <code>base.AfterStop</code> in custom global hooks is not being recommended anymore.</p>
+</li>
+<li><p>Explicit support for .NET 8 and .NET 9 was dropped, but it's still available via .NET Standard.</p>
+</li>
+<li><p><code>net10.0-maccatalyst</code> was dropped as a TFM from SharpHook.Reactive and SharpHook.R3, as it's not needed for them.</p>
+</li>
+<li><p>SharpHook.Reactive now uses Rx.NET 7, SharpHook.R3 now uses R3 1.3.1.</p>
+</li>
+</ul>
 <h3 id="v713-july-8-2026"><a href="https://github.com/TolikPylypchuk/SharpHook/releases/tag/v7.1.3">v7.1.3</a> (July 8, 2026)</h3>
 <ul>
 <li><p>On macOS, simulating key events now takes physically pressed modifiers into account.</p>
@@ -213,7 +315,7 @@ on Linux.</p>
 </li>
 </ul>
 <h3 id="v700-august-10-2025"><a href="https://github.com/TolikPylypchuk/SharpHook/releases/tag/v7.0.0">v7.0.0</a> (August 10, 2025)</h3>
-<h4 id="breaking-changes">Breaking Changes</h4>
+<h4 id="breaking-changes-1">Breaking Changes</h4>
 <ul>
 <li><p><code>SimpleReactiveGlobalHook</code> was renamed to <code>ReactiveGlobalHook</code>.</p>
 </li>
@@ -227,7 +329,7 @@ extend.</p>
 <li><p><code>ReactiveLogSourceAdapter</code> now contains a single constructor with a default parameter instead of two constructors.</p>
 </li>
 </ul>
-<h4 id="new-features">New Features</h4>
+<h4 id="new-features-1">New Features</h4>
 <ul>
 <li><p>SharpHook.R3 – a new package for integration with R3 was added.</p>
 </li>
@@ -239,11 +341,11 @@ event forms.</p>
 <li><p><code>ReactiveLogSourceAdapter</code> now implements <code>ILogSource</code> in addition to <code>IReactiveLogSource</code>.</p>
 </li>
 </ul>
-<h4 id="bug-fixes">Bug Fixes</h4>
+<h4 id="bug-fixes-1">Bug Fixes</h4>
 <ul>
 <li>On Windows, global hooks now correctly report the key that was pressed or released on non-QWERTY layouts.</li>
 </ul>
-<h4 id="other-changes">Other Changes</h4>
+<h4 id="other-changes-1">Other Changes</h4>
 <ul>
 <li>libuiohook was updated to commit
 <a href="https://github.com/TolikPylypchuk/libuiohook/tree/a2cba5f125072dad8683e812027a561e598c7a37">a2cba5f</a>.</li>
@@ -291,7 +393,7 @@ event loop from version 6) was added. The simple behaviour from version 5 is the
 available through .NET Standard.</p>
 </li>
 </ul>
-<h4 id="breaking-changes-1">Breaking Changes</h4>
+<h4 id="breaking-changes-2">Breaking Changes</h4>
 <ul>
 <li><p>All structs and enums were moved from <code>SharpHook.Native</code> to <code>SharpHook.Data</code>.</p>
 </li>
@@ -316,7 +418,7 @@ that simulates them, they now instead add events into an event loop running on a
 <li><p><code>TestProvider</code> now throws an exception if <code>Run</code> or <code>RunAsync</code> is called and it's already running.</p>
 </li>
 </ul>
-<h4 id="new-features-1">New Features</h4>
+<h4 id="new-features-2">New Features</h4>
 <ul>
 <li><p>The ability to stop global hooks without disposing of them was added.</p>
 </li>
@@ -328,7 +430,7 @@ that simulates them, they now instead add events into an event loop running on a
 <li><p>Running global hooks won't be garbage-collected.</p>
 </li>
 </ul>
-<h4 id="bug-fixes-1">Bug Fixes</h4>
+<h4 id="bug-fixes-2">Bug Fixes</h4>
 <ul>
 <li><p>Getting libuiohook logs on Mac Catalyst applications was fixed.</p>
 </li>
@@ -341,7 +443,7 @@ that simulates them, they now instead add events into an event loop running on a
 <li><p>Disposing a <code>TaskPoolGlobalHook</code> inside an event handler doesn't throw an exception anymore.</p>
 </li>
 </ul>
-<h4 id="other-changes-1">Other Changes</h4>
+<h4 id="other-changes-2">Other Changes</h4>
 <ul>
 <li><p>libuiohook was updated to commit
 <a href="https://github.com/TolikPylypchuk/libuiohook/tree/c61b4863caa7def54349d1426ef431414466f8b9">c61b486</a>.</p>
@@ -506,7 +608,7 @@ which fixes a CPU usage issue on Linux.</li>
 <li><p>Support for Windows on Arm32 was removed.</p>
 </li>
 </ul>
-<h4 id="breaking-changes-2">Breaking Changes</h4>
+<h4 id="breaking-changes-3">Breaking Changes</h4>
 <ul>
 <li><p>Almost all <code>KeyCode</code> values were changed. New codes were added and some were removed. The actual enum values are
 meaningless and may be changed again in the future.</p>
@@ -528,7 +630,7 @@ was added.</p>
 <code>HorizontalDirection</code> to <code>Horizontal</code>.</p>
 </li>
 </ul>
-<h4 id="new-features-2">New Features</h4>
+<h4 id="new-features-3">New Features</h4>
 <ul>
 <li><p>Text entry simulation was added.</p>
 </li>
@@ -543,7 +645,7 @@ was added.</p>
 <li><p>Extension methods for <code>SharpHook.Native.ModifierMask</code> were added.</p>
 </li>
 </ul>
-<h4 id="bug-fixes-2">Bug Fixes</h4>
+<h4 id="bug-fixes-3">Bug Fixes</h4>
 <ul>
 <li><p>Global hooks can now be created and disposed multiple times on Windows without problems.</p>
 </li>
@@ -552,7 +654,7 @@ was added.</p>
 <li><p><code>KeyTyped</code> events are now better at determining which characters should be produced by key presses on Windows.</p>
 </li>
 </ul>
-<h4 id="other-changes-2">Other Changes</h4>
+<h4 id="other-changes-3">Other Changes</h4>
 <ul>
 <li><p>libuiohook was updated to commit
 <a href="https://github.com/TolikPylypchuk/libuiohook/tree/6f42599e28099406d279146de4720110d40be047">6f42599</a>.</p>

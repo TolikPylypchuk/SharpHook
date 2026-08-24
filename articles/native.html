@@ -196,7 +196,7 @@ suppressing them has no effect.</p>
 </div>
 <p><code>IGlobalHookProvider</code> also contains the <code>KeyTypedEnabled</code> property which specifies whether events of type <code>KeyTyped</code> are
 enabled. The default value is <code>false</code> because when these events are enabled, they may cause slight system-wide side
-effects. More information can be found in <a href="os-constraints.html">an article on OS-specific constraints</a>.</p>
+effects. More information can be found in the article on <a href="os-constraints.html">OS-specific constraints</a>.</p>
 <p>On Wayland, <code>KeyTyped</code> events are not suppored at all, so setting this property does nothing. You can query support for
 <code>KeyTyped</code> events with <code>IFeatureProvider.GetOptionalFeatureSupport</code> – if it returns <code>KeyTypedEvents</code> as one of the
 supported features, then these events are supported.</p>

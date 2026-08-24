@@ -209,8 +209,8 @@ formatted result. <code>LogEntry</code> contains properties which can help you w
 <li><code>RawArguments</code> – the arguments of the log message as they appear in the formatted log message.</li>
 <li><code>ArgumentPlaceholders</code> – the placeholders extracted from the native log format (e.g. <code>%d</code> for a number).</li>
 </ul>
-<p><code>String.Format(entry.Format, entry.RawAguments.ToArray())</code> is equal to <code>entry.FullText</code>.</p>
-<p><code>String.Format(entry.Format, entry.Aguments.ToArray())</code> is not necessarily equal to <code>entry.FullText</code> since some
+<p><code>String.Format(entry.Format, entry.RawArguments.ToArray())</code> is equal to <code>entry.FullText</code>.</p>
+<p><code>String.Format(entry.Format, entry.Arguments.ToArray())</code> is not necessarily equal to <code>entry.FullText</code> since some
 formatting information is discarded, but using <code>Arguments</code> instead of <code>RawArguments</code> is better suited for structured
 logging.</p>
 <p><code>Arguments</code> contains parsed message arguments which can be of one of the types listed below, according to the argument

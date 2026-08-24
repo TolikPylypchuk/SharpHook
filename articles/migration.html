@@ -94,6 +94,55 @@ just abstractions over the corresponding classes. As such, when new features are
 low-level functionality providers, these interfaces need to be changed. Technically, this is a breaking change and
 would require bumping the major version. Instead, changes to these interfaces are usually treated as minor version
 updates since they are not expected to break client code.</p>
+<h2 id="version-7-to-8">Version 7 to 8</h2>
+<p>Version 8 contains numerous breaking changes so you will most probably need to change your code to upgrade.</p>
+<p>SharpHook now supports Wayland, and when the Wayland session is used, it does not use the X11 APIs by default anymore.
+You can read more in the article on <a href="os-constraints.html">OS-specific constraints</a>. If you want to restore pre-version 8
+behaviour, call <code>UioHookProvider.Instance.SetLinuxMode(LinuxMode.XRecord)</code> before any other SharpHook usage.</p>
+<p>Another Linux-related changes is that SharpHook now provides 4 libuiohook binaries on Linux - libuiohook.so,
+libuiohook-xrecord.so, libuiohook-x11.so, and libuiohook-wayland.so – all 4 should generally be packaged with your
+application.</p>
+<p>Relative mouse movement events were added to global hooks. These events are only raised on Wayland. If you need to track
+mouse movement, you should subscribe to <code>MouseMovedRelative</code> and <code>MouseDraggedRelative</code> as well as to <code>MouseMoved</code> and
+<code>MouseDragged</code>.</p>
+<p>The <code>UioHook</code> class is now internal. <code>UioHookProvider.Instance</code> should be used instead. Delegates from
+<code>SharpHook.Native</code> were moved to <code>SharpHook.Data</code>. The former namespace does not exist anymore.</p>
+<p><code>TestGlobalHook</code>, <code>TestProvider</code>, and <code>TestThreadingMode</code> were moved to the separate SharpHook.Testing package, so add
+it if you use the test utility classes. The namespace is the same.</p>
+<p><code>KeyTyped</code> events are disabled by default now. Use <code>UioHookProvider.Instance.KeyTypedEnabled = true</code> to enable them.</p>
+<p>All classes and interfaces related to event simulation were moved to the <code>SharpHook.Simulation</code> namespace. On Wayland
+(and the low-level X11 backend), it is required to initialize virtual input devices before simulating events. That's why
+you should use <code>EventSimulator.Create</code> instead of <code>new EventSimulator()</code>. <code>IEventSimulator</code> is now disposable, so you
+must dispose of an <code>EventSimulator</code> to destroy the virtual input devices. <code>EventSimulationSequenceBuilder</code> and
+<code>EventSimulationSequenceTemplate</code> now accept <code>EventSimulator</code> instead of <code>IEventSimulationProvider</code> in their
+constructors though they should rarely be created directly. Their lifetime is now controlled by the owning event
+simulator - when it's disposed, all builders and templates it owns are disposed with it.</p>
+<p><code>EventSimulationSequenceBuilder</code> and <code>EventSimulationSequenceTemplate</code> don't accept events of type <code>KeyTyped</code> and
+<code>MouseClicked</code> anymore – simulating these events was always invalid in libuiohook.</p>
+<p><code>IEventSimulator.TextSimulationDelayOnX11</code> and <code>IEventSimulationProvider.PostTextDelayX11</code> were renamed to
+<code>TextSimulationDelayOnLinux</code> and <code>PostTextDelayLinux</code> respectively.</p>
+<p>Mouse wheel rotation now uses multiples of 120 on Linux, like on Windows, instead of multiples of 100.</p>
+<p><code>IReactiveGlobalHook</code> and <code>IReactiveLogSource</code> were moved from SharpHook.Reactive to SharpHook, but they retain their
+namespace. They were moved because they are implemented in both SharpHook.Reactive and SharpHook.ReactiveUI now.</p>
+<p>SharpHook.Reactive now uses Rx.NET 7, so you need to upgrade to it as well.</p>
+<p><code>GetAutoRepeatRate</code> and <code>GetAutoRepeatDelay</code> were moved from <code>IMouseInfoProvider</code> into a new <code>IKeyboardInfoProvider</code>.</p>
+<p>Many values across multiple enums in <code>SharpHook.Data</code> were changed, in particular, <code>KeyCode</code> - all of its values were
+changed. <code>EventType</code> is now <code>ushort</code>. <code>MouseMovedRelativeToCursor</code> was renamed to <code>MouseMovedRelative</code>.
+<code>MouseDraggedRelative</code> was added. <code>KeyCode.Vc102</code> was renamed to <code>VcSection</code>. <code>KeyCode.VcKanji</code> and <code>KeyCode.VcHangul</code>
+were removed – use <code>VcHanja</code> and <code>VcKana</code> respectively instead. <code>UioHookResult.ErrorPostTextNull</code> was removed and
+<code>ErrorNull</code> should be used instead. New Linux-specific <code>UioHookResult</code> values were added.</p>
+<p><code>globalHookType</code> and <code>runAsyncOnBackgroundThread</code> were dropped from global hook constructors. Instead, <code>globalHookType</code>
+and <code>useBackgroundThread</code> should be passed directly into the <code>Run</code> and <code>RunAsync</code> methods. They were previously passed
+to constructors because global hooks used to be one-time use. Since version 6, this is not the case, so there is no
+reason to pass these values into constructors.</p>
+<p>If you created a custom global hook that overrides <code>BeforeRun</code> and/or <code>AfterStop</code>, then you don't need to call the
+corresponding methods in the base class anymore since they never did anything anyway.</p>
+<p>Constructors in <code>EventSimulator</code>, <code>TestGlobalHook</code>, and <code>TestProvider</code> were merged to use a parameter with a default
+value instead of 2 different constructors. This change doesn't require code changes, only recompilation.</p>
+<p>All method parameters named <code>e</code> that had the type of <code>UioHookEvent</code> were renamed to <code>@event</code>, so if you used named
+parameters in your code, you must update them as well.</p>
+<p>The static <code>HookEventArgs.FromEvent</code> method was removed as it was unused. This method created an instance of
+<code>HookEventArgs</code> or a derived class depending on the type of the event. It's not really useful.</p>
 <h2 id="version-6-to-7">Version 6 to 7</h2>
 <p>Version 7 contains only a couple breaking changes and most of them are in SharpHook.Reactive.</p>
 <p><code>SimpleReactiveGlobalHook</code> was renamed to <code>ReactiveGlobalHook</code>.</p>

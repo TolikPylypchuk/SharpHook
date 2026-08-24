@@ -133,7 +133,7 @@ be used to adapt an instance of <code>TestGlobalHook</code>. If an <code>IR3Glob
 <p>If the low-level functionality of SharpHook should be mocked, or mocking should be pushed as far away as possible,
 then <code>SharpHook.Testing.TestProvider</code> can be used. It implements every interface in the <code>SharpHook.Providers</code> namespace,
 so it can be used instead of normal low-level functionality providers.</p>
-<p>Like <code>TestProvider</code>, this class can post events using the <code>PostEvent</code> method and dispatch them if <code>Run</code> has been
+<p>Like <code>TestGlobalHook</code>, this class can post events using the <code>PostEvent</code> method and dispatch them if <code>Run</code> has been
 called. It also contains the <code>PostedEvents</code> property.</p>
 <p><code>TestProvider</code> can be used with two different threading modes – the simple mode and the event loop mode.</p>
 <p>When running in simple mode (the default mode) the provider will dispatch events immediately in the same thread which
