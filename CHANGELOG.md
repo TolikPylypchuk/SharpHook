@@ -1,5 +1,103 @@
 # SharpHook Changelog
 
+## [v8.0.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v8.0.0) (August 24, 2026)
+
+### Breaking Changes
+
+- When running on Wayland, SharpHook doesn't use X11 APIs by default anymore.
+
+- SharpHook now provides 4 libuiohook binaries on Linux - libuiohook.so, libuiohook-xrecord.so, libuiohook-x11.so, and
+libuiohook-wayland.so – all 4 should generally be packaged with your application.
+
+- The `UioHook` class is now internal – `UioHookProvider.Instance` should be used instead.
+
+- `TestGlobalHook`, `TestProvider`, and `TestThreadingMode` were moved to the separate SharpHook.Testing package.
+
+- `KeyTyped` events are disabled by default now.
+
+- All classes and interfaces related to event simulation were moved to the `SharpHook.Simulation` namespace.
+
+- `IEventSimulator` is now disposable, and instances of `EventSimulator` must be disposed after usage.
+
+- `EventSimulator.Create` should be used instead of `new EventSimulator()`.
+
+- `EventSimulationSequenceBuilder` and `EventSimulationSequenceTemplate` now accept `EventSimulator` instead of
+`IEventSimulationProvider` in their constructors.
+
+- `IReactiveGlobalHook` and `IReactiveLogSource` were moved from SharpHook.Reactive to SharpHook, but they retain their
+namespace.
+
+- Delegates from `SharpHook.Native` were moved to `SharpHook.Data`. The former namespace does not exist anymore.
+
+- `GetAutoRepeatRate` and `GetAutoRepeatDelay` were moved from `IMouseInfoProvider` into a new `IKeyboardInfoProvider`.
+
+- Many values across multiple enums in `SharpHook.Data` were changed, in particular, `KeyCode`.
+
+- `EventType` is now `ushort`. `MouseMovedRelativeToCursor` was renamed to `MouseMovedRelative`. `MouseDraggedRelative`
+was added.
+
+- `KeyCode`: `Vc102` was renamed to `VcSection`. `VcKanji` and `VcHangul` were removed – use `VcHanja` and `VcKana`
+respectively instead.
+
+- `UioHookResult`: `ErrorPostTextNull` was removed and `ErrorNull` should be used instead.
+
+- `globalHookType` and `runAsyncOnBackgroundThread` were dropped from global hook constructors. Instead,
+`globalHookType` and `useBackgroundThread` should be passed directly into the `Run` and `RunAsync` methods.
+
+- Constructors in `EventSimulator`, `TestGlobalHook`, and `TestProvider` were merged to use a parameter with a default
+value instead of 2 different constructors.
+
+- `IEventSimulator.TextSimulationDelayOnX11` and `IEventSimulationProvider.PostTextDelayX11` were renamed to
+`TextSimulationDelayOnLinux` and `PostTextDelayLinux` respectively.
+
+- All method parameters named `e` that had the type of `UioHookEvent` were renamed to `@event`.
+
+- The static `HookEventArgs.FromEvent` method was removed as it was unused.
+
+### New Features
+
+- SharpHook has support for Wayland now, though several features are limited or missing. It also requires elevated
+privileges on Wayland.
+
+- It's possible to select a Linux backend of libuohook through `ILinuxBackendProvider`.
+
+- SharpHook.ReactiveUI – a new package for integration with ReactiveUI.Primitives was added.
+
+- Support for features that are not available on all platforms can now be queried using `IFeatureProvider`.
+
+- Relative mouse movement events were added to global hooks. These events are only raised on Wayland.
+
+- `EventLoopGlobalHook` can now make its event loop thread a background thread.
+
+### Bug Fixes
+
+- `EventSimulationSequenceBuilder` and `EventSimulationSequenceTemplate` don't accept events of type `KeyTyped` and
+`MouseClicked` anymore – simulating these events was always invalid in libuiohook.
+
+- Mouse wheel event rotation values were fixed on Windows and Linux again.
+
+- Logging support was fixed on Linux on ARM64
+
+### Other Changes
+
+- libuiohook is now at version [2.0.0](https://github.com/TolikPylypchuk/libuiohook/tree/2.0.0). This release and future
+releases of SharpHook will use libuiohook tags instead of raw commits.
+
+- Observable sequences are not disposed anymore when reactive hooks are disposed, they are only completed.
+
+- Mouse wheel rotation now uses multiples of 120 on Linux, like on Windows, instead of multiples of 100.
+
+- The field order in `UioHookEvent` and `MouseWheelEventData` was changed to make `UioHookEvent` take up less space in
+memory.
+
+- Calling `base.BeforeRun` and `base.AfterStop` in custom global hooks is not being recommended anymore.
+
+- Explicit support for .NET 8 and .NET 9 was dropped, but it's still available via .NET Standard.
+
+- `net10.0-maccatalyst` was dropped as a TFM from SharpHook.Reactive and SharpHook.R3 it's not needed for them.
+
+- SharpHook.Reactive now uses Rx.NET 7, SharpHook.R3 now uses R3 1.3.1.
+
 ## [v7.1.3](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v7.1.3) (July 8, 2026)
 
 - On macOS, simulating key events now takes physically pressed modifiers into account.
@@ -31,7 +129,7 @@
 - When simulating mouse wheel events on Windows, the rotation value is not flipped anymore if the scrolling direction is
 reversed in settings.
 
-- `KeyCode.VcKanji` and `KeyCode.VcHangul` were marked as obsolete - instead, `KeyCode.VcHanja` and `KeyCode.VcKana`
+- `KeyCode.VcKanji` and `KeyCode.VcHangul` were marked as obsolete – instead, `KeyCode.VcHanja` and `KeyCode.VcKana`
 should be used respectively.
 
 - .NET 10 was added as a target.

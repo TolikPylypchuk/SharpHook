@@ -118,7 +118,7 @@ features, then event suppression is supported.
 
 `IGlobalHookProvider` also contains the `KeyTypedEnabled` property which specifies whether events of type `KeyTyped` are
 enabled. The default value is `false` because when these events are enabled, they may cause slight system-wide side
-effects. More information can be found in [an article on OS-specific constraints](os-constraints.md).
+effects. More information can be found in the article on [OS-specific constraints](os-constraints.md).
 
 On Wayland, `KeyTyped` events are not suppored at all, so setting this property does nothing. You can query support for
 `KeyTyped` events with `IFeatureProvider.GetOptionalFeatureSupport` – if it returns `KeyTypedEvents` as one of the

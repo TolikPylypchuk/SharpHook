@@ -148,9 +148,10 @@ public sealed class UioHookProvider :
     /// </summary>
     /// <returns>The result of the operation.</returns>
     /// <remarks>
-    /// This method makes a difference only on Windows where there are two different global hooks – a keyboard hook and
-    /// a mouse hook. On macOS and Linux, there is one hook for all events, and this method simply filters mouse events
-    /// out at the libuiohook level on these OSes.
+    /// On Windows, there are two different global hooks – a keyboard hook and a mouse hook, so this method only creates
+    /// a keyboard hook. On macOS and Linux, there is one hook for all events, and this enables filtering mouse events
+    /// out on these OSes, though on Wayland, the connection to the compositor will not be established since it's
+    /// needed only for mouse events.
     /// </remarks>
     public UioHookResult RunKeyboard() =>
         UioHook.RunKeyboard();
@@ -160,9 +161,10 @@ public sealed class UioHookProvider :
     /// </summary>
     /// <returns>The result of the operation.</returns>
     /// <remarks>
-    /// This method makes a difference only on Windows where there are two different global hooks – a keyboard hook and
-    /// a mouse hook. On macOS and Linux, there is one hook for all events, and this method simply filters keyboard
-    /// events out at the libuiohook level on these OSes.
+    /// On Windows, there are two different global hooks – a keyboard hook and a mouse hook, so this method only creates
+    /// a mouse hook. On macOS and Linux, there is one hook for all events, and this enables filtering mouse events out
+    /// on these OSes, though on Wayland, the connection to the compositor will also be established since it's needed
+    /// for mouse events.
     /// </remarks>
     public UioHookResult RunMouse() =>
         UioHook.RunMouse();

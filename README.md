@@ -145,10 +145,10 @@ the `EventTime` and `IsEventSimulated` properties respectively.
 > method to set the hook callback for libuiohook, so there may only be one callback at a time. Running a global hook
 > when another global hook is already running will corrupt the internal global state of libuiohook.
 
-You can run a keyboard-only or a mouse-only hook by passing a `GlobalHookType` to the hook's `Run` and `RunAsync`
-methods. This makes a real difference only on Windows where there are two different global hooks – a keyboard hook and a
-mouse hook. On macOS and Linux, there is one hook for all events, and this simply enables filtering keyboard or mouse
-events out on these OSes.
+You can create a keyboard-only or a mouse-only hook by passing a `GlobalHookType` to `Run` or `RunAsync`. On Windows,
+there are two different global hooks – a keyboard hook and a mouse hook. On macOS and Linux, there is one hook for all
+events, and this enables filtering keyboard or mouse events out on these OSes, though on Wayland, the connection to the
+compositor will be established only if mouse events are enabled since they need to know the screen size and bounds.
 
 On Wayland, absolute mouse position is usually not available, so you should subscribe to the `MouseMovedRelative` and
 `MouseDraggedRelative` in addition to `MouseMoved` and `MouseDragged` if you want to listen to mouse movement. On other
@@ -549,12 +549,13 @@ I'm not giving up on this library any time soon.
 ## Building from Source
 
 In order to build this library, you'll first need to get libuiohook binaries. You you can get a
-[nightly build from this repository](https://github.com/TolikPylypchuk/SharpHook/actions/workflows/build.yml), or you
-can build them yourself as instructed in the [libuiohook fork](https://github.com/TolikPylypchuk/libuiohook) that
-SharpHook uses – you should most probably use the same build steps as specified in SharpHook's GitHub Actions
-definition.
+[nightly build from this repository](https://github.com/TolikPylypchuk/SharpHook/actions/workflows/build.yml), you can
+extract them from the SharpHook package, or you can build them yourself as instructed in the
+[libuiohook fork](https://github.com/TolikPylypchuk/libuiohook) that SharpHook uses – you should most probably use the
+same build steps as specified in SharpHook's GitHub Actions definition.
 
-Place the binaries into the appropriate directories in the `SharpHook` project, as described in the following table:
+Place the binaries into the appropriate directories in the `SharpHook` project, as described in the following table.
+Note that on Linux, there are four libuiohook files per platform.
 
 <table>
   <tr>
@@ -589,8 +590,12 @@ Place the binaries into the appropriate directories in the `SharpHook` project, 
   </tr>
 </table>
 
-Note that on Linux, there are four libuiohook files per platform. With libuiohook in place, you can build SharpHook
-using your usual methods, e.g. with Visual Studio or the `dotnet` CLI. You need .NET 10 to build SharpHook.
+
+With libuiohook in place, you can build SharpHook using your usual methods, e.g. with Visual Studio or the `dotnet` CLI.
+You need .NET 10 with the `maccatalyst` workload to build SharpHook. If you are building on Linux where the
+`maccatalyst` workload is not supported, or if you don't want to install it, you can set the
+`SHARPHOOK_SKIP_MACCATALYST` environment variable to anything other than `false` (case-insensitive), and the Mac
+Catalyst targets will be skipped.
 
 ## Icon
 

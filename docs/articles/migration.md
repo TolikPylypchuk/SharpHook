@@ -9,6 +9,76 @@ low-level functionality providers, these interfaces need to be changed. Technica
 would require bumping the major version. Instead, changes to these interfaces are usually treated as minor version
 updates since they are not expected to break client code.
 
+## Version 7 to 8
+
+Version 8 contains numerous breaking changes so you will most probably need to change your code to upgrade.
+
+SharpHook now supports Wayland, and when the Wayland session is used, it does not use the X11 APIs by default anymore.
+You can read more in the article on [OS-specific constraints](os-constraints.md). If you want to restore pre-version 8
+behaviour, call `UioHookProvider.Instance.SetLinuxMode(LinuxMode.XRecord)` before any other SharpHook usage.
+
+Another Linux-related changes is that SharpHook now provides 4 libuiohook binaries on Linux - libuiohook.so,
+libuiohook-xrecord.so, libuiohook-x11.so, and libuiohook-wayland.so – all 4 should generally be packaged with your
+application.
+
+Relative mouse movement events were added to global hooks. These events are only raised on Wayland. If you need to track
+mouse movement, you should subscribe to `MouseMovedRelative` and `MouseDraggedRelative` as well as to `MouseMoved` and
+`MouseDragged`.
+
+The `UioHook` class is now internal. `UioHookProvider.Instance` should be used instead. Delegates from
+`SharpHook.Native` were moved to `SharpHook.Data`. The former namespace does not exist anymore.
+
+`TestGlobalHook`, `TestProvider`, and `TestThreadingMode` were moved to the separate SharpHook.Testing package, so add
+it if you use the test utility classes. The namespace is the same.
+
+`KeyTyped` events are disabled by default now. Use `UioHookProvider.Instance.KeyTypedEnabled = true` to enable them.
+
+All classes and interfaces related to event simulation were moved to the `SharpHook.Simulation` namespace. On Wayland
+(and the low-level X11 backend), it is required to initialize virtual input devices before simulating events. That's why
+you should use `EventSimulator.Create` instead of `new EventSimulator()`. `IEventSimulator` is now disposable, so you
+must dispose of an `EventSimulator` to destroy the virtual input devices. `EventSimulationSequenceBuilder` and
+`EventSimulationSequenceTemplate` now accept `EventSimulator` instead of `IEventSimulationProvider` in their
+constructors though they should rarely be created directly. Their lifetime is now controlled by the owning event
+simulator - when it's disposed, all builders and templates it owns are disposed with it.
+
+`EventSimulationSequenceBuilder` and `EventSimulationSequenceTemplate` don't accept events of type `KeyTyped` and
+`MouseClicked` anymore – simulating these events was always invalid in libuiohook.
+
+`IEventSimulator.TextSimulationDelayOnX11` and `IEventSimulationProvider.PostTextDelayX11` were renamed to
+`TextSimulationDelayOnLinux` and `PostTextDelayLinux` respectively.
+
+Mouse wheel rotation now uses multiples of 120 on Linux, like on Windows, instead of multiples of 100.
+
+`IReactiveGlobalHook` and `IReactiveLogSource` were moved from SharpHook.Reactive to SharpHook, but they retain their
+namespace. They were moved because they are implemented in both SharpHook.Reactive and SharpHook.ReactiveUI now.
+
+SharpHook.Reactive now uses Rx.NET 7, so you need to upgrade to it as well.
+
+`GetAutoRepeatRate` and `GetAutoRepeatDelay` were moved from `IMouseInfoProvider` into a new `IKeyboardInfoProvider`.
+
+Many values across multiple enums in `SharpHook.Data` were changed, in particular, `KeyCode` - all of its values were
+changed. `EventType` is now `ushort`. `MouseMovedRelativeToCursor` was renamed to `MouseMovedRelative`.
+`MouseDraggedRelative` was added. `KeyCode.Vc102` was renamed to `VcSection`. `KeyCode.VcKanji` and `KeyCode.VcHangul`
+were removed – use `VcHanja` and `VcKana` respectively instead. `UioHookResult.ErrorPostTextNull` was removed and
+`ErrorNull` should be used instead. New Linux-specific `UioHookResult` values were added.
+
+`globalHookType` and `runAsyncOnBackgroundThread` were dropped from global hook constructors. Instead, `globalHookType`
+and `useBackgroundThread` should be passed directly into the `Run` and `RunAsync` methods. They were previously passed
+to constructors because global hooks used to be one-time use. Since version 6, this is not the case, so there is no
+reason to pass these values into constructors.
+
+If you created a custom global hook that overrides `BeforeRun` and/or `AfterStop`, then you don't need to call the
+corresponding methods in the base class anymore since they never did anything anyway.
+
+Constructors in `EventSimulator`, `TestGlobalHook`, and `TestProvider` were merged to use a parameter with a default
+value instead of 2 different constructors. This change doesn't require code changes, only recompilation.
+
+All method parameters named `e` that had the type of `UioHookEvent` were renamed to `@event`, so if you used named
+parameters in your code, you must update them as well.
+
+The static `HookEventArgs.FromEvent` method was removed as it was unused. This method created an instance of
+`HookEventArgs` or a derived class depending on the type of the event. It's not really useful.
+
 ## Version 6 to 7
 
 Version 7 contains only a couple breaking changes and most of them are in SharpHook.Reactive.

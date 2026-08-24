@@ -198,6 +198,9 @@ public interface IEventSimulator : IStatefulDisposable
     /// jarring to end users. <see cref="TextSimulationDelayOnLinux" /> can also be used to get the currently configured
     /// delay – the default is 50 milliseconds.
     /// </para>
+    /// <para>
+    /// On Wayland, text simulation is not supported.
+    /// </para>
     /// </remarks>
     /// <exception cref="ArgumentNullException"><paramref name="text" /> is <see langword="null" />.</exception>
     UioHookResult SimulateTextEntry(string text);
