@@ -66,7 +66,7 @@ to handle the events through schedulers. A default scheduler can be specified fo
 subscriptions and changes are propagated to the adapted hook. There is no default adapter from `IReactiveGlobalHook`
 to `IGlobalHook`. A default scheduler can be specified for all observables.
 
-#### ReactiveUI.Primitives
+## ReactiveUI.Primitives
 
 If you're using [ReactiveUI.Primitives](https://github.com/reactiveui/Primitives), you can use the SharpHook.ReactiveUI
 package to integrate SharpHook with it.
@@ -100,9 +100,6 @@ hook.Run();
 // or
 await hook.RunAsync();
 ```
-
-Note that SharpHook.R3 uses its own interface instead of implementing `IReactiveGlobalHook` since R3's implementation is
-incompatible with the interface.
 
 The observables for events emit the `EventArgs`-derived types which are the same as in the events of `IGlobalHook`.
 
@@ -164,6 +161,9 @@ hook.Run();
 // or
 await hook.RunAsync();
 ```
+
+Note that SharpHook.R3 uses its own interface instead of implementing `IReactiveGlobalHook` since R3's implementation is
+incompatible with the interface.
 
 The observables for events emit the `EventArgs`-derived types which are the same as in the events of `IGlobalHook`.
 

@@ -61,7 +61,7 @@ If the low-level functionality of SharpHook should be mocked, or mocking should 
 then `SharpHook.Testing.TestProvider` can be used. It implements every interface in the `SharpHook.Providers` namespace,
 so it can be used instead of normal low-level functionality providers.
 
-Like `TestProvider`, this class can post events using the `PostEvent` method and dispatch them if `Run` has been
+Like `TestGlobalHook`, this class can post events using the `PostEvent` method and dispatch them if `Run` has been
 called. It also contains the `PostedEvents` property.
 
 `TestProvider` can be used with two different threading modes – the simple mode and the event loop mode.

@@ -334,7 +334,7 @@ example:
 using SharpHook;
 using SharpHook.Data;
 
-using var simulator = EventSimulator.Create("You application name");
+using var simulator = EventSimulator.Create("Your application name");
 
 // Press Ctrl+C
 simulator.SimulateKeyPress(KeyCode.VcLeftControl);
@@ -548,7 +548,7 @@ I'm not giving up on this library any time soon.
 
 ## Building from Source
 
-In order to build this library, you'll first need to get libuiohook binaries. You you can get a
+In order to build this library, you'll first need to get libuiohook binaries. You can get a
 [nightly build from this repository](https://github.com/TolikPylypchuk/SharpHook/actions/workflows/build.yml), you can
 extract them from the SharpHook package, or you can build them yourself as instructed in the
 [libuiohook fork](https://github.com/TolikPylypchuk/libuiohook) that SharpHook uses – you should most probably use the

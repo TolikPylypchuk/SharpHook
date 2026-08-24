@@ -1477,7 +1477,7 @@ public sealed class TestGlobalHookWithEventLoopTests
     }
 
     [Property(DisplayName = "Text simulation delay should be settable through the property")]
-    public void TextSimulationDelayOnX11(TimeSpan delay)
+    public void TextSimulationDelayOnLinux(TimeSpan delay)
     {
         // Arrange
 

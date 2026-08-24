@@ -21,7 +21,7 @@ Sources:
       <th>macOS Key Code</th>
       <th>X11 Key Name</th>
       <th>Evdev Key Definition</th>
-    <tr>
+    </tr>
   </thead>
   <tbody>
     <tr>
@@ -561,7 +561,7 @@ Sources:
       <td><code>VK_OEM_2</code></td>
       <td><code>kVK_ANSI_Slash</code></td>
       <td><code>AB10</code></td>
-      <td><code>KEY_DOT</code></td>
+      <td><code>KEY_SLASH</code></td>
     </tr>
     <tr>
       <td><code>VcSpace</code></td>
@@ -797,9 +797,9 @@ Sources:
     <tr>
       <td><code>VcNumPad5</code></td>
       <td><code>VK_NUMPAD5</code></td>
-      <td><code>kVK_ANSI_Keypad6</code></td>
-      <td><code>KP6</code></td>
-      <td><code>KEY_KP6</code></td>
+      <td><code>kVK_ANSI_Keypad5</code></td>
+      <td><code>KP5</code></td>
+      <td><code>KEY_KP5</code></td>
     </tr>
     <tr>
       <td><code>VcNumPad6</code></td>
@@ -1207,5 +1207,5 @@ Sources:
       <td><code>JPCM</code></td>
       <td><code>KEY_KPJPCOMMA</code></td>
     </tr>
-  <tbody>
+  </tbody>
 </table>

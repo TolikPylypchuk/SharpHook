@@ -22,8 +22,8 @@ public sealed class SimpleGlobalHook : GlobalHookBase
         : base(globalHookProvider)
     { }
 
-    protected override void HandleHookEvent(ref UioHookEvent e) =>
-        this.DispatchEvent(ref e);
+    protected override void HandleHookEvent(ref UioHookEvent @event) =>
+        this.DispatchEvent(ref @event);
 }
 ```
 
@@ -60,8 +60,8 @@ event type:
 ```csharp
 public sealed class StraightforwardGlobalHook : BasicGlobalHookBase
 {
-    protected override void HandleHookEvent(ref UioHookEvent e) =>
-        this.HookEvent?.Invoke(this, e);
+    protected override void HandleHookEvent(ref UioHookEvent @event) =>
+        this.HookEvent?.Invoke(this, @event);
 
     public event EventHandler<UioHookEvent>? HookEvent;
 }

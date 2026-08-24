@@ -94,7 +94,7 @@ memory.
 
 - Explicit support for .NET 8 and .NET 9 was dropped, but it's still available via .NET Standard.
 
-- `net10.0-maccatalyst` was dropped as a TFM from SharpHook.Reactive and SharpHook.R3 it's not needed for them.
+- `net10.0-maccatalyst` was dropped as a TFM from SharpHook.Reactive and SharpHook.R3, as it's not needed for them.
 
 - SharpHook.Reactive now uses Rx.NET 7, SharpHook.R3 now uses R3 1.3.1.
 

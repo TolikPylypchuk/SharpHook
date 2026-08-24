@@ -9,7 +9,7 @@ I'm not giving up on this library any time soon.
 
 ## Building from Source
 
-In order to build this library, you'll first need to get libuiohook binaries. You you can get a
+In order to build this library, you'll first need to get libuiohook binaries. You can get a
 [nightly build from this repository](https://github.com/TolikPylypchuk/SharpHook/actions/workflows/build.yml), you can
 extract them from the SharpHook package, or you can build them yourself as instructed in the
 [libuiohook fork](https://github.com/TolikPylypchuk/libuiohook) that SharpHook uses – you should most probably use the
@@ -154,7 +154,7 @@ memory.
 
 - Explicit support for .NET 8 and .NET 9 was dropped, but it's still available via .NET Standard.
 
-- `net10.0-maccatalyst` was dropped as a TFM from SharpHook.Reactive and SharpHook.R3 it's not needed for them.
+- `net10.0-maccatalyst` was dropped as a TFM from SharpHook.Reactive and SharpHook.R3, as it's not needed for them.
 
 - SharpHook.Reactive now uses Rx.NET 7, SharpHook.R3 now uses R3 1.3.1.
 

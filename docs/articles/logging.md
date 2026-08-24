@@ -168,9 +168,9 @@ formatted result. `LogEntry` contains properties which can help you with that:
 - `RawArguments` – the arguments of the log message as they appear in the formatted log message.
 - `ArgumentPlaceholders` – the placeholders extracted from the native log format (e.g. `%d` for a number).
 
-`String.Format(entry.Format, entry.RawAguments.ToArray())` is equal to `entry.FullText`.
+`String.Format(entry.Format, entry.RawArguments.ToArray())` is equal to `entry.FullText`.
 
-`String.Format(entry.Format, entry.Aguments.ToArray())` is not necessarily equal to `entry.FullText` since some
+`String.Format(entry.Format, entry.Arguments.ToArray())` is not necessarily equal to `entry.FullText` since some
 formatting information is discarded, but using `Arguments` instead of `RawArguments` is better suited for structured
 logging.
 

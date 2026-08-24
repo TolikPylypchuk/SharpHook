@@ -20,7 +20,7 @@ Input event simulation is quite straightforward. Here's a quick example:
 using SharpHook;
 using SharpHook.Data;
 
-using var simulator = EventSimulator.Create("You application name");
+using var simulator = EventSimulator.Create("Your application name");
 
 // Press Ctrl+C
 simulator.SimulateKeyPress(KeyCode.VcLeftControl);
