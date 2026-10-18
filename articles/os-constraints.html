@@ -125,9 +125,15 @@ be dependent on this package, then you can use the <code>EmptyLogSource</code> c
 your app. <code>EmptyLogSource</code> implements <code>ILogSource</code>, but never raises the <code>MessageLogged</code> event and doesn't subscribe to
 libuiohook logs.</p>
 <h3 id="dpi-awareness">DPI Awareness</h3>
-<p>An application manifest is required on Windows to enable DPI awareness for your app. If it's not enabled then mouse
+<p>An application manifest is required on Windows to enable DPI awareness for your app. If it's not enabled, then mouse
 coordinates will be wrong on high-DPI screens. You can look at the sample app in the SharpHook repository to see the
 manifest example.</p>
+<h3 id="security-limitations">Security Limitations</h3>
+<p>On Windows, global hooks cannot receive events from elevated processes if the they are running in non-elevated
+processes. This is a security feature of Windows, and it cannot be overridden.</p>
+<p>Also, certain key combinations cannot be suppressed by global hooks, for example,
+<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd>, <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Esc</kbd>, or
+<kbd>Win</kbd>+<kbd>L</kbd>.</p>
 <h3 id="text-entry-simulation">Text Entry Simulation</h3>
 <p>On Windows, text simulation should work correctly and consistently.</p>
 <h2 id="macos">macOS</h2>
@@ -240,17 +246,51 @@ info.</p>
 <p>This does not mean that <code>root</code> access is needed – there are other ways to achieve this. If you decide to run your
 application as <code>root</code> anyway, then bear in mind that you will need to pass the existing connection to a Wayland
 compositor or an X11 display to your application since it won't have those by default.</p>
-<p>Another way to get the necessary permissions is to create a udev rule which grants them to your user. This is
-recommended for development as it simplifies your workflow, but this also grants permissions to read and write input
-events globally to all applications that you run, so it kind of defeats Wayland's security model.</p>
-<p>Alternatively, you can add your user to the <code>input</code> group, but it's not recommended since udev rules are a more modern
-alternative, and the <code>input</code> group does not cover access to <code>/dev/uinput</code> anyway.</p>
+<p>The following subsections describe ways to get the necessary permissions for your application without running it as
+<code>root</code>.</p>
 <div class="IMPORTANT">
 <h5>Important</h5>
 <p>This article does not cover all possible ways to run your application with the necessary permissions as this is out of
 scope of SharpHook. You need to decide for yourself which permission model works for your application.</p>
 </div>
-<p>As an example, here's what's needed to grant permissions using udev rules to the currently logged in user.</p>
+<h4 id="dedicated-system-group">Dedicated System Group</h4>
+<p>One way to get the necessary permissions is to do the following:</p>
+<ul>
+<li>Create a dedicated system group for your application, e.g., <code>your-app</code>.</li>
+<li>Add a udev rule which grants access to <code>/dev/input</code> and <code>/dev/uinput</code> to the <code>your-app</code> group.</li>
+<li>Assign the <code>your-app</code> group to the executable file of your application and have it be executed under that group.</li>
+</ul>
+<p>As an example, here are the steps needed to do this for your application (substituting <code>[your-app]</code> with the name of
+your choice):</p>
+<ol>
+<li>Create a system group named <code>your-app</code> (or do nothing if the group already exists):</li>
+</ol>
+<pre><code class="lang-sh">getent group [your-app] &amp;&gt;/dev/null || sudo groupadd --system [your-app]
+</code></pre>
+<ol start="2">
+<li>Assign the <code>your-app</code> group to the executable file of your application and have it be executed under that group:</li>
+</ol>
+<pre><code class="lang-sh">sudo chown root:[your-app] /path/to/app
+sudo chmod g+s /path/to/app
+</code></pre>
+<ol start="3">
+<li>Create a file named <code>/etc/udev/rules.d/99-[your-app].rules</code> with the following content:</li>
+</ol>
+<pre><code>SUBSYSTEM==&quot;input&quot;, KERNEL==&quot;event*&quot;, RUN+=&quot;/usr/bin/setfacl -m g:[your-app]:rw \$env{DEVNAME}&quot;
+SUBSYSTEM==&quot;misc&quot;, KERNEL==&quot;uinput&quot;, RUN+=&quot;/usr/bin/setfacl -m g:[your-app]:rw \$env{DEVNAME}&quot;
+</code></pre>
+<ol start="4">
+<li>Reload udev rules to apply the changes:</li>
+</ol>
+<pre><code class="lang-sh">sudo udevadm control --reload-rules &amp;&amp; sudo udevadm trigger
+</code></pre>
+<p>Note that running <code>/usr/bin/setfacl</code> requires the <code>acl</code> package to be installed in your system. It is usually already
+installed since it's a dependency of <code>systemd</code>, but if it's not, then you can install it using your package manager.</p>
+<h4 id="granting-permissions-to-the-current-user">Granting Permissions to the Current User</h4>
+<p>Another way to get the necessary permissions is to create a udev rule which grants them to your user. This is
+convenient for development as it simplifies your workflow, but this also grants permissions to read and write input
+events globally to all applications that you run, so it kind of defeats Wayland's security model.</p>
+<p>As an example, here are the steps needed to do this for your user.</p>
 <ol>
 <li>Create a file named <code>/etc/udev/rules.d/70-[your-app].rules</code> (substituting <code>[your-app]</code> with the name of your choice)
 with the following content:</li>
@@ -263,18 +303,18 @@ KERNEL==&quot;uinput&quot;, SUBSYSTEM==&quot;misc&quot;, TAG+=&quot;uaccess&quot
 LABEL=&quot;app_end&quot;
 </code></pre>
 <ol start="2">
-<li>Run the following command in the terminal:</li>
+<li>Reload udev rules to apply the changes:</li>
 </ol>
 <pre><code class="lang-sh">sudo udevadm control --reload-rules &amp;&amp; sudo udevadm trigger
 </code></pre>
 <p>The filename must start with a number less than 73, because udev rules are applied in order, and rule 73 applies
-permissions for the uaccess tag.</p>
-<p>Note that this is just an example that can be used to quickstart development on Wayland, or the low-level X11 backend.
-As stated above, you must decide how to grant permissions to your application on your own.</p>
+permissions for the <code>uaccess</code> tag.</p>
+<p>Alternatively, you can add your user to the <code>input</code> group, but it's not recommended since udev rules are a more modern
+alternative, and the <code>input</code> group does not cover access to <code>/dev/uinput</code> anyway.</p>
 <h3 id="virtual-input-devices">Virtual Input Devices</h3>
 <p>On the Wayland and the low-level X11 backend, virtual input devices are required to write events to <code>/dev/uinput</code>. They
 are initialized automatically when creating an instance of <code>EventSimulator</code>, but if you use low-level functionality
-providers, then you must initialize and destroy them yourself using methods <code>IEventSimulationProvider</code>.</p>
+providers, then you must initialize and destroy them yourself using methods in <code>IEventSimulationProvider</code>.</p>
 <h3 id="keytyped-events-2"><code>KeyTyped</code> Events</h3>
 <p>It is recommended not to enable events of type <code>KeyTyped</code> if they are unused since these events interfere with Chinese
 input methods on Linux.</p>
