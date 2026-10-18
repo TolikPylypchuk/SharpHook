@@ -58,9 +58,10 @@ propagation by setting the `SuppressEvent` property to `true` inside the event h
 and is only supported on Windows and macOS. You can check the event time and whether the event is real or simulated with
 the `EventTime` and `IsEventSimulated` properties respectively.
 
-> **Important**: Always use one instance of `IGlobalHook` at a time in the entire application since they all must use the
-> same static method to set the hook callback for libuiohook, so there may only be one callback at a time. Running a
-> global hook when another global hook is already running will corrupt the internal global state of libuiohook.
+> [!IMPORTANT]
+> Always use one instance of `IGlobalHook` at a time in the entire application since they all must use the same static
+> method to set the hook callback for libuiohook, so there may only be one callback at a time. Running a global hook
+> when another global hook is already running will corrupt the internal global state of libuiohook.
 
 You can create a keyboard-only or a mouse-only hook by passing a `GlobalHookType` to `Run` or `RunAsync`. On Windows,
 there are two different global hooks – a keyboard hook and a mouse hook. On macOS and Linux, there is one hook for all

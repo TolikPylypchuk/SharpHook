@@ -60,6 +60,14 @@ Catalyst targets will be skipped.
 
 ## Changelog
 
+### [v8.0.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v8.0.1) (October 18, 2026)
+
+- SharpHook can now run on versions of Linux with glibc older than 2.38.
+
+- SharpHook.ReactiveUI now depends on ReactiveUI.Primitives 9.0.0.
+
+- libuiohook is now at version [2.0.1](https://github.com/TolikPylypchuk/libuiohook/tree/2.0.1).
+
 ### [v8.0.0](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v8.0.0) (August 24, 2026)
 
 #### Breaking Changes

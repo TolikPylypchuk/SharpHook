@@ -1,11 +1,5 @@
 # SharpHook
 
-[![NuGet](https://img.shields.io/nuget/v/SharpHook.svg?label=SharpHook)](https://www.nuget.org/packages/SharpHook)
-[![NuGet](https://img.shields.io/nuget/v/SharpHook.Reactive.svg?label=SharpHook.Reactive)](https://www.nuget.org/packages/SharpHook.Reactive)
-[![NuGet](https://img.shields.io/nuget/v/SharpHook.ReactiveUI.svg?label=SharpHook.ReactiveUI)](https://www.nuget.org/packages/SharpHook.ReactiveUI)
-[![NuGet](https://img.shields.io/nuget/v/SharpHook.R3.svg?label=SharpHook.R3)](https://www.nuget.org/packages/SharpHook.R3)
-[![NuGet](https://img.shields.io/nuget/v/SharpHook.Testing.svg?label=SharpHook.Testing)](https://www.nuget.org/packages/SharpHook.Testing)
-
 SharpHook provides a cross-platform global keyboard and mouse hook, event simulation, and text entry simulation for
 .NET. It is a wrapper of [libuiohook](https://github.com/TolikPylypchuk/libuiohook) and provides direct access to its
 features as well as higher-level types to work with it.
@@ -19,6 +13,33 @@ dotnet add package SharpHook.ReactiveUI
 dotnet add package SharpHook.R3
 dotnet add package SharpHook.Testing
 ```
+
+<table>
+  <tr>
+    <th>Package</th>
+    <th>NuGet</th>
+  </tr>
+  <tr>
+    <td>SharpHook</td>
+    <td>[![NuGet](https://img.shields.io/nuget/v/SharpHook.svg)](https://www.nuget.org/packages/SharpHook)</td>
+  </tr>
+  <tr>
+    <td>SharpHook.Reactive</td>
+    <td>[![NuGet](https://img.shields.io/nuget/v/SharpHook.Reactive.svg)](https://www.nuget.org/packages/SharpHook.Reactive)</td>
+  </tr>
+  <tr>
+    <td>SharpHook.ReactiveUI</td>
+    <td>[![NuGet](https://img.shields.io/nuget/v/SharpHook.ReactiveUI.svg)](https://www.nuget.org/packages/SharpHook.ReactiveUI)</td>
+  </tr>
+  <tr>
+    <td>SharpHook.R3</td>
+    <td>[![NuGet](https://img.shields.io/nuget/v/SharpHook.R3.svg)](https://www.nuget.org/packages/SharpHook.R3)</td>
+  </tr>
+  <tr>
+    <td>SharpHook.Testing</td>
+    <td>[![NuGet](https://img.shields.io/nuget/v/SharpHook.Testing.svg)](https://www.nuget.org/packages/SharpHook.Testing)</td>
+  </tr>
+</table>
 
 ## Upgrading
 

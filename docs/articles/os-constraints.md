@@ -47,9 +47,18 @@ libuiohook logs.
 
 ### DPI Awareness
 
-An application manifest is required on Windows to enable DPI awareness for your app. If it's not enabled then mouse
+An application manifest is required on Windows to enable DPI awareness for your app. If it's not enabled, then mouse
 coordinates will be wrong on high-DPI screens. You can look at the sample app in the SharpHook repository to see the
 manifest example.
+
+### Security Limitations
+
+On Windows, global hooks cannot receive events from elevated processes if the they are running in non-elevated
+processes. This is a security feature of Windows, and it cannot be overridden.
+
+Also, certain key combinations cannot be suppressed by global hooks, for example,
+<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd>, <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Esc</kbd>, or
+<kbd>Win</kbd>+<kbd>L</kbd>.
 
 ### Text Entry Simulation
 
@@ -203,18 +212,59 @@ This does not mean that `root` access is needed – there are other ways to achi
 application as `root` anyway, then bear in mind that you will need to pass the existing connection to a Wayland
 compositor or an X11 display to your application since it won't have those by default.
 
-Another way to get the necessary permissions is to create a udev rule which grants them to your user. This is
-recommended for development as it simplifies your workflow, but this also grants permissions to read and write input
-events globally to all applications that you run, so it kind of defeats Wayland's security model.
-
-Alternatively, you can add your user to the `input` group, but it's not recommended since udev rules are a more modern
-alternative, and the `input` group does not cover access to `/dev/uinput` anyway.
+The following subsections describe ways to get the necessary permissions for your application without running it as
+`root`.
 
 > [!IMPORTANT]
 > This article does not cover all possible ways to run your application with the necessary permissions as this is out of
 > scope of SharpHook. You need to decide for yourself which permission model works for your application.
 
-As an example, here's what's needed to grant permissions using udev rules to the currently logged in user.
+#### Dedicated System Group
+
+One way to get the necessary permissions is to do the following:
+- Create a dedicated system group for your application, e.g., `your-app`.
+- Add a udev rule which grants access to `/dev/input` and `/dev/uinput` to the `your-app` group.
+- Assign the `your-app` group to the executable file of your application and have it be executed under that group.
+
+As an example, here are the steps needed to do this for your application (substituting `[your-app]` with the name of
+your choice):
+
+1. Create a system group named `your-app` (or do nothing if the group already exists):
+
+```sh
+getent group [your-app] &>/dev/null || sudo groupadd --system [your-app]
+```
+
+2. Assign the `your-app` group to the executable file of your application and have it be executed under that group:
+
+```sh
+sudo chown root:[your-app] /path/to/app
+sudo chmod g+s /path/to/app
+```
+
+3. Create a file named `/etc/udev/rules.d/99-[your-app].rules` with the following content:
+
+```
+SUBSYSTEM=="input", KERNEL=="event*", RUN+="/usr/bin/setfacl -m g:[your-app]:rw \$env{DEVNAME}"
+SUBSYSTEM=="misc", KERNEL=="uinput", RUN+="/usr/bin/setfacl -m g:[your-app]:rw \$env{DEVNAME}"
+```
+
+4. Reload udev rules to apply the changes:
+
+```sh
+sudo udevadm control --reload-rules && sudo udevadm trigger
+```
+
+Note that running `/usr/bin/setfacl` requires the `acl` package to be installed in your system. It is usually already
+installed since it's a dependency of `systemd`, but if it's not, then you can install it using your package manager.
+
+#### Granting Permissions to the Current User
+
+Another way to get the necessary permissions is to create a udev rule which grants them to your user. This is
+convenient for development as it simplifies your workflow, but this also grants permissions to read and write input
+events globally to all applications that you run, so it kind of defeats Wayland's security model.
+
+As an example, here are the steps needed to do this for your user.
 
 1. Create a file named `/etc/udev/rules.d/70-[your-app].rules` (substituting `[your-app]` with the name of your choice)
 with the following content:
@@ -228,23 +278,23 @@ KERNEL=="uinput", SUBSYSTEM=="misc", TAG+="uaccess"
 LABEL="app_end"
 ```
 
-2. Run the following command in the terminal:
+2. Reload udev rules to apply the changes:
 
 ```sh
 sudo udevadm control --reload-rules && sudo udevadm trigger
 ```
 
 The filename must start with a number less than 73, because udev rules are applied in order, and rule 73 applies
-permissions for the uaccess tag.
+permissions for the `uaccess` tag.
 
-Note that this is just an example that can be used to quickstart development on Wayland, or the low-level X11 backend.
-As stated above, you must decide how to grant permissions to your application on your own.
+Alternatively, you can add your user to the `input` group, but it's not recommended since udev rules are a more modern
+alternative, and the `input` group does not cover access to `/dev/uinput` anyway.
 
 ### Virtual Input Devices
 
 On the Wayland and the low-level X11 backend, virtual input devices are required to write events to `/dev/uinput`. They
 are initialized automatically when creating an instance of `EventSimulator`, but if you use low-level functionality
-providers, then you must initialize and destroy them yourself using methods `IEventSimulationProvider`.
+providers, then you must initialize and destroy them yourself using methods in `IEventSimulationProvider`.
 
 ### `KeyTyped` Events
 
