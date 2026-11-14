@@ -1,5 +1,13 @@
 # SharpHook Changelog
 
+## [v8.0.2](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v8.0.2) (November 14, 2026)
+
+- Event masks are now correct on macOS when Secure Input is enabled.
+
+- .NET 11 was added as a target.
+
+- libuiohook is now at version [2.0.2](https://github.com/TolikPylypchuk/libuiohook/tree/2.0.2).
+
 ## [v8.0.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v8.0.1) (October 18, 2026)
 
 - SharpHook can now run on versions of Linux with glibc older than 2.38.

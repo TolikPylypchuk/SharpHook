@@ -88,6 +88,12 @@ simulate events. If the Accessiblity API access is not enabled, then `Run` and `
 It is recommended not to enable events of type `KeyTyped` if they are unused even though they cause no known system-wide
 side effects on macOS.
 
+### Secure Input
+
+If Secure Input is enabled, then global hooks will not receive most keyboard events. This is a security feature which
+prevents processes from receiving keyboard events when it's enabled, e.g., when entering passwords, so there is no way
+around it.
+
 ### Main Run-Loop
 
 On macOS, running the global hook requires that the main run-loop be present. libuiohook takes care of it if the hook

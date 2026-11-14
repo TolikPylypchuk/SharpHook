@@ -51,14 +51,21 @@ Note that on Linux, there are four libuiohook files per platform.
   </tr>
 </table>
 
-
 With libuiohook in place, you can build SharpHook using your usual methods, e.g. with Visual Studio or the `dotnet` CLI.
-You need .NET 10 with the `maccatalyst` workload to build SharpHook. If you are building on Linux where the
+You need .NET 11 with the `maccatalyst` workload to build SharpHook. If you are building on Linux where the
 `maccatalyst` workload is not supported, or if you don't want to install it, you can set the
 `SHARPHOOK_SKIP_MACCATALYST` environment variable to anything other than `false` (case-insensitive), and the Mac
 Catalyst targets will be skipped.
 
 ## Changelog
+
+### [v8.0.2](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v8.0.2) (November 14, 2026)
+
+- Event masks are now correct on macOS when Secure Input is enabled.
+
+- .NET 11 was added as a target.
+
+- libuiohook is now at version [2.0.2](https://github.com/TolikPylypchuk/libuiohook/tree/2.0.2).
 
 ### [v8.0.1](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v8.0.1) (October 18, 2026)
 

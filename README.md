@@ -592,9 +592,8 @@ Note that on Linux, there are four libuiohook files per platform.
   </tr>
 </table>
 
-
 With libuiohook in place, you can build SharpHook using your usual methods, e.g. with Visual Studio or the `dotnet` CLI.
-You need .NET 10 with the `maccatalyst` workload to build SharpHook. If you are building on Linux where the
+You need .NET 11 with the `maccatalyst` workload to build SharpHook. If you are building on Linux where the
 `maccatalyst` workload is not supported, or if you don't want to install it, you can set the
 `SHARPHOOK_SKIP_MACCATALYST` environment variable to anything other than `false` (case-insensitive), and the Mac
 Catalyst targets will be skipped.
