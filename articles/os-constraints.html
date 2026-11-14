@@ -150,6 +150,10 @@ simulate events. If the Accessiblity API access is not enabled, then <code>Run</
 <h3 id="keytyped-events-1"><code>KeyTyped</code> Events</h3>
 <p>It is recommended not to enable events of type <code>KeyTyped</code> if they are unused even though they cause no known system-wide
 side effects on macOS.</p>
+<h3 id="secure-input">Secure Input</h3>
+<p>If Secure Input is enabled, then global hooks will not receive most keyboard events. This is a security feature which
+prevents processes from receiving keyboard events when it's enabled, e.g., when entering passwords, so there is no way
+around it.</p>
 <h3 id="main-run-loop">Main Run-Loop</h3>
 <p>On macOS, running the global hook requires that the main run-loop be present. libuiohook takes care of it if the hook
 is run on the main thread. It's also taken care of by UI frameworks since they need an event loop on the main thread
