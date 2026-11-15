@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-      <title>Native Functions | SharpHook </title>
+      <title>Native Functions and the Low-Level Functionality | SharpHook </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Native Functions | SharpHook ">
+      <meta name="title" content="Native Functions and the Low-Level Functionality | SharpHook ">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -85,7 +85,7 @@
         </div>
 
         <article data-uid="">
-<h1 id="native-functions">Native Functions</h1>
+<h1 id="native-functions-and-the-low-level-functionality">Native Functions and the Low-Level Functionality</h1>
 
 <p>This article describes how to use the low-level features provided by SharpHook.</p>
 <p>SharpHook exposes the functionality of libuiohook through low-level providers in the <code>SharpHook.Providers</code> namespace.
@@ -139,7 +139,7 @@ of the method was successful (<code>UioHookResult.Success</code>) or not (any ot
 on <a href="custom.html">custom global hooks</a>.</p>
 </div>
 <h2 id="input-events">Input Events</h2>
-<p>The <code>SharpHook.Data.UioHookEvent</code> struct contains information about events that have occured.</p>
+<p>The <code>SharpHook.Data.UioHookEvent</code> struct contains information about events that have occurred.</p>
 <p>There are several event types supported by libuiohook (contained in the event's <code>Type</code> field and defined in the
 <code>SharpHook.Data.EventType</code> enum).</p>
 <p>The following are the general-purpose events:</p>
@@ -147,14 +147,14 @@ on <a href="custom.html">custom global hooks</a>.</p>
 <li><code>HookEnabled</code> – raised when the <code>Run</code>/<code>RunKeyboard</code>/<code>RunMouse</code> method is called.</li>
 <li><code>HookDisabled</code> – raised when the <code>Stop</code> method is called.</li>
 </ul>
-<p>The following are the keyboard events, and <code>UioHookEvent</code> will contain more infomration in its <code>Keyboard</code> field:</p>
+<p>The following are the keyboard events, and <code>UioHookEvent</code> will contain more information in its <code>Keyboard</code> field:</p>
 <ul>
 <li><code>KeyPressed</code> – raised when a key is pressed (its state changed from up to down).</li>
 <li><code>KeyReleased</code> – raised when a key is released (its state changed from down to up).</li>
 <li><code>KeyTyped</code> – raised when a key press may have caused a character to be typed regardless of whether a character was
 actually typed.</li>
 </ul>
-<p>The following are the mouse events, and <code>UioHookEvent</code> will contain more infomration in its <code>Mouse</code> field:</p>
+<p>The following are the mouse events, and <code>UioHookEvent</code> will contain more information in its <code>Mouse</code> field:</p>
 <ul>
 <li><code>MouseClicked</code> – raised when a mouse button is clicked (pressed and released without dragging).</li>
 <li><code>MousePressed</code> – raised when a mouse button is pressed (its state changed from up to down).</li>
@@ -181,7 +181,7 @@ is simulated. Otherwise, the event is real.</p>
 </li>
 <li><p>Suppressing event propagation (<code>EventMask.SuppressEvent</code>). If it's set in the event handler then libuiohook will not
 propagate the event further and it will effectively be blocked. This bit should be set synchronously, i.e., on the same
-thread which handles the event. Supressing events works only on Windows and macOS. You can query support for event
+thread which handles the event. Suppressing events works only on Windows and macOS. You can query support for event
 suppression with <code>IFeatureProvider.GetOptionalFeatureSupport</code> – if it returns <code>EventSuppression</code> as one of the supported
 features, then event suppression is supported.</p>
 </li>
@@ -197,7 +197,7 @@ suppressing them has no effect.</p>
 <p><code>IGlobalHookProvider</code> also contains the <code>KeyTypedEnabled</code> property which specifies whether events of type <code>KeyTyped</code> are
 enabled. The default value is <code>false</code> because when these events are enabled, they may cause slight system-wide side
 effects. More information can be found in the article on <a href="os-constraints.html">OS-specific constraints</a>.</p>
-<p>On Wayland, <code>KeyTyped</code> events are not suppored at all, so setting this property does nothing. You can query support for
+<p>On Wayland, <code>KeyTyped</code> events are not supported at all, so setting this property does nothing. You can query support for
 <code>KeyTyped</code> events with <code>IFeatureProvider.GetOptionalFeatureSupport</code> – if it returns <code>KeyTypedEvents</code> as one of the
 supported features, then these events are supported.</p>
 <div class="NOTE">
@@ -213,7 +213,7 @@ it doesn't need all its fields. Only <code>Type</code> and <code>Keyboard</code>
 array of <code>UioHookEvent</code> and its size. This method should be preferred to multiple calls to <code>PostEvent</code> when simulating
 multiple events. On Windows, it simulates all events using a single Windows API call. On macOS and Linux, it simulates
 each event one-by-one, but it's still slightly more efficient than multiple <code>PostEvent</code> calls as some structures are
-only initialized once for all events. <code>PostEvent</code> also returns <code>UioHookResult</code> to indicate whether it was successful or
+only initialized once for all events. <code>PostEvents</code> also returns <code>UioHookResult</code> to indicate whether it was successful or
 not. On Windows, either all events are simulated, or none are. On macOS and Linux, if a failure occurs in the middle of
 the simulation sequence, then further events will not be simulated.</p>
 <p>The following table describes the specifics of simulating each event type.</p>
@@ -327,10 +327,10 @@ always returns 0.</p>
 <p>On Linux low-level backends, virtual input devices are required to simulate events. The <code>InitializeVirtualDevices</code>
 method in <code>IEventSimulationProvider</code> initializes these devices. It accepts the application name which is used to easily
 identify these devices in case debugging is needed. The name can technically be <code>null</code> or empty, but it's discouraged
-since the devices will not be easily identifyable. The name will also be truncated if its length is more than 62
+since the devices will not be easily identifiable. The name will also be truncated if its length is more than 62
 characters.</p>
-<p>The <code>DestroyVirtualDevices</code> method in <code>IEventSimulationProvider</code> destroys the virtual input devices. A disposed
-simulator cannot be used anymore to simulate events.</p>
+<p>The <code>DestroyVirtualDevices</code> method in <code>IEventSimulationProvider</code> destroys the virtual input devices.</p>
+<p>It's recommended to initialize virtual input devices once and reuse them since this is an expensive operation.</p>
 <p>Calling <code>InitializeVirtualDevices</code> multiple times is allowed, and it will not initialize virtual devices multiple times.
 Instead, it will increment the reference counter, and then <code>DestroyVirtualDevices</code> will decrement it. Once the counter
 reaches zero, the virtual devices will be destroyed.</p>
@@ -403,7 +403,7 @@ optional features and has the following values:</p>
 <code>UioHookProvider.Instance.KeyTypedEnabled = true</code> does nothing.</li>
 <li><code>PostText</code> – if this feature is supported, then simulating text entry works.</li>
 <li><code>KeyAutoRepeat</code> – if this feature is supported, then keeping a key pressed will raise repeated <code>KeyPressed</code> events.
-If not, the only one <code>KeyPressed</code> event will be raised.</li>
+If not, then only one <code>KeyPressed</code> event will be raised.</li>
 <li><code>AbsoluteMouseMovement</code> – if this feature is supported, then mouse motion events will always include absolute mouse
 coordinates, so <code>MouseMoved</code> or <code>MouseDragged</code> will always be raised. If not, then <code>MouseMovedRelative</code> or
 <code>MouseDraggedRelative</code> may be raised instead.</li>
@@ -414,8 +414,12 @@ coordinates, so <code>MouseMoved</code> or <code>MouseDragged</code> will always
 <code>GetPointerAccelerationThreshold</code>, and <code>GetPointerSensitivity</code> methods in <code>IMouseInfoProvider</code> work. If not, then they
 always return -1.</li>
 </ul>
-<p>Windows and macOS support all of these features. X11 supports all of them, except <code>EventSuppression</code>. Wayland supports
-none of these features.</p>
+<p>Windows and macOS support all of these features. On Linux, feature support depends on the backend:</p>
+<ul>
+<li>The XRecord backend supports all of these features, except <code>EventSuppression</code>.</li>
+<li>The low-level X11 backend supports all of these features, except <code>EventSuppression</code> and <code>KeyAutoRepeat</code>.</li>
+<li>The Wayland backend supports none of these features.</li>
+</ul>
 <h2 id="logging">Logging</h2>
 <p>libuiohook can log messages throughout its execution. By default, it doesn't log anything, but <code>ILoggingProvider</code>
 contains the <code>SetLoggerProc</code> method to set the log callback function – it will be called by libuiohook to log messages.</p>
@@ -428,7 +432,7 @@ not recommended to use it directly.</p>
 </div>
 <h2 id="passing-custom-data-to-callbacks">Passing Custom Data to Callbacks</h2>
 <p><code>SetDispatchProc</code> and <code>SetLoggerProc</code> also receive a pointer to user-supplied data as a parameter of type <code>nint</code>. It is
-then passed to the callbacks – both <code>DispatcherProc</code> and <code>LoggerProc</code> receive user-supplied data as well.</p>
+then passed to the callbacks – both <code>DispatchProc</code> and <code>LoggerProc</code> receive user-supplied data as well.</p>
 <p>In general, it's not recommended to use them. You should usually pass <code>IntPtr.Zero</code> to <code>SetDispatchProc</code> and
 <code>SetLoggerProc</code> and not use the respective parameters in the callbacks.</p>
 <p>The reason is that in order to use pointers to managed objects, they have to be pinned. As these callbacks tend to be

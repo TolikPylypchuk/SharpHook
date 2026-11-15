@@ -87,7 +87,7 @@
         <article data-uid="">
 <h1 id="os-specific-constraints">OS-Specific Constraints</h1>
 
-<p>This article describes OS-specific constrains and other things that should be noted about OS support.</p>
+<p>This article describes OS-specific constraints and other things that should be noted about OS support.</p>
 <div class="IMPORTANT">
 <h5>Important</h5>
 <p>Support for OS versions that are out of official support will not be provided. Issues that only affect older versions
@@ -119,18 +119,13 @@ well.</p>
 <h3 id="visual-c-redistributable">Visual C++ Redistributable</h3>
 <p>The libuiohook build used by SharpHook on Windows is statically linked to the C runtime which means that client apps
 don't need the Visual C++ Redistributable package.</p>
-<p>An exception is the logging functionality – <code>LogEntryParser</code> uses the <code>vsprintf</code> function from the C runtime, so it
-requires the Visual C++ Redistributable package on Windows, unlike the rest of SharpHook. If you don't want your app to
-be dependent on this package, then you can use the <code>EmptyLogSource</code> class instead of <code>LogSource</code> in release builds of
-your app. <code>EmptyLogSource</code> implements <code>ILogSource</code>, but never raises the <code>MessageLogged</code> event and doesn't subscribe to
-libuiohook logs.</p>
 <h3 id="dpi-awareness">DPI Awareness</h3>
 <p>An application manifest is required on Windows to enable DPI awareness for your app. If it's not enabled, then mouse
 coordinates will be wrong on high-DPI screens. You can look at the sample app in the SharpHook repository to see the
 manifest example.</p>
 <h3 id="security-limitations">Security Limitations</h3>
-<p>On Windows, global hooks cannot receive events from elevated processes if the they are running in non-elevated
-processes. This is a security feature of Windows, and it cannot be overridden.</p>
+<p>On Windows, global hooks cannot receive events from elevated processes if they are running in non-elevated processes.
+This is a security feature of Windows, and it cannot be overridden.</p>
 <p>Also, certain key combinations cannot be suppressed by global hooks, for example,
 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd>, <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Esc</kbd>, or
 <kbd>Win</kbd>+<kbd>L</kbd>.</p>
@@ -145,15 +140,15 @@ only affect older versions will not be worked on.</p>
 <p>x64 and Arm64 are supported, though issues that only affect x64 will not be worked on.</p>
 <h3 id="accessibility-api">Accessibility API</h3>
 <p>macOS requires that the Accessibility API access be enabled for the application if it wants to create a global hook or
-simulate events. If the Accessiblity API access is not enabled, then <code>Run</code> and <code>PostEvent</code> will fail and return
+simulate events. If the Accessibility API access is not enabled, then <code>Run</code> and <code>PostEvent</code> will fail and return
 <code>UioHookResult.ErrorAxApiDisabled</code>. More info can be found in the article on <a href="native.html">low-level functionality</a>.</p>
 <h3 id="keytyped-events-1"><code>KeyTyped</code> Events</h3>
 <p>It is recommended not to enable events of type <code>KeyTyped</code> if they are unused even though they cause no known system-wide
 side effects on macOS.</p>
 <h3 id="secure-input">Secure Input</h3>
-<p>If Secure Input is enabled, then global hooks will not receive most keyboard events. This is a security feature which
-prevents processes from receiving keyboard events when it's enabled, e.g., when entering passwords, so there is no way
-around it.</p>
+<p>If Secure Input is enabled, then global hooks will not receive most keyboard events. This is a security feature of macOS
+which prevents processes from receiving keyboard events when it's enabled, e.g., when entering passwords, so there is no
+way around it.</p>
 <h3 id="main-run-loop">Main Run-Loop</h3>
 <p>On macOS, running the global hook requires that the main run-loop be present. libuiohook takes care of it if the hook
 is run on the main thread. It's also taken care of by UI frameworks since they need an event loop on the main thread
@@ -194,8 +189,8 @@ RunMainLoop(tokenSource.Token);
 </code></pre>
 <h3 id="simulating-multiple-mouse-clicks">Simulating Multiple Mouse Clicks</h3>
 <p>macOS doesn't recognize that a mouse was clicked multiple times when multiple press/release events have been simulated.
-Instead, the click count must be explicitly provided. This is why <code>IEvenSimulator</code> contains the <code>SimulateMousePress</code> and
-<code>SimulateMouseRelease</code> overloads with the <code>clicks</code> parameter. This parameter should be incremented for each
+Instead, the click count must be explicitly provided. This is why <code>IEventSimulator</code> contains the <code>SimulateMousePress</code>
+and <code>SimulateMouseRelease</code> overloads with the <code>clicks</code> parameter. This parameter should be incremented for each
 press/release, starting with <code>1</code>.</p>
 <h3 id="text-entry-simulation-1">Text Entry Simulation</h3>
 <p>On macOS, applications are not required to process text entry simulation, but most of them should handle it correctly.</p>
@@ -233,6 +228,9 @@ SharpHook API is used since any other method or property will cause a selected b
 backend cannot be changed. There are 2 exceptions: calling <code>ILoggingProvider.SetLoggerProc</code> or
 <code>IGlobalHookProvider.SetDispatchProc</code> will not cause a backend to be loaded, and the respective functions will be passed
 on to the backend once its loaded.</p>
+<p>When deploying your application, you have to decide which backends to package. The simplest approach is to package all 4
+files, but you can also package only the backends that your application needs. For example, if your application uses
+only the Wayland and X11 backends, then you don't need to package <code>libuiohook-xrecord.so</code> since it will never be used.</p>
 <h3 id="wayland-limitations">Wayland Limitations</h3>
 <p>Wayland support is much more limited than X11 support since Wayland itself is much more restrictive.</p>
 <p>Since Wayland does not provide a way to get the absolute mouse coordinates, they are mostly not supported. More info can

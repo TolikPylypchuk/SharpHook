@@ -822,7 +822,7 @@ XRecord-based X11 backend, this method does nothing and always returns <a class=
 </p>
 <p>
 Initializing virtual input devices is expensive, so it should generally be done once early in the application's
-lifetime. If virtual devices are initialzed, then calling this method again will increase the reference counter
+lifetime. If virtual devices are initialized, then calling this method again will increase the reference counter
 – the devices will be destroyed only when the reference counter reaches zero, i.e., when the same number of
 calls to <a class="xref" href="SharpHook.Providers.UioHookProvider.html#SharpHook_Providers_UioHookProvider_DestroyVirtualDevices">DestroyVirtualDevices()</a> are made.
 </p>

@@ -161,6 +161,7 @@ provider.SetDispatchProc(dispatchProc, IntPtr.Zero);
 <li>The method must be decorated with the <code>[ObjCRuntime.MonoPInvokeCallback(typeof(DispatchProc))]</code> attribute</li>
 </ul>
 <p><code>BasicGlobalHookBase</code> does all this for you so that you don't have to.</p>
+<h2 id="advanced-considerations">Advanced Considerations</h2>
 <p>If you look through the source code of <code>BasicGlobalHookBase</code>, you will notice that even though running multiple global
 hooks at the same time is expressly forbidden and this is emphasized in multiple places in the docs, the class itself
 still supports running multiple global hooks at the same time. Even though the event callback is static, the class has

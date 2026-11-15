@@ -140,7 +140,7 @@ simulator.SimulateMouseWheel(
 <h3 id="virtual-input-devices">Virtual Input Devices</h3>
 <p>On Linux low-level backends, virtual input devices are required to simulate events. <code>EventSimulator.Create</code> initializes
 these devices. The application name is used to easily identify these devices in case debugging is needed. The name can
-technically be <code>null</code> or empty, but it's discouraged since the devices will not be easily identifyable. The name will
+technically be <code>null</code> or empty, but it's discouraged since the devices will not be easily identifiable. The name will
 also be truncated if its length is more than 62 characters.</p>
 <p><code>IEventSimulator</code> extends <code>IDisposable</code>. When you dispose the event simulator, it destroys the virtual input devices. A
 disposed simulator cannot be used anymore to simulate events.</p>
@@ -148,8 +148,8 @@ disposed simulator cannot be used anymore to simulate events.</p>
 all.</p>
 <p>It's recommended to create a single instance of <code>EventSimulator</code> and reuse it since initializing virtual input devices
 is expensive. If <code>EventSimulator.Create</code> is called while there already exists an active instance of <code>EventSimulator</code>,
-new virtual devices will not be initialzed anew. Instead, a reference counter will be incremented, and then decremented
-when disposing a simulator. The devices will subsequently be destroyed when the reference counter reaches zero.</p>
+new virtual devices will not be initialized. Instead, a reference counter will be incremented, and then decremented when
+disposing a simulator. The devices will subsequently be destroyed when the reference counter reaches zero.</p>
 <h3 id="mouse-wheel-simulation">Mouse Wheel Simulation</h3>
 <p>Mouse wheel simulation is a little more complex than other events.</p>
 <p>A positive <code>rotation</code> value indicates scrolling up or left, and a negative value indicates scrolling down or right.</p>
@@ -160,7 +160,7 @@ scrolling, so <code>MouseWheelScrollType.BlockScroll</code> is recommended for l
 <p>On Linux, like Windows, multiples of 120 should generally be used. The value of <code>type</code> is ignored.</p>
 <h3 id="simulating-a-sequence-of-events">Simulating a Sequence of Events</h3>
 <p><code>IEventSimulator</code> contains the <code>Sequence</code> method which returns an <code>IEventSimulationSequenceBuilder</code>. This object can be
-used to build a sequence of events that will be simulated together. If contains several methods like <code>AddKeyPress</code> and
+used to build a sequence of events that will be simulated together. It contains several methods like <code>AddKeyPress</code> and
 <code>AddMouseMovement</code> which add specific events to the sequence. It also contains general-purpose methods: <code>AddEvent</code> and
 <code>AddEvents</code> which can add any event, as well as <code>RemoveEvent</code> and <code>RemoveEvents</code> which remove specific events from the
 sequence. The events can be simulated using the <code>Simulate</code> method. For example:</p>

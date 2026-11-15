@@ -99,7 +99,7 @@ updates since they are not expected to break client code.</p>
 <p>SharpHook now supports Wayland, and when the Wayland session is used, it does not use the X11 APIs by default anymore.
 You can read more in the article on <a href="os-constraints.html">OS-specific constraints</a>. If you want to restore pre-version 8
 behaviour, call <code>UioHookProvider.Instance.SetLinuxMode(LinuxMode.XRecord)</code> before any other SharpHook usage.</p>
-<p>Another Linux-related changes is that SharpHook now provides 4 libuiohook binaries on Linux - libuiohook.so,
+<p>Another Linux-related change is that SharpHook now provides 4 libuiohook binaries on Linux - libuiohook.so,
 libuiohook-xrecord.so, libuiohook-x11.so, and libuiohook-wayland.so – all 4 should generally be packaged with your
 application.</p>
 <p>Relative mouse movement events were added to global hooks. These events are only raised on Wayland. If you need to track
@@ -143,6 +143,7 @@ value instead of 2 different constructors. This change doesn't require code chan
 parameters in your code, you must update them as well.</p>
 <p>The static <code>HookEventArgs.FromEvent</code> method was removed as it was unused. This method created an instance of
 <code>HookEventArgs</code> or a derived class depending on the type of the event. It's not really useful.</p>
+<p>Direct support for .NET 8 and .NET 9 was dropped (though they are still supported through .NET Standard 2.0).</p>
 <h2 id="version-6-to-7">Version 6 to 7</h2>
 <p>Version 7 contains only a couple breaking changes and most of them are in SharpHook.Reactive.</p>
 <p><code>SimpleReactiveGlobalHook</code> was renamed to <code>ReactiveGlobalHook</code>.</p>
