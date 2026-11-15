@@ -67,7 +67,8 @@
       "_appLogoPath": "logo.png",
       "_appFaviconPath": "favicon.ico",
       "_enableSearch": "true",
-      "_lang": "en"
+      "_lang": "en",
+      "pdf": true
     },
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
