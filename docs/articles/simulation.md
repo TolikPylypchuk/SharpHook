@@ -62,7 +62,7 @@ simulator.SimulateMouseWheel(
 
 On Linux low-level backends, virtual input devices are required to simulate events. `EventSimulator.Create` initializes
 these devices. The application name is used to easily identify these devices in case debugging is needed. The name can
-technically be `null` or empty, but it's discouraged since the devices will not be easily identifyable. The name will
+technically be `null` or empty, but it's discouraged since the devices will not be easily identifiable. The name will
 also be truncated if its length is more than 62 characters.
 
 `IEventSimulator` extends `IDisposable`. When you dispose the event simulator, it destroys the virtual input devices. A
@@ -73,8 +73,8 @@ all.
 
 It's recommended to create a single instance of `EventSimulator` and reuse it since initializing virtual input devices
 is expensive. If `EventSimulator.Create` is called while there already exists an active instance of `EventSimulator`,
-new virtual devices will not be initialzed anew. Instead, a reference counter will be incremented, and then decremented
-when disposing a simulator. The devices will subsequently be destroyed when the reference counter reaches zero.
+new virtual devices will not be initialized. Instead, a reference counter will be incremented, and then decremented when
+disposing a simulator. The devices will subsequently be destroyed when the reference counter reaches zero.
 
 ### Mouse Wheel Simulation
 
@@ -93,7 +93,7 @@ On Linux, like Windows, multiples of 120 should generally be used. The value of 
 ### Simulating a Sequence of Events
 
 `IEventSimulator` contains the `Sequence` method which returns an `IEventSimulationSequenceBuilder`. This object can be
-used to build a sequence of events that will be simulated together. If contains several methods like `AddKeyPress` and
+used to build a sequence of events that will be simulated together. It contains several methods like `AddKeyPress` and
 `AddMouseMovement` which add specific events to the sequence. It also contains general-purpose methods: `AddEvent` and
 `AddEvents` which can add any event, as well as `RemoveEvent` and `RemoveEvents` which remove specific events from the
 sequence. The events can be simulated using the `Simulate` method. For example:

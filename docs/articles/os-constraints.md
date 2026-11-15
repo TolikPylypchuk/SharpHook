@@ -1,6 +1,6 @@
 # OS-Specific Constraints
 
-This article describes OS-specific constrains and other things that should be noted about OS support.
+This article describes OS-specific constraints and other things that should be noted about OS support.
 
 > [!IMPORTANT]
 > Support for OS versions that are out of official support will not be provided. Issues that only affect older versions
@@ -39,12 +39,6 @@ well.
 The libuiohook build used by SharpHook on Windows is statically linked to the C runtime which means that client apps
 don't need the Visual C++ Redistributable package.
 
-An exception is the logging functionality – `LogEntryParser` uses the `vsprintf` function from the C runtime, so it
-requires the Visual C++ Redistributable package on Windows, unlike the rest of SharpHook. If you don't want your app to
-be dependent on this package, then you can use the `EmptyLogSource` class instead of `LogSource` in release builds of
-your app. `EmptyLogSource` implements `ILogSource`, but never raises the `MessageLogged` event and doesn't subscribe to
-libuiohook logs.
-
 ### DPI Awareness
 
 An application manifest is required on Windows to enable DPI awareness for your app. If it's not enabled, then mouse
@@ -53,8 +47,8 @@ manifest example.
 
 ### Security Limitations
 
-On Windows, global hooks cannot receive events from elevated processes if the they are running in non-elevated
-processes. This is a security feature of Windows, and it cannot be overridden.
+On Windows, global hooks cannot receive events from elevated processes if they are running in non-elevated processes.
+This is a security feature of Windows, and it cannot be overridden.
 
 Also, certain key combinations cannot be suppressed by global hooks, for example,
 <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Del</kbd>, <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Esc</kbd>, or
@@ -80,7 +74,7 @@ x64 and Arm64 are supported, though issues that only affect x64 will not be work
 ### Accessibility API
 
 macOS requires that the Accessibility API access be enabled for the application if it wants to create a global hook or
-simulate events. If the Accessiblity API access is not enabled, then `Run` and `PostEvent` will fail and return
+simulate events. If the Accessibility API access is not enabled, then `Run` and `PostEvent` will fail and return
 `UioHookResult.ErrorAxApiDisabled`. More info can be found in the article on [low-level functionality](native.md).
 
 ### `KeyTyped` Events
@@ -90,9 +84,9 @@ side effects on macOS.
 
 ### Secure Input
 
-If Secure Input is enabled, then global hooks will not receive most keyboard events. This is a security feature which
-prevents processes from receiving keyboard events when it's enabled, e.g., when entering passwords, so there is no way
-around it.
+If Secure Input is enabled, then global hooks will not receive most keyboard events. This is a security feature of macOS
+which prevents processes from receiving keyboard events when it's enabled, e.g., when entering passwords, so there is no
+way around it.
 
 ### Main Run-Loop
 
@@ -139,8 +133,8 @@ RunMainLoop(tokenSource.Token);
 ### Simulating Multiple Mouse Clicks
 
 macOS doesn't recognize that a mouse was clicked multiple times when multiple press/release events have been simulated.
-Instead, the click count must be explicitly provided. This is why `IEvenSimulator` contains the `SimulateMousePress` and
-`SimulateMouseRelease` overloads with the `clicks` parameter. This parameter should be incremented for each
+Instead, the click count must be explicitly provided. This is why `IEventSimulator` contains the `SimulateMousePress`
+and `SimulateMouseRelease` overloads with the `clicks` parameter. This parameter should be incremented for each
 press/release, starting with `1`.
 
 ### Text Entry Simulation
@@ -190,6 +184,10 @@ SharpHook API is used since any other method or property will cause a selected b
 backend cannot be changed. There are 2 exceptions: calling `ILoggingProvider.SetLoggerProc` or
 `IGlobalHookProvider.SetDispatchProc` will not cause a backend to be loaded, and the respective functions will be passed
 on to the backend once its loaded.
+
+When deploying your application, you have to decide which backends to package. The simplest approach is to package all 4
+files, but you can also package only the backends that your application needs. For example, if your application uses
+only the Wayland and X11 backends, then you don't need to package `libuiohook-xrecord.so` since it will never be used.
 
 ### Wayland Limitations
 

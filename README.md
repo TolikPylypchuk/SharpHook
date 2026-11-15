@@ -15,11 +15,11 @@ features as well as higher-level types to work with it.
 ## Installation
 
 ```
-dotnet add package SharpHook
-dotnet add package SharpHook.Reactive
-dotnet add package SharpHook.ReactiveUI
-dotnet add package SharpHook.R3
-dotnet add package SharpHook.Testing
+dotnet add package SharpHook             # Main package
+dotnet add package SharpHook.Reactive    # Rx.NET integration
+dotnet add package SharpHook.ReactiveUI  # ReactiveUI.Primitives integration
+dotnet add package SharpHook.R3          # R3 integration
+dotnet add package SharpHook.Testing     # Testing helpers
 ```
 
 ## Upgrading
@@ -191,7 +191,7 @@ packages.
 If you're using [Rx.NET](https://github.com/dotnet/reactive), you can use the SharpHook.Reactive package to integrate
 SharpHook with it.
 
-SharpHook.Reactive provides an implementation of `IReactiveGlobalHook` which you can use to use to control the hook and
+SharpHook.Reactive provides an implementation of `IReactiveGlobalHook` which you can use to control the hook and
 subscribe to its observables. Here's a basic example:
 
 ```csharp
@@ -237,8 +237,8 @@ to `IGlobalHook`. A default scheduler can be specified for all observables.
 If you're using [ReactiveUI.Primitives](https://github.com/reactiveui/Primitives), you can use the SharpHook.ReactiveUI
 package to integrate SharpHook with it.
 
-SharpHook.ReactiveUI provides an implementation of `IReactiveGlobalHook` which you can use to use to control the hook
-and subscribe to its observables. Here's a basic example:
+SharpHook.ReactiveUI provides an implementation of `IReactiveGlobalHook` which you can use to control the hook and
+subscribe to its observables. Here's a basic example:
 
 ```csharp
 using SharpHook.ReactiveUI;
@@ -445,7 +445,7 @@ optional features and has the following values:
 `UioHookProvider.Instance.KeyTypedEnabled = true` does nothing.
 - `PostText` – if this feature is supported, then simulating text entry works.
 - `KeyAutoRepeat` – if this feature is supported, then keeping a key pressed will raise repeated `KeyPressed` events.
-If not, the only one `KeyPressed` event will be raised.
+If not, then only one `KeyPressed` event will be raised.
 - `AbsoluteMouseMovement` – if this feature is supported, then mouse motion events will always include absolute mouse
 coordinates, so `MouseMoved` or `MouseDragged` will always be raised. If not, then `MouseMovedRelative` or
 `MouseDraggedRelative` may be raised instead.

@@ -10,7 +10,7 @@ packages.
 If you're using [Rx.NET](https://github.com/dotnet/reactive), you can use the SharpHook.Reactive package to integrate
 SharpHook with it.
 
-SharpHook.Reactive provides an implementation of `IReactiveGlobalHook` which you can use to use to control the hook and
+SharpHook.Reactive provides an implementation of `IReactiveGlobalHook` which you can use to control the hook and
 subscribe to its observables. Here's a basic example:
 
 ```csharp
@@ -71,8 +71,8 @@ to `IGlobalHook`. A default scheduler can be specified for all observables.
 If you're using [ReactiveUI.Primitives](https://github.com/reactiveui/Primitives), you can use the SharpHook.ReactiveUI
 package to integrate SharpHook with it.
 
-SharpHook.ReactiveUI provides an implementation of `IReactiveGlobalHook` which you can use to use to control the hook
-and subscribe to its observables. Here's a basic example:
+SharpHook.ReactiveUI provides an implementation of `IReactiveGlobalHook` which you can use to control the hook and
+subscribe to its observables. Here's a basic example:
 
 ```csharp
 using SharpHook.ReactiveUI;

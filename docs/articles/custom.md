@@ -104,6 +104,8 @@ Additionally, if you need to support Mac Catalyst, there are two conditions that
 
 `BasicGlobalHookBase` does all this for you so that you don't have to.
 
+## Advanced Considerations
+
 If you look through the source code of `BasicGlobalHookBase`, you will notice that even though running multiple global
 hooks at the same time is expressly forbidden and this is emphasized in multiple places in the docs, the class itself
 still supports running multiple global hooks at the same time. Even though the event callback is static, the class has

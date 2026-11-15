@@ -3,7 +3,7 @@ namespace SharpHook.Data;
 /// <summary>
 /// Represents a function which is called when an event occurs.
 /// </summary>
-/// <param name="event">The event that has occured.</param>
+/// <param name="event">The event that has occurred.</param>
 /// <param name="userData">
 /// The data that was passed to <see cref="IGlobalHookProvider.SetDispatchProc(DispatchProc?, nint)" />.
 /// Usually should not be used.

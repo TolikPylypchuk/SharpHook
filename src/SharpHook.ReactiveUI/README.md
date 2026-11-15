@@ -17,8 +17,8 @@ Refer to the [SharpHook](https://www.nuget.org/packages/SharpHook) package for t
 
 The base SharpHook package provides the `IReactiveGlobalHook` interface.
 
-SharpHook.ReactiveUI provides an implementation of `IReactiveGlobalHook` which you can use to use to control the hook
-and subscribe to its observables. Here's a basic example:
+SharpHook.ReactiveUI provides an implementation of `IReactiveGlobalHook` which you can use to control the hook and
+subscribe to its observables. Here's a basic example:
 
 ```csharp
 using SharpHook.ReactiveUI;

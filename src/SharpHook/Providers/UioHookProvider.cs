@@ -331,7 +331,7 @@ public sealed class UioHookProvider :
     /// </para>
     /// <para>
     /// Initializing virtual input devices is expensive, so it should generally be done once early in the application's
-    /// lifetime. If virtual devices are initialzed, then calling this method again will increase the reference counter
+    /// lifetime. If virtual devices are initialized, then calling this method again will increase the reference counter
     /// – the devices will be destroyed only when the reference counter reaches zero, i.e., when the same number of
     /// calls to <see cref="DestroyVirtualDevices" /> are made.
     /// </para>

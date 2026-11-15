@@ -7,11 +7,11 @@ features as well as higher-level types to work with it.
 ## Installation
 
 ```
-dotnet add package SharpHook
-dotnet add package SharpHook.Reactive
-dotnet add package SharpHook.ReactiveUI
-dotnet add package SharpHook.R3
-dotnet add package SharpHook.Testing
+dotnet add package SharpHook             # Main package
+dotnet add package SharpHook.Reactive    # Rx.NET integration
+dotnet add package SharpHook.ReactiveUI  # ReactiveUI.Primitives integration
+dotnet add package SharpHook.R3          # R3 integration
+dotnet add package SharpHook.Testing     # Testing helpers
 ```
 
 ## Supported Platforms

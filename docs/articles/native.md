@@ -1,4 +1,4 @@
-# Native Functions
+# Native Functions and the Low-Level Functionality
 
 This article describes how to use the low-level features provided by SharpHook.
 
@@ -59,7 +59,7 @@ of the method was successful (`UioHookResult.Success`) or not (any other value).
 
 ## Input Events
 
-The `SharpHook.Data.UioHookEvent` struct contains information about events that have occured.
+The `SharpHook.Data.UioHookEvent` struct contains information about events that have occurred.
 
 There are several event types supported by libuiohook (contained in the event's `Type` field and defined in the
 `SharpHook.Data.EventType` enum).
@@ -69,14 +69,14 @@ The following are the general-purpose events:
 - `HookEnabled` – raised when the `Run`/`RunKeyboard`/`RunMouse` method is called.
 - `HookDisabled` – raised when the `Stop` method is called.
 
-The following are the keyboard events, and `UioHookEvent` will contain more infomration in its `Keyboard` field:
+The following are the keyboard events, and `UioHookEvent` will contain more information in its `Keyboard` field:
 
 - `KeyPressed` – raised when a key is pressed (its state changed from up to down).
 - `KeyReleased` – raised when a key is released (its state changed from down to up).
 - `KeyTyped` – raised when a key press may have caused a character to be typed regardless of whether a character was
 actually typed.
 
-The following are the mouse events, and `UioHookEvent` will contain more infomration in its `Mouse` field:
+The following are the mouse events, and `UioHookEvent` will contain more information in its `Mouse` field:
 
 - `MouseClicked` – raised when a mouse button is clicked (pressed and released without dragging).
 - `MousePressed` – raised when a mouse button is pressed (its state changed from up to down).
@@ -105,7 +105,7 @@ is simulated. Otherwise, the event is real.
 
 - Suppressing event propagation (`EventMask.SuppressEvent`). If it's set in the event handler then libuiohook will not
 propagate the event further and it will effectively be blocked. This bit should be set synchronously, i.e., on the same
-thread which handles the event. Supressing events works only on Windows and macOS. You can query support for event
+thread which handles the event. Suppressing events works only on Windows and macOS. You can query support for event
 suppression with `IFeatureProvider.GetOptionalFeatureSupport` – if it returns `EventSuppression` as one of the supported
 features, then event suppression is supported.
 
@@ -120,7 +120,7 @@ features, then event suppression is supported.
 enabled. The default value is `false` because when these events are enabled, they may cause slight system-wide side
 effects. More information can be found in the article on [OS-specific constraints](os-constraints.md).
 
-On Wayland, `KeyTyped` events are not suppored at all, so setting this property does nothing. You can query support for
+On Wayland, `KeyTyped` events are not supported at all, so setting this property does nothing. You can query support for
 `KeyTyped` events with `IFeatureProvider.GetOptionalFeatureSupport` – if it returns `KeyTypedEvents` as one of the
 supported features, then these events are supported.
 
@@ -138,7 +138,7 @@ it doesn't need all its fields. Only `Type` and `Keyboard`/`Mouse`/`Wheel` shoul
 array of `UioHookEvent` and its size. This method should be preferred to multiple calls to `PostEvent` when simulating
 multiple events. On Windows, it simulates all events using a single Windows API call. On macOS and Linux, it simulates
 each event one-by-one, but it's still slightly more efficient than multiple `PostEvent` calls as some structures are
-only initialized once for all events. `PostEvent` also returns `UioHookResult` to indicate whether it was successful or
+only initialized once for all events. `PostEvents` also returns `UioHookResult` to indicate whether it was successful or
 not. On Windows, either all events are simulated, or none are. On macOS and Linux, if a failure occurs in the middle of
 the simulation sequence, then further events will not be simulated.
 
@@ -267,11 +267,12 @@ You can query support for text entry simulation with `IFeatureProvider.GetOption
 On Linux low-level backends, virtual input devices are required to simulate events. The `InitializeVirtualDevices`
 method in `IEventSimulationProvider` initializes these devices. It accepts the application name which is used to easily
 identify these devices in case debugging is needed. The name can technically be `null` or empty, but it's discouraged
-since the devices will not be easily identifyable. The name will also be truncated if its length is more than 62
+since the devices will not be easily identifiable. The name will also be truncated if its length is more than 62
 characters.
 
-The `DestroyVirtualDevices` method in `IEventSimulationProvider` destroys the virtual input devices. A disposed
-simulator cannot be used anymore to simulate events.
+The `DestroyVirtualDevices` method in `IEventSimulationProvider` destroys the virtual input devices.
+
+It's recommended to initialize virtual input devices once and reuse them since this is an expensive operation.
 
 Calling `InitializeVirtualDevices` multiple times is allowed, and it will not initialize virtual devices multiple times.
 Instead, it will increment the reference counter, and then `DestroyVirtualDevices` will decrement it. Once the counter
@@ -354,7 +355,7 @@ optional features and has the following values:
 `UioHookProvider.Instance.KeyTypedEnabled = true` does nothing.
 - `PostText` – if this feature is supported, then simulating text entry works.
 - `KeyAutoRepeat` – if this feature is supported, then keeping a key pressed will raise repeated `KeyPressed` events.
-If not, the only one `KeyPressed` event will be raised.
+If not, then only one `KeyPressed` event will be raised.
 - `AbsoluteMouseMovement` – if this feature is supported, then mouse motion events will always include absolute mouse
 coordinates, so `MouseMoved` or `MouseDragged` will always be raised. If not, then `MouseMovedRelative` or
 `MouseDraggedRelative` may be raised instead.
@@ -365,8 +366,10 @@ coordinates, so `MouseMoved` or `MouseDragged` will always be raised. If not, th
 `GetPointerAccelerationThreshold`, and `GetPointerSensitivity` methods in `IMouseInfoProvider` work. If not, then they
 always return -1.
 
-Windows and macOS support all of these features. X11 supports all of them, except `EventSuppression`. Wayland supports
-none of these features.
+Windows and macOS support all of these features. On Linux, feature support depends on the backend:
+- The XRecord backend supports all of these features, except `EventSuppression`.
+- The low-level X11 backend supports all of these features, except `EventSuppression` and `KeyAutoRepeat`.
+- The Wayland backend supports none of these features.
 
 ## Logging
 
@@ -383,7 +386,7 @@ the message format (as a pointer) and arguments (also as a pointer).
 ## Passing Custom Data to Callbacks
 
 `SetDispatchProc` and `SetLoggerProc` also receive a pointer to user-supplied data as a parameter of type `nint`. It is
-then passed to the callbacks – both `DispatcherProc` and `LoggerProc` receive user-supplied data as well.
+then passed to the callbacks – both `DispatchProc` and `LoggerProc` receive user-supplied data as well.
 
 In general, it's not recommended to use them. You should usually pass `IntPtr.Zero` to `SetDispatchProc` and
 `SetLoggerProc` and not use the respective parameters in the callbacks.

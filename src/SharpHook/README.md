@@ -225,7 +225,7 @@ optional features and has the following values:
 `UioHookProvider.Instance.KeyTypedEnabled = true` does nothing.
 - `PostText` – if this feature is supported, then simulating text entry works.
 - `KeyAutoRepeat` – if this feature is supported, then keeping a key pressed will raise repeated `KeyPressed` events.
-If not, the only one `KeyPressed` event will be raised.
+If not, then only one `KeyPressed` event will be raised.
 - `AbsoluteMouseMovement` – if this feature is supported, then mouse motion events will always include absolute mouse
 coordinates, so `MouseMoved` or `MouseDragged` will always be raised. If not, then `MouseMovedRelative` or
 `MouseDraggedRelative` may be raised instead.

@@ -130,7 +130,7 @@
             <summary>
             Represents a function which is called when an event occurs.
             </summary>
-            <param name="event">The event that has occured.</param>
+            <param name="event">The event that has occurred.</param>
             <param name="userData">
             The data that was passed to <see cref="M:SharpHook.Providers.IGlobalHookProvider.SetDispatchProc(SharpHook.Data.DispatchProc,System.IntPtr)" />.
             Usually should not be used.
@@ -3009,7 +3009,7 @@
         <member name="M:SharpHook.Logging.LogEntryParser.GetArgumentRegex">
             <remarks>
             Pattern:<br/>
-            <code>%\+?\-? ?#?0?(?:[1-9][0-9]*|\*)?(?:\.(?:[1-9][0-9]*|\*))?(?:hh|ll|[hljztL])?[diuoxXfFeEgGaAcspn]</code><br/>
+            <code>%\\+?\\-? ?#?0?(?:[1-9][0-9]*|\\*)?(?:\\.(?:[1-9][0-9]*|\\*))?(?:hh|ll|[hljztL])?[diuoxXfFeEgGaAcspn]</code><br/>
             Options:<br/>
             <code>RegexOptions.Compiled</code><br/>
             Explanation:<br/>
@@ -3420,7 +3420,7 @@
             </para>
             <para>
             Initializing virtual input devices is expensive, so it should generally be done once early in the application's
-            lifetime. If virtual devices are initialzed, then calling this method again will increase the reference counter
+            lifetime. If virtual devices are initialized, then calling this method again will increase the reference counter
             – the devices will be destroyed only when the reference counter reaches zero, i.e., when the same number of
             calls to <see cref="M:SharpHook.Providers.IEventSimulationProvider.DestroyVirtualDevices" /> are made.
             </para>
@@ -3955,7 +3955,7 @@
             </para>
             <para>
             Initializing virtual input devices is expensive, so it should generally be done once early in the application's
-            lifetime. If virtual devices are initialzed, then calling this method again will increase the reference counter
+            lifetime. If virtual devices are initialized, then calling this method again will increase the reference counter
             – the devices will be destroyed only when the reference counter reaches zero, i.e., when the same number of
             calls to <see cref="M:SharpHook.Providers.UioHookProvider.DestroyVirtualDevices" /> are made.
             </para>
@@ -5523,4 +5523,3 @@
         </member>
     </members>
 </doc>
-oc>

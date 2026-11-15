@@ -59,6 +59,16 @@ Catalyst targets will be skipped.
 
 ## Changelog
 
+### [v8.0.3](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v8.0.3) (November 15, 2026)
+
+- Logging functionality doesn't require Visual C++ Redistributable on Windows anymore.
+
+- The missing `net11.0-maccatalyst` target was added.
+
+- SharpHook.ReactiveUI now depends on ReactiveUI.Primitives 10.0.0.
+
+- libuiohook is now at version [2.0.3](https://github.com/TolikPylypchuk/libuiohook/tree/2.0.3).
+
 ### [v8.0.2](https://github.com/TolikPylypchuk/SharpHook/releases/tag/v8.0.2) (November 14, 2026)
 
 - Event masks are now correct on macOS when Secure Input is enabled.
@@ -134,7 +144,7 @@ value instead of 2 different constructors.
 - SharpHook has support for Wayland now, though several features are limited or missing. It also requires elevated
 privileges on Wayland.
 
-- It's possible to select a Linux backend of libuohook through `ILinuxBackendProvider`.
+- It's possible to select a Linux backend of libuiohook through `ILinuxBackendProvider`.
 
 - SharpHook.ReactiveUI – a new package for integration with ReactiveUI.Primitives was added.
 

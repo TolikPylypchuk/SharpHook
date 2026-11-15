@@ -17,7 +17,7 @@ SharpHook now supports Wayland, and when the Wayland session is used, it does no
 You can read more in the article on [OS-specific constraints](os-constraints.md). If you want to restore pre-version 8
 behaviour, call `UioHookProvider.Instance.SetLinuxMode(LinuxMode.XRecord)` before any other SharpHook usage.
 
-Another Linux-related changes is that SharpHook now provides 4 libuiohook binaries on Linux - libuiohook.so,
+Another Linux-related change is that SharpHook now provides 4 libuiohook binaries on Linux - libuiohook.so,
 libuiohook-xrecord.so, libuiohook-x11.so, and libuiohook-wayland.so – all 4 should generally be packaged with your
 application.
 
@@ -78,6 +78,8 @@ parameters in your code, you must update them as well.
 
 The static `HookEventArgs.FromEvent` method was removed as it was unused. This method created an instance of
 `HookEventArgs` or a derived class depending on the type of the event. It's not really useful.
+
+Direct support for .NET 8 and .NET 9 was dropped (though they are still supported through .NET Standard 2.0).
 
 ## Version 6 to 7
 

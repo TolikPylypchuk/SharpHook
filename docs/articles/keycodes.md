@@ -708,14 +708,14 @@ Sources:
       <td><code>VK_DIVIDE</code></td>
       <td><code>kVK_ANSI_KeypadDivide</code></td>
       <td><code>KPDV</code></td>
-      <td><code>KEY_KPASTERISK</code></td>
+      <td><code>KEY_KPSLASH</code></td>
     </tr>
     <tr>
       <td><code>VcNumPadMultiply</code></td>
       <td><code>VK_MULTIPLY</code></td>
       <td><code>kVK_ANSI_KeypadMultiply</code></td>
       <td><code>KPMU</code></td>
-      <td><code>KEY_KPSLASH</code></td>
+      <td><code>KEY_KPASTERISK</code></td>
     </tr>
     <tr>
       <td><code>VcNumPadSubtract</code></td>

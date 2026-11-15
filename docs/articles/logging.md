@@ -46,6 +46,8 @@ The `MessageLogged` event contains event args of type `LogEventArgs` which conta
 The simplest way to use `LogEntry` is to use its `Level` and `FullText` properties. `FullText` is created using the log
 message format and arguments so you don't have to do it yourself.
 
+If an event handler throws an exception, it will be silently caught and ignored.
+
 SharpHook also contains the `IReactiveLogSource` interface so you can use logging in a more reactive way. Its
 implementations live in SharpHook.Reactive and SharpHook.ReactiveUI. `IReactiveLogSource` is basically the same as
 `ILogSource`, but `MessageLogged` is an observable of `LogEntry` instead of an event.

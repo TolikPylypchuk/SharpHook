@@ -40,7 +40,7 @@ see which events were simulated using the test instance.
 When running in simple mode (the default mode) the hook will dispatch events immediately in the same thread which
 simulates them.
 
-When running the event loop, the hook will run an actual even loop on the thread on which `Run` was called. When
+When running the event loop, the hook will run an actual event loop on the thread on which `Run` was called. When
 simulating events, they will be posted to the event loop, and then dispatched in the hook thread. This mode is much more
 difficult to use correctly, so it is useful only when it is important for event handlers to run in the same thread on
 which the hook itself is running. It's recommended to stop the global hook and wait for it to stop before asserting any
@@ -69,7 +69,7 @@ called. It also contains the `PostedEvents` property.
 When running in simple mode (the default mode) the provider will dispatch events immediately in the same thread which
 simulates them.
 
-When running the event loop, the provider will run an actual even loop on the thread on which `Run` was called. When
+When running the event loop, the provider will run an actual event loop on the thread on which `Run` was called. When
 simulating events, they will be posted to the event loop, and then dispatched in the hook thread. This mode is much more
 difficult to use correctly, so it is useful only when it is important for event handlers to run in the same thread on
 which the hook itself is running. It's recommended to stop the provider and wait for it to stop before asserting any
