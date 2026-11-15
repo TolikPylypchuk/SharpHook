@@ -3009,7 +3009,7 @@
         <member name="M:SharpHook.Logging.LogEntryParser.GetArgumentRegex">
             <remarks>
             Pattern:<br/>
-            <code>%\\+?\\-? ?#?0?(?:[1-9][0-9]*|\\*)?(?:\\.(?:[1-9][0-9]*|\\*))?(?:hh|ll|[hljztL])?[diuoxXfFeEgGaAcspn]</code><br/>
+            <code>%\+?\-? ?#?0?(?:[1-9][0-9]*|\*)?(?:\.(?:[1-9][0-9]*|\*))?(?:hh|ll|[hljztL])?[diuoxXfFeEgGaAcspn]</code><br/>
             Options:<br/>
             <code>RegexOptions.Compiled</code><br/>
             Explanation:<br/>
@@ -5523,3 +5523,4 @@
         </member>
     </members>
 </doc>
+oc>
