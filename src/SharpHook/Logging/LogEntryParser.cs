@@ -193,7 +193,7 @@ public sealed partial class LogEntryParser
 
     private string GetDefaultString(nint format, nint args)
     {
-        int byteLength = Vsnprintf(IntPtr.Zero, UIntPtr.Zero, format, args) + 1;
+        int byteLength = UioHook.Vsnprintf(IntPtr.Zero, UIntPtr.Zero, format, args) + 1;
 
         if (byteLength <= 1)
         {
@@ -205,7 +205,7 @@ public sealed partial class LogEntryParser
         try
         {
             buffer = Marshal.AllocHGlobal(byteLength);
-            Vsprintf(buffer, format, args);
+            UioHook.Vsprintf(buffer, format, args);
             return buffer.ToStringFromUtf8();
         } finally
         {
@@ -218,7 +218,7 @@ public sealed partial class LogEntryParser
         nint buffer = IntPtr.Zero;
         try
         {
-            int count = NativeStringFunctions.MacVasprintf(ref buffer, format, args);
+            int count = UioHook.Vasprintf(ref buffer, format, args);
             return count != -1 ? buffer.ToStringFromUtf8() : String.Empty;
         } finally
         {
@@ -231,7 +231,7 @@ public sealed partial class LogEntryParser
     {
         int byteLength = UseStructurePointer(
             listStructure,
-            listPointer => NativeStringFunctions.LinuxVsnprintf(IntPtr.Zero, UIntPtr.Zero, format, listPointer) + 1);
+            listPointer => UioHook.Vsnprintf(IntPtr.Zero, UIntPtr.Zero, format, listPointer) + 1);
 
         nint utf8Buffer = IntPtr.Zero;
 
@@ -241,7 +241,7 @@ public sealed partial class LogEntryParser
 
             return UseStructurePointer(listStructure, listPointer =>
             {
-                int result = NativeStringFunctions.LinuxVsprintf(utf8Buffer, format, listPointer);
+                int result = UioHook.Vsprintf(utf8Buffer, format, listPointer);
                 return result >= 0 ? utf8Buffer.ToStringFromUtf8() : String.Empty;
             });
         } finally
@@ -263,16 +263,6 @@ public sealed partial class LogEntryParser
             Marshal.FreeHGlobal(structurePointer);
         }
     }
-
-    private int Vsprintf(nint buffer, nint format, nint args) =>
-        PlatformDetector.IsWindows
-            ? NativeStringFunctions.WindowsVsprintf(buffer, format, args)
-            : PlatformDetector.IsLinux ? NativeStringFunctions.LinuxVsprintf(buffer, format, args) : -1;
-
-    private int Vsnprintf(nint buffer, nuint size, nint format, nint args) =>
-        PlatformDetector.IsWindows
-            ? NativeStringFunctions.WindowsVsnprintf(buffer, size, format, args)
-            : PlatformDetector.IsLinux ? NativeStringFunctions.LinuxVsnprintf(buffer, size, format, args) : -1;
 
     private readonly struct FormatAndArguments
     {

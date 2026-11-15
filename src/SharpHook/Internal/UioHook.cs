@@ -318,4 +318,31 @@ internal static partial class UioHook
     [DllImport(LibUioHook, EntryPoint = "hook_get_multi_click_time", CallingConvention = CallingConvention.Cdecl)]
     public static extern int GetMultiClickTime();
 #endif
+
+#if NET7_0_OR_GREATER
+    [LibraryImport(LibUioHook, EntryPoint = "hook_vsprintf")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial int Vsprintf(nint buffer, nint format, nint args);
+#else
+    [DllImport(LibUioHook, EntryPoint = "hook_vsprintf", CallingConvention = CallingConvention.Cdecl)]
+    internal static extern int Vsprintf(nint buffer, nint format, nint args);
+#endif
+
+#if NET7_0_OR_GREATER
+    [LibraryImport(LibUioHook, EntryPoint = "hook_vsnprintf")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial int Vsnprintf(nint buffer, nuint size, nint format, nint args);
+#else
+    [DllImport(LibUioHook, EntryPoint = "hook_vsnprintf", CallingConvention = CallingConvention.Cdecl)]
+    internal static extern int Vsnprintf(nint buffer, nuint size, nint format, nint args);
+#endif
+
+#if NET7_0_OR_GREATER
+    [LibraryImport(LibUioHook, EntryPoint = "hook_vasprintf")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial int Vasprintf(ref nint buffer, nint format, nint args);
+#else
+    [DllImport(LibUioHook, EntryPoint = "hook_vasprintf", CallingConvention = CallingConvention.Cdecl)]
+    internal static extern int Vasprintf(ref nint buffer, nint format, nint args);
+#endif
 }
